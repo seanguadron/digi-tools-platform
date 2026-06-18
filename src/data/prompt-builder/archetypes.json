@@ -1,0 +1,583 @@
+{
+  "schemaVersion": 2,
+  "archetypes": [
+    {
+      "id": "quick-explanation",
+      "code": "INFO",
+      "name": "Quick explanation",
+      "description": "A plain, useful answer that is easy to scan.",
+      "formatCode": "LIST",
+      "roleIds": [
+        "explainer-educator",
+        "summarizer"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 1,
+        "autonomy": 1,
+        "practicality": 1,
+        "challenge": 0,
+        "outputDetail": 1,
+        "structure": 1,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze"
+        ],
+        "format": [
+          "format-info-card",
+          "format-key-points",
+          "format-summary"
+        ],
+        "target": [
+          "target-language",
+          "target-voice",
+          "target-examples"
+        ]
+      },
+      "formatNotes": "Keep it easy to read and avoid unnecessary sections.",
+      "effects": [
+        "Sets LIST as the base output type.",
+        "Loads 2 role cards and 10 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/quick-explanation.webp",
+        "alt": "Illustration asset for the Quick explanation archetype.",
+        "motif": "Quick explanation premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Quick explanation master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a plain, useful answer that is easy to scan. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "research-brief",
+      "code": "RSH",
+      "name": "Research brief",
+      "description": "A sourced, balanced brief with uncertainty made visible.",
+      "formatCode": "RPT",
+      "roleIds": [
+        "researcher",
+        "fact-checker",
+        "synthesizer"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2,
+        "autonomy": 2,
+        "practicality": 1,
+        "challenge": 2,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 2,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-evidence",
+          "context-assumptions"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-verify"
+        ],
+        "format": [
+          "format-summary",
+          "format-evidence",
+          "format-sections"
+        ],
+        "target": [
+          "target-language",
+          "target-direct",
+          "target-decisions"
+        ]
+      },
+      "formatNotes": "Separate confirmed facts, interpretation, and unknowns.",
+      "effects": [
+        "Sets RPT as the base output type.",
+        "Loads 3 role cards and 12 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/research-brief.webp",
+        "alt": "Illustration asset for the Research brief archetype.",
+        "motif": "Research brief premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Research brief master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a sourced, balanced brief with uncertainty made visible. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "decision-advisor",
+      "code": "DEC",
+      "name": "Decision advisor",
+      "description": "Compare options, surface tradeoffs, and recommend a path.",
+      "formatCode": "VS",
+      "roleIds": [
+        "strategist",
+        "analyst",
+        "comparative-reviewer"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2,
+        "autonomy": 2,
+        "practicality": 2,
+        "challenge": 2,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 2,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-analyze",
+          "action-compare",
+          "action-recommend",
+          "action-verify"
+        ],
+        "format": [
+          "format-comparison",
+          "format-summary",
+          "format-next"
+        ],
+        "target": [
+          "target-decisions",
+          "target-direct",
+          "target-language"
+        ]
+      },
+      "formatNotes": "End with the recommended choice and the reason it wins.",
+      "effects": [
+        "Sets VS as the base output type.",
+        "Loads 3 role cards and 13 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/decision-advisor.webp",
+        "alt": "Illustration asset for the Decision advisor archetype.",
+        "motif": "Decision advisor premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Decision advisor master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests compare options, surface tradeoffs, and recommend a path. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "build-plan",
+      "code": "PLAN",
+      "name": "Build plan",
+      "description": "Turn a goal into ordered, implementation-ready work.",
+      "formatCode": "PLAN",
+      "roleIds": [
+        "developer",
+        "planning-advisor",
+        "workflow-architect"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 1,
+        "autonomy": 2,
+        "practicality": 2,
+        "challenge": 1,
+        "outputDetail": 2,
+        "structure": 3,
+        "audienceExpertise": 3,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-create",
+          "action-recommend",
+          "action-verify"
+        ],
+        "format": [
+          "format-sections",
+          "format-next",
+          "format-key-points"
+        ],
+        "target": [
+          "target-decisions",
+          "target-direct",
+          "target-language"
+        ]
+      },
+      "formatNotes": "Include phases, dependencies, risks, and verification steps.",
+      "effects": [
+        "Sets PLAN as the base output type.",
+        "Loads 3 role cards and 13 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/build-plan.webp",
+        "alt": "Illustration asset for the Build plan archetype.",
+        "motif": "Build plan premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Build plan master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests turn a goal into ordered, implementation-ready work. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "writing-draft",
+      "code": "WRIT",
+      "name": "Writing draft",
+      "description": "Create or reshape text into a clear editable draft.",
+      "formatCode": "DRAFT",
+      "roleIds": [
+        "writer",
+        "editor",
+        "rewriter"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 0,
+        "autonomy": 1,
+        "practicality": 1,
+        "challenge": 1,
+        "outputDetail": 1,
+        "structure": 1,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints"
+        ],
+        "action": [
+          "action-create",
+          "action-analyze",
+          "action-recommend"
+        ],
+        "format": [
+          "format-info-card",
+          "format-sections",
+          "format-summary"
+        ],
+        "target": [
+          "target-voice",
+          "target-language",
+          "target-direct"
+        ]
+      },
+      "formatNotes": "Preserve the user's intent while improving clarity and flow.",
+      "effects": [
+        "Sets DRAFT as the base output type.",
+        "Loads 3 role cards and 11 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/writing-draft.webp",
+        "alt": "Illustration asset for the Writing draft archetype.",
+        "motif": "Writing draft premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Writing draft master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests create or reshape text into a clear editable draft. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "creative-concept",
+      "code": "IDEA",
+      "name": "Creative concept",
+      "description": "Explore, shape, and strengthen a concept without losing usefulness.",
+      "formatCode": "DRAFT",
+      "roleIds": [
+        "creative-director",
+        "concept-developer",
+        "brainstorming-partner"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 0,
+        "autonomy": 2,
+        "practicality": 1,
+        "challenge": 1,
+        "outputDetail": 2,
+        "structure": 1,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-create",
+          "action-compare",
+          "action-recommend"
+        ],
+        "format": [
+          "format-key-points",
+          "format-info-card",
+          "format-next"
+        ],
+        "target": [
+          "target-examples",
+          "target-voice",
+          "target-direct"
+        ]
+      },
+      "formatNotes": "Separate raw possibilities from the strongest recommended direction.",
+      "effects": [
+        "Sets DRAFT as the base output type.",
+        "Loads 3 role cards and 12 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/creative-concept.webp",
+        "alt": "Illustration asset for the Creative concept archetype.",
+        "motif": "Creative concept premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Creative concept master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests explore, shape, and strengthen a concept without losing usefulness. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "learning-guide",
+      "code": "LEARN",
+      "name": "Learning guide",
+      "description": "Teach an idea clearly with examples and common questions.",
+      "formatCode": "LIST",
+      "roleIds": [
+        "tutor",
+        "explainer-educator",
+        "curriculum-designer"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 1,
+        "autonomy": 1,
+        "practicality": 1,
+        "challenge": 0,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-create",
+          "action-recommend"
+        ],
+        "format": [
+          "format-info-card",
+          "format-faq",
+          "format-key-points"
+        ],
+        "target": [
+          "target-language",
+          "target-examples",
+          "target-voice"
+        ]
+      },
+      "formatNotes": "Build understanding step by step and include examples where useful.",
+      "effects": [
+        "Sets LIST as the base output type.",
+        "Loads 3 role cards and 11 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/learning-guide.webp",
+        "alt": "Illustration asset for the Learning guide archetype.",
+        "motif": "Learning guide premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Learning guide master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests teach an idea clearly with examples and common questions. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "business-opportunity",
+      "code": "BIZ",
+      "name": "Business opportunity",
+      "description": "Evaluate an offer, market, product, or growth opportunity.",
+      "formatCode": "PLAN",
+      "roleIds": [
+        "consultant",
+        "product-strategist",
+        "market-positioning-advisor"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 1,
+        "autonomy": 2,
+        "practicality": 2,
+        "challenge": 2,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 2,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-analyze",
+          "action-compare",
+          "action-recommend",
+          "action-verify"
+        ],
+        "format": [
+          "format-summary",
+          "format-comparison",
+          "format-next"
+        ],
+        "target": [
+          "target-decisions",
+          "target-direct",
+          "target-voice"
+        ]
+      },
+      "formatNotes": "Tie recommendations to customer value, constraints, and next experiments.",
+      "effects": [
+        "Sets PLAN as the base output type.",
+        "Loads 3 role cards and 13 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/business-opportunity.webp",
+        "alt": "Illustration asset for the Business opportunity archetype.",
+        "motif": "Business opportunity premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Business opportunity master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests evaluate an offer, market, product, or growth opportunity. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "technical-troubleshoot",
+      "code": "FIX",
+      "name": "Technical troubleshoot",
+      "description": "Diagnose a technical issue and produce practical next steps.",
+      "formatCode": "CODE",
+      "roleIds": [
+        "technical-troubleshooter",
+        "developer",
+        "systems-designer"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2,
+        "autonomy": 2,
+        "practicality": 2,
+        "challenge": 2,
+        "outputDetail": 2,
+        "structure": 3,
+        "audienceExpertise": 3,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-assumptions"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-verify",
+          "action-recommend"
+        ],
+        "format": [
+          "format-key-points",
+          "format-sections",
+          "format-next"
+        ],
+        "target": [
+          "target-language",
+          "target-direct",
+          "target-decisions"
+        ]
+      },
+      "formatNotes": "Include likely causes, checks to run, and the safest fix path.",
+      "effects": [
+        "Sets CODE as the base output type.",
+        "Loads 3 role cards and 13 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/technical-troubleshoot.webp",
+        "alt": "Illustration asset for the Technical troubleshoot archetype.",
+        "motif": "Technical troubleshoot premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Technical troubleshoot master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests diagnose a technical issue and produce practical next steps. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "presentation-outline",
+      "code": "DECK",
+      "name": "Presentation outline",
+      "description": "Shape material into a slide-ready narrative.",
+      "formatCode": "DECK",
+      "roleIds": [
+        "presentation-slide-structurer",
+        "pitch-strategist",
+        "creative-director"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 1,
+        "autonomy": 2,
+        "practicality": 2,
+        "challenge": 1,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success"
+        ],
+        "action": [
+          "action-analyze",
+          "action-create",
+          "action-recommend"
+        ],
+        "format": [
+          "format-key-points",
+          "format-sections",
+          "format-next"
+        ],
+        "target": [
+          "target-voice",
+          "target-examples",
+          "target-direct"
+        ]
+      },
+      "formatNotes": "Separate slide titles, slide content, and speaker notes.",
+      "effects": [
+        "Sets DECK as the base output type.",
+        "Loads 3 role cards and 11 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/presentation-outline.webp",
+        "alt": "Illustration asset for the Presentation outline archetype.",
+        "motif": "Presentation outline premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Presentation outline master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests shape material into a slide-ready narrative. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    }
+  ]
+}

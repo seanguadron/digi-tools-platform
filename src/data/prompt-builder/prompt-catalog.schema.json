@@ -1,0 +1,623 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Digi Tools prompt catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "roles",
+    "tracks",
+    "formats",
+    "cards",
+    "archetypes",
+    "suggestions",
+    "builder",
+    "proofScenarios"
+  ],
+  "properties": {
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "roles"],
+      "properties": {
+        "schemaVersion": { "const": 2 },
+        "roles": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/role" }
+        }
+      }
+    },
+    "tracks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "sectionTracks",
+        "slotBudgets",
+        "definitions",
+        "defaultValues",
+        "vocabulary"
+      ],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "sectionTracks": { "$ref": "#/$defs/sectionTracks" },
+        "slotBudgets": { "$ref": "#/$defs/slotBudgets" },
+        "definitions": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/trackDefinition" }
+        },
+        "defaultValues": { "$ref": "#/$defs/trackValues" },
+        "vocabulary": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "propertyNames": { "$ref": "#/$defs/trackId" },
+            "additionalProperties": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 5,
+              "items": { "$ref": "#/$defs/nonEmptyString" }
+            }
+          }
+        }
+      }
+    },
+    "formats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "formats", "recommendedTracks", "modifiers"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "formats": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/format" }
+        },
+        "recommendedTracks": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/trackValues" }
+        },
+        "modifiers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "cards": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "cards"],
+      "properties": {
+        "schemaVersion": { "const": 2 },
+        "cards": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/card" }
+        }
+      }
+    },
+    "archetypes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "archetypes"],
+      "properties": {
+        "schemaVersion": { "const": 2 },
+        "archetypes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/archetype" }
+        }
+      }
+    },
+    "suggestions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "categoryActions",
+        "roleActions",
+        "audienceModifiers"
+      ],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "categoryActions": { "$ref": "#/$defs/stringListMap" },
+        "roleActions": { "$ref": "#/$defs/stringListMap" },
+        "audienceModifiers": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "builder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "emptyDraft",
+        "exampleDraft",
+        "craftParts",
+        "requiredFields"
+      ],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "emptyDraft": { "$ref": "#/$defs/promptDraft" },
+        "exampleDraft": { "$ref": "#/$defs/promptDraft" },
+        "craftParts": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["letter", "label", "summary"],
+            "properties": {
+              "letter": {
+                "type": "string",
+                "enum": ["C", "R", "A", "F", "T"]
+              },
+              "label": { "$ref": "#/$defs/nonEmptyString" },
+              "summary": { "$ref": "#/$defs/nonEmptyString" }
+            }
+          }
+        },
+        "requiredFields": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "field"],
+            "properties": {
+              "label": { "$ref": "#/$defs/nonEmptyString" },
+              "field": {
+                "type": "string",
+                "enum": [
+                  "context",
+                  "roleIds",
+                  "action",
+                  "format",
+                  "targetAudience"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "proofScenarios": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schemaVersion", "baseDraft", "scenarios"],
+      "properties": {
+        "schemaVersion": { "const": 1 },
+        "baseDraft": { "$ref": "#/$defs/proofDraft" },
+        "scenarios": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/proofScenario" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "illustrationStatus": {
+      "type": "string",
+      "enum": ["planned", "generated"]
+    },
+    "illustration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["src", "alt", "motif", "prompt", "status"],
+      "properties": {
+        "src": {
+          "type": "string",
+          "pattern": "^/card-art/.+\\.webp$"
+        },
+        "alt": { "$ref": "#/$defs/nonEmptyString" },
+        "motif": { "$ref": "#/$defs/nonEmptyString" },
+        "prompt": { "$ref": "#/$defs/nonEmptyString" },
+        "status": { "$ref": "#/$defs/illustrationStatus" }
+      }
+    },
+    "roleAbility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["summary", "bullets"],
+      "properties": {
+        "summary": { "$ref": "#/$defs/nonEmptyString" },
+        "bullets": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "category",
+        "description",
+        "core",
+        "ability",
+        "illustration"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "category": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "core": { "type": "boolean" },
+        "ability": { "$ref": "#/$defs/roleAbility" },
+        "illustration": { "$ref": "#/$defs/illustration" }
+      }
+    },
+    "section": {
+      "type": "string",
+      "enum": ["context", "action", "format", "target"]
+    },
+    "trackId": {
+      "type": "string",
+      "enum": [
+        "contextDepth",
+        "evidenceRigor",
+        "autonomy",
+        "practicality",
+        "challenge",
+        "outputDetail",
+        "structure",
+        "audienceExpertise",
+        "voiceFormality"
+      ]
+    },
+    "sectionTracks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context", "action", "format", "target"],
+      "properties": {
+        "context": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/trackId" }
+        },
+        "action": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/trackId" }
+        },
+        "format": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/trackId" }
+        },
+        "target": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/trackId" }
+        }
+      }
+    },
+    "slotBudgets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["context", "action", "format", "target"],
+      "properties": {
+        "context": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "action": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "format": { "type": "integer", "minimum": 1, "maximum": 5 },
+        "target": { "type": "integer", "minimum": 1, "maximum": 5 }
+      }
+    },
+    "trackDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "description", "points"],
+      "properties": {
+        "id": { "$ref": "#/$defs/trackId" },
+        "label": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "points": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    },
+    "trackValues": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contextDepth",
+        "evidenceRigor",
+        "autonomy",
+        "practicality",
+        "challenge",
+        "outputDetail",
+        "structure",
+        "audienceExpertise",
+        "voiceFormality"
+      ],
+      "properties": {
+        "contextDepth": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "evidenceRigor": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "autonomy": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "practicality": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "challenge": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "outputDetail": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "structure": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "audienceExpertise": { "type": "integer", "minimum": 0, "maximum": 4 },
+        "voiceFormality": { "type": "integer", "minimum": 0, "maximum": 4 }
+      }
+    },
+    "partialTrackValues": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/trackId" },
+      "additionalProperties": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4
+      }
+    },
+    "format": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "name", "value"],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]*$"
+        },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "value": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "cardGrade": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description", "instruction", "illustration"],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "instruction": { "$ref": "#/$defs/nonEmptyString" },
+        "illustration": { "$ref": "#/$defs/illustration" }
+      }
+    },
+    "affinityRange": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 4
+      }
+    },
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "code",
+        "section",
+        "family",
+        "driver",
+        "goals",
+        "grades",
+        "illustration"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]*$"
+        },
+        "section": { "$ref": "#/$defs/section" },
+        "family": {
+          "type": "string",
+          "enum": ["Tactic", "Modifier"]
+        },
+        "driver": { "$ref": "#/$defs/trackId" },
+        "goals": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "grades": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": { "$ref": "#/$defs/cardGrade" }
+        },
+        "illustration": { "$ref": "#/$defs/illustration" },
+        "affinity": {
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/trackId" },
+          "additionalProperties": { "$ref": "#/$defs/affinityRange" }
+        }
+      }
+    },
+    "archetype": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "code",
+        "name",
+        "description",
+        "formatCode",
+        "roleIds",
+        "tracks",
+        "equipped",
+        "effects",
+        "illustration"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]*$"
+        },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "description": { "$ref": "#/$defs/nonEmptyString" },
+        "formatCode": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]*$"
+        },
+        "roleIds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "tracks": { "$ref": "#/$defs/trackValues" },
+        "equipped": { "$ref": "#/$defs/equippedCards" },
+        "effects": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        },
+        "illustration": { "$ref": "#/$defs/illustration" },
+        "action": { "type": "string" },
+        "formatNotes": { "type": "string" }
+      }
+    },
+    "stringListMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "promptDraft": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context",
+        "roleIds",
+        "action",
+        "format",
+        "formatNotes",
+        "targetAudience"
+      ],
+      "properties": {
+        "context": { "type": "string" },
+        "roleIds": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "action": { "type": "string" },
+        "format": { "type": "string" },
+        "formatNotes": { "type": "string" },
+        "targetAudience": { "type": "string" }
+      }
+    },
+    "proofDraft": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context": { "type": "string" },
+        "action": { "type": "string" },
+        "formatNotes": { "type": "string" },
+        "targetAudience": { "type": "string" }
+      }
+    },
+    "equippedCards": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "context": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "action": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "format": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "target": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "proofScenario": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "proves",
+        "panel",
+        "formatCode",
+        "roles",
+        "checks"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "proves": { "$ref": "#/$defs/nonEmptyString" },
+        "panel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "formatCode": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9]*$"
+        },
+        "roles": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "tracks": { "$ref": "#/$defs/partialTrackValues" },
+        "equipped": { "$ref": "#/$defs/equippedCards" },
+        "draft": { "$ref": "#/$defs/proofDraft" },
+        "suggested": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "context": { "$ref": "#/$defs/id" },
+            "action": { "$ref": "#/$defs/id" },
+            "format": { "$ref": "#/$defs/id" },
+            "target": { "$ref": "#/$defs/id" }
+          }
+        },
+        "outputExpanded": { "type": "boolean" },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/nonEmptyString" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "schemaVersion": 1,
+  "sectionTracks": {
+    "context": [
+      "contextDepth",
+      "evidenceRigor"
+    ],
+    "action": [
+      "autonomy",
+      "practicality",
+      "challenge"
+    ],
+    "format": [
+      "outputDetail",
+      "structure"
+    ],
+    "target": [
+      "audienceExpertise",
+      "voiceFormality"
+    ]
+  },
+  "slotBudgets": {
+    "context": 3,
+    "action": 5,
+    "format": 3,
+    "target": 3
+  },
+  "definitions": [
+    {
+      "id": "contextDepth",
+      "label": "Context depth",
+      "description": "How much background and constraint detail the prompt carries.",
+      "points": [
+        "Brief",
+        "Grounded",
+        "Detailed",
+        "Comprehensive"
+      ]
+    },
+    {
+      "id": "evidenceRigor",
+      "label": "Evidence rigor",
+      "description": "How strongly the model must verify and qualify its evidence.",
+      "points": [
+        "Informal",
+        "Supported",
+        "Corroborated",
+        "Auditable"
+      ]
+    },
+    {
+      "id": "autonomy",
+      "label": "Autonomy",
+      "description": "How independently the model may plan and complete the work.",
+      "points": [
+        "Guided",
+        "Collaborative",
+        "Independent",
+        "Agentic"
+      ]
+    },
+    {
+      "id": "practicality",
+      "label": "Practicality",
+      "description": "How strongly the work should favor immediate application.",
+      "points": [
+        "Exploratory",
+        "Applied",
+        "Execution-ready"
+      ]
+    },
+    {
+      "id": "challenge",
+      "label": "Challenge",
+      "description": "How aggressively the model should test assumptions and claims.",
+      "points": [
+        "Supportive",
+        "Questioning",
+        "Critical",
+        "Adversarial"
+      ]
+    },
+    {
+      "id": "outputDetail",
+      "label": "Output detail",
+      "description": "How much explanation and supporting material the artifact includes.",
+      "points": [
+        "Lean",
+        "Concise",
+        "Detailed",
+        "Exhaustive"
+      ]
+    },
+    {
+      "id": "structure",
+      "label": "Structure",
+      "description": "How strictly the response must follow an explicit organization.",
+      "points": [
+        "Flexible",
+        "Guided",
+        "Structured",
+        "Strict"
+      ]
+    },
+    {
+      "id": "audienceExpertise",
+      "label": "Audience expertise",
+      "description": "How much domain knowledge the response may assume.",
+      "points": [
+        "Newcomer",
+        "Beginner",
+        "Working knowledge",
+        "Advanced",
+        "Expert"
+      ]
+    },
+    {
+      "id": "voiceFormality",
+      "label": "Voice formality",
+      "description": "How formal the response should sound without changing its intent.",
+      "points": [
+        "Conversational",
+        "Neutral",
+        "Professional",
+        "Formal"
+      ]
+    }
+  ],
+  "defaultValues": {
+    "contextDepth": 1,
+    "evidenceRigor": 1,
+    "autonomy": 1,
+    "practicality": 1,
+    "challenge": 1,
+    "outputDetail": 1,
+    "structure": 1,
+    "audienceExpertise": 2,
+    "voiceFormality": 1
+  },
+  "vocabulary": {
+    "RPT": {
+      "contextDepth": [
+        "Executive brief",
+        "Scoped report",
+        "Research report",
+        "Full dossier"
+      ],
+      "outputDetail": [
+        "Abstract",
+        "Brief report",
+        "Detailed report",
+        "Full record"
+      ],
+      "structure": [
+        "Open brief",
+        "Sectioned",
+        "Standard report",
+        "Publication-ready"
+      ]
+    },
+    "CODE": {
+      "contextDepth": [
+        "Task note",
+        "Implementation context",
+        "System brief",
+        "Full specification"
+      ],
+      "outputDetail": [
+        "Patch only",
+        "Explained patch",
+        "Documented build",
+        "Full handoff"
+      ],
+      "structure": [
+        "Flexible",
+        "Conventional",
+        "Project-aligned",
+        "Contract-strict"
+      ]
+    },
+    "PLAN": {
+      "contextDepth": [
+        "Goal note",
+        "Scoped plan",
+        "Delivery brief",
+        "Program charter"
+      ],
+      "outputDetail": [
+        "Milestones",
+        "Work plan",
+        "Delivery plan",
+        "Program plan"
+      ],
+      "structure": [
+        "Loose sequence",
+        "Phased",
+        "Workstream plan",
+        "Governed plan"
+      ]
+    },
+    "DECK": {
+      "contextDepth": [
+        "Talk brief",
+        "Audience brief",
+        "Narrative brief",
+        "Full deck brief"
+      ],
+      "outputDetail": [
+        "Headlines",
+        "Slide notes",
+        "Speaker-ready",
+        "Production-ready"
+      ],
+      "structure": [
+        "Story beats",
+        "Slide arc",
+        "Sectioned deck",
+        "Locked sequence"
+      ]
+    },
+    "JSON": {
+      "contextDepth": [
+        "Field note",
+        "Schema context",
+        "Data contract",
+        "Full specification"
+      ],
+      "outputDetail": [
+        "Core fields",
+        "Described fields",
+        "Validated object",
+        "Full payload"
+      ],
+      "structure": [
+        "Loose object",
+        "Named schema",
+        "Strict schema",
+        "Contract-locked"
+      ]
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "schemaVersion": 1,
+  "baseDraft": {
+    "context": "Evaluate the current Digi Tools Prompt Builder as a working local-first product. Preserve the C.R.A.F.T. workflow, card system, accessibility, and existing visual direction.",
+    "action": "Inspect the configured workflow.\nIdentify what the selected cards and Snap Points change.\nReport any visual or interaction ambiguity.",
+    "formatNotes": "Make the result easy to verify against the visible interface.",
+    "targetAudience": "A product designer and frontend developer reviewing the next iteration."
+  },
+  "scenarios": [
+    {
+      "id": "research-report",
+      "name": "Research report",
+      "proves": "Maximum context depth, evidence rigor, and report vocabulary.",
+      "panel": 1,
+      "formatCode": "RPT",
+      "roles": [
+        "researcher",
+        "fact-checker",
+        "synthesizer"
+      ],
+      "tracks": {
+        "contextDepth": 3,
+        "evidenceRigor": 3,
+        "outputDetail": 3
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-evidence",
+          "context-assumptions"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-verify"
+        ],
+        "format": [
+          "format-summary",
+          "format-sections",
+          "format-evidence"
+        ],
+        "target": [
+          "target-language",
+          "target-decisions",
+          "target-direct"
+        ]
+      },
+      "draft": {
+        "context": "Prepare a source-grounded assessment of the Prompt Builder design system, including its interaction rules, accessibility requirements, unresolved risks, and evidence for each recommendation."
+      },
+      "checks": [
+        "Context vocabulary reads as report-oriented rather than generic.",
+        "The deck shows dossier, audit, and evidence-oriented card grades.",
+        "The live output includes traceable evidence instructions."
+      ]
+    },
+    {
+      "id": "quick-list",
+      "name": "Quick priority list",
+      "proves": "A deliberately lean configuration still feels complete.",
+      "panel": 4,
+      "formatCode": "LIST",
+      "roles": [
+        "strategist"
+      ],
+      "tracks": {
+        "contextDepth": 0,
+        "evidenceRigor": 0,
+        "autonomy": 1,
+        "practicality": 2,
+        "outputDetail": 0,
+        "structure": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope"
+        ],
+        "action": [
+          "action-recommend"
+        ],
+        "format": [
+          "format-summary",
+          "format-next"
+        ],
+        "target": [
+          "target-direct"
+        ]
+      },
+      "draft": {
+        "action": "",
+        "formatNotes": "Keep the list brief and immediately actionable."
+      },
+      "checks": [
+        "Low-detail cards use shorter names and descriptions.",
+        "Empty slots remain intentional rather than looking broken.",
+        "The output remains useful without filling every slot."
+      ]
+    },
+    {
+      "id": "code-implementation",
+      "name": "Code implementation",
+      "proves": "Code-specific vocabulary, full action order, and technical roles.",
+      "panel": 3,
+      "formatCode": "CODE",
+      "roles": [
+        "developer",
+        "technical-troubleshooter",
+        "editor"
+      ],
+      "tracks": {
+        "contextDepth": 3,
+        "evidenceRigor": 2,
+        "autonomy": 3,
+        "practicality": 2,
+        "challenge": 2,
+        "outputDetail": 2,
+        "structure": 3,
+        "audienceExpertise": 3
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-create",
+          "action-verify",
+          "action-recommend"
+        ],
+        "format": [
+          "format-sections",
+          "format-evidence",
+          "format-next"
+        ],
+        "target": [
+          "target-language",
+          "target-decisions",
+          "target-direct"
+        ]
+      },
+      "draft": {
+        "context": "Implement and verify a production-ready frontend feature in the existing Next.js application. Follow the installed versions and project conventions.",
+        "action": ""
+      },
+      "checks": [
+        "Context labels include Full Specification and other code vocabulary.",
+        "All five Action slots communicate a clear execution sequence.",
+        "The generated Action section follows the slot order."
+      ]
+    },
+    {
+      "id": "role-loadout",
+      "name": "Three-role loadout",
+      "proves": "Lead/support hierarchy and role drag-to-slot behavior.",
+      "panel": 2,
+      "formatCode": "PLAN",
+      "roles": [
+        "developer",
+        "fact-checker",
+        "editor"
+      ],
+      "equipped": {
+        "action": [
+          "action-inspect",
+          "action-create",
+          "action-verify"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "Developer is visibly the lead and the other roles are supporting.",
+        "Drag a role between slots and confirm its order changes.",
+        "The live role prompt preserves the same lead/support order."
+      ]
+    },
+    {
+      "id": "action-sequence",
+      "name": "Five-step action sequence",
+      "proves": "Maximum Action density, order, and slot placement.",
+      "panel": 3,
+      "formatCode": "PLAN",
+      "roles": [
+        "workflow-architect",
+        "developer"
+      ],
+      "tracks": {
+        "autonomy": 3,
+        "practicality": 2,
+        "challenge": 2
+      },
+      "equipped": {
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-compare",
+          "action-create",
+          "action-verify"
+        ]
+      },
+      "draft": {
+        "action": ""
+      },
+      "checks": [
+        "All five slots remain readable at once.",
+        "Move a card to another slot and confirm exact placement is preserved.",
+        "The output numbers tactics in the visible slot order."
+      ]
+    },
+    {
+      "id": "card-morph",
+      "name": "Card morphing",
+      "proves": "A surviving lineage changes grade without changing position.",
+      "panel": 3,
+      "formatCode": "RPT",
+      "roles": [
+        "analyst"
+      ],
+      "tracks": {
+        "challenge": 0,
+        "autonomy": 1,
+        "practicality": 1
+      },
+      "equipped": {
+        "action": [
+          "action-analyze"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "Note the Pattern Review card name and deck position.",
+        "Move Challenge from Supportive through Critical to Adversarial.",
+        "The card becomes Adversarial Analysis in the same physical position."
+      ]
+    },
+    {
+      "id": "card-removal",
+      "name": "Card removal",
+      "proves": "An incompatible equipped card leaves its slot cleanly.",
+      "panel": 1,
+      "formatCode": "RPT",
+      "roles": [
+        "researcher"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-assumptions",
+          "context-success"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "Assumption Register begins equipped in slot two.",
+        "Move Context Depth to the first Snap Point.",
+        "The incompatible card is unequipped and its lineage position becomes vacant."
+      ]
+    },
+    {
+      "id": "compatible-replacement",
+      "name": "Compatible replacement",
+      "proves": "The nearest replacement cue is noticeable but never automatic.",
+      "panel": 3,
+      "formatCode": "PLAN",
+      "roles": [
+        "technical-troubleshooter"
+      ],
+      "tracks": {
+        "challenge": 1,
+        "autonomy": 2,
+        "practicality": 2
+      },
+      "equipped": {
+        "action": [
+          "action-inspect",
+          "action-verify"
+        ]
+      },
+      "suggested": {
+        "action": "action-analyze"
+      },
+      "draft": {},
+      "checks": [
+        "Move Challenge to Supportive so Criteria Check becomes invalid.",
+        "A compatible card pulses no more than three times.",
+        "The suggested card remains unequipped until you choose it."
+      ]
+    },
+    {
+      "id": "snap-memory",
+      "name": "Snap Memory",
+      "proves": "An exact track combination restores its previous slot arrangement.",
+      "panel": 1,
+      "formatCode": "RPT",
+      "roles": [
+        "researcher"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2
+      },
+      "equipped": {
+        "context": [
+          "context-success",
+          "context-assumptions",
+          "context-evidence"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "Remember the unusual Success, Assumptions, Evidence slot order.",
+        "Move both Context tracks to different points and equip another arrangement.",
+        "Return to Detailed plus Corroborated and confirm the exact order returns."
+      ]
+    },
+    {
+      "id": "output-type-change",
+      "name": "Output-type change",
+      "proves": "Vocabulary changes while manual track overrides survive.",
+      "panel": 4,
+      "formatCode": "RPT",
+      "roles": [
+        "strategist"
+      ],
+      "tracks": {
+        "contextDepth": 0,
+        "evidenceRigor": 0,
+        "outputDetail": 0,
+        "structure": 0
+      },
+      "equipped": {
+        "format": [
+          "format-summary",
+          "format-sections"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "The report begins with deliberately overridden low settings.",
+        "Change the Output Type to Presentation or Code.",
+        "Overrides remain and Apply recommended setup becomes available."
+      ]
+    },
+    {
+      "id": "full-and-empty",
+      "name": "Full and empty states",
+      "proves": "Filled and open slots coexist without layout collapse.",
+      "panel": 3,
+      "formatCode": "PLAN",
+      "roles": [
+        "strategist",
+        "developer",
+        "editor"
+      ],
+      "tracks": {
+        "autonomy": 3,
+        "practicality": 2,
+        "challenge": 3
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-constraints",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-compare",
+          "action-create",
+          "action-verify"
+        ],
+        "format": [
+          "format-summary",
+          "format-sections",
+          "format-next"
+        ],
+        "target": [
+          "target-language",
+          "target-decisions",
+          "target-direct"
+        ]
+      },
+      "draft": {},
+      "checks": [
+        "Inspect the fully occupied Action board at maximum density.",
+        "Remove every Action card and inspect the five-slot empty state.",
+        "Both extremes preserve hierarchy and clear next actions."
+      ]
+    },
+    {
+      "id": "responsive-keyboard",
+      "name": "Responsive and keyboard",
+      "proves": "The workflow remains usable without dragging or desktop width.",
+      "panel": 0,
+      "formatCode": "LIST",
+      "roles": [],
+      "equipped": {},
+      "draft": {
+        "context": "",
+        "action": "",
+        "formatNotes": "",
+        "targetAudience": ""
+      },
+      "outputExpanded": false,
+      "checks": [
+        "Narrow the browser and confirm there is no horizontal page scrolling.",
+        "Use Tab, arrow keys, Space, and Enter to operate tracks and cards.",
+        "Complete a section without using drag-and-drop."
+      ]
+    }
+  ]
+}

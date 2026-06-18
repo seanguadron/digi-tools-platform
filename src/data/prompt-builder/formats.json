@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "formats": [
+    {
+      "code": "LIST",
+      "name": "Priority list",
+      "value": "A prioritized Markdown list with short explanations"
+    },
+    {
+      "code": "PLAN",
+      "name": "Implementation plan",
+      "value": "A step-by-step implementation plan"
+    },
+    {
+      "code": "VS",
+      "name": "Comparison",
+      "value": "A comparison table with a recommendation"
+    },
+    {
+      "code": "RPT",
+      "name": "Structured report",
+      "value": "A structured report with headings"
+    },
+    {
+      "code": "DRAFT",
+      "name": "Editable draft",
+      "value": "A concise draft ready to edit"
+    },
+    {
+      "code": "DECK",
+      "name": "Presentation",
+      "value": "A presentation outline with slide titles and speaker notes"
+    },
+    {
+      "code": "JSON",
+      "name": "Structured data",
+      "value": "JSON with clearly named fields"
+    },
+    {
+      "code": "CODE",
+      "name": "Code output",
+      "value": "Code with implementation notes"
+    }
+  ],
+  "recommendedTracks": {
+    "LIST": {
+      "contextDepth": 1,
+      "evidenceRigor": 1,
+      "autonomy": 2,
+      "practicality": 2,
+      "challenge": 1,
+      "outputDetail": 1,
+      "structure": 2,
+      "audienceExpertise": 2,
+      "voiceFormality": 1
+    },
+    "PLAN": {
+      "contextDepth": 2,
+      "evidenceRigor": 1,
+      "autonomy": 2,
+      "practicality": 2,
+      "challenge": 1,
+      "outputDetail": 2,
+      "structure": 3,
+      "audienceExpertise": 2,
+      "voiceFormality": 2
+    },
+    "VS": {
+      "contextDepth": 2,
+      "evidenceRigor": 2,
+      "autonomy": 2,
+      "practicality": 2,
+      "challenge": 2,
+      "outputDetail": 2,
+      "structure": 3,
+      "audienceExpertise": 2,
+      "voiceFormality": 2
+    },
+    "RPT": {
+      "contextDepth": 2,
+      "evidenceRigor": 3,
+      "autonomy": 2,
+      "practicality": 2,
+      "challenge": 2,
+      "outputDetail": 3,
+      "structure": 3,
+      "audienceExpertise": 2,
+      "voiceFormality": 2
+    },
+    "DRAFT": {
+      "contextDepth": 1,
+      "evidenceRigor": 0,
+      "autonomy": 2,
+      "practicality": 1,
+      "challenge": 1,
+      "outputDetail": 1,
+      "structure": 1,
+      "audienceExpertise": 1,
+      "voiceFormality": 1
+    },
+    "DECK": {
+      "contextDepth": 1,
+      "evidenceRigor": 1,
+      "autonomy": 2,
+      "practicality": 2,
+      "challenge": 1,
+      "outputDetail": 2,
+      "structure": 2,
+      "audienceExpertise": 1,
+      "voiceFormality": 1
+    },
+    "JSON": {
+      "contextDepth": 2,
+      "evidenceRigor": 2,
+      "autonomy": 3,
+      "practicality": 2,
+      "challenge": 1,
+      "outputDetail": 2,
+      "structure": 3,
+      "audienceExpertise": 3,
+      "voiceFormality": 2
+    },
+    "CODE": {
+      "contextDepth": 2,
+      "evidenceRigor": 2,
+      "autonomy": 3,
+      "practicality": 2,
+      "challenge": 2,
+      "outputDetail": 2,
+      "structure": 3,
+      "audienceExpertise": 3,
+      "voiceFormality": 2
+    }
+  },
+  "modifiers": [
+    "Include an executive summary.",
+    "Use headings and short sections.",
+    "Include a comparison table.",
+    "List assumptions and unknowns.",
+    "Cite sources with direct links.",
+    "End with prioritized next steps.",
+    "Include one concrete example per finding.",
+    "Keep the response under 800 words."
+  ]
+}

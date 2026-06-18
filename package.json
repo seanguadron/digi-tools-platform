@@ -1,0 +1,33 @@
+{
+  "name": "digi-tools",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 4000",
+    "prebuild": "npm run data:validate",
+    "build": "next build",
+    "start": "next start -p 4000",
+    "lint": "eslint src next.config.ts",
+    "typecheck": "tsc --noEmit",
+    "data:generate": "node scripts/generate-prompt-role-docs.mjs",
+    "data:validate": "node scripts/validate-prompt-data.mjs",
+    "data:test": "node --test scripts/prompt-data.test.mjs",
+    "test": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/*.test.mjs"
+  },
+  "dependencies": {
+    "next": "16.2.9",
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "4.3.1",
+    "@types/node": "24.10.1",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "ajv": "^8.17.1",
+    "eslint": "9.39.1",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "4.3.1",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.env*
+!.env.example
+npm-debug.log*
+*.tsbuildinfo
+.tmp
+.ai/design-references/awesome-design-md/

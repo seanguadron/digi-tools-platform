@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "emptyDraft": {
+    "context": "",
+    "roleIds": [],
+    "action": "",
+    "format": "A prioritized Markdown list with short explanations",
+    "formatNotes": "",
+    "targetAudience": ""
+  },
+  "exampleDraft": {
+    "context": "Digi Tools is a local-first browser toolbox. The current onboarding should help a first-time user reach a useful prompt within two minutes. Review the flow without adding accounts, cloud sync, or a full redesign.",
+    "roleIds": [
+      "ux-ui-advisor"
+    ],
+    "action": "Review the onboarding flow and identify the largest points of friction.\nExplain why each issue matters to a first-time user.\nRecommend changes the team can ship within one week.\nPrioritize the findings by user impact and implementation effort.",
+    "format": "A prioritized Markdown list with short explanations",
+    "formatNotes": "For each finding, include the problem, evidence, recommended change, and expected effect.",
+    "targetAudience": "A product designer and frontend developer preparing the next iteration. They understand standard UX terminology and need implementation-ready guidance."
+  },
+  "craftParts": [
+    {
+      "letter": "C",
+      "label": "Context",
+      "summary": "Situation and constraints."
+    },
+    {
+      "letter": "R",
+      "label": "Role",
+      "summary": "Expert perspective."
+    },
+    {
+      "letter": "A",
+      "label": "Action",
+      "summary": "Work to perform."
+    },
+    {
+      "letter": "F",
+      "label": "Format",
+      "summary": "Shape of the answer."
+    },
+    {
+      "letter": "T",
+      "label": "Target audience",
+      "summary": "Who the answer is for."
+    }
+  ],
+  "requiredFields": [
+    {
+      "label": "Context",
+      "field": "context"
+    },
+    {
+      "label": "Role",
+      "field": "roleIds"
+    },
+    {
+      "label": "Action",
+      "field": "action"
+    },
+    {
+      "label": "Format",
+      "field": "format"
+    },
+    {
+      "label": "Target audience",
+      "field": "targetAudience"
+    }
+  ]
+}

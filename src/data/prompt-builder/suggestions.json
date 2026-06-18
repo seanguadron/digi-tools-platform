@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "categoryActions": {
+    "Core thinking and research roles": [
+      "Define the central question and the evidence needed to answer it.",
+      "Compare credible sources and identify agreements or contradictions.",
+      "Separate confirmed facts, interpretation, and unresolved uncertainty.",
+      "Synthesize the findings into decision-useful conclusions."
+    ],
+    "Technical and build roles": [
+      "Inspect the current system, inputs, constraints, and failure symptoms.",
+      "Identify the most likely root causes and test them in priority order.",
+      "Recommend the smallest implementation that satisfies the requirement.",
+      "Verify the result against edge cases, performance, and maintainability."
+    ],
+    "Writing and communication roles": [
+      "Identify the purpose, audience, channel, and desired response.",
+      "Organize the material into a clear narrative before polishing sentences.",
+      "Draft the communication in language natural to the intended reader.",
+      "Edit for clarity, accuracy, tone, repetition, and a specific next step."
+    ],
+    "Creative and concept roles": [
+      "Clarify the central idea, audience experience, and creative constraints.",
+      "Generate several distinct directions instead of minor variations.",
+      "Evaluate each direction for originality, fit, feasibility, and coherence.",
+      "Develop the strongest direction into a concrete concept with next tests."
+    ],
+    "Teaching and coaching roles": [
+      "Assess the learner's current knowledge, goal, and likely obstacles.",
+      "Break the subject into a sequence that builds understanding step by step.",
+      "Use examples, questions, or practice tasks to test comprehension.",
+      "End with feedback, a recap, and the next useful learning action."
+    ],
+    "Business and opportunity roles": [
+      "Clarify the customer, problem, desired outcome, and available evidence.",
+      "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
+      "Recommend a focused strategy with priorities and measurable next steps.",
+      "Identify the assumptions that should be tested before greater investment."
+    ],
+    "Practical life and general knowledge roles": [
+      "Clarify the user's situation, preferences, limits, and decision criteria.",
+      "Gather the current facts that materially change the recommendation.",
+      "Compare the practical options and explain their tradeoffs.",
+      "Give a clear recommendation with cautions and next steps."
+    ]
+  },
+  "roleActions": {
+    "researcher": [
+      "Define the research question, scope, and inclusion criteria.",
+      "Find credible primary and secondary sources for each major claim.",
+      "Compare the strongest sources and document disagreements or gaps.",
+      "Summarize the evidence with citations and confidence levels."
+    ],
+    "analyst": [
+      "Define the decision, metrics, and comparison criteria.",
+      "Break the available information into patterns, causes, and outliers.",
+      "Test the main assumptions and explain important tradeoffs.",
+      "Recommend a decision and show the evidence that supports it."
+    ],
+    "strategist": [
+      "Clarify the objective, current position, and non-negotiable constraints.",
+      "Identify the highest-leverage opportunities and major risks.",
+      "Compare strategic options against impact, effort, and timing.",
+      "Recommend an ordered plan with milestones and decision points."
+    ],
+    "historian": [
+      "Establish a reliable chronology of the relevant events.",
+      "Explain the causes, competing interpretations, and historical context.",
+      "Identify continuities, turning points, and consequences.",
+      "Connect the history to the present without forcing a false parallel."
+    ],
+    "fact-checker": [
+      "Extract every claim that can be checked against evidence.",
+      "Trace each claim to the strongest available primary or credible source.",
+      "Mark each claim as verified, disputed, misleading, or unresolved.",
+      "Correct inaccuracies and explain what evidence would resolve uncertainty."
+    ],
+    "synthesizer": [
+      "Group the source material by recurring theme or question.",
+      "Identify agreements, contradictions, and important distinctions.",
+      "Reconcile compatible findings without hiding meaningful disagreement.",
+      "Produce one coherent model that preserves uncertainty and source context."
+    ],
+    "explainer-educator": [
+      "Assess what the audience already knows and what they need to understand.",
+      "Break the idea into a clear sequence of concepts.",
+      "Use concrete examples and analogies without oversimplifying.",
+      "Check understanding and end with a concise practical recap."
+    ],
+    "developer": [
+      "Inspect the existing code, framework version, and project conventions.",
+      "Define the expected behavior and the smallest safe implementation.",
+      "Implement the change with focused tests for the affected workflow.",
+      "Run type, lint, build, and rendered behavior checks."
+    ],
+    "writer": [
+      "Clarify the purpose, audience, point of view, and intended effect.",
+      "Create an outline that gives each section one clear job.",
+      "Draft with precise language and varied natural rhythm.",
+      "Revise for structure, accuracy, voice, and unnecessary repetition."
+    ],
+    "editor": [
+      "Identify the document's purpose, audience, and strongest existing material.",
+      "Repair structure and logic before editing individual sentences.",
+      "Improve clarity, accuracy, flow, and tone without erasing the author's voice.",
+      "List material changes that require the author's decision."
+    ]
+  },
+  "audienceModifiers": [
+    "Assume no prior knowledge.",
+    "Define specialized terms on first use.",
+    "Use implementation-ready language.",
+    "Explain tradeoffs before recommending.",
+    "Flag decisions that require expert review."
+  ]
+}
