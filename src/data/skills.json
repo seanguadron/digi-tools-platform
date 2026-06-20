@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "skills": [
+    {
+      "id": "impeccable",
+      "name": "Impeccable",
+      "layer": "Design",
+      "summary": "Primary design and polish",
+      "useFor": "Visual direction, landing pages, layout, spacing, typography, hierarchy, and anti-generic UI critique — making work feel designed rather than templated.",
+      "source": "github.com/pbakaus/impeccable",
+      "install": [{ "command": "npx skills add pbakaus/impeccable" }]
+    },
+    {
+      "id": "emil-design-engineering",
+      "name": "Emil Design Engineering",
+      "layer": "Design",
+      "summary": "Interaction feel",
+      "useFor": "Micro-interactions, hover states, transitions, motion restraint, removing cheap AI-looking animation, and premium component feel.",
+      "source": "github.com/emilkowalski/skill",
+      "install": [{ "command": "npx skills add emilkowalski/skill" }]
+    },
+    {
+      "id": "avoid-ai-writing",
+      "name": "Avoid AI Writing",
+      "layer": "Design",
+      "summary": "Voice and copy — the only writing-layer skill",
+      "useFor": "Removing AI-writing patterns from headlines, body copy, case studies, and service descriptions; auditing text without rewriting; targeted in-place edits; preserving a voice profile.",
+      "source": "github.com/conorbronsdon/avoid-ai-writing",
+      "install": [{ "command": "npx skills add conorbronsdon/avoid-ai-writing" }],
+      "modes": [
+        { "name": "rewrite", "note": "Flag AI-writing patterns and rewrite them." },
+        { "name": "detect", "note": "Flag only — no changes made." },
+        { "name": "edit", "note": "Targeted, in-place edits." }
+      ]
+    },
+    {
+      "id": "taste-skill",
+      "name": "Taste Skill",
+      "layer": "Design",
+      "summary": "Optional — stronger stylistic variation",
+      "useFor": "Stronger stylistic variation, redesigns of existing sites, image-to-code, and high-end direction. Install only when the project calls for it — it adds a second strong design opinion and is the most likely source of conflicts with Impeccable.",
+      "source": "github.com/Leonxlnx/taste-skill",
+      "install": [{ "command": "npx skills add Leonxlnx/taste-skill" }],
+      "subSkills": [
+        { "name": "design-taste-frontend", "note": "Front-end stylistic direction." },
+        { "name": "image-to-code", "note": "Turn a reference image into code." },
+        { "name": "redesign-existing-projects", "note": "Redesign an existing site." },
+        { "name": "high-end-visual-design", "note": "High-end visual direction." }
+      ]
+    },
+    {
+      "id": "next-best-practices",
+      "name": "next-best-practices",
+      "layer": "Engineering",
+      "summary": "Next.js framework correctness",
+      "useFor": "App Router structure, server/client boundaries, data loading, route handlers, metadata, image and font optimization, runtime selection, Suspense and loading states, hydration, and deployment correctness.",
+      "source": "github.com/vercel-labs/next-skills",
+      "install": [
+        {
+          "command": "npx skills add vercel-labs/next-skills --skill next-best-practices"
+        }
+      ]
+    },
+    {
+      "id": "vercel-agent-skills",
+      "name": "Vercel Agent Skills",
+      "layer": "Engineering",
+      "summary": "React and component quality",
+      "useFor": "Semantic HTML, accessibility structure, component quality and composition, avoiding messy AI-generated code, and performance polish. This repo holds many skills — the stack installs only the three below by default (vercel-optimize is added later, just before deploy).",
+      "source": "github.com/vercel-labs/agent-skills",
+      "install": [
+        {
+          "command": "npx skills add vercel-labs/agent-skills --skill web-design-guidelines",
+          "note": "Sub-skill — semantic HTML + design guidelines"
+        },
+        {
+          "command": "npx skills add vercel-labs/agent-skills --skill react-best-practices",
+          "note": "Sub-skill — React patterns"
+        },
+        {
+          "command": "npx skills add vercel-labs/agent-skills --skill composition-patterns",
+          "note": "Sub-skill — component composition"
+        }
+      ]
+    },
+    {
+      "id": "karpathy-guidelines",
+      "name": "Karpathy Guidelines",
+      "layer": "Engineering",
+      "summary": "Coding discipline",
+      "useFor": "Simpler solutions, surgical edits, avoiding overengineering, calling out assumptions, verifying success criteria, and preventing broad unrelated changes.",
+      "source": "github.com/forrestchang/andrej-karpathy-skills",
+      "install": [
+        {
+          "command": "npx skills add forrestchang/andrej-karpathy-skills --skill karpathy-guidelines"
+        }
+      ]
+    },
+    {
+      "id": "matt-pocock-skills",
+      "name": "Matt Pocock Skills",
+      "layer": "Engineering",
+      "summary": "Selective — serious work only",
+      "useFor": "Do not install the full set by default — pick the two below. grill-with-docs when architecture matters (challenging decisions, documenting tradeoffs, ADRs); tdd when logic must not regress (test-driven development, safer refactoring).",
+      "source": "github.com/mattpocock/skills",
+      "install": [
+        {
+          "command": "npx skills add mattpocock/skills --skill grill-with-docs",
+          "note": "Sub-skill — challenge decisions, document tradeoffs"
+        },
+        {
+          "command": "npx skills add mattpocock/skills --skill tdd",
+          "note": "Sub-skill — test-driven, safer refactors"
+        }
+      ]
+    },
+    {
+      "id": "accesslint",
+      "name": "AccessLint",
+      "layer": "QA",
+      "summary": "Accessibility audit",
+      "useFor": "WCAG checks, colour contrast, keyboard navigation, focus states, and accessible forms and interactive elements. Run before shipping anything public or client-facing.",
+      "source": "github.com/accesslint/claude-marketplace",
+      "install": [{ "command": "npx skills add accesslint/claude-marketplace" }]
+    },
+    {
+      "id": "webapp-testing",
+      "name": "webapp-testing",
+      "layer": "QA",
+      "summary": "Browser QA",
+      "useFor": "Screenshot testing, browser inspection, Playwright-style QA, checking rendered layouts, and catching broken states after implementation.",
+      "source": "github.com/anthropics/skills",
+      "install": [
+        { "command": "npx skills add anthropics/skills --skill webapp-testing" }
+      ]
+    },
+    {
+      "id": "vercel-optimize",
+      "name": "vercel-optimize",
+      "layer": "QA",
+      "summary": "Pre-deployment only",
+      "useFor": "Performance and deployment optimization. A sub-skill of the Vercel agent-skills repo — install it only when a deployment is imminent, not by default.",
+      "source": "github.com/vercel-labs/agent-skills",
+      "install": [
+        {
+          "command": "npx skills add vercel-labs/agent-skills --skill vercel-optimize"
+        }
+      ]
+    },
+    {
+      "id": "gsap",
+      "name": "GSAP",
+      "layer": "Optional",
+      "summary": "Motion implementation",
+      "useFor": "Serious motion: scroll-based animation, timelines, ScrollTrigger, cinematic landing pages, and hero sequences. A per-project dependency decision, not part of the default stack — motion must support meaning, hierarchy, or flow.",
+      "source": "github.com/greensock/gsap-skills",
+      "install": [{ "command": "npx skills add greensock/gsap-skills" }]
+    }
+  ]
+}

@@ -1,12 +1,23 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
-import type { DragEvent } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import {
+  DndContext,
+  DragOverlay,
+  KeyboardSensor,
+  PointerSensor,
+  useDraggable,
+  useDroppable,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+  type DragStartEvent,
+} from "@dnd-kit/core";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
-import { attachCardDragPreview } from "@/lib/card-motion";
 import {
+  getCardFamily,
   getCardGrade,
   getLineage,
   getSectionDeck,
@@ -21,11 +32,16 @@ import type {
   TrackValues,
 } from "@/lib/prompt-card-system";
 
-const CARD_DRAG_TYPE = "application/x-digitools-card";
 const FLOATING_PANEL_WIDTH = 390;
 const FLOATING_PANEL_GAP = 12;
 const FLOATING_PANEL_MARGIN = 16;
 const FLOATING_PANEL_MAX_HEIGHT = 480;
+
+type ActiveDrag = {
+  lineageId: string;
+  kind: "card" | "slot";
+  fromSlot?: number;
+};
 
 function getFloatingPanelPosition(element: HTMLElement) {
   const rect = element.getBoundingClientRect();
@@ -45,10 +61,7 @@ function getFloatingPanelPosition(element: HTMLElement) {
     ),
   );
 
-  return {
-    left,
-    top,
-  };
+  return { left, top };
 }
 
 function CardFace({
@@ -65,7 +78,7 @@ function CardFace({
   return (
     <>
       <span className="lineage-card-topline">
-        <span>{lineage.family}</span>
+        <span>{getCardFamily(lineage.section)}</span>
         <span>{lineage.code}</span>
       </span>
       <CardIllustrationFrame
@@ -156,55 +169,180 @@ function WorkbenchCard({
   onClearPreview: () => void;
 }) {
   const grade = getCardGrade(lineage, values);
-  const [dragging, setDragging] = useState(false);
-  const dragPreviewCleanupRef = useRef<null | (() => void)>(null);
-
-  function beginDrag(event: DragEvent<HTMLButtonElement>) {
-    event.dataTransfer.effectAllowed = "move";
-    event.dataTransfer.setData(CARD_DRAG_TYPE, lineage.id);
-    event.dataTransfer.setData("text/plain", lineage.id);
-    dragPreviewCleanupRef.current?.();
-    dragPreviewCleanupRef.current = attachCardDragPreview(
-      event.currentTarget,
-      event.dataTransfer,
-      event.clientX,
-      event.clientY,
-    );
-    setDragging(true);
-  }
-
-  function endDrag() {
-    dragPreviewCleanupRef.current?.();
-    dragPreviewCleanupRef.current = null;
-    setDragging(false);
-    onClearPreview();
-  }
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id: `card:${lineage.id}`,
+    data: { lineageId: lineage.id, kind: "card" } satisfies ActiveDrag,
+  });
 
   return (
     <button
+      ref={setNodeRef}
       className={[
         "lineage-card",
         selected ? "is-selected" : "",
         suggested ? "is-compatible-suggestion" : "",
-        dragging ? "is-dragging" : "",
+        isDragging ? "is-dragging" : "",
       ]
         .filter(Boolean)
         .join(" ")}
       type="button"
-      draggable
       data-motion-card
-      onDragStart={beginDrag}
-      onDragEnd={endDrag}
       onClick={onToggle}
       onMouseEnter={(event) => onPreview(event.currentTarget)}
       onMouseLeave={onClearPreview}
       onFocus={(event) => onPreview(event.currentTarget)}
       onBlur={onClearPreview}
-      aria-pressed={selected}
       aria-label={`${selected ? "Remove" : "Equip"} ${grade.name}. ${grade.description}`}
+      {...listeners}
+      {...attributes}
+      aria-pressed={selected}
     >
       <CardFace lineage={lineage} values={values} selected={selected} />
     </button>
+  );
+}
+
+function SlotCard({
+  lineage,
+  values,
+  slotIndex,
+  settling,
+  onPreview,
+  onClearPreview,
+}: {
+  lineage: CardLineage;
+  values: TrackValues;
+  slotIndex: number;
+  settling: boolean;
+  onPreview: (element: HTMLElement) => void;
+  onClearPreview: () => void;
+}) {
+  const grade = getCardGrade(lineage, values);
+  const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
+    id: `slot:${slotIndex}`,
+    data: {
+      lineageId: lineage.id,
+      kind: "slot",
+      fromSlot: slotIndex,
+    } satisfies ActiveDrag,
+  });
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={[
+        "lineage-card slot-card is-selected",
+        isDragging ? "is-dragging" : "",
+        settling ? "is-settling" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      onMouseEnter={(event) => onPreview(event.currentTarget)}
+      onMouseLeave={onClearPreview}
+      onFocus={(event) => onPreview(event.currentTarget)}
+      onBlur={onClearPreview}
+      aria-label={`Move ${grade.name} from slot ${slotIndex + 1}`}
+      {...listeners}
+      {...attributes}
+    >
+      <CardFace lineage={lineage} values={values} selected />
+    </div>
+  );
+}
+
+function CardSlot({
+  slotIndex,
+  lineage,
+  values,
+  settling,
+  onRemove,
+  onPreview,
+  onClearPreview,
+}: {
+  slotIndex: number;
+  lineage: CardLineage | null;
+  values: TrackValues;
+  settling: boolean;
+  onRemove: (slotIndex: number) => void;
+  onPreview: (element: HTMLElement) => void;
+  onClearPreview: () => void;
+}) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: `dropslot:${slotIndex}`,
+    data: { slotIndex, kind: "slot" },
+  });
+  const grade = lineage ? getCardGrade(lineage, values) : null;
+
+  return (
+    <div
+      ref={setNodeRef}
+      className={[
+        "card-slot",
+        lineage ? "is-filled" : "",
+        isOver ? "is-drop-target" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+      role="group"
+      aria-label={
+        lineage && grade
+          ? `Slot ${slotIndex + 1}: ${grade.name}`
+          : `Slot ${slotIndex + 1}: empty`
+      }
+    >
+      <span>Slot {slotIndex + 1}</span>
+      {lineage && grade ? (
+        <>
+          <SlotCard
+            lineage={lineage}
+            values={values}
+            slotIndex={slotIndex}
+            settling={settling}
+            onPreview={onPreview}
+            onClearPreview={onClearPreview}
+          />
+          <button
+            type="button"
+            onClick={() => onRemove(slotIndex)}
+            aria-label={`Remove ${grade.name} from slot ${slotIndex + 1}`}
+          >
+            <span aria-hidden="true">x</span>
+          </button>
+        </>
+      ) : (
+        <>
+          <strong className="card-slot-empty-mark" aria-hidden="true">
+            +
+          </strong>
+          <span className="sr-only">Empty. Drop a compatible card here.</span>
+        </>
+      )}
+    </div>
+  );
+}
+
+function DeckDropZone({
+  active,
+  children,
+}: {
+  active: boolean;
+  children: ReactNode;
+}) {
+  const { setNodeRef, isOver } = useDroppable({
+    id: "deck",
+    data: { kind: "deck" },
+  });
+
+  return (
+    <section
+      ref={setNodeRef}
+      className={
+        isOver && active ? "category-deck is-remove-target" : "category-deck"
+      }
+      aria-label="Category card deck"
+    >
+      {children}
+    </section>
   );
 }
 
@@ -237,14 +375,14 @@ export function PromptCardWorkbench({
   );
   const [previewId, setPreviewId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [draggingSlotId, setDraggingSlotId] = useState<string | null>(null);
-  const [settlingSlot, setSettlingSlot] = useState({
-    index: -1,
-    token: 0,
-  });
-  const slotDragCleanupRef = useRef<null | (() => void)>(null);
+  const [activeDrag, setActiveDrag] = useState<ActiveDrag | null>(null);
+  const [settlingSlot, setSettlingSlot] = useState({ index: -1, token: 0 });
   const deckMotion = useCardDeckMotion();
   const slotMotion = useCardDeckMotion();
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
+    useSensor(KeyboardSensor),
+  );
   const [previewAnchor, setPreviewAnchor] = useState<{
     left: number;
     top: number;
@@ -261,7 +399,7 @@ export function PromptCardWorkbench({
       const grade = getCardGrade(lineage, values);
       return [
         lineage.code,
-        lineage.family,
+        getCardFamily(lineage.section),
         grade.name,
         grade.description,
         ...lineage.goals,
@@ -276,6 +414,7 @@ export function PromptCardWorkbench({
     ? getCardGrade(previewLineage, values)
     : null;
   const slotBudget = SECTION_SLOT_BUDGETS[section];
+  const dragLineage = activeDrag ? getLineage(activeDrag.lineageId) : null;
 
   function previewCard(lineageId: string, element: HTMLElement) {
     setPreviewId(lineageId);
@@ -287,241 +426,192 @@ export function PromptCardWorkbench({
     setPreviewAnchor(null);
   }
 
-  function acceptDrop(event: DragEvent<HTMLDivElement>, slotIndex: number) {
-    event.preventDefault();
-    const lineageId =
-      event.dataTransfer.getData(CARD_DRAG_TYPE) ||
-      event.dataTransfer.getData("text/plain");
-    const lineage = deck.find((candidate) => candidate.id === lineageId);
-
-    if (lineage) {
-      onDropCard(slotIndex, lineage.id);
-      clearPreview();
-      setSettlingSlot((current) => ({
-        index: slotIndex,
-        token: current.token + 1,
-      }));
+  function handleDragStart(event: DragStartEvent) {
+    const data = event.active.data.current as ActiveDrag | undefined;
+    if (data) {
+      setActiveDrag(data);
     }
-  }
-
-  function beginSlotDrag(
-    event: DragEvent<HTMLDivElement>,
-    lineageId: string,
-  ) {
-    event.dataTransfer.effectAllowed = "move";
-    event.dataTransfer.setData(CARD_DRAG_TYPE, lineageId);
-    event.dataTransfer.setData("text/plain", lineageId);
-    slotDragCleanupRef.current?.();
-    slotDragCleanupRef.current = attachCardDragPreview(
-      event.currentTarget,
-      event.dataTransfer,
-      event.clientX,
-      event.clientY,
-    );
-    setDraggingSlotId(lineageId);
-  }
-
-  function endSlotDrag() {
-    slotDragCleanupRef.current?.();
-    slotDragCleanupRef.current = null;
-    setDraggingSlotId(null);
     clearPreview();
   }
 
+  function handleDragEnd(event: DragEndEvent) {
+    const data = event.active.data.current as ActiveDrag | undefined;
+    setActiveDrag(null);
+    const overData = event.over?.data.current as
+      | { kind?: string; slotIndex?: number }
+      | undefined;
+
+    if (!data || !overData) {
+      return;
+    }
+
+    if (overData.kind === "slot" && typeof overData.slotIndex === "number") {
+      onDropCard(overData.slotIndex, data.lineageId);
+      setSettlingSlot((current) => ({
+        index: overData.slotIndex as number,
+        token: current.token + 1,
+      }));
+    } else if (overData.kind === "deck" && data.kind === "slot") {
+      if (typeof data.fromSlot === "number") {
+        onRemoveCard(data.fromSlot);
+      }
+    }
+  }
+
   return (
-    <div className={`card-workbench card-workbench--${section}`}>
-      <section className="card-slot-board" aria-label="Equipped card slots">
-        <div className="workbench-section-heading">
-          <strong>Loadout</strong>
-          <small>
-            {equippedIds.filter(Boolean).length}/{slotBudget}
-          </small>
-        </div>
-        <div
-          className="card-slot-grid"
-          onPointerMove={slotMotion.onPointerMove}
-          onPointerLeave={slotMotion.onPointerLeave}
-        >
-          {Array.from({ length: slotBudget }, (_, slotIndex) => {
-            const lineage = getLineage(equippedIds[slotIndex] ?? "");
-            const grade = lineage ? getCardGrade(lineage, values) : null;
-
-            return (
-              <div
-                className={lineage ? "card-slot is-filled" : "card-slot"}
-                onDragOver={(event) => {
-                  event.preventDefault();
-                  event.dataTransfer.dropEffect = "move";
-                }}
-                onDrop={(event) => acceptDrop(event, slotIndex)}
-                key={slotIndex}
-                role="group"
-                aria-label={
-                  lineage && grade
-                    ? `Slot ${slotIndex + 1}: ${grade.name}`
-                    : `Slot ${slotIndex + 1}: empty`
+    <DndContext
+      sensors={sensors}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onDragCancel={() => setActiveDrag(null)}
+    >
+      <div className={`card-workbench card-workbench--${section}`}>
+        <section className="card-slot-board" aria-label="Equipped card slots">
+          <div className="workbench-section-heading">
+            <strong>Loadout</strong>
+            <small>
+              {equippedIds.filter(Boolean).length}/{slotBudget}
+            </small>
+          </div>
+          <div
+            className="card-slot-grid"
+            onPointerMove={slotMotion.onPointerMove}
+            onPointerLeave={slotMotion.onPointerLeave}
+          >
+            {Array.from({ length: slotBudget }, (_, slotIndex) => (
+              <CardSlot
+                slotIndex={slotIndex}
+                lineage={getLineage(equippedIds[slotIndex] ?? "") ?? null}
+                values={values}
+                settling={settlingSlot.index === slotIndex}
+                onRemove={onRemoveCard}
+                onPreview={(element) =>
+                  previewCard(equippedIds[slotIndex] ?? "", element)
                 }
-              >
-                <span>Slot {slotIndex + 1}</span>
-                {lineage && grade ? (
-                  <>
-                    <div
-                      className={[
-                        "lineage-card slot-card is-selected",
-                        draggingSlotId === lineage.id ? "is-dragging" : "",
-                        settlingSlot.index === slotIndex ? "is-settling" : "",
-                      ]
-                        .filter(Boolean)
-                        .join(" ")}
-                      draggable
-                      data-motion-card
-                      tabIndex={0}
-                      onDragStart={(event) =>
-                        beginSlotDrag(event, lineage.id)
-                      }
-                      onDragEnd={endSlotDrag}
-                      onMouseEnter={(event) =>
-                        previewCard(lineage.id, event.currentTarget)
-                      }
-                      onMouseLeave={clearPreview}
-                      onFocus={(event) =>
-                        previewCard(lineage.id, event.currentTarget)
-                      }
-                      onBlur={clearPreview}
-                      aria-label={`Move ${grade.name} from slot ${slotIndex + 1}`}
-                      key={`${lineage.id}-${settlingSlot.index === slotIndex ? settlingSlot.token : 0}`}
-                    >
-                      <CardFace
-                        lineage={lineage}
-                        values={values}
-                        selected
-                      />
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => onRemoveCard(slotIndex)}
-                      aria-label={`Remove ${grade.name} from slot ${slotIndex + 1}`}
-                    >
-                      <span aria-hidden="true">x</span>
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <strong className="card-slot-empty-mark" aria-hidden="true">
-                      +
-                    </strong>
-                    <span className="sr-only">
-                      Empty. Drop a compatible card here.
-                    </span>
-                  </>
-                )}
-              </div>
-            );
-          })}
-        </div>
-        <button
-          className="loadout-clear-button"
-          type="button"
-          onClick={onClearCards}
-          disabled={!equippedIds.some(Boolean)}
-        >
-          Clear
-        </button>
-      </section>
-
-      <section className="category-deck" aria-label="Category card deck">
-        <div className="workbench-section-heading">
-          <strong>Cards</strong>
-          <small>
-            {searchQuery ? `${visibleDeck.length}/${deck.length}` : deck.length}
-          </small>
-        </div>
-        <div
-          className="lineage-card-grid"
-          onPointerMove={deckMotion.onPointerMove}
-          onPointerLeave={deckMotion.onPointerLeave}
-        >
-          {visibleDeck.map((lineage) => (
-            <WorkbenchCard
-              lineage={lineage}
-              values={values}
-              selected={equippedIds.includes(lineage.id)}
-              suggested={suggestedId === lineage.id}
-              onToggle={() => onToggleCard(lineage.id)}
-              onPreview={(element) => previewCard(lineage.id, element)}
-              onClearPreview={clearPreview}
-              key={lineage.id}
-            />
-          ))}
-          {visibleDeck.length === 0 ? (
-            <p className="deck-empty-state">No matching cards.</p>
-          ) : null}
-        </div>
-        <label className="deck-search">
-          <span className="sr-only">Search cards</span>
-          <input
-            type="search"
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            placeholder="Find cards"
-          />
-          <small>{visibleDeck.length} shown</small>
-        </label>
-      </section>
-
-      <section className="tuning-console" aria-label="Tuning tracks">
-        <div className="workbench-section-heading">
-          <strong>Tuning</strong>
-          <small>{SECTION_TRACKS[section].length}</small>
-        </div>
-        <div className="tuning-track-list">
-          {SECTION_TRACKS[section].map((trackId) => (
-            <SnapTrack
-              trackId={trackId}
-              value={values[trackId]}
-              formatCode={formatCode}
-              onChange={(value) => onTrackChange(trackId, value)}
-              key={trackId}
-            />
-          ))}
-        </div>
-      </section>
-
-      {portalTarget && previewLineage && previewGrade && previewAnchor
-        ? createPortal(
-            <aside
-              className="floating-card-panel"
-              style={previewAnchor}
-              aria-live="polite"
-            >
-              <CardIllustrationFrame
-                className="floating-card-art"
-                illustration={
-                  previewGrade.illustration ?? previewLineage.illustration
-                }
-                fallback={previewLineage.code.slice(0, 1)}
+                onClearPreview={clearPreview}
+                key={`${slotIndex}-${equippedIds[slotIndex] ?? "empty"}-${
+                  settlingSlot.index === slotIndex ? settlingSlot.token : 0
+                }`}
               />
-              <div className="floating-card-panel-identity">
-                <span>{previewLineage.code} / {previewLineage.family}</span>
-                <strong>{previewGrade.name}</strong>
-                <p>{previewGrade.description}</p>
-              </div>
-              <div className="ability-guidance">
-                <span>What this adds</span>
-                <ul>
-                  {previewLineage.goals.map((goal) => (
-                    <li key={goal}>{goal}</li>
-                  ))}
-                </ul>
-              </div>
-              <code>
-                {previewGrade.instruction} Focus on these outcomes:{" "}
-                {previewLineage.goals.join(" ")}
-              </code>
-            </aside>,
+            ))}
+          </div>
+          <button
+            className="loadout-clear-button"
+            type="button"
+            onClick={onClearCards}
+            disabled={!equippedIds.some(Boolean)}
+          >
+            Clear
+          </button>
+        </section>
+
+        <DeckDropZone active={activeDrag?.kind === "slot"}>
+          <div className="workbench-section-heading">
+            <strong>Cards</strong>
+            <small>
+              {searchQuery ? `${visibleDeck.length}/${deck.length}` : deck.length}
+            </small>
+          </div>
+          <div
+            className="lineage-card-grid"
+            onPointerMove={deckMotion.onPointerMove}
+            onPointerLeave={deckMotion.onPointerLeave}
+          >
+            {visibleDeck.map((lineage) => (
+              <WorkbenchCard
+                lineage={lineage}
+                values={values}
+                selected={equippedIds.includes(lineage.id)}
+                suggested={suggestedId === lineage.id}
+                onToggle={() => onToggleCard(lineage.id)}
+                onPreview={(element) => previewCard(lineage.id, element)}
+                onClearPreview={clearPreview}
+                key={lineage.id}
+              />
+            ))}
+            {visibleDeck.length === 0 ? (
+              <p className="deck-empty-state">No matching cards.</p>
+            ) : null}
+          </div>
+          <label className="deck-search">
+            <span className="sr-only">Search cards</span>
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Find cards"
+            />
+            <small>{visibleDeck.length} shown</small>
+          </label>
+        </DeckDropZone>
+
+        <section className="tuning-console" aria-label="Tuning tracks">
+          <div className="workbench-section-heading">
+            <strong>Tuning</strong>
+            <small>{SECTION_TRACKS[section].length}</small>
+          </div>
+          <div className="tuning-track-list">
+            {SECTION_TRACKS[section].map((trackId) => (
+              <SnapTrack
+                trackId={trackId}
+                value={values[trackId]}
+                formatCode={formatCode}
+                onChange={(value) => onTrackChange(trackId, value)}
+                key={trackId}
+              />
+            ))}
+          </div>
+        </section>
+
+        {portalTarget && previewLineage && previewGrade && previewAnchor && !activeDrag
+          ? createPortal(
+              <aside
+                className="floating-card-panel"
+                style={previewAnchor}
+                aria-live="polite"
+              >
+                <CardIllustrationFrame
+                  className="floating-card-art"
+                  illustration={
+                    previewGrade.illustration ?? previewLineage.illustration
+                  }
+                  fallback={previewLineage.code.slice(0, 1)}
+                />
+                <div className="floating-card-panel-identity">
+                  <span>{previewLineage.code} / {getCardFamily(previewLineage.section)}</span>
+                  <strong>{previewGrade.name}</strong>
+                  <p>{previewGrade.description}</p>
+                </div>
+                <div className="ability-guidance">
+                  <span>What this adds</span>
+                  <ul>
+                    {previewLineage.goals.map((goal) => (
+                      <li key={goal}>{goal}</li>
+                    ))}
+                  </ul>
+                </div>
+                <code>
+                  {previewGrade.instruction} Focus on these outcomes:{" "}
+                  {previewLineage.goals.join(" ")}
+                </code>
+              </aside>,
+              portalTarget,
+            )
+          : null}
+      </div>
+
+      {portalTarget
+        ? createPortal(
+            <DragOverlay dropAnimation={null} zIndex={120}>
+              {dragLineage ? (
+                <div className="lineage-card card-drag-overlay is-selected">
+                  <CardFace lineage={dragLineage} values={values} selected />
+                </div>
+              ) : null}
+            </DragOverlay>,
             portalTarget,
           )
         : null}
-    </div>
+    </DndContext>
   );
 }

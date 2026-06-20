@@ -67,7 +67,6 @@ export type CardLineage = {
   id: string;
   code: string;
   section: CardSection;
-  family: "Tactic" | "Modifier";
   driver: TrackId;
   goals: readonly string[];
   grades: readonly CardGrade[];

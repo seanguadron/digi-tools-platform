@@ -1,110 +1,137 @@
 import Link from "next/link";
+import { getSkills, getSkillsByLayer } from "@/lib/skills";
 import { TOOL_REGISTRY } from "@/lib/tool-registry";
 
 const promptTool = TOOL_REGISTRY["prompt-builder"];
+const architectTool = TOOL_REGISTRY["architect-wizard"];
+const skillsTool = TOOL_REGISTRY["skills"];
 
 export default function HomePage() {
+  const skillGroups = getSkillsByLayer();
+  const skillCount = getSkills().length;
+
   return (
     <div className="welcome-page">
-      <section className="welcome-hero" aria-labelledby="welcome-title">
-        <div className="welcome-copy">
-          <div className="product-label">
-            <span className="status-dot" aria-hidden="true" />
-            Local-first browser tools
-          </div>
-          <h1 id="welcome-title">
-            Make every prompt clearer.
-          </h1>
-          <p>
-            Digi Tools turns rough intent into structured, portable prompts.
-            Everything stays in your browser.
-          </p>
-          <div className="hero-actions">
+      <header className="welcome-intro">
+        <div className="product-label">
+          <span className="status-dot" aria-hidden="true" />
+          Local-first browser tools
+        </div>
+        <h1 id="welcome-title">Sharp tools for working with AI.</h1>
+        <p>
+          Digi Tools is a local-first toolbox — craft prompts, sketch
+          architectures, and browse your skill stack. Everything stays in your
+          browser.
+        </p>
+      </header>
+
+      <div className="home-sections">
+        <section
+          className="home-feature"
+          id="prompts"
+          aria-labelledby="home-prompts-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 01 · Prompts</span>
+            <h2 id="home-prompts-title">{promptTool.name}</h2>
+            <p>{promptTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Describe the job, add guardrails, take the result.</li>
+              <li>Equip role and tactic cards onto a clear C.R.A.F.T. brief.</li>
+              <li>Copy, download, or share the finished prompt.</li>
+            </ul>
             <Link className="button button-primary" href={promptTool.href}>
               Open Prompt Builder
             </Link>
-            <a className="button button-quiet" href="#how-it-works">
-              See how it works
-            </a>
           </div>
-        </div>
-
-        <div className="prompt-specimen" aria-label="Example prompt structure">
-          <div className="specimen-header">
-            <div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
               <span>prompt.md</span>
-              <strong>Ready to refine</strong>
+              <span className="file-badge">LOCAL</span>
             </div>
-            <span className="file-badge">LOCAL</span>
-          </div>
-          <pre>
-            <code>{`ROLE
+            <pre>
+              <code>{`ROLE
 You are a senior product designer.
 
 TASK
 Review a new onboarding flow.
 
-CONTEXT
-The user has no account and data stays local.
-
 DELIVERABLE
-Return five prioritized findings with fixes.`}</code>
-          </pre>
-          <div className="specimen-footer">
-            <span>Structured prompt</span>
-            <span>412 characters</span>
+Five prioritized findings with fixes.`}</code>
+            </pre>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section
-        className="workflow-section"
-        id="how-it-works"
-        aria-labelledby="workflow-title"
-      >
-        <div className="section-heading">
-          <h2 id="workflow-title">From rough request to usable prompt</h2>
-          <p>
-            The first tool keeps the process visible. Fill the brief, review the
-            generated prompt, then copy or download it.
-          </p>
-        </div>
+        <section
+          className="home-feature"
+          id="architect"
+          aria-labelledby="home-architect-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 02 · Architect</span>
+            <h2 id="home-architect-title">{architectTool.name}</h2>
+            <p>{architectTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Drop managers, services, workers, and data onto a canvas.</li>
+              <li>Connect them with directional, labeled relationships.</li>
+              <li>Export a build brief — diagram, build order, open questions.</li>
+            </ul>
+            <Link className="button button-primary" href={architectTool.href}>
+              Open Architect
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>architecture</span>
+              <span className="file-badge">CANVAS</span>
+            </div>
+            <div className="home-spec-arch">
+              <span className="home-spec-node">OrderManager</span>
+              <span className="home-spec-arrow">owns →</span>
+              <span className="home-spec-node">Order</span>
+              <span className="home-spec-arrow">uses →</span>
+              <span className="home-spec-node">PaymentService</span>
+            </div>
+          </div>
+        </section>
 
-        <ol className="workflow-list">
-          <li>
-            <span>1</span>
-            <div>
-              <h3>Describe the job</h3>
-              <p>Start with the outcome, audience, and useful context.</p>
+        <section
+          className="home-feature"
+          id="skills"
+          aria-labelledby="home-skills-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 03 · Skills</span>
+            <h2 id="home-skills-title">{skillsTool.name}</h2>
+            <p>
+              A wiki for the {skillCount} skills in your AI stack — what each one
+              does and the commands to install it.
+            </p>
+            <ul className="home-feature-points">
+              <li>Browse by layer: design, engineering, QA, and optional.</li>
+              <li>Expand a skill for its purpose and install commands.</li>
+              <li>Reference only — no agents, nothing runs here.</li>
+            </ul>
+            <Link className="button button-primary" href={skillsTool.href}>
+              Browse Skills
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>skills</span>
+              <span className="file-badge">{skillCount}</span>
             </div>
-          </li>
-          <li>
-            <span>2</span>
-            <div>
-              <h3>Add guardrails</h3>
-              <p>Choose tone, output format, and constraints that matter.</p>
-            </div>
-          </li>
-          <li>
-            <span>3</span>
-            <div>
-              <h3>Take the result</h3>
-              <p>Copy the prompt or download a plain Markdown file.</p>
-            </div>
-          </li>
-        </ol>
-      </section>
-
-      <section className="tool-launch" aria-labelledby="tool-launch-title">
-        <div>
-          <span className="featured-tag">FIRST TOOL</span>
-          <h2 id="tool-launch-title">{promptTool.name}</h2>
-          <p>{promptTool.tagline}</p>
-        </div>
-        <Link className="button button-primary" href={promptTool.href}>
-          Start a prompt
-        </Link>
-      </section>
+            <ul className="home-spec-skills">
+              {skillGroups.map((group) => (
+                <li key={group.id}>
+                  <span>{group.label}</span>
+                  <strong>{group.skills.length}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
     </div>
   );
 }

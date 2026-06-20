@@ -8,7 +8,7 @@ function clone(value) {
 
 test("the current prompt catalog is valid", async () => {
   const catalog = await loadCatalog();
-  assert.equal(catalog.roles.roles.length, 70);
+  assert.equal(catalog.roles.roles.length, 35);
   assert.ok(
     catalog.cards.cards.every(
       (card) => card.goals.length >= 1 && card.goals.length <= 6,
@@ -23,7 +23,7 @@ test("the current prompt catalog is valid", async () => {
   assert.equal(
     catalog.cards.cards.flatMap((card) => card.grades).filter((grade) => grade.illustration)
       .length,
-    97,
+    108,
   );
   assert.ok(catalog.archetypes.archetypes.every((archetype) => archetype.effects.length > 0));
 

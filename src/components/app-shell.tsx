@@ -9,6 +9,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   const activeTool = TOOLS.find((tool) => pathname === tool.href);
   const isHome = pathname === "/";
+  const fullBleed = Boolean(activeTool?.fullBleed);
 
   function toggleTheme() {
     const currentTheme =
@@ -71,7 +72,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         />
       </div>
 
-      <main className="page-stage">{children}</main>
+      <main className={fullBleed ? "page-stage is-fluid" : "page-stage"}>
+        {children}
+      </main>
 
       <footer className="status-bar" data-component="Bar:Status">
         <span>

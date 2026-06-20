@@ -8,7 +8,7 @@
       "description": "Act as the Researcher for this prompt. Define the research question, scope, and inclusion criteria. Find credible primary and secondary sources for each major claim. Compare the strongest sources and document disagreements or gaps.",
       "core": true,
       "ability": {
-        "summary": "Researcher brings core thinking and research judgment to the prompt.",
+        "summary": "Researcher frames the question and grounds each claim in credible, well-compared sources.",
         "bullets": [
           "Define the research question, scope, and inclusion criteria.",
           "Find credible primary and secondary sources for each major claim.",
@@ -30,7 +30,7 @@
       "description": "Act as the Analyst for this prompt. Define the decision, metrics, and comparison criteria. Break the available information into patterns, causes, and outliers. Test the main assumptions and explain important tradeoffs.",
       "core": true,
       "ability": {
-        "summary": "Analyst brings core thinking and research judgment to the prompt.",
+        "summary": "Analyst breaks information into patterns and tests the assumptions behind a decision.",
         "bullets": [
           "Define the decision, metrics, and comparison criteria.",
           "Break the available information into patterns, causes, and outliers.",
@@ -52,7 +52,7 @@
       "description": "Act as the Strategist for this prompt. Clarify the objective, current position, and non-negotiable constraints. Identify the highest-impact opportunities and major risks. Compare strategic options against impact, effort, and timing.",
       "core": true,
       "ability": {
-        "summary": "Strategist brings core thinking and research judgment to the prompt.",
+        "summary": "Strategist weighs objectives, risks, and options to recommend a high-leverage path.",
         "bullets": [
           "Clarify the objective, current position, and non-negotiable constraints.",
           "Identify the highest-impact opportunities and major risks.",
@@ -74,7 +74,7 @@
       "description": "Act as the Historian for this prompt. Establish a reliable chronology of the relevant events. Explain the causes, competing interpretations, and historical context. Identify continuities, turning points, and consequences.",
       "core": true,
       "ability": {
-        "summary": "Historian brings core thinking and research judgment to the prompt.",
+        "summary": "Historian builds a reliable chronology and explains causes, context, and consequences.",
         "bullets": [
           "Establish a reliable chronology of the relevant events.",
           "Explain the causes, competing interpretations, and historical context.",
@@ -96,7 +96,7 @@
       "description": "Act as the Fact-checker for this prompt. Extract every claim that can be checked against evidence. Trace each claim to the strongest available primary or credible source. Mark each claim as verified, disputed, misleading, or unresolved.",
       "core": false,
       "ability": {
-        "summary": "Fact-checker brings core thinking and research judgment to the prompt.",
+        "summary": "Fact-checker isolates checkable claims and rates each against the strongest source.",
         "bullets": [
           "Extract every claim that can be checked against evidence.",
           "Trace each claim to the strongest available primary or credible source.",
@@ -118,7 +118,7 @@
       "description": "Act as the Synthesizer for this prompt. Group the source material by recurring theme or question. Identify agreements, contradictions, and important distinctions. Reconcile compatible findings without hiding meaningful disagreement.",
       "core": false,
       "ability": {
-        "summary": "Synthesizer brings core thinking and research judgment to the prompt.",
+        "summary": "Synthesizer reconciles many sources into one model without hiding disagreement.",
         "bullets": [
           "Group the source material by recurring theme or question.",
           "Identify agreements, contradictions, and important distinctions.",
@@ -140,7 +140,7 @@
       "description": "Act as the Explainer / Educator for this prompt. Assess what the audience already knows and what they need to understand. Break the idea into a clear sequence of concepts. Use concrete examples and analogies without oversimplifying.",
       "core": true,
       "ability": {
-        "summary": "Explainer / Educator brings core thinking and research judgment to the prompt.",
+        "summary": "Explainer / Educator sequences an idea to the audience's level using concrete examples.",
         "bullets": [
           "Assess what the audience already knows and what they need to understand.",
           "Break the idea into a clear sequence of concepts.",
@@ -157,67 +157,23 @@
     },
     {
       "id": "comparative-reviewer",
-      "name": "Comparative Reviewer",
+      "name": "Critical Reviewer",
       "category": "Core thinking and research roles",
-      "description": "Act as the Comparative Reviewer for this prompt. Define the central question and the evidence needed to answer it. Compare credible sources and identify agreements or contradictions. Separate confirmed facts, interpretation, and unresolved uncertainty.",
+      "description": "Act as the Critical Reviewer for this prompt. Identify the central claims or options and the evidence behind each. Weigh the alternatives against each other and stress-test the reasoning for weak spots and hidden assumptions. Separate what is well supported from what is merely asserted.",
       "core": false,
       "ability": {
-        "summary": "Comparative Reviewer brings core thinking and research judgment to the prompt.",
+        "summary": "Critical Reviewer weighs claims and options and stress-tests the reasoning behind them.",
         "bullets": [
-          "Define the central question and the evidence needed to answer it.",
-          "Compare credible sources and identify agreements or contradictions.",
-          "Separate confirmed facts, interpretation, and unresolved uncertainty."
+          "Identify the central claims or options and the evidence behind each.",
+          "Weigh the alternatives and probe the reasoning for weak spots.",
+          "Separate what is well supported from what is merely asserted."
         ]
       },
       "illustration": {
         "src": "/card-art/roles/comparative-reviewer.webp",
-        "alt": "Illustration asset for the Comparative Reviewer role.",
-        "motif": "Comparative Reviewer specialist with core thinking and research tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Comparative Reviewer specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "trend-interpreter",
-      "name": "Trend Interpreter",
-      "category": "Core thinking and research roles",
-      "description": "Act as the Trend Interpreter for this prompt. Define the central question and the evidence needed to answer it. Compare credible sources and identify agreements or contradictions. Separate confirmed facts, interpretation, and unresolved uncertainty.",
-      "core": false,
-      "ability": {
-        "summary": "Trend Interpreter brings core thinking and research judgment to the prompt.",
-        "bullets": [
-          "Define the central question and the evidence needed to answer it.",
-          "Compare credible sources and identify agreements or contradictions.",
-          "Separate confirmed facts, interpretation, and unresolved uncertainty."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/trend-interpreter.webp",
-        "alt": "Illustration asset for the Trend Interpreter role.",
-        "motif": "Trend Interpreter specialist with core thinking and research tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Trend Interpreter specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "idea-evaluator",
-      "name": "Idea Evaluator",
-      "category": "Core thinking and research roles",
-      "description": "Act as the Idea Evaluator for this prompt. Define the central question and the evidence needed to answer it. Compare credible sources and identify agreements or contradictions. Separate confirmed facts, interpretation, and unresolved uncertainty.",
-      "core": false,
-      "ability": {
-        "summary": "Idea Evaluator brings core thinking and research judgment to the prompt.",
-        "bullets": [
-          "Define the central question and the evidence needed to answer it.",
-          "Compare credible sources and identify agreements or contradictions.",
-          "Separate confirmed facts, interpretation, and unresolved uncertainty."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/idea-evaluator.webp",
-        "alt": "Illustration asset for the Idea Evaluator role.",
-        "motif": "Idea Evaluator specialist with core thinking and research tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Idea Evaluator specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "alt": "Illustration asset for the Critical Reviewer role.",
+        "motif": "Critical Reviewer specialist with core thinking and research tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Critical Reviewer specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
@@ -228,7 +184,7 @@
       "description": "Act as the Developer for this prompt. Inspect the existing code, framework version, and project conventions. Define the expected behavior and the smallest safe implementation. Implement the change with focused tests for the affected workflow.",
       "core": true,
       "ability": {
-        "summary": "Developer brings technical and build judgment to the prompt.",
+        "summary": "Developer ships the smallest safe change, matched to the project's real conventions.",
         "bullets": [
           "Inspect the existing code, framework version, and project conventions.",
           "Define the expected behavior and the smallest safe implementation.",
@@ -244,83 +200,17 @@
       }
     },
     {
-      "id": "unreal-engine-technical-advisor",
-      "name": "Unreal Engine Technical Advisor",
-      "category": "Technical and build roles",
-      "description": "Act as the Unreal Engine Technical Advisor for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
-      "core": false,
-      "ability": {
-        "summary": "Unreal Engine Technical Advisor brings technical and build judgment to the prompt.",
-        "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/unreal-engine-technical-advisor.webp",
-        "alt": "Illustration asset for the Unreal Engine Technical Advisor role.",
-        "motif": "Unreal Engine Technical Advisor specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Unreal Engine Technical Advisor specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "xr-vr-ar-consultant",
-      "name": "XR / VR / AR Consultant",
-      "category": "Technical and build roles",
-      "description": "Act as the XR / VR / AR Consultant for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
-      "core": false,
-      "ability": {
-        "summary": "XR / VR / AR Consultant brings technical and build judgment to the prompt.",
-        "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/xr-vr-ar-consultant.webp",
-        "alt": "Illustration asset for the XR / VR / AR Consultant role.",
-        "motif": "XR / VR / AR Consultant specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a XR / VR / AR Consultant specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "systems-designer",
-      "name": "Systems Designer",
-      "category": "Technical and build roles",
-      "description": "Act as the Systems Designer for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
-      "core": false,
-      "ability": {
-        "summary": "Systems Designer brings technical and build judgment to the prompt.",
-        "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/systems-designer.webp",
-        "alt": "Illustration asset for the Systems Designer role.",
-        "motif": "Systems Designer specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Systems Designer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "technical-troubleshooter",
       "name": "Technical Troubleshooter",
       "category": "Technical and build roles",
-      "description": "Act as the Technical Troubleshooter for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
+      "description": "Act as the Technical Troubleshooter for this prompt. Reproduce the failure and pin down the exact conditions that trigger it. Form ranked hypotheses about the root cause and test them from most to least likely. Recommend the safest fix and a way to confirm the problem is gone.",
       "core": true,
       "ability": {
-        "summary": "Technical Troubleshooter brings technical and build judgment to the prompt.",
+        "summary": "Technical Troubleshooter isolates a failure's root cause and proves the fix actually holds.",
         "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
+          "Reproduce the failure and capture the conditions that trigger it.",
+          "Rank likely root causes and test them from most to least likely.",
+          "Recommend the safest fix and a check that confirms it is resolved."
         ]
       },
       "illustration": {
@@ -332,46 +222,24 @@
       }
     },
     {
-      "id": "interaction-designer",
-      "name": "Interaction Designer",
+      "id": "systems-designer",
+      "name": "Systems Designer",
       "category": "Technical and build roles",
-      "description": "Act as the Interaction Designer for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
+      "description": "Act as the Systems Designer for this prompt. Map the components, data flows, and boundaries the work must respect. Design how the parts interact, fail, and scale before choosing an implementation. Make the structural tradeoffs explicit so the design can be evaluated.",
       "core": false,
       "ability": {
-        "summary": "Interaction Designer brings technical and build judgment to the prompt.",
+        "summary": "Systems Designer shapes how components interact, fail, and scale before any code is written.",
         "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
+          "Map the components, data flows, and boundaries involved.",
+          "Design how the parts interact, fail, and scale together.",
+          "Make the structural tradeoffs explicit for review."
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/interaction-designer.webp",
-        "alt": "Illustration asset for the Interaction Designer role.",
-        "motif": "Interaction Designer specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Interaction Designer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "ux-ui-advisor",
-      "name": "UX / UI Advisor",
-      "category": "Technical and build roles",
-      "description": "Act as the UX / UI Advisor for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
-      "core": false,
-      "ability": {
-        "summary": "UX / UI Advisor brings technical and build judgment to the prompt.",
-        "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/ux-ui-advisor.webp",
-        "alt": "Illustration asset for the UX / UI Advisor role.",
-        "motif": "UX / UI Advisor specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a UX / UI Advisor specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "src": "/card-art/roles/systems-designer.webp",
+        "alt": "Illustration asset for the Systems Designer role.",
+        "motif": "Systems Designer specialist with technical and build tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Systems Designer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
@@ -379,14 +247,14 @@
       "id": "workflow-architect",
       "name": "Workflow Architect",
       "category": "Technical and build roles",
-      "description": "Act as the Workflow Architect for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
+      "description": "Act as the Workflow Architect for this prompt. Map the current steps, handoffs, and the points where work stalls or repeats. Redesign the sequence to remove friction while preserving necessary checks. Define the triggers, owners, and tools each step needs to run reliably.",
       "core": false,
       "ability": {
-        "summary": "Workflow Architect brings technical and build judgment to the prompt.",
+        "summary": "Workflow Architect redesigns a process to remove friction without dropping necessary checks.",
         "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
+          "Map the current steps, handoffs, and bottlenecks.",
+          "Redesign the sequence to cut friction while keeping key checks.",
+          "Define the triggers, owners, and tools each step needs."
         ]
       },
       "illustration": {
@@ -398,46 +266,90 @@
       }
     },
     {
-      "id": "creative-technologist",
-      "name": "Creative Technologist",
+      "id": "ux-ui-advisor",
+      "name": "UX / UI Advisor",
       "category": "Technical and build roles",
-      "description": "Act as the Creative Technologist for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
+      "description": "Act as the UX / UI Advisor for this prompt. Identify the user's goal, context of use, and the friction in the current flow. Evaluate clarity, hierarchy, accessibility, and consistency against the task. Recommend specific interface changes and explain the user impact of each.",
       "core": false,
       "ability": {
-        "summary": "Creative Technologist brings technical and build judgment to the prompt.",
+        "summary": "UX / UI Advisor finds interface friction and recommends specific, accessible improvements.",
         "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
+          "Identify the user's goal, context, and current friction.",
+          "Evaluate clarity, hierarchy, accessibility, and consistency.",
+          "Recommend specific interface changes and their user impact."
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/creative-technologist.webp",
-        "alt": "Illustration asset for the Creative Technologist role.",
-        "motif": "Creative Technologist specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Creative Technologist specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "src": "/card-art/roles/ux-ui-advisor.webp",
+        "alt": "Illustration asset for the UX / UI Advisor role.",
+        "motif": "UX / UI Advisor specialist with technical and build tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a UX / UI Advisor specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
     {
-      "id": "prototype-planner",
-      "name": "Prototype Planner",
+      "id": "data-analyst",
+      "name": "Data Analyst",
       "category": "Technical and build roles",
-      "description": "Act as the Prototype Planner for this prompt. Inspect the current system, inputs, constraints, and failure symptoms. Identify the most likely root causes and test them in priority order. Recommend the smallest implementation that satisfies the requirement.",
+      "description": "Act as the Data Analyst for this prompt. Clarify the question, the available data, and how the answer will be used. Explore the data for patterns, segments, and anomalies that matter. Report findings with the caveats, sample sizes, and assumptions behind them.",
       "core": false,
       "ability": {
-        "summary": "Prototype Planner brings technical and build judgment to the prompt.",
+        "summary": "Data Analyst turns raw data into trustworthy findings, with the caveats made explicit.",
         "bullets": [
-          "Inspect the current system, inputs, constraints, and failure symptoms.",
-          "Identify the most likely root causes and test them in priority order.",
-          "Recommend the smallest implementation that satisfies the requirement."
+          "Clarify the question, the available data, and how the answer will be used.",
+          "Explore the data for patterns, segments, and anomalies that matter.",
+          "Report findings with the caveats, sample sizes, and assumptions behind them."
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/prototype-planner.webp",
-        "alt": "Illustration asset for the Prototype Planner role.",
-        "motif": "Prototype Planner specialist with technical and build tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Prototype Planner specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "src": "/card-art/roles/data-analyst.webp",
+        "alt": "Illustration asset for the Data Analyst role.",
+        "motif": "Data Analyst specialist with technical and build tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Data Analyst specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "qa-test-engineer",
+      "name": "QA / Test Engineer",
+      "category": "Technical and build roles",
+      "description": "Act as the QA / Test Engineer for this prompt. Identify what correct behavior looks like and where it could break. Design test cases that cover the main paths, edge cases, and failure modes. Report defects clearly with steps to reproduce and expected versus actual results.",
+      "core": false,
+      "ability": {
+        "summary": "QA / Test Engineer probes for the ways something breaks and documents them reproducibly.",
+        "bullets": [
+          "Identify what correct behavior looks like and where it could break.",
+          "Design test cases covering main paths, edge cases, and failure modes.",
+          "Report defects with steps to reproduce and expected versus actual results."
+        ]
+      },
+      "illustration": {
+        "src": "/card-art/roles/qa-test-engineer.webp",
+        "alt": "Illustration asset for the QA / Test Engineer role.",
+        "motif": "QA / Test Engineer specialist with technical and build tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a QA / Test Engineer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "security-reviewer",
+      "name": "Security Reviewer",
+      "category": "Technical and build roles",
+      "description": "Act as the Security Reviewer for this prompt. Map the assets, entry points, and trust boundaries involved. Identify the most likely threats and weaknesses, ranked by impact and likelihood. Recommend concrete mitigations and what to verify before shipping.",
+      "core": false,
+      "ability": {
+        "summary": "Security Reviewer threat-models the work and ranks the weaknesses that matter most.",
+        "bullets": [
+          "Map the assets, entry points, and trust boundaries involved.",
+          "Identify likely threats and weaknesses, ranked by impact and likelihood.",
+          "Recommend concrete mitigations and what to verify before shipping."
+        ]
+      },
+      "illustration": {
+        "src": "/card-art/roles/security-reviewer.webp",
+        "alt": "Illustration asset for the Security Reviewer role.",
+        "motif": "Security Reviewer specialist with technical and build tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Security Reviewer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
@@ -448,7 +360,7 @@
       "description": "Act as the Writer for this prompt. Clarify the purpose, audience, point of view, and intended effect. Create an outline that gives each section one clear job. Draft with precise language and varied natural rhythm.",
       "core": true,
       "ability": {
-        "summary": "Writer brings writing and communication judgment to the prompt.",
+        "summary": "Writer outlines with intent and drafts in precise, natural language.",
         "bullets": [
           "Clarify the purpose, audience, point of view, and intended effect.",
           "Create an outline that gives each section one clear job.",
@@ -470,7 +382,7 @@
       "description": "Act as the Editor for this prompt. Identify the document's purpose, audience, and strongest existing material. Repair structure and logic before editing individual sentences. Improve clarity, accuracy, flow, and tone without erasing the author's voice.",
       "core": true,
       "ability": {
-        "summary": "Editor brings writing and communication judgment to the prompt.",
+        "summary": "Editor repairs structure and logic before polishing, without erasing the author's voice.",
         "bullets": [
           "Identify the document's purpose, audience, and strongest existing material.",
           "Repair structure and logic before editing individual sentences.",
@@ -489,14 +401,14 @@
       "id": "copywriter",
       "name": "Copywriter",
       "category": "Writing and communication roles",
-      "description": "Act as the Copywriter for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
+      "description": "Act as the Copywriter for this prompt. Identify the audience, the single desired action, and the channel it will run in. Lead with the benefit and keep the message tight enough to act on. Match the brand voice while writing in language the reader actually uses.",
       "core": false,
       "ability": {
-        "summary": "Copywriter brings writing and communication judgment to the prompt.",
+        "summary": "Copywriter turns a goal into tight, on-voice copy that drives one clear action.",
         "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
+          "Identify the audience, desired action, and channel.",
+          "Lead with the benefit and cut anything that does not earn its place.",
+          "Match the brand voice in language the reader actually uses."
         ]
       },
       "illustration": {
@@ -511,14 +423,14 @@
       "id": "rewriter",
       "name": "Rewriter",
       "category": "Writing and communication roles",
-      "description": "Act as the Rewriter for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
+      "description": "Act as the Rewriter for this prompt. Identify what the original is trying to say and where it loses the reader. Preserve the author's meaning and intent while improving clarity, flow, and concision. Show the reworked version and flag any change that alters meaning.",
       "core": false,
       "ability": {
-        "summary": "Rewriter brings writing and communication judgment to the prompt.",
+        "summary": "Rewriter sharpens existing text for clarity and flow while preserving its meaning.",
         "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
+          "Identify the intent of the original and where it loses the reader.",
+          "Improve clarity, flow, and concision without changing meaning.",
+          "Flag any edit that materially shifts the message."
         ]
       },
       "illustration": {
@@ -530,83 +442,17 @@
       }
     },
     {
-      "id": "proposal-writer",
-      "name": "Proposal Writer",
-      "category": "Writing and communication roles",
-      "description": "Act as the Proposal Writer for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
-      "core": false,
-      "ability": {
-        "summary": "Proposal Writer brings writing and communication judgment to the prompt.",
-        "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/proposal-writer.webp",
-        "alt": "Illustration asset for the Proposal Writer role.",
-        "motif": "Proposal Writer specialist with writing and communication tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Proposal Writer specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "grant-writing-assistant",
-      "name": "Grant Writing Assistant",
-      "category": "Writing and communication roles",
-      "description": "Act as the Grant Writing Assistant for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
-      "core": false,
-      "ability": {
-        "summary": "Grant Writing Assistant brings writing and communication judgment to the prompt.",
-        "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/grant-writing-assistant.webp",
-        "alt": "Illustration asset for the Grant Writing Assistant role.",
-        "motif": "Grant Writing Assistant specialist with writing and communication tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Grant Writing Assistant specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "email-message-drafter",
-      "name": "Email / Message Drafter",
-      "category": "Writing and communication roles",
-      "description": "Act as the Email / Message Drafter for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
-      "core": false,
-      "ability": {
-        "summary": "Email / Message Drafter brings writing and communication judgment to the prompt.",
-        "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/email-message-drafter.webp",
-        "alt": "Illustration asset for the Email / Message Drafter role.",
-        "motif": "Email / Message Drafter specialist with writing and communication tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Email / Message Drafter specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "pitch-strategist",
       "name": "Pitch Strategist",
       "category": "Writing and communication roles",
-      "description": "Act as the Pitch Strategist for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
+      "description": "Act as the Pitch Strategist for this prompt. Clarify the audience, what they care about, and the decision you want from them. Build a persuasive arc from problem to solution to proof to ask. Anticipate the toughest objections and answer them before they are raised.",
       "core": false,
       "ability": {
-        "summary": "Pitch Strategist brings writing and communication judgment to the prompt.",
+        "summary": "Pitch Strategist builds a persuasive arc and pre-empts the audience's hardest objections.",
         "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
+          "Clarify the audience, their priorities, and the decision you want.",
+          "Build the arc from problem to solution to proof to ask.",
+          "Anticipate the strongest objections and answer them up front."
         ]
       },
       "illustration": {
@@ -619,45 +465,23 @@
     },
     {
       "id": "presentation-slide-structurer",
-      "name": "Presentation / Slide Structurer",
+      "name": "Presentation Designer",
       "category": "Writing and communication roles",
-      "description": "Act as the Presentation / Slide Structurer for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
+      "description": "Act as the Presentation Designer for this prompt. Define the core message and the decision or action the audience should leave with. Shape the material into a slide sequence with one idea per slide. Separate slide headlines, supporting content, and speaker notes.",
       "core": false,
       "ability": {
-        "summary": "Presentation / Slide Structurer brings writing and communication judgment to the prompt.",
+        "summary": "Presentation Designer turns material into a one-idea-per-slide narrative.",
         "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
+          "Define the core message and the audience takeaway.",
+          "Sequence the slides with one clear idea each.",
+          "Separate headlines, slide content, and speaker notes."
         ]
       },
       "illustration": {
         "src": "/card-art/roles/presentation-slide-structurer.webp",
-        "alt": "Illustration asset for the Presentation / Slide Structurer role.",
-        "motif": "Presentation / Slide Structurer specialist with writing and communication tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Presentation / Slide Structurer specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "professional-communications-advisor",
-      "name": "Professional Communications Advisor",
-      "category": "Writing and communication roles",
-      "description": "Act as the Professional Communications Advisor for this prompt. Identify the purpose, audience, channel, and desired response. Organize the material into a clear narrative before polishing sentences. Draft the communication in language natural to the intended reader.",
-      "core": false,
-      "ability": {
-        "summary": "Professional Communications Advisor brings writing and communication judgment to the prompt.",
-        "bullets": [
-          "Identify the purpose, audience, channel, and desired response.",
-          "Organize the material into a clear narrative before polishing sentences.",
-          "Draft the communication in language natural to the intended reader."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/professional-communications-advisor.webp",
-        "alt": "Illustration asset for the Professional Communications Advisor role.",
-        "motif": "Professional Communications Advisor specialist with writing and communication tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Professional Communications Advisor specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "alt": "Illustration asset for the Presentation Designer role.",
+        "motif": "Presentation Designer specialist with writing and communication tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Presentation Designer specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
@@ -668,7 +492,7 @@
       "description": "Act as the Creative Director for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
       "core": true,
       "ability": {
-        "summary": "Creative Director brings creative and concept judgment to the prompt.",
+        "summary": "Creative Director generates distinct directions and judges them for originality and fit.",
         "bullets": [
           "Clarify the central idea, audience experience, and creative constraints.",
           "Generate several distinct directions instead of minor variations.",
@@ -687,14 +511,14 @@
       "id": "concept-developer",
       "name": "Concept Developer",
       "category": "Creative and concept roles",
-      "description": "Act as the Concept Developer for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
+      "description": "Act as the Concept Developer for this prompt. Take a raw idea and clarify its core promise and intended audience. Develop it into a coherent concept with a clear hook, structure, and reason to care. Pressure-test the concept for originality, feasibility, and weak points.",
       "core": false,
       "ability": {
-        "summary": "Concept Developer brings creative and concept judgment to the prompt.",
+        "summary": "Concept Developer grows a raw idea into a coherent, testable concept.",
         "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
+          "Clarify the idea's core promise and intended audience.",
+          "Develop a coherent concept with a clear hook and structure.",
+          "Pressure-test it for originality, feasibility, and weak points."
         ]
       },
       "illustration": {
@@ -709,14 +533,14 @@
       "id": "brainstorming-partner",
       "name": "Brainstorming Partner",
       "category": "Creative and concept roles",
-      "description": "Act as the Brainstorming Partner for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
+      "description": "Act as the Brainstorming Partner for this prompt. Generate a wide range of genuinely different ideas before narrowing. Build on the user's direction and push past the obvious first answers. Cluster the strongest ideas and suggest which are worth developing.",
       "core": true,
       "ability": {
-        "summary": "Brainstorming Partner brings creative and concept judgment to the prompt.",
+        "summary": "Brainstorming Partner generates wide-ranging ideas, then surfaces the ones worth pursuing.",
         "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
+          "Generate many genuinely different ideas before narrowing.",
+          "Push past the obvious first answers and build on the user's direction.",
+          "Cluster the strongest options and suggest what to develop."
         ]
       },
       "illustration": {
@@ -728,61 +552,17 @@
       }
     },
     {
-      "id": "worldbuilder",
-      "name": "Worldbuilder",
-      "category": "Creative and concept roles",
-      "description": "Act as the Worldbuilder for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Worldbuilder brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/worldbuilder.webp",
-        "alt": "Illustration asset for the Worldbuilder role.",
-        "motif": "Worldbuilder specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Worldbuilder specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "story-developer",
-      "name": "Story Developer",
-      "category": "Creative and concept roles",
-      "description": "Act as the Story Developer for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Story Developer brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/story-developer.webp",
-        "alt": "Illustration asset for the Story Developer role.",
-        "motif": "Story Developer specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Story Developer specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "prompt-engineer",
       "name": "Prompt Engineer",
       "category": "Creative and concept roles",
-      "description": "Act as the Prompt Engineer for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
+      "description": "Act as the Prompt Engineer for this prompt. Clarify the task, the model's role, and what a successful output looks like. Structure clear instructions, context, and constraints that reduce ambiguity. Recommend tests and refinements that make the prompt reliable.",
       "core": true,
       "ability": {
-        "summary": "Prompt Engineer brings creative and concept judgment to the prompt.",
+        "summary": "Prompt Engineer turns a fuzzy goal into a clear, testable instruction for a model.",
         "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
+          "Clarify the task, the model's role, and the success criteria.",
+          "Structure instructions, context, and constraints that cut ambiguity.",
+          "Recommend tests and refinements for reliability."
         ]
       },
       "illustration": {
@@ -794,101 +574,13 @@
       }
     },
     {
-      "id": "visual-concept-translator",
-      "name": "Visual Concept Translator",
-      "category": "Creative and concept roles",
-      "description": "Act as the Visual Concept Translator for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Visual Concept Translator brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/visual-concept-translator.webp",
-        "alt": "Illustration asset for the Visual Concept Translator role.",
-        "motif": "Visual Concept Translator specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Visual Concept Translator specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "experience-designer",
-      "name": "Experience Designer",
-      "category": "Creative and concept roles",
-      "description": "Act as the Experience Designer for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Experience Designer brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/experience-designer.webp",
-        "alt": "Illustration asset for the Experience Designer role.",
-        "motif": "Experience Designer specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Experience Designer specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "naming-branding-advisor",
-      "name": "Naming / Branding Advisor",
-      "category": "Creative and concept roles",
-      "description": "Act as the Naming / Branding Advisor for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Naming / Branding Advisor brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/naming-branding-advisor.webp",
-        "alt": "Illustration asset for the Naming / Branding Advisor role.",
-        "motif": "Naming / Branding Advisor specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Naming / Branding Advisor specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "content-ideation-partner",
-      "name": "Content Ideation Partner",
-      "category": "Creative and concept roles",
-      "description": "Act as the Content Ideation Partner for this prompt. Clarify the central idea, audience experience, and creative constraints. Generate several distinct directions instead of minor variations. Evaluate each direction for originality, fit, feasibility, and coherence.",
-      "core": false,
-      "ability": {
-        "summary": "Content Ideation Partner brings creative and concept judgment to the prompt.",
-        "bullets": [
-          "Clarify the central idea, audience experience, and creative constraints.",
-          "Generate several distinct directions instead of minor variations.",
-          "Evaluate each direction for originality, fit, feasibility, and coherence."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/content-ideation-partner.webp",
-        "alt": "Illustration asset for the Content Ideation Partner role.",
-        "motif": "Content Ideation Partner specialist with creative and concept tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Content Ideation Partner specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "tutor",
       "name": "Tutor",
       "category": "Teaching and coaching roles",
       "description": "Act as the Tutor for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
       "core": false,
       "ability": {
-        "summary": "Tutor brings teaching and coaching judgment to the prompt.",
+        "summary": "Tutor meets the learner where they are and builds understanding step by step.",
         "bullets": [
           "Assess the learner's current knowledge, goal, and likely obstacles.",
           "Break the subject into a sequence that builds understanding step by step.",
@@ -907,14 +599,14 @@
       "id": "curriculum-designer",
       "name": "Curriculum Designer",
       "category": "Teaching and coaching roles",
-      "description": "Act as the Curriculum Designer for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
+      "description": "Act as the Curriculum Designer for this prompt. Define the learning outcomes and how mastery will be demonstrated. Sequence the material into modules that build on each other. Add practice, checkpoints, and resources that reinforce each outcome.",
       "core": false,
       "ability": {
-        "summary": "Curriculum Designer brings teaching and coaching judgment to the prompt.",
+        "summary": "Curriculum Designer turns learning outcomes into a sequenced, assessable course of study.",
         "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
+          "Define the learning outcomes and how mastery is shown.",
+          "Sequence the material into modules that build on each other.",
+          "Add practice, checkpoints, and resources for each outcome."
         ]
       },
       "illustration": {
@@ -926,61 +618,17 @@
       }
     },
     {
-      "id": "workshop-designer",
-      "name": "Workshop Designer",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Workshop Designer for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Workshop Designer brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/workshop-designer.webp",
-        "alt": "Illustration asset for the Workshop Designer role.",
-        "motif": "Workshop Designer specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Workshop Designer specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "instructional-designer",
-      "name": "Instructional Designer",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Instructional Designer for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Instructional Designer brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/instructional-designer.webp",
-        "alt": "Illustration asset for the Instructional Designer role.",
-        "motif": "Instructional Designer specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Instructional Designer specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "mentor",
       "name": "Mentor",
       "category": "Teaching and coaching roles",
-      "description": "Act as the Mentor for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
+      "description": "Act as the Mentor for this prompt. Understand the person's goal, current level, and the obstacles in their way. Share targeted guidance and perspective drawn from experience. Recommend a concrete next step and what to focus on to grow.",
       "core": false,
       "ability": {
-        "summary": "Mentor brings teaching and coaching judgment to the prompt.",
+        "summary": "Mentor gives experience-based guidance and a concrete next step toward the person's goal.",
         "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
+          "Understand the person's goal, level, and obstacles.",
+          "Share targeted guidance and perspective from experience.",
+          "Recommend a concrete next step and a growth focus."
         ]
       },
       "illustration": {
@@ -992,123 +640,13 @@
       }
     },
     {
-      "id": "thinking-partner",
-      "name": "Thinking Partner",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Thinking Partner for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Thinking Partner brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/thinking-partner.webp",
-        "alt": "Illustration asset for the Thinking Partner role.",
-        "motif": "Thinking Partner specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Thinking Partner specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "career-coach",
-      "name": "Career Coach",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Career Coach for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Career Coach brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/career-coach.webp",
-        "alt": "Illustration asset for the Career Coach role.",
-        "motif": "Career Coach specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Career Coach specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "creativity-coach",
-      "name": "Creativity Coach",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Creativity Coach for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Creativity Coach brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/creativity-coach.webp",
-        "alt": "Illustration asset for the Creativity Coach role.",
-        "motif": "Creativity Coach specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Creativity Coach specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "decision-making-coach",
-      "name": "Decision-Making Coach",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Decision-Making Coach for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Decision-Making Coach brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/decision-making-coach.webp",
-        "alt": "Illustration asset for the Decision-Making Coach role.",
-        "motif": "Decision-Making Coach specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Decision-Making Coach specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "feedback-partner",
-      "name": "Feedback Partner",
-      "category": "Teaching and coaching roles",
-      "description": "Act as the Feedback Partner for this prompt. Assess the learner's current knowledge, goal, and likely obstacles. Break the subject into a sequence that builds understanding step by step. Use examples, questions, or practice tasks to test comprehension.",
-      "core": false,
-      "ability": {
-        "summary": "Feedback Partner brings teaching and coaching judgment to the prompt.",
-        "bullets": [
-          "Assess the learner's current knowledge, goal, and likely obstacles.",
-          "Break the subject into a sequence that builds understanding step by step.",
-          "Use examples, questions, or practice tasks to test comprehension."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/feedback-partner.webp",
-        "alt": "Illustration asset for the Feedback Partner role.",
-        "motif": "Feedback Partner specialist with teaching and coaching tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Feedback Partner specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "consultant",
       "name": "Consultant",
       "category": "Business and opportunity roles",
       "description": "Act as the Consultant for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
       "core": true,
       "ability": {
-        "summary": "Consultant brings business and opportunity judgment to the prompt.",
+        "summary": "Consultant frames the problem and recommends a focused, evidence-backed strategy.",
         "bullets": [
           "Clarify the customer, problem, desired outcome, and available evidence.",
           "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
@@ -1124,39 +662,17 @@
       }
     },
     {
-      "id": "business-development-advisor",
-      "name": "Business Development Advisor",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Business Development Advisor for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Business Development Advisor brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/business-development-advisor.webp",
-        "alt": "Illustration asset for the Business Development Advisor role.",
-        "motif": "Business Development Advisor specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Business Development Advisor specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "product-strategist",
       "name": "Product Strategist",
       "category": "Business and opportunity roles",
-      "description": "Act as the Product Strategist for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
+      "description": "Act as the Product Strategist for this prompt. Clarify the user problem, the target segment, and how value will be measured. Weigh opportunities against effort, differentiation, and business fit. Recommend what to build, what to cut, and what to validate next.",
       "core": false,
       "ability": {
-        "summary": "Product Strategist brings business and opportunity judgment to the prompt.",
+        "summary": "Product Strategist decides what to build and validate by weighing user value against fit.",
         "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
+          "Clarify the user problem, segment, and value metric.",
+          "Weigh opportunities against effort, differentiation, and fit.",
+          "Recommend what to build, cut, and validate next."
         ]
       },
       "illustration": {
@@ -1168,376 +684,90 @@
       }
     },
     {
-      "id": "offer-service-designer",
-      "name": "Offer / Service Designer",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Offer / Service Designer for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Offer / Service Designer brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/offer-service-designer.webp",
-        "alt": "Illustration asset for the Offer / Service Designer role.",
-        "motif": "Offer / Service Designer specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Offer / Service Designer specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "market-positioning-advisor",
-      "name": "Market Positioning Advisor",
+      "name": "Positioning Strategist",
       "category": "Business and opportunity roles",
-      "description": "Act as the Market Positioning Advisor for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
+      "description": "Act as the Positioning Strategist for this prompt. Define the target customer, the competitive alternatives, and the category you play in. Sharpen the differentiation and the value proposition that set the offer apart. Recommend messaging that makes the position clear and credible.",
       "core": false,
       "ability": {
-        "summary": "Market Positioning Advisor brings business and opportunity judgment to the prompt.",
+        "summary": "Positioning Strategist sharpens differentiation and a credible, distinct value proposition.",
         "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
+          "Define the target customer, alternatives, and category.",
+          "Sharpen the differentiation that sets the offer apart.",
+          "Recommend messaging that makes the position clear and credible."
         ]
       },
       "illustration": {
         "src": "/card-art/roles/market-positioning-advisor.webp",
-        "alt": "Illustration asset for the Market Positioning Advisor role.",
-        "motif": "Market Positioning Advisor specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Market Positioning Advisor specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "alt": "Illustration asset for the Positioning Strategist role.",
+        "motif": "Positioning Strategist specialist with business and opportunity tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Positioning Strategist specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
     {
-      "id": "entrepreneurial-sounding-board",
-      "name": "Entrepreneurial Sounding Board",
+      "id": "product-manager",
+      "name": "Product Manager",
       "category": "Business and opportunity roles",
-      "description": "Act as the Entrepreneurial Sounding Board for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
+      "description": "Act as the Product Manager for this prompt. Clarify the user problem, the goal, and how success will be measured. Prioritize what to build against impact, effort, and constraints. Write the requirements clearly enough for a team to act on.",
       "core": false,
       "ability": {
-        "summary": "Entrepreneurial Sounding Board brings business and opportunity judgment to the prompt.",
+        "summary": "Product Manager turns a fuzzy goal into prioritized, buildable requirements.",
         "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
+          "Clarify the user problem, the goal, and how success is measured.",
+          "Prioritize what to build against impact, effort, and constraints.",
+          "Write requirements clearly enough for a team to act on."
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/entrepreneurial-sounding-board.webp",
-        "alt": "Illustration asset for the Entrepreneurial Sounding Board role.",
-        "motif": "Entrepreneurial Sounding Board specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Entrepreneurial Sounding Board specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "value-proposition-developer",
-      "name": "Value Proposition Developer",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Value Proposition Developer for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Value Proposition Developer brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/value-proposition-developer.webp",
-        "alt": "Illustration asset for the Value Proposition Developer role.",
-        "motif": "Value Proposition Developer specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Value Proposition Developer specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "outreach-strategist",
-      "name": "Outreach Strategist",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Outreach Strategist for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Outreach Strategist brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/outreach-strategist.webp",
-        "alt": "Illustration asset for the Outreach Strategist role.",
-        "motif": "Outreach Strategist specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Outreach Strategist specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "sponsorship-partnership-advisor",
-      "name": "Sponsorship / Partnership Advisor",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Sponsorship / Partnership Advisor for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Sponsorship / Partnership Advisor brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/sponsorship-partnership-advisor.webp",
-        "alt": "Illustration asset for the Sponsorship / Partnership Advisor role.",
-        "motif": "Sponsorship / Partnership Advisor specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Sponsorship / Partnership Advisor specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "planning-advisor",
-      "name": "Planning Advisor",
-      "category": "Business and opportunity roles",
-      "description": "Act as the Planning Advisor for this prompt. Clarify the customer, problem, desired outcome, and available evidence. Evaluate the opportunity, alternatives, incentives, risks, and constraints. Recommend a focused strategy with priorities and measurable next steps.",
-      "core": false,
-      "ability": {
-        "summary": "Planning Advisor brings business and opportunity judgment to the prompt.",
-        "bullets": [
-          "Clarify the customer, problem, desired outcome, and available evidence.",
-          "Evaluate the opportunity, alternatives, incentives, risks, and constraints.",
-          "Recommend a focused strategy with priorities and measurable next steps."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/planning-advisor.webp",
-        "alt": "Illustration asset for the Planning Advisor role.",
-        "motif": "Planning Advisor specialist with business and opportunity tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Planning Advisor specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "recipe-guide",
-      "name": "Recipe Guide",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Recipe Guide for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Recipe Guide brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/recipe-guide.webp",
-        "alt": "Illustration asset for the Recipe Guide role.",
-        "motif": "Recipe Guide specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Recipe Guide specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "travel-researcher",
-      "name": "Travel Researcher",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Travel Researcher for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Travel Researcher brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/travel-researcher.webp",
-        "alt": "Illustration asset for the Travel Researcher role.",
-        "motif": "Travel Researcher specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Travel Researcher specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "product-researcher",
-      "name": "Product Researcher",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Product Researcher for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Product Researcher brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/product-researcher.webp",
-        "alt": "Illustration asset for the Product Researcher role.",
-        "motif": "Product Researcher specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Product Researcher specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "media-film-reviewer",
-      "name": "Media / Film Reviewer",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Media / Film Reviewer for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Media / Film Reviewer brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/media-film-reviewer.webp",
-        "alt": "Illustration asset for the Media / Film Reviewer role.",
-        "motif": "Media / Film Reviewer specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Media / Film Reviewer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "language-meaning-explainer",
-      "name": "Language / Meaning Explainer",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Language / Meaning Explainer for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Language / Meaning Explainer brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/language-meaning-explainer.webp",
-        "alt": "Illustration asset for the Language / Meaning Explainer role.",
-        "motif": "Language / Meaning Explainer specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Language / Meaning Explainer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "cultural-interpreter",
-      "name": "Cultural Interpreter",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Cultural Interpreter for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Cultural Interpreter brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/cultural-interpreter.webp",
-        "alt": "Illustration asset for the Cultural Interpreter role.",
-        "motif": "Cultural Interpreter specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Cultural Interpreter specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "debate-partner",
-      "name": "Debate Partner",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Debate Partner for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Debate Partner brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/debate-partner.webp",
-        "alt": "Illustration asset for the Debate Partner role.",
-        "motif": "Debate Partner specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Debate Partner specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "skeptical-examiner",
-      "name": "Skeptical Examiner",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Skeptical Examiner for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Skeptical Examiner brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/skeptical-examiner.webp",
-        "alt": "Illustration asset for the Skeptical Examiner role.",
-        "motif": "Skeptical Examiner specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of a Skeptical Examiner specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
-      "id": "organizer",
-      "name": "Organizer",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Organizer for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
-      "core": false,
-      "ability": {
-        "summary": "Organizer brings practical life and general knowledge judgment to the prompt.",
-        "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
-        ]
-      },
-      "illustration": {
-        "src": "/card-art/roles/organizer.webp",
-        "alt": "Illustration asset for the Organizer role.",
-        "motif": "Organizer specialist with practical life and general knowledge tools",
-        "prompt": "Retro-tech guild toolkit square illustration asset of an Organizer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "src": "/card-art/roles/product-manager.webp",
+        "alt": "Illustration asset for the Product Manager role.",
+        "motif": "Product Manager specialist with business and opportunity tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Product Manager specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
     {
       "id": "summarizer",
       "name": "Summarizer",
-      "category": "Practical life and general knowledge roles",
-      "description": "Act as the Summarizer for this prompt. Clarify the user's situation, preferences, limits, and decision criteria. Gather the current facts that materially change the recommendation. Compare the practical options and explain their tradeoffs.",
+      "category": "Utility roles",
+      "description": "Act as the Summarizer for this prompt. Identify the source's main message, key points, and anything decision-critical. Condense it faithfully without distorting meaning or dropping essential caveats. Lead with the takeaway and keep the result easy to scan.",
       "core": false,
       "ability": {
-        "summary": "Summarizer brings practical life and general knowledge judgment to the prompt.",
+        "summary": "Summarizer condenses material to its essential points without distorting the meaning.",
         "bullets": [
-          "Clarify the user's situation, preferences, limits, and decision criteria.",
-          "Gather the current facts that materially change the recommendation.",
-          "Compare the practical options and explain their tradeoffs."
+          "Identify the main message and decision-critical points.",
+          "Condense faithfully without dropping essential caveats.",
+          "Lead with the takeaway and keep it easy to scan."
         ]
       },
       "illustration": {
         "src": "/card-art/roles/summarizer.webp",
         "alt": "Illustration asset for the Summarizer role.",
-        "motif": "Summarizer specialist with practical life and general knowledge tools",
+        "motif": "Summarizer specialist with utility tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Summarizer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "organizer",
+      "name": "Organizer",
+      "category": "Utility roles",
+      "description": "Act as the Organizer for this prompt. Take loose material and identify the natural groups, categories, and order within it. Structure it into a clear, consistent system the user can navigate. Label the parts so related items stay together and gaps are visible.",
+      "core": false,
+      "ability": {
+        "summary": "Organizer turns loose material into a clear, consistent structure that is easy to navigate.",
+        "bullets": [
+          "Identify the natural groups, categories, and order in the material.",
+          "Structure it into a clear, consistent system.",
+          "Label the parts so related items group and gaps show."
+        ]
+      },
+      "illustration": {
+        "src": "/card-art/roles/organizer.webp",
+        "alt": "Illustration asset for the Organizer role.",
+        "motif": "Organizer specialist with utility tools",
+        "prompt": "Retro-tech guild toolkit square illustration asset of an Organizer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     }

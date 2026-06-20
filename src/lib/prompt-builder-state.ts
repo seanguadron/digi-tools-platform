@@ -107,16 +107,30 @@ function numberedActions(action: string) {
     .join("\n");
 }
 
-export function buildPrompt(
+export type PromptSectionKey =
+  | "context"
+  | "role"
+  | "action"
+  | "format"
+  | "target";
+
+export type PromptSection = {
+  key: PromptSectionKey;
+  heading: string;
+  label: string;
+  body: string;
+};
+
+export function buildPromptSections(
   draft: PromptDraft,
   selectedRoles: PromptRole[],
   cardInstructions: Record<CardSection, string[]>,
-) {
+): PromptSection[] | null {
   if (
     (!draft.action.trim() && cardInstructions.action.length === 0) ||
     selectedRoles.length === 0
   ) {
-    return "Complete the five C.R.A.F.T. sections to build your prompt.";
+    return null;
   }
 
   const context = [draft.context.trim(), ...cardInstructions.context]
@@ -150,12 +164,42 @@ export function buildPrompt(
     .join("\n\n");
 
   return [
-    `CONTEXT\n${context}`,
-    `ROLE LOADOUT\nUse the lead role as the primary decision-making perspective. Use supporting roles to strengthen the work without overriding the lead role.\n\n${roleLoadout}`,
-    `ACTION\n${numberedActions(action)}`,
-    `FORMAT\n${format}`,
-    `TARGET AUDIENCE\n${targetAudience}`,
-  ].join("\n\n");
+    { key: "context", heading: "CONTEXT", label: "Context", body: context },
+    {
+      key: "role",
+      heading: "ROLE LOADOUT",
+      label: "Roles",
+      body: `Use the lead role as the primary decision-making perspective. Use supporting roles to strengthen the work without overriding the lead role.\n\n${roleLoadout}`,
+    },
+    {
+      key: "action",
+      heading: "ACTION",
+      label: "Action",
+      body: numberedActions(action),
+    },
+    { key: "format", heading: "FORMAT", label: "Format", body: format },
+    {
+      key: "target",
+      heading: "TARGET AUDIENCE",
+      label: "Target",
+      body: targetAudience,
+    },
+  ];
+}
+
+export function buildPrompt(
+  draft: PromptDraft,
+  selectedRoles: PromptRole[],
+  cardInstructions: Record<CardSection, string[]>,
+) {
+  const sections = buildPromptSections(draft, selectedRoles, cardInstructions);
+  if (!sections) {
+    return "Complete the five C.R.A.F.T. sections to build your prompt.";
+  }
+
+  return sections
+    .map((section) => `${section.heading}\n${section.body}`)
+    .join("\n\n");
 }
 
 export function isFieldComplete(

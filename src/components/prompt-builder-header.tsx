@@ -37,6 +37,8 @@ export function PromptBuilderHeader({
   onExportSession,
   onImportSession,
   onLoadExample,
+  onOpenLibrary,
+  onCopyShareLink,
   onOpenProofLab,
   onReset,
 }: {
@@ -53,6 +55,8 @@ export function PromptBuilderHeader({
   onExportSession: () => void;
   onImportSession: (event: ChangeEvent<HTMLInputElement>) => void;
   onLoadExample: () => void;
+  onOpenLibrary: () => void;
+  onCopyShareLink: () => void;
   onOpenProofLab: () => void;
   onReset: () => void;
 }) {
@@ -145,6 +149,12 @@ export function PromptBuilderHeader({
             />
             <button type="button" onClick={() => runTool(onLoadExample)}>
               Load example
+            </button>
+            <button type="button" onClick={() => runTool(onOpenLibrary)}>
+              Saved prompts
+            </button>
+            <button type="button" onClick={() => runTool(onCopyShareLink)}>
+              Copy share link
             </button>
             <button
               type="button"

@@ -259,6 +259,83 @@ export function DictationSession({
   );
 }
 
+export type CraftDictationApi = {
+  activeField: DictationField | null;
+  phase: DictationPhase | null;
+  transcript: string;
+  waveformRef: RefObject<HTMLDivElement | null>;
+  start: (field: DictationField, label: string) => void;
+  cancel: () => void;
+  stop: () => void;
+  submit: () => void;
+};
+
+export function CraftDictationField({
+  id,
+  field,
+  label,
+  value,
+  placeholder,
+  rows,
+  required,
+  attention,
+  onChange,
+  dictation,
+}: {
+  id: string;
+  field: DictationField;
+  label: string;
+  value: string;
+  placeholder: string;
+  rows: number;
+  required?: boolean;
+  attention?: boolean;
+  onChange: (value: string) => void;
+  dictation: CraftDictationApi;
+}) {
+  const isRecording =
+    dictation.activeField === field && dictation.phase === "recording";
+  const lowerLabel = label.toLowerCase();
+
+  return (
+    <>
+      <span className="dictation-control">
+        <textarea
+          id={id}
+          className={attention ? "is-attention-target" : undefined}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          placeholder={placeholder}
+          rows={rows}
+          required={required}
+        />
+        <button
+          className={isRecording ? "mic-button is-listening" : "mic-button"}
+          type="button"
+          onClick={() => dictation.start(field, label)}
+          aria-pressed={isRecording}
+          aria-label={
+            isRecording ? `Stop dictating ${lowerLabel}` : `Dictate ${lowerLabel}`
+          }
+        >
+          {isRecording ? "Stop" : "Mic"}
+        </button>
+      </span>
+      <DictationSession
+        activeField={dictation.activeField}
+        field={field}
+        label={label}
+        phase={dictation.phase}
+        transcript={dictation.transcript}
+        waveformRef={dictation.waveformRef}
+        onCancel={dictation.cancel}
+        onStop={dictation.stop}
+        onSubmit={dictation.submit}
+      />
+    </>
+  );
+}
+
 function InfoDisclosure({
   field,
 }: {

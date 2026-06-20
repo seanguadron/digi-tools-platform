@@ -413,7 +413,6 @@
         "id",
         "code",
         "section",
-        "family",
         "driver",
         "goals",
         "grades",
@@ -426,10 +425,6 @@
           "pattern": "^[A-Z][A-Z0-9]*$"
         },
         "section": { "$ref": "#/$defs/section" },
-        "family": {
-          "type": "string",
-          "enum": ["Tactic", "Modifier"]
-        },
         "driver": { "$ref": "#/$defs/trackId" },
         "goals": {
           "type": "array",

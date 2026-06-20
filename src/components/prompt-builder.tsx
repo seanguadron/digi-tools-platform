@@ -1,23 +1,20 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import type { ChangeEvent } from "react";
 import { PromptArchetypeToolbar } from "@/components/prompt-archetype-toolbar";
 import { PromptBuilderHeader } from "@/components/prompt-builder-header";
-import { PromptCardWorkbench } from "@/components/prompt-card-workbench";
-import {
-  CraftCard,
-  DictationSession,
-  FieldHeading,
-  FlowActions,
-} from "@/components/prompt-builder-ui";
+import { CraftFlowPanels } from "@/components/prompt-flow-panels";
+import type { CraftDictationApi } from "@/components/prompt-builder-ui";
+import { PromptLibraryPanel } from "@/components/prompt-library-panel";
 import { PromptOutputDock } from "@/components/prompt-output-dock";
 import {
   PromptProofLab,
   ProofScenarioStatus,
 } from "@/components/prompt-proof-lab";
-import { PromptRoleWorkbench } from "@/components/prompt-role-workbench";
 import { usePromptDictation } from "@/hooks/use-prompt-dictation";
+import { useCraftFlowNavigation } from "@/hooks/use-craft-flow-navigation";
 import { usePromptBuilderHistory } from "@/hooks/use-prompt-builder-history";
 import { usePromptBuilderPersistence } from "@/hooks/use-prompt-builder-persistence";
 import { downloadTextFile } from "@/lib/browser-download";
@@ -32,13 +29,11 @@ import {
   getRecommendedTrackValues,
   TRACK_IDS,
 } from "@/lib/prompt-card-system";
-import type {
-  CardSection,
-  TrackId,
-} from "@/lib/prompt-card-system";
+import type { CardSection, TrackId } from "@/lib/prompt-card-system";
 import {
   applyRecommendedTracks,
   buildPrompt,
+  buildPromptSections,
   CRAFT_PARTS,
   clearEquippedCards,
   createCardSystem,
@@ -55,10 +50,8 @@ import {
   toggleEquippedCard,
 } from "@/lib/prompt-builder-state";
 import {
-  FLOW_PANEL_COUNT,
   FLOW_PANEL_INDEX,
   getCraftStepIndexForPanel,
-  getCraftStepPanel,
   getLegacyProofPanel,
   getNextIncompletePanel,
 } from "@/lib/prompt-navigation";
@@ -71,44 +64,25 @@ import {
   type ProofScenario,
 } from "@/lib/prompt-proof-scenarios";
 import {
+  decodeSessionParam,
+  encodeSessionParam,
   restorePromptSession,
   serializePromptSession,
 } from "@/lib/prompt-session";
+import {
+  buildCustomArchetype,
+  deleteCustomArchetype,
+  listCustomArchetypes,
+  saveCustomArchetype,
+} from "@/lib/prompt-custom-archetypes";
+import {
+  deleteFromLibrary,
+  listSavedPrompts,
+  saveToLibrary,
+} from "@/lib/prompt-library";
+import type { SavedPrompt } from "@/lib/prompt-library";
 import { insertIntoSlots } from "@/lib/slot-order";
 import type { PromptRole } from "@/lib/prompt-types";
-
-function CraftSubpageTabs({
-  label,
-  active,
-  onWrite,
-  onCards,
-}: {
-  label: string;
-  active: "write" | "cards";
-  onWrite: () => void;
-  onCards: () => void;
-}) {
-  return (
-    <div className="flow-subnav" aria-label={`${label} substeps`}>
-      <button
-        className={active === "write" ? "is-active" : ""}
-        type="button"
-        onClick={onWrite}
-        aria-current={active === "write" ? "step" : undefined}
-      >
-        Write
-      </button>
-      <button
-        className={active === "cards" ? "is-active" : ""}
-        type="button"
-        onClick={onCards}
-        aria-current={active === "cards" ? "step" : undefined}
-      >
-        Cards
-      </button>
-    </div>
-  );
-}
 
 export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [draft, setDraft] = useState<PromptDraft>(EMPTY_DRAFT);
@@ -125,20 +99,17 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [activeArchetypeId, setActiveArchetypeId] = useState<string | null>(
     null,
   );
-  const [activePanel, setActivePanel] = useState(0);
-  const [attentionTargetId, setAttentionTargetId] = useState<string | null>(
-    null,
-  );
-  const [outputExpanded, setOutputExpanded] = useState(false);
+  const [outputExpanded, setOutputExpanded] = useState(true);
   const [proofLabOpen, setProofLabOpen] = useState(false);
   const [activeProofId, setActiveProofId] = useState<string | null>(null);
-  const panelHeadingRefs = useRef<Array<HTMLHeadingElement | null>>([]);
-  const flowViewportRef = useRef<HTMLDivElement | null>(null);
-  const shouldFocusPanelRef = useRef(false);
-  const pendingFocusTargetRef = useRef<string | null>(null);
-  const lastContextPanelRef = useRef<number>(FLOW_PANEL_INDEX.contextCards);
-  const lastTargetPanelRef = useRef<number>(FLOW_PANEL_INDEX.targetCards);
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  const [savedPrompts, setSavedPrompts] = useState<SavedPrompt[]>([]);
+  const [customArchetypes, setCustomArchetypes] = useState<PromptArchetype[]>(
+    [],
+  );
   const formatCode = getFormatCode(draft.format);
+  const portalTarget =
+    typeof document === "undefined" ? null : document.body;
   const activeProof = PROOF_SCENARIOS.find(
     (scenario) => scenario.id === activeProofId,
   );
@@ -188,12 +159,15 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     [roles],
   );
   const equippedInstructions = useMemo(
-    () =>
-      getEquippedInstructions(cardSystem.equipped, cardSystem.tracks),
+    () => getEquippedInstructions(cardSystem.equipped, cardSystem.tracks),
     [cardSystem.equipped, cardSystem.tracks],
   );
   const prompt = useMemo(
     () => buildPrompt(draft, selectedRoles, equippedInstructions),
+    [draft, equippedInstructions, selectedRoles],
+  );
+  const promptSections = useMemo(
+    () => buildPromptSections(draft, selectedRoles, equippedInstructions),
     [draft, equippedInstructions, selectedRoles],
   );
   const missingFields = REQUIRED_FIELDS.filter(({ field }) => {
@@ -220,8 +194,9 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     isFieldComplete(draft, "targetAudience"),
   ];
   const completedStepCount = flowStepComplete.filter(Boolean).length;
+  const nav = useCraftFlowNavigation(flowStepComplete);
   const nextIncompletePanel = getNextIncompletePanel(
-    activePanel,
+    nav.activePanel,
     flowStepComplete,
   );
   const nextIncompleteStepIndex =
@@ -232,47 +207,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     nextIncompleteStepIndex < 0
       ? null
       : CRAFT_PARTS[nextIncompleteStepIndex];
-  const activeCraftStepIndex = getCraftStepIndexForPanel(activePanel);
-
-  useEffect(() => {
-    if (
-      activePanel === FLOW_PANEL_INDEX.contextWrite ||
-      activePanel === FLOW_PANEL_INDEX.contextCards
-    ) {
-      lastContextPanelRef.current = activePanel;
-    }
-
-    if (
-      activePanel === FLOW_PANEL_INDEX.targetWrite ||
-      activePanel === FLOW_PANEL_INDEX.targetCards
-    ) {
-      lastTargetPanelRef.current = activePanel;
-    }
-  }, [activePanel]);
-
-  useEffect(() => {
-    const focusTargetId = pendingFocusTargetRef.current;
-
-    if (!shouldFocusPanelRef.current && !focusTargetId) {
-      return;
-    }
-
-    shouldFocusPanelRef.current = false;
-    pendingFocusTargetRef.current = null;
-
-    window.requestAnimationFrame(() => {
-      if (flowViewportRef.current) {
-        flowViewportRef.current.scrollLeft = 0;
-      }
-
-      if (!focusTargetId) {
-        panelHeadingRefs.current[activePanel]?.focus({ preventScroll: true });
-        return;
-      }
-
-      focusControl(focusTargetId);
-    });
-  }, [activePanel]);
+  const activeCraftStepIndex = getCraftStepIndexForPanel(nav.activePanel);
 
   useEffect(() => {
     function handleHistoryShortcut(event: KeyboardEvent) {
@@ -300,49 +235,45 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     return () => window.removeEventListener("keydown", handleHistoryShortcut);
   }, [history, setSpeechMessage]);
 
-  function focusControl(controlId: string) {
-    window.setTimeout(() => {
-      const target = document.getElementById(controlId);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setSavedPrompts(listSavedPrompts());
+      setCustomArchetypes(listCustomArchetypes());
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
-      target?.scrollIntoView({
-        block: "center",
-        inline: "nearest",
-        behavior: "smooth",
-      });
-      target?.focus({ preventScroll: true });
-      setAttentionTargetId(controlId);
-      window.setTimeout(() => {
-        setAttentionTargetId((current) =>
-          current === controlId ? null : current,
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const shared = new URLSearchParams(window.location.search).get("p");
+      if (!shared) {
+        return;
+      }
+
+      try {
+        const { draft: nextDraft, cardSystem: nextCardSystem } =
+          decodeSessionParam(shared, roles);
+        setDraft(nextDraft);
+        setCardSystem(nextCardSystem);
+        const leadRole = roles.find(
+          (role) => role.id === nextDraft.roleIds[0],
         );
-      }, 1200);
-    }, 280);
-  }
-
-  function navigateToPanel(panelIndex: number, focusTargetId?: string) {
-    const boundedPanel = Math.max(0, Math.min(panelIndex, FLOW_PANEL_COUNT - 1));
-    pendingFocusTargetRef.current = focusTargetId ?? null;
-    shouldFocusPanelRef.current = !focusTargetId;
-    setActivePanel(boundedPanel);
-
-    if (focusTargetId && boundedPanel === activePanel) {
-      pendingFocusTargetRef.current = null;
-      focusControl(focusTargetId);
-    }
-  }
-
-  function navigateToCraftStep(stepIndex: number) {
-    const preferredPanel =
-      stepIndex === 0
-        ? lastContextPanelRef.current
-        : stepIndex === 4
-          ? lastTargetPanelRef.current
-          : undefined;
-
-    navigateToPanel(
-      getCraftStepPanel(stepIndex, flowStepComplete, preferredPanel),
-    );
-  }
+        setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+        setRoleWorkbenchVersion((current) => current + 1);
+        setActiveArchetypeId(null);
+        setSpeechMessage("Shared prompt loaded.");
+      } catch {
+        setSpeechMessage("That shared link could not be read.");
+      } finally {
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${window.location.hash}`,
+        );
+      }
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [categories, roles, setSpeechMessage]);
 
   function focusMissingField(field: string) {
     const missingTargets: Record<string, { panel: number; controlId: string }> =
@@ -375,7 +306,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     }
 
     setOutputExpanded(false);
-    navigateToPanel(target.panel, target.controlId);
+    nav.navigateToPanel(target.panel, target.controlId);
   }
 
   function updateDraft(
@@ -513,7 +444,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     setRoleSelectionMessage("");
     setActiveArchetypeId(null);
     setActiveProofId(null);
-    setActivePanel(FLOW_PANEL_INDEX.guide);
+    nav.setActivePanel(FLOW_PANEL_INDEX.guide);
     setCopyState("idle");
     setSpeechMessage("");
   }
@@ -599,7 +530,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     setSpeechMessage(
       `${scenario.name} proof loaded. Follow the verification checklist.`,
     );
-    navigateToPanel(getLegacyProofPanel(scenario.panel));
+    nav.navigateToPanel(getLegacyProofPanel(scenario.panel));
   }
 
   function toggleRole(role: PromptRole) {
@@ -612,17 +543,13 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         ...current,
         roleIds: current.roleIds.filter((roleId) => roleId !== role.id),
       }));
-      setRoleSelectionMessage(
-        `${role.name} removed.`,
-      );
+      setRoleSelectionMessage(`${role.name} removed.`);
       setCopyState("idle");
       return;
     }
 
     if (draft.roleIds.length >= 3) {
-      setRoleSelectionMessage(
-        "Loadout full. Remove a role first.",
-      );
+      setRoleSelectionMessage("Loadout full. Remove a role first.");
       return;
     }
 
@@ -684,12 +611,32 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     }
   }
 
-  function downloadPrompt() {
+  function downloadPrompt(format: "md" | "txt" | "json") {
+    if (format === "json") {
+      const data = promptSections
+        ? Object.fromEntries(
+            promptSections.map((section) => [section.key, section.body]),
+          )
+        : {};
+      downloadTextFile(
+        "craft-prompt.json",
+        `${JSON.stringify(data, null, 2)}\n`,
+        "application/json;charset=utf-8",
+      );
+      return;
+    }
+
     downloadTextFile(
-      "craft-prompt.md",
+      `craft-prompt.${format}`,
       `${prompt}\n`,
-      "text/markdown;charset=utf-8",
+      format === "txt"
+        ? "text/plain;charset=utf-8"
+        : "text/markdown;charset=utf-8",
     );
+  }
+
+  function printPrompt() {
+    window.print();
   }
 
   function downloadSession() {
@@ -733,6 +680,60 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     }
   }
 
+  function saveCurrentToLibrary(name: string) {
+    setSavedPrompts(saveToLibrary(name, draft, cardSystem));
+    setSpeechMessage("Saved to your prompt library.");
+  }
+
+  function loadSavedPrompt(entry: SavedPrompt) {
+    history.checkpoint();
+    cancelDictation(true);
+    setDraft(entry.draft);
+    setCardSystem(entry.cardSystem);
+    const leadRole = roles.find((role) => role.id === entry.draft.roleIds[0]);
+    setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+    setRoleWorkbenchVersion((current) => current + 1);
+    setActiveArchetypeId(null);
+    setActiveProofId(null);
+    setLibraryOpen(false);
+    setCopyState("idle");
+    setSpeechMessage(`Loaded "${entry.name}".`);
+  }
+
+  function removeSavedPrompt(id: string) {
+    setSavedPrompts(deleteFromLibrary(id));
+  }
+
+  function saveCurrentAsPreset(name: string) {
+    const archetype = buildCustomArchetype(
+      name,
+      formatCode,
+      draft.roleIds,
+      draft.action,
+      draft.formatNotes,
+      cardSystem,
+    );
+    setCustomArchetypes(saveCustomArchetype(archetype));
+    setActiveArchetypeId(archetype.id);
+    setSpeechMessage(`Saved "${archetype.name}" as a preset.`);
+  }
+
+  function removeCustomPreset(id: string) {
+    setCustomArchetypes(deleteCustomArchetype(id));
+    setActiveArchetypeId((current) => (current === id ? null : current));
+  }
+
+  async function copyShareLink() {
+    try {
+      const param = encodeSessionParam(draft, cardSystem);
+      const url = `${window.location.origin}${window.location.pathname}?p=${param}`;
+      await navigator.clipboard.writeText(url);
+      setSpeechMessage("Share link copied to clipboard.");
+    } catch {
+      setSpeechMessage("Could not copy the share link.");
+    }
+  }
+
   function undoLastChange() {
     if (history.undo()) {
       setCopyState("idle");
@@ -753,17 +754,22 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       return;
     }
 
-    navigateToPanel(nextIncompletePanel);
+    nav.navigateToPanel(nextIncompletePanel);
   }
 
+  const dictationApi: CraftDictationApi = {
+    activeField: listeningField,
+    phase: dictationPhase,
+    transcript: dictationTranscript,
+    waveformRef,
+    start: startDictation,
+    cancel: () => cancelDictation(),
+    stop: stopDictation,
+    submit: submitDictation,
+  };
+
   return (
-    <div
-      className={
-        outputExpanded
-          ? "tool-page prompt-flow-page is-output-expanded"
-          : "tool-page prompt-flow-page"
-      }
-    >
+    <div className="tool-page prompt-flow-page">
       <PromptBuilderHeader
         saveStatus={persistence.status}
         lastSavedAt={persistence.lastSavedAt}
@@ -782,6 +788,8 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         onExportSession={downloadSession}
         onImportSession={importSession}
         onLoadExample={loadExample}
+        onOpenLibrary={() => setLibraryOpen(true)}
+        onCopyShareLink={copyShareLink}
         onOpenProofLab={() => {
           setProofLabOpen(true);
           setOutputExpanded(false);
@@ -796,17 +804,26 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         onLoad={loadProofScenario}
       />
 
+      <PromptLibraryPanel
+        open={libraryOpen}
+        savedPrompts={savedPrompts}
+        onClose={() => setLibraryOpen(false)}
+        onSave={saveCurrentToLibrary}
+        onLoad={loadSavedPrompt}
+        onDelete={removeSavedPrompt}
+      />
+
       <nav className="flow-stepper" aria-label="C.R.A.F.T. builder steps">
         <button
           className={
-            activePanel === FLOW_PANEL_INDEX.guide
+            nav.activePanel === FLOW_PANEL_INDEX.guide
               ? "flow-overview-button is-active"
               : "flow-overview-button"
           }
           type="button"
-          onClick={() => navigateToPanel(FLOW_PANEL_INDEX.guide)}
+          onClick={() => nav.navigateToPanel(FLOW_PANEL_INDEX.guide)}
           aria-current={
-            activePanel === FLOW_PANEL_INDEX.guide ? "step" : undefined
+            nav.activePanel === FLOW_PANEL_INDEX.guide ? "step" : undefined
           }
         >
           Guide
@@ -826,7 +843,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
                   .filter(Boolean)
                   .join(" ")}
                 type="button"
-                onClick={() => navigateToCraftStep(index)}
+                onClick={() => nav.navigateToCraftStep(index)}
                 aria-current={active ? "step" : undefined}
                 aria-label={`${label}${complete ? ", complete" : ""}`}
                 key={letter}
@@ -839,819 +856,99 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         </div>
       </nav>
 
-      <div className="builder-main-layout">
+      <div
+        className={
+          outputExpanded
+            ? "builder-main-layout"
+            : "builder-main-layout is-output-collapsed"
+        }
+      >
         <PromptArchetypeToolbar
           archetypes={PROMPT_ARCHETYPES}
+          customArchetypes={customArchetypes}
           roles={roles}
           activeId={activeArchetypeId}
           onApply={applyArchetype}
+          onSaveCustom={saveCurrentAsPreset}
+          onDeleteCustom={removeCustomPreset}
         />
 
         <div className="flow-workspace">
-        <ProofScenarioStatus
-          scenario={activeProof}
-          onDismiss={() => setActiveProofId(null)}
-        />
-        <form
-          className="builder-form flow-form"
-          aria-label="C.R.A.F.T. prompt brief"
-        >
-          <div className="flow-viewport" ref={flowViewportRef}>
-            <div
-              className="flow-track"
-              style={{
-                transform: `translate3d(-${activePanel * 100}%, 0, 0)`,
-              }}
-            >
-              <section
-                className="flow-panel flow-intro-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.guide}
-                inert={activePanel !== FLOW_PANEL_INDEX.guide}
-              >
-                <div className="craft-method" aria-labelledby="craft-method-title">
-                  <div className="craft-method-copy">
-                    <h2
-                      id="craft-method-title"
-                      tabIndex={-1}
-                      ref={(node) => {
-                        panelHeadingRefs.current[FLOW_PANEL_INDEX.guide] = node;
-                      }}
-                    >
-                      Build with C.R.A.F.T.
-                    </h2>
-                    <p>
-                      Set the context, role, actions, format, and audience. Your
-                      prompt updates as you go.
-                    </p>
-                  </div>
-                  <section
-                    className="output-type-setup"
-                    aria-labelledby="output-type-setup-title"
-                  >
-                    <div className="workbench-section-heading">
-                      <div>
-                        <strong id="output-type-setup-title">Output type</strong>
-                      </div>
-                       <small>{formatCode}</small>
-                    </div>
-                    <div className="output-type-card-row" role="radiogroup">
-                      {FORMAT_OPTIONS.map((option) => {
-                        const selected = draft.format === option.value;
-                        return (
-                          <button
-                            className={
-                              selected
-                                ? "output-type-card is-selected"
-                                : "output-type-card"
-                            }
-                            type="button"
-                            role="radio"
-                            aria-checked={selected}
-                            onClick={() => selectOutputType(option.value)}
-                            key={option.code}
-                          >
-                            <span>{option.code}</span>
-                            <strong>{option.name}</strong>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </section>
-                  <div className="craft-definition" role="list">
-                    {CRAFT_PARTS.map(
-                      ({ letter, label, summary }, index) => (
-                        <button
-                          className="craft-definition-card"
-                          type="button"
-                          role="listitem"
-                          onClick={() => navigateToCraftStep(index)}
-                          key={letter}
-                        >
-                          <span className="craft-definition-letter">
-                            {letter}
-                          </span>
-                          <strong>{label}</strong>
-                          <small>{summary}</small>
-                        </button>
-                      ),
-                    )}
-                  </div>
-                  <FlowActions
-                    onNext={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-                    nextLabel="Start"
-                  />
-                </div>
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.contextWrite}
-                inert={activePanel !== FLOW_PANEL_INDEX.contextWrite}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">C</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[
-                        FLOW_PANEL_INDEX.contextWrite
-                      ] = node;
-                    }}
-                  >
-                    Context
-                  </h2>
-                </div>
-                <CraftSubpageTabs
-                  label="Context"
-                  active="write"
-                  onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-                  onCards={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-                />
-
-                <div className="flow-panel-card">
-                  <CraftCard
-                    letter="C"
-                    complete={isFieldComplete(draft, "context")}
-                  >
-                    <div className="field craft-field">
-                      <FieldHeading
-                        field="context"
-                        label="What are you working on?"
-                        controlId="prompt-context"
-                        hint="Give the model the topic, goal, source material, constraints, exclusions, and uncertainty."
-                      />
-                      <div className="brief-next-card">
-                        <strong>Cards come next</strong>
-                        <p>
-                          After this, context cards tune scope, constraints,
-                          evidence, and assumptions.
-                        </p>
-                      </div>
-                      <span className="dictation-control">
-                        <textarea
-                          id="prompt-context"
-                          className={
-                            attentionTargetId === "prompt-context"
-                              ? "is-attention-target"
-                              : undefined
-                          }
-                          value={draft.context}
-                          onChange={(event) =>
-                            updateDraft("context", event.target.value)
-                          }
-                          placeholder="Describe the raw situation: goal, facts, source material, constraints, exclusions, uncertainty."
-                          rows={8}
-                          required
-                        />
-                        <button
-                          className={
-                            listeningField === "context" &&
-                            dictationPhase === "recording"
-                              ? "mic-button is-listening"
-                              : "mic-button"
-                          }
-                          type="button"
-                          onClick={() => startDictation("context", "Context")}
-                          aria-pressed={
-                            listeningField === "context" &&
-                            dictationPhase === "recording"
-                          }
-                          aria-label={
-                            listeningField === "context" &&
-                            dictationPhase === "recording"
-                              ? "Stop dictating context"
-                              : "Dictate context"
-                          }
-                        >
-                          {listeningField === "context" &&
-                          dictationPhase === "recording"
-                            ? "Stop"
-                            : "Mic"}
-                        </button>
-                      </span>
-                      <DictationSession
-                        activeField={listeningField}
-                        field="context"
-                        label="Context"
-                        phase={dictationPhase}
-                        transcript={dictationTranscript}
-                        waveformRef={waveformRef}
-                        onCancel={() => cancelDictation()}
-                        onStop={stopDictation}
-                        onSubmit={submitDictation}
-                      />
-                    </div>
-                  </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.guide)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-                  nextLabel="Next: context cards"
-                />
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.contextCards}
-                inert={activePanel !== FLOW_PANEL_INDEX.contextCards}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">C</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[
-                        FLOW_PANEL_INDEX.contextCards
-                      ] = node;
-                    }}
-                  >
-                    Context cards
-                  </h2>
-                </div>
-                <CraftSubpageTabs
-                  label="Context"
-                  active="cards"
-                  onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-                  onCards={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-                />
-
-                <div className="flow-panel-card">
-                  <CraftCard
-                    letter="C"
-                    complete={isFieldComplete(draft, "context")}
-                  >
-                    <div className="field craft-field">
-                      <FieldHeading
-                        field="context"
-                        label="Context modifiers"
-                        controlId="context-card-workbench"
-                        labelControl={false}
-                      />
-                      <div id="context-card-workbench">
-                        <PromptCardWorkbench
-                          section="context"
-                          formatCode={formatCode}
-                          values={cardSystem.tracks}
-                          equippedIds={cardSystem.equipped.context}
-                          suggestedId={cardSystem.suggested.context}
-                          onTrackChange={changeTrack}
-                          onToggleCard={(lineageId) =>
-                            toggleWorkbenchCard("context", lineageId)
-                          }
-                          onDropCard={(slotIndex, lineageId) =>
-                            dropWorkbenchCard("context", slotIndex, lineageId)
-                          }
-                          onRemoveCard={(slotIndex) =>
-                            removeWorkbenchCard("context", slotIndex)
-                          }
-                          onClearCards={() => clearWorkbenchCards("context")}
-                        />
-                      </div>
-                    </div>
-                  </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.role)}
-                />
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.role}
-                inert={activePanel !== FLOW_PANEL_INDEX.role}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">R</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[FLOW_PANEL_INDEX.role] = node;
-                    }}
-                  >
-                    Roles
-                  </h2>
-                </div>
-
-                <div className="flow-panel-card">
-          <CraftCard letter="R" complete={selectedRoles.length > 0}>
-            <div className="field craft-field role-loadout">
-              <FieldHeading
-                 field="role"
-                 label="Role"
-                 controlId="role-loadout-target"
-                labelControl={false}
-              />
-
-              <div
-                id="role-loadout-target"
-                tabIndex={-1}
-                data-attention={
-                  attentionTargetId === "role-loadout-target"
-                    ? "true"
-                    : undefined
-                }
-              >
-                <PromptRoleWorkbench
-                  key={roleWorkbenchVersion}
-                  roles={roles}
-                  selectedRoleIds={draft.roleIds}
-                  activeCategory={activeRoleCategory}
-                  selectionMessage={roleSelectionMessage}
-                  onCategoryChange={setActiveRoleCategory}
-                  onToggleRole={toggleRole}
-                  onDropRole={dropRoleIntoSlot}
-                  onClearRoles={clearRoleLoadout}
-                />
-              </div>
-            </div>
-          </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
-                />
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.action}
-                inert={activePanel !== FLOW_PANEL_INDEX.action}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">A</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[FLOW_PANEL_INDEX.action] = node;
-                    }}
-                  >
-                    Actions
-                  </h2>
-                </div>
-
-                <div className="flow-panel-card">
-          <CraftCard
-            letter="A"
-            complete={
-              isFieldComplete(draft, "action") ||
-              cardSystem.equipped.action.some(Boolean)
-            }
+          <ProofScenarioStatus
+            scenario={activeProof}
+            onDismiss={() => setActiveProofId(null)}
+          />
+          <form
+            className="builder-form flow-form"
+            aria-label="C.R.A.F.T. prompt brief"
           >
-            <div className="field craft-field">
-              <FieldHeading
-                 field="action"
-                 label="Action"
-                 controlId="prompt-action"
-              />
-              <PromptCardWorkbench
-                section="action"
-                formatCode={formatCode}
-                values={cardSystem.tracks}
-                equippedIds={cardSystem.equipped.action}
-                suggestedId={cardSystem.suggested.action}
-                onTrackChange={changeTrack}
-                onToggleCard={(lineageId) =>
-                  toggleWorkbenchCard("action", lineageId)
-                }
-                onDropCard={(slotIndex, lineageId) =>
-                  dropWorkbenchCard("action", slotIndex, lineageId)
-                }
-                onRemoveCard={(slotIndex) =>
-                  removeWorkbenchCard("action", slotIndex)
-                }
-                onClearCards={() => clearWorkbenchCards("action")}
-              />
-              <label className="workbench-text-label" htmlFor="prompt-action">
-                Optional custom steps
-              </label>
-              <span className="dictation-control">
-                <textarea
-                  id="prompt-action"
-                  className={
-                    attentionTargetId === "prompt-action"
-                      ? "is-attention-target"
-                      : undefined
-                  }
-                  value={draft.action}
-                  onChange={(event) => updateDraft("action", event.target.value)}
-                  placeholder={
-                    "Add any steps the cards do not cover."
-                  }
-                  rows={7}
-                  required
-                />
-                <button
-                  className={
-                    listeningField === "action" &&
-                    dictationPhase === "recording"
-                      ? "mic-button is-listening"
-                      : "mic-button"
-                  }
-                  type="button"
-                  onClick={() => startDictation("action", "Action")}
-                  aria-pressed={
-                    listeningField === "action" &&
-                    dictationPhase === "recording"
-                  }
-                  aria-label={
-                    listeningField === "action" &&
-                    dictationPhase === "recording"
-                      ? "Stop dictating action"
-                      : "Dictate action"
-                  }
-                >
-                  {listeningField === "action" &&
-                  dictationPhase === "recording"
-                    ? "Stop"
-                    : "Mic"}
-                </button>
-              </span>
-              <DictationSession
-                activeField={listeningField}
-                field="action"
-                label="Action"
-                phase={dictationPhase}
-                transcript={dictationTranscript}
-                waveformRef={waveformRef}
-                onCancel={() => cancelDictation()}
-                onStop={stopDictation}
-                onSubmit={submitDictation}
-              />
-            </div>
-          </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.role)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
-                />
-              </section>
+            <CraftFlowPanels
+              activePanel={nav.activePanel}
+              registerPanelHeading={nav.registerPanelHeading}
+              flowViewportRef={nav.flowViewportRef}
+              draft={draft}
+              formatCode={formatCode}
+              cardSystem={cardSystem}
+              selectedRoles={selectedRoles}
+              roles={roles}
+              attentionTargetId={nav.attentionTargetId}
+              roleWorkbenchVersion={roleWorkbenchVersion}
+              activeRoleCategory={activeRoleCategory}
+              roleSelectionMessage={roleSelectionMessage}
+              dictation={dictationApi}
+              navigateToPanel={nav.navigateToPanel}
+              navigateToCraftStep={nav.navigateToCraftStep}
+              onSelectOutputType={selectOutputType}
+              onUpdateDraft={updateDraft}
+              onChangeTrack={changeTrack}
+              onToggleCard={toggleWorkbenchCard}
+              onDropCard={dropWorkbenchCard}
+              onRemoveCard={removeWorkbenchCard}
+              onClearCards={clearWorkbenchCards}
+              onApplyRecommended={applyRecommendedSetup}
+              onSetRoleCategory={setActiveRoleCategory}
+              onToggleRole={toggleRole}
+              onDropRole={dropRoleIntoSlot}
+              onClearRoles={clearRoleLoadout}
+              onReviewOutput={() => setOutputExpanded(true)}
+              onReset={resetDraft}
+            />
 
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.format}
-                inert={activePanel !== FLOW_PANEL_INDEX.format}
+            {speechMessage ? (
+              <p
+                className="speech-status flow-speech-status"
+                role="status"
+                aria-live="polite"
               >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">F</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[FLOW_PANEL_INDEX.format] = node;
-                    }}
-                  >
-                    Format
-                  </h2>
-                </div>
+                {speechMessage}
+              </p>
+            ) : null}
+          </form>
 
-                <div className="flow-panel-card">
-          <CraftCard letter="F" complete={isFieldComplete(draft, "format")}>
-            <div className="field craft-field">
-              <FieldHeading
-                 field="format"
-                 label="Format"
-                 controlId="prompt-format-options"
-                labelControl={false}
-              />
-              <PromptCardWorkbench
-                section="format"
-                formatCode={formatCode}
-                values={cardSystem.tracks}
-                equippedIds={cardSystem.equipped.format}
-                suggestedId={cardSystem.suggested.format}
-                onTrackChange={changeTrack}
-                onToggleCard={(lineageId) =>
-                  toggleWorkbenchCard("format", lineageId)
-                }
-                onDropCard={(slotIndex, lineageId) =>
-                  dropWorkbenchCard("format", slotIndex, lineageId)
-                }
-                onRemoveCard={(slotIndex) =>
-                  removeWorkbenchCard("format", slotIndex)
-                }
-                onClearCards={() => clearWorkbenchCards("format")}
-              />
-
-              <section
-                className="format-filter-section"
-                aria-labelledby="output-type-filter-label"
-              >
-                <div className="workbench-section-heading">
-                  <strong id="output-type-filter-label">Output type</strong>
-                  <small>{formatCode}</small>
-                </div>
-                <div
-                  className="format-filter-tabs"
-                  id="prompt-format-options"
-                  role="radiogroup"
-                  data-attention={
-                    attentionTargetId === "prompt-format-options"
-                      ? "true"
-                      : undefined
-                  }
-                >
-                  {FORMAT_OPTIONS.map((option) => {
-                    const selected = draft.format === option.value;
-
-                    return (
-                      <button
-                        className={
-                          selected
-                            ? "format-filter-tab is-active"
-                            : "format-filter-tab"
-                        }
-                        type="button"
-                        role="radio"
-                        aria-checked={selected}
-                        onClick={() => selectOutputType(option.value)}
-                        key={option.value}
-                      >
-                        <span>{option.code}</span>
-                        <strong>{option.name}</strong>
-                      </button>
-                    );
-                  })}
-                </div>
-              </section>
-
-              {cardSystem.overrides.length > 0 ? (
-                <div className="recommended-setup-notice">
-                  <span>
-                    {cardSystem.overrides.length} track{" "}
-                    {cardSystem.overrides.length === 1 ? "override" : "overrides"}
-                  </span>
-                  <button type="button" onClick={applyRecommendedSetup}>
-                    Use recommended
-                  </button>
-                </div>
-              ) : null}
-
-              <div className="field">
-                <label htmlFor="prompt-format-notes">
-                  Optional format notes
-                </label>
-                <span className="dictation-control">
-                  <textarea
-                    id="prompt-format-notes"
-                    value={draft.formatNotes}
-                    onChange={(event) =>
-                      updateDraft("formatNotes", event.target.value)
-                    }
-                    placeholder="Length, sections, citations, or other requirements."
-                    rows={4}
-                  />
-                  <button
-                    className={
-                      listeningField === "formatNotes" &&
-                      dictationPhase === "recording"
-                        ? "mic-button is-listening"
-                        : "mic-button"
-                    }
-                    type="button"
-                    onClick={() =>
-                      startDictation("formatNotes", "Format requirements")
-                    }
-                    aria-pressed={
-                      listeningField === "formatNotes" &&
-                      dictationPhase === "recording"
-                    }
-                    aria-label={
-                      listeningField === "formatNotes" &&
-                      dictationPhase === "recording"
-                        ? "Stop dictating format requirements"
-                        : "Dictate format requirements"
-                    }
-                  >
-                    {listeningField === "formatNotes" &&
-                    dictationPhase === "recording"
-                      ? "Stop"
-                      : "Mic"}
-                  </button>
-                </span>
-                <DictationSession
-                  activeField={listeningField}
-                  field="formatNotes"
-                  label="Format requirements"
-                  phase={dictationPhase}
-                  transcript={dictationTranscript}
-                  waveformRef={waveformRef}
-                  onCancel={() => cancelDictation()}
-                  onStop={stopDictation}
-                  onSubmit={submitDictation}
-                />
-              </div>
-            </div>
-          </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-                />
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.targetWrite}
-                inert={activePanel !== FLOW_PANEL_INDEX.targetWrite}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">T</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[
-                        FLOW_PANEL_INDEX.targetWrite
-                      ] = node;
-                    }}
-                  >
-                    Target audience
-                  </h2>
-                </div>
-                <CraftSubpageTabs
-                  label="Target audience"
-                  active="write"
-                  onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-                  onCards={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-                />
-
-                <div className="flow-panel-card">
-                  <CraftCard
-                    letter="T"
-                    complete={isFieldComplete(draft, "targetAudience")}
-                  >
-                    <div className="field craft-field">
-                      <FieldHeading
-                        field="targetAudience"
-                        label="Who exactly are you targeting?"
-                        controlId="prompt-target-audience"
-                        hint="Name the audience, knowledge level, decision context, tone sensitivity, and desired outcome."
-                      />
-                      <div className="brief-next-card">
-                        <strong>Cards come next</strong>
-                        <p>
-                          After this, audience cards tune expertise, tone,
-                          language, and delivery rules.
-                        </p>
-                      </div>
-                      <span className="dictation-control">
-                        <textarea
-                          id="prompt-target-audience"
-                          className={
-                            attentionTargetId === "prompt-target-audience"
-                              ? "is-attention-target"
-                              : undefined
-                          }
-                          value={draft.targetAudience}
-                          onChange={(event) =>
-                            updateDraft("targetAudience", event.target.value)
-                          }
-                          placeholder="Describe the real reader: role, knowledge level, goal, constraints, and what they need to do next."
-                          rows={7}
-                          required
-                        />
-                        <button
-                          className={
-                            listeningField === "targetAudience" &&
-                            dictationPhase === "recording"
-                              ? "mic-button is-listening"
-                              : "mic-button"
-                          }
-                          type="button"
-                          onClick={() =>
-                            startDictation("targetAudience", "Target audience")
-                          }
-                          aria-pressed={
-                            listeningField === "targetAudience" &&
-                            dictationPhase === "recording"
-                          }
-                          aria-label={
-                            listeningField === "targetAudience" &&
-                            dictationPhase === "recording"
-                              ? "Stop dictating target audience"
-                              : "Dictate target audience"
-                          }
-                        >
-                          {listeningField === "targetAudience" &&
-                          dictationPhase === "recording"
-                            ? "Stop"
-                            : "Mic"}
-                        </button>
-                      </span>
-                      <DictationSession
-                        activeField={listeningField}
-                        field="targetAudience"
-                        label="Target audience"
-                        phase={dictationPhase}
-                        transcript={dictationTranscript}
-                        waveformRef={waveformRef}
-                        onCancel={() => cancelDictation()}
-                        onStop={stopDictation}
-                        onSubmit={submitDictation}
-                      />
-                    </div>
-                  </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
-                  onNext={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-                  nextLabel="Next: audience cards"
-                />
-              </section>
-
-              <section
-                className="flow-panel"
-                aria-hidden={activePanel !== FLOW_PANEL_INDEX.targetCards}
-                inert={activePanel !== FLOW_PANEL_INDEX.targetCards}
-              >
-                <div className="flow-panel-heading">
-                  <span aria-hidden="true">T</span>
-                  <h2
-                    tabIndex={-1}
-                    ref={(node) => {
-                      panelHeadingRefs.current[
-                        FLOW_PANEL_INDEX.targetCards
-                      ] = node;
-                    }}
-                  >
-                    Audience cards
-                  </h2>
-                </div>
-                <CraftSubpageTabs
-                  label="Target audience"
-                  active="cards"
-                  onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-                  onCards={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-                />
-
-                <div className="flow-panel-card">
-                  <CraftCard
-                    letter="T"
-                    complete={isFieldComplete(draft, "targetAudience")}
-                  >
-                    <div className="field craft-field">
-                      <FieldHeading
-                        field="targetAudience"
-                        label="Audience modifiers"
-                        controlId="target-card-workbench"
-                        labelControl={false}
-                      />
-                      <div id="target-card-workbench">
-                        <PromptCardWorkbench
-                          section="target"
-                          formatCode={formatCode}
-                          values={cardSystem.tracks}
-                          equippedIds={cardSystem.equipped.target}
-                          suggestedId={cardSystem.suggested.target}
-                          onTrackChange={changeTrack}
-                          onToggleCard={(lineageId) =>
-                            toggleWorkbenchCard("target", lineageId)
-                          }
-                          onDropCard={(slotIndex, lineageId) =>
-                            dropWorkbenchCard("target", slotIndex, lineageId)
-                          }
-                          onRemoveCard={(slotIndex) =>
-                            removeWorkbenchCard("target", slotIndex)
-                          }
-                          onClearCards={() => clearWorkbenchCards("target")}
-                        />
-                      </div>
-                    </div>
-                  </CraftCard>
-                </div>
-                <FlowActions
-                  onBack={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-                  onNext={() => setOutputExpanded(true)}
-                  nextLabel="Review output"
-                  onSecondary={resetDraft}
-                  secondaryLabel="Clear all"
-                />
-              </section>
-            </div>
-          </div>
-
-          {speechMessage ? (
-            <p
-              className="speech-status flow-speech-status"
-              role="status"
-              aria-live="polite"
-            >
-              {speechMessage}
-            </p>
-          ) : null}
-        </form>
+          {portalTarget
+            ? createPortal(
+                <div className="print-sheet" aria-hidden="true">
+                  <h1>C.R.A.F.T. prompt</h1>
+                  <pre>{prompt}</pre>
+                </div>,
+                portalTarget,
+              )
+            : null}
+        </div>
 
         <PromptOutputDock
           expanded={outputExpanded}
           complete={isComplete}
           missingItems={missingItems}
           prompt={prompt}
+          sections={promptSections}
           copyState={copyState}
           onToggle={() => setOutputExpanded((current) => !current)}
           onMissingSelect={focusMissingField}
           onCopy={copyPrompt}
           onDownload={downloadPrompt}
+          onPrint={printPrompt}
         />
-        </div>
       </div>
     </div>
   );

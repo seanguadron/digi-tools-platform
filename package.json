@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 4000",
+    "dev": "next dev -p 5100",
     "prebuild": "npm run data:validate",
     "build": "next build",
-    "start": "next start -p 4000",
+    "start": "next start -p 5100",
     "lint": "eslint src next.config.ts",
     "typecheck": "tsc --noEmit",
     "data:generate": "node scripts/generate-prompt-role-docs.mjs",
@@ -15,6 +15,8 @@
     "test": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/*.test.mjs"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@xyflow/react": "^12.11.0",
     "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7"

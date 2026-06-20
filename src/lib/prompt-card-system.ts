@@ -115,6 +115,10 @@ export function getLineage(lineageId: string) {
   return cardsCatalog.cards.find((lineage) => lineage.id === lineageId);
 }
 
+export function getCardFamily(section: CardSection): "Tactic" | "Modifier" {
+  return section === "action" ? "Tactic" : "Modifier";
+}
+
 export function getEquippedInstructions(
   equipped: Record<CardSection, string[]>,
   values: TrackValues,

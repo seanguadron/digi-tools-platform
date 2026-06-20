@@ -37,11 +37,11 @@
       "Recommend a focused strategy with priorities and measurable next steps.",
       "Identify the assumptions that should be tested before greater investment."
     ],
-    "Practical life and general knowledge roles": [
-      "Clarify the user's situation, preferences, limits, and decision criteria.",
-      "Gather the current facts that materially change the recommendation.",
-      "Compare the practical options and explain their tradeoffs.",
-      "Give a clear recommendation with cautions and next steps."
+    "Utility roles": [
+      "Identify the source's main message and most important points.",
+      "Condense or reorganize the material without distorting its meaning.",
+      "Group related items and surface what is missing or unclear.",
+      "Lead with the takeaway and keep the result easy to scan."
     ]
   },
   "roleActions": {
@@ -93,6 +93,24 @@
       "Implement the change with focused tests for the affected workflow.",
       "Run type, lint, build, and rendered behavior checks."
     ],
+    "data-analyst": [
+      "Clarify the question, the available data, and how the answer will be used.",
+      "Explore the data for patterns, segments, and anomalies that matter.",
+      "Quantify the finding and state the caveats, sample sizes, and assumptions.",
+      "Recommend the decision the data supports and what to check next."
+    ],
+    "qa-test-engineer": [
+      "Define what correct behavior looks like and where it could break.",
+      "Design test cases for the main paths, edge cases, and failure modes.",
+      "Report defects with steps to reproduce and expected versus actual results.",
+      "Prioritize the issues by severity and likelihood."
+    ],
+    "security-reviewer": [
+      "Map the assets, entry points, and trust boundaries involved.",
+      "Identify the likely threats and weaknesses, ranked by impact and likelihood.",
+      "Recommend concrete mitigations for the highest-priority risks.",
+      "State what to verify or test before shipping."
+    ],
     "writer": [
       "Clarify the purpose, audience, point of view, and intended effect.",
       "Create an outline that gives each section one clear job.",
@@ -104,6 +122,12 @@
       "Repair structure and logic before editing individual sentences.",
       "Improve clarity, accuracy, flow, and tone without erasing the author's voice.",
       "List material changes that require the author's decision."
+    ],
+    "product-manager": [
+      "Clarify the user problem, the goal, and how success is measured.",
+      "Prioritize what to build against impact, effort, and constraints.",
+      "Write the requirements clearly enough for a team to act on.",
+      "Define what to ship first and what to validate."
     ]
   },
   "audienceModifiers": [
