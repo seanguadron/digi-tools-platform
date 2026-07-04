@@ -1,9 +1,13 @@
 # AGENTS.md
 
+<!-- gov:node id=agents kind=doc title="AGENTS.md (operating rules)" reads=docs/AI_STACK.md,docs/STANDARDS.md,docs/AGENT_PRINCIPLES.md,docs/DESIGN_DIRECTION.md -->
+
 Operating instructions for AI agents working in this repository. This file is
 the single source of truth for durable project rules. Codex reads it
 automatically. The full skill catalog, installation procedure, and workflow
-detail live in `docs/AI_STACK.md`.
+detail live in `docs/AI_STACK.md`; the enforceable rulebook is
+`docs/STANDARDS.md`; the gate and learning-loop machinery is described in
+"Gates" and "Learning loop" below.
 
 ---
 
@@ -49,6 +53,60 @@ components, architectural changes, or anything client-facing.
 
 ---
 
+## Governance vocabulary
+
+- **Gate**: a pre-delivery check. Judgment gates are read-only subagents in
+  `.claude/agents/`; each pairs with a **deterministic half** (a script that
+  fails the build and the commit).
+- **Consent gate**: `docs/STANDARDS.md` changes only with the owner's
+  explicit approval.
+- **Landed annotation**: "→ landed in §X.Y" appended to a sessions-log
+  amendment flag once it ships; `npm run amendments` lists only un-annotated
+  flags.
+- **gov:node marker**: the HTML comment each governance file carries
+  (`<!-- gov:node id=… reads=… -->`); STANDARDS §3.3 makes a false edge fail
+  the build ("the graph must be true").
+- **Skill pin**: every installed skill's source commit, recorded in
+  `.ai/notes/SKILL_VERSIONS.md` in the same commit as the install or refresh
+  (both skill homes; STANDARDS §3.4).
+
+## Gates
+
+| Gate | Judgment half (agent) | Deterministic half | Required when |
+|---|---|---|---|
+| Integration | `.claude/agents/integration-gate.md` | `npm run check:standards` | new tools/surfaces, catalog changes, substantial UI |
+| Security | `.claude/agents/security-gate.md` | `npm run check:security` | trust-boundary changes: session import/export, localStorage, downloads, rendered prompt content |
+| Design | `.claude/agents/design-gate.md` | none (judgment only) | new pages, components with visual presence, visual redesigns |
+| Graph accuracy | none | `check:standards` §3.3 | every build + commit |
+
+The deterministic halves run on `npm run build` (`prebuild`, alongside the
+existing `data:validate`), the pre-commit hook (`.githooks/pre-commit`), and
+CI, so they hold without reinforcement. The agents are read-only: they report
+with `path:line` evidence and severity; the main agent applies every
+High/Medium fix before delivery.
+
+Two working rules keep the ledgers honest:
+
+- **Gate ledger.** After a judgment gate runs, save the report as
+  `.ai/notes/gate-reports/YYYY-MM-DD-<gate>-<slug>.md` (frontmatter: gate,
+  date, surface, result, findings). `npm run gate:sweep` reads this ledger to
+  detect gates owed.
+- **Skill log.** When a skill materially drives a piece of work, record it:
+  `npm run skill:log -- <skill> "<surface>"`.
+
+## Learning loop
+
+The **sessions** agent (`.claude/agents/sessions.md`) records how the owner's
+guidance changes the project into `.ai/notes/SESSIONS.md`, flagging decisions
+that should become rules as "(proposed amendment, needs the owner's
+consent)". With consent they graduate into `docs/STANDARDS.md`, and the flag
+gets the landed annotation. `npm run amendments` lists what is pending;
+`npm run gate:sweep` re-runs the deterministic gates and stamps
+`.ai/notes/gate-status.json`. Run the sessions agent at the end of any
+session with notable decisions.
+
+---
+
 ## Rules
 
 1. Do not generate generic SaaS UI.
@@ -80,21 +138,42 @@ components, architectural changes, or anything client-facing.
     assets, hosted placeholders, or other runtime dependencies. Add those only
     when the active task requires them and after normal dependency and security
     review.
+18. New tools, catalog changes, and substantial UI must pass the Integration
+    gate against `docs/STANDARDS.md` before delivery.
+19. Trust-boundary changes (session import/export, localStorage, downloads,
+    rendered prompt content) must also pass the Security gate before delivery.
+20. New pages and components with visual presence must pass the Design gate
+    against `docs/DESIGN_DIRECTION.md` before delivery.
+21. Governance docs name only real files, and a declared gov:node edge must
+    exist (STANDARDS §3.3; the deterministic gate enforces both).
 
 ---
 
 ## Project Structure For Agent Resources
 
-- `.agents/skills/` - repo-scoped Codex skills
+- `.agents/skills/` - repo-scoped Codex skills (the Codex home)
+- `.claude/skills/` - the curated Claude Code skill set + the `/digi` router
+  (Claude Code only discovers skills here; STANDARDS §3.4)
+- `.claude/agents/` - the judgment gates (`integration-gate`, `security-gate`,
+  `design-gate`) and the `sessions` agent, all built to
+  `docs/AGENT_PRINCIPLES.md`
 - `.ai/design-references/` - design reference material, not skills
-- `.ai/notes/` - working notes and skill version pins
+- `.ai/notes/` - skill version pins, `SESSIONS.md` (the learnings log),
+  `gate-reports/` (the gate ledger), `gate-status.json` + `skill-log.jsonl`
+- `.ai/agent-evals/` - gate-agent smoke-test fixtures (run when an agent
+  definition changes)
 - `docs/AI_STACK.md` - full stack catalog and workflow
+- `docs/STANDARDS.md` - the consent-gated rulebook (deterministic halves:
+  `scripts/check-standards.mjs` + `scripts/check-security.mjs`)
+- `docs/AGENT_PRINCIPLES.md` - the agent template every subagent conforms to
+- `docs/SETUP.md` - boot + the governance command inventory
 - `docs/DESIGN_DIRECTION.md` - project visual direction, created when Design
   Layer work begins
 - `CLAUDE.md` - optional Claude Code compatibility shim that imports this file
 
-Do not clone whole skill repositories into `.agents/skills/`. Install or copy
-only individual skill directories containing a `SKILL.md`.
+Do not clone whole skill repositories into `.agents/skills/` or
+`.claude/skills/`. Install or copy only individual skill directories
+containing a `SKILL.md`.
 
 ---
 

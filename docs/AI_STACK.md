@@ -1,5 +1,7 @@
 # Digi AI Stack For Codex
 
+<!-- gov:node id=ai-stack kind=doc title="AI_STACK.md (skill catalog + workflow)" reads=docs/DESIGN_DIRECTION.md,docs/STANDARDS.md -->
+
 This repository uses a layered AI workflow for building polished,
 production-ready software. The complete project catalog is installed where
 Codex can discover each skill without loading its full instructions on every
@@ -216,3 +218,40 @@ deployment readiness.
 
 If this document conflicts with `AGENTS.md`, follow `AGENTS.md` and then repair
 the inconsistency.
+
+## Governance Layer (added 2026-07-04)
+
+The stack above covers HOW to build; the governance layer verifies WHAT was
+built, with the same machinery this stack's successor projects use:
+
+- **Gates**: three read-only judgment agents in `.claude/agents/`
+  (integration-gate, security-gate, design-gate) plus deterministic halves
+  (`npm run check:standards`, `npm run check:security`) wired to `prebuild`,
+  the pre-commit hook, and CI. The rulebook is the consent-gated
+  `docs/STANDARDS.md`.
+- **Learning loop**: the `sessions` agent appends decisions to
+  `.ai/notes/SESSIONS.md`; proposals graduate into STANDARDS only with the
+  owner's consent (`npm run amendments` lists what is pending). The gate
+  ledger lives in `.ai/notes/gate-reports/`; `npm run gate:sweep` detects
+  judgment gates owed.
+- **Orchestration**: governance files carry `gov:node` markers;
+  `check:standards` fails the build on a false edge.
+
+### Two skill homes
+
+`.agents/skills/` stays the Codex home (this catalog). `.claude/skills/`
+carries the curated Claude Code set: the sharp subset of this catalog plus
+three additions and a router, all pinned in `.ai/notes/SKILL_VERSIONS.md`
+(STANDARDS §3.4). The GSAP suite and Taste collection are deliberately not
+bridged (no gsap dependency in the repo).
+
+Claude-set additions beyond this catalog:
+
+- **Diagnosing Bugs** (`mattpocock/skills`): the feedback-loop discipline for
+  hard bugs and performance regressions.
+- **Improve Codebase Architecture** (`mattpocock/skills`): the periodic
+  entropy radar; run every week or two before drift compounds.
+- **Writing Great Skills** (`mattpocock/skills`): the authoring bar for our
+  own skills AND agent specs.
+- **digi** (authored in this repo): the `/digi` router — routes a task to the
+  right gate, skill, or command.

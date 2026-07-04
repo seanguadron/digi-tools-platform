@@ -1,5 +1,7 @@
 # Digi Tools Design Direction
 
+<!-- gov:node id=design-direction kind=doc title="DESIGN_DIRECTION.md (canonical visual direction)" -->
+
 ## Intent
 
 Digi Tools is a working cockpit, not a public marketing showcase. The welcome
