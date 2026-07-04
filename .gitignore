@@ -7,3 +7,6 @@ npm-debug.log*
 *.tsbuildinfo
 .tmp
 .ai/design-references/awesome-design-md/
+
+# Local-only gate-sweep audit log (gate-status.json stays tracked).
+/.ai/notes/gate-sweeps.log
