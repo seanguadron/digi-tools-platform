@@ -1,0 +1,36 @@
+name: checks
+
+# Runs the deterministic gates on every PR + pushes to main, so the data
+# pipeline and both check scripts hold on shared branches, not just locally.
+# The judgment gates (the Integration / Security / Design AGENTS) still run
+# by hand on substantial changes — see AGENTS.md.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci
+      - name: Data validation
+        run: npm run data:validate
+      - name: Standards gate
+        run: npm run check:standards
+      - name: Security gate
+        run: npm run check:security
+      - name: Type-check
+        run: npm run typecheck
+      - name: Lint
+        run: npm run lint
+      - name: Tests
+        run: npm test
+      - name: Build
+        run: npm run build

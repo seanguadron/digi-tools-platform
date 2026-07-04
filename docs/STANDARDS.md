@@ -58,9 +58,12 @@ crashes.
 ✓ check: `JSON.parse` of external input is followed by validation, not cast.
 
 **§2.4 No script-injection primitives (deterministic).** No `eval`, no
-`new Function`, no `dangerouslySetInnerHTML` outside an explicit allowlist
-(empty today). Prompt content renders as text, never as markup.
-✓ check: `check:standards` greps src; the allowlist lives in the script.
+`new Function`, no `dangerouslySetInnerHTML` outside an explicit allowlist.
+Prompt content renders as text, never as markup. Allowlisted today:
+`src/app/layout.tsx` only — the no-flash theme bootstrap, a module-level
+CONSTANT script whose sole input is a localStorage value checked against a
+strict two-value allowlist. Growing this list requires the owner's consent.
+✓ check: `check:security` greps src; the allowlist lives in that script.
 
 ## §3 Governance
 

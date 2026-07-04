@@ -1,0 +1,16 @@
+#!/bin/sh
+# Standards gate (docs/STANDARDS.md) — blocks commits that drift
+# from the framework standard, so the rules hold without manual reinforcement.
+# Intentional override: `git commit --no-verify`.
+node scripts/check-standards.mjs || {
+  echo "" >&2
+  echo "Commit blocked by the standards gate. Fix the violations above," >&2
+  echo "or run the Integration gate agent. Override: git commit --no-verify." >&2
+  exit 1
+}
+node scripts/check-security.mjs || {
+  echo "" >&2
+  echo "Commit blocked by the security gate. Fix the violations above," >&2
+  echo "or run the Security gate agent. Override: git commit --no-verify." >&2
+  exit 1
+}

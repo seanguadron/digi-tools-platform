@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 5100",
-    "prebuild": "npm run data:validate",
+    "prebuild": "npm run data:validate && npm run check:standards && npm run check:security",
     "build": "next build",
     "start": "next start -p 5100",
     "lint": "eslint src next.config.ts",
@@ -12,7 +12,13 @@
     "data:generate": "node scripts/generate-prompt-role-docs.mjs",
     "data:validate": "node scripts/validate-prompt-data.mjs",
     "data:test": "node --test scripts/prompt-data.test.mjs",
-    "test": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/*.test.mjs"
+    "test": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/*.test.mjs",
+    "check:standards": "node scripts/check-standards.mjs",
+    "check:security": "node scripts/check-security.mjs",
+    "gate:sweep": "node scripts/gate-sweep.mjs",
+    "amendments": "node scripts/pending-amendments.mjs",
+    "skill:log": "node scripts/log-skill.mjs",
+    "prepare": "git config core.hooksPath .githooks || echo \"hooks: skipped\""
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
