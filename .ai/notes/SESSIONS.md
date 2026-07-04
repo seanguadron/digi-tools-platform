@@ -1,8 +1,8 @@
 # Sessions log
 
 Newest-first ledger of notable decisions, learnings, and preferences —
-appended by the sessions agent (see AGENTS.md → Learning loop). Lines flagged
-"(proposed amendment, needs the owner's consent)" are STANDARDS candidates;
+appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
+with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
 ## 2026-07-04: Governance uplift — gates, learning loop, and the Claude bridge
@@ -36,10 +36,10 @@ commits, not pushed).
 - The browser trust boundary is currently a bare cast:
   `src/lib/prompt-session.ts` (`JSON.parse(...) as Partial<PromptSession>`)
   and `src/lib/prompt-storage.ts` (`JSON.parse(raw) as T`) validate nothing.
-  Recorded as standing audit points in the security gate; hardening them
-  with real shape validation is the first recommended follow-up (proposed
-  amendment, needs the owner's consent — would sharpen §2.3 from "validated"
-  to "validated via the catalog schema or a typed guard").
+  Recorded as standing audit points in the security gate. Hardening them —
+  sharpening §2.3 from "validated" to "validated via the catalog schema or a
+  typed guard" — is the first recommended follow-up (proposed amendment,
+  needs the owner's consent).
 
 **Preferences.**
 - Branch + staged commits, no push: pushing/merging `governance/aos-uplift`
