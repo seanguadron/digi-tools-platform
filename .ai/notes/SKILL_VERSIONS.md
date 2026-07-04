@@ -66,3 +66,32 @@ come from `skills-lock.json`.
 | Resource | Source | Source revision |
 |---|---|---|
 | `awesome-design-md` | `VoltAgent/awesome-design-md` | `962e08c334dc5c42de3f9d14d2aa8ead9cc6cff9` |
+
+## Claude Code bridge (`.claude/skills/`), added 2026-07-04
+
+Claude Code discovers skills only in `.claude/skills/` (STANDARDS §3.4). The
+curated sharp set below was COPIED from this repo's own `.agents/skills/`
+directories (same bytes, same source revisions as the table above):
+`impeccable`, `emil-design-eng`, `avoid-ai-writing`, `web-design-guidelines`,
+`next-best-practices`, `vercel-react-best-practices`,
+`vercel-composition-patterns`, `karpathy-guidelines`, `grill-with-docs`,
+`tdd`, `audit`, `webapp-testing`.
+
+Additions not in the Codex set (copied from the AmazingOS repo's pinned
+installs):
+
+| Skill | Source | Source revision | Notes |
+|---|---|---|---|
+| `diagnosing-bugs` | `mattpocock/skills` | `7a83a3a682adf699f24dbc06613de87f4e52a0a0` | Model-invoked debugging loop. |
+| `improve-codebase-architecture` | `mattpocock/skills` | `7a83a3a682adf699f24dbc06613de87f4e52a0a0` | User-invoked entropy radar; reports to the OS temp dir. |
+| `writing-great-skills` | `mattpocock/skills` | `7a83a3a682adf699f24dbc06613de87f4e52a0a0` | The authoring bar for our skills AND agent specs. |
+| `digi` | authored in this repo | local (no upstream pin) | The `/digi` router. Maintained here; no refresh cycle. |
+
+Deliberately NOT bridged: the GSAP suite (8 skills — the repo has no gsap
+dependency) and the Taste collection (`brandkit`, `gpt-taste`,
+`design-taste-frontend*`, `full-output-enforcement`, `high-end-visual-design`,
+`industrial-brutalist-ui`, `minimalist-ui`, `stitch-design-taste`,
+`redesign-existing-projects`, `imagegen-*`, `image-to-code`), plus AccessLint
+`scan`/`diff` (the `audit` skill is the routine path; `diff` needs explicit
+approval per AGENTS.md rule 15). All remain available to Codex in
+`.agents/skills/`.
