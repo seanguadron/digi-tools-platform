@@ -1,4 +1,8 @@
-export type ToolId = "prompt-builder" | "architect-wizard" | "skills";
+export type ToolId =
+  | "prompt-builder"
+  | "architect-wizard"
+  | "image-editor"
+  | "skills";
 
 export interface ToolDescriptor {
   id: ToolId;
@@ -26,6 +30,15 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
     tagline:
       "Sketch an application's architecture and data model, then export a build brief for an AI agent.",
     href: "/tools/architect-wizard",
+    fullBleed: true,
+  },
+  "image-editor": {
+    id: "image-editor",
+    name: "Image Editor",
+    shortName: "Image",
+    tagline:
+      "A local, layer-based image editor — paint, select, adjust, and export in the browser.",
+    href: "/tools/image-editor",
     fullBleed: true,
   },
   skills: {

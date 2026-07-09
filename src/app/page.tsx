@@ -4,6 +4,7 @@ import { TOOL_REGISTRY } from "@/lib/tool-registry";
 
 const promptTool = TOOL_REGISTRY["prompt-builder"];
 const architectTool = TOOL_REGISTRY["architect-wizard"];
+const imageTool = TOOL_REGISTRY["image-editor"];
 const skillsTool = TOOL_REGISTRY["skills"];
 
 export default function HomePage() {
@@ -97,11 +98,54 @@ Five prioritized findings with fixes.`}</code>
 
         <section
           className="home-feature"
+          id="image-editor"
+          aria-labelledby="home-image-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 03 · Image</span>
+            <h2 id="home-image-title">{imageTool.name}</h2>
+            <p>{imageTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Paint and erase across a stack of raster layers.</li>
+              <li>Select, transform, crop, and adjust — with full undo history.</li>
+              <li>Open an image, then export a PNG. Nothing leaves your device.</li>
+            </ul>
+            <Link className="button button-primary" href={imageTool.href}>
+              Open Image Editor
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>canvas.png</span>
+              <span className="file-badge">LAYERS</span>
+            </div>
+            <ul className="home-spec-layers">
+              <li>
+                <span className="home-spec-eye" />
+                <span>Text</span>
+                <strong>100%</strong>
+              </li>
+              <li>
+                <span className="home-spec-eye" />
+                <span>Photo</span>
+                <strong>92%</strong>
+              </li>
+              <li>
+                <span className="home-spec-eye" />
+                <span>Background</span>
+                <strong>100%</strong>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section
+          className="home-feature"
           id="skills"
           aria-labelledby="home-skills-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 03 · Skills</span>
+            <span className="tool-kicker">Tool 04 · Skills</span>
             <h2 id="home-skills-title">{skillsTool.name}</h2>
             <p>
               A wiki for the {skillCount} skills in your AI stack — what each one

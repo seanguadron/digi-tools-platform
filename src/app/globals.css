@@ -5821,3 +5821,797 @@ body:has(.page-stage.is-fluid) {
     --card-tilt-y: 0deg !important;
   }
 }
+
+/* ===== Image Editor ===== */
+/* Transparency checkerboard colors. Kept as canvas-parseable literals because
+   they are read via getComputedStyle and fed straight to ctx.fillStyle. */
+:root {
+  --ie-checker-a: #d7d7d7;
+  --ie-checker-b: #f2f2f2;
+}
+:root[data-theme="dark"] {
+  --ie-checker-a: #2b2b2b;
+  --ie-checker-b: #232323;
+}
+
+.tool-page.image-editor-page {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  height: calc(100dvh - var(--app-chrome-height));
+  min-height: 560px;
+  padding: 12px clamp(14px, 2.2vw, 30px);
+  overflow: hidden;
+}
+
+.page-stage.is-fluid .image-editor-page {
+  width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.image-editor-layout {
+  display: grid;
+  grid-template-columns: 216px minmax(0, 1fr) 288px;
+  gap: 12px;
+  min-height: 0;
+}
+
+.page-stage.is-fluid .image-editor-toolbar {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
+
+.page-stage.is-fluid .image-editor-layers {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+}
+
+.image-editor-loading {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.8rem;
+}
+
+/* Toolbar (left column) */
+.image-editor-toolbar {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.image-editor-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.image-editor-tool {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    border-color 150ms ease-out,
+    background 150ms ease-out;
+}
+
+.image-editor-tool:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
+}
+
+.image-editor-tool.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 16%, var(--card));
+}
+
+.image-editor-panel-block {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.image-editor-panel-label {
+  color: var(--brand-cyan);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.image-editor-slider {
+  display: grid;
+  gap: 4px;
+  font-size: 0.72rem;
+}
+
+.image-editor-slider > span {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted-foreground);
+}
+
+.image-editor-slider strong {
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.image-editor-slider input[type="range"],
+.image-editor-picker-hue input {
+  width: 100%;
+  accent-color: var(--brand-cyan);
+}
+
+/* Color picker */
+.image-editor-picker {
+  display: grid;
+  gap: 8px;
+}
+
+.image-editor-picker-sv {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 200 / 140;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.image-editor-picker-hue input {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 6px;
+  background: linear-gradient(
+    to right,
+    #f00 0%,
+    #ff0 17%,
+    #0f0 33%,
+    #0ff 50%,
+    #00f 67%,
+    #f0f 83%,
+    #f00 100%
+  );
+}
+
+.image-editor-picker-readout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px;
+  align-items: center;
+}
+
+.image-editor-picker-chip {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.image-editor-picker-hex {
+  min-height: 30px;
+  padding: 4px 8px;
+  border: 1px solid var(--input);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}
+
+.image-editor-picker-swatches {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 4px;
+}
+
+.image-editor-swatch {
+  aspect-ratio: 1;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.image-editor-swatch:hover {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 1px;
+}
+
+/* Canvas stage (center) */
+.image-editor-stage {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--background);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.image-editor-view-canvas,
+.image-editor-overlay-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Layers (right column) */
+.image-editor-layers {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  min-height: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.image-editor-layers-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.image-editor-layers-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.image-editor-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.image-editor-icon-btn:hover:not(:disabled) {
+  border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
+}
+
+.image-editor-icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.image-editor-icon-btn.is-danger:hover:not(:disabled) {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.image-editor-layer-controls {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.image-editor-field-caption {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.image-editor-select {
+  display: grid;
+  gap: 4px;
+}
+
+.image-editor-picker-hue {
+  display: grid;
+  gap: 4px;
+}
+
+.image-editor-select select {
+  width: 100%;
+  min-height: 32px;
+  padding: 2px 8px;
+  border: 1px solid var(--input);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.76rem;
+}
+
+.image-editor-slider.is-inline {
+  font-size: 0.72rem;
+}
+
+.image-editor-layer-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  display: grid;
+  gap: 4px;
+  align-content: start;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.image-editor-layer-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 6px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--background);
+  cursor: grab;
+}
+
+.image-editor-layer-row.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+}
+
+.image-editor-layer-row.is-dragging {
+  opacity: 0.5;
+}
+
+.image-editor-layer-eye {
+  border: none;
+  background: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 2px;
+}
+
+.image-editor-layer-eye[aria-pressed="true"] {
+  color: var(--brand-cyan);
+}
+
+.image-editor-layer-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.image-editor-layer-thumb {
+  width: 46px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--muted);
+}
+
+.image-editor-layer-name {
+  font-size: 0.78rem;
+  color: var(--foreground);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.image-editor-layer-name-input {
+  width: 100%;
+  min-width: 0;
+  padding: 2px 6px;
+  border: 1px solid var(--brand-cyan);
+  border-radius: 6px;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.78rem;
+}
+
+.image-editor-layer-reorder {
+  display: grid;
+  gap: 2px;
+}
+
+.image-editor-layer-reorder .image-editor-icon-btn {
+  width: 20px;
+  height: 15px;
+  font-size: 0.5rem;
+  border-radius: 5px;
+}
+
+/* Subbar */
+.image-editor-subbar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 14px;
+}
+
+.image-editor-subbar .prompt-flow-header-actions {
+  justify-self: end;
+}
+
+.image-editor-subbar-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: center;
+}
+
+.image-editor-subbar-tools .button {
+  min-width: 34px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.image-editor-zoom-readout {
+  min-width: 46px;
+  text-align: center;
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.image-editor-title-input {
+  width: 100%;
+  max-width: 300px;
+  padding: 3px 7px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.image-editor-title-input:hover {
+  border-color: var(--border);
+}
+
+.image-editor-title-input:focus-visible {
+  outline: none;
+  border-color: var(--brand-cyan);
+  background: var(--card);
+}
+
+/* Welcome-page spec preview */
+.home-spec-layers {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.home-spec-layers li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  font-size: 0.78rem;
+}
+
+.home-spec-layers strong {
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.home-spec-eye {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand-cyan);
+}
+
+/* Inline notice (e.g. image too large) */
+.image-editor-notice {
+  color: var(--danger);
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* New-canvas dialog */
+.image-editor-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  border: none;
+  background: oklch(0.1 0.02 250 / 0.5);
+  cursor: pointer;
+}
+
+.image-editor-dialog {
+  position: fixed;
+  z-index: 61;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 420px);
+  display: grid;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+
+.image-editor-dialog-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.image-editor-dialog-presets {
+  display: grid;
+  gap: 6px;
+}
+
+.image-editor-preset {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+  color: var(--foreground);
+  text-align: left;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.image-editor-preset:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
+}
+
+.image-editor-preset.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 14%, var(--card));
+}
+
+.image-editor-dialog-size {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+  gap: 8px;
+}
+
+.image-editor-dialog-size label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.image-editor-dialog-size input {
+  min-height: 40px;
+  padding: 4px 10px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.85rem;
+}
+
+.image-editor-dialog-times {
+  padding-bottom: 10px;
+  color: var(--muted-foreground);
+}
+
+.image-editor-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+/* Shape / text tool options */
+.image-editor-toggle-row {
+  display: flex;
+  gap: 14px;
+}
+
+.image-editor-check {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.image-editor-check input {
+  accent-color: var(--brand-cyan);
+}
+
+.image-editor-hint {
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+  line-height: 1.35;
+}
+
+/* Filters dialog */
+.image-editor-filters-dialog {
+  width: min(94vw, 320px);
+}
+
+.image-editor-filters-preview {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 260 / 170;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--muted);
+}
+
+/* Floating text-tool input over the canvas */
+.image-editor-text-input {
+  position: absolute;
+  z-index: 5;
+  min-width: 90px;
+  padding: 0 2px;
+  margin: 0;
+  border: 1px dashed var(--brand-cyan);
+  background: color-mix(in oklch, var(--card) 55%, transparent);
+  outline: none;
+  line-height: 1.15;
+}
+
+/* Foreground/background swatches */
+.image-editor-swatch-pair {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 8px;
+}
+
+.image-editor-fgbg {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.image-editor-fgbg.is-active {
+  outline: 2px solid var(--brand-cyan);
+  outline-offset: 1px;
+}
+
+.image-editor-fgbg-controls {
+  display: flex;
+  gap: 4px;
+  justify-self: end;
+}
+
+/* Segmented control (gradient options) */
+.image-editor-seg {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+}
+
+.image-editor-seg button {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.image-editor-seg button.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 16%, var(--card));
+}
+
+.image-editor-picker-recent {
+  display: grid;
+  gap: 4px;
+}
+
+/* Canvas dropdown menu (subbar) */
+.image-editor-menu-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.image-editor-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  border: none;
+  background: transparent;
+  cursor: default;
+}
+
+.image-editor-menu {
+  position: absolute;
+  z-index: 41;
+  top: calc(100% + 4px);
+  right: 0;
+  display: grid;
+  min-width: 172px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+
+.image-editor-menu button {
+  padding: 8px 10px;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  color: var(--foreground);
+  text-align: left;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.image-editor-menu button:hover {
+  background: var(--accent);
+}
+
+/* Desktop-first cockpit: narrow the rails on medium screens, then collapse to a
+   single column below 900px (matching the Architect Wizard) — toolbar, canvas,
+   and layers stack vertically instead of hiding panels. */
+@media (max-width: 980px) {
+  .image-editor-layout {
+    grid-template-columns: 172px minmax(0, 1fr) 208px;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .tool-page.image-editor-page {
+    height: auto;
+    min-height: calc(100dvh - var(--app-chrome-height));
+    overflow: visible;
+  }
+  .image-editor-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(360px, 60vh) auto;
+  }
+  .image-editor-tool-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-editor-tool {
+    transition: none;
+  }
+}
