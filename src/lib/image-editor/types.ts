@@ -37,6 +37,8 @@ export interface Layer {
   visible: boolean;
   opacity: number; // 0..1
   blendMode: BlendMode;
+  locked: boolean; // transparency lock — paint only where already opaque
+  clipped: boolean; // clip to the alpha of the layer below
   bitmap: LayerBitmap;
 }
 

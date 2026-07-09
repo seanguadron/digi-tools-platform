@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import type { useCanvasViewport } from "@/hooks/use-canvas-viewport";
 import {
   commitLayerBitmap,
+  commitPaintedBitmap,
   cropDoc,
   setSelection,
 } from "@/lib/image-editor/document";
@@ -25,8 +26,8 @@ import {
 } from "@/lib/image-editor/raster";
 import type { ShapeKind } from "@/lib/image-editor/raster";
 import {
-  applySelectionClip,
   clearInSelection,
+  combineSelections,
   ellipseSelection,
   extractSelection,
   magicWandSelection,
@@ -34,6 +35,7 @@ import {
   rectSelection,
   translateSelection,
 } from "@/lib/image-editor/selection";
+import type { SelectionMode } from "@/lib/image-editor/selection";
 import type {
   BrushSettings,
   GradientSettings,
@@ -127,6 +129,9 @@ interface ImageEditorCanvasProps {
   color: string;
   bgColor: string;
   tolerance: number;
+  grid: { show: boolean; size: number; snap: boolean };
+  guides: { x: number[]; y: number[] };
+  onGuidesChange: (next: { x: number[]; y: number[] }) => void;
   onCommitDoc: (mutate: (doc: ImageDoc) => ImageDoc, tag?: string) => void;
   onPickColor: (hex: string) => void;
   onDropFiles: (files: FileList) => void;
@@ -188,6 +193,17 @@ function composeMove(
   return out;
 }
 
+// Commit a painted bitmap to the active layer, respecting an active selection
+// (clip to it) and the layer's transparency lock (clip to existing alpha).
+// Thin wrapper over the shared commitPaintedBitmap so every paint path — here,
+// fillActive, and the selection stroke — enforces the same two rules.
+function commitPaintedLayer(
+  current: ImageDoc,
+  working: HTMLCanvasElement,
+): ImageDoc {
+  return commitPaintedBitmap(current, current.activeLayerId, working);
+}
+
 export function ImageEditorCanvas({
   doc,
   viewport,
@@ -199,6 +215,9 @@ export function ImageEditorCanvas({
   color,
   bgColor,
   tolerance,
+  grid,
+  guides,
+  onGuidesChange,
   onCommitDoc,
   onPickColor,
   onDropFiles,
@@ -222,11 +241,17 @@ export function ImageEditorCanvas({
   const docRef = useRef(doc);
   const viewRef = useRef(view);
   const toolRef = useRef(tool);
+  // Grid/guides are read from refs inside the RAF-deferred draw (like doc/view/
+  // tool above) so an old drawOverlay closure can't paint stale overlay state.
+  const gridRef = useRef(grid);
+  const guidesRef = useRef(guides);
   useEffect(() => {
     docRef.current = doc;
     viewRef.current = view;
     toolRef.current = tool;
-  }, [doc, view, tool]);
+    gridRef.current = grid;
+    guidesRef.current = guides;
+  }, [doc, view, tool, grid, guides]);
 
   const strokingRef = useRef(false);
   const lastPointRef = useRef<Point | null>(null);
@@ -236,7 +261,16 @@ export function ImageEditorCanvas({
   const shapeRef = useRef<{ start: Point; current: Point } | null>(null);
   const gradientRef = useRef<{ start: Point; current: Point } | null>(null);
   const cropRef = useRef<{ start: Point; current: Point } | null>(null);
+  // A guide being dragged with the Move tool (which axis + its index).
+  const guideDragRef = useRef<{ axis: "x" | "y"; index: number } | null>(null);
   const strokeStartRef = useRef<Point | null>(null);
+  const cloneSourceRef = useRef<Point | null>(null);
+  const cloneRef = useRef<{ offset: Point; source: HTMLCanvasElement } | null>(
+    null,
+  );
+  const smudgeRef = useRef<{ buffer: HTMLCanvasElement; radius: number } | null>(
+    null,
+  );
   const transformRef = useRef<TransformState | null>(null);
   const spaceRef = useRef(false);
   const rafRef = useRef<number | null>(null);
@@ -315,10 +349,60 @@ export function ImageEditorCanvas({
     octx.clearRect(0, 0, cssW, cssH);
     const v = viewRef.current;
     const activeDoc = docRef.current;
+    const grid = gridRef.current;
+    const guides = guidesRef.current;
     const toScreen = (point: Point) => docToScreen(point, v);
     const cyan =
       getComputedStyle(stage).getPropertyValue("--brand-cyan").trim() ||
       "#12c0e6";
+
+    // Grid overlay.
+    if (grid.show && grid.size > 0) {
+      octx.save();
+      octx.strokeStyle =
+        getComputedStyle(stage).getPropertyValue("--border").trim() || cyan;
+      octx.globalAlpha = 0.5;
+      octx.lineWidth = 1;
+      octx.setLineDash([]);
+      octx.beginPath();
+      for (let gx = 0; gx <= activeDoc.width; gx += grid.size) {
+        const s = toScreen({ x: gx, y: 0 });
+        const e = toScreen({ x: gx, y: activeDoc.height });
+        octx.moveTo(s.x, s.y);
+        octx.lineTo(e.x, e.y);
+      }
+      for (let gy = 0; gy <= activeDoc.height; gy += grid.size) {
+        const s = toScreen({ x: 0, y: gy });
+        const e = toScreen({ x: activeDoc.width, y: gy });
+        octx.moveTo(s.x, s.y);
+        octx.lineTo(e.x, e.y);
+      }
+      octx.stroke();
+      octx.restore();
+    }
+
+    // Guides.
+    if (guides.x.length > 0 || guides.y.length > 0) {
+      octx.save();
+      octx.strokeStyle = cyan;
+      octx.lineWidth = 1;
+      octx.setLineDash([]);
+      octx.beginPath();
+      for (const gx of guides.x) {
+        const s = toScreen({ x: gx, y: 0 });
+        const e = toScreen({ x: gx, y: activeDoc.height });
+        octx.moveTo(s.x, s.y);
+        octx.lineTo(e.x, e.y);
+      }
+      for (const gy of guides.y) {
+        const s = toScreen({ x: 0, y: gy });
+        const e = toScreen({ x: activeDoc.width, y: gy });
+        octx.moveTo(s.x, s.y);
+        octx.lineTo(e.x, e.y);
+      }
+      octx.stroke();
+      octx.restore();
+    }
 
     octx.save();
     octx.strokeStyle = cyan;
@@ -570,6 +654,87 @@ export function ImageEditorCanvas({
     erase,
   });
 
+  // Snap a doc point to nearby guides / grid lines (within ~6 screen px).
+  const snapPoint = (p: Point): Point => {
+    let x = p.x;
+    let y = p.y;
+    const thresh = 6 / Math.max(0.01, view.scale);
+    for (const gx of guides.x) {
+      if (Math.abs(x - gx) <= thresh) {
+        x = gx;
+      }
+    }
+    for (const gy of guides.y) {
+      if (Math.abs(y - gy) <= thresh) {
+        y = gy;
+      }
+    }
+    if (grid.snap && grid.size > 0) {
+      const nx = Math.round(x / grid.size) * grid.size;
+      const ny = Math.round(y / grid.size) * grid.size;
+      if (Math.abs(x - nx) <= thresh) {
+        x = nx;
+      }
+      if (Math.abs(y - ny) <= thresh) {
+        y = ny;
+      }
+    }
+    return { x, y };
+  };
+
+  const captureBrush = (
+    canvas: HTMLCanvasElement,
+    x: number,
+    y: number,
+    r: number,
+  ) => {
+    const size = Math.max(2, Math.round(r * 2));
+    const buf = createBitmap(size, size);
+    get2d(buf).drawImage(canvas, x - r, y - r, size, size, 0, 0, size, size);
+    return buf;
+  };
+  const stampClone = (wctx: CanvasRenderingContext2D, x: number, y: number) => {
+    const clone = cloneRef.current;
+    if (!clone) {
+      return;
+    }
+    const r = Math.max(0.5, brush.size / 2);
+    wctx.save();
+    wctx.beginPath();
+    wctx.arc(x, y, r, 0, Math.PI * 2);
+    wctx.clip();
+    wctx.drawImage(clone.source, clone.offset.x, clone.offset.y);
+    wctx.restore();
+  };
+  const stampSmudge = (wctx: CanvasRenderingContext2D, x: number, y: number) => {
+    const s = smudgeRef.current;
+    if (!s) {
+      return;
+    }
+    wctx.save();
+    wctx.globalAlpha = 0.6;
+    wctx.beginPath();
+    wctx.arc(x, y, s.radius, 0, Math.PI * 2);
+    wctx.clip();
+    wctx.drawImage(s.buffer, x - s.radius, y - s.radius);
+    wctx.restore();
+    s.buffer = captureBrush(wctx.canvas, x, y, s.radius);
+  };
+  const strokeStamps = (
+    from: Point,
+    to: Point,
+    stamp: (x: number, y: number) => void,
+    startAt: number,
+  ) => {
+    const spacing = Math.max(0.5, brush.size * 0.18);
+    const dist = Math.hypot(to.x - from.x, to.y - from.y);
+    const steps = Math.max(1, Math.ceil(dist / spacing));
+    for (let i = startAt; i <= steps; i += 1) {
+      const t = steps === 0 ? 0 : i / steps;
+      stamp(from.x + (to.x - from.x) * t, from.y + (to.y - from.y) * t);
+    }
+  };
+
   useEffect(() => {
     recomposite();
     requestRender();
@@ -578,6 +743,13 @@ export function ImageEditorCanvas({
   useEffect(() => {
     requestRender();
   }, [view, viewport.size, requestRender]);
+
+  // Grid and guides are overlay-only state — the doc/view effects above don't
+  // fire for them, so repaint explicitly when they change (add a guide, toggle
+  // the grid, drag a guide) instead of waiting for the next interaction.
+  useEffect(() => {
+    requestRender();
+  }, [grid, guides, requestRender]);
 
   useEffect(() => {
     applyCursor();
@@ -733,6 +905,31 @@ export function ImageEditorCanvas({
     }
     const point = screenToDoc(event.clientX, event.clientY);
 
+    // Move tool: grab a nearby guide (within ~5 screen px) before falling
+    // through to layer-move, so guides can be repositioned or dragged off.
+    if (tool === "move" && (guides.x.length > 0 || guides.y.length > 0)) {
+      const rect = stage.getBoundingClientRect();
+      const psx = event.clientX - rect.left;
+      const psy = event.clientY - rect.top;
+      const GRAB = 5;
+      const vx = guides.x.findIndex(
+        (gx) => Math.abs(psx - docToScreen({ x: gx, y: 0 }, view).x) <= GRAB,
+      );
+      if (vx >= 0) {
+        guideDragRef.current = { axis: "x", index: vx };
+        capturePointer(event.pointerId);
+        return;
+      }
+      const hy = guides.y.findIndex(
+        (gy) => Math.abs(psy - docToScreen({ x: 0, y: gy }, view).y) <= GRAB,
+      );
+      if (hy >= 0) {
+        guideDragRef.current = { axis: "y", index: hy };
+        capturePointer(event.pointerId);
+        return;
+      }
+    }
+
     if (tool === "transform") {
       const layer = activeLayer(doc);
       if (!layer) {
@@ -817,7 +1014,25 @@ export function ImageEditorCanvas({
       const source = compositeRef.current;
       if (source) {
         const built = magicWandSelection(source, point.x, point.y, tolerance);
-        onCommitDoc((current) => setSelection(current, built), "select");
+        const mode: SelectionMode = event.shiftKey
+          ? "add"
+          : event.altKey
+            ? "subtract"
+            : "replace";
+        onCommitDoc(
+          (current) =>
+            setSelection(
+              current,
+              combineSelections(
+                current.selection,
+                built,
+                mode,
+                current.width,
+                current.height,
+              ),
+            ),
+          "select",
+        );
       }
       return;
     }
@@ -891,24 +1106,28 @@ export function ImageEditorCanvas({
       }
       const working = cloneBitmap(layer.bitmap);
       if (floodFill(working, point.x, point.y, color, tolerance)) {
-        onCommitDoc((current) => {
-          const target = activeLayer(current);
-          if (!target) {
-            return current;
-          }
-          const result = current.selection
-            ? applySelectionClip(target.bitmap, working, current.selection)
-            : working;
-          return commitLayerBitmap(current, current.activeLayerId, result);
-        });
+        onCommitDoc((current) => commitPaintedLayer(current, working));
       }
       return;
     }
 
-    if (tool === "brush" || tool === "eraser") {
+    if (tool === "clone" && event.altKey) {
+      cloneSourceRef.current = point;
+      return;
+    }
+
+    if (
+      tool === "brush" ||
+      tool === "eraser" ||
+      tool === "clone" ||
+      tool === "smudge"
+    ) {
       const layer = activeLayer(doc);
       if (!layer) {
         return;
+      }
+      if (tool === "clone" && !cloneSourceRef.current) {
+        return; // Alt-click to set a source first
       }
       const working = cloneBitmap(layer.bitmap);
       const wctx = working.getContext("2d");
@@ -916,7 +1135,22 @@ export function ImageEditorCanvas({
         return;
       }
       overrideRef.current = working;
-      paintStamp(wctx, point.x, point.y, brushOptions(tool === "eraser"));
+      if (tool === "clone") {
+        const src = cloneSourceRef.current as Point;
+        cloneRef.current = {
+          offset: { x: point.x - src.x, y: point.y - src.y },
+          source: cloneBitmap(layer.bitmap),
+        };
+        stampClone(wctx, point.x, point.y);
+      } else if (tool === "smudge") {
+        const r = Math.max(1, brush.size / 2);
+        smudgeRef.current = {
+          buffer: captureBrush(working, point.x, point.y, r),
+          radius: r,
+        };
+      } else {
+        paintStamp(wctx, point.x, point.y, brushOptions(tool === "eraser"));
+      }
       strokingRef.current = true;
       lastPointRef.current = point;
       strokeStartRef.current = point;
@@ -936,10 +1170,19 @@ export function ImageEditorCanvas({
     }
     const point = screenToDoc(event.clientX, event.clientY);
 
+    const guideDrag = guideDragRef.current;
+    if (guideDrag) {
+      const next = { x: [...guides.x], y: [...guides.y] };
+      const raw = guideDrag.axis === "x" ? point.x : point.y;
+      next[guideDrag.axis][guideDrag.index] = Math.round(raw);
+      onGuidesChange(next);
+      return;
+    }
+
     const drag = selectRef.current;
     if (drag) {
       if (drag.kind === "rect") {
-        drag.current = point;
+        drag.current = snapPoint(point);
       } else {
         drag.points.push(point);
       }
@@ -964,7 +1207,7 @@ export function ImageEditorCanvas({
     if (shapeRef.current) {
       shapeRef.current.current = constrainForShape(
         shapeRef.current.start,
-        point,
+        snapPoint(point),
         tool,
         event.shiftKey,
       );
@@ -981,7 +1224,7 @@ export function ImageEditorCanvas({
     }
 
     if (cropRef.current) {
-      cropRef.current.current = point;
+      cropRef.current.current = snapPoint(point);
       requestRender();
       return;
     }
@@ -1006,7 +1249,18 @@ export function ImageEditorCanvas({
       event.shiftKey && strokeStartRef.current
         ? constrainAxis(strokeStartRef.current, point)
         : point;
-    paintLine(wctx, lastPointRef.current, target, brushOptions(tool === "eraser"));
+    if (tool === "clone") {
+      strokeStamps(lastPointRef.current, target, (x, y) => stampClone(wctx, x, y), 1);
+    } else if (tool === "smudge") {
+      strokeStamps(lastPointRef.current, target, (x, y) => stampSmudge(wctx, x, y), 1);
+    } else {
+      paintLine(
+        wctx,
+        lastPointRef.current,
+        target,
+        brushOptions(tool === "eraser"),
+      );
+    }
     lastPointRef.current = target;
     recomposite();
     requestRender();
@@ -1020,6 +1274,23 @@ export function ImageEditorCanvas({
     if (panningRef.current) {
       panningRef.current = null;
       applyCursor();
+      return;
+    }
+
+    const guideDrag = guideDragRef.current;
+    if (guideDrag) {
+      guideDragRef.current = null;
+      const value =
+        guideDrag.axis === "x"
+          ? guides.x[guideDrag.index]
+          : guides.y[guideDrag.index];
+      const limit = guideDrag.axis === "x" ? doc.width : doc.height;
+      // Dragged off the canvas → drop the guide; otherwise keep its new spot.
+      if (value === undefined || value < 0 || value > limit) {
+        const next = { x: [...guides.x], y: [...guides.y] };
+        next[guideDrag.axis].splice(guideDrag.index, 1);
+        onGuidesChange(next);
+      }
       return;
     }
 
@@ -1045,7 +1316,7 @@ export function ImageEditorCanvas({
       selectRef.current = null;
       const releasePoint = screenToDoc(event.clientX, event.clientY);
       if (drag.kind === "rect") {
-        drag.current = releasePoint;
+        drag.current = snapPoint(releasePoint);
       } else {
         drag.points.push(releasePoint);
       }
@@ -1063,7 +1334,25 @@ export function ImageEditorCanvas({
                 normalizeRect(drag.start, drag.current),
               )
           : polySelection(doc.width, doc.height, drag.points);
-      onCommitDoc((current) => setSelection(current, built), "select");
+      const mode: SelectionMode = event.shiftKey
+        ? "add"
+        : event.altKey
+          ? "subtract"
+          : "replace";
+      onCommitDoc(
+        (current) =>
+          setSelection(
+            current,
+            combineSelections(
+              current.selection,
+              built,
+              mode,
+              current.width,
+              current.height,
+            ),
+          ),
+        "select",
+      );
       requestRender();
       return;
     }
@@ -1099,7 +1388,7 @@ export function ImageEditorCanvas({
       const kind = SHAPE_KIND[tool];
       const end = constrainForShape(
         activeShape.start,
-        screenToDoc(event.clientX, event.clientY),
+        snapPoint(screenToDoc(event.clientX, event.clientY)),
         tool,
         event.shiftKey,
       );
@@ -1120,10 +1409,7 @@ export function ImageEditorCanvas({
             stroke: shape.stroke,
             strokeWidth: shape.strokeWidth,
           });
-          const result = current.selection
-            ? applySelectionClip(layer.bitmap, working, current.selection)
-            : working;
-          return commitLayerBitmap(current, current.activeLayerId, result);
+          return commitPaintedLayer(current, working);
         });
       }
       requestRender();
@@ -1152,10 +1438,7 @@ export function ImageEditorCanvas({
           bg: bgColor,
           mode: gradient.mode,
         });
-        const result = current.selection
-          ? applySelectionClip(layer.bitmap, working, current.selection)
-          : working;
-        return commitLayerBitmap(current, current.activeLayerId, result);
+        return commitPaintedLayer(current, working);
       });
       requestRender();
       return;
@@ -1164,7 +1447,7 @@ export function ImageEditorCanvas({
     const crop = cropRef.current;
     if (crop) {
       cropRef.current = null;
-      const end = screenToDoc(event.clientX, event.clientY);
+      const end = snapPoint(screenToDoc(event.clientX, event.clientY));
       const rect = normalizeRect(crop.start, end);
       if (rect.width >= 2 && rect.height >= 2) {
         onCommitDoc((current) => cropDoc(current, rect));
@@ -1178,16 +1461,10 @@ export function ImageEditorCanvas({
       strokingRef.current = false;
       overrideRef.current = null;
       lastPointRef.current = null;
-      onCommitDoc((current) => {
-        const target = activeLayer(current);
-        if (!target) {
-          return current;
-        }
-        const result = current.selection
-          ? applySelectionClip(target.bitmap, working, current.selection)
-          : working;
-        return commitLayerBitmap(current, current.activeLayerId, result);
-      });
+      strokeStartRef.current = null;
+      cloneRef.current = null;
+      smudgeRef.current = null;
+      onCommitDoc((current) => commitPaintedLayer(current, working));
     }
   }
 

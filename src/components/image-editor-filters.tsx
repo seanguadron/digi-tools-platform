@@ -183,6 +183,88 @@ export function ImageEditorFilters({
             }
           />
         </label>
+        <p className="image-editor-panel-label image-editor-filters-group">
+          Levels
+        </p>
+        <label className="image-editor-slider">
+          <span>
+            Levels black <strong>{adj.levelsBlack}</strong>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={254}
+            value={adj.levelsBlack}
+            onChange={(event) =>
+              setAdj((a) => ({
+                ...a,
+                levelsBlack: Math.min(a.levelsWhite - 1, Number(event.target.value)),
+              }))
+            }
+          />
+        </label>
+        <label className="image-editor-slider">
+          <span>
+            Levels white <strong>{adj.levelsWhite}</strong>
+          </span>
+          <input
+            type="range"
+            min={1}
+            max={255}
+            value={adj.levelsWhite}
+            onChange={(event) =>
+              setAdj((a) => ({
+                ...a,
+                levelsWhite: Math.max(a.levelsBlack + 1, Number(event.target.value)),
+              }))
+            }
+          />
+        </label>
+        <label className="image-editor-slider">
+          <span>
+            Gamma <strong>{adj.gamma.toFixed(2)}</strong>
+          </span>
+          <input
+            type="range"
+            min={0.1}
+            max={4}
+            step={0.05}
+            value={adj.gamma}
+            onChange={(event) =>
+              setAdj((a) => ({ ...a, gamma: Number(event.target.value) }))
+            }
+          />
+        </label>
+        <label className="image-editor-slider">
+          <span>
+            Posterize{" "}
+            <strong>{adj.posterize <= 1 ? "off" : adj.posterize}</strong>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={32}
+            value={adj.posterize}
+            onChange={(event) =>
+              setAdj((a) => ({ ...a, posterize: Number(event.target.value) }))
+            }
+          />
+        </label>
+        <label className="image-editor-slider">
+          <span>
+            Threshold{" "}
+            <strong>{adj.threshold === 0 ? "off" : adj.threshold}</strong>
+          </span>
+          <input
+            type="range"
+            min={0}
+            max={255}
+            value={adj.threshold}
+            onChange={(event) =>
+              setAdj((a) => ({ ...a, threshold: Number(event.target.value) }))
+            }
+          />
+        </label>
         <div className="image-editor-toggle-row">
           <label className="image-editor-check">
             <input

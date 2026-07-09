@@ -5,6 +5,69 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-09: Image Editor — second 12-feature batch ("G-features")
+
+**Context.** A second "12 new features" pass on the Image Editor (mirroring
+the 2026-07-08 batch), model-chosen with fresh eyes.
+
+**Decisions.** Shipped 12: (1) add/subtract selection (Shift/Alt); (2) a
+Select menu (invert/feather/grow/shrink); (3) stroke selection edge; (4)
+clone stamp; (5) smudge; (6) per-layer transparency lock; (7) clipping mask;
+(8) Levels; (9) Posterize + Threshold; (10) a History panel with
+click-to-jump; (11) grid overlay + snap; (12) draggable guides + snap (drag
+to reposition with the Move tool, drag off-canvas to remove — the Design gate
+found the original add-at-center/clear-all scope fell short of the intended
+Photoshop-guide interaction, so it was implemented properly rather than
+deferred). The one architectural decision worth naming: extracted a single
+paint-commit choke point — `commitPaintedBitmap(doc, layerId, working,
+clipToSelection?)` in `src/lib/image-editor/document.ts` — that every
+paint/fill/stroke commit now routes through, so selection-clip and
+transparency-lock can't be forgotten per call site (fixed the Integration
+gate's High, where the new stroke-selection-edge op was defeating the new
+transparency lock, and collapsed 3 duplicated copies of the same commit
+logic). Pattern: when two features interact through a shared commit,
+centralize the commit rather than threading both rules through every call
+site.
+
+**Learnings.**
+- All three judgment gates ran fully; every High/Medium fixed before
+  delivery. Build, typecheck, lint, and the deterministic
+  `check:standards`/`check:security` gates all green. Reports:
+  `.ai/notes/gate-reports/2026-07-09-*-image-editor-g-features.md`.
+  Integration: 1 High + 2 Medium (both above, plus a WCAG AA miss worth
+  remembering — stacking `opacity: 0.72` on the `--muted-foreground` token
+  for the History panel's "future" steps dropped it below 4.5:1; the token
+  alone is already the AA-safe de-emphasis, don't compound it with opacity).
+  Security: 0 High/Medium, 1 Low (`composite()` was reallocating a scratch
+  canvas per clipped layer on the ~60fps stroke hot path; hoisted to one
+  reusable canvas); the gate flagged the new persisted `locked`/`clipped`
+  booleans in `project-io.ts` (strict `=== true` coercion off
+  `Record<string, unknown>`) as "the pattern to imitate" for future persisted
+  fields. Design: 3 Medium + 5 Low (4 fixed, 1 deferred — the motion
+  amendment, below).
+- While verifying the guide-drag interaction, the Design gate surfaced a real
+  pre-existing bug: the RAF-deferred overlay `drawOverlay` read
+  `grid`/`guides` from the render closure instead of a ref, so adding a guide
+  or toggling the grid didn't repaint until the next pan/zoom. Fixed by
+  reading `grid`/`guides` from refs inside `drawOverlay` — the same pattern
+  already used for `doc`/`view`/`tool` — plus an explicit `[grid, guides]`
+  repaint effect. Any state the RAF draw loop reads must come from a ref, not
+  the closure.
+- Preview-MCP canvas verification: a rendered guide read as "blank" for
+  several attempts purely because the zoom/pan transform placed it outside
+  the backing-buffer scan region; resolved with a temporary debug log plus a
+  "Fit" reset before concluding "not rendered." Sharpens the standing
+  headless-canvas-verification lesson — reset to Fit / compute the expected
+  backing coords first, don't trust a blank pixel scan alone.
+
+**Preferences.**
+- The DESIGN_DIRECTION motion-rule flag from 2026-07-08 is reinforced, not
+  duplicated: this session's Design gate independently flagged the same
+  `background-color`/`border-color` hover/selected transitions as an
+  amendment candidate. Folded a sharper, scoped proposal into that entry's
+  line rather than re-flagging here — see 2026-07-08 ("a new from-scratch
+  'simple Photoshop' tool").
+
 ## 2026-07-08: Image Editor — 12 pro-tool features
 
 **Context.** Right after the base Image Editor shipped, the owner asked for "12
@@ -87,8 +150,12 @@ extras: selections, filters, shapes/text, transform/crop).
   shape-validation missed the layer-count multiplier. (proposed amendment, needs
   the owner's consent)
 - DESIGN_DIRECTION "motion: opacity or transform only" conflicts with the
-  sitewide `.button` border/background transitions — loosen or scope it to the
-  Prompt Builder card system. (proposed amendment, needs the owner's consent)
+  sitewide `.button` border/background transitions. Sharpened 2026-07-09,
+  reinforced independently by that session's Design gate: permit
+  `background-color`/`border-color` micro-transitions (150–200ms) for
+  hover/selected affordances specifically, keeping strict
+  opacity/transform-only for larger settle/panel motion. (proposed
+  amendment, needs the owner's consent)
 - No icon-language rule exists for mixed SVG-vs-Unicode glyph toolbars.
   (proposed amendment, needs the owner's consent)
 

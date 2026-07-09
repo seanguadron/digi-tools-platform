@@ -22,6 +22,8 @@ export interface SerializedLayer {
   visible: boolean;
   opacity: number;
   blendMode: BlendMode;
+  locked: boolean;
+  clipped: boolean;
   data: string; // PNG data URL
 }
 
@@ -47,6 +49,8 @@ export function serializeDoc(doc: ImageDoc, name: string): SerializedDoc {
       visible: layer.visible,
       opacity: layer.opacity,
       blendMode: layer.blendMode,
+      locked: layer.locked,
+      clipped: layer.clipped,
       data: layer.bitmap.toDataURL("image/png"),
     })),
   };
@@ -152,6 +156,8 @@ export async function deserializeDoc(
       visible: layer.visible !== false,
       opacity: clampOpacity(layer.opacity),
       blendMode: coerceBlend(layer.blendMode),
+      locked: layer.locked === true,
+      clipped: layer.clipped === true,
       bitmap,
     });
   }

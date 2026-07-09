@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ImageEditorCanvas } from "@/components/image-editor-canvas";
 import { ImageEditorFilters } from "@/components/image-editor-filters";
+import { ImageEditorHistory } from "@/components/image-editor-history";
 import { ImageEditorImageSizeDialog } from "@/components/image-editor-imagesize-dialog";
 import { ImageEditorLayers } from "@/components/image-editor-layers";
 import { ImageEditorNewDialog } from "@/components/image-editor-new-dialog";
@@ -21,6 +22,7 @@ import {
   addImageLayer,
   addLayer,
   commitLayerBitmap,
+  commitPaintedBitmap,
   createDoc,
   createDocFromImage,
   deleteLayer,
@@ -53,8 +55,11 @@ import {
   applySelectionClip,
   clearInSelection,
   extractSelection,
+  featherSelection,
   invertSelection,
+  resizeSelection,
   selectAll,
+  strokeSelectionBitmap,
   translateSelection,
 } from "@/lib/image-editor/selection";
 import {
@@ -121,6 +126,13 @@ export function ImageEditor() {
   const [newDialogOpen, setNewDialogOpen] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [canvasMenuOpen, setCanvasMenuOpen] = useState(false);
+  const [selectMenuOpen, setSelectMenuOpen] = useState(false);
+  const [viewMenuOpen, setViewMenuOpen] = useState(false);
+  const [grid, setGrid] = useState({ show: false, size: 32, snap: false });
+  const [guides, setGuides] = useState<{ x: number[]; y: number[] }>({
+    x: [],
+    y: [],
+  });
   const [notice, setNotice] = useState<string | null>(null);
 
   const viewport = useCanvasViewport();
@@ -129,6 +141,8 @@ export function ImageEditor() {
   const fitDimsRef = useRef("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const canvasMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const selectMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const viewMenuButtonRef = useRef<HTMLButtonElement | null>(null);
 
   // Fit the document into the stage on first measure and whenever its
   // dimensions change (New / Open / Crop). Keyed on the size so ordinary edits
@@ -196,10 +210,7 @@ export function ImageEditor() {
         const ctx = get2d(filled);
         ctx.fillStyle = hex;
         ctx.fillRect(0, 0, current.width, current.height);
-        const result = current.selection
-          ? applySelectionClip(layer.bitmap, filled, current.selection)
-          : filled;
-        return commitLayerBitmap(current, current.activeLayerId, result);
+        return commitPaintedBitmap(current, current.activeLayerId, filled);
       });
     },
     [commit],
@@ -292,15 +303,83 @@ export function ImageEditor() {
     [commit],
   );
 
+  type SelectAction =
+    | "deselect"
+    | "invert"
+    | "feather"
+    | "grow"
+    | "shrink"
+    | "stroke";
+  const selectAction = useCallback(
+    (action: SelectAction) => {
+      commit(
+        (d) => {
+          if (action === "deselect") {
+            return setSelection(d, null);
+          }
+          if (!d.selection) {
+            return d;
+          }
+          if (action === "invert") {
+            return setSelection(d, invertSelection(d.selection, d.width, d.height));
+          }
+          if (action === "feather") {
+            return setSelection(
+              d,
+              featherSelection(d.selection, 4, d.width, d.height),
+            );
+          }
+          if (action === "grow") {
+            return setSelection(
+              d,
+              resizeSelection(d.selection, 2, d.width, d.height),
+            );
+          }
+          if (action === "shrink") {
+            return setSelection(
+              d,
+              resizeSelection(d.selection, -2, d.width, d.height),
+            );
+          }
+          // stroke the selection edge onto the active layer with the fg color.
+          // The ring straddles the boundary, so we don't clip to the selection
+          // (clipToSelection: false) — but a transparency-locked layer still
+          // confines the stroke to its existing pixels, via commitPaintedBitmap.
+          const layer = activeLayerOf(d);
+          if (!layer) {
+            return d;
+          }
+          const ring = strokeSelectionBitmap(d.selection, color, 4, d.width, d.height);
+          const working = cloneBitmap(layer.bitmap);
+          working.getContext("2d")?.drawImage(ring, 0, 0);
+          return commitPaintedBitmap(d, d.activeLayerId, working, false);
+        },
+        action === "stroke" ? undefined : "select",
+      );
+      setSelectMenuOpen(false);
+    },
+    [commit, color],
+  );
+
   // Global keyboard: undo/redo, tool + pro shortcuts, fills, nudge, colors.
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      // The Canvas dropdown owns the keyboard while open (Escape closes it).
-      if (canvasMenuOpen) {
+      // A dropdown owns the keyboard while open (Escape closes it).
+      if (canvasMenuOpen || selectMenuOpen || viewMenuOpen) {
         if (event.key === "Escape") {
           event.preventDefault();
-          setCanvasMenuOpen(false);
-          canvasMenuButtonRef.current?.focus();
+          if (canvasMenuOpen) {
+            setCanvasMenuOpen(false);
+            canvasMenuButtonRef.current?.focus();
+          }
+          if (selectMenuOpen) {
+            setSelectMenuOpen(false);
+            selectMenuButtonRef.current?.focus();
+          }
+          if (viewMenuOpen) {
+            setViewMenuOpen(false);
+            viewMenuButtonRef.current?.focus();
+          }
         }
         return;
       }
@@ -475,6 +554,8 @@ export function ImageEditor() {
     filtersOpen,
     imageSizeOpen,
     canvasMenuOpen,
+    selectMenuOpen,
+    viewMenuOpen,
     color,
     bgColor,
     viewport,
@@ -718,6 +799,77 @@ export function ImageEditor() {
         </button>
         <div className="image-editor-menu-wrap">
           <button
+            ref={selectMenuButtonRef}
+            type="button"
+            className="button button-quiet"
+            onClick={() => setSelectMenuOpen((open) => !open)}
+            disabled={!doc}
+            aria-haspopup="true"
+            aria-expanded={selectMenuOpen}
+          >
+            Select ▾
+          </button>
+          {selectMenuOpen ? (
+            <>
+              <button
+                type="button"
+                className="image-editor-menu-backdrop"
+                aria-label="Close menu"
+                onClick={() => setSelectMenuOpen(false)}
+              />
+              <div
+                className="image-editor-menu"
+                role="group"
+                aria-label="Selection actions"
+              >
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("deselect")}
+                >
+                  Deselect
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("invert")}
+                >
+                  Inverse
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("feather")}
+                >
+                  Feather 4px
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("grow")}
+                >
+                  Grow 2px
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("shrink")}
+                >
+                  Shrink 2px
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc?.selection}
+                  onClick={() => selectAction("stroke")}
+                >
+                  Stroke edge
+                </button>
+              </div>
+            </>
+          ) : null}
+        </div>
+        <div className="image-editor-menu-wrap">
+          <button
             ref={canvasMenuButtonRef}
             type="button"
             className="button button-quiet"
@@ -786,6 +938,97 @@ export function ImageEditor() {
                 >
                   Image size…
                 </button>
+              </div>
+            </>
+          ) : null}
+        </div>
+        <div className="image-editor-menu-wrap">
+          <button
+            ref={viewMenuButtonRef}
+            type="button"
+            className="button button-quiet"
+            onClick={() => setViewMenuOpen((open) => !open)}
+            disabled={!doc}
+            aria-haspopup="true"
+            aria-expanded={viewMenuOpen}
+          >
+            View ▾
+          </button>
+          {viewMenuOpen ? (
+            <>
+              <button
+                type="button"
+                className="image-editor-menu-backdrop"
+                aria-label="Close menu"
+                onClick={() => setViewMenuOpen(false)}
+              />
+              <div
+                className="image-editor-menu"
+                role="group"
+                aria-label="View options"
+              >
+                <button
+                  type="button"
+                  aria-pressed={grid.show}
+                  onClick={() => setGrid((g) => ({ ...g, show: !g.show }))}
+                >
+                  {grid.show ? "✓ " : ""}Show grid
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={grid.snap}
+                  onClick={() => setGrid((g) => ({ ...g, snap: !g.snap }))}
+                >
+                  {grid.snap ? "✓ " : ""}Snap to grid
+                </button>
+                <button
+                  type="button"
+                  onClick={() =>
+                    setGrid((g) => ({
+                      ...g,
+                      size: g.size >= 64 ? 8 : g.size * 2,
+                    }))
+                  }
+                >
+                  Grid size: {grid.size}px
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc}
+                  onClick={() =>
+                    doc &&
+                    setGuides((gs) => ({
+                      ...gs,
+                      x: [...gs.x, Math.round(doc.width / 2)],
+                    }))
+                  }
+                >
+                  Add vertical guide
+                </button>
+                <button
+                  type="button"
+                  disabled={!doc}
+                  onClick={() =>
+                    doc &&
+                    setGuides((gs) => ({
+                      ...gs,
+                      y: [...gs.y, Math.round(doc.height / 2)],
+                    }))
+                  }
+                >
+                  Add horizontal guide
+                </button>
+                <button
+                  type="button"
+                  disabled={guides.x.length === 0 && guides.y.length === 0}
+                  onClick={() => setGuides({ x: [], y: [] })}
+                >
+                  Clear guides
+                </button>
+                <p className="image-editor-menu-hint">
+                  Drag a guide with the Move tool; drag it off the canvas to
+                  remove it.
+                </p>
               </div>
             </>
           ) : null}
@@ -872,11 +1115,15 @@ export function ImageEditor() {
             color={color}
             bgColor={bgColor}
             tolerance={tolerance}
+            grid={grid}
+            guides={guides}
+            onGuidesChange={setGuides}
             onCommitDoc={commit}
             onPickColor={setColor}
             onDropFiles={placeImageFiles}
           />
 
+          <div className="image-editor-right">
           <ImageEditorLayers
             doc={doc}
             onSelectLayer={(id) => setDocOp((current) => setActiveLayer(current, id))}
@@ -896,6 +1143,18 @@ export function ImageEditor() {
             onBlendMode={(id, mode: BlendMode) =>
               commit((current) => setBlendMode(current, id, mode))
             }
+            onToggleLock={(id) =>
+              commit((current) => {
+                const layer = current.layers.find((item) => item.id === id);
+                return patchLayer(current, id, { locked: !layer?.locked });
+              })
+            }
+            onToggleClip={(id) =>
+              commit((current) => {
+                const layer = current.layers.find((item) => item.id === id);
+                return patchLayer(current, id, { clipped: !layer?.clipped });
+              })
+            }
             onRename={(id, newName) =>
               commit((current) => patchLayer(current, id, { name: newName }), `name:${id}`)
             }
@@ -906,6 +1165,12 @@ export function ImageEditor() {
               commit((current) => moveLayerToIndex(current, id, toIndex))
             }
           />
+          <ImageEditorHistory
+            depth={history.depth}
+            position={history.position}
+            onJump={history.jump}
+          />
+          </div>
         </div>
       ) : (
         <div className="image-editor-loading" role="status">

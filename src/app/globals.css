@@ -5862,10 +5862,18 @@ body:has(.page-stage.is-fluid) {
   border-left: none;
 }
 
-.page-stage.is-fluid .image-editor-layers {
+.page-stage.is-fluid .image-editor-right > * {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none;
+}
+
+/* Right rail: layers take the flexible space, history is a bounded footer. */
+.image-editor-right {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  min-height: 0;
 }
 
 .image-editor-loading {
@@ -5939,6 +5947,11 @@ body:has(.page-stage.is-fluid) {
   display: grid;
   gap: 4px;
   font-size: 0.72rem;
+}
+
+/* Groups related sliders (e.g. the three Levels controls) under one label. */
+.image-editor-filters-group {
+  margin-top: 6px;
 }
 
 .image-editor-slider > span {
@@ -6065,6 +6078,73 @@ body:has(.page-stage.is-fluid) {
   border-radius: 12px;
   background: var(--card);
   overflow: hidden;
+}
+
+/* History panel (bottom of the right rail) */
+.image-editor-history {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  max-height: 208px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.image-editor-history-head {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.image-editor-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  overflow-y: auto;
+}
+
+.image-editor-history-step {
+  display: block;
+  width: 100%;
+  padding: 5px 9px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.image-editor-history-step:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+  background: color-mix(in oklch, var(--brand-cyan) 8%, transparent);
+}
+
+.image-editor-history-step.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 16%, transparent);
+  color: var(--brand-cyan);
+  font-weight: 700;
+}
+
+/* Steps ahead of the current position (redoable) read as de-emphasized.
+   --muted-foreground alone is the AA-safe dimming; no opacity on top (it would
+   drop this small text below the 4.5:1 contrast floor). */
+.image-editor-history-step.is-future {
+  color: var(--muted-foreground);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image-editor-history-step {
+    transition: none;
+  }
 }
 
 .image-editor-layers-head {
@@ -6197,7 +6277,7 @@ body:has(.page-stage.is-fluid) {
 
 .image-editor-layer-main {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 8px;
   border: none;
@@ -6205,6 +6285,26 @@ body:has(.page-stage.is-fluid) {
   text-align: left;
   cursor: pointer;
   min-width: 0;
+}
+
+.image-editor-layer-badges {
+  display: flex;
+  gap: 3px;
+}
+
+.image-editor-layer-badge {
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+  border-radius: 4px;
+  background: color-mix(in oklch, var(--brand-cyan) 12%, transparent);
+  color: var(--brand-cyan);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.58rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .image-editor-layer-thumb {
@@ -6463,6 +6563,8 @@ body:has(.page-stage.is-fluid) {
 /* Filters dialog */
 .image-editor-filters-dialog {
   width: min(94vw, 320px);
+  max-height: 88vh;
+  overflow-y: auto;
 }
 
 .image-editor-filters-preview {
@@ -6581,8 +6683,22 @@ body:has(.page-stage.is-fluid) {
   cursor: pointer;
 }
 
-.image-editor-menu button:hover {
+.image-editor-menu button:hover:not(:disabled) {
   background: var(--accent);
+}
+
+.image-editor-menu button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.image-editor-menu-hint {
+  margin: 4px 4px 2px;
+  padding: 6px 8px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  line-height: 1.4;
 }
 
 /* Desktop-first cockpit: narrow the rails on medium screens, then collapse to a

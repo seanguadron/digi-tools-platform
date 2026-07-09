@@ -46,6 +46,8 @@ interface LayersPanelProps {
   onToggleVisible: (id: string) => void;
   onOpacity: (id: string, opacity: number) => void;
   onBlendMode: (id: string, mode: BlendMode) => void;
+  onToggleLock: (id: string) => void;
+  onToggleClip: (id: string) => void;
   onRename: (id: string, name: string) => void;
   onReorderDelta: (id: string, delta: number) => void;
   onReorderTo: (id: string, toIndex: number) => void;
@@ -61,6 +63,8 @@ export function ImageEditorLayers({
   onToggleVisible,
   onOpacity,
   onBlendMode,
+  onToggleLock,
+  onToggleClip,
   onRename,
   onReorderDelta,
   onReorderTo,
@@ -144,6 +148,24 @@ export function ImageEditorLayers({
               }
             />
           </label>
+          <div className="image-editor-toggle-row">
+            <label className="image-editor-check">
+              <input
+                type="checkbox"
+                checked={active.locked}
+                onChange={() => onToggleLock(active.id)}
+              />
+              Lock
+            </label>
+            <label className="image-editor-check">
+              <input
+                type="checkbox"
+                checked={active.clipped}
+                onChange={() => onToggleClip(active.id)}
+              />
+              Clip
+            </label>
+          </div>
         </div>
       ) : null}
 
@@ -219,6 +241,28 @@ export function ImageEditorLayers({
                 ) : (
                   <span className="image-editor-layer-name">{layer.name}</span>
                 )}
+                {layer.locked || layer.clipped ? (
+                  <span className="image-editor-layer-badges">
+                    {layer.locked ? (
+                      <span
+                        className="image-editor-layer-badge"
+                        title="Transparency locked"
+                        aria-label="Transparency locked"
+                      >
+                        L
+                      </span>
+                    ) : null}
+                    {layer.clipped ? (
+                      <span
+                        className="image-editor-layer-badge"
+                        title="Clipping mask"
+                        aria-label="Clipping mask"
+                      >
+                        C
+                      </span>
+                    ) : null}
+                  </span>
+                ) : null}
               </button>
               <span className="image-editor-layer-reorder">
                 <button

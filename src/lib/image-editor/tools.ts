@@ -7,6 +7,8 @@ export type ToolId =
   | "move"
   | "brush"
   | "eraser"
+  | "clone"
+  | "smudge"
   | "fill"
   | "gradient"
   | "eyedropper"
@@ -55,6 +57,22 @@ export const TOOL_CATALOG: readonly ToolDef[] = [
     label: "Eraser",
     shortcut: "E",
     hint: "Erase to transparency on the active layer.",
+    group: "paint",
+    cursor: "crosshair",
+  },
+  {
+    id: "clone",
+    label: "Clone stamp",
+    shortcut: "S",
+    hint: "Alt-click to set a source, then paint to copy from it.",
+    group: "paint",
+    cursor: "crosshair",
+  },
+  {
+    id: "smudge",
+    label: "Smudge",
+    shortcut: "U",
+    hint: "Push and blend pixels along the stroke.",
     group: "paint",
     cursor: "crosshair",
   },

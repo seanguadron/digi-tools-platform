@@ -5,11 +5,13 @@
 
 import {
   blankBitmap,
+  clipToAlpha,
   cloneBitmap,
   composite,
   createBitmap,
   get2d,
 } from "./raster";
+import { applySelectionClip } from "./selection";
 import type { BlendMode, ImageDoc, Layer, Rect } from "./types";
 import { DEFAULT_DOC_HEIGHT, DEFAULT_DOC_WIDTH } from "./types";
 
@@ -35,6 +37,8 @@ export function createLayer(
     visible: true,
     opacity: 1,
     blendMode: "normal",
+    locked: false,
+    clipped: false,
     bitmap,
   };
 }
@@ -112,6 +116,33 @@ export function commitLayerBitmap(
     return doc;
   }
   return replaceLayer(doc, layerId, { ...layer, bitmap });
+}
+
+/**
+ * The single choke point every paint / fill / stroke path commits through, so
+ * the two trust rules can't be forgotten at a call site:
+ *  - an active selection confines the paint to inside it (unless `clipToSelection`
+ *    is false — a selection-*edge* stroke intentionally straddles the boundary), and
+ *  - a transparency-locked layer confines the paint to its existing opaque pixels.
+ */
+export function commitPaintedBitmap(
+  doc: ImageDoc,
+  layerId: string,
+  working: HTMLCanvasElement,
+  clipToSelection = true,
+): ImageDoc {
+  const layer = findLayer(doc, layerId);
+  if (!layer) {
+    return doc;
+  }
+  let result =
+    clipToSelection && doc.selection
+      ? applySelectionClip(layer.bitmap, working, doc.selection)
+      : working;
+  if (layer.locked) {
+    result = clipToAlpha(result, layer.bitmap);
+  }
+  return commitLayerBitmap(doc, layerId, result);
 }
 
 export function patchLayer(

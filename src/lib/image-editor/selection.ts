@@ -333,3 +333,156 @@ export function translateSelection(
 export function hasSelection(doc: ImageDoc): boolean {
   return doc.selection !== null;
 }
+
+export type SelectionMode = "replace" | "add" | "subtract";
+
+function unionRect(a: Rect, b: Rect, width: number, height: number): Rect {
+  const x = Math.max(0, Math.min(a.x, b.x));
+  const y = Math.max(0, Math.min(a.y, b.y));
+  const right = Math.min(width, Math.max(a.x + a.width, b.x + b.width));
+  const bottom = Math.min(height, Math.max(a.y + a.height, b.y + b.height));
+  return { x, y, width: right - x, height: bottom - y };
+}
+
+// True if the mask has any opaque pixel within `bounds` (a bounded emptiness
+// check so a fully-subtracted selection collapses to null / deselect).
+function maskHasPixels(mask: HTMLCanvasElement, bounds: Rect): boolean {
+  const x = Math.max(0, Math.floor(bounds.x));
+  const y = Math.max(0, Math.floor(bounds.y));
+  const w = Math.min(mask.width - x, Math.ceil(bounds.width));
+  const h = Math.min(mask.height - y, Math.ceil(bounds.height));
+  if (w <= 0 || h <= 0) {
+    return false;
+  }
+  const data = get2dReadable(mask).getImageData(x, y, w, h).data;
+  for (let i = 3; i < data.length; i += 4) {
+    if (data[i] > 0) {
+      return true;
+    }
+  }
+  return false;
+}
+
+// Combine a new selection with the existing one (Shift = add, Alt = subtract).
+export function combineSelections(
+  existing: Selection | null,
+  addition: Selection | null,
+  mode: SelectionMode,
+  width: number,
+  height: number,
+): Selection | null {
+  if (mode === "replace" || !existing) {
+    return addition;
+  }
+  if (!addition) {
+    return existing;
+  }
+  const mask = maskCanvas(width, height);
+  const ctx = get2d(mask);
+  ctx.drawImage(existing.mask, 0, 0);
+  if (mode === "add") {
+    ctx.drawImage(addition.mask, 0, 0);
+    const bounds = unionRect(existing.bounds, addition.bounds, width, height);
+    return { mask, bounds, shape: { kind: "rect", rect: bounds }, inverted: false };
+  }
+  // subtract
+  ctx.globalCompositeOperation = "destination-out";
+  ctx.drawImage(addition.mask, 0, 0);
+  ctx.globalCompositeOperation = "source-over";
+  if (!maskHasPixels(mask, existing.bounds)) {
+    return null;
+  }
+  return {
+    mask,
+    bounds: existing.bounds,
+    shape: { kind: "rect", rect: existing.bounds },
+    inverted: false,
+  };
+}
+
+// Feather (blur) the selection mask edges by `radius` px.
+export function featherSelection(
+  selection: Selection,
+  radius: number,
+  width: number,
+  height: number,
+): Selection {
+  const mask = maskCanvas(width, height);
+  const ctx = get2d(mask);
+  ctx.filter = `blur(${radius}px)`;
+  ctx.drawImage(selection.mask, 0, 0);
+  ctx.filter = "none";
+  return { ...selection, mask, shape: { kind: "rect", rect: selection.bounds } };
+}
+
+// Grow (amount>0) or shrink (amount<0) the selection by drawing the mask
+// offset in 8 directions (dilate) or intersecting offsets (erode).
+export function resizeSelection(
+  selection: Selection,
+  amount: number,
+  width: number,
+  height: number,
+): Selection | null {
+  const r = Math.round(Math.abs(amount));
+  if (r === 0) {
+    return selection;
+  }
+  const offsets: Array<[number, number]> = [
+    [r, 0],
+    [-r, 0],
+    [0, r],
+    [0, -r],
+    [r, r],
+    [r, -r],
+    [-r, r],
+    [-r, -r],
+  ];
+  const mask = maskCanvas(width, height);
+  const ctx = get2d(mask);
+  if (amount > 0) {
+    ctx.drawImage(selection.mask, 0, 0);
+    for (const [dx, dy] of offsets) {
+      ctx.drawImage(selection.mask, dx, dy);
+    }
+  } else {
+    // Erode: keep only pixels whose neighborhood is fully selected.
+    ctx.drawImage(selection.mask, 0, 0);
+    ctx.globalCompositeOperation = "destination-in";
+    for (const [dx, dy] of offsets) {
+      ctx.drawImage(selection.mask, dx, dy);
+    }
+    ctx.globalCompositeOperation = "source-over";
+  }
+  const bounds = { x: 0, y: 0, width, height };
+  if (amount < 0 && !maskHasPixels(mask, bounds)) {
+    return null;
+  }
+  return { mask, bounds, shape: { kind: "rect", rect: selection.bounds }, inverted: false };
+}
+
+// A bitmap that outlines the selection edge with `color` at `strokeWidth`, to
+// draw onto a layer (Stroke selection). Built from the mask silhouette.
+export function strokeSelectionBitmap(
+  selection: Selection,
+  color: string,
+  strokeWidth: number,
+  width: number,
+  height: number,
+): HTMLCanvasElement {
+  // ring = mask minus an eroded mask → a band along the edge.
+  const eroded = resizeSelection(selection, -Math.max(1, strokeWidth), width, height);
+  const out = maskCanvas(width, height);
+  const ctx = get2d(out);
+  ctx.drawImage(selection.mask, 0, 0);
+  if (eroded) {
+    ctx.globalCompositeOperation = "destination-out";
+    ctx.drawImage(eroded.mask, 0, 0);
+    ctx.globalCompositeOperation = "source-over";
+  }
+  // tint the ring with the color
+  ctx.globalCompositeOperation = "source-in";
+  ctx.fillStyle = color;
+  ctx.fillRect(0, 0, width, height);
+  ctx.globalCompositeOperation = "source-over";
+  return out;
+}

@@ -9,6 +9,11 @@ export interface Adjustments {
   contrast: number; // -100..100
   hue: number; // -180..180 (degrees)
   saturation: number; // -100..100
+  levelsBlack: number; // 0..254 input black point
+  levelsWhite: number; // 1..255 input white point
+  gamma: number; // 0.1..9.9 (1 = neutral)
+  posterize: number; // 0 = off, else 2..64 levels
+  threshold: number; // 0 = off, else 1..255 mono cutoff
   blur: number; // 0..20 (px)
   grayscale: boolean;
   invert: boolean;
@@ -19,6 +24,11 @@ export const NEUTRAL_ADJUSTMENTS: Adjustments = {
   contrast: 0,
   hue: 0,
   saturation: 0,
+  levelsBlack: 0,
+  levelsWhite: 255,
+  gamma: 1,
+  posterize: 0,
+  threshold: 0,
   blur: 0,
   grayscale: false,
   invert: false,
@@ -30,6 +40,11 @@ export function isNeutral(adj: Adjustments): boolean {
     adj.contrast === 0 &&
     adj.hue === 0 &&
     adj.saturation === 0 &&
+    adj.levelsBlack === 0 &&
+    adj.levelsWhite === 255 &&
+    adj.gamma === 1 &&
+    adj.posterize === 0 &&
+    adj.threshold === 0 &&
     adj.blur === 0 &&
     !adj.grayscale &&
     !adj.invert
@@ -58,6 +73,11 @@ export function applyAdjustments(
     adj.contrast !== 0 ||
     adj.hue !== 0 ||
     adj.saturation !== 0 ||
+    adj.levelsBlack !== 0 ||
+    adj.levelsWhite !== 255 ||
+    adj.gamma !== 1 ||
+    adj.posterize !== 0 ||
+    adj.threshold !== 0 ||
     adj.grayscale ||
     adj.invert;
   if (!tonal) {
@@ -108,6 +128,26 @@ export function applyAdjustments(
       b = 255 - b;
     }
 
+    if (adj.levelsBlack !== 0 || adj.levelsWhite !== 255 || adj.gamma !== 1) {
+      r = applyLevels(r, adj);
+      g = applyLevels(g, adj);
+      b = applyLevels(b, adj);
+    }
+
+    if (adj.posterize >= 2) {
+      const step = 255 / (adj.posterize - 1);
+      r = Math.round(r / step) * step;
+      g = Math.round(g / step) * step;
+      b = Math.round(b / step) * step;
+    }
+
+    if (adj.threshold > 0) {
+      const value = 0.299 * r + 0.587 * g + 0.114 * b >= adj.threshold ? 255 : 0;
+      r = value;
+      g = value;
+      b = value;
+    }
+
     data[i] = clamp255(r);
     data[i + 1] = clamp255(g);
     data[i + 2] = clamp255(b);
@@ -120,6 +160,14 @@ export function applyAdjustments(
 
 function clamp255(value: number): number {
   return value < 0 ? 0 : value > 255 ? 255 : value;
+}
+
+function applyLevels(value: number, adj: Adjustments): number {
+  const range = Math.max(1, adj.levelsWhite - adj.levelsBlack);
+  let n = (value - adj.levelsBlack) / range;
+  n = n < 0 ? 0 : n > 1 ? 1 : n;
+  n = Math.pow(n, 1 / adj.gamma);
+  return n * 255;
 }
 
 // r,g,b in 0..255 → h,s,l in 0..1.

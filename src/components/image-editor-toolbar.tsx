@@ -23,6 +23,12 @@ const ICONS: Record<ToolId, ReactNode> = {
   eraser: (
     <path d="M6 15 4 13a2 2 0 0 1 0-3l6-6a2 2 0 0 1 3 0l3 3a2 2 0 0 1 0 3l-5 5H6Zm3 0 6-6" />
   ),
+  clone: (
+    <path d="M6 17h8v-3H6zM8 14V6a2 2 0 0 1 4 0v8M7 6h6" />
+  ),
+  smudge: (
+    <path d="M4 14c3-1 4-5 7-5 2 0 3 1.4 3 3s-1.6 3-3.5 3M15 6l2 2-2 2" />
+  ),
   fill: (
     <path d="M8 3 5 6l5 5 5-5-4-4M5 6l-2 2 5 5 2-2M16 13c1 1.5 1 3 0 3s-1-1.5 0-3Z" />
   ),

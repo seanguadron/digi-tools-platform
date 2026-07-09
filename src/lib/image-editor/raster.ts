@@ -70,17 +70,51 @@ export function composite(
   }
   const ctx = get2d(out);
   ctx.clearRect(0, 0, out.width, out.height);
-  for (const layer of doc.layers) {
+  const layers = doc.layers;
+  // One scratch canvas reused across all clipping-mask layers this frame,
+  // allocated lazily (most docs have none). Cleared before each reuse.
+  let scratch: HTMLCanvasElement | null = null;
+  for (let i = 0; i < layers.length; i += 1) {
+    const layer = layers[i];
     if (!layer.visible || layer.opacity <= 0) {
       continue;
     }
-    const bitmap =
-      override && override.layerId === layer.id ? override.bitmap : layer.bitmap;
+    const bitmapFor = (l: Layer) =>
+      override && override.layerId === l.id ? override.bitmap : l.bitmap;
+    let bitmap = bitmapFor(layer);
+    // Clipping mask: clip this layer to the alpha of the layer below it.
+    if (layer.clipped && i > 0) {
+      if (!scratch) {
+        scratch = createBitmap(out.width, out.height);
+      }
+      const cctx = get2d(scratch);
+      cctx.globalCompositeOperation = "source-over";
+      cctx.clearRect(0, 0, scratch.width, scratch.height);
+      cctx.drawImage(bitmap, 0, 0);
+      cctx.globalCompositeOperation = "destination-in";
+      cctx.drawImage(bitmapFor(layers[i - 1]), 0, 0);
+      cctx.globalCompositeOperation = "source-over";
+      bitmap = scratch;
+    }
     ctx.globalAlpha = clamp01(layer.opacity);
     ctx.globalCompositeOperation = blendToComposite(layer.blendMode);
     ctx.drawImage(bitmap, 0, 0);
   }
   ctx.globalAlpha = 1;
+  ctx.globalCompositeOperation = "source-over";
+  return out;
+}
+
+// Mask `bitmap` to the alpha of `alphaSource` (used by transparency lock).
+export function clipToAlpha(
+  bitmap: HTMLCanvasElement,
+  alphaSource: HTMLCanvasElement,
+): HTMLCanvasElement {
+  const out = createBitmap(bitmap.width, bitmap.height);
+  const ctx = get2d(out);
+  ctx.drawImage(bitmap, 0, 0);
+  ctx.globalCompositeOperation = "destination-in";
+  ctx.drawImage(alphaSource, 0, 0);
   ctx.globalCompositeOperation = "source-over";
   return out;
 }
