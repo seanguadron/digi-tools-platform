@@ -6,6 +6,7 @@ import {
   getRecommendedTrackValues,
   getSectionConfigurationKey,
   getSectionDeck,
+  sanitizeCardSystemShape,
   SECTION_SLOT_BUDGETS,
   TRACK_IDS,
 } from "@/lib/prompt-card-system";
@@ -430,7 +431,9 @@ export function restoreCardSystem(
 ): CardSystemState {
   const restored = JSON.parse(value) as Partial<CardSystemState>;
 
-  return {
+  // Sanitize against the current catalog so stale saves (removed cards or
+  // tracks, out-of-range values) degrade gracefully instead of ghost-slotting.
+  return sanitizeCardSystemShape({
     tracks: {
       ...getRecommendedTrackValues(getFormatCode(formatValue)),
       ...restored.tracks,
@@ -439,11 +442,8 @@ export function restoreCardSystem(
       ...createEmptyEquippedCards(),
       ...restored.equipped,
     },
-    memory: {
-      ...createEmptySnapMemory(),
-      ...restored.memory,
-    },
+    memory: createEmptySnapMemory(),
     overrides: Array.isArray(restored.overrides) ? restored.overrides : [],
     suggested: createEmptySuggestedCards(),
-  };
+  });
 }

@@ -27,6 +27,7 @@ import {
   getEquippedInstructions,
   getFormatCode,
   getRecommendedTrackValues,
+  sanitizeCardSystemShape,
   TRACK_IDS,
 } from "@/lib/prompt-card-system";
 import type { CardSection, TrackId } from "@/lib/prompt-card-system";
@@ -359,13 +360,16 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       context: current.context,
       targetAudience: current.targetAudience,
     }));
-    setCardSystem({
-      tracks: { ...archetype.tracks },
-      equipped: createEquippedSlots(archetype.equipped),
-      memory: createEmptySnapMemory(),
-      overrides: [],
-      suggested: createEmptySuggestedCards(),
-    });
+    // Sanitized so custom archetypes saved against an older catalog still apply.
+    setCardSystem(
+      sanitizeCardSystemShape({
+        tracks: { ...archetype.tracks },
+        equipped: createEquippedSlots(archetype.equipped),
+        memory: createEmptySnapMemory(),
+        overrides: [],
+        suggested: createEmptySuggestedCards(),
+      }),
+    );
     setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
     setRoleWorkbenchVersion((current) => current + 1);
     setActiveArchetypeId(archetype.id);
@@ -459,7 +463,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         context: ["context-scope", "context-constraints"],
         action: ["action-inspect", "action-analyze", "action-recommend"],
         format: ["format-sections", "format-next"],
-        target: ["target-language", "target-direct"],
+        target: ["target-language", "target-stance"],
       }),
     });
     const exampleRole = roles.find(
@@ -689,7 +693,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     history.checkpoint();
     cancelDictation(true);
     setDraft(entry.draft);
-    setCardSystem(entry.cardSystem);
+    setCardSystem(sanitizeCardSystemShape(entry.cardSystem));
     const leadRole = roles.find((role) => role.id === entry.draft.roleIds[0]);
     setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
     setRoleWorkbenchVersion((current) => current + 1);

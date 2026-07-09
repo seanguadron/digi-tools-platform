@@ -42,7 +42,7 @@
         "target": [
           "target-language",
           "target-decisions",
-          "target-direct"
+          "target-stance"
         ]
       },
       "draft": {
@@ -67,7 +67,6 @@
         "contextDepth": 0,
         "evidenceRigor": 0,
         "autonomy": 1,
-        "practicality": 2,
         "outputDetail": 0,
         "structure": 1
       },
@@ -83,7 +82,7 @@
           "format-next"
         ],
         "target": [
-          "target-direct"
+          "target-stance"
         ]
       },
       "draft": {
@@ -111,7 +110,6 @@
         "contextDepth": 3,
         "evidenceRigor": 2,
         "autonomy": 3,
-        "practicality": 2,
         "challenge": 2,
         "outputDetail": 2,
         "structure": 3,
@@ -138,7 +136,7 @@
         "target": [
           "target-language",
           "target-decisions",
-          "target-direct"
+          "target-stance"
         ]
       },
       "draft": {
@@ -188,7 +186,6 @@
       ],
       "tracks": {
         "autonomy": 3,
-        "practicality": 2,
         "challenge": 2
       },
       "equipped": {
@@ -220,8 +217,7 @@
       ],
       "tracks": {
         "challenge": 0,
-        "autonomy": 1,
-        "practicality": 1
+        "autonomy": 1
       },
       "equipped": {
         "action": [
@@ -273,8 +269,7 @@
       ],
       "tracks": {
         "challenge": 1,
-        "autonomy": 2,
-        "practicality": 2
+        "autonomy": 2
       },
       "equipped": {
         "action": [
@@ -360,7 +355,6 @@
       ],
       "tracks": {
         "autonomy": 3,
-        "practicality": 2,
         "challenge": 3
       },
       "equipped": {
@@ -384,7 +378,7 @@
         "target": [
           "target-language",
           "target-decisions",
-          "target-direct"
+          "target-stance"
         ]
       },
       "draft": {},

@@ -7,7 +7,6 @@
     ],
     "action": [
       "autonomy",
-      "practicality",
       "challenge"
     ],
     "format": [
@@ -29,7 +28,7 @@
     {
       "id": "contextDepth",
       "label": "Context depth",
-      "description": "How much background and constraint detail the prompt carries.",
+      "description": "How much background, constraint, and stakeholder detail the prompt carries.",
       "points": [
         "Brief",
         "Grounded",
@@ -40,7 +39,7 @@
     {
       "id": "evidenceRigor",
       "label": "Evidence rigor",
-      "description": "How strongly the model must verify and qualify its evidence.",
+      "description": "How strongly claims must be sourced, cross-checked, and qualified.",
       "points": [
         "Informal",
         "Supported",
@@ -51,7 +50,7 @@
     {
       "id": "autonomy",
       "label": "Autonomy",
-      "description": "How independently the model may plan and complete the work.",
+      "description": "How independently the model plans, decides, and completes the work.",
       "points": [
         "Guided",
         "Collaborative",
@@ -60,19 +59,9 @@
       ]
     },
     {
-      "id": "practicality",
-      "label": "Practicality",
-      "description": "How strongly the work should favor immediate application.",
-      "points": [
-        "Exploratory",
-        "Applied",
-        "Execution-ready"
-      ]
-    },
-    {
       "id": "challenge",
       "label": "Challenge",
-      "description": "How aggressively the model should test assumptions and claims.",
+      "description": "How hard the model pushes on assumptions, claims, and its own conclusions.",
       "points": [
         "Supportive",
         "Questioning",
@@ -83,7 +72,7 @@
     {
       "id": "outputDetail",
       "label": "Output detail",
-      "description": "How much explanation and supporting material the artifact includes.",
+      "description": "How much explanation and supporting material the answer includes.",
       "points": [
         "Lean",
         "Concise",
@@ -94,7 +83,7 @@
     {
       "id": "structure",
       "label": "Structure",
-      "description": "How strictly the response must follow an explicit organization.",
+      "description": "How strictly the response follows an explicit organization.",
       "points": [
         "Flexible",
         "Guided",
@@ -105,19 +94,18 @@
     {
       "id": "audienceExpertise",
       "label": "Audience expertise",
-      "description": "How much domain knowledge the response may assume.",
+      "description": "How much domain knowledge the response may assume of its reader.",
       "points": [
         "Newcomer",
-        "Beginner",
-        "Working knowledge",
-        "Advanced",
+        "Everyday",
+        "Working",
         "Expert"
       ]
     },
     {
       "id": "voiceFormality",
       "label": "Voice formality",
-      "description": "How formal the response should sound without changing its intent.",
+      "description": "How formal the response sounds without changing what it says.",
       "points": [
         "Conversational",
         "Neutral",
@@ -130,11 +118,10 @@
     "contextDepth": 1,
     "evidenceRigor": 1,
     "autonomy": 1,
-    "practicality": 1,
     "challenge": 1,
     "outputDetail": 1,
     "structure": 1,
-    "audienceExpertise": 2,
+    "audienceExpertise": 1,
     "voiceFormality": 1
   },
   "vocabulary": {

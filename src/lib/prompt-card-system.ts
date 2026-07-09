@@ -31,7 +31,6 @@ export const TRACK_IDS: readonly TrackId[] = [
   "contextDepth",
   "evidenceRigor",
   "autonomy",
-  "practicality",
   "challenge",
   "outputDetail",
   "structure",
@@ -127,12 +126,7 @@ export function getEquippedInstructions(
     return equipped[section]
       .map((lineageId) => getLineage(lineageId))
       .filter((lineage): lineage is CardLineage => Boolean(lineage))
-      .map((lineage) => {
-        const grade = getCardGrade(lineage, values);
-        return `${grade.instruction} Focus on these outcomes: ${lineage.goals.join(
-          " ",
-        )}`;
-      });
+      .map((lineage) => getCardGrade(lineage, values).instruction);
   }
 
   return {
@@ -141,4 +135,49 @@ export function getEquippedInstructions(
     format: instructionsFor("format"),
     target: instructionsFor("target"),
   };
+}
+
+export function getTrackMax(trackId: TrackId) {
+  return (trackDefinitions.get(trackId)?.points.length ?? 4) - 1;
+}
+
+// Drops anything a stored card-system state may carry that the current catalog
+// no longer recognizes: unknown or wrong-section card ids, over-budget slots,
+// removed tracks, and out-of-range track values. Old saves, share links, and
+// custom archetypes degrade gracefully instead of leaving ghost slots.
+export function sanitizeCardSystemShape<
+  T extends {
+    tracks: TrackValues;
+    equipped: Record<CardSection, string[]>;
+    overrides: TrackId[];
+  },
+>(state: T): T {
+  const tracks = {} as TrackValues;
+  for (const trackId of TRACK_IDS) {
+    const raw = state.tracks?.[trackId];
+    const max = getTrackMax(trackId);
+    tracks[trackId] =
+      typeof raw === "number" && Number.isFinite(raw)
+        ? Math.min(Math.max(Math.round(raw), 0), max)
+        : Math.min(DEFAULT_TRACK_VALUES[trackId], max);
+  }
+
+  const equipped = {} as Record<CardSection, string[]>;
+  for (const section of CARD_SECTIONS) {
+    const ids = Array.isArray(state.equipped?.[section])
+      ? state.equipped[section]
+      : [];
+    equipped[section] = ids
+      .filter(
+        (id, index) =>
+          getLineage(id)?.section === section && ids.indexOf(id) === index,
+      )
+      .slice(0, SECTION_SLOT_BUDGETS[section]);
+  }
+
+  const overrides = Array.isArray(state.overrides)
+    ? state.overrides.filter((trackId) => TRACK_IDS.includes(trackId))
+    : [];
+
+  return { ...state, tracks, equipped, overrides };
 }

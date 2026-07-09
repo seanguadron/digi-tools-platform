@@ -275,7 +275,6 @@
         "contextDepth",
         "evidenceRigor",
         "autonomy",
-        "practicality",
         "challenge",
         "outputDetail",
         "structure",
@@ -331,8 +330,8 @@
         "description": { "$ref": "#/$defs/nonEmptyString" },
         "points": {
           "type": "array",
-          "minItems": 3,
-          "maxItems": 5,
+          "minItems": 4,
+          "maxItems": 4,
           "items": { "$ref": "#/$defs/nonEmptyString" }
         }
       }
@@ -344,7 +343,6 @@
         "contextDepth",
         "evidenceRigor",
         "autonomy",
-        "practicality",
         "challenge",
         "outputDetail",
         "structure",
@@ -352,15 +350,14 @@
         "voiceFormality"
       ],
       "properties": {
-        "contextDepth": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "evidenceRigor": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "autonomy": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "practicality": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "challenge": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "outputDetail": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "structure": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "audienceExpertise": { "type": "integer", "minimum": 0, "maximum": 4 },
-        "voiceFormality": { "type": "integer", "minimum": 0, "maximum": 4 }
+        "contextDepth": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "evidenceRigor": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "autonomy": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "challenge": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "outputDetail": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "structure": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "audienceExpertise": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "voiceFormality": { "type": "integer", "minimum": 0, "maximum": 3 }
       }
     },
     "partialTrackValues": {
@@ -369,7 +366,7 @@
       "additionalProperties": {
         "type": "integer",
         "minimum": 0,
-        "maximum": 4
+        "maximum": 3
       }
     },
     "format": {

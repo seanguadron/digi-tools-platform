@@ -15,7 +15,6 @@
         "contextDepth": 1,
         "evidenceRigor": 1,
         "autonomy": 1,
-        "practicality": 1,
         "challenge": 0,
         "outputDetail": 1,
         "structure": 1,
@@ -28,8 +27,8 @@
           "context-success"
         ],
         "action": [
-          "action-inspect",
-          "action-analyze"
+          "action-explain",
+          "action-summarize"
         ],
         "format": [
           "format-info-card",
@@ -72,7 +71,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 1,
         "challenge": 2,
         "outputDetail": 2,
         "structure": 2,
@@ -98,7 +96,7 @@
         ],
         "target": [
           "target-language",
-          "target-direct",
+          "target-stance",
           "target-decisions"
         ]
       },
@@ -132,7 +130,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 2,
         "outputDetail": 2,
         "structure": 2,
@@ -159,7 +156,7 @@
         ],
         "target": [
           "target-decisions",
-          "target-direct",
+          "target-stance",
           "target-language"
         ]
       },
@@ -193,7 +190,6 @@
         "contextDepth": 2,
         "evidenceRigor": 1,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 3,
@@ -219,7 +215,7 @@
         ],
         "target": [
           "target-decisions",
-          "target-direct",
+          "target-stance",
           "target-language"
         ]
       },
@@ -253,7 +249,6 @@
         "contextDepth": 1,
         "evidenceRigor": 0,
         "autonomy": 1,
-        "practicality": 1,
         "challenge": 1,
         "outputDetail": 1,
         "structure": 1,
@@ -278,7 +273,7 @@
         "target": [
           "target-voice",
           "target-language",
-          "target-direct"
+          "target-stance"
         ]
       },
       "action": "Clarify the purpose, audience, and intended effect.\nDraft the text with a clear structure.\nTighten it for clarity and flow.",
@@ -311,7 +306,6 @@
         "contextDepth": 1,
         "evidenceRigor": 0,
         "autonomy": 2,
-        "practicality": 1,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 1,
@@ -325,8 +319,8 @@
           "context-success"
         ],
         "action": [
+          "action-ideate",
           "action-create",
-          "action-compare",
           "action-recommend"
         ],
         "format": [
@@ -337,7 +331,7 @@
         "target": [
           "target-examples",
           "target-voice",
-          "target-direct"
+          "target-stance"
         ]
       },
       "action": "Generate several distinct directions.\nDevelop the strongest into a concrete concept.\nNote why it works and what to test.",
@@ -370,7 +364,6 @@
         "contextDepth": 1,
         "evidenceRigor": 1,
         "autonomy": 1,
-        "practicality": 1,
         "challenge": 0,
         "outputDetail": 2,
         "structure": 2,
@@ -384,7 +377,7 @@
         ],
         "action": [
           "action-inspect",
-          "action-create",
+          "action-explain",
           "action-recommend"
         ],
         "format": [
@@ -414,66 +407,6 @@
       }
     },
     {
-      "id": "business-opportunity",
-      "code": "BIZ",
-      "name": "Business opportunity",
-      "description": "Evaluate an offer, market, product, or growth opportunity.",
-      "formatCode": "PLAN",
-      "roleIds": [
-        "consultant",
-        "product-strategist",
-        "market-positioning-advisor"
-      ],
-      "tracks": {
-        "contextDepth": 2,
-        "evidenceRigor": 1,
-        "autonomy": 2,
-        "practicality": 2,
-        "challenge": 2,
-        "outputDetail": 2,
-        "structure": 2,
-        "audienceExpertise": 2,
-        "voiceFormality": 2
-      },
-      "equipped": {
-        "context": [
-          "context-scope",
-          "context-constraints",
-          "context-success"
-        ],
-        "action": [
-          "action-analyze",
-          "action-compare",
-          "action-recommend",
-          "action-verify"
-        ],
-        "format": [
-          "format-summary",
-          "format-comparison",
-          "format-next"
-        ],
-        "target": [
-          "target-decisions",
-          "target-direct",
-          "target-voice"
-        ]
-      },
-      "action": "Clarify the customer, problem, and desired outcome.\nEvaluate the opportunity, risks, and alternatives.\nRecommend a focused next step with what to validate.",
-      "formatNotes": "Tie recommendations to customer value, constraints, and next experiments.",
-      "effects": [
-        "Sets PLAN as the base output type.",
-        "Loads 3 role cards and 13 support cards.",
-        "Preserves the user's Context and Target writing fields."
-      ],
-      "illustration": {
-        "src": "/card-art/archetypes/business-opportunity.webp",
-        "alt": "Illustration asset for the Business opportunity archetype.",
-        "motif": "Business opportunity premium master-plan artifact",
-        "prompt": "Retro-tech guild toolkit square illustration asset for the Business opportunity master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests evaluate an offer, market, product, or growth opportunity. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
-        "status": "planned"
-      }
-    },
-    {
       "id": "technical-troubleshoot",
       "code": "FIX",
       "name": "Debug & fix",
@@ -488,7 +421,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 2,
         "outputDetail": 2,
         "structure": 3,
@@ -514,7 +446,7 @@
         ],
         "target": [
           "target-language",
-          "target-direct",
+          "target-stance",
           "target-decisions"
         ]
       },
@@ -548,7 +480,6 @@
         "contextDepth": 1,
         "evidenceRigor": 1,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 2,
@@ -573,7 +504,7 @@
         "target": [
           "target-voice",
           "target-examples",
-          "target-direct"
+          "target-stance"
         ]
       },
       "action": "Define the core message and audience takeaway.\nOutline the slides as a narrative, one idea each.\nNote the key points and speaker notes per slide.",
@@ -606,7 +537,6 @@
         "contextDepth": 2,
         "evidenceRigor": 1,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 2,
@@ -631,7 +561,7 @@
         ],
         "target": [
           "target-decisions",
-          "target-direct",
+          "target-stance",
           "target-language"
         ]
       },
@@ -665,7 +595,6 @@
         "contextDepth": 2,
         "evidenceRigor": 1,
         "autonomy": 3,
-        "practicality": 2,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 3,
@@ -692,7 +621,7 @@
         "target": [
           "target-language",
           "target-decisions",
-          "target-direct"
+          "target-stance"
         ]
       },
       "action": "Inspect the existing code, conventions, and the spec.\nImplement the requested change as the smallest correct build.\nVerify it against the acceptance criteria and note assumptions, tradeoffs, or risks.",
@@ -725,7 +654,6 @@
         "contextDepth": 1,
         "evidenceRigor": 1,
         "autonomy": 1,
-        "practicality": 1,
         "challenge": 0,
         "outputDetail": 1,
         "structure": 2,
@@ -780,7 +708,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 3,
         "outputDetail": 2,
         "structure": 2,
@@ -804,7 +731,7 @@
         ],
         "target": [
           "target-decisions",
-          "target-direct",
+          "target-stance",
           "target-language"
         ]
       },
@@ -838,7 +765,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 1,
         "outputDetail": 2,
         "structure": 3,
@@ -894,7 +820,6 @@
         "contextDepth": 1,
         "evidenceRigor": 0,
         "autonomy": 1,
-        "practicality": 1,
         "challenge": 1,
         "outputDetail": 1,
         "structure": 1,
@@ -918,7 +843,7 @@
         "target": [
           "target-voice",
           "target-language",
-          "target-direct"
+          "target-stance"
         ]
       },
       "action": "Identify what the text is trying to say and where it loses the reader.\nRewrite for clarity, flow, and tone without changing the meaning.\nFlag any change that alters meaning.",
@@ -951,7 +876,6 @@
         "contextDepth": 1,
         "evidenceRigor": 0,
         "autonomy": 1,
-        "practicality": 2,
         "challenge": 0,
         "outputDetail": 1,
         "structure": 1,
@@ -973,8 +897,8 @@
         ],
         "target": [
           "target-voice",
-          "target-tone",
-          "target-direct"
+          "target-stance",
+          "target-language"
         ]
       },
       "action": "Identify the recipient, the goal of the message, and the right tone.\nDraft a clear, appropriately brief message.\nEnd with the specific response or action you want.",
@@ -1007,7 +931,6 @@
         "contextDepth": 2,
         "evidenceRigor": 2,
         "autonomy": 2,
-        "practicality": 2,
         "challenge": 2,
         "outputDetail": 2,
         "structure": 2,
@@ -1033,7 +956,7 @@
         ],
         "target": [
           "target-decisions",
-          "target-direct",
+          "target-stance",
           "target-language"
         ]
       },
@@ -1049,6 +972,238 @@
         "alt": "Illustration asset for the Data analysis archetype.",
         "motif": "Data analysis premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Data analysis master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests finding and explaining insights from a dataset or metrics. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "explain-code",
+      "code": "XPL",
+      "name": "Explain code",
+      "description": "Walk through unfamiliar code until it makes sense.",
+      "formatCode": "CODE",
+      "roleIds": [
+        "developer",
+        "explainer-educator",
+        "systems-designer"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 1,
+        "autonomy": 1,
+        "challenge": 1,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 1,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success"
+        ],
+        "action": [
+          "action-inspect",
+          "action-explain",
+          "action-summarize"
+        ],
+        "format": [
+          "format-sections",
+          "format-key-points"
+        ],
+        "target": [
+          "target-language",
+          "target-examples",
+          "target-stance"
+        ]
+      },
+      "action": "Read the code and establish what it does at a high level.\nWalk through the important paths step by step, explaining why the code is built this way.\nFlag anything surprising, risky, or worth refactoring.",
+      "formatNotes": "Explain top-down: purpose first, then structure, then the tricky parts. Use short code excerpts only where they earn their place.",
+      "effects": [
+        "Sets CODE as the base output type.",
+        "Loads 3 role cards and 10 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/explain-code.webp",
+        "alt": "Illustration asset for the Explain code archetype.",
+        "motif": "Explain code premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Explain code master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests walk through unfamiliar code until it makes sense. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "spec-prd",
+      "code": "SPEC",
+      "name": "Spec / PRD",
+      "description": "Turn an idea into a spec a builder could pick up.",
+      "formatCode": "PLAN",
+      "roleIds": [
+        "product-manager",
+        "developer",
+        "strategist"
+      ],
+      "tracks": {
+        "contextDepth": 3,
+        "evidenceRigor": 1,
+        "autonomy": 2,
+        "challenge": 1,
+        "outputDetail": 2,
+        "structure": 3,
+        "audienceExpertise": 2,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success",
+          "context-exclusions"
+        ],
+        "action": [
+          "action-inspect",
+          "action-ideate",
+          "action-plan",
+          "action-create",
+          "action-verify"
+        ],
+        "format": [
+          "format-sections",
+          "format-key-points",
+          "format-next"
+        ],
+        "target": [
+          "target-decisions",
+          "target-language",
+          "target-stance"
+        ]
+      },
+      "action": "Clarify the problem, the user, and what success looks like.\nDefine the requirements: what it must do, what it must not do, and the open questions.\nWrite the spec with scope, acceptance criteria, and a first delivery slice.",
+      "formatNotes": "Include: problem, goals and non-goals, requirements, acceptance criteria, and open questions. Mark anything assumed.",
+      "effects": [
+        "Sets PLAN as the base output type.",
+        "Loads 3 role cards and 14 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/spec-prd.webp",
+        "alt": "Illustration asset for the Spec / PRD archetype.",
+        "motif": "Spec / PRD premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Spec / PRD master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests turn an idea into a spec a builder could pick up. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "risk-premortem",
+      "code": "RISK",
+      "name": "Risk premortem",
+      "description": "Assume it failed — find out why before it does.",
+      "formatCode": "RPT",
+      "roleIds": [
+        "qa-test-engineer",
+        "security-reviewer",
+        "analyst"
+      ],
+      "tracks": {
+        "contextDepth": 2,
+        "evidenceRigor": 2,
+        "autonomy": 2,
+        "challenge": 3,
+        "outputDetail": 2,
+        "structure": 2,
+        "audienceExpertise": 2,
+        "voiceFormality": 2
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-assumptions",
+          "context-success"
+        ],
+        "action": [
+          "action-ideate",
+          "action-analyze",
+          "action-verify",
+          "action-recommend"
+        ],
+        "format": [
+          "format-key-points",
+          "format-comparison",
+          "format-next"
+        ],
+        "target": [
+          "target-decisions",
+          "target-stance",
+          "target-language"
+        ]
+      },
+      "action": "Assume the plan has failed twelve months from now. Generate the most plausible distinct causes of failure.\nFor each cause, assess likelihood, impact, and the earliest warning sign.\nRecommend the two or three mitigations that remove the most risk.",
+      "formatNotes": "Rank risks by likelihood and impact. Each risk gets: cause, early warning sign, and mitigation. End with what to do this week.",
+      "effects": [
+        "Sets RPT as the base output type.",
+        "Loads 3 role cards and 13 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/risk-premortem.webp",
+        "alt": "Illustration asset for the Risk premortem archetype.",
+        "motif": "Risk premortem premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Risk premortem master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests assume it failed — find out why before it does. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "prompt-improver",
+      "code": "META",
+      "name": "Prompt improver",
+      "description": "Diagnose a prompt and rebuild it sharper.",
+      "formatCode": "DRAFT",
+      "roleIds": [
+        "prompt-engineer",
+        "editor",
+        "analyst"
+      ],
+      "tracks": {
+        "contextDepth": 1,
+        "evidenceRigor": 0,
+        "autonomy": 2,
+        "challenge": 2,
+        "outputDetail": 1,
+        "structure": 2,
+        "audienceExpertise": 2,
+        "voiceFormality": 1
+      },
+      "equipped": {
+        "context": [
+          "context-scope",
+          "context-success",
+          "context-exclusions"
+        ],
+        "action": [
+          "action-inspect",
+          "action-analyze",
+          "action-create",
+          "action-verify"
+        ],
+        "format": [
+          "format-sections",
+          "format-length"
+        ],
+        "target": [
+          "target-language",
+          "target-stance"
+        ]
+      },
+      "action": "Diagnose the prompt: what it asks for, what it leaves ambiguous, and where a model would go wrong.\nRewrite it with a clear role, task, constraints, and output shape.\nExplain the two or three changes that matter most and why.",
+      "formatNotes": "Return the improved prompt in a copyable block, then the change notes. Keep the rewrite faithful to the original intent.",
+      "effects": [
+        "Sets DRAFT as the base output type.",
+        "Loads 3 role cards and 11 support cards.",
+        "Preserves the user's Context and Target writing fields."
+      ],
+      "illustration": {
+        "src": "/card-art/archetypes/prompt-improver.webp",
+        "alt": "Illustration asset for the Prompt improver archetype.",
+        "motif": "Prompt improver premium master-plan artifact",
+        "prompt": "Retro-tech guild toolkit square illustration asset for the Prompt improver master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests diagnose a prompt and rebuild it sharper. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     }

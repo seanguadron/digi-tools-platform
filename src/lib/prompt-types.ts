@@ -32,7 +32,6 @@ export type TrackId =
   | "contextDepth"
   | "evidenceRigor"
   | "autonomy"
-  | "practicality"
   | "challenge"
   | "outputDetail"
   | "structure"

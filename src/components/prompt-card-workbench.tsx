@@ -110,7 +110,8 @@ function SnapTrack({
   onChange: (value: number) => void;
 }) {
   const definition = getTrackDefinition(trackId, formatCode);
-  const activeLabel = definition.points[value];
+  const activeLabel =
+    definition.points[value] ?? definition.points[definition.points.length - 1];
 
   return (
     <div className="tuning-track">

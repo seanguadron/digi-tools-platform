@@ -9,11 +9,15 @@ function clone(value) {
 test("the current prompt catalog is valid", async () => {
   const catalog = await loadCatalog();
   assert.equal(catalog.roles.roles.length, 35);
+  assert.equal(catalog.cards.cards.length, 30);
+  assert.equal(catalog.archetypes.archetypes.length, 21);
   assert.ok(
     catalog.cards.cards.every(
       (card) => card.goals.length >= 1 && card.goals.length <= 6,
     ),
   );
+  // Every lineage carries exactly 4 grades — one per snap point on its driver.
+  assert.ok(catalog.cards.cards.every((card) => card.grades.length === 4));
   assert.ok(catalog.roles.roles.every((role) => role.illustration));
   assert.ok(
     catalog.roles.roles.every(
@@ -23,9 +27,15 @@ test("the current prompt catalog is valid", async () => {
   assert.equal(
     catalog.cards.cards.flatMap((card) => card.grades).filter((grade) => grade.illustration)
       .length,
-    108,
+    120,
   );
   assert.ok(catalog.archetypes.archetypes.every((archetype) => archetype.effects.length > 0));
+  // Card goals are UI flavor only — instructions must stand alone in the prompt.
+  assert.ok(
+    catalog.cards.cards
+      .flatMap((card) => card.grades)
+      .every((grade) => !grade.instruction.includes("Focus on these outcomes")),
+  );
 
   await assert.doesNotReject(async () => {
     await validateCatalog(catalog);
@@ -57,11 +67,11 @@ test("broken scenario references fail validation", async () => {
 test("track values cannot exceed their snap points", async () => {
   const catalog = await loadCatalog();
   const invalid = clone(catalog);
-  invalid.tracks.defaultValues.practicality = 4;
+  invalid.tracks.defaultValues.autonomy = 4;
 
   await assert.rejects(
     () => validateCatalog(invalid),
-    /practicality uses snap 4, but the track ends at 2/,
+    /defaultValues\/autonomy must be <= 3/,
   );
 });
 
