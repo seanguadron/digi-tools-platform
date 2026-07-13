@@ -90,6 +90,17 @@ the other automatically; both are pinned in `SKILL_VERSIONS.md`, and a skill
 added to either home updates the ledger in the same commit.
 ✓ check: the ledger's two sections match the two directories.
 
+**§3.5 Session continuity (process; landed 2026-07-09 with the owner's
+consent).** `docs/STATE.md` is the rewrite-in-place current-state snapshot
+(status, runbook, backlog, in-flight work). Claude Code auto-loads it via the
+CLAUDE.md include; Codex sessions read it first per AGENTS.md ("Session
+continuity"). The MAIN agent rewrites it at the end of every working session,
+written for a reader who has seen nothing but AGENTS.md.
+`.ai/notes/SESSIONS.md` stays the append-only history; the two are never
+merged.
+✓ check: `npm run gate:sweep` warns when `docs/STATE.md` is missing or
+older than the newest gate report.
+
 ## §4 Process
 
 **§4.1 The consent gate.** This file changes only with the owner's explicit

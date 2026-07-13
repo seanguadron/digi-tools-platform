@@ -1,6 +1,7 @@
 # CLAUDE.md
 
 @AGENTS.md
+@docs/STATE.md
 
 <!--
 Claude Code compatibility only. Codex reads AGENTS.md directly.

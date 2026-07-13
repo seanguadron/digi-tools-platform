@@ -5,6 +5,26 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-09: Session-continuity process landed (owner consent)
+
+**Context.** The owner's cross-project continuity process landed here (same
+change as YABL-Platform, AmazingOS-Personal, WebAppStarterProject).
+
+**Decisions.**
+- docs/STATE.md landed: the rewrite-in-place current-state snapshot. Claude
+  Code auto-loads it via the CLAUDE.md include; Codex sessions read it first
+  per AGENTS.md ("Session continuity"). STANDARDS §3.5 landed with the
+  owner's consent.
+- AGENTS.md gained the resume procedure + end-of-session checklist;
+  gate-sweep.mjs warns (never fails) when STATE.md is missing or stale; the
+  sessions agent now reminds callers that STATE.md is the main agent's file.
+
+**Learnings.**
+- STATE.md is snapshot, SESSIONS.md is history: never merged. The
+  Now/Built/Backlog sections are stubs until the next Digi Tools session.
+
+---
+
 ## 2026-07-09: Image Editor — second 12-feature batch ("G-features")
 
 **Context.** A second "12 new features" pass on the Image Editor (mirroring

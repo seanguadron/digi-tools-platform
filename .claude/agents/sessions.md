@@ -36,6 +36,11 @@ write access limited to `.ai/notes/SESSIONS.md`.
 4. **Stay tight.** No duplicate entries for the same decision; fold updates
    into the original line where sensible. The log is a ledger, not a diary.
 
+5. **Remind the caller about STATE.md.** End your final response with:
+   "docs/STATE.md is the main agent's responsibility; this entry records
+   history, not current state." You never edit STATE.md yourself — the log
+   is your only file (STANDARDS §3.5 splits snapshot from history).
+
 ## Entry template
 
 ```

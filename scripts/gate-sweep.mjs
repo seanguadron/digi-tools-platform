@@ -161,10 +161,47 @@ function computeOwed() {
 
 const owed = computeOwed();
 
+// ── STATE.md freshness (STANDARDS §3.5) ──────────────────────────────────────
+// The current-state snapshot must be rewritten at the end of every working
+// session. Warn (never fail) when it is missing or older than the newest gate
+// report — a session that filed reports but skipped the STATE rewrite.
+function checkStateFresh() {
+  const statePath = join(ROOT, "docs/STATE.md");
+  let stateMtime;
+  try {
+    stateMtime = statSync(statePath).mtimeMs;
+  } catch {
+    return { fresh: false, reason: "docs/STATE.md is missing" };
+  }
+  let newest = 0;
+  let newestName = "";
+  try {
+    for (const f of readdirSync(join(ROOT, ".ai/notes/gate-reports"))) {
+      if (!f.endsWith(".md") || f === "README.md") continue;
+      const m = statSync(join(ROOT, ".ai/notes/gate-reports", f)).mtimeMs;
+      if (m > newest) {
+        newest = m;
+        newestName = f;
+      }
+    }
+  } catch {
+    /* no ledger yet — nothing to compare against */
+  }
+  if (newest > stateMtime) {
+    return {
+      fresh: false,
+      reason: `docs/STATE.md is older than the newest gate report (${newestName}) — rewrite it per AGENTS.md → Session continuity`,
+    };
+  }
+  return { fresh: true, reason: "" };
+}
+const stateCheck = checkStateFresh();
+
 const status = {
   lastSweep: date,
   standards: standards.status === 0 ? "pass" : "fail",
   security: security.status === 0 ? "pass" : "fail",
+  stateFresh: stateCheck.fresh,
   owed,
   notes: "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector.",
 };
@@ -190,5 +227,11 @@ if (owed.length) {
   for (const o of owed) console.log(`  • ${o.gate} — ${o.reason}`);
 } else {
   console.log("No judgment gates owed.");
+}
+if (!stateCheck.fresh) {
+  // A warning by design (§3.5): never blocks the build or the sweep.
+  console.log(`⚠ STATE stale: ${stateCheck.reason}`);
+} else {
+  console.log("STATE.md is fresh.");
 }
 process.exit(standards.status === 0 && security.status === 0 ? 0 : 1);

@@ -105,6 +105,34 @@ gets the landed annotation. `npm run amendments` lists what is pending;
 `.ai/notes/gate-status.json`. Run the sessions agent at the end of any
 session with notable decisions.
 
+## Session continuity
+
+Assume the context window can vanish between any two prompts. The repo, not
+the conversation, is the memory. Two directions:
+
+**Resuming (the read direction).** Read `docs/STATE.md` FIRST: it is the
+current truth (status, runbook, backlog, in-flight work). Claude Code
+sessions auto-load it via CLAUDE.md; Codex sessions must open it explicitly.
+Trust it over any recollection of a prior conversation. For the WHY behind a
+decision, read `.ai/notes/SESSIONS.md` newest-first. For the rules,
+`docs/STANDARDS.md`. For what was audited when, the gate ledger in
+`.ai/notes/gate-reports/`.
+
+**Recording (the write direction), the end-of-session checklist:**
+
+1. **REWRITE `docs/STATE.md`** (the MAIN agent's job, not the sessions
+   agent's). Replace, don't append. The test: written for a reader who has
+   seen nothing but AGENTS.md. Update Now, Built, Backlog, and In flight
+   (if ending mid-task: the task, files touched, the next concrete step).
+2. Run the **sessions agent** (decisions, learnings, amendment flags into
+   `.ai/notes/SESSIONS.md`).
+3. Save any judgment-gate reports to the ledger (STANDARDS §3.2).
+4. Run `npm run gate:sweep` (stamps `gate-status.json`; warns when
+   STATE.md is stale).
+
+STATE.md is snapshot, SESSIONS.md is history: never merge the two. The rule
+is STANDARDS §3.5.
+
 ---
 
 ## Rules
