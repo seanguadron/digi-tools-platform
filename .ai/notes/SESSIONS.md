@@ -5,6 +5,142 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-14: Prompt Builder — app/skill/gate/social archetypes, clarify + tiers cards, rail reorder
+
+**Context.** The owner brought a real artifact — their YABL Portal Platform
+Master Handoff v3 (a self-contained Markdown "build this app" handoff for an
+AI agent) — and asked for an archetype that reproduces that document shape
+for any future app, plus archetypes for agent skills and social-media
+write-ups, plus a rail reorder. Mid-planning, after reviewing the first
+plan, the owner added three more asks: the "ask clarifying questions until
+95% confidence" success pattern, a "three tiers of information" pattern, and
+an "agent gate" archetype.
+
+**Decisions.** All confirmed via clarifying questions the owner explicitly
+requested — "ask me clarifying questions until you have 95% confidence in
+the answer" — before the plan was finalized.
+- New ACTION card lineage `action-clarify`/ASK, driven by Autonomy (the
+  owner's own instinct — "it should be a card under actions"). Grades: Full
+  Interview → 95% Confidence Check (grade 1, the owner's exact phrase) →
+  Blocking Questions Only → Assume & Log; pre-equipped in the three
+  agent/build archetypes (APP/SKILL/GATE), all pinned at autonomy 1 so the
+  95% grade is what loads. NOT a new "end-flags/mutator" UI mechanism —
+  C.R.A.F.T. stays five sections (owner explicitly didn't want to lose the
+  acronym).
+- At interview grades, written Context may stay thin and the questions
+  gather it instead — the interview can REPLACE written Context
+  (owner-confirmed), reflected in those archetypes' effects copy.
+- New FORMAT card lineage `format-tiers`/TIER, driven by Structure, meaning
+  depth layering (essentials / working detail / deep+edge). Kept
+  deliberately separate from the App-build-handoff archetype's own baked-in
+  SCOPE tiers (build now / model for later / explicitly excluded) — two
+  different tier meanings, not merged (owner-confirmed).
+- The "agent gate" archetype produces a judgment-gate agent definition
+  (identity, checks, a High/Medium/Low severity ladder, path:line evidence
+  rules, a report the orchestrator consumes, read-only hard limits, and
+  orchestrator run notes) — mirrors this repo's own gate pattern but stays
+  portable (owner-confirmed).
+- Rail order: daily drivers first (Executive summary, Creative concept,
+  Note taker, Message & email, Prompt improver, Learning guide — the
+  owner's stated most-used), new block at 7–10, tail grouped
+  think→write→build ("a bit of your call so the order looks natural").
+- Reorder implemented via a deterministic Node script (parse → insert →
+  reorder by ID list → re-stringify), not hand-editing 1200 lines;
+  integration gate verified the 21 pre-existing archetypes stayed
+  byte-identical through the insert + reorder pass.
+
+**Learnings.**
+- The Prompt Builder flow-panel carousel scrolls via RAF/smooth-scroll, so
+  off-screen panels are unreachable by clicks in the headless preview — the
+  same class of quirk as the Image Editor canvas. Verify loadout/prompt
+  state via DOM queries instead. Recorded in STATE.md's runbook.
+- The gate agents in `.claude/agents/` were not registered as subagent
+  types this session; the working fallback was a general-purpose agent run
+  read-only with the gate `.md`'s contents as its instructions. Also
+  recorded in STATE.md.
+- Integration gate: PASS, 0 findings
+  (`.ai/notes/gate-reports/2026-07-14-integration-gate-prompt-builder-catalog.md`);
+  its Notes section raised a judgment worth the amendment flag below.
+
+**Preferences / proposed amendments (need owner consent).**
+- The owner sources new archetypes from a real artifact they already
+  produced (here, their own handoff doc) and asks for its shape to be
+  generalized, rather than describing the archetype in the abstract.
+- The rail-order delegation ("a bit of your call so the order looks
+  natural") reinforces the 2026-07-04 preference of leaving
+  ordering/curation calls to the model once constraints are scoped — see
+  that entry, not re-detailed here.
+- From the Integration gate's Notes: clarify the Security gate's trigger
+  scope — "pure catalog data flowing through unchanged render paths needs
+  only the deterministic halves; the 'rendered prompt content' clause
+  targets rendering-path changes." (proposed amendment, needs the owner's
+  consent)
+
+## 2026-07-14: Image Editor — Photopea-alignment redesign (layout, channels, stencils, export)
+
+**Context.** The owner directed a Photopea/Photoshop-alignment redesign of
+the Image Editor (`/tools/image-editor`), pointing at the deployed site and
+photopea.com, then chose the most ambitious option at every scoping fork.
+
+**Decisions.**
+- Scope: functional Channels (per-channel view + load-as-selection, not just
+  visual), brush stencils = built-in presets + PNG import, export manifest =
+  **both** JSON and Markdown, and a full menu bar.
+- Explicit layout directives implemented: color selection moved to the right
+  dock; right panel is now multi-tab (Layers / Channels "RGB alpha" /
+  Properties); Properties holds color + brush + brush size + a stencil
+  picker; Adjust became a right-dock tab; the left bar is now a narrow
+  Photoshop-style tool strip; zoom (−/+/Fit/100%) lower-left + a
+  preview/minimap lower-right, explicitly echoing the Architect wizard's
+  zoom/preview idiom "for continuity"; image-size properties moved into the
+  bottom status bar (middle); export is PNG plus all layers separately in a
+  ZIP with a JSON or MD manifest.
+- Delivered in 6 phases (scaffolding → layout → channels → stencils → export
+  → gates), each typecheck/lint-verified and DOM-verified in the running dev
+  server.
+- Zero new runtime dependencies: layered ZIP export uses a hand-rolled
+  store-only ZIP writer (`src/lib/zip.ts`) — PNGs are already compressed, so
+  no deflate needed — keeping the project's 5-dep minimalism (Rule 17).
+  Verified as a valid PK zip: per-layer PNGs + `flattened.png` +
+  `layers.json` + `layers.md`.
+
+**Learnings.**
+- "Reuse the Architect zoom controls" was a look-alike request, not a
+  literal-reuse one: the wizard's zoom cluster + preview are stock React
+  Flow `<Controls>`/`<MiniMap>`, hard-coupled to a React Flow instance and
+  unusable over a raster canvas. Continuity came instead from reusing the
+  existing `useCanvasViewport` hook + matching CSS tokens, plus one small
+  custom minimap built from scratch.
+- Sharpens the standing image-editor canvas-verification note: the main
+  canvas is RAF-driven and does not repaint headlessly (verify via
+  DOM/computed-style + direct pixel reads), but the minimap, thumbnails, and
+  stencil previews draw directly in `useEffect` and DO render headlessly —
+  the same tool now needs two different verification strategies depending
+  on the surface.
+- All three gates passed after fixes. Security Medium: layer/doc names
+  flowed unescaped into `layers.md` → fixed with an `mdCell()` escaper.
+  Design Medium: the new active-tab cyan label failed WCAG AA in light
+  theme → switched to `--foreground` text + a cyan marker bar instead of
+  cyan text.
+
+**Preferences / proposed amendments (need owner consent).**
+- Cross-tool interaction continuity is an explicit, named goal: when a new
+  tool needs a UI idiom another tool already established, match it by
+  reusing the underlying hook/tokens even when the concrete implementation
+  can't be shared, rather than inventing a new pattern.
+- Uncommitted on `governance/aos-uplift`, same branch as the governance
+  uplift (2026-07-04 entry) — committing/pushing is the owner's call.
+- The Design gate flagged a systemic, pre-existing issue distinct from the
+  fix above: `color: var(--brand-cyan)` used as **text** computes ~1.5–1.8:1
+  contrast in light theme across 20+ selectors app-wide (home spec, skills
+  headings, `.role-category-tab span`, craft method,
+  `.image-editor-panel-label`, `.editor-menu-check`), failing WCAG 2.2 AA
+  while "both modes first-class" (DESIGN_DIRECTION) and WCAG AA (PRODUCT.md)
+  are both stated goals; only the new active-tab label was fixed this
+  session. Proposed rule: cyan is a focus/marker/active color, not a
+  light-theme text color — label text uses `--foreground` or a darkened
+  `--brand-cyan-text` token. (proposed amendment, needs the owner's consent)
+
 ## 2026-07-09: Session-continuity process landed (owner consent)
 
 **Context.** The owner's cross-project continuity process landed here (same

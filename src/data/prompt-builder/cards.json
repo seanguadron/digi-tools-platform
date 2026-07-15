@@ -1164,6 +1164,74 @@
       }
     },
     {
+      "id": "action-clarify",
+      "code": "ASK",
+      "section": "action",
+      "driver": "autonomy",
+      "grades": [
+        {
+          "name": "Full Interview",
+          "description": "Interview in batches to 95% confidence, then confirm the brief.",
+          "instruction": "Before any work, interview me in small batches of clarifying questions until you are at least 95% confident in the goal, constraints, and success criteria — if the context above is thin or missing, gather it here — then restate the brief in one short paragraph and wait for my confirmation.",
+          "illustration": {
+            "src": "/card-art/cards/action-clarify/01-full-interview.webp",
+            "alt": "Illustration asset for Full Interview.",
+            "motif": "ASK Modifier showing full interview",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Full Interview, a Modifier card used in action prompt building. Visual metaphor: Interview in batches until the brief is fully understood. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "95% Confidence Check",
+          "description": "Ask clarifying questions until 95% confident, then proceed.",
+          "instruction": "Ask me clarifying questions until you have 95% confidence in the answer; if the context above is thin or missing, fill the gaps through your questions, then proceed.",
+          "illustration": {
+            "src": "/card-art/cards/action-clarify/02-confidence-check.webp",
+            "alt": "Illustration asset for 95% Confidence Check.",
+            "motif": "ASK Modifier showing confidence check",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Confidence Check, a Modifier card used in action prompt building. Visual metaphor: Ask clarifying questions until confident, then proceed. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "Blocking Questions Only",
+          "description": "Ask only what would change the work; assume the rest.",
+          "instruction": "Ask only the questions whose answers would change the work; state your working assumptions for everything else and proceed.",
+          "illustration": {
+            "src": "/card-art/cards/action-clarify/03-blocking-questions-only.webp",
+            "alt": "Illustration asset for Blocking Questions Only.",
+            "motif": "ASK Modifier showing blocking questions only",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Blocking Questions Only, a Modifier card used in action prompt building. Visual metaphor: Ask only what would change the work; assume the rest. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "Assume & Log",
+          "description": "Never stop to ask; log every assumption made.",
+          "instruction": "Do not stop to ask questions; proceed on your best judgment and keep a visible log of every assumption you made and how to correct the work if one is wrong.",
+          "illustration": {
+            "src": "/card-art/cards/action-clarify/04-assume-and-log.webp",
+            "alt": "Illustration asset for Assume & Log.",
+            "motif": "ASK Modifier showing assume and log",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Assume and Log, a Modifier card used in action prompt building. Visual metaphor: Proceed without stopping while logging every assumption. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        }
+      ],
+      "goals": [
+        "Close the gaps in the brief before work begins.",
+        "Reach stated confidence before committing effort.",
+        "Make missing context explicit instead of guessed."
+      ],
+      "illustration": {
+        "src": "/card-art/cards/action-clarify/lineage.webp",
+        "alt": "Illustration asset for the action-clarify modifier lineage.",
+        "motif": "ASK Modifier card for action",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable ASK lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
       "id": "format-info-card",
       "code": "INF",
       "section": "format",
@@ -1704,6 +1772,74 @@
         "alt": "Illustration asset for the format-length modifier lineage.",
         "motif": "LEN Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable LEN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "format-tiers",
+      "code": "TIER",
+      "section": "format",
+      "driver": "structure",
+      "grades": [
+        {
+          "name": "Essentials First",
+          "description": "Lead with the must-know; add depth only as needed.",
+          "instruction": "Lead with the essentials a reader must know, then add depth only where it earns its place.",
+          "illustration": {
+            "src": "/card-art/cards/format-tiers/01-essentials-first.webp",
+            "alt": "Illustration asset for Essentials First.",
+            "motif": "TIER Modifier showing essentials first",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Essentials First, a Modifier card used in format prompt building. Visual metaphor: Lead with the must-know; add depth only as needed. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "Three Tiers",
+          "description": "Break it into three tiers: essentials, working detail, edge.",
+          "instruction": "Break the content into three tiers of information: the essentials everyone needs, the working detail for people acting on it, and the deep or edge material that completes the picture.",
+          "illustration": {
+            "src": "/card-art/cards/format-tiers/02-three-tiers.webp",
+            "alt": "Illustration asset for Three Tiers.",
+            "motif": "TIER Modifier showing three tiers",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Three Tiers, a Modifier card used in format prompt building. Visual metaphor: Information layered into three tiers of depth. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "Tiered Sections",
+          "description": "Three labeled tiers as sections; every item assigned.",
+          "instruction": "Organize the response as three labeled tiers — essentials, working detail, and deep material — and place every piece of information in exactly one tier.",
+          "illustration": {
+            "src": "/card-art/cards/format-tiers/03-tiered-sections.webp",
+            "alt": "Illustration asset for Tiered Sections.",
+            "motif": "TIER Modifier showing tiered sections",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Tiered Sections, a Modifier card used in format prompt building. Visual metaphor: Three labeled tiers as sections with every item assigned. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        },
+        {
+          "name": "Locked Tier Hierarchy",
+          "description": "Strict tier discipline; nothing lives outside the hierarchy.",
+          "instruction": "Enforce a strict three-tier hierarchy: name each tier, state what belongs in it, keep every section inside its declared tier, and cut anything that fits no tier.",
+          "illustration": {
+            "src": "/card-art/cards/format-tiers/04-locked-tier-hierarchy.webp",
+            "alt": "Illustration asset for Locked Tier Hierarchy.",
+            "motif": "TIER Modifier showing locked tier hierarchy",
+            "prompt": "Retro-tech guild toolkit square illustration asset for Locked Tier Hierarchy, a Modifier card used in format prompt building. Visual metaphor: Strict tier discipline with nothing outside the hierarchy. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+            "status": "planned"
+          }
+        }
+      ],
+      "goals": [
+        "Serve every reader the depth they need.",
+        "Separate essentials from supporting detail.",
+        "Keep deep material from burying the point."
+      ],
+      "illustration": {
+        "src": "/card-art/cards/format-tiers/lineage.webp",
+        "alt": "Illustration asset for the format-tiers modifier lineage.",
+        "motif": "TIER Modifier card for format",
+        "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable TIER lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
         "status": "planned"
       }
     },
