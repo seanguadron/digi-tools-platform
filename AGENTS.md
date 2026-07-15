@@ -1,6 +1,6 @@
 # AGENTS.md
 
-<!-- gov:node id=agents kind=doc title="AGENTS.md (operating rules)" reads=docs/AI_STACK.md,docs/STANDARDS.md,docs/AGENT_PRINCIPLES.md,docs/DESIGN_DIRECTION.md -->
+<!-- gov:node id=agents kind=doc title="AGENTS.md (operating rules)" reads=docs/AI_STACK.md,docs/STANDARDS.md,docs/AGENT_PRINCIPLES.md,docs/DESIGN_DIRECTION.md,docs/ARCHITECTURE.md -->
 
 Operating instructions for AI agents working in this repository. This file is
 the single source of truth for durable project rules. Codex reads it
@@ -115,8 +115,9 @@ current truth (status, runbook, backlog, in-flight work). Claude Code
 sessions auto-load it via CLAUDE.md; Codex sessions must open it explicitly.
 Trust it over any recollection of a prior conversation. For the WHY behind a
 decision, read `.ai/notes/SESSIONS.md` newest-first. For the rules,
-`docs/STANDARDS.md`. For what was audited when, the gate ledger in
-`.ai/notes/gate-reports/`.
+`docs/STANDARDS.md`. For the app framework contract (the shared shell, how a
+tool plugs in, what to recycle), `docs/ARCHITECTURE.md`. For what was audited
+when, the gate ledger in `.ai/notes/gate-reports/`.
 
 **Recording (the write direction), the end-of-session checklist:**
 
@@ -174,6 +175,9 @@ is STANDARDS §3.5.
     against `docs/DESIGN_DIRECTION.md` before delivery.
 21. Governance docs name only real files, and a declared gov:node edge must
     exist (STANDARDS §3.3; the deterministic gate enforces both).
+22. New or substantially changed tools follow the shell contract in
+    `docs/ARCHITECTURE.md` — registry entry, portal-slot chrome, shared
+    primitives — instead of reinventing the frame (STANDARDS §1.4).
 
 ---
 
@@ -191,6 +195,8 @@ is STANDARDS §3.5.
 - `.ai/agent-evals/` - gate-agent smoke-test fixtures (run when an agent
   definition changes)
 - `docs/AI_STACK.md` - full stack catalog and workflow
+- `docs/ARCHITECTURE.md` - the app framework contract: the shared shell, the
+  tool plug-in mechanism, the recyclable primitives, the add-a-tool recipe
 - `docs/STANDARDS.md` - the consent-gated rulebook (deterministic halves:
   `scripts/check-standards.mjs` + `scripts/check-security.mjs`)
 - `docs/AGENT_PRINCIPLES.md` - the agent template every subagent conforms to

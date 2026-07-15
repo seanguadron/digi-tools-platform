@@ -5,6 +5,96 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-15: Orchestration review — ARCHITECTURE.md, gate-registration bug fixed, shell-contract extraction, dead practices revived
+
+**Context.** The owner asked for an orchestration review — "CLAUDE.md looks
+oddly small — is agents set up properly? are we using skills properly?" —
+and offered to let the repo be refactored into a documented "DigiTools Core
+Framework" so an AI building any new tool inherits the shared
+top/context/status bars, tool-owned left/right rails, and code recycling
+instead of reinventing chrome. The owner again invoked the
+clarifying-questions pattern ("ask until 90% sure") before the plan was
+finalized.
+
+**Decisions.** All confirmed via `AskUserQuestion`; the owner accepted every
+recommended option.
+- Refactor scope: extract only the top 4 duplicated primitives
+  (`ToolSubbar`, the save-status formatter, `useUndoableState`,
+  `useLocalDraft`); defer the rest (output docks, dialog portals, the
+  prompt-role-workbench tablist) — documented as sanctioned backlog in the
+  new `docs/ARCHITECTURE.md` §3 rather than silently dropped.
+- Commit order: land the two pending 07-14 bodies of work first, as two
+  separate commits (`6ca8b83` image editor, `87b90cd` prompt catalog), then
+  do this session's extraction on a clean tree — keeps each effort a
+  readable diff.
+- CONSENT GRANTED for a new **STANDARDS §1.4**, "a tool conforms to the
+  shell contract" (judgment rule; Integration gate audits new/changed tools
+  against `docs/ARCHITECTURE.md`; mirrored as AGENTS.md Rule 22). §1.4 was
+  proposed and consented within this single session (plan approval + an
+  explicit "Approve both" answer) rather than via a prior flagged line, so
+  per STANDARDS §4.1's trace requirement this entry IS its consent record.
+- Also landed, same consent round: the **§2.4 clarification** ("pure
+  catalog data through unchanged render paths needs only the deterministic
+  halves"). This lands the 07-14 flag, which already carries its own
+  "→ landed in §2.4" annotation on that entry's line — not re-flagged here.
+- Revive two practices dead since their 07-04 creation: the **skill log**
+  (`npm run skill:log`) is honored going forward with no forced retroactive
+  backfill (none logged this session — no installed skill materially drove
+  the work); **agent-evals** (`.ai/agent-evals/`) run in the next fresh
+  session now that the gate agents actually register (see Learnings), plus
+  new fixtures for surfaces built since 07-04.
+
+**Learnings.**
+- Root cause of every gate report to date coming from the general-purpose
+  fallback rather than a truly registered gate agent: all three gate
+  agents' YAML frontmatter `description:` fields contained an unquoted
+  colon-space ("Read-only: it reports…"), which breaks frontmatter parsing
+  and silently drops the agent from Claude Code's subagent list (confirmed
+  with a js-yaml parse). `sessions.md` never had the problem — its
+  description has no colon. Broken since creation on 2026-07-04; the
+  symptom is the agent type missing from the Agent tool's list, the fix is
+  an em dash or quoting.
+- Audit baseline: skill pins were 100% compliant in both homes
+  (`.agents/skills/`, `.claude/skills/`); despite that, `skill:log` had
+  never once been invoked (no `.ai/notes/skill-log.jsonl`), and
+  `.ai/agent-evals/` fixtures were frozen since 07-04, never run against a
+  genuinely registered agent.
+- Chrome was duplicated three times over (once per tool) for sub-bar
+  shells, save-status formatters, undo/redo hooks, and autosave hooks — one
+  of the three copies even had a comment admitting it was mirroring
+  another tool's hook.
+- No-op extraction bar: per-tool `.prompt-subbar` `outerHTML` captured live
+  before and after migration was byte-identical for all three tools;
+  undo/redo, template-load-then-undo, and persistence-reload round-trips
+  were DOM-verified under unchanged localStorage keys, including the image
+  editor's 1200ms autosave debounce.
+- Adapter strategy: keep each tool's existing hook API, rebase its
+  internals on the new generic primitive — zero call-site churn. The image
+  editor's undo hook (tags, seal, jump, depth/position, isEmpty) was the
+  richest of the three and became the generalization's superset.
+- Headless-preview quirks list grows: the preview pane can report a 0×0
+  viewport (drive it via DOM reads, not clicks/screenshots), and a React
+  state read taken immediately after a programmatic `.click()` can be
+  stale — defer the read a tick. Same family as the standing RAF-canvas
+  notes (07-08/07-09/07-14 entries; also STATE.md's runbook).
+- Storage-format landmine, now documented in `docs/ARCHITECTURE.md` §6: the
+  Architect wizard's saved-at timestamp is JSON-quoted (via `writeStored`)
+  while the Prompt Builder's and Image Editor's are raw ISO strings —
+  unifying the format would silently orphan users' existing saved
+  timestamps, so the extraction left the formats as-is.
+
+**Preferences / proposed amendments (need owner consent).**
+- The owner's ask-clarifying-questions-until-confident pattern is now
+  standing practice for plan-shaped work in this repo — the second session
+  running it was explicitly invoked (see the 07-14 entry, where it also
+  became the Prompt Builder's ASK card; not re-detailed here).
+- From the 2026-07-15 Integration gate: STANDARDS §3.3 ("the graph must be
+  true") should additionally require every `.claude/agents/*.md` file to
+  carry a gov:node marker, so a future markerless agent can't silently
+  escape the graph walk — today all four agent files carry markers and the
+  walker simply skips markerless ones by design, so this hardens rather
+  than fixes a live gap. (proposed amendment, needs the owner's consent)
+
 ## 2026-07-14: Prompt Builder — app/skill/gate/social archetypes, clarify + tiers cards, rail reorder
 
 **Context.** The owner brought a real artifact — their YABL Portal Platform
@@ -73,8 +163,8 @@ the answer" — before the plan was finalized.
 - From the Integration gate's Notes: clarify the Security gate's trigger
   scope — "pure catalog data flowing through unchanged render paths needs
   only the deterministic halves; the 'rendered prompt content' clause
-  targets rendering-path changes." (proposed amendment, needs the owner's
-  consent)
+  targets rendering-path changes."
+  (proposed amendment, needs the owner's consent) → landed in §2.4 (2026-07-15)
 
 ## 2026-07-14: Image Editor — Photopea-alignment redesign (layout, channels, stencils, export)
 

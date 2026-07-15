@@ -36,6 +36,18 @@ target: contrast, keyboard paths, focus visibility, labels, reduced-motion
 respect. The `audit` skill runs before anything client-facing ships.
 ✓ check: keyboard-only pass on changed surfaces; audit findings addressed.
 
+**§1.4 A tool conforms to the shell contract (judgment; landed 2026-07-15
+with the owner's consent).** New or substantially changed tools integrate
+with the shared shell per `docs/ARCHITECTURE.md` instead of reinventing
+chrome: an intentional `fullBleed` choice in the registry, the tool header
+portaled into `#app-subbar-slot` (live status into `#app-statusbar-slot`
+when needed) via the shared `ToolSubbar`, and the shared primitives
+(save-status, `useUndoableState`, `useLocalDraft`, menubar/tabs, zip,
+downloads) reused before new ones are written.
+✓ check: the Integration gate's report verifies shell-contract conformance
+against `docs/ARCHITECTURE.md` (§1.1's deterministic half still covers
+registration).
+
 ## §2 Data
 
 **§2.1 Catalogs are validated, always (deterministic via the existing
@@ -64,6 +76,11 @@ Prompt content renders as text, never as markup. Allowlisted today:
 CONSTANT script whose sole input is a localStorage value checked against a
 strict two-value allowlist. Growing this list requires the owner's consent.
 ✓ check: `check:security` greps src; the allowlist lives in that script.
+Clarification (landed 2026-07-15 with the owner's consent): pure catalog
+data flowing through unchanged render paths needs only the deterministic
+halves; the Security gate's "rendered prompt content" trigger means changes
+to the rendering path, not additions of first-party, schema-validated
+catalog strings.
 
 ## §3 Governance
 

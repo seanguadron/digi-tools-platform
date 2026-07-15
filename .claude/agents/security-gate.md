@@ -1,6 +1,6 @@
 ---
 name: security-gate
-description: Use this agent to audit new or changed code for security issues BEFORE delivery — the QA-layer security gate from AGENTS.md, run alongside the Integration gate after any trust-boundary change (session import/export, localStorage, downloads, rendered prompt content, catalogs). Give it the surface (files touched, or "the current branch"). It returns a severity-ranked findings table against this repo's REAL threat surface with path:line evidence and concrete fixes. Read-only: it reports; the main agent applies the fixes.
+description: Use this agent to audit new or changed code for security issues BEFORE delivery — the QA-layer security gate from AGENTS.md, run alongside the Integration gate after any trust-boundary change (session import/export, localStorage, downloads, rendered prompt content, catalogs). Give it the surface (files touched, or "the current branch"). It returns a severity-ranked findings table against this repo's REAL threat surface with path:line evidence and concrete fixes. Read-only — it reports; the main agent applies the fixes.
 tools: Read, Grep, Glob, Bash
 model: sonnet
 ---

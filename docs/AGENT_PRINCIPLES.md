@@ -11,7 +11,7 @@ Use it two ways:
 
 The value is the shared language. Every agent, yours, a teammate's, a framework's, gets described in one consistent structure, so you can compare them, debug them, and hand them off without re-learning each one.
 
-> In this repo, this doc is the **template every `.claude/agents/*.md` conforms to** (the agent-shaped counterpart to how `docs/STANDARDS.md` governs modules). [AGENTS.md](../AGENTS.md) and each agent declare a `reads=agent-principles` edge, so the orchestration map (`/admin/orchestration`) shows the vocabulary in use. See §8 for the project's own agents filled into the spec.
+> In this repo, this doc is the **template every `.claude/agents/*.md` conforms to** (the agent-shaped counterpart to how `docs/STANDARDS.md` governs modules). [AGENTS.md](../AGENTS.md) and each agent declare a `reads=docs/AGENT_PRINCIPLES.md` edge in their gov:node marker, so `npm run check:standards` (§3.3) verifies the vocabulary's edges stay true. See §8 for the project's own agents filled into the spec.
 >
 > **Scope.** This is the *agent framework*: how agents **build** the app. It is distinct from the product architecture (what your app IS — see docs/ARCHITECTURE.md). Don't conflate the two.
 
@@ -166,7 +166,7 @@ Keep the claim precise: the control loop is shared; the task and learning loops 
 
 ## 8. The agents in this repo
 
-The project already runs this model. The **main agent** (Claude Code) runs all three loops live; the **subagents** in `.claude/agents/` are narrower specialists invoked at checkpoints; and one of them, the **sessions agent**: *is* the system's Learning loop. Each appears as a node on `/admin/orchestration`.
+The project already runs this model. The **main agent** (Claude Code) runs all three loops live; the **subagents** in `.claude/agents/` are narrower specialists invoked at checkpoints; and one of them, the **sessions agent**, *is* the system's Learning loop. Each carries a gov:node marker, so the graph in `docs/` + `.claude/agents/` is the orchestration map (see `docs/SETUP.md` for the command inventory).
 
 ```
 AGENT: integration-gate  (the standards gate)
@@ -210,19 +210,19 @@ PROCESS
 ```
 AGENT: design-gate  (the design gate)
 CONFIG
-  Role:        pre-delivery design-system audit of changed UI vs docs/DESIGN.md; read-only
+  Role:        pre-delivery design-system audit of changed UI vs docs/DESIGN_DIRECTION.md; read-only
   Skills:      Read, Grep, Glob, Bash
-  Policy:      the DESIGN.md checklist (tokens, typography, icons, spacing, card recipe,
+  Policy:      the DESIGN_DIRECTION.md checklist (tokens, typography, icons, spacing, card recipe,
                hover/focus grammar, z-ladder, motion, anti-list) + model judgment
   Termination: every checklist item has a verdict; findings carry severity + fix
 DATA
   Goal shape:  "design-review surface X" → done = findings + severity + fixes
   State:       per-run findings
-  Memory:      none (re-reads docs/DESIGN.md each run)
+  Memory:      none (re-reads docs/DESIGN_DIRECTION.md each run)
   Environment: reads repo (pages, components, globals.css); writes a report to the caller
 PROCESS
   Loops used:  [x] Control  [x] Task  [ ] Learning
-  Feedback:    each finding cites path:line + the DESIGN.md rule it violates
+  Feedback:    each finding cites path:line + the DESIGN_DIRECTION.md rule it violates
   Adaptation:  manual (via the sessions log)
   Autonomy:    read-only; the main agent applies the fixes
 ```

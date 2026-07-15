@@ -50,6 +50,11 @@ try {
         ? walk(join(ROOT, "docs")).filter((p) => p.endsWith(".md"))
         : []
     )
+    .concat(
+      existsSync(join(ROOT, ".claude", "agents"))
+        ? walk(join(ROOT, ".claude", "agents")).filter((p) => p.endsWith(".md"))
+        : []
+    )
     .filter((p) => existsSync(p));
   const ids = new Map();
   for (const p of govFiles) {

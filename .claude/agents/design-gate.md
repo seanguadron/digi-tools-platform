@@ -1,6 +1,6 @@
 ---
 name: design-gate
-description: Use this agent to audit new or changed UI against docs/DESIGN_DIRECTION.md BEFORE delivery — the QA-layer design gate from AGENTS.md, run alongside the Integration and Security gates after building any page or component with visual presence. Give it the surface (route + the files you touched, or "the current branch"). It returns a severity-ranked findings table against the canonical design direction (typography, color roles, density, component feel, motion level, voice, anti-goals) with path:line evidence and concrete fixes. Read-only: it reports; the main agent applies the fixes.
+description: Use this agent to audit new or changed UI against docs/DESIGN_DIRECTION.md BEFORE delivery — the QA-layer design gate from AGENTS.md, run alongside the Integration and Security gates after building any page or component with visual presence. Give it the surface (route + the files you touched, or "the current branch"). It returns a severity-ranked findings table against the canonical design direction (typography, color roles, density, component feel, motion level, voice, anti-goals) with path:line evidence and concrete fixes. Read-only — it reports; the main agent applies the fixes.
 tools: Read, Grep, Glob, Bash
 model: sonnet
 ---

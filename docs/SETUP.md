@@ -12,7 +12,8 @@ npm run dev          # http://localhost:5100
 `StartDigiTools.bat` does the same from Explorer. `next.config.ts` detects
 the LAN IPv4 at startup so the dev server is reachable across the network;
 HMR over LAN needs the origin allowed there. If a dev server is already
-running on 5100, do not start a second one.
+running on 5100, do not start a second one. Never run `npm run build` while
+a dev server may be live — the two share `.next/` and corrupt each other.
 
 ## The script inventory
 
@@ -49,7 +50,7 @@ proposals accumulate in `.ai/notes/SESSIONS.md`.
 
 ## The two skill homes
 
-- `.agents/skills/` — the Codex set (~40 skills; Codex discovers these).
+- `.agents/skills/` — the Codex set (36 skills; Codex discovers these).
 - `.claude/skills/` — the curated Claude Code set (the sharp subset + the
   `/digi` router; Claude Code only discovers skills here).
 

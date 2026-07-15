@@ -9,106 +9,141 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-07-14 (end of the Prompt Builder "archetype expansion"
-session — the second session of the day; the Image Editor Photopea session's
-work is still in the same uncommitted tree).
+Last rewritten: 2026-07-15 (end of the "core framework unification" session:
+orchestration review → docs/ARCHITECTURE.md + STANDARDS §1.4/§2.4 + gate-agent
+YAML fix + the shared-chrome extraction).
 
 ## Now
 
-Two bodies of UNCOMMITTED work sit on branch **`governance/aos-uplift`** (the
-owner has not asked to commit either):
+Branch **`governance/aos-uplift`**. The two previously-pending bodies of work
+are now COMMITTED (6ca8b83 image-editor Photopea cockpit, 87b90cd prompt
+catalog expansion). This session's work sits in the tree ready for its two
+commits (refactor first, then governance — see In flight) unless they landed
+before you read this; `git log` is the truth.
 
-1. **Prompt Builder catalog expansion (this session).** 4 new archetypes —
-   **App build handoff** (APP: one self-contained doc an AI agent can build a
-   whole app from, modeled on the owner's YABL handoff doc), **Agent skill**
-   (SKILL), **Agent gate** (GATE), **Social post** (SOCIAL) — plus 2 new card
-   lineages: **`action-clarify`/ASK** (autonomy-driven; grade 1 is the owner's
-   "ask me clarifying questions until you have 95% confidence" pattern; at
-   interview grades the written Context may stay thin — the questions gather
-   it) and **`format-tiers`/TIER** (structure-driven three-tier information
-   layering). The archetype rail was reordered: the owner's daily drivers
-   (Executive summary, Creative concept, Note taker, Message & email, Prompt
-   improver, Learning guide) first, the 4 new ones at 7–10, natural tail.
-   Pure data change: `src/data/prompt-builder/{cards,archetypes}.json` +
-   count assertions in `scripts/prompt-data.test.mjs` (cards 32, archetypes
-   25, grade illustrations 128). Integration gate: **PASS, 0 findings**
-   (`.ai/notes/gate-reports/2026-07-14-integration-gate-prompt-builder-catalog.md`);
-   Security/Design gates judged not triggered (pure catalog data through
-   unchanged render paths — see the report's Notes).
+**What this session changed:**
 
-2. **Image Editor Photopea-style cockpit (prior session, same day).** The
-   docked menu-bar/tool-strip/tabbed-right-dock redesign described in the
-   2026-07-14 image-editor gate reports; all three gates passed after fixes.
-   9 new files + 8 modified, unchanged since that session ended.
+1. **`docs/ARCHITECTURE.md` now exists** — the app framework contract: the
+   shell's 3 bars + page stage, the two portal slots
+   (`#app-subbar-slot`/`#app-statusbar-slot`), the `.prompt-subbar` +
+   `:has()` handshake, `fullBleed`, the add-a-tool recipe, the recyclable
+   primitives catalog, globals.css zones, and persistence conventions. Wired
+   into the gov graph (AGENTS.md and integration-gate read it); AGENTS.md
+   Rule 22 + STANDARDS §1.4 (owner-consented) make shell-contract
+   conformance a gated rule.
+2. **The three gate agents finally register as subagents.** Root cause found:
+   an unquoted `Read-only: it reports` colon-space in their YAML descriptions
+   broke frontmatter parsing since 2026-07-04 (sessions.md had no colon —
+   that's why only it registered). Fixed (em-dash); all four frontmatters
+   parse under js-yaml. **Registration takes effect in a NEW session** — this
+   session still ran gates via the general-purpose fallback.
+3. **Shared framework primitives extracted** (behavioral+visual no-op,
+   browser-proven: per-tool `.prompt-subbar` outerHTML byte-identical
+   before/after): `src/components/tool-subbar.tsx` (ToolSubbar/Title/
+   SaveStateChip/Actions), `src/lib/save-status.ts`,
+   `src/hooks/use-undoable-state.ts`, `src/hooks/use-local-draft.ts`. The six
+   per-tool history/persistence hooks are now thin adapters with unchanged
+   public APIs; localStorage keys and byte formats untouched (architect
+   saved-at stays JSON-quoted; PB/IE raw ISO — see ARCHITECTURE §6).
+4. **Governance housekeeping:** §3.3 walker now validates `.claude/agents/*.md`
+   gov markers; AGENT_PRINCIPLES.md dangling refs fixed (DESIGN.md →
+   DESIGN_DIRECTION.md ×4, /admin/orchestration removed, ARCHITECTURE.md ref
+   now real); SETUP.md count 36 + build/`.next` warning; the "pure catalog
+   data" Security-gate clarification landed in §2.4 with its sessions flag
+   annotated.
+5. **Gates:** integration PASS (1 Low, fixed) →
+   `.ai/notes/gate-reports/2026-07-15-integration-gate-framework-unification.md`;
+   security PASS (1 Low, comment fix applied) →
+   `2026-07-15-security-gate-framework-persistence.md`. Design gate not
+   triggered (byte-identical DOM = zero visual change; reasoning in the
+   integration report).
 
-Health: `typecheck`, `lint`, `test` (18), `data:validate`, `check:standards`,
+Health: `typecheck`, `lint`, `test` (22), `data:validate`, `check:standards`,
 `check:security` all green as of this rewrite.
 
 ## Runbook
 
 - **Start:** `StartDigiTools.bat` or `npm run dev`, port 5100
   (http://localhost:5100). Never start a second dev server if one is already
-  running; verify inside the running one.
-- **Gotchas:** never `npm run build` while a dev server may be live (they
-  share `.next/`). The Image Editor's main canvas is RAF-driven and does not
-  repaint in the headless preview — verify via DOM/computed-style +
-  `javascript_tool` canvas reads. The Prompt Builder's **flow-panel carousel
-  also scrolls via RAF/smooth-scroll**, so off-screen panels can't be reached
-  by clicks in the headless preview — verify loadout/prompt state via DOM
-  queries (`.archetype-button`, slot `strong` names, the live-output `pre`).
+  running; verify inside the running one. Never `npm run build` while a dev
+  server may be live (shared `.next/`).
+- **Framework:** read `docs/ARCHITECTURE.md` before building or changing a
+  tool — registry, portal slots, ToolSubbar, useUndoableState/useLocalDraft,
+  the add-a-tool recipe. STANDARDS §1.4 gates conformance.
+- **Headless preview gotchas:** the pane can report a 0×0 viewport — drive
+  and verify via DOM/`javascript_tool` (element clicks by querySelector,
+  state via localStorage/computed style), not screenshots. The Image
+  Editor's canvas is RAF-driven (no repaint headless); the Prompt Builder's
+  flow-panel carousel scrolls via RAF too, so off-screen panels are
+  unreachable by clicks — verify loadout/prompt state via DOM queries.
+  React reads after a `.click()` need a deferred read (setTimeout) — state
+  commits async.
 - **Checks:** `npm run typecheck` · `npm run lint` · `npm test` ·
   `npm run data:validate` · `npm run check:standards && npm run check:security`.
-- **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` is the Codex set,
-  `.claude/skills/` the Claude Code set; never cross-install.
-- **Gate agents:** `.claude/agents/{integration,security,design}-gate.md` may
-  not be registered as subagent types in every session; if the Agent tool
-  rejects the type, run general-purpose with the gate's .md contents as its
-  instructions (read-only), as this session did.
+- **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex (36),
+  `.claude/skills/` Claude Code (16 incl. `/digi`); never cross-install.
+  Log material skill use: `npm run skill:log -- <skill> "<surface>"`.
+- **Gate agents:** `.claude/agents/{integration,security,design}-gate.md` —
+  YAML fixed 2026-07-15; they should register as subagent types in fresh
+  sessions. If the Agent tool still rejects the type, fall back to
+  general-purpose with the gate's .md contents as instructions (read-only).
 
 ## Built
 
-Four tools are registered in `src/lib/tool-registry.ts` (Prompt Builder,
-Architect Wizard, Skills Wiki, Image Editor). The Prompt Builder is the
-flagship (C.R.A.F.T. prompts from explicit card choices; see `PRODUCT.md` +
-`CONTEXT.md`).
+Four tools registered in `src/lib/tool-registry.ts` (Prompt Builder,
+Architect Wizard, Skills Wiki, Image Editor); the shell contract and shared
+primitives are documented in `docs/ARCHITECTURE.md`. The Prompt Builder is
+the flagship (C.R.A.F.T. prompts from explicit card choices; see `PRODUCT.md`
++ `CONTEXT.md`).
 
-**Prompt Builder — current catalog (this session):** 35 roles, 32 card
-lineages (each 4 grades along its driver track), 8 output types, **25
-archetypes**. Archetypes are preset C.R.A.F.T. loadouts (array order = rail
-order; favorites float). The clarify/tiers cards are equipped by the three
-agent/build archetypes (APP, SKILL, GATE) so those interview the user before
-producing; Social post stays fast. Data lives in
-`src/data/prompt-builder/*.json`, validated by
-`scripts/validate-prompt-data.mjs` + `prompt-catalog.schema.json` on
-build/commit/CI.
+**Prompt Builder catalog:** 35 roles, 32 card lineages (4 grades each), 8
+output types, 25 archetypes (rail order = array order; daily drivers first,
+then App build handoff/Agent skill/Agent gate/Social post at 7–10). The
+`action-clarify`/ASK card (grade 1 = the owner's "ask me clarifying
+questions until you have 95% confidence" pattern) and `format-tiers`/TIER
+card are equipped by the APP/SKILL/GATE archetypes.
 
-**Image Editor — current surfaces (prior session):** application menu bar in
-the context subbar; bottom status bar portaled into the global footer; ~92px
-2-column tool strip + FG/BG swatch; docked canvas stage with zoom cluster +
-minimap; tabbed right dock (Layers | Channels | Properties | Adjust |
-History); PNG/JPG/layered-.zip export. Reusable primitives:
-`editor-menubar.tsx`, `editor-tabs.tsx`, dependency-free `src/lib/zip.ts`.
+**Image Editor:** Photopea-style cockpit — menubar in the context subbar,
+tool strip, docked canvas + minimap, tabbed right dock, statusbar in the
+global footer, PNG/JPG/layered-.zip export.
+
+**Shared framework:** `ToolSubbar` (+Title/Chip/Actions), `save-status`,
+`useUndoableState` (past/future, tag coalescing, seal/jump/depth/position),
+`useLocalDraft` (deferred restore w/ cancellation, debounced or sync-write
+saves, quota/status machine), `EditorMenubar`, `EditorTabs`+`tabPanelProps`,
+`zip.ts`, `browser-download.ts`, `prompt-storage.ts`.
 
 ## Backlog / in flight
 
-- **Commit pending** for both bodies of work on `governance/aos-uplift`
-  (owner has not asked).
-- **Archetype card art:** all new illustration entries are `status: planned`
-  (like the rest of the catalog) — generate when the art pass happens.
-- **Proposed STANDARDS amendment (owner consent, from the image-editor
-  session):** cyan-as-text fails WCAG AA in light theme across 20+ selectors;
-  proposal: cyan is a focus/marker/active color, not a light-theme text
-  color. See the 2026-07-14 design-gate report. `npm run amendments`.
-- **Possible STANDARDS clarification (from this session's gate Notes):**
-  "pure catalog data through unchanged render paths needs only the
-  deterministic halves" — flag via sessions log if the owner wants it durable.
-- **Accepted-as-decorative (image editor):** minimap recenter is pointer-only
-  under `aria-hidden`; add a keyboard pan path if full parity is later wanted.
+- **In flight — two commits for this session** (owner approved committing in
+  the plan): commit D `refactor(framework): shared ToolSubbar, save-status,
+  use-undoable-state, use-local-draft` (the 5 new src/scripts files + 9
+  modified tool/hook files), then commit C `feat(governance): ARCHITECTURE.md
+  framework contract, gate-agent YAML fix, STANDARDS §1.4 + §2.4` (docs,
+  agents, walker, ledger reports, SESSIONS.md, this file). If `git status`
+  is clean, both landed.
+- **Next fresh session:** confirm the three gate agents appear as subagent
+  types; then run the `.ai/agent-evals/` fixtures against the REAL registered
+  gates (they have never run through the registration path) and add fixtures
+  for the newer surfaces (image editor, prompt catalog, framework).
+- **Archetype card art:** all illustration entries remain `status: planned`.
+- **Pending amendments** (`npm run amendments`, owner consent needed): cyan
+  as light-theme text color (design-gate 2026-07-14); §2.3 bare-cast
+  hardening; cardSystem affinity validator rule; §3.3 "every agent file must
+  carry a gov:node marker" (new, from the 2026-07-15 integration gate); one
+  motion/icon item from earlier sessions.
+- **Deferred polish:** unify the "Restoring..." vs "Restoring…" glyph (needs
+  owner sign-off — visible label change); optional `writeStoredOrThrow` for
+  the architect save path (security-gate note); output docks + dialog
+  portals + prompt-role-workbench tablist remain the sanctioned extraction
+  backlog (ARCHITECTURE §3).
+- **Dev-only console noise:** the theme bootstrap script warning in
+  layout.tsx — a spawn-task chip exists for it.
 
 ## Pointers
 
-- History: `.ai/notes/SESSIONS.md` (newest-first). Rules:
-  `docs/STANDARDS.md`. Gate ledger: `.ai/notes/gate-reports/`. Domain
-  language: `CONTEXT.md`.
+- Framework contract: `docs/ARCHITECTURE.md`. History:
+  `.ai/notes/SESSIONS.md` (newest-first). Rules: `docs/STANDARDS.md`. Gate
+  ledger: `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
 - `npm run amendments` shows the consent queue; `npm run gate:sweep` stamps
   `.ai/notes/gate-status.json` and warns when this page goes stale.
