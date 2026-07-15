@@ -18,6 +18,11 @@ import { ImageEditorMinimap } from "@/components/image-editor-minimap";
 import { ImageEditorNewDialog } from "@/components/image-editor-new-dialog";
 import { ImageEditorProperties } from "@/components/image-editor-properties";
 import { ImageEditorToolbar } from "@/components/image-editor-toolbar";
+import {
+  ToolSaveStateChip,
+  ToolSubbar,
+  ToolSubbarActions,
+} from "@/components/tool-subbar";
 import { useCanvasViewport } from "@/hooks/use-canvas-viewport";
 import { useImageEditorHistory } from "@/hooks/use-image-editor-history";
 import { useImageEditorPersistence } from "@/hooks/use-image-editor-persistence";
@@ -110,27 +115,6 @@ const IMAGE_LIMITS = {
 
 // Early reject an oversized .json project before reading it fully into memory.
 const MAX_PROJECT_BYTES = 96_000_000;
-
-function saveStatusLabel(
-  status: "restoring" | "saved" | "large" | "unavailable",
-  lastSavedAt: Date | null,
-): string {
-  if (status === "restoring") {
-    return "Restoring…";
-  }
-  if (status === "unavailable") {
-    return "Local save unavailable";
-  }
-  if (status === "large") {
-    return "Too large to autosave — use Save";
-  }
-  return lastSavedAt
-    ? `Saved ${lastSavedAt.toLocaleTimeString([], {
-        hour: "numeric",
-        minute: "2-digit",
-      })}`
-    : "Saved locally";
-}
 
 const DOCK_TABS: EditorTabDef[] = [
   { id: "layers", label: "Layers" },
@@ -1027,7 +1011,7 @@ export function ImageEditor() {
   ];
 
   const header = (
-    <div className="prompt-subbar image-editor-subbar" data-component="Header:Tool">
+    <ToolSubbar className="image-editor-subbar">
       <EditorMenubar
         menus={menus}
         label="Image editor menu"
@@ -1046,21 +1030,15 @@ export function ImageEditor() {
             {notice}
           </span>
         ) : (
-          <span
-            className={
-              persistence.status === "unavailable" ||
-              persistence.status === "large"
-                ? "builder-save-state is-unavailable"
-                : "builder-save-state"
-            }
-            role="status"
-          >
-            {saveStatusLabel(persistence.status, persistence.lastSavedAt)}
-          </span>
+          <ToolSaveStateChip
+            status={persistence.status}
+            lastSavedAt={persistence.lastSavedAt}
+            restoringLabel="Restoring…"
+          />
         )}
       </div>
 
-      <div className="prompt-flow-header-actions">
+      <ToolSubbarActions>
         <button
           type="button"
           className="button button-primary"
@@ -1069,14 +1047,10 @@ export function ImageEditor() {
         >
           Export PNG
         </button>
-      </div>
-    </div>
+      </ToolSubbarActions>
+    </ToolSubbar>
   );
 
-  const subbarTarget =
-    typeof document === "undefined"
-      ? null
-      : document.getElementById("app-subbar-slot");
   const statusTarget =
     typeof document === "undefined"
       ? null
@@ -1096,7 +1070,7 @@ export function ImageEditor() {
 
   return (
     <div className="tool-page image-editor-page">
-      {subbarTarget ? createPortal(header, subbarTarget) : null}
+      {header}
       {statusTarget && statusBar
         ? createPortal(statusBar, statusTarget)
         : null}

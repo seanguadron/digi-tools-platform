@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useMemo } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { useLocalDraft } from "@/hooks/use-local-draft";
 import { createDoc } from "@/lib/image-editor/document";
 import { deserializeDoc, serializeDoc } from "@/lib/image-editor/project-io";
 import type { ImageDoc } from "@/lib/image-editor/types";
+import type { SaveStatus } from "@/lib/save-status";
 
 const DOC_KEY = "digitools.image-editor.doc-v1";
 const NAME_KEY = "digitools.image-editor.name-v1";
@@ -14,11 +16,17 @@ const SAVED_AT_KEY = "digitools.image-editor.saved-at-v1";
 const BUDGET = 4_000_000;
 const DEBOUNCE = 1200;
 
-export type PersistStatus = "restoring" | "saved" | "large" | "unavailable";
+export type PersistStatus = SaveStatus;
+
+type PersistedDoc = {
+  doc: ImageDoc | null;
+  name: string;
+};
 
 // Owns the initial document (restored autosave, or a fresh blank) and a
-// debounced, quota-guarded localStorage autosave. Mirrors the Architect's
-// restoredRef gate so the empty initial state never clobbers saved work.
+// debounced, quota-guarded localStorage autosave. Thin adapter over the
+// shared useLocalDraft lifecycle; deserializeDoc remains the validated
+// restore path, and a failed restore seeds a fresh document.
 export function useImageEditorPersistence({
   doc,
   setDoc,
@@ -30,13 +38,8 @@ export function useImageEditorPersistence({
   name: string;
   setName: (name: string) => void;
 }) {
-  const restoredRef = useRef(false);
-  const [status, setStatus] = useState<PersistStatus>("restoring");
-  const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    const timer = window.setTimeout(async () => {
+  const restore = useCallback(
+    async (ctx: { isCancelled: () => boolean }) => {
       let restored: Awaited<ReturnType<typeof deserializeDoc>> = null;
       try {
         const raw = window.localStorage.getItem(DOC_KEY);
@@ -46,8 +49,8 @@ export function useImageEditorPersistence({
       } catch {
         restored = null;
       }
-      if (cancelled) {
-        return;
+      if (ctx.isCancelled()) {
+        return null;
       }
       if (restored) {
         setDoc(restored.doc);
@@ -60,44 +63,42 @@ export function useImageEditorPersistence({
           storedName = null;
         }
         setName(storedName || restored.name);
-        if (savedAt) {
-          setLastSavedAt(new Date(savedAt));
-        }
-      } else {
-        setDoc((current) => current ?? createDoc());
+        return {
+          status: "saved" as const,
+          savedAt: savedAt ? new Date(savedAt) : null,
+        };
       }
-      setStatus("saved");
-      restoredRef.current = true;
-    }, 0);
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timer);
-    };
-  }, [setDoc, setName]);
+      setDoc((current) => current ?? createDoc());
+      return { status: "saved" as const };
+    },
+    [setDoc, setName],
+  );
 
-  useEffect(() => {
-    if (!restoredRef.current || !doc) {
-      return;
+  const save = useCallback((value: PersistedDoc, savedAt: Date) => {
+    if (!value.doc) {
+      // Unreachable: canSave gates null docs out before save is called.
+      return "saved" as const;
     }
-    const timer = window.setTimeout(() => {
-      try {
-        const json = JSON.stringify(serializeDoc(doc, name));
-        if (json.length > BUDGET) {
-          setStatus("large");
-          return;
-        }
-        const savedAt = new Date();
-        window.localStorage.setItem(DOC_KEY, json);
-        window.localStorage.setItem(NAME_KEY, name);
-        window.localStorage.setItem(SAVED_AT_KEY, savedAt.toISOString());
-        setLastSavedAt(savedAt);
-        setStatus("saved");
-      } catch {
-        setStatus("unavailable");
-      }
-    }, DEBOUNCE);
-    return () => window.clearTimeout(timer);
-  }, [doc, name]);
+    const json = JSON.stringify(serializeDoc(value.doc, value.name));
+    if (json.length > BUDGET) {
+      return "large" as const;
+    }
+    window.localStorage.setItem(DOC_KEY, json);
+    window.localStorage.setItem(NAME_KEY, value.name);
+    window.localStorage.setItem(SAVED_AT_KEY, savedAt.toISOString());
+    return "saved" as const;
+  }, []);
+
+  const canSave = useCallback((value: PersistedDoc) => value.doc !== null, []);
+  const value = useMemo(() => ({ doc, name }), [doc, name]);
+
+  const { status, lastSavedAt } = useLocalDraft({
+    value,
+    restore,
+    save,
+    canSave,
+    debounceMs: DEBOUNCE,
+  });
 
   return { status, lastSavedAt };
 }

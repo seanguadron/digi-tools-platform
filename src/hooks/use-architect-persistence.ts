@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { useLocalDraft } from "@/hooks/use-local-draft";
 import { readStored, writeStored } from "@/lib/prompt-storage";
 import type {
   ArchitectEdge,
@@ -160,6 +161,9 @@ function coerceProject(raw: unknown): ArchitectProject | null {
   return null;
 }
 
+// Thin adapter over the shared useLocalDraft lifecycle. The saved-at value is
+// stored JSON-encoded via writeStored (unlike the other tools' raw ISO
+// strings) — do not unify; existing keys depend on it.
 export function useArchitectPersistence({
   project,
   setProject,
@@ -167,60 +171,25 @@ export function useArchitectPersistence({
   project: ArchitectProject;
   setProject: Dispatch<SetStateAction<ArchitectProject>>;
 }) {
-  const restoredRef = useRef(false);
-  const [ready, setReady] = useState(false);
-  const [status, setStatus] = useState<"restoring" | "saved" | "unavailable">(
-    "restoring",
-  );
-  const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
-
-  useEffect(() => {
-    const timer = window.setTimeout(() => {
-      try {
-        const saved = coerceProject(readStored<unknown>(PROJECT_KEY, null));
-        if (saved) {
-          setProject(saved);
-        }
-        const savedAt = readStored<string | null>(SAVED_AT_KEY, null);
-        if (savedAt) {
-          setLastSavedAt(new Date(savedAt));
-        }
-        setStatus("saved");
-      } catch {
-        setStatus("unavailable");
-      } finally {
-        restoredRef.current = true;
-        setReady(true);
-      }
-    }, 0);
-
-    return () => window.clearTimeout(timer);
+  const restore = useCallback(() => {
+    const saved = coerceProject(readStored<unknown>(PROJECT_KEY, null));
+    if (saved) {
+      setProject(saved);
+    }
+    const savedAt = readStored<string | null>(SAVED_AT_KEY, null);
+    return {
+      status: "saved" as const,
+      savedAt: savedAt ? new Date(savedAt) : null,
+    };
   }, [setProject]);
 
-  useEffect(() => {
-    if (!restoredRef.current) {
-      return;
-    }
+  const save = useCallback((value: ArchitectProject, savedAt: Date) => {
+    // writeStored swallows quota errors, so this save can never throw and the
+    // "unavailable" status is unreachable here (pre-existing behavior).
+    writeStored(PROJECT_KEY, value);
+    writeStored(SAVED_AT_KEY, savedAt.toISOString());
+    return "saved" as const;
+  }, []);
 
-    let timer: number | null = null;
-    try {
-      const savedAt = new Date();
-      writeStored(PROJECT_KEY, project);
-      writeStored(SAVED_AT_KEY, savedAt.toISOString());
-      timer = window.setTimeout(() => {
-        setLastSavedAt(savedAt);
-        setStatus("saved");
-      }, 0);
-    } catch {
-      timer = window.setTimeout(() => setStatus("unavailable"), 0);
-    }
-
-    return () => {
-      if (timer !== null) {
-        window.clearTimeout(timer);
-      }
-    };
-  }, [project]);
-
-  return { ready, status, lastSavedAt };
+  return useLocalDraft({ value: project, restore, save });
 }

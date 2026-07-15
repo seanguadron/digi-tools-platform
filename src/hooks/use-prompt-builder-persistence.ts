@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useMemo } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { useLocalDraft } from "@/hooks/use-local-draft";
 import {
   createCardSystem,
   EMPTY_DRAFT,
@@ -18,6 +19,14 @@ const DRAFT_STORAGE_KEY = "digitools.prompt-builder.craft-v1";
 const CARD_STORAGE_KEY = "digitools.prompt-builder.cards-v1";
 const SAVED_AT_STORAGE_KEY = "digitools.prompt-builder.saved-at-v1";
 
+type BuilderSnapshot = {
+  draft: PromptDraft;
+  cardSystem: CardSystemState;
+};
+
+// Thin adapter over the shared useLocalDraft lifecycle. Restore validation
+// stays here (restoreDraft/restoreCardSystem shape-check the stored JSON);
+// corrupt data clears the keys and degrades to defaults.
 export function usePromptBuilderPersistence({
   roles,
   draft,
@@ -33,84 +42,53 @@ export function usePromptBuilderPersistence({
   setCardSystem: Dispatch<SetStateAction<CardSystemState>>;
   setActiveRoleCategory: Dispatch<SetStateAction<string>>;
 }) {
-  const restoredRef = useRef(false);
-  const [ready, setReady] = useState(false);
-  const [status, setStatus] = useState<
-    "restoring" | "saved" | "unavailable"
-  >(
-    "restoring",
-  );
-  const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
+  const restore = useCallback(() => {
+    try {
+      let restoredFormat = EMPTY_DRAFT.format;
+      const savedDraft = localStorage.getItem(DRAFT_STORAGE_KEY);
 
-  useEffect(() => {
-    const restoreTimer = window.setTimeout(() => {
-      try {
-        let restoredFormat = EMPTY_DRAFT.format;
-        const savedDraft = localStorage.getItem(DRAFT_STORAGE_KEY);
-
-        if (savedDraft) {
-          const restoredDraft = restoreDraft(savedDraft, roles);
-          restoredFormat = restoredDraft.format;
-          setDraft(restoredDraft);
-          const leadRole = roles.find(
-            (role) => role.id === restoredDraft.roleIds[0],
-          );
-          if (leadRole) {
-            setActiveRoleCategory(leadRole.category);
-          }
-        }
-
-        const savedCardSystem = localStorage.getItem(CARD_STORAGE_KEY);
-        setCardSystem(
-          savedCardSystem
-            ? restoreCardSystem(savedCardSystem, restoredFormat)
-            : createCardSystem(restoredFormat),
+      if (savedDraft) {
+        const restoredDraft = restoreDraft(savedDraft, roles);
+        restoredFormat = restoredDraft.format;
+        setDraft(restoredDraft);
+        const leadRole = roles.find(
+          (role) => role.id === restoredDraft.roleIds[0],
         );
-        const savedAt = localStorage.getItem(SAVED_AT_STORAGE_KEY);
-        if (savedAt) {
-          setLastSavedAt(new Date(savedAt));
+        if (leadRole) {
+          setActiveRoleCategory(leadRole.category);
         }
-        setStatus("saved");
-      } catch {
-        localStorage.removeItem(DRAFT_STORAGE_KEY);
-        localStorage.removeItem(CARD_STORAGE_KEY);
-        localStorage.removeItem(SAVED_AT_STORAGE_KEY);
-        setStatus("unavailable");
-      } finally {
-        restoredRef.current = true;
-        setReady(true);
       }
-    }, 0);
 
-    return () => window.clearTimeout(restoreTimer);
+      const savedCardSystem = localStorage.getItem(CARD_STORAGE_KEY);
+      setCardSystem(
+        savedCardSystem
+          ? restoreCardSystem(savedCardSystem, restoredFormat)
+          : createCardSystem(restoredFormat),
+      );
+      const savedAt = localStorage.getItem(SAVED_AT_STORAGE_KEY);
+      return {
+        status: "saved" as const,
+        savedAt: savedAt ? new Date(savedAt) : null,
+      };
+    } catch {
+      localStorage.removeItem(DRAFT_STORAGE_KEY);
+      localStorage.removeItem(CARD_STORAGE_KEY);
+      localStorage.removeItem(SAVED_AT_STORAGE_KEY);
+      return { status: "unavailable" as const };
+    }
   }, [roles, setActiveRoleCategory, setCardSystem, setDraft]);
 
-  useEffect(() => {
-    if (!restoredRef.current) {
-      return;
-    }
+  const save = useCallback((snapshot: BuilderSnapshot, savedAt: Date) => {
+    localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(snapshot.draft));
+    localStorage.setItem(
+      CARD_STORAGE_KEY,
+      JSON.stringify(snapshot.cardSystem),
+    );
+    localStorage.setItem(SAVED_AT_STORAGE_KEY, savedAt.toISOString());
+    return "saved" as const;
+  }, []);
 
-    let statusTimer: number | null = null;
-    try {
-      const savedAt = new Date();
-      localStorage.setItem(DRAFT_STORAGE_KEY, JSON.stringify(draft));
-      localStorage.setItem(CARD_STORAGE_KEY, JSON.stringify(cardSystem));
-      localStorage.setItem(SAVED_AT_STORAGE_KEY, savedAt.toISOString());
-      statusTimer = window.setTimeout(() => {
-        setLastSavedAt(savedAt);
-        setStatus("saved");
-      }, 0);
-    } catch {
-      // The builder still works when browser storage is unavailable.
-      statusTimer = window.setTimeout(() => setStatus("unavailable"), 0);
-    }
+  const value = useMemo(() => ({ draft, cardSystem }), [cardSystem, draft]);
 
-    return () => {
-      if (statusTimer !== null) {
-        window.clearTimeout(statusTimer);
-      }
-    };
-  }, [cardSystem, draft]);
-
-  return { ready, status, lastSavedAt };
+  return useLocalDraft({ value, restore, save });
 }

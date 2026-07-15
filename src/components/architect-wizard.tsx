@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { createPortal } from "react-dom";
 import {
   ARCHITECT_BLOCK_MIME,
   ArchitectCanvas,
@@ -9,6 +8,12 @@ import {
 import { ArchitectCommandPalette } from "@/components/architect-command-palette";
 import { ArchitectInspector } from "@/components/architect-inspector";
 import { ArchitectOutputDock } from "@/components/architect-output-dock";
+import {
+  ToolSaveStateChip,
+  ToolSubbar,
+  ToolSubbarActions,
+  ToolSubbarTitle,
+} from "@/components/tool-subbar";
 import { useArchitectHistory } from "@/hooks/use-architect-history";
 import { useArchitectPersistence } from "@/hooks/use-architect-persistence";
 import { BLOCK_TYPES } from "@/lib/architect/blocks";
@@ -38,23 +43,6 @@ import {
 } from "@/lib/architect/types";
 import { downloadTextFile } from "@/lib/browser-download";
 import { makeId } from "@/lib/prompt-storage";
-
-type SaveStatus = "restoring" | "saved" | "unavailable";
-
-function getSaveStatusLabel(status: SaveStatus, lastSavedAt: Date | null) {
-  if (status === "unavailable") {
-    return "Local save unavailable";
-  }
-  if (status === "restoring") {
-    return "Restoring...";
-  }
-  return lastSavedAt
-    ? `Saved ${lastSavedAt.toLocaleTimeString([], {
-        hour: "numeric",
-        minute: "2-digit",
-      })}`
-    : "Saved locally";
-}
 
 function fileSlug(name: string) {
   const slug = name
@@ -135,11 +123,6 @@ export function ArchitectWizard() {
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
-
-  const subbarTarget =
-    typeof document === "undefined"
-      ? null
-      : document.getElementById("app-subbar-slot");
 
   const selectedNode =
     project.nodes.find((node) => node.id === selectedNodeId) ?? null;
@@ -502,21 +485,16 @@ export function ArchitectWizard() {
   }
 
   const header = (
-    <div className="prompt-subbar architect-subbar" data-component="Header:Tool">
-      <div className="prompt-flow-title">
-        <span className="tool-kicker">Architect Wizard</span>
-        <h1>{project.systemName.trim() || "Design a system."}</h1>
-        <span
-          className={
-            persistence.status === "unavailable"
-              ? "builder-save-state is-unavailable"
-              : "builder-save-state"
-          }
-          role="status"
-        >
-          {getSaveStatusLabel(persistence.status, persistence.lastSavedAt)}
-        </span>
-      </div>
+    <ToolSubbar className="architect-subbar">
+      <ToolSubbarTitle
+        kicker="Architect Wizard"
+        heading={project.systemName.trim() || "Design a system."}
+      >
+        <ToolSaveStateChip
+          status={persistence.status}
+          lastSavedAt={persistence.lastSavedAt}
+        />
+      </ToolSubbarTitle>
 
       <div
         className="architect-template-picker"
@@ -563,7 +541,7 @@ export function ArchitectWizard() {
         </button>
       </div>
 
-      <div className="prompt-flow-header-actions">
+      <ToolSubbarActions>
         <button
           className="button button-quiet"
           type="button"
@@ -629,13 +607,13 @@ export function ArchitectWizard() {
         >
           Reset
         </button>
-      </div>
-    </div>
+      </ToolSubbarActions>
+    </ToolSubbar>
   );
 
   return (
     <div className="tool-page architect-page">
-      {subbarTarget ? createPortal(header, subbarTarget) : null}
+      {header}
 
       <div className="architect-layout">
         <aside className="architect-palette" aria-label="Component blocks">

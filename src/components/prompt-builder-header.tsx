@@ -2,26 +2,13 @@
 
 import { useRef } from "react";
 import type { ChangeEvent } from "react";
-import { createPortal } from "react-dom";
-
-type SaveStatus = "restoring" | "saved" | "unavailable";
-
-function getSaveStatusLabel(status: SaveStatus, lastSavedAt: Date | null) {
-  if (status === "unavailable") {
-    return "Local save unavailable";
-  }
-
-  if (status === "restoring") {
-    return "Restoring...";
-  }
-
-  return lastSavedAt
-    ? `Saved ${lastSavedAt.toLocaleTimeString([], {
-        hour: "numeric",
-        minute: "2-digit",
-      })}`
-    : "Saved locally";
-}
+import {
+  ToolSaveStateChip,
+  ToolSubbar,
+  ToolSubbarActions,
+  ToolSubbarTitle,
+} from "@/components/tool-subbar";
+import type { SaveStatus } from "@/lib/save-status";
 
 export function PromptBuilderHeader({
   saveStatus,
@@ -62,11 +49,6 @@ export function PromptBuilderHeader({
 }) {
   const toolsMenuRef = useRef<HTMLDetailsElement | null>(null);
   const sessionInputRef = useRef<HTMLInputElement | null>(null);
-  const saveStatusLabel = getSaveStatusLabel(saveStatus, lastSavedAt);
-  const subbarTarget =
-    typeof document === "undefined"
-      ? null
-      : document.getElementById("app-subbar-slot");
 
   function runTool(action: () => void) {
     action();
@@ -75,23 +57,12 @@ export function PromptBuilderHeader({
     }
   }
 
-  const headerContent = (
-    <div className="prompt-subbar" data-component="Header:Tool">
-      <div className="prompt-flow-title">
-        <span className="tool-kicker">C.R.A.F.T. Prompt Builder</span>
-        <h1>Build a prompt.</h1>
-        <span
-          className={
-            saveStatus === "unavailable"
-              ? "builder-save-state is-unavailable"
-              : "builder-save-state"
-          }
-          role="status"
-        >
-          {saveStatusLabel}
-        </span>
-      </div>
-      <div className="prompt-flow-header-actions">
+  return (
+    <ToolSubbar>
+      <ToolSubbarTitle kicker="C.R.A.F.T. Prompt Builder" heading="Build a prompt.">
+        <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
+      </ToolSubbarTitle>
+      <ToolSubbarActions>
         <div className="history-actions" aria-label="Edit history">
           <button
             className="button button-quiet"
@@ -169,9 +140,7 @@ export function PromptBuilderHeader({
             </button>
           </div>
         </details>
-      </div>
-    </div>
+      </ToolSubbarActions>
+    </ToolSubbar>
   );
-
-  return subbarTarget ? createPortal(headerContent, subbarTarget) : null;
 }
