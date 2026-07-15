@@ -129,16 +129,38 @@ export function activeLayer(doc: ImageDoc): Layer | undefined {
 
 // ---- Brush / eraser ------------------------------------------------------
 
+// The brush tip shape a stamp uses. Procedural kinds draw directly; "image"
+// stamps a pre-rendered alpha profile (built-in chalk or an imported stencil).
+export type StampTip =
+  | { kind: "round" | "square" | "spray" }
+  | { kind: "image"; image: HTMLCanvasElement };
+
 export interface BrushOptions {
   size: number; // diameter in doc px
   color: string; // CSS color
   hardness: number; // 0..1 (1 = crisp edge, 0 = very soft)
   flow: number; // 0..1 per-stamp alpha
   erase: boolean;
+  tip?: StampTip; // defaults to a round tip
 }
 
-// A single soft round stamp centered at (x, y). A radial gradient gives the
-// hardness falloff; eraser mode punches transparency via destination-out.
+// A lazily-created scratch canvas for tinting image tips (never at module
+// scope). Grown as needed and reused across dabs.
+let tipScratch: HTMLCanvasElement | null = null;
+function getTipScratch(size: number): HTMLCanvasElement {
+  const dim = Math.max(1, Math.ceil(size));
+  if (!tipScratch) {
+    tipScratch = createBitmap(dim, dim);
+  } else if (tipScratch.width < dim || tipScratch.height < dim) {
+    tipScratch.width = dim;
+    tipScratch.height = dim;
+  }
+  return tipScratch;
+}
+
+// A single stamp centered at (x, y). Round tips use a hardness-driven radial
+// gradient; other tips draw their shape. Eraser mode punches transparency via
+// destination-out (the tip's alpha is what erases).
 export function paintStamp(
   ctx: CanvasRenderingContext2D,
   x: number,
@@ -146,24 +168,67 @@ export function paintStamp(
   opts: BrushOptions,
 ) {
   const radius = Math.max(0.5, opts.size / 2);
+  const tip = opts.tip ?? { kind: "round" };
+  const color = opts.erase ? "#000" : opts.color;
   ctx.save();
   ctx.globalCompositeOperation = opts.erase ? "destination-out" : "source-over";
   ctx.globalAlpha = clamp01(opts.flow);
-  const hard = clamp01(opts.hardness);
-  if (hard >= 0.999) {
-    ctx.fillStyle = opts.erase ? "#000" : opts.color;
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fill();
-  } else {
-    const gradient = ctx.createRadialGradient(x, y, radius * hard, x, y, radius);
-    const core = opts.erase ? "#000" : opts.color;
-    gradient.addColorStop(0, withAlpha(core, 1));
-    gradient.addColorStop(1, withAlpha(core, 0));
-    ctx.fillStyle = gradient;
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2);
-    ctx.fill();
+
+  if (tip.kind === "round") {
+    const hard = clamp01(opts.hardness);
+    if (hard >= 0.999) {
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    } else {
+      const gradient = ctx.createRadialGradient(
+        x,
+        y,
+        radius * hard,
+        x,
+        y,
+        radius,
+      );
+      gradient.addColorStop(0, withAlpha(color, 1));
+      gradient.addColorStop(1, withAlpha(color, 0));
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  } else if (tip.kind === "square") {
+    ctx.fillStyle = color;
+    ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+  } else if (tip.kind === "spray") {
+    ctx.fillStyle = color;
+    const dots = Math.max(6, Math.round(radius * 2));
+    const dotR = Math.max(0.5, radius * 0.08);
+    for (let i = 0; i < dots; i += 1) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.sqrt(Math.random()) * radius;
+      ctx.beginPath();
+      ctx.arc(x + Math.cos(angle) * dist, y + Math.sin(angle) * dist, dotR, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  } else if (tip.kind === "image") {
+    // Image tip: stamp the alpha profile. Paint tints it (source-in); erase
+    // draws the alpha directly so destination-out punches the tip shape.
+    const size = radius * 2;
+    if (opts.erase) {
+      ctx.drawImage(tip.image, x - radius, y - radius, size, size);
+    } else {
+      const scratch = getTipScratch(size);
+      const sctx = get2d(scratch);
+      sctx.clearRect(0, 0, scratch.width, scratch.height);
+      sctx.globalCompositeOperation = "source-over";
+      sctx.drawImage(tip.image, 0, 0, size, size);
+      sctx.globalCompositeOperation = "source-in";
+      sctx.fillStyle = opts.color;
+      sctx.fillRect(0, 0, size, size);
+      sctx.globalCompositeOperation = "source-over";
+      ctx.drawImage(scratch, 0, 0, size, size, x - radius, y - radius, size, size);
+    }
   }
   ctx.restore();
 }

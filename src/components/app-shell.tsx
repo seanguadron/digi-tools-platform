@@ -77,11 +77,18 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="status-bar" data-component="Bar:Status">
-        <span>
-          <span className="status-dot" aria-hidden="true" />
-          Ready
-        </span>
-        <span>No account. No cloud sync.</span>
+        <div className="status-default">
+          <span>
+            <span className="status-dot" aria-hidden="true" />
+            Ready
+          </span>
+          <span>No account. No cloud sync.</span>
+        </div>
+        <div
+          className="app-statusbar-slot"
+          id="app-statusbar-slot"
+          aria-live="polite"
+        />
       </footer>
     </div>
   );

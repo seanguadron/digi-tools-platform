@@ -195,12 +195,14 @@ export interface BrushSettings {
   size: number; // diameter in doc px
   hardness: number; // 0..1
   flow: number; // 0..1 per-stamp alpha
+  tip: string; // brush-tip / stencil id (see brush-tips.ts)
 }
 
 export const DEFAULT_BRUSH: BrushSettings = {
   size: 24,
   hardness: 0.85,
   flow: 1,
+  tip: "round",
 };
 
 // Settings for the vector shape tools (rect/ellipse/line).

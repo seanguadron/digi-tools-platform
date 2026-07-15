@@ -16,6 +16,9 @@ interface FiltersDialogProps {
   sourceBitmap: HTMLCanvasElement | null;
   onClose: () => void;
   onApply: (adjustments: Adjustments) => void;
+  // When true, render inline (inside the Adjust dock tab) instead of as a modal:
+  // no portal, backdrop, aria-modal, or Escape handler, and always mounted.
+  embedded?: boolean;
 }
 
 export function ImageEditorFilters({
@@ -23,22 +26,32 @@ export function ImageEditorFilters({
   sourceBitmap,
   onClose,
   onApply,
+  embedded = false,
 }: FiltersDialogProps) {
   const [adj, setAdj] = useState<Adjustments>(NEUTRAL_ADJUSTMENTS);
   const previewRef = useRef<HTMLCanvasElement | null>(null);
 
-  // Reset controls each time the dialog opens.
+  // Embedded is always "open"; the modal is gated by `open`.
+  const isOpen = embedded || open;
+
+  // Modal: reset each time it opens. Embedded: reset when the active layer
+  // (its bitmap identity) changes, since a fresh layer starts from neutral.
   const [wasOpen, setWasOpen] = useState(false);
-  if (open !== wasOpen) {
+  if (!embedded && open !== wasOpen) {
     setWasOpen(open);
     if (open) {
       setAdj(NEUTRAL_ADJUSTMENTS);
     }
   }
+  const [prevSource, setPrevSource] = useState(sourceBitmap);
+  if (embedded && sourceBitmap !== prevSource) {
+    setPrevSource(sourceBitmap);
+    setAdj(NEUTRAL_ADJUSTMENTS);
+  }
 
   // A small downscaled copy of the source to preview against cheaply.
   const previewSource = useMemo(() => {
-    if (!open || !sourceBitmap || typeof document === "undefined") {
+    if (!isOpen || !sourceBitmap || typeof document === "undefined") {
       return null;
     }
     const scale = Math.min(
@@ -52,7 +65,7 @@ export function ImageEditorFilters({
     const ctx = canvas.getContext("2d");
     ctx?.drawImage(sourceBitmap, 0, 0, canvas.width, canvas.height);
     return canvas;
-  }, [open, sourceBitmap]);
+  }, [isOpen, sourceBitmap]);
 
   useEffect(() => {
     const canvas = previewRef.current;
@@ -73,7 +86,7 @@ export function ImageEditorFilters({
   }, [adj, previewSource]);
 
   useEffect(() => {
-    if (!open) {
+    if (!open || embedded) {
       return;
     }
     function onKey(event: KeyboardEvent) {
@@ -83,29 +96,17 @@ export function ImageEditorFilters({
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
+  }, [open, embedded, onClose]);
 
-  if (!open || typeof document === "undefined") {
+  if (!isOpen || typeof document === "undefined") {
     return null;
   }
 
-  return createPortal(
+  const body = (
     <>
-      <button
-        type="button"
-        className="image-editor-modal-backdrop"
-        aria-label="Close dialog"
-        onClick={onClose}
-      />
-      <div
-        className="image-editor-dialog image-editor-filters-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Adjustments"
-      >
-        <h2 className="image-editor-dialog-title">Adjust</h2>
+      {!embedded ? <h2 className="image-editor-dialog-title">Adjust</h2> : null}
 
-        <canvas
+      <canvas
           ref={previewRef}
           width={PREVIEW_W}
           height={PREVIEW_H}
@@ -288,18 +289,45 @@ export function ImageEditorFilters({
           </label>
         </div>
 
-        <div className="image-editor-dialog-actions">
-          <button type="button" className="button button-quiet" onClick={onClose}>
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="button button-primary"
-            onClick={() => onApply(adj)}
-          >
-            Apply
-          </button>
-        </div>
+      <div className="image-editor-dialog-actions">
+        <button
+          type="button"
+          className="button button-quiet"
+          onClick={embedded ? () => setAdj(NEUTRAL_ADJUSTMENTS) : onClose}
+        >
+          {embedded ? "Reset" : "Cancel"}
+        </button>
+        <button
+          type="button"
+          className="button button-primary"
+          onClick={() => onApply(adj)}
+          disabled={embedded && !sourceBitmap}
+        >
+          Apply
+        </button>
+      </div>
+    </>
+  );
+
+  if (embedded) {
+    return <div className="image-editor-adjust-panel">{body}</div>;
+  }
+
+  return createPortal(
+    <>
+      <button
+        type="button"
+        className="image-editor-modal-backdrop"
+        aria-label="Close dialog"
+        onClick={onClose}
+      />
+      <div
+        className="image-editor-dialog image-editor-filters-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Adjustments"
+      >
+        {body}
       </div>
     </>,
     document.body,

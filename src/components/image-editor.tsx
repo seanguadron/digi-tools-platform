@@ -2,12 +2,21 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { EditorMenubar, type MenuDef } from "@/components/editor-menubar";
+import {
+  EditorTabs,
+  tabPanelProps,
+  type EditorTabDef,
+} from "@/components/editor-tabs";
 import { ImageEditorCanvas } from "@/components/image-editor-canvas";
+import { ImageEditorChannels } from "@/components/image-editor-channels";
 import { ImageEditorFilters } from "@/components/image-editor-filters";
 import { ImageEditorHistory } from "@/components/image-editor-history";
 import { ImageEditorImageSizeDialog } from "@/components/image-editor-imagesize-dialog";
 import { ImageEditorLayers } from "@/components/image-editor-layers";
+import { ImageEditorMinimap } from "@/components/image-editor-minimap";
 import { ImageEditorNewDialog } from "@/components/image-editor-new-dialog";
+import { ImageEditorProperties } from "@/components/image-editor-properties";
 import { ImageEditorToolbar } from "@/components/image-editor-toolbar";
 import { useCanvasViewport } from "@/hooks/use-canvas-viewport";
 import { useImageEditorHistory } from "@/hooks/use-image-editor-history";
@@ -17,6 +26,16 @@ import {
   downloadTextFile,
   slugifyFilename,
 } from "@/lib/browser-download";
+import {
+  buildTipAlpha,
+  type CustomTip,
+} from "@/lib/image-editor/brush-tips";
+import {
+  ALL_CHANNELS,
+  loadChannelAsSelection,
+  type ChannelKey,
+  type ChannelView,
+} from "@/lib/image-editor/channels";
 import {
   activeLayerOf,
   addImageLayer,
@@ -39,6 +58,10 @@ import {
   setBlendMode,
   setSelection,
 } from "@/lib/image-editor/document";
+import {
+  exportLayersSeparately,
+  exportLayersZip,
+} from "@/lib/image-editor/export-archive";
 import { applyAdjustments } from "@/lib/image-editor/filters";
 import {
   parseProjectJson,
@@ -67,6 +90,7 @@ import {
   DEFAULT_GRADIENT,
   DEFAULT_SHAPE,
   DEFAULT_TEXT,
+  getTool,
   toolForShortcut,
 } from "@/lib/image-editor/tools";
 import type {
@@ -108,6 +132,14 @@ function saveStatusLabel(
     : "Saved locally";
 }
 
+const DOCK_TABS: EditorTabDef[] = [
+  { id: "layers", label: "Layers" },
+  { id: "channels", label: "Channels" },
+  { id: "properties", label: "Properties" },
+  { id: "adjust", label: "Adjust" },
+  { id: "history", label: "History" },
+];
+
 export function ImageEditor() {
   const [doc, setDoc] = useState<ImageDoc | null>(null);
   const [tool, setTool] = useState<ToolId>("brush");
@@ -116,6 +148,7 @@ export function ImageEditor() {
   const [activeSwatch, setActiveSwatch] = useState<"fg" | "bg">("fg");
   const [recentColors, setRecentColors] = useState<string[]>([]);
   const [brush, setBrush] = useState<BrushSettings>(DEFAULT_BRUSH);
+  const [customTips, setCustomTips] = useState<CustomTip[]>([]);
   const [shape, setShape] = useState<ShapeSettings>(DEFAULT_SHAPE);
   const [text, setText] = useState<TextSettings>(DEFAULT_TEXT);
   const [gradient, setGradient] = useState<GradientSettings>(DEFAULT_GRADIENT);
@@ -124,10 +157,10 @@ export function ImageEditor() {
   const clipboardRef = useRef<HTMLCanvasElement | null>(null);
   const [name, setName] = useState("Untitled");
   const [newDialogOpen, setNewDialogOpen] = useState(false);
-  const [filtersOpen, setFiltersOpen] = useState(false);
-  const [canvasMenuOpen, setCanvasMenuOpen] = useState(false);
-  const [selectMenuOpen, setSelectMenuOpen] = useState(false);
-  const [viewMenuOpen, setViewMenuOpen] = useState(false);
+  const [dockTab, setDockTab] = useState<
+    "layers" | "channels" | "properties" | "adjust" | "history"
+  >("layers");
+  const [channelView, setChannelView] = useState<ChannelView>(ALL_CHANNELS);
   const [grid, setGrid] = useState({ show: false, size: 32, snap: false });
   const [guides, setGuides] = useState<{ x: number[]; y: number[] }>({
     x: [],
@@ -140,9 +173,8 @@ export function ImageEditor() {
   const persistence = useImageEditorPersistence({ doc, setDoc, name, setName });
   const fitDimsRef = useRef("");
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-  const canvasMenuButtonRef = useRef<HTMLButtonElement | null>(null);
-  const selectMenuButtonRef = useRef<HTMLButtonElement | null>(null);
-  const viewMenuButtonRef = useRef<HTMLButtonElement | null>(null);
+  const tipInputRef = useRef<HTMLInputElement | null>(null);
+  const tipCounter = useRef(0);
 
   // Fit the document into the stage on first measure and whenever its
   // dimensions change (New / Open / Crop). Keyed on the size so ordinary edits
@@ -356,35 +388,26 @@ export function ImageEditor() {
         },
         action === "stroke" ? undefined : "select",
       );
-      setSelectMenuOpen(false);
     },
     [commit, color],
+  );
+
+  // Load one RGBA channel of the flattened image as a graduated selection.
+  const loadChannel = useCallback(
+    (channel: ChannelKey) => {
+      commit((d) => {
+        const sel = loadChannelAsSelection(d, channel);
+        return sel ? setSelection(d, sel) : d;
+      }, "select");
+    },
+    [commit],
   );
 
   // Global keyboard: undo/redo, tool + pro shortcuts, fills, nudge, colors.
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
-      // A dropdown owns the keyboard while open (Escape closes it).
-      if (canvasMenuOpen || selectMenuOpen || viewMenuOpen) {
-        if (event.key === "Escape") {
-          event.preventDefault();
-          if (canvasMenuOpen) {
-            setCanvasMenuOpen(false);
-            canvasMenuButtonRef.current?.focus();
-          }
-          if (selectMenuOpen) {
-            setSelectMenuOpen(false);
-            selectMenuButtonRef.current?.focus();
-          }
-          if (viewMenuOpen) {
-            setViewMenuOpen(false);
-            viewMenuButtonRef.current?.focus();
-          }
-        }
-        return;
-      }
       // A modal owns the keyboard while it's open.
-      if (newDialogOpen || filtersOpen || imageSizeOpen) {
+      if (newDialogOpen || imageSizeOpen) {
         return;
       }
       const el = document.activeElement;
@@ -551,11 +574,7 @@ export function ImageEditor() {
     doc,
     commit,
     newDialogOpen,
-    filtersOpen,
     imageSizeOpen,
-    canvasMenuOpen,
-    selectMenuOpen,
-    viewMenuOpen,
     color,
     bgColor,
     viewport,
@@ -682,12 +701,339 @@ export function ImageEditor() {
     [commit],
   );
 
+  // Import a PNG as a custom brush tip (reuses the safe image-decode path).
+  const importTipFile = useCallback(async (file: File) => {
+    const result = await decodeImageFile(file, IMAGE_LIMITS);
+    if ("error" in result) {
+      setNotice(result.error);
+      return;
+    }
+    const id = `custom-${(tipCounter.current += 1)}`;
+    const label = file.name.replace(/\.[^.]+$/, "") || "Tip";
+    const image = buildTipAlpha(result.bitmap, result.width, result.height);
+    // Keep the most recent tips only, so repeated imports can't grow unbounded.
+    setCustomTips((prev) => [...prev, { id, label, image }].slice(-24));
+    setBrush((current) => ({ ...current, tip: id }));
+    setNotice(null);
+  }, []);
+
   const zoomPct = Math.round(viewport.view.scale * 100);
+  const canLayerOps = Boolean(doc && doc.layers.length > 1);
+  const hasSelection = Boolean(doc?.selection);
+
+  // The application menu bar. Every command reuses an existing handler; the bar
+  // is a reorganization of the old scattered header buttons/dropdowns.
+  const menus: MenuDef[] = [
+    {
+      id: "file",
+      label: "File",
+      items: [
+        {
+          label: "New…",
+          shortcut: "Ctrl+N",
+          onSelect: () => setNewDialogOpen(true),
+        },
+        {
+          label: "Open…",
+          shortcut: "Ctrl+O",
+          onSelect: () => fileInputRef.current?.click(),
+        },
+        {
+          label: "Save project",
+          shortcut: "Ctrl+S",
+          onSelect: saveProject,
+          disabled: !doc,
+        },
+        { separator: true, label: "" },
+        { label: "Export PNG", onSelect: exportPng, disabled: !doc },
+        { label: "Export JPG", onSelect: exportJpeg, disabled: !doc },
+        { separator: true, label: "" },
+        {
+          label: "Export layers as .zip",
+          onSelect: () => doc && void exportLayersZip(doc, name),
+          disabled: !doc,
+        },
+        {
+          label: "Export layers as files",
+          onSelect: () => doc && void exportLayersSeparately(doc, name),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "edit",
+      label: "Edit",
+      items: [
+        {
+          label: "Undo",
+          shortcut: "Ctrl+Z",
+          onSelect: () => history.undo(),
+          disabled: !history.canUndo,
+        },
+        {
+          label: "Redo",
+          shortcut: "Ctrl+Shift+Z",
+          onSelect: () => history.redo(),
+          disabled: !history.canRedo,
+        },
+        { separator: true, label: "" },
+        { label: "Cut", shortcut: "Ctrl+X", onSelect: cutToClipboard, disabled: !doc },
+        {
+          label: "Copy",
+          shortcut: "Ctrl+C",
+          onSelect: copyToClipboard,
+          disabled: !doc,
+        },
+        {
+          label: "Paste",
+          shortcut: "Ctrl+V",
+          onSelect: pasteClipboard,
+          disabled: !doc,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Fill with foreground",
+          shortcut: "Alt+⌫",
+          onSelect: () => fillActive(color),
+          disabled: !doc,
+        },
+        {
+          label: "Fill with background",
+          shortcut: "Ctrl+⌫",
+          onSelect: () => fillActive(bgColor),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "image",
+      label: "Image",
+      items: [
+        {
+          label: "Image size…",
+          onSelect: () => setImageSizeOpen(true),
+          disabled: !doc,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Flip horizontal",
+          onSelect: () => flipCanvas("horizontal"),
+          disabled: !doc,
+        },
+        {
+          label: "Flip vertical",
+          onSelect: () => flipCanvas("vertical"),
+          disabled: !doc,
+        },
+        {
+          label: "Rotate 90° right",
+          onSelect: () => rotateCanvas("cw"),
+          disabled: !doc,
+        },
+        {
+          label: "Rotate 90° left",
+          onSelect: () => rotateCanvas("ccw"),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "layer",
+      label: "Layer",
+      items: [
+        {
+          label: "New layer",
+          shortcut: "Ctrl+Shift+N",
+          onSelect: () => commit((d) => addLayer(d)),
+          disabled: !doc,
+        },
+        {
+          label: "Duplicate layer",
+          shortcut: "Ctrl+J",
+          onSelect: () => commit((d) => duplicateLayer(d, d.activeLayerId)),
+          disabled: !doc,
+        },
+        {
+          label: "Delete layer",
+          onSelect: () => commit((d) => deleteLayer(d, d.activeLayerId)),
+          disabled: !canLayerOps,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Merge down",
+          shortcut: "Ctrl+E",
+          onSelect: () => commit((d) => mergeLayerDown(d, d.activeLayerId)),
+          disabled: !canLayerOps,
+        },
+        {
+          label: "Flatten image",
+          shortcut: "Ctrl+Shift+E",
+          onSelect: () => commit((d) => flattenDoc(d)),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "select",
+      label: "Select",
+      items: [
+        {
+          label: "All",
+          shortcut: "Ctrl+A",
+          onSelect: () =>
+            commit(
+              (d) => setSelection(d, selectAll(d.width, d.height)),
+              "select",
+            ),
+          disabled: !doc,
+        },
+        {
+          label: "Deselect",
+          shortcut: "Ctrl+D",
+          onSelect: () => selectAction("deselect"),
+          disabled: !hasSelection,
+        },
+        {
+          label: "Inverse",
+          shortcut: "Ctrl+Shift+I",
+          onSelect: () => selectAction("invert"),
+          disabled: !hasSelection,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Feather 4px",
+          onSelect: () => selectAction("feather"),
+          disabled: !hasSelection,
+        },
+        {
+          label: "Grow 2px",
+          onSelect: () => selectAction("grow"),
+          disabled: !hasSelection,
+        },
+        {
+          label: "Shrink 2px",
+          onSelect: () => selectAction("shrink"),
+          disabled: !hasSelection,
+        },
+        {
+          label: "Stroke edge",
+          onSelect: () => selectAction("stroke"),
+          disabled: !hasSelection,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Load red as selection",
+          onSelect: () => loadChannel("r"),
+          disabled: !doc,
+        },
+        {
+          label: "Load green as selection",
+          onSelect: () => loadChannel("g"),
+          disabled: !doc,
+        },
+        {
+          label: "Load blue as selection",
+          onSelect: () => loadChannel("b"),
+          disabled: !doc,
+        },
+        {
+          label: "Load alpha as selection",
+          onSelect: () => loadChannel("a"),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "filter",
+      label: "Filter",
+      items: [
+        {
+          label: "Adjustments…",
+          onSelect: () => setDockTab("adjust"),
+          disabled: !doc,
+        },
+      ],
+    },
+    {
+      id: "view",
+      label: "View",
+      items: [
+        {
+          label: "Fit on screen",
+          shortcut: "Ctrl+0",
+          onSelect: () => doc && viewport.fit(doc.width, doc.height),
+          disabled: !doc,
+        },
+        {
+          label: "Actual size (100%)",
+          shortcut: "Ctrl+1",
+          onSelect: () => viewport.zoomTo(1),
+          disabled: !doc,
+        },
+        {
+          label: "Zoom in",
+          onSelect: () => viewport.zoomTo(viewport.view.scale * 1.25),
+          disabled: !doc,
+        },
+        {
+          label: "Zoom out",
+          onSelect: () => viewport.zoomTo(viewport.view.scale * 0.8),
+          disabled: !doc,
+        },
+        { separator: true, label: "" },
+        {
+          label: "Show grid",
+          checked: grid.show,
+          onSelect: () => setGrid((g) => ({ ...g, show: !g.show })),
+        },
+        {
+          label: "Snap to grid",
+          checked: grid.snap,
+          onSelect: () => setGrid((g) => ({ ...g, snap: !g.snap })),
+        },
+        {
+          label: `Grid size: ${grid.size}px`,
+          onSelect: () =>
+            setGrid((g) => ({ ...g, size: g.size >= 64 ? 8 : g.size * 2 })),
+        },
+        { separator: true, label: "" },
+        {
+          label: "Add vertical guide",
+          onSelect: () =>
+            doc &&
+            setGuides((gs) => ({
+              ...gs,
+              x: [...gs.x, Math.round(doc.width / 2)],
+            })),
+          disabled: !doc,
+        },
+        {
+          label: "Add horizontal guide",
+          onSelect: () =>
+            doc &&
+            setGuides((gs) => ({
+              ...gs,
+              y: [...gs.y, Math.round(doc.height / 2)],
+            })),
+          disabled: !doc,
+        },
+        {
+          label: "Clear guides",
+          onSelect: () => setGuides({ x: [], y: [] }),
+          disabled: !doc || (guides.x.length === 0 && guides.y.length === 0),
+        },
+      ],
+    },
+  ];
 
   const header = (
     <div className="prompt-subbar image-editor-subbar" data-component="Header:Tool">
-      <div className="prompt-flow-title">
-        <span className="tool-kicker">Image Editor</span>
+      <EditorMenubar
+        menus={menus}
+        label="Image editor menu"
+        className="image-editor-menubar"
+      />
+      <div className="image-editor-titlebar">
         <input
           className="image-editor-title-input"
           value={name}
@@ -714,342 +1060,7 @@ export function ImageEditor() {
         )}
       </div>
 
-      <div className="image-editor-subbar-tools" role="group" aria-label="View">
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => viewport.zoomTo(viewport.view.scale * 0.8)}
-          title="Zoom out"
-          aria-label="Zoom out"
-        >
-          −
-        </button>
-        <span className="image-editor-zoom-readout" role="status">
-          {zoomPct}%
-        </span>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => viewport.zoomTo(viewport.view.scale * 1.25)}
-          title="Zoom in"
-          aria-label="Zoom in"
-        >
-          +
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => doc && viewport.fit(doc.width, doc.height)}
-          title="Fit to screen"
-        >
-          Fit
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => viewport.zoomTo(1)}
-          title="Actual size"
-        >
-          100%
-        </button>
-      </div>
-
       <div className="prompt-flow-header-actions">
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => history.undo()}
-          disabled={!history.canUndo}
-          title="Undo (Ctrl+Z)"
-        >
-          Undo
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => history.redo()}
-          disabled={!history.canRedo}
-          title="Redo (Ctrl+Shift+Z)"
-        >
-          Redo
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => setNewDialogOpen(true)}
-        >
-          New
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => fileInputRef.current?.click()}
-          title="Open an image or a saved .json project"
-        >
-          Open
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={saveProject}
-          disabled={!doc}
-          title="Save the layered project as a .json file"
-        >
-          Save
-        </button>
-        <div className="image-editor-menu-wrap">
-          <button
-            ref={selectMenuButtonRef}
-            type="button"
-            className="button button-quiet"
-            onClick={() => setSelectMenuOpen((open) => !open)}
-            disabled={!doc}
-            aria-haspopup="true"
-            aria-expanded={selectMenuOpen}
-          >
-            Select ▾
-          </button>
-          {selectMenuOpen ? (
-            <>
-              <button
-                type="button"
-                className="image-editor-menu-backdrop"
-                aria-label="Close menu"
-                onClick={() => setSelectMenuOpen(false)}
-              />
-              <div
-                className="image-editor-menu"
-                role="group"
-                aria-label="Selection actions"
-              >
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("deselect")}
-                >
-                  Deselect
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("invert")}
-                >
-                  Inverse
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("feather")}
-                >
-                  Feather 4px
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("grow")}
-                >
-                  Grow 2px
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("shrink")}
-                >
-                  Shrink 2px
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc?.selection}
-                  onClick={() => selectAction("stroke")}
-                >
-                  Stroke edge
-                </button>
-              </div>
-            </>
-          ) : null}
-        </div>
-        <div className="image-editor-menu-wrap">
-          <button
-            ref={canvasMenuButtonRef}
-            type="button"
-            className="button button-quiet"
-            onClick={() => setCanvasMenuOpen((open) => !open)}
-            disabled={!doc}
-            aria-haspopup="true"
-            aria-expanded={canvasMenuOpen}
-          >
-            Canvas ▾
-          </button>
-          {canvasMenuOpen ? (
-            <>
-              <button
-                type="button"
-                className="image-editor-menu-backdrop"
-                aria-label="Close menu"
-                onClick={() => setCanvasMenuOpen(false)}
-              />
-              <div
-                className="image-editor-menu"
-                role="group"
-                aria-label="Canvas actions"
-              >
-                <button
-                  type="button"
-                  onClick={() => {
-                    flipCanvas("horizontal");
-                    setCanvasMenuOpen(false);
-                  }}
-                >
-                  Flip horizontal
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    flipCanvas("vertical");
-                    setCanvasMenuOpen(false);
-                  }}
-                >
-                  Flip vertical
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    rotateCanvas("cw");
-                    setCanvasMenuOpen(false);
-                  }}
-                >
-                  Rotate 90° right
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    rotateCanvas("ccw");
-                    setCanvasMenuOpen(false);
-                  }}
-                >
-                  Rotate 90° left
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setImageSizeOpen(true);
-                    setCanvasMenuOpen(false);
-                  }}
-                >
-                  Image size…
-                </button>
-              </div>
-            </>
-          ) : null}
-        </div>
-        <div className="image-editor-menu-wrap">
-          <button
-            ref={viewMenuButtonRef}
-            type="button"
-            className="button button-quiet"
-            onClick={() => setViewMenuOpen((open) => !open)}
-            disabled={!doc}
-            aria-haspopup="true"
-            aria-expanded={viewMenuOpen}
-          >
-            View ▾
-          </button>
-          {viewMenuOpen ? (
-            <>
-              <button
-                type="button"
-                className="image-editor-menu-backdrop"
-                aria-label="Close menu"
-                onClick={() => setViewMenuOpen(false)}
-              />
-              <div
-                className="image-editor-menu"
-                role="group"
-                aria-label="View options"
-              >
-                <button
-                  type="button"
-                  aria-pressed={grid.show}
-                  onClick={() => setGrid((g) => ({ ...g, show: !g.show }))}
-                >
-                  {grid.show ? "✓ " : ""}Show grid
-                </button>
-                <button
-                  type="button"
-                  aria-pressed={grid.snap}
-                  onClick={() => setGrid((g) => ({ ...g, snap: !g.snap }))}
-                >
-                  {grid.snap ? "✓ " : ""}Snap to grid
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    setGrid((g) => ({
-                      ...g,
-                      size: g.size >= 64 ? 8 : g.size * 2,
-                    }))
-                  }
-                >
-                  Grid size: {grid.size}px
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc}
-                  onClick={() =>
-                    doc &&
-                    setGuides((gs) => ({
-                      ...gs,
-                      x: [...gs.x, Math.round(doc.width / 2)],
-                    }))
-                  }
-                >
-                  Add vertical guide
-                </button>
-                <button
-                  type="button"
-                  disabled={!doc}
-                  onClick={() =>
-                    doc &&
-                    setGuides((gs) => ({
-                      ...gs,
-                      y: [...gs.y, Math.round(doc.height / 2)],
-                    }))
-                  }
-                >
-                  Add horizontal guide
-                </button>
-                <button
-                  type="button"
-                  disabled={guides.x.length === 0 && guides.y.length === 0}
-                  onClick={() => setGuides({ x: [], y: [] })}
-                >
-                  Clear guides
-                </button>
-                <p className="image-editor-menu-hint">
-                  Drag a guide with the Move tool; drag it off the canvas to
-                  remove it.
-                </p>
-              </div>
-            </>
-          ) : null}
-        </div>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={() => setFiltersOpen(true)}
-          disabled={!doc}
-        >
-          Adjust
-        </button>
-        <button
-          type="button"
-          className="button button-quiet"
-          onClick={exportJpeg}
-          disabled={!doc}
-          title="Export a flattened JPEG"
-        >
-          JPG
-        </button>
         <button
           type="button"
           className="button button-primary"
@@ -1066,10 +1077,29 @@ export function ImageEditor() {
     typeof document === "undefined"
       ? null
       : document.getElementById("app-subbar-slot");
+  const statusTarget =
+    typeof document === "undefined"
+      ? null
+      : document.getElementById("app-statusbar-slot");
+
+  const statusBar = doc ? (
+    <div className="image-editor-statusbar">
+      <span className="ie-status-zoom" role="status">
+        {zoomPct}%
+      </span>
+      <span className="ie-status-dims">
+        {doc.width} × {doc.height} px
+      </span>
+      <span className="ie-status-tool">{getTool(tool)?.label ?? ""}</span>
+    </div>
+  ) : null;
 
   return (
     <div className="tool-page image-editor-page">
       {subbarTarget ? createPortal(header, subbarTarget) : null}
+      {statusTarget && statusBar
+        ? createPortal(statusBar, statusTarget)
+        : null}
 
       {doc ? (
         <div className="image-editor-layout">
@@ -1079,29 +1109,9 @@ export function ImageEditor() {
             fgColor={color}
             bgColor={bgColor}
             activeSwatch={activeSwatch}
-            recentColors={recentColors}
-            onColorChange={setActiveColor}
             onSelectSwatch={setActiveSwatch}
             onSwapColors={swapColors}
             onResetColors={resetColors}
-            brush={brush}
-            onBrushChange={(patch) =>
-              setBrush((current) => ({ ...current, ...patch }))
-            }
-            shape={shape}
-            onShapeChange={(patch) =>
-              setShape((current) => ({ ...current, ...patch }))
-            }
-            text={text}
-            onTextChange={(patch) =>
-              setText((current) => ({ ...current, ...patch }))
-            }
-            gradient={gradient}
-            onGradientChange={(patch) =>
-              setGradient((current) => ({ ...current, ...patch }))
-            }
-            tolerance={tolerance}
-            onToleranceChange={setTolerance}
           />
 
           <ImageEditorCanvas
@@ -1109,6 +1119,7 @@ export function ImageEditor() {
             viewport={viewport}
             tool={tool}
             brush={brush}
+            customTips={customTips}
             shape={shape}
             text={text}
             gradient={gradient}
@@ -1117,14 +1128,70 @@ export function ImageEditor() {
             tolerance={tolerance}
             grid={grid}
             guides={guides}
+            channelView={channelView}
             onGuidesChange={setGuides}
             onCommitDoc={commit}
             onPickColor={setColor}
             onDropFiles={placeImageFiles}
-          />
+          >
+            <div
+              className="image-editor-canvas-tools"
+              onPointerDown={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                className="image-editor-zoombtn"
+                onClick={() => viewport.zoomTo(viewport.view.scale * 0.8)}
+                title="Zoom out"
+                aria-label="Zoom out"
+              >
+                −
+              </button>
+              <span className="image-editor-zoombtn-readout">{zoomPct}%</span>
+              <button
+                type="button"
+                className="image-editor-zoombtn"
+                onClick={() => viewport.zoomTo(viewport.view.scale * 1.25)}
+                title="Zoom in"
+                aria-label="Zoom in"
+              >
+                +
+              </button>
+              <button
+                type="button"
+                className="image-editor-zoombtn is-text"
+                onClick={() => viewport.fit(doc.width, doc.height)}
+                title="Fit on screen"
+              >
+                Fit
+              </button>
+              <button
+                type="button"
+                className="image-editor-zoombtn is-text"
+                onClick={() => viewport.zoomTo(1)}
+                title="Actual size"
+              >
+                100%
+              </button>
+            </div>
+            <ImageEditorMinimap doc={doc} viewport={viewport} />
+          </ImageEditorCanvas>
 
-          <div className="image-editor-right">
-          <ImageEditorLayers
+          <div className="image-editor-dock">
+            <EditorTabs
+              tabs={DOCK_TABS}
+              active={dockTab}
+              onChange={(id) => setDockTab(id as typeof dockTab)}
+              idBase="ie-dock"
+              label="Editor panels"
+            />
+            <div className="image-editor-dock-body">
+              {dockTab === "layers" ? (
+                <div
+                  {...tabPanelProps("ie-dock", "layers")}
+                  className="image-editor-dock-panel"
+                >
+                  <ImageEditorLayers
             doc={doc}
             onSelectLayer={(id) => setDocOp((current) => setActiveLayer(current, id))}
             onAddLayer={() => commit((current) => addLayer(current))}
@@ -1164,12 +1231,111 @@ export function ImageEditor() {
             onReorderTo={(id, toIndex) =>
               commit((current) => moveLayerToIndex(current, id, toIndex))
             }
-          />
-          <ImageEditorHistory
-            depth={history.depth}
-            position={history.position}
-            onJump={history.jump}
-          />
+                  />
+                </div>
+              ) : null}
+              {dockTab === "channels" ? (
+                <div
+                  {...tabPanelProps("ie-dock", "channels")}
+                  className="image-editor-dock-panel"
+                >
+                  <ImageEditorChannels
+                    doc={doc}
+                    channelView={channelView}
+                    onChannelViewChange={setChannelView}
+                    onLoadChannel={loadChannel}
+                  />
+                </div>
+              ) : null}
+              {dockTab === "properties" ? (
+                <div
+                  {...tabPanelProps("ie-dock", "properties")}
+                  className="image-editor-dock-panel"
+                >
+                  <ImageEditorProperties
+                    tool={tool}
+                    fgColor={color}
+                    bgColor={bgColor}
+                    activeSwatch={activeSwatch}
+                    recentColors={recentColors}
+                    onColorChange={setActiveColor}
+                    onSelectSwatch={setActiveSwatch}
+                    onSwapColors={swapColors}
+                    onResetColors={resetColors}
+                    brush={brush}
+                    onBrushChange={(patch) =>
+                      setBrush((current) => ({ ...current, ...patch }))
+                    }
+                    tip={brush.tip}
+                    customTips={customTips}
+                    onTipChange={(id) =>
+                      setBrush((current) => ({ ...current, tip: id }))
+                    }
+                    onImportTip={() => tipInputRef.current?.click()}
+                    shape={shape}
+                    onShapeChange={(patch) =>
+                      setShape((current) => ({ ...current, ...patch }))
+                    }
+                    text={text}
+                    onTextChange={(patch) =>
+                      setText((current) => ({ ...current, ...patch }))
+                    }
+                    gradient={gradient}
+                    onGradientChange={(patch) =>
+                      setGradient((current) => ({ ...current, ...patch }))
+                    }
+                    tolerance={tolerance}
+                    onToleranceChange={setTolerance}
+                  />
+                </div>
+              ) : null}
+              {dockTab === "adjust" ? (
+                <div
+                  {...tabPanelProps("ie-dock", "adjust")}
+                  className="image-editor-dock-panel"
+                >
+                  <ImageEditorFilters
+                    embedded
+                    open
+                    sourceBitmap={activeLayerOf(doc)?.bitmap ?? null}
+                    onClose={() => undefined}
+                    onApply={(adj) => {
+                      commit((current) => {
+                        const layer = activeLayerOf(current);
+                        if (!layer) {
+                          return current;
+                        }
+                        const adjusted = applyAdjustments(layer.bitmap, adj);
+                        const result = current.selection
+                          ? applySelectionClip(
+                              layer.bitmap,
+                              adjusted,
+                              current.selection,
+                            )
+                          : adjusted;
+                        return commitLayerBitmap(
+                          current,
+                          current.activeLayerId,
+                          result,
+                        );
+                      });
+                    }}
+                  />
+                </div>
+              ) : null}
+              {dockTab === "history" ? (
+                <div
+                  {...tabPanelProps("ie-dock", "history")}
+                  className="image-editor-dock-panel"
+                >
+                  <ImageEditorHistory
+                    depth={history.depth}
+                    position={history.position}
+                    onJump={history.jump}
+                  />
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       ) : (
@@ -1195,30 +1361,24 @@ export function ImageEditor() {
         }}
       />
 
+      <input
+        ref={tipInputRef}
+        className="sr-only"
+        type="file"
+        accept="image/*"
+        onChange={(event) => {
+          const file = event.target.files?.[0];
+          if (file) {
+            void importTipFile(file);
+          }
+          event.target.value = "";
+        }}
+      />
+
       <ImageEditorNewDialog
         open={newDialogOpen}
         onClose={() => setNewDialogOpen(false)}
         onCreate={createSizedDoc}
-      />
-
-      <ImageEditorFilters
-        open={filtersOpen}
-        sourceBitmap={doc ? (activeLayerOf(doc)?.bitmap ?? null) : null}
-        onClose={() => setFiltersOpen(false)}
-        onApply={(adj) => {
-          commit((current) => {
-            const layer = activeLayerOf(current);
-            if (!layer) {
-              return current;
-            }
-            const adjusted = applyAdjustments(layer.bitmap, adj);
-            const result = current.selection
-              ? applySelectionClip(layer.bitmap, adjusted, current.selection)
-              : adjusted;
-            return commitLayerBitmap(current, current.activeLayerId, result);
-          });
-          setFiltersOpen(false);
-        }}
       />
 
       <ImageEditorImageSizeDialog

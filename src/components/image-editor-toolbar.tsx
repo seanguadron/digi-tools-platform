@@ -1,15 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { ImageEditorColorPicker } from "@/components/image-editor-color-picker";
-import type {
-  BrushSettings,
-  GradientSettings,
-  ShapeSettings,
-  TextSettings,
-  ToolDef,
-  ToolId,
-} from "@/lib/image-editor/tools";
+import { FgBgSwatch } from "@/components/image-editor-properties";
+import type { ToolDef, ToolId } from "@/lib/image-editor/tools";
 import { TOOL_CATALOG } from "@/lib/image-editor/tools";
 
 // Compact 20×20 line icons, stroke = currentColor so they inherit theme tokens.
@@ -111,49 +104,24 @@ interface ToolbarProps {
   fgColor: string;
   bgColor: string;
   activeSwatch: "fg" | "bg";
-  recentColors: string[];
-  onColorChange: (hex: string) => void;
   onSelectSwatch: (swatch: "fg" | "bg") => void;
   onSwapColors: () => void;
   onResetColors: () => void;
-  brush: BrushSettings;
-  onBrushChange: (patch: Partial<BrushSettings>) => void;
-  shape: ShapeSettings;
-  onShapeChange: (patch: Partial<ShapeSettings>) => void;
-  text: TextSettings;
-  onTextChange: (patch: Partial<TextSettings>) => void;
-  gradient: GradientSettings;
-  onGradientChange: (patch: Partial<GradientSettings>) => void;
-  tolerance: number;
-  onToleranceChange: (value: number) => void;
 }
 
+// The left tool strip: a narrow vertical rail of tool icons plus the overlapping
+// FG/BG swatch at the bottom (Photoshop layout). Tool options moved to the
+// Properties tab of the right dock.
 export function ImageEditorToolbar({
   tool,
   onToolChange,
   fgColor,
   bgColor,
   activeSwatch,
-  recentColors,
-  onColorChange,
   onSelectSwatch,
   onSwapColors,
   onResetColors,
-  brush,
-  onBrushChange,
-  shape,
-  onShapeChange,
-  text,
-  onTextChange,
-  gradient,
-  onGradientChange,
-  tolerance,
-  onToleranceChange,
 }: ToolbarProps) {
-  const paintTool = tool === "brush" || tool === "eraser";
-  const shapeTool =
-    tool === "shape-rect" || tool === "shape-ellipse" || tool === "shape-line";
-
   return (
     <aside className="image-editor-toolbar" aria-label="Tools">
       <div className="image-editor-tool-grid" role="toolbar" aria-label="Tools">
@@ -167,279 +135,15 @@ export function ImageEditorToolbar({
         ))}
       </div>
 
-      <div className="image-editor-panel-block">
-        <span className="image-editor-panel-label">Color</span>
-        <div className="image-editor-swatch-pair">
-          <button
-            type="button"
-            className={
-              activeSwatch === "fg"
-                ? "image-editor-fgbg is-active"
-                : "image-editor-fgbg"
-            }
-            style={{ background: fgColor }}
-            title="Foreground color"
-            aria-label="Foreground color"
-            aria-pressed={activeSwatch === "fg"}
-            onClick={() => onSelectSwatch("fg")}
-          />
-          <button
-            type="button"
-            className={
-              activeSwatch === "bg"
-                ? "image-editor-fgbg is-active"
-                : "image-editor-fgbg"
-            }
-            style={{ background: bgColor }}
-            title="Background color"
-            aria-label="Background color"
-            aria-pressed={activeSwatch === "bg"}
-            onClick={() => onSelectSwatch("bg")}
-          />
-          <div className="image-editor-fgbg-controls">
-            <button
-              type="button"
-              className="image-editor-icon-btn"
-              title="Swap colors (X)"
-              aria-label="Swap foreground and background"
-              onClick={onSwapColors}
-            >
-              ⇄
-            </button>
-            <button
-              type="button"
-              className="image-editor-icon-btn"
-              title="Reset to black / white (D)"
-              aria-label="Reset colors to black and white"
-              onClick={onResetColors}
-            >
-              ◑
-            </button>
-          </div>
-        </div>
-        <ImageEditorColorPicker
-          color={activeSwatch === "fg" ? fgColor : bgColor}
-          onChange={onColorChange}
-          recentColors={recentColors}
-        />
-      </div>
-
-      {tool === "gradient" ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">Gradient</span>
-          <div className="image-editor-seg" role="group" aria-label="Gradient type">
-            <button
-              type="button"
-              className={gradient.type === "linear" ? "is-active" : ""}
-              aria-pressed={gradient.type === "linear"}
-              onClick={() => onGradientChange({ type: "linear" })}
-            >
-              Linear
-            </button>
-            <button
-              type="button"
-              className={gradient.type === "radial" ? "is-active" : ""}
-              aria-pressed={gradient.type === "radial"}
-              onClick={() => onGradientChange({ type: "radial" })}
-            >
-              Radial
-            </button>
-          </div>
-          <div className="image-editor-seg" role="group" aria-label="Gradient colors">
-            <button
-              type="button"
-              className={gradient.mode === "fg-bg" ? "is-active" : ""}
-              aria-pressed={gradient.mode === "fg-bg"}
-              onClick={() => onGradientChange({ mode: "fg-bg" })}
-            >
-              FG → BG
-            </button>
-            <button
-              type="button"
-              className={gradient.mode === "fg-transparent" ? "is-active" : ""}
-              aria-pressed={gradient.mode === "fg-transparent"}
-              onClick={() => onGradientChange({ mode: "fg-transparent" })}
-            >
-              FG → clear
-            </button>
-          </div>
-        </div>
-      ) : null}
-
-      {paintTool ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">
-            {tool === "eraser" ? "Eraser" : "Brush"}
-          </span>
-          <label className="image-editor-slider">
-            <span>
-              Size <strong>{Math.round(brush.size)}px</strong>
-            </span>
-            <input
-              type="range"
-              min={1}
-              max={400}
-              value={brush.size}
-              onChange={(event) =>
-                onBrushChange({ size: Number(event.target.value) })
-              }
-            />
-          </label>
-          <label className="image-editor-slider">
-            <span>
-              Hardness <strong>{Math.round(brush.hardness * 100)}%</strong>
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={100}
-              value={Math.round(brush.hardness * 100)}
-              onChange={(event) =>
-                onBrushChange({ hardness: Number(event.target.value) / 100 })
-              }
-            />
-          </label>
-          <label className="image-editor-slider">
-            <span>
-              Flow <strong>{Math.round(brush.flow * 100)}%</strong>
-            </span>
-            <input
-              type="range"
-              min={1}
-              max={100}
-              value={Math.round(brush.flow * 100)}
-              onChange={(event) =>
-                onBrushChange({ flow: Number(event.target.value) / 100 })
-              }
-            />
-          </label>
-        </div>
-      ) : null}
-
-      {tool === "fill" || tool === "magic-wand" ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">
-            {tool === "magic-wand" ? "Magic wand" : "Fill"}
-          </span>
-          <label className="image-editor-slider">
-            <span>
-              Tolerance <strong>{tolerance}</strong>
-            </span>
-            <input
-              type="range"
-              min={0}
-              max={128}
-              value={tolerance}
-              onChange={(event) => onToleranceChange(Number(event.target.value))}
-            />
-          </label>
-        </div>
-      ) : null}
-
-      {shapeTool ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">Shape</span>
-          {tool !== "shape-line" ? (
-            <div className="image-editor-toggle-row">
-              <label className="image-editor-check">
-                <input
-                  type="checkbox"
-                  checked={shape.fill}
-                  onChange={(event) => onShapeChange({ fill: event.target.checked })}
-                />
-                Fill
-              </label>
-              <label className="image-editor-check">
-                <input
-                  type="checkbox"
-                  checked={shape.stroke}
-                  onChange={(event) =>
-                    onShapeChange({ stroke: event.target.checked })
-                  }
-                />
-                Stroke
-              </label>
-            </div>
-          ) : null}
-          <label className="image-editor-slider">
-            <span>
-              {tool === "shape-line" ? "Width" : "Stroke width"}{" "}
-              <strong>{shape.strokeWidth}px</strong>
-            </span>
-            <input
-              type="range"
-              min={1}
-              max={80}
-              value={shape.strokeWidth}
-              onChange={(event) =>
-                onShapeChange({ strokeWidth: Number(event.target.value) })
-              }
-            />
-          </label>
-        </div>
-      ) : null}
-
-      {tool === "text" ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">Text</span>
-          <label className="image-editor-slider">
-            <span>
-              Size <strong>{text.fontSize}px</strong>
-            </span>
-            <input
-              type="range"
-              min={8}
-              max={200}
-              value={text.fontSize}
-              onChange={(event) =>
-                onTextChange({ fontSize: Number(event.target.value) })
-              }
-            />
-          </label>
-          <div className="image-editor-toggle-row">
-            <label className="image-editor-check">
-              <input
-                type="checkbox"
-                checked={text.bold}
-                onChange={(event) => onTextChange({ bold: event.target.checked })}
-              />
-              Bold
-            </label>
-            <label className="image-editor-check">
-              <input
-                type="checkbox"
-                checked={text.italic}
-                onChange={(event) =>
-                  onTextChange({ italic: event.target.checked })
-                }
-              />
-              Italic
-            </label>
-          </div>
-          <p className="image-editor-hint">
-            Click the canvas, type, then press Enter.
-          </p>
-        </div>
-      ) : null}
-
-      {tool === "transform" ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">Transform</span>
-          <p className="image-editor-hint">
-            Drag inside to move, corners to scale, the top handle to rotate.
-            Press Enter to apply, Esc to cancel.
-          </p>
-        </div>
-      ) : null}
-
-      {tool === "crop" ? (
-        <div className="image-editor-panel-block">
-          <span className="image-editor-panel-label">Crop</span>
-          <p className="image-editor-hint">
-            Drag a region on the canvas; release to crop to it.
-          </p>
-        </div>
-      ) : null}
+      <FgBgSwatch
+        fgColor={fgColor}
+        bgColor={bgColor}
+        activeSwatch={activeSwatch}
+        onSelectSwatch={onSelectSwatch}
+        onSwapColors={onSwapColors}
+        onResetColors={onResetColors}
+        compact
+      />
     </aside>
   );
 }

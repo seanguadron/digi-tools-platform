@@ -1,7 +1,17 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import type { useCanvasViewport } from "@/hooks/use-canvas-viewport";
+import {
+  resolveStampTip,
+  type CustomTip,
+} from "@/lib/image-editor/brush-tips";
+import {
+  applyChannelView,
+  channelsAllVisible,
+  type ChannelView,
+} from "@/lib/image-editor/channels";
 import {
   commitLayerBitmap,
   commitPaintedBitmap,
@@ -123,6 +133,7 @@ interface ImageEditorCanvasProps {
   viewport: ViewportApi;
   tool: ToolId;
   brush: BrushSettings;
+  customTips: CustomTip[];
   shape: ShapeSettings;
   text: TextSettings;
   gradient: GradientSettings;
@@ -131,10 +142,14 @@ interface ImageEditorCanvasProps {
   tolerance: number;
   grid: { show: boolean; size: number; snap: boolean };
   guides: { x: number[]; y: number[] };
+  channelView: ChannelView;
   onGuidesChange: (next: { x: number[]; y: number[] }) => void;
   onCommitDoc: (mutate: (doc: ImageDoc) => ImageDoc, tag?: string) => void;
   onPickColor: (hex: string) => void;
   onDropFiles: (files: FileList) => void;
+  // Floating overlays (zoom cluster, minimap) rendered inside the stage so they
+  // position against the canvas viewport rather than the page.
+  children?: ReactNode;
 }
 
 const CHECKER_CELL = 8;
@@ -209,6 +224,7 @@ export function ImageEditorCanvas({
   viewport,
   tool,
   brush,
+  customTips,
   shape,
   text,
   gradient,
@@ -217,10 +233,12 @@ export function ImageEditorCanvas({
   tolerance,
   grid,
   guides,
+  channelView,
   onGuidesChange,
   onCommitDoc,
   onPickColor,
   onDropFiles,
+  children,
 }: ImageEditorCanvasProps) {
   const { stageRef, view, zoomAt, panBy, screenToDoc } = viewport;
   const [textEdit, setTextEdit] = useState<{ point: Point; value: string } | null>(
@@ -231,6 +249,9 @@ export function ImageEditorCanvas({
   const overlayCanvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const compositeRef = useRef<HTMLCanvasElement | null>(null);
+  // The composite after the channel-view transform (null when all channels are
+  // visible — the common case draws compositeRef directly).
+  const displayRef = useRef<HTMLCanvasElement | null>(null);
   // The bitmap substituted for the active layer during a live brush stroke or
   // move-drag (null when idle).
   const overrideRef = useRef<HTMLCanvasElement | null>(null);
@@ -245,13 +266,15 @@ export function ImageEditorCanvas({
   // tool above) so an old drawOverlay closure can't paint stale overlay state.
   const gridRef = useRef(grid);
   const guidesRef = useRef(guides);
+  const channelViewRef = useRef(channelView);
   useEffect(() => {
     docRef.current = doc;
     viewRef.current = view;
     toolRef.current = tool;
     gridRef.current = grid;
     guidesRef.current = guides;
-  }, [doc, view, tool, grid, guides]);
+    channelViewRef.current = channelView;
+  }, [doc, view, tool, grid, guides, channelView]);
 
   const strokingRef = useRef(false);
   const lastPointRef = useRef<Point | null>(null);
@@ -333,6 +356,11 @@ export function ImageEditorCanvas({
       compositeRef.current ?? undefined,
       override,
     );
+    const channels = channelViewRef.current;
+    displayRef.current =
+      compositeRef.current && !channelsAllVisible(channels)
+        ? applyChannelView(compositeRef.current, channels, displayRef.current)
+        : null;
   }, []);
 
   const drawOverlay = useCallback((cssW: number, cssH: number, dpr: number) => {
@@ -626,9 +654,10 @@ export function ImageEditorCanvas({
     }
     ctx.restore();
 
-    if (compositeRef.current) {
+    const displaySource = displayRef.current ?? compositeRef.current;
+    if (displaySource) {
       ctx.imageSmoothingEnabled = v.scale < 1.5;
-      ctx.drawImage(compositeRef.current, left, top, w, h);
+      ctx.drawImage(displaySource, left, top, w, h);
     }
 
     const border = getComputedStyle(stage).getPropertyValue("--border").trim();
@@ -646,12 +675,20 @@ export function ImageEditorCanvas({
     rafRef.current = window.requestAnimationFrame(draw);
   }, [draw]);
 
+  // Recompute the channel-view display transform when it changes, then repaint.
+  useEffect(() => {
+    channelViewRef.current = channelView;
+    recomposite();
+    requestRender();
+  }, [channelView, recomposite, requestRender]);
+
   const brushOptions = (erase: boolean) => ({
     size: brush.size,
     hardness: brush.hardness,
     flow: brush.flow,
     color,
     erase,
+    tip: resolveStampTip(brush.tip, customTips),
   });
 
   // Snap a doc point to nearby guides / grid lines (within ~6 screen px).
@@ -1556,6 +1593,7 @@ export function ImageEditorCanvas({
           onBlur={commitText}
         />
       ) : null}
+      {children}
     </div>
   );
 }
