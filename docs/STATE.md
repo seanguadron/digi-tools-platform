@@ -14,10 +14,12 @@ session).
 
 ## Now
 
-Branch **`main`**, in sync with `origin/main` through `b69b570` (the
-theme-script relocation, committed + merged + pushed at the top of this
-session). This session's mobile-gate work is **UNCOMMITTED in the tree**,
-green and gate-passed, awaiting the owner's word (see In flight).
+Branch **`main`**, in sync with `origin/main` through `7c92e0b`. This
+session's work is **committed, merged, and pushed** (2026-07-17): two
+commits on `ui/mobile-gate-theme-contrast`, fast-forwarded onto `main` —
+`866b823` (dev-env tooling) and `7c92e0b` (the interlocked mobile
+gate / portal-hydration theme fix / light-mode contrast). Working tree
+clean.
 
 **What this session changed.** Phones now get an honest gate instead of a
 broken cockpit. At **below 768px**, the three full-bleed tools (Prompt
@@ -185,21 +187,13 @@ global footer, PNG/JPG/layered-.zip export.
 
 ## Backlog / in flight
 
-- **In flight — TWO commits' worth of work, uncommitted** (awaiting the
-  owner's word). They are separable and should probably land as two commits:
-  1. **The mobile tool gate** — `mobile-tool-gate.tsx`, `use-media-query.ts`,
-     `use-mobile-preview.ts` (new), `app-shell.tsx`, `tool-registry.ts`,
-     `globals.css`, plus the three `2026-07-17-*-mobile-tool-gate` reports.
-  2. **The portal hydration / theme fix** — `use-portal-target.ts` (new),
-     `tool-subbar.tsx`, `prompt-card-workbench.tsx`, `prompt-builder.tsx`
-     (also carries the gate's `PHONE_MEDIA_QUERY` change), plus
-     `2026-07-17-integration-gate-portal-hydration-theme.md`.
-  3. **The light-theme accent tokens** — `globals.css` (the three new
-     tokens + 63 text swaps), `architect-wizard.tsx`,
-     `docs/DESIGN_DIRECTION.md`.
-  4. **Dev-environment hardening** — `StartDigiTools.bat` (health check),
-     `package.json` (`dev:clean`).
-  Shared: `docs/ARCHITECTURE.md`, `docs/STATE.md`, `.ai/notes/SESSIONS.md`.
+- **In flight: nothing.** This session's four pieces — the mobile tool gate,
+  the portal-hydration theme fix, the light-theme accent tokens, and the
+  dev-environment hardening — landed 2026-07-17 in commits `866b823` +
+  `7c92e0b` on `main` (the app files interleave — `globals.css` and
+  `prompt-builder.tsx` each span two pieces — so a per-piece split wasn't
+  possible without hunk-level staging; dev-env split out cleanly, the rest is
+  one commit).
 - **The cockpit light-theme bug is FIXED** (see Now). It was never the theme
   script's fault: the 2026-07-16 relocation was sound, and the earlier
   restore-matrix claim was simply only ever checked on the home page. The
