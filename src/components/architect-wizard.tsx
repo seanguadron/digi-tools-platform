@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties } from "react";
 import {
   ARCHITECT_BLOCK_MIME,
   ArchitectCanvas,
@@ -637,7 +637,11 @@ export function ArchitectWizard() {
               >
                 <span
                   className="architect-palette-glyph"
-                  style={{ color: block.accent }}
+                  // Hand the accent to CSS rather than setting `color` here:
+                  // these accents are tuned for dark surfaces, and globals.css
+                  // darkens them for light theme. An inline color would win
+                  // over that rule and keep the glyph unreadable.
+                  style={{ "--glyph-accent": block.accent } as CSSProperties}
                   aria-hidden="true"
                 >
                   {block.glyph}

@@ -3,7 +3,7 @@
 import "@xyflow/react/dist/style.css";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { DragEvent } from "react";
+import type { CSSProperties, DragEvent } from "react";
 import {
   Background,
   BackgroundVariant,
@@ -103,7 +103,13 @@ function BlockNode({ data, selected }: NodeProps<ArchitectBlockNode>) {
         title={COMPLETENESS_TITLE[data.completeness]}
         aria-hidden="true"
       />
-      <span className="architect-node-type" style={{ color: data.accent }}>
+      <span
+        className="architect-node-type"
+        // Same reason as the palette glyph: hand the accent to CSS so light
+        // theme can darken it. An inline `color` beats that rule and leaves
+        // every node's type label at ~2.3:1.
+        style={{ "--glyph-accent": data.accent } as CSSProperties}
+      >
         {data.glyph} · {data.typeLabel}
       </span>
       {data.editing ? (

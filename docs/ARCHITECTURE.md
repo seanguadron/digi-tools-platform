@@ -15,7 +15,8 @@ sync. State lives in `localStorage`; files enter and leave via the browser
 (`src/lib/browser-download.ts`, file inputs). Every tool is:
 
 - a **registry entry** in `src/lib/tool-registry.ts` (`ToolDescriptor`:
-  `id`, `name`, `shortName`, `tagline`, `href`, `fullBleed?`),
+  `id`, `name`, `shortName`, `tagline`, `href`, `fullBleed?`,
+  `mobileSupport?` + `mobileGateNotes?` — see the mobile gate, §2),
 - a **route** at `src/app/tools/<id>/page.tsx` — a thin server component
   rendering one `"use client"` component from `src/components/`,
 - an optional **catalog** under `src/data/<tool>/` validated by a script +
@@ -45,13 +46,28 @@ their layouts against these, never hardcoded pixels.
 
 ### The sub-bar handshake (exact, load-bearing)
 
-A tool's header is injected with a render-time, SSR-guarded portal — use the
-shared **`<ToolSubbar>`** (`src/components/tool-subbar.tsx`), which owns all
-of this:
+A tool's header is injected with a portal — use the shared **`<ToolSubbar>`**
+(`src/components/tool-subbar.tsx`), which owns all of this:
 
-- The portal target is `document.getElementById("app-subbar-slot")`; during
-  SSR it renders `null`. **No effect/mounted gate** — deferring the portal
-  blanks the bar for a frame.
+- The portal target is `#app-subbar-slot`, resolved through
+  **`usePortalTarget`** (§3), NEVER read from the DOM during render. The
+  server snapshot is `null`, so the hydration render matches the server; the
+  portal mounts before paint, so the bar still never blanks.
+- **Never write `typeof document === "undefined" ? null : document.body` (or
+  `getElementById`) during render for a portal that renders on FIRST
+  render** — use `usePortalTarget` (§3). The render-time read makes the
+  server render `null` and the client render a portal. When that portal puts
+  REAL DOM into a container React is hydrating, the container's children stop
+  matching the server and React's only recovery at the root is to discard the
+  server HTML and client-render the document. It then re-acquires the
+  `<html>` singleton, wiping its attributes and reapplying `layout.tsx`'s
+  props — which silently undid the no-flash theme bootstrap on all three tool
+  routes until 2026-07-17, with no console error, and cost them their SSR.
+- The hazard is the inserted DOM, not the portal: a portal whose children
+  render to nothing (an `open`-gated dialog, an idle dnd-kit `DragOverlay`)
+  adds no nodes and is inert. Don't rely on that — route every first-render
+  portal through the hook, because the day those children stop being null the
+  breakage is silent.
 - The portaled root must be `div.prompt-subbar` (plus one per-tool modifier
   class, e.g. `image-editor-subbar`) with `data-component="Header:Tool"`,
   and **no wrapper element** around it — the slot is `display: contents`
@@ -67,6 +83,30 @@ chip), `ToolSaveStateChip` (autosave state), and `ToolSubbarActions` (the
 right-side action cluster), with arbitrary children between them (menus,
 pickers).
 
+### The mobile gate (registry-driven)
+
+A registry entry with `mobileSupport: "gated"` keeps its cockpit off phone
+screens. Below 768px the shell carries `.is-mobile-gated`, which hides the
+stage content and any portaled sub-bar/status-bar chrome and shows
+`src/components/mobile-tool-gate.tsx` instead (name, tagline,
+`mobileGateNotes`, a "Preview anyway" override). The override is
+session-scoped — `digitools.mobile-preview.<id>` in sessionStorage via
+`src/hooks/use-mobile-preview.ts` — and flips the shell to
+`.is-mobile-preview`: the tool renders normally, prefixed by a squeeze-in
+notice chip. Both classes are INERT at 768px and above: the media query in
+`globals.css` is the only judge of "phone", so SSR output and desktop
+rendering are identical with or without them. Cockpit tools gate;
+document-style pages (Skills) stay full. Decide per tool in the registry —
+the shell and CSS need no changes for a new gated tool.
+
+Two load-bearing details: the phone threshold lives in ONE place
+(`PHONE_MEDIA_QUERY` in `tool-registry.ts`, byte-identical to the CSS media
+query) so a width can never be gated while a tool's own layout still thinks
+it is on a desktop; and the gate section re-enables document scrolling,
+because the full-bleed lock (`html:has(.page-stage.is-fluid) { overflow:
+hidden }`) is written for the fixed-height desktop cockpit and would
+otherwise strand the gate's buttons below the fold on a short screen.
+
 ## 3. What the shell does NOT provide — and what to recycle
 
 Left tool strips, right docks/inspectors, canvases, panels: **tool-owned**,
@@ -77,6 +117,7 @@ Do not expect a shell rail; DO recycle these primitives:
 | Primitive | File | Use it for |
 |---|---|---|
 | `ToolSubbar` + parts | `src/components/tool-subbar.tsx` | The context-bar header (§2). |
+| `usePortalTarget` | `src/hooks/use-portal-target.ts` | ANY portal that renders on first render — resolves `document.body` or a slot id without breaking hydration (§2). |
 | `formatSaveStatusLabel`, `SaveStatus` | `src/lib/save-status.ts` | Autosave chip labels ("Saved 2:41 PM…"). |
 | `useUndoableState` | `src/hooks/use-undoable-state.ts` | Undo/redo: past/future stacks, tag coalescing, `seal`, `jump`, `depth`/`position` for history panels. |
 | `useLocalDraft` | `src/hooks/use-local-draft.ts` | Debounced, quota-guarded localStorage autosave with restore-on-mount lifecycle. |
@@ -85,6 +126,7 @@ Do not expect a shell rail; DO recycle these primitives:
 | `createZip`, `textZipEntry` | `src/lib/zip.ts` | Dependency-free layered/archive exports. |
 | `downloadBlob` etc. | `src/lib/browser-download.ts` | All file downloads. |
 | `readStored`, `writeStored` | `src/lib/prompt-storage.ts` | SSR-safe JSON localStorage access (see §6 landmine). |
+| `useMediaQuery` | `src/hooks/use-media-query.ts` | Live matchMedia state, SSR-safe (`useSyncExternalStore`; the lint rules reject effect-driven setState). |
 | Output docks | `prompt-output-dock.tsx`, `architect-output-dock.tsx` | Two parallel copy/download artifact panels — pick one as your base; unifying them is sanctioned backlog. |
 
 Known single-owner caveat: `EditorMenubar`/`EditorTabs`/`zip.ts` currently
@@ -96,7 +138,9 @@ them. `CopyButton` (`copy-button.tsx`) hardcodes the `skill-copy` class.
 1. **Registry**: add the `ToolDescriptor` to `src/lib/tool-registry.ts`
    (extends the `ToolId` union — this is the only compile-time guard).
    Decide `fullBleed` intentionally: `true` for cockpit tools, `false` for
-   document-style pages (Skills is the simple template).
+   document-style pages (Skills is the simple template). Decide
+   `mobileSupport` the same way: cockpits gate (`"gated"` +
+   `mobileGateNotes`), document pages don't (§2, the mobile gate).
 2. **Route**: `src/app/tools/<id>/page.tsx` (server component, metadata) →
    renders `src/components/<id>.tsx` (`"use client"`).
 3. **Header**: portal via `<ToolSubbar className="<id>-subbar">` (§2).
@@ -126,7 +170,9 @@ One file, zone-ordered: tokens (`:root`, ~1–54) → shell chrome (~56–376) �
 Welcome → **Skills + the SHARED form/button/card primitives interleaved**
 (~543–2418: `.tool-kicker`, `.button`, `.field`, inputs — check here before
 adding a primitive) → Prompt Builder → Architect (`/* ===== ... ===== */`
-banners) → Image Editor. New tool sections append at the end with a banner.
+banners) → Image Editor → Mobile tool gate (the phone-width §2 rules; last
+because its overrides must beat the shell and tool rules on source order).
+New tool sections append before that trailing zone, with a banner.
 
 ## 6. Persistence conventions
 

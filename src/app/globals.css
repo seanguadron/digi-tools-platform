@@ -1,8 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  --brand-cyan: oklch(0.78 0.16 200);
+  /* The marker cyan: borders, focus rings, active states, fills. Tuned to
+     clear the WCAG 1.4.11 non-text floor (3:1) against every light surface —
+     at the old 0.78 the sitewide :focus-visible ring measured 1.5:1, i.e.
+     the focus indicator was nearly invisible on light backgrounds. Dark ink
+     (--brand-cyan-foreground) still reads 5:1 on it as a fill. */
+  --brand-cyan: oklch(0.6 0.1 200);
+  /* Cyan for TEXT. --brand-cyan is tuned as a focus/marker/active color, and
+     as light-theme text it lands at 1.5–1.8:1 — nowhere near the 4.5:1 AA
+     floor that PRODUCT.md and "both modes first-class" (DESIGN_DIRECTION)
+     both commit to. This darker cyan measures >= 4.9:1 on every light
+     surface token (card/background/muted/accent). Borders, rings, markers and
+     fills keep --brand-cyan: as UI components they only owe 3:1, and the
+     accent should stay bright there. In dark theme the two are identical, so
+     dark rendering is unchanged. */
+  --brand-cyan-text: oklch(0.48 0.12 200);
   --brand-magenta: oklch(0.65 0.22 340);
+  /* Same split as the cyan pair above: the marker magenta reads 3.0:1 as
+     light-theme text. This one measures >= 5.2:1 on every light surface and
+     keeps the hue/chroma. Identical to --brand-magenta in dark theme. */
+  --brand-magenta-text: oklch(0.52 0.22 340);
+  /* Ink for text sitting ON a --brand-cyan fill. The fill is bright in BOTH
+     themes, so its ink is dark in both — unlike --primary-foreground, which
+     flips to near-white in light theme and left white-on-cyan at 1.8:1. */
+  --brand-cyan-foreground: oklch(0.18 0.015 250);
+  /* Amber warning TEXT (the readiness chip). Same job split as the accents:
+     the amber FILL it pairs with is theme-stable and keeps its dark ink, but
+     as light-theme text the fill's own amber read 2.0:1. */
+  --warning-text: oklch(0.52 0.12 70);
   --background: oklch(0.972 0.006 250);
   --foreground: oklch(0.18 0.015 250);
   --card: oklch(0.997 0.003 250);
@@ -33,7 +59,13 @@
 
 :root[data-theme="dark"] {
   --brand-cyan: oklch(0.82 0.18 200);
+  /* Identical to --brand-cyan: on dark surfaces the accent already clears AA
+     as text, so nothing about dark rendering changes. */
+  --brand-cyan-text: oklch(0.82 0.18 200);
   --brand-magenta: oklch(0.7 0.24 340);
+  --brand-magenta-text: oklch(0.7 0.24 340);
+  --brand-cyan-foreground: oklch(0.165 0.012 250);
+  --warning-text: oklch(0.78 0.13 70);
   --background: oklch(0.165 0.012 250);
   --foreground: oklch(0.96 0.005 80);
   --card: oklch(0.205 0.012 250);
@@ -264,7 +296,7 @@ a {
 
 .tool-tab.is-active {
   background: color-mix(in oklch, var(--brand-cyan) 15%, transparent);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .theme-toggle {
@@ -501,7 +533,7 @@ a {
 }
 
 .home-spec-arrow {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.66rem;
   font-weight: 700;
@@ -530,7 +562,7 @@ a {
 }
 
 .home-spec-skills strong {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
 }
 
@@ -577,7 +609,7 @@ a {
 }
 
 .skills-group-heading > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.62rem;
   font-weight: 800;
@@ -649,7 +681,7 @@ a {
 
 .skill-panel[open] .skill-panel-marker {
   transform: rotate(180deg);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .skill-panel-body {
@@ -700,7 +732,7 @@ a {
   border-radius: 6px;
   padding: 2px 7px;
   background: var(--background);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.74rem;
 }
@@ -749,7 +781,7 @@ a {
 .skill-copy:hover,
 .skill-copy.is-copied {
   border-color: var(--brand-cyan);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .skill-command-note {
@@ -760,7 +792,7 @@ a {
 
 .skill-source {
   justify-self: start;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.74rem;
   text-decoration: none;
@@ -917,7 +949,7 @@ a {
 .featured-tag {
   border-radius: 999px;
   background: color-mix(in oklch, var(--brand-magenta) 16%, transparent);
-  color: var(--brand-magenta);
+  color: var(--brand-magenta-text);
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -991,7 +1023,7 @@ a {
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 8px;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), monospace;
   font-weight: 700;
 }
@@ -1061,7 +1093,7 @@ a {
 }
 
 .craft-method-copy > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -1131,7 +1163,7 @@ a {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 36%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 2rem;
   line-height: 1;
@@ -1189,7 +1221,7 @@ a {
   border-radius: 8px;
   padding: 0 10px;
   background: transparent;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   cursor: pointer;
   font-weight: 700;
 }
@@ -1294,7 +1326,7 @@ a {
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--background);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   cursor: pointer;
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.72rem;
@@ -1377,7 +1409,7 @@ a {
 .mic-button.is-listening {
   border-color: var(--brand-cyan);
   background: color-mix(in oklch, var(--brand-cyan) 14%, var(--card));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .dictation-session {
@@ -1517,7 +1549,7 @@ a {
   margin-left: auto;
   border-color: var(--brand-cyan);
   background: var(--brand-cyan);
-  color: var(--primary-foreground);
+  color: var(--brand-cyan-foreground);
 }
 
 .speech-status {
@@ -1564,7 +1596,7 @@ a {
 }
 
 .role-category-tab span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.62rem;
   letter-spacing: 0.04em;
@@ -1748,7 +1780,7 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, currentColor 36%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, currentColor 9%, var(--card));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .card-illustration-frame {
@@ -1809,15 +1841,15 @@ button.role-loadout-slot {
 }
 
 .role-avatar-tone-2 {
-  color: color-mix(in oklch, var(--brand-cyan) 62%, var(--foreground));
+  color: color-mix(in oklch, var(--brand-cyan-text) 62%, var(--foreground));
 }
 
 .role-avatar-tone-3 {
-  color: color-mix(in oklch, var(--brand-magenta) 38%, var(--brand-cyan));
+  color: color-mix(in oklch, var(--brand-magenta-text) 38%, var(--brand-cyan-text));
 }
 
 .role-avatar-tone-4 {
-  color: color-mix(in oklch, var(--brand-magenta) 44%, var(--foreground));
+  color: color-mix(in oklch, var(--brand-magenta-text) 44%, var(--foreground));
 }
 
 .role-card-name {
@@ -1850,7 +1882,7 @@ button.role-loadout-slot {
 }
 
 .role-card-topline > span:first-child {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .role-card-footer {
@@ -1865,7 +1897,7 @@ button.role-loadout-slot {
 }
 
 .role-perk-card.is-selected .role-card-footer {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .modifier-loadout-heading span {
@@ -1883,7 +1915,7 @@ button.role-loadout-slot {
 }
 
 .ability-guidance > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.56rem;
   font-weight: 800;
@@ -1968,7 +2000,7 @@ button.role-loadout-slot {
 .modifier-card-state {
   position: relative;
   z-index: 1;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.56rem;
   font-weight: 800;
@@ -2033,7 +2065,7 @@ button.role-loadout-slot {
 }
 
 .format-filter-tab > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.62rem;
   font-weight: 800;
@@ -2147,7 +2179,7 @@ button.role-loadout-slot {
 
 .preview-state.is-ready {
   background: color-mix(in oklch, var(--brand-cyan) 14%, transparent);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .prompt-preview pre {
@@ -2676,7 +2708,7 @@ button.role-loadout-slot {
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 7px;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.78rem;
   font-weight: 800;
@@ -2710,7 +2742,7 @@ button.role-loadout-slot {
 .flow-step-button.is-complete > span {
   border-color: var(--brand-cyan);
   background: var(--brand-cyan);
-  color: var(--primary-foreground);
+  color: var(--brand-cyan-foreground);
 }
 
 .flow-workspace,
@@ -2794,7 +2826,7 @@ button.role-loadout-slot {
 }
 
 .archetype-toolbar-heading > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.55rem;
   font-weight: 800;
@@ -2841,7 +2873,7 @@ button.role-loadout-slot {
 .archetype-glyph {
   grid-row: span 2;
   align-self: center;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.7rem;
   font-weight: 800;
@@ -2938,7 +2970,7 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 48%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.72rem;
   font-weight: 800;
@@ -2979,7 +3011,7 @@ button.role-loadout-slot {
 
 .flow-subnav button.is-active {
   background: var(--card);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   box-shadow: inset 0 0 0 1px var(--border);
 }
 
@@ -3103,7 +3135,7 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 40%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 1.8rem;
   font-weight: 800;
@@ -3171,7 +3203,7 @@ button.role-loadout-slot {
 }
 
 .output-dock-toggle > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-weight: 800;
 }
@@ -3184,7 +3216,7 @@ button.role-loadout-slot {
 }
 
 .output-dock-toggle small {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -3350,7 +3382,7 @@ button.role-loadout-slot {
   border: 0;
   padding: 0;
   background: transparent;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   cursor: pointer;
   font-size: 0.68rem;
   font-weight: 800;
@@ -3409,7 +3441,7 @@ button.role-loadout-slot {
   place-items: center;
   border: 1px solid var(--border);
   border-radius: 7px;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -3435,7 +3467,7 @@ button.role-loadout-slot {
 }
 
 .proof-scenario-row > span:last-child {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-size: 0.62rem;
   font-weight: 800;
 }
@@ -3468,7 +3500,7 @@ button.role-loadout-slot {
 }
 
 .proof-scenario-status summary span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.55rem;
   font-weight: 800;
@@ -3548,7 +3580,7 @@ button.role-loadout-slot {
 }
 
 .output-type-card > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -3615,7 +3647,7 @@ button.role-loadout-slot {
 
 .workbench-section-heading > small {
   flex: 0 0 auto;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.57rem;
   font-weight: 800;
@@ -3697,7 +3729,7 @@ button.role-loadout-slot {
 
 .tuning-track-heading > span {
   flex: 0 0 auto;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -4007,7 +4039,7 @@ button.role-loadout-slot {
 }
 
 .lineage-card-topline > span:first-child {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .lineage-card-art {
@@ -4017,12 +4049,12 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 34%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, var(--brand-cyan) 8%, var(--background));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .lineage-card-art > span,
 .archetype-card-art > span {
-  color: color-mix(in oklch, var(--brand-cyan) 78%, var(--foreground));
+  color: color-mix(in oklch, var(--brand-cyan-text) 78%, var(--foreground));
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 1.75rem;
   font-weight: 900;
@@ -4041,7 +4073,7 @@ button.role-loadout-slot {
 }
 
 .lineage-card-action {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.54rem;
   font-weight: 800;
@@ -4086,7 +4118,7 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 32%, var(--border));
   border-radius: 10px;
   background: color-mix(in oklch, var(--brand-cyan) 8%, var(--background));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .floating-card-art .card-illustration-placeholder {
@@ -4103,7 +4135,7 @@ button.role-loadout-slot {
 }
 
 .floating-card-panel-identity span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.56rem;
   font-weight: 800;
@@ -4170,7 +4202,7 @@ button.role-loadout-slot {
   border: 0;
   padding: 0;
   background: transparent;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   cursor: pointer;
   font-size: 0.66rem;
   font-weight: 800;
@@ -4240,14 +4272,42 @@ button.role-loadout-slot {
 }
 
 @media (max-width: 1100px) {
+  /* The dock leaves the grid below 1100px and overlays the workspace from the
+     right edge; the page reserves room for its collapsed 52px rail.
+     `.page-stage.is-fluid` zeroes the side padding with three-class
+     specificity, so the reservation must match that to actually apply. */
   .prompt-flow-page,
-  .prompt-flow-page.is-output-expanded {
+  .prompt-flow-page.is-output-expanded,
+  .page-stage.is-fluid .prompt-flow-page {
+    position: relative;
     padding-right: 70px;
   }
 
-  .builder-main-layout {
+  /* Both dock states collapse the grid to one column here (the dock is out of
+     flow). The areas reset matters: leaving the 1180px-tier
+     "arch arch" / "work out" areas in place makes the dock's `grid-area: out`
+     spawn an implicit column that starves the 1fr workspace to ~2px wide. */
+  .builder-main-layout,
+  .builder-main-layout.is-output-collapsed {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr);
+    grid-template-areas:
+      "arch"
+      "work";
+  }
+
+  .prompt-output-dock {
+    position: absolute;
+    z-index: 24;
+    top: 6px;
+    right: 6px;
+    bottom: 6px;
+    width: 52px;
+    height: auto;
+  }
+
+  .prompt-output-dock.is-expanded {
+    width: min(400px, calc(100vw - 24px));
   }
 
   .archetype-toolbar {
@@ -4284,10 +4344,22 @@ button.role-loadout-slot {
 }
 
 @media (max-width: 760px) {
-  .prompt-flow-page {
-    min-height: 540px;
+  .prompt-flow-page,
+  .page-stage.is-fluid .prompt-flow-page {
+    height: auto;
+    min-height: calc(100dvh - var(--app-chrome-height));
+    overflow: visible;
     gap: 8px;
     padding: 10px 60px 8px 12px;
+  }
+
+  /* The page scrolls at phone widths, so the overlay dock pins to the
+     viewport instead of stretching with the page. */
+  .prompt-output-dock {
+    position: fixed;
+    top: auto;
+    bottom: calc(var(--status-bar-height) + 8px);
+    height: min(70dvh, 540px);
   }
 
   .prompt-subbar h1 {
@@ -4333,7 +4405,7 @@ button.role-loadout-slot {
   }
 
   .flow-overview-button::before {
-    color: var(--brand-cyan);
+    color: var(--brand-cyan-text);
     content: "?";
     font-family: var(--font-mono), "Cascadia Mono", monospace;
     font-size: 0.86rem;
@@ -4555,7 +4627,7 @@ button.role-loadout-slot {
 }
 
 .archetype-star.is-active {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .archetype-delete {
@@ -4790,7 +4862,7 @@ button.role-loadout-slot {
 }
 
 .architect-palette-heading > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.55rem;
   font-weight: 800;
@@ -4834,9 +4906,22 @@ button.role-loadout-slot {
 .architect-palette-glyph {
   grid-row: span 2;
   align-self: center;
+  color: var(--glyph-accent, var(--muted-foreground));
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.7rem;
   font-weight: 800;
+}
+
+/* The per-block accents in src/lib/architect/blocks.ts are tuned for dark
+   surfaces (L≈0.72) and read 2.1–2.4:1 as light-theme text. Darken them here
+   rather than in the data, so each block keeps its own hue identity and the
+   accent stays bright wherever it marks rather than spells. Both surfaces the
+   accent labels — the palette glyph and every canvas node's type label — pass
+   it in as --glyph-accent for exactly this reason; neither may set `color`
+   inline, or this rule cannot win. */
+:root:not([data-theme="dark"]) .architect-palette-glyph,
+:root:not([data-theme="dark"]) .architect-node-type {
+  color: color-mix(in oklch, var(--glyph-accent, var(--muted-foreground)) 65%, black);
 }
 
 .architect-palette-block strong {
@@ -4912,6 +4997,7 @@ button.role-loadout-slot {
 }
 
 .architect-node-type {
+  color: var(--glyph-accent, var(--muted-foreground));
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.6rem;
   font-weight: 800;
@@ -5025,7 +5111,7 @@ button.role-loadout-slot {
 }
 
 .architect-subsystem-label {
-  color: color-mix(in oklch, var(--brand-cyan) 72%, var(--foreground));
+  color: color-mix(in oklch, var(--brand-cyan-text) 72%, var(--foreground));
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.62rem;
   font-weight: 800;
@@ -5034,7 +5120,7 @@ button.role-loadout-slot {
 }
 
 .architect-subsystem-grip {
-  color: color-mix(in oklch, var(--brand-cyan) 55%, var(--muted-foreground));
+  color: color-mix(in oklch, var(--brand-cyan-text) 55%, var(--muted-foreground));
   font-size: 0.7rem;
   letter-spacing: -2px;
 }
@@ -5064,12 +5150,12 @@ button.role-loadout-slot {
 
 .architect-readiness-chip.has-issues {
   border-color: color-mix(in oklch, oklch(0.74 0.13 70) 55%, var(--border));
-  color: oklch(0.78 0.13 70);
+  color: var(--warning-text);
 }
 
 .architect-readiness-chip.is-ready {
   border-color: color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 /* Readiness panel in the system inspector */
@@ -5104,7 +5190,7 @@ button.role-loadout-slot {
 }
 
 .architect-readiness-ok {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.62rem;
   font-weight: 800;
@@ -5358,7 +5444,7 @@ body:has(.page-stage.is-fluid) {
 
 .architect-template-button:hover {
   border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 /* Inspector: responsibilities + per-field section headers */
@@ -5372,7 +5458,7 @@ body:has(.page-stage.is-fluid) {
 .architect-add-link {
   border: none;
   background: transparent;
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 700;
@@ -5470,7 +5556,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .architect-inspector-heading > span {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 800;
@@ -5548,7 +5634,7 @@ body:has(.page-stage.is-fluid) {
 .architect-info-dot:hover,
 .architect-info-dot:focus-visible {
   border-color: var(--brand-cyan);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   outline: none;
 }
 
@@ -5947,7 +6033,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .image-editor-panel-label {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.55rem;
   font-weight: 800;
@@ -6140,7 +6226,7 @@ body:has(.page-stage.is-fluid) {
 .image-editor-history-step.is-active {
   border-color: var(--brand-cyan);
   background: color-mix(in oklch, var(--brand-cyan) 16%, transparent);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-weight: 700;
 }
 
@@ -6282,7 +6368,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .image-editor-layer-eye[aria-pressed="true"] {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 .image-editor-layer-main {
@@ -6310,7 +6396,7 @@ body:has(.page-stage.is-fluid) {
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
   border-radius: 4px;
   background: color-mix(in oklch, var(--brand-cyan) 12%, transparent);
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.58rem;
   font-weight: 700;
@@ -6919,7 +7005,7 @@ body:has(.page-stage.is-fluid) {
 
 .ie-fgbg-swap:hover,
 .ie-fgbg-reset:hover {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
 }
 
 /* Embedded Adjust panel (Adjust dock tab) */
@@ -7115,7 +7201,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .editor-menu-check {
-  color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
   font-size: 0.7rem;
 }
 
@@ -7218,5 +7304,188 @@ body:has(.page-stage.is-fluid) {
 @media (prefers-reduced-motion: reduce) {
   .editor-tab {
     transition: none;
+  }
+}
+
+/* ============================================================
+   Mobile tool gate (shell-level, registry-driven)
+   Registry entries with mobileSupport: "gated" swap their stage
+   content for an explainer below 768px until the visitor taps
+   "Preview anyway" (docs/ARCHITECTURE.md §2). Desktop never
+   matches the media query, so these rules cost nothing there.
+   ============================================================ */
+
+.mobile-tool-gate,
+.mobile-preview-chip {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  /* Let the document scroll again. The full-bleed lock
+     (`html:has(.page-stage.is-fluid) { overflow: hidden }`, written for the
+     fixed-height desktop cockpit) traps content below the fold at phone
+     sizes, where both the gate card and the stacked cockpits run taller
+     than the viewport — on a small landscape phone that hides the gate's
+     own buttons with no way to reach them. Same specificity as the lock,
+     later in the file, so this wins.
+
+     `visible` (the initial value), not `auto`: overflow set on html stops
+     propagating to the viewport, so an explicit html+body scroller competes
+     with the real one and pins the page a few pixels down. Sideways scroll
+     stays impossible without it — `.page-stage.is-fluid` already clips its
+     own overflow-x. */
+  html:has(.app-shell.is-mobile-gated),
+  body:has(.app-shell.is-mobile-gated),
+  html:has(.app-shell.is-mobile-preview),
+  body:has(.app-shell.is-mobile-preview) {
+    overflow: visible;
+  }
+
+  /* Gated: hide the tool's stage content and its portaled chrome, and put
+     the shell's default bar text back (the overrides need one extra class
+     of specificity to beat the :has() handshake rules). */
+  .app-shell.is-mobile-gated .page-stage > :not(.mobile-tool-gate) {
+    display: none;
+  }
+
+  .app-shell.is-mobile-gated #app-subbar-slot > *,
+  .app-shell.is-mobile-gated #app-statusbar-slot > * {
+    display: none;
+  }
+
+  .app-shell.is-mobile-gated .context-bar .context-default {
+    display: flex;
+  }
+
+  .app-shell.is-mobile-gated .status-bar .status-default {
+    display: flex;
+  }
+
+  .app-shell.is-mobile-gated .mobile-tool-gate {
+    display: grid;
+    width: min(480px, calc(100% - 32px));
+    margin: 18px auto;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 18px;
+    background: var(--card);
+  }
+
+  .mobile-tool-gate h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .mobile-gate-tagline {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* Markers match the Welcome page's feature bullets (.home-feature-points):
+     grid/flex parents suppress the default marker box in Blink and WebKit but
+     not Firefox, so state it and draw our own. */
+  .mobile-gate-notes {
+    display: grid;
+    margin: 0;
+    padding-left: 0;
+    gap: 8px;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    list-style: none;
+  }
+
+  .mobile-gate-notes li {
+    position: relative;
+    padding-left: 16px;
+  }
+
+  .mobile-gate-notes li::before {
+    position: absolute;
+    top: 0.55em;
+    left: 2px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brand-cyan);
+    content: "";
+  }
+
+  .mobile-gate-advice {
+    margin: 4px 0 0;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    color: var(--muted-foreground);
+    font-size: 0.84rem;
+    line-height: 1.5;
+  }
+
+  .mobile-gate-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .mobile-gate-actions .button {
+    flex: 1 1 140px;
+  }
+
+  /* Overridden: the tool shows, prefixed by a quiet squeeze-in notice. */
+  .app-shell.is-mobile-preview .mobile-preview-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 12px 0;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 7px 10px;
+    background: color-mix(in oklch, var(--brand-cyan) 7%, var(--card));
+    color: var(--muted-foreground);
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+  /* Squeeze-in triage: tool headers keep one row of actions and scroll it
+     sideways instead of wrapping the context bar four rows tall. */
+  .prompt-subbar {
+    row-gap: 6px;
+  }
+
+  .prompt-flow-header-actions {
+    max-width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .prompt-flow-header-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Reclaim tab room before resorting to scroll: drop the brand wordmark (the
+     mark itself still links home), same trick the ≤640px tier already uses.
+     Five tabs still exceed a 375px row after that, so the clipped edge gets a
+     fade to read as scrollable rather than cut off — and the context bar
+     ("Tools / <name>") states the active surface independently. */
+  .brand > span:last-child {
+    display: none;
+  }
+
+  .tool-tabs {
+    mask-image: linear-gradient(
+      90deg,
+      #000 0,
+      #000 calc(100% - 24px),
+      transparent
+    );
+  }
+
+  .tool-tab {
+    padding: 0 9px;
   }
 }

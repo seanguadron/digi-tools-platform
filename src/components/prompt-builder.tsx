@@ -13,6 +13,8 @@ import {
   PromptProofLab,
   ProofScenarioStatus,
 } from "@/components/prompt-proof-lab";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import { usePromptDictation } from "@/hooks/use-prompt-dictation";
 import { useCraftFlowNavigation } from "@/hooks/use-craft-flow-navigation";
 import { usePromptBuilderHistory } from "@/hooks/use-prompt-builder-history";
@@ -84,6 +86,7 @@ import {
 import type { SavedPrompt } from "@/lib/prompt-library";
 import { insertIntoSlots } from "@/lib/slot-order";
 import type { PromptRole } from "@/lib/prompt-types";
+import { PHONE_MEDIA_QUERY } from "@/lib/tool-registry";
 
 export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [draft, setDraft] = useState<PromptDraft>(EMPTY_DRAFT);
@@ -100,7 +103,14 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [activeArchetypeId, setActiveArchetypeId] = useState<string | null>(
     null,
   );
-  const [outputExpanded, setOutputExpanded] = useState(true);
+  // At phone widths the expanded dock overlays the whole workspace, so the
+  // default is collapsed there and expanded everywhere else; any explicit
+  // choice (toggle, proof scenarios, review actions) wins over the default.
+  const phoneWidthDock = useMediaQuery(PHONE_MEDIA_QUERY);
+  const [outputExpandedChoice, setOutputExpanded] = useState<boolean | null>(
+    null,
+  );
+  const outputExpanded = outputExpandedChoice ?? !phoneWidthDock;
   const [proofLabOpen, setProofLabOpen] = useState(false);
   const [activeProofId, setActiveProofId] = useState<string | null>(null);
   const [libraryOpen, setLibraryOpen] = useState(false);
@@ -109,8 +119,11 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     [],
   );
   const formatCode = getFormatCode(draft.format);
-  const portalTarget =
-    typeof document === "undefined" ? null : document.body;
+  // The print sheet below portals on FIRST render, so the target must be
+  // resolved after hydration — a render-time DOM read here made the client
+  // render a portal where the server rendered null, and that mismatch cost
+  // the whole route its server HTML and its theme (see use-portal-target).
+  const portalTarget = usePortalTarget();
   const activeProof = PROOF_SCENARIOS.find(
     (scenario) => scenario.id === activeProofId,
   );
@@ -947,7 +960,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           prompt={prompt}
           sections={promptSections}
           copyState={copyState}
-          onToggle={() => setOutputExpanded((current) => !current)}
+          onToggle={() => setOutputExpanded(!outputExpanded)}
           onMissingSelect={focusMissingField}
           onCopy={copyPrompt}
           onDownload={downloadPrompt}

@@ -5,6 +5,308 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-17: Cyan-as-text amendment lands — ~247 light-theme AA failures fixed; dev-server health-check hardened
+
+**Context.** Fixing the portal-hydration bug (entry below) made light theme
+reachable on the three full-bleed cockpit routes for the first time — and
+its appearance there had never actually been examined. The owner said "fix
+it so it all works in dark/light mode." Separately, two dev-environment
+root causes were fixed at the owner's request.
+
+**Decisions.**
+- A measured audit (canvas-based WCAG relative-luminance check over every
+  visible text element and its effective background, production build,
+  both themes, all 5 tool surfaces) found **~247 AA failures in light
+  mode** — Prompt Builder 198, Skills 24, Welcome 11, Architect 11, Image
+  Editor 3 — dominated by `--brand-cyan` used as **text** at 1.5–1.8:1
+  against a 4.5:1 floor.
+- This is the 2026-07-14 Design-gate amendment ("cyan is a focus/marker/
+  active color, not a light-theme text color") that had sat in the consent
+  queue ever since; it landed into `docs/DESIGN_DIRECTION.md` (the
+  canonical design source, not STANDARDS) as a new subsection, "Accent
+  colors mark; they do not spell (resolved 2026-07-17)." The 2026-07-14
+  flag is annotated landed accordingly.
+- Fix shape — tokens split by JOB, not hue: (1) `--brand-cyan-text` /
+  `--brand-magenta-text` for any text, incl. inside `color-mix()`, darkened
+  in light theme (`--brand-cyan-text` measured at least 4.9:1 and
+  `--brand-magenta-text` at least 5.2:1 on every light surface token) but
+  IDENTICAL to the marker accent in dark theme, so dark rendering never
+  changed; (2) `--on-brand-cyan` — dark ink in BOTH themes for text on a
+  bright cyan fill, because `--primary-foreground` was wrong there
+  precisely for theme-flipping (dark-on-cyan is fine in dark mode,
+  near-white-on-cyan measured 1.78:1 in light) — a token that flips is
+  wrong exactly when what it sits on does not; (3) all 164 non-text cyan
+  uses (borders, rings, fills, markers) keep the bright accent, untouched;
+  (4) the Architect wizard's per-block accents come from data (`blocks.ts`)
+  and were applied as an inline `color`, unreachable by any theme rule —
+  now passed as a `--glyph-accent` custom property that CSS darkens in
+  light theme, each block keeping its own hue.
+- `StartDigiTools.bat` now health-CHECKS port 5100 (curls it) instead of
+  trusting `netstat ... LISTENING`. Port-held is not the same as working: a
+  2-day-old wedged server kept the socket open while answering nothing, and
+  the old check cheerfully said "already running" and opened a browser onto
+  a dead server; it now offers to end a non-responding process.
+- `npm run dev:clean` added for the stale-Turbopack-cache trap (see the
+  mobile-tool-gate entry's ~40-minute debugging session, below).
+
+**Learnings.**
+- Two of this session's bugs were invisible for the same structural reason:
+  **a defect in a state nobody can reach is a defect nobody reports.** The
+  hydration bug hid the light theme; the light theme hid ~247 contrast
+  failures. Fixing the first is what made the second findable — worth
+  remembering whenever a fix "reveals" a pile of new problems: they were
+  always there.
+
+**Verification.** Production build, 5 surfaces × both themes: 0 contrast
+failures, 0 theme failures (from ~247). The healthy path of the new
+`StartDigiTools.bat` check was verified directly; the wedged-server path is
+new code with no live wedged server available to reproduce against.
+
+No new amendment flags in this entry — the open portal-target flag is
+reinforced in the entry below, not duplicated here.
+
+## 2026-07-17: Cockpit light-theme bug fixed — portal-during-render hydration failure, not the theme script
+
+**Context.** Later in the same session as the mobile-tool-gate work (entry
+below), the owner clicked the task chip that entry filed — "saved light
+theme ignored on the three full-bleed cockpit routes" — and asked for the
+actual root cause rather than a workaround. The leading hypothesis recorded
+in that entry, `layout.tsx`'s hardcoded `data-theme="dark"` plus
+`suppressHydrationWarning` masking a mismatch, turned out to be WRONG on
+both counts.
+
+**Decisions.**
+- Root cause, proven empirically: `ToolSubbar` and the Prompt Builder's
+  print-sheet portal both resolve their portal target by reading the DOM
+  DURING RENDER (the `typeof document === "undefined" ? null :
+  document.body` / `getElementById` idiom). The server renders `null`; the
+  client renders a portal — different tree shapes, a hydration mismatch
+  React can only recover from at the root by discarding the server HTML and
+  client-rendering the whole document. That MOUNTS the `<html>` host
+  singleton, and mounting calls `acquireSingletonInstance`, which clears
+  every attribute on the element and reapplies only the JSX props —
+  reasserting `layout.tsx`'s `data-theme="dark"` over whatever the
+  bootstrap script had set. React logs nothing for this: no console error,
+  ever, on any affected route, which is why it went unnoticed.
+- The 2026-07-16 theme-script relocation was never at fault, and
+  `suppressHydrationWarning` was never relevant — this is a singleton
+  *acquisition* clearing attributes, not a hydration diff being patched.
+- The kicker: `docs/ARCHITECTURE.md` §2 explicitly MANDATED the anti-pattern
+  that caused this — "No effect/mounted gate — deferring the portal blanks
+  the bar for a frame." The documented shell contract caused the bug; §2 is
+  REWRITTEN to require the opposite and explain why, so a future tool built
+  to spec doesn't reintroduce it.
+- Fix: new `src/hooks/use-portal-target.ts` — `usePortalTarget(elementId?)`
+  on `useSyncExternalStore` with a `null` SERVER snapshot, so the hydration
+  render matches the server and the portal still mounts before paint (no
+  blank-bar frame — the exact concern the old anti-pattern was guarding
+  against). Adopted in `tool-subbar.tsx` and `prompt-builder.tsx` (later
+  extended to `prompt-card-workbench.tsx` too — see the Correction below).
+  `theme-script.tsx` and `layout.tsx` are untouched, so the §2.4 allowlist
+  does not move again.
+
+**Learnings.**
+- Method worth keeping for the next silent-corruption bug: (1) a temporary
+  probe inside the theme script showed it ran and set `light` at ~600ms,
+  then something set `dark` twice at ~1800ms (hydration time); (2) patching
+  `Element.prototype.setAttribute` captured a synchronous stack —
+  `MutationObserver` is useless here since its callback is async and loses
+  the mutator's stack — naming `acquireSingletonInstance →
+  setInitialProperties → setValueForAttribute`; (3) a probe attribute set by
+  the bootstrap SURVIVED on `/tools/skills` (no portal → clean hydration)
+  but was STRIPPED on `/tools/image-editor` (portal → acquisition), leaving
+  `<html>` with exactly its three JSX attributes — that contrast located
+  the trigger precisely.
+- **Dev mode is the wrong place to verify hydration/theme work.** Fast
+  Refresh re-acquires the `<html>` singleton on every hot update, resetting
+  `data-theme` on ANY route — it poisoned a 20-case matrix with incoherent
+  results (Skills "failing" despite never portaling; an invalid stored
+  value somehow yielding `light`). The incoherence is what exposed the
+  harness as the problem, not the app. Verify hydration-sensitive work in a
+  production build, not dev — sharpens the 2026-07-16 entry's verification
+  note.
+- Only portals that render on FIRST render are dangerous this way — one
+  gated behind an `open`/`null` state renders nothing on both sides and is
+  safe, which is why the dialogs, palettes, and the Image Editor's
+  `doc`-gated status portal were all fine already. **Refined the same
+  day** (see Correction below): the operative test turned out to be
+  whether the portal inserts DOM at rest, not render timing — an
+  always-mounted portal that outputs nothing while idle is equally safe.
+- A documented architecture contract can itself be the bug: the
+  ARCHITECTURE.md handshake section was precise, confident, load-bearing,
+  and wrong.
+
+**Verification.** Real production build, 20/20 across 5 surfaces × stored
+light/dark/invalid/absent, subbar portaled, and the
+`.context-bar:has(.prompt-subbar)` handshake still hiding the default text.
+Integration gate: initial PASS, then FAILED on a same-day re-check (see
+Correction below) and re-verified PASS after the fix — report at
+`.ai/notes/gate-reports/2026-07-17-integration-gate-portal-hydration-theme.md`.
+No security gate owed — no trust boundary moved (Rule 19).
+
+**Correction, same day (integration gate catch).** A follow-up integration
+gate run FAILED this same fix: `src/components/prompt-card-workbench.tsx:391`
+still fed its dnd-kit `DragOverlay` portal through the exact `typeof
+document === "undefined" ? null : document.body` idiom this session was
+meant to eliminate — and the component turned out to be mounted and SSR'd
+on first load (the C.R.A.F.T. panels are hidden via `aria-hidden`/`inert`,
+not conditional rendering), so the "gated behind an open/null state"
+reasoning in the Learnings above doesn't cover it. The gate report's own
+claim that "other portals are safe, gated behind an `open` state" was
+FALSE; fixed by adopting `usePortalTarget` here too, and the report gained
+a "Corrections" section recording the miss rather than quietly editing the
+claim away.
+
+Asking WHY the 20/20 matrix above hadn't caught this sharpened the root
+cause: **the hazard is the INSERTED DOM, not the portal.** `body >
+.print-sheet` is real nodes added during hydration — the container diverges
+from the server, which is what breaks; the idle `DragOverlay` inserts
+nothing at rest (verified: no overlay node in `body`), which is exactly why
+the matrix passed 20/20 with the idiom still live in this file. A portal
+whose children render to nothing is inert; one that adds nodes is not.
+`use-portal-target.ts` and `docs/ARCHITECTURE.md` §2 now state that
+distinction instead of the "renders on first render" framing above. The
+lesson: a gate's High finding can be right about the code and wrong about
+the severity — checking which is what turns a fix into an understanding.
+
+**Preferences / proposed amendments (need owner consent).**
+- A portal that renders on first render must resolve its target through
+  `usePortalTarget` (the `useSyncExternalStore`-with-`null`-server-snapshot
+  idiom); never read the DOM during render. Cheap to enforce
+  deterministically (grep the `typeof document === "undefined"` idiom in
+  render paths outside hook files), and this bug proved the failure mode is
+  silent — no console error at any point — and expensive: three routes lost
+  their entire server-rendered HTML on every load, indefinitely.
+  **Reinforced same day:** this exact gap — a render-time `document.body`
+  read in `prompt-card-workbench.tsx` — survived both the original fix and
+  its own gate review (see Correction above), because neither
+  `check:standards` nor `check:security` greps for the idiom today; the
+  cheap deterministic check doesn't exist yet, which is exactly how it
+  slipped through twice in one day. (proposed amendment, needs the owner's
+  consent)
+
+## 2026-07-17: Mobile tool gate — cockpits gate below 768px, Skills and Welcome exempt
+
+**Context.** The owner reported that several tabs were "pretty bad" viewed
+on a phone — naming the C.R.A.F.T. Prompt Builder specifically ("the craft,
+everything, but the skills in the main introduction page was an issue").
+The proposal that became the design: pages that don't work on mobile should
+instead explain what the app is and say to launch it on tablet/desktop,
+with an override button, and "restrict quite a few features so it becomes
+more of a preview thing." A 375px audit ran before any building: Welcome
+and Skills were genuinely fine, matching the owner's read; the other three
+were broken, not merely cramped — the Prompt Builder's C.R.A.F.T. flow
+track computed to 0px wide and the main grid degenerated to `2px + 363px`;
+the Architect Wizard's tool header wrapped until the context bar hit 221px
+against its documented 42px contract; the Image Editor rendered but became
+a 1161px scroll stack fighting canvas-drag.
+
+**Decisions.** From a 4-question clarify round (the standing
+clarify-to-95%-confidence preference), the owner chose:
+- Full tool + a persistent "built for desktop" framing chip + CSS triage of
+  the measured breakages — not curated per-tool preview modes (rejected as
+  scope creep into per-tool product design) and not banner-only.
+- Breakpoint below 768px (767.98px in the actual media query); tablets at
+  768px+ pass through unaffected.
+- Override persisted per-tool in sessionStorage — re-gates on the next
+  visit, deliberately not "forever."
+- Also fixed, same pass: the top-bar tab strip overflow (the Image tab hid
+  off-edge with no scroll affordance).
+- Shipped as `mobileSupport` / `mobileGateNotes` on `ToolDescriptor`
+  (`src/lib/tool-registry.ts`), rendered by a new `MobileToolGate`
+  (`src/components/mobile-tool-gate.tsx`: gate notes as a bulleted list,
+  "Preview anyway"/"Back to Welcome"; once overridden, a small "Squeeze-in
+  preview — built for tablet and desktop widths" chip, not a restricted
+  feature set), plus two new hooks — `useMobilePreviewOverride(toolId)`
+  (`src/hooks/use-mobile-preview.ts`, sessionStorage + an in-memory
+  fallback for the current page) and `useMediaQuery(query)`
+  (`src/hooks/use-media-query.ts`, both on `useSyncExternalStore` so the
+  client re-reads before paint and a phone never flashes the desktop
+  branch). Prompt Builder, Architect Wizard, and Image Editor gate; Skills
+  doesn't. The new CSS (`.is-mobile-gated`/`.is-mobile-preview`) is inert
+  at 768px+, so desktop SSR output and rendering are byte-identical
+  whether or not the feature exists — confirmed by the integration and
+  design gates.
+- `docs/ARCHITECTURE.md` updated to match: §2 gains `useMediaQuery` as a
+  recyclable primitive plus an updated add-a-tool note, and §5's
+  globals.css zone map names the trailing "Mobile tool gate" zone and why
+  it must stay last (source-order overrides).
+
+**Learnings.**
+- A stale Turbopack cache silently served old CSS for ~40 minutes of
+  debugging: edits to `globals.css` stopped compiling while JS kept
+  hot-reloading, so the browser computed `overflow: hidden auto` (an
+  earlier edit's value) while the file on disk said `overflow: visible` —
+  survived a full dev-server restart; only `rm -rf .next` fixed it.
+  Diagnostic that broke the stall: fetch the served stylesheet with
+  `cache: 'no-store'` and grep the compiled rule directly, rather than
+  trusting `getComputedStyle`. Reach for this first on the next "my CSS
+  isn't applying" report.
+- `overflow: visible` is the correct undo for a `:has()` overflow lock, not
+  `overflow-x: hidden; overflow-y: auto`. Overflow set on `html` stops
+  propagating to the viewport, so an explicit html+body scroller competes
+  with the real one and pins the page a few pixels down (observed: clamped
+  at 44px of a 318px scroll range).
+- Another entry for the standing headless-preview RAF/smooth-scroll quirks
+  list (07-09/07-14/07-15 entries): `window.scrollTo(x, y)` silently
+  no-ops because `html { scroll-behavior: smooth }` is RAF-driven. Use
+  `scrollTo({ top, behavior: 'instant' })` to verify scroll reachability
+  headlessly.
+- The Design gate's High finding was real but its arithmetic was wrong —
+  it estimated a 450–500px card and predicted failure at 660×375
+  landscape; the card is actually 211px there and fits. The bug reproduces
+  at genuinely short viewports instead (375×380; a 568×320 phone in
+  landscape). Lesson: a gate reasoning from the CSS cascade without a
+  browser gets the mechanism right and the trigger wrong — the empirical
+  check found the true failure window.
+- Both judgment gates independently flagged the same threshold drift (the
+  gate's CSS at 767.98px vs. the Prompt Builder dock default at 760px) — a
+  good multi-gate signal for the fix that landed: one `PHONE_MEDIA_QUERY`
+  constant in `tool-registry.ts` now feeds both.
+
+**A pre-existing bug found, then fixed later the same session — see the
+entry above.** The saved light theme was ignored on exactly the three
+full-bleed cockpit routes (they forced dark; Welcome and Skills honored
+it). Proven pre-existing by reproducing with the entire session's WIP
+stashed, on a fresh server with `.next` cleared. The leading hypothesis
+recorded here at the time — `layout.tsx`'s hardcoded `data-theme="dark"`
+plus `suppressHydrationWarning` masking a mismatch — was WRONG; the actual
+mechanism was a portal-during-render hydration failure that re-acquires
+the `<html>` singleton, root-caused and fixed the same day (entry above).
+That also resolves the "undetermined" tension noted here against the
+2026-07-16 entry's restore-matrix claim: that verification was accurate as
+far as it went (it just never exercised a portaling route), so the
+theme-script relocation was never at fault.
+
+**Gates.** All three ran as registered subagents; reports in
+`.ai/notes/gate-reports/2026-07-17-*-mobile-tool-gate.md`. Security: PASS
+(1 Low — `useMediaQuery`'s `matchMedia` calls were unguarded in a render
+path with no error boundary anywhere in the app; fixed, mirroring the
+existing storage guard). Integration: PASS (2 required fixes: an
+ARCHITECTURE.md line-wrap typo, and filing this session's own reports to
+the ledger). Design: FAIL → PASS — 1 High (the gate's own "Preview
+anyway"/"Back to Welcome" buttons were unreachable on short screens
+because the pre-existing full-bleed `html:has(.page-stage.is-fluid) {
+overflow: hidden }` lock is unscoped and every gated tool is `fullBleed`;
+fixed by restoring `overflow: visible` for both mobile-gate states — see
+the proposed amendment below); 1 Medium (nav leaned on horizontal scroll
+instead of reclaiming room; fixed by hiding the wordmark ≤767.98px,
+extending the existing ≤640px precedent); 2 Low (the threshold drift
+above, and a missing `list-style: none` reset on the notes list).
+
+**Preferences / proposed amendments (need owner consent).**
+- DESIGN_DIRECTION §Layout's "Navigation remains usable without horizontal
+  page scrolling" doesn't say whether it governs the top-bar tab strip
+  (which scrolls internally by design at phone widths, while the page
+  itself never scrolls sideways) or only the tool work area — both
+  readings are defensible; the line should say which. (proposed amendment,
+  needs the owner's consent)
+- A gated/full-bleed surface must not depend on the unscoped
+  `html:has(.page-stage.is-fluid) { overflow: hidden }` lock — any state
+  that renders a document-shaped card inside a full-bleed stage must
+  restore scrolling. This session's Design-gate High came directly from
+  that trap. (proposed amendment, needs the owner's consent)
+
 ## 2026-07-16: Theme-bootstrap relocation — React 19 script-tag warning fixed, §2.4 allowlist relocated (consent trace)
 
 **Context.** React 19.2 + Next 16.2 logged a dev-only warning ("Encountered a
@@ -281,7 +583,7 @@ photopea.com, then chose the most ambitious option at every scoping fork.
   are both stated goals; only the new active-tab label was fixed this
   session. Proposed rule: cyan is a focus/marker/active color, not a
   light-theme text color — label text uses `--foreground` or a darkened
-  `--brand-cyan-text` token. (proposed amendment, needs the owner's consent)
+  `--brand-cyan-text` token. (proposed amendment, needs the owner's consent) → landed in `docs/DESIGN_DIRECTION.md`, "Accent colors mark; they do not spell" (2026-07-17).
 
 ## 2026-07-09: Session-continuity process landed (owner consent)
 

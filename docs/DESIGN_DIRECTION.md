@@ -40,6 +40,38 @@ first-class.
 Use the OKLCH values from the supplied Digi Tools token handoff. Focus rings
 must remain visible in both themes.
 
+### Accent colors mark; they do not spell (resolved 2026-07-17)
+
+The brand accents are tuned bright so they read as markers on a dark canvas.
+That makes them illegible as light-theme TEXT: `--brand-cyan` measured
+1.5–1.8:1 and `--brand-magenta` 3.0:1 against light surfaces, against a 4.5:1
+AA floor — a systemic failure across ~247 elements, invisible for as long as
+the light theme was unreachable on the tool routes. So the tokens split by
+JOB, not by hue:
+
+| Job | Token | Why |
+|---|---|---|
+| Borders, focus rings, markers, fills, underlines | `--brand-cyan` / `--brand-magenta` | UI components owe 3:1 (WCAG 1.4.11). The light-theme cyan was retuned to clear it — at its old value the sitewide `:focus-visible` ring measured **1.5:1**, i.e. the focus indicator was effectively invisible on light backgrounds. Dark is unchanged. |
+| Any text, including inside `color-mix()` | `--brand-cyan-text` / `--brand-magenta-text` | Darkened in light theme to clear AA on every surface token; IDENTICAL to the marker accent in dark theme, so dark rendering never changes. |
+| Text sitting ON a cyan fill | `--brand-cyan-foreground` | The fill's ink is dark in BOTH themes. `--primary-foreground` is wrong here — it flips to near-white in light theme, which is what left white-on-cyan at 1.8:1. A token that flips is wrong on a surface that doesn't. |
+
+Rules that follow from it:
+
+- Cyan is a focus/marker/active color, never a light-theme text color.
+- A per-item accent that comes from data (e.g. the Architect block accents)
+  is handed to CSS as a custom property, never set as an inline `color` —
+  inline styles beat the theme rule and strand the text at ~2.2:1.
+- Both themes are first-class, so any new accent-colored text is checked in
+  BOTH before it ships. WCAG AA is a stated PRODUCT.md goal, not a nicety.
+- **Check text AND non-text.** They are different floors (4.5:1 vs 3:1) and
+  different measurements — "text on its background" versus "a border or ring
+  against what it sits on". A text-only sweep passes a page whose focus rings
+  are invisible; that is exactly how the 1.5:1 ring survived the first pass
+  of this very fix.
+- Check a surface with CONTENT in it, not just its default empty state. The
+  Architect's canvas labels kept a 2.3:1 accent through an audit that scored
+  the route clean, because an empty canvas has no nodes to measure.
+
 ## Typography
 
 Use Open Sans for interface text and Geist Mono for generated prompts, code, and

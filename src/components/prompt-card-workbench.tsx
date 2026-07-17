@@ -16,6 +16,7 @@ import {
 } from "@dnd-kit/core";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import {
   getCardFamily,
   getCardGrade,
@@ -388,8 +389,7 @@ export function PromptCardWorkbench({
     left: number;
     top: number;
   } | null>(null);
-  const portalTarget =
-    typeof document === "undefined" ? null : document.body;
+  const portalTarget = usePortalTarget();
   const visibleDeck = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
     if (!query) {

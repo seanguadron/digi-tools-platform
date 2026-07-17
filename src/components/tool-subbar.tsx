@@ -2,17 +2,22 @@
 
 import type { ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import {
   formatSaveStatusLabel,
   isSaveStateUnavailable,
   type SaveStatus,
 } from "@/lib/save-status";
 
-// The shell handshake (docs/ARCHITECTURE.md §2): a render-time, SSR-guarded
-// portal into #app-subbar-slot. The root must be `.prompt-subbar` with no
-// wrapper element — the slot is `display: contents` and the shell hides its
-// default text via `.context-bar:has(.prompt-subbar)`. No effect/mounted
-// gate: deferring the portal blanks the bar for a frame.
+// The shell handshake (docs/ARCHITECTURE.md §2): a portal into
+// #app-subbar-slot. The root must be `.prompt-subbar` with no wrapper element
+// — the slot is `display: contents` and the shell hides its default text via
+// `.context-bar:has(.prompt-subbar)`.
+//
+// The slot is resolved by usePortalTarget, never read from the DOM during
+// render — see that hook for why a render-time read cost these routes their
+// theme. The portal still lands before paint, so the bar never blanks (the
+// concern that originally argued against deferring it).
 export function ToolSubbar({
   className,
   children,
@@ -20,10 +25,7 @@ export function ToolSubbar({
   className?: string;
   children: ReactNode;
 }) {
-  const target =
-    typeof document === "undefined"
-      ? null
-      : document.getElementById("app-subbar-slot");
+  const target = usePortalTarget("app-subbar-slot");
 
   if (!target) {
     return null;

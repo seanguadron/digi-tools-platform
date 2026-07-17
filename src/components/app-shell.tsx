@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MobileToolGate } from "@/components/mobile-tool-gate";
+import { useMobilePreviewOverride } from "@/hooks/use-mobile-preview";
 import { TOOLS } from "@/lib/tool-registry";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -10,6 +12,15 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const activeTool = TOOLS.find((tool) => pathname === tool.href);
   const isHome = pathname === "/";
   const fullBleed = Boolean(activeTool?.fullBleed);
+  const mobileGated = activeTool?.mobileSupport === "gated";
+
+  // SSR renders every gated route in the gated state (the override lives in
+  // sessionStorage, which the server cannot read); a previously-overridden
+  // phone flips back before paint via the store's client snapshot. Desktop
+  // never shows either state — the .is-mobile-* classes only act under the
+  // 768px media query in globals.css.
+  const { overridden: mobilePreview, override: previewAnyway } =
+    useMobilePreviewOverride(mobileGated && activeTool ? activeTool.id : null);
 
   function toggleTheme() {
     const currentTheme =
@@ -19,8 +30,14 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     localStorage.setItem("digitools.theme", nextTheme);
   }
 
+  const shellClassName = mobileGated
+    ? mobilePreview
+      ? "app-shell is-mobile-preview"
+      : "app-shell is-mobile-gated"
+    : "app-shell";
+
   return (
-    <div data-app-shell className="app-shell">
+    <div data-app-shell className={shellClassName}>
       <header className="top-bar" data-component="Bar:Top">
         <Link className="brand" href="/" aria-label="Digi Tools home">
           <span className="brand-mark" aria-hidden="true">
@@ -73,6 +90,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </div>
 
       <main className={fullBleed ? "page-stage is-fluid" : "page-stage"}>
+        {mobileGated && activeTool ? (
+          <MobileToolGate
+            tool={activeTool}
+            overridden={mobilePreview}
+            onOverride={previewAnyway}
+          />
+        ) : null}
         {children}
       </main>
 
