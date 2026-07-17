@@ -45,7 +45,8 @@ const srcFiles = existsSync(join(ROOT, "src"))
   const ALLOWLIST = new Set([
     // The no-flash theme bootstrap: a module-level CONSTANT script that reads
     // localStorage against a strict two-value allowlist. No dynamic input.
-    "src/app/layout.tsx",
+    // Injected via useServerInsertedHTML (outside the hydrated React tree).
+    "src/components/theme-script.tsx",
   ]);
   const bad = /\beval\s*\(|new Function\s*\(|dangerouslySetInnerHTML/;
   for (const p of srcFiles) {

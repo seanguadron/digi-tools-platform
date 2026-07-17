@@ -72,9 +72,12 @@ crashes.
 **§2.4 No script-injection primitives (deterministic).** No `eval`, no
 `new Function`, no `dangerouslySetInnerHTML` outside an explicit allowlist.
 Prompt content renders as text, never as markup. Allowlisted today:
-`src/app/layout.tsx` only — the no-flash theme bootstrap, a module-level
-CONSTANT script whose sole input is a localStorage value checked against a
-strict two-value allowlist. Growing this list requires the owner's consent.
+`src/components/theme-script.tsx` only — the no-flash theme bootstrap, a
+module-level CONSTANT script whose sole input is a localStorage value checked
+against a strict two-value allowlist (relocated 1:1 from `src/app/layout.tsx`
+2026-07-16, per the owner-approved theme-warning task; injected via
+`useServerInsertedHTML`, outside the hydrated React tree). Growing this list
+requires the owner's consent.
 ✓ check: `check:security` greps src; the allowlist lives in that script.
 Clarification (landed 2026-07-15 with the owner's consent): pure catalog
 data flowing through unchanged render paths needs only the deterministic

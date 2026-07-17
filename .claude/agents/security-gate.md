@@ -30,7 +30,7 @@ read-only autonomy, no memory.
    prompt fragments, and archetype content render as TEXT, never markup. Any
    new `dangerouslySetInnerHTML` needs the owner's consent + the STANDARDS
    §2.4 allowlist (today: only the constant theme bootstrap in
-   `src/app/layout.tsx`).
+   `src/components/theme-script.tsx`).
 
 3. **Exports and downloads.** `src/lib/browser-download.ts` and the markdown
    exporters: generated filenames come from sanitized input; exported content

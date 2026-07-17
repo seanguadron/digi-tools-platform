@@ -131,8 +131,9 @@ banners) → Image Editor. New tool sections append at the end with a banner.
 ## 6. Persistence conventions
 
 - Keys: `digitools.<tool>.<thing>-v1`, plus a sibling `...saved-at` key.
-- The theme key is `digitools.theme` (set pre-hydration by an inline script
-  in `layout.tsx`).
+- The theme key is `digitools.theme` (read pre-paint by the bootstrap in
+  `src/components/theme-script.tsx`, injected into the streamed `<head>` via
+  `useServerInsertedHTML`; the toggle in `app-shell.tsx` writes it).
 - **Landmine — two saved-at byte formats coexist**: Architect stores its
   saved-at JSON-encoded (quoted) via `writeStored`; Prompt Builder and Image
   Editor store raw ISO strings via direct `setItem`. Do NOT unify existing

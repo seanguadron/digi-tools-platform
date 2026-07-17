@@ -5,6 +5,58 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-16: Theme-bootstrap relocation — React 19 script-tag warning fixed, §2.4 allowlist relocated (consent trace)
+
+**Context.** React 19.2 + Next 16.2 logged a dev-only warning ("Encountered a
+script tag while rendering React component") on every page load, sourced from
+the no-flash theme-bootstrap `<script dangerouslySetInnerHTML>` in
+`src/app/layout.tsx`'s head. The owner clicked the task chip (created
+2026-07-15, spawned from STATE.md's dev-only-noise backlog item) whose text
+explicitly scoped the fix: preserve zero theme flash, keep STANDARDS §2.4
+green, and noted the allowlist "may need updating in
+`scripts/check-security.mjs` with owner consent."
+
+**Decisions.**
+- The bootstrap moved 1:1 into a new `src/components/theme-script.tsx` client
+  component that injects the byte-identical constant script into the
+  streamed `<head>` via `useServerInsertedHTML` — the first-party Next
+  mechanism CSS-in-JS libraries use, outside the hydrated React tree (so the
+  React 19 warning cannot fire) and still parse-blocking in `<head>` (so
+  zero-flash is preserved).
+- **CONSENT RECORD (this entry is the durable §4.1 trace).** The §2.4
+  allowlist entry was RELOCATED, not grown: `scripts/check-security.mjs` S1
+  and the STANDARDS §2.4 text now name `src/components/theme-script.tsx`
+  instead of `src/app/layout.tsx`; `layout.tsx` no longer contains any
+  injection primitive. Consent basis: the owner-clicked task chip explicitly
+  authorized the allowlist-update path for this exact fix — recorded here
+  per §4.1 ("every rule traces to a consented decision"), mirroring the
+  2026-07-15 precedent where an in-session consent got its durable anchor via
+  the sessions entry. The 2026-07-16 integration gate REQUIRED this entry
+  before delivery (its §4.1 row failed Medium until recorded) — the
+  consent-gate machinery working as designed.
+
+**Learnings.**
+- First session where gates ran through the REAL registered subagent types
+  (integration-gate, security-gate) — the 2026-07-15 YAML fix took effect.
+  Both agents registered and ran with their own toolsets; the integration
+  gate independently caught a stale `layout.tsx` mention inside
+  security-gate.md's own spec (fixed) and the missing consent trace (this
+  entry); the security gate independently curl-verified the emitted HTML.
+- Gate agents may invoke `gate:sweep` as part of their own verification: the
+  security gate did, noticed the write to `gate-status.json` violated its
+  read-only mandate, and reverted it — worth knowing for future gate runs;
+  their reports note it.
+- Verification pattern for pre-paint scripts: assert the raw server HTML
+  (curl) contains the unescaped script inside `<head>` before `<body>` — that
+  IS the no-flash proof; browser console cleanliness across multiple full
+  loads proves the warning fix; a light/dark/invalid-localStorage matrix
+  proves the two-value guard.
+- `gate-sweep`'s `TRIGGERS.security` globs don't cover `layout.tsx` or the
+  check-security allowlist file itself (integration-gate note) — a candidate
+  heuristic improvement, not flagged as an amendment.
+
+No new amendment flags this session.
+
 ## 2026-07-15: Orchestration review — ARCHITECTURE.md, gate-registration bug fixed, shell-contract extraction, dead practices revived
 
 **Context.** The owner asked for an orchestration review — "CLAUDE.md looks

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Open_Sans } from "next/font/google";
 import { AppShell } from "@/components/app-shell";
+import { ThemeScript } from "@/components/theme-script";
 import "./globals.css";
 
 const sans = Open_Sans({
@@ -33,18 +34,6 @@ export const viewport: Viewport = {
   ],
 };
 
-const themeScript = `
-  (() => {
-    try {
-      const saved = localStorage.getItem("digitools.theme");
-      const theme = saved === "light" || saved === "dark" ? saved : "dark";
-      document.documentElement.dataset.theme = theme;
-    } catch {
-      document.documentElement.dataset.theme = "dark";
-    }
-  })();
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -57,10 +46,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${sans.variable} ${mono.variable}`}
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
       <body>
+        {/* Renders null here; its script is server-inserted into <head>. */}
+        <ThemeScript />
         <AppShell>{children}</AppShell>
       </body>
     </html>
