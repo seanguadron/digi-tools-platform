@@ -2,6 +2,7 @@ export type ToolId =
   | "prompt-builder"
   | "architect-wizard"
   | "image-editor"
+  | "vector-editor"
   | "skills";
 
 // The one "this is a phone" threshold. Kept byte-identical to the media query
@@ -70,6 +71,21 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
       "Layer-based editing: paint, select, adjust, filter.",
       "Opens local images; exports PNG, JPG, or a layered .zip.",
       "Runs entirely in this browser — files never leave your machine.",
+    ],
+  },
+  "vector-editor": {
+    id: "vector-editor",
+    name: "Vector Editor",
+    shortName: "Vector",
+    tagline:
+      "A local SVG vector editor — draw shapes, style fills and strokes, and export clean SVG.",
+    href: "/tools/vector-editor",
+    fullBleed: true,
+    mobileSupport: "gated",
+    mobileGateNotes: [
+      "Draws and arranges vector shapes on an SVG artboard — rectangles, ellipses, lines, polygons.",
+      "Style fills and strokes, reorder and lock objects, then export clean SVG or PNG.",
+      "Runs entirely in this browser — artwork never leaves your machine.",
     ],
   },
   skills: {

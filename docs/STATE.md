@@ -9,103 +9,53 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-07-17 (end of the "mobile tool gate + portal hydration"
-session).
+Last rewritten: 2026-07-19 (end of the "Vector Editor" session — a fifth tool,
+native-SVG vector drawing).
 
 ## Now
 
-Branch **`main`**, in sync with `origin/main` through `7c92e0b`. This
-session's work is **committed, merged, and pushed** (2026-07-17): two
-commits on `ui/mobile-gate-theme-contrast`, fast-forwarded onto `main` —
-`866b823` (dev-env tooling) and `7c92e0b` (the interlocked mobile
-gate / portal-hydration theme fix / light-mode contrast). Working tree
-clean.
+Branch **`main`**. This session added the **Vector Editor**, the fifth
+registered tool: a native-SVG vector drawing app (Illustrator-lite, scoped to
+"Core shapes + styling"). It is **committed, gate-passed, and green**; working
+tree clean.
 
-**What this session changed.** Phones now get an honest gate instead of a
-broken cockpit. At **below 768px**, the three full-bleed tools (Prompt
-Builder, Architect Wizard, Image Editor) render an explainer card — what the
-tool is, what it needs a bigger screen for, where the data lives — with a
-**Preview anyway** override; Skills and Welcome are untouched because they
-already work on a phone.
+**What it does.** Draw rectangles, ellipses, lines, and polygons on an SVG
+artboard; select and move/resize/rotate (rotation-aware, opposite-corner
+anchored) and delete; a **Design** dock panel (fill / stroke / opacity /
+X-Y-W-H-rotation) and a **Layers** panel (reorder, lock, hide, delete);
+undo/redo, autosave to localStorage with the save chip, pan/zoom + a draggable
+minimap, and **SVG + PNG export**. Keyboard: `V/R/O/L/P`, `Delete`, `Esc`,
+`Enter` (drop a default shape at the artboard center), `Ctrl/⌘+Z` / `+Shift+Z`.
 
-1. **The gate is registry-driven.** `mobileSupport: "gated"` +
-   `mobileGateNotes` on `ToolDescriptor` are the whole opt-in; the shell
-   renders `MobileToolGate` and the CSS does the rest. Both shell classes
-   (`is-mobile-gated` / `is-mobile-preview`) are **INERT at 768px and
-   above** — the media query is the only judge of "phone", so SSR output and
-   desktop rendering are identical with or without them.
-2. **The override is session-scoped.** `useMobilePreviewOverride`
-   (sessionStorage, strict `=== "1"` read in try/catch) survives navigation
-   and reloads, re-gates next visit. Preview mode shows the full tool plus a
-   persistent squeeze-in chip.
-3. **The outright phone breakages are triaged**, so the override lands on
-   something usable: the Prompt Builder's C.R.A.F.T. workspace no longer
-   computes to **0px wide**, the tool header no longer explodes the 42px
-   context bar to **221px**, and the document scrolls again at phone widths
-   (the pre-existing full-bleed `overflow: hidden` lock is desktop-only now).
-4. **Top-bar tabs** no longer hide the last tab off-edge: the brand wordmark
-   drops below 768px (the ≤640px precedent) and the clipped edge fades.
+**Architecture.** A native SVG scene graph — objects render as real SVG
+elements, so edit and export are the same artifact (zero conversion). The
+model + pure services live in `src/lib/vector-editor/`
+(`types`/`document`/`geometry`/`transform`, plus `project-io` persistence and
+`svg-export`). The cockpit reuses the shared shell contract — `ToolSubbar` via
+`usePortalTarget`, `EditorTabs`, `useUndoableState`, `useLocalDraft`,
+`browser-download`, `save-status`, and the `mobileSupport: "gated"` flag — no
+shell primitive was reinvented. Same Manager/Worker/Service shape as the Image
+Editor.
 
-**Then the second half of the session fixed a bug the first half uncovered:
-the saved light theme was ignored on all three cockpit routes** (they forced
-dark; Welcome and Skills were fine). Not cosmetic — those routes were
-throwing away their server rendering entirely.
+**How it was built.** Six phases, each verified in the running dev server
+before the next: skeleton → draw → select/transform → properties/layers →
+undo/autosave/export → pan/zoom/minimap/home. Testing caught **three real bugs
+mid-build** — a StrictMode double-commit (side effect in a setState updater), a
+`useLocalDraft` restore-callback that wasn't memoized and clobbered live edits
+with the last-saved snapshot, and inline-SVG aspect distortion — and one
+**injection vector was pre-empted** on the string-built SVG export
+(`escapeAttr` + a `safeColor` load allowlist).
 
-- **Root cause:** `ToolSubbar` and the Prompt Builder's print-sheet portal
-  read the DOM DURING RENDER, so the server rendered `null` and the client
-  rendered a portal. That tree-shape mismatch made React discard the server
-  HTML and client-render the document, which MOUNTS the `<html>` host
-  singleton — and mounting calls `acquireSingletonInstance`, which **clears
-  every attribute** and reapplies only the JSX props, reasserting
-  `layout.tsx`'s hardcoded `data-theme="dark"` over the bootstrap's value.
-  React logs NOTHING for this, which is why it survived unnoticed.
-  `suppressHydrationWarning` was never relevant: this is an acquisition, not
-  a hydration diff being patched.
-- **Fix:** the new `usePortalTarget` hook (`useSyncExternalStore`, server
-  snapshot `null`) resolves portal targets without lying to hydration; the
-  portal still mounts before paint, so the bar never blanks.
-  `theme-script.tsx` and `layout.tsx` are UNCHANGED — the §2.4 allowlist
-  never moved.
-- **Verified in a real production build**, 20/20: 5 surfaces × stored
-  light/dark/invalid/absent.
-- The integration gate then FAILED the fix and was right: the same idiom
-  survived in `prompt-card-workbench.tsx`. Fixed. It was LATENT, and
-  measuring why sharpened the rule — **the hazard is the inserted DOM, not
-  the portal**: the print sheet adds real nodes to `<body>` during hydration
-  (breaks it), while an idle dnd-kit `DragOverlay` adds none (inert), which
-  is why the matrix passed with it still present.
-
-**Third: light mode was fixed for real** — reaching those routes exposed that
-its appearance there had never been looked at. A measured WCAG audit found
-**~247 AA contrast failures in light**, dominated by `--brand-cyan` used as
-TEXT (1.5–1.8:1 against a 4.5:1 floor). This landed the long-pending "cyan as
-light-theme text" amendment (proposed 2026-07-14).
-
-- Tokens now split by **job, not hue**: `--brand-cyan-text` /
-  `--brand-magenta-text` for any text (darkened in light, IDENTICAL to the
-  marker accent in dark, so dark rendering never changed),
-  `--brand-cyan-foreground` for ink on a cyan fill (`--primary-foreground`
-  was wrong there — it flips near-white in light, giving white-on-cyan at
-  1.78:1), and `--warning-text` for the amber readiness chip.
-- The **design gate then FAILED this and was right, twice.** (a) The
-  sitewide `:focus-visible` ring measured **1.5:1** in light — the focus
-  indicator was effectively invisible — and my own DESIGN_DIRECTION text
-  asserted it was fine. Light `--brand-cyan` is retuned to
-  `oklch(0.6 0.1 200)` (ring 3.16:1, WCAG 1.4.11); dark untouched. (b) The
-  Architect's CANVAS node labels still had an inline accent at ~2.3:1 —
-  invisible to my audit because **an empty canvas has no nodes to measure**.
-- The Architect's per-block accents come from data and were applied inline,
-  which no theme rule could reach; the component now passes
-  `--glyph-accent` and CSS darkens it in light theme, per-block hue intact.
-- The rule is recorded in `docs/DESIGN_DIRECTION.md` → "Accent colors mark;
-  they do not spell".
-- **5 surfaces × both themes, INCLUDING the Architect with 10 nodes on the
-  canvas: 0 contrast failures, 0 theme failures** (was ~247 in light).
-- Two verification lessons, both earned the hard way and now in
-  DESIGN_DIRECTION: **text and non-text are different floors AND different
-  measurements** (4.5:1 text-on-background vs 3:1 border-against-adjacent —
-  a text-only sweep passes a page whose focus rings are invisible), and
-  **audit a surface with CONTENT in it**, not its default empty state.
+**Gates (reports in `.ai/notes/gate-reports/2026-07-19-*`).** Security PASS
+(1 Low fixed: numeric size clamp so a tampered doc can't ask the PNG canvas
+for a 2e9-px allocation). Integration FAIL→PASS (globals.css zone order — the
+tool block must sit BEFORE the mobile-gate zone so the gate's overrides stay
+last, §5; and `.button-small` graduated to the shared `.button.button-small`).
+Design FAIL→PASS (1 High + 6 Medium + 3 Low: a non-pointer create path via
+Enter, toggle `accent-color` + accessible names, a themed `■`/`□` lock glyph
+replacing color emoji, `role="application"` on the interactive artboard, and a
+re-run WCAG sweep across the previously-unpainted Layers-selected and
+Fill/Stroke states — 0 failures both themes).
 
 Health: `typecheck`, `lint`, `test` (22), `data:validate`, `check:standards`,
 `check:security` all green as of this rewrite.
@@ -117,121 +67,102 @@ Health: `typecheck`, `lint`, `test` (22), `data:validate`, `check:standards`,
   running; verify inside the running one. Never `npm run build` while a dev
   server may be live (shared `.next/`).
 - **If CSS edits stop taking effect:** `npm run dev:clean` (clears `.next`,
-  then starts dev). A stale Turbopack cache can serve old CSS forever — see
-  the gotchas below.
-- **`StartDigiTools.bat` now health-CHECKS port 5100** rather than trusting
-  that the socket is held: a wedged dev server keeps listening while
-  answering nothing, and the old check happily said "already running" and
-  opened a browser onto a dead server. It now curls the port, and offers to
-  end a non-responding process before starting fresh.
+  then dev). A stale Turbopack cache can serve old CSS forever — see gotchas.
+- **`StartDigiTools.bat` health-CHECKS port 5100** (curls it) rather than
+  trusting the socket is held, and offers to end a wedged process.
 - **Framework:** read `docs/ARCHITECTURE.md` before building or changing a
-  tool — registry, portal slots, ToolSubbar, useUndoableState/useLocalDraft,
-  the mobile gate (§2), the add-a-tool recipe. STANDARDS §1.4 gates
-  conformance. The theme bootstrap lives in `src/components/theme-script.tsx`
-  (the repo's ONE sanctioned `dangerouslySetInnerHTML`, §2.4).
-- **Checks:** `npm run typecheck` · `npm run lint` · `npm test` ·
-  `npm run data:validate` · `npm run check:standards && npm run check:security`.
+  tool — registry, portal slots, ToolSubbar, EditorTabs, useUndoableState /
+  useLocalDraft, the add-a-tool recipe (the Vector Editor is a fresh worked
+  example). STANDARDS §1.4 gates conformance. The theme bootstrap lives in
+  `src/components/theme-script.tsx` (the repo's ONE sanctioned
+  `dangerouslySetInnerHTML`, §2.4). Any FIRST-render portal must resolve its
+  target through `usePortalTarget` (never a render-time DOM read — that was the
+  2026-07-17 hydration/theme bug).
+- **Checks:** `npm run typecheck` · `lint` · `test` · `data:validate` ·
+  `check:standards && check:security`.
 - **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex (36),
   `.claude/skills/` Claude Code (16 incl. `/digi`); never cross-install.
-  Log material skill use: `npm run skill:log -- <skill> "<surface>"`.
-- **Gate agents:** `integration-gate`, `security-gate`, `design-gate` all
-  register as subagent types (re-confirmed 2026-07-17 — all three ran) —
-  invoke them via the Agent tool; they are read-only and save nothing
-  themselves (the main agent writes the ledger reports).
+- **Gate agents:** `integration-gate`, `security-gate`, `design-gate` register
+  as subagent types (all three ran this session) — read-only; the main agent
+  writes the ledger reports.
 - **Headless preview gotchas** (this list keeps earning its keep):
-  - The pane can report a 0×0 viewport — drive and verify via
-    DOM/`javascript_tool`, not screenshots. `computer{action:"screenshot"}`
-    may simply time out.
-  - The Image Editor's canvas is RAF-driven (no repaint headless); the
-    Prompt Builder's flow-panel carousel scrolls via RAF too.
+  - The pane can report a 0×0 viewport — drive/verify via DOM/`javascript_tool`,
+    not screenshots (`computer{action:"screenshot"}` may time out).
+  - Canvas/`<img>` work is RAF/decode-driven: `rasterizePng` (SVG→Image→canvas)
+    can take >500ms headless — poll for the PNG blob, don't assume one tick.
   - React reads after a `.click()` need a deferred read (setTimeout).
-  - **`window.scrollTo(x, y)` silently no-ops** — `html` has
-    `scroll-behavior: smooth`, which is RAF-driven. Use
-    `scrollTo({ top, behavior: "instant" })` to verify scroll reachability.
-  - **A stale `.next` Turbopack cache can serve old CSS indefinitely** while
-    JS keeps hot-reloading, and it SURVIVES a dev-server restart. Symptom:
-    `getComputedStyle` disagrees with the file on disk. Confirm by fetching
-    the served stylesheet with `cache: "no-store"` and grepping the compiled
-    rule; fix with `rm -rf .next` (gitignored) while the server is stopped.
-  - **Dev is the WRONG place to verify hydration or theme behavior.** Fast
-    Refresh re-acquires the `<html>` singleton on every hot update, which
-    resets `data-theme` on any route and silently poisons a test matrix. Use
-    a production build (`npm run build` + `npm start`, dev server stopped
-    first — they share `.next/`).
+  - Synthetic `dispatchEvent` sets `event.target` to the element you dispatch
+    ON, not the element at the coordinates — to exercise hit-testing, dispatch
+    pointerdown on the actual shape/handle element, not the `<svg>`.
+  - **Don't audit contrast while LIVE-toggling `data-theme`** — buttons
+    transition `background-color` over ~150ms, so a quick read catches a
+    mid-transition mixed state (false low-contrast). Set the theme via
+    localStorage + reload (or wait out the transition).
+  - `window.scrollTo(x,y)` silently no-ops (smooth scroll is RAF-driven); use
+    `scrollTo({ top, behavior: "instant" })`.
+  - A stale `.next` Turbopack cache can serve old CSS indefinitely and survives
+    a restart; fix with `rm -rf .next` (gitignored) while stopped.
+  - **Dev is the WRONG place to verify hydration/theme** — Fast Refresh
+    re-acquires the `<html>` singleton and resets `data-theme`. Use a
+    production build (`npm run build` + `npm start`, dev stopped first).
+- **Editing `globals.css` programmatically:** use node with `utf8` (the file
+  has em-dashes etc.); PowerShell `Get-Content`/`Set-Content` mangles non-ASCII
+  into mojibake (seen 2026-07-17).
 
 ## Built
 
-Four tools registered in `src/lib/tool-registry.ts` (Prompt Builder,
-Architect Wizard, Skills Wiki, Image Editor); the shell contract and shared
-primitives are documented in `docs/ARCHITECTURE.md`. The Prompt Builder is
-the flagship (C.R.A.F.T. prompts from explicit card choices; see `PRODUCT.md`
-+ `CONTEXT.md`).
+**Five tools** registered in `src/lib/tool-registry.ts` (Prompt Builder,
+Architect Wizard, Image Editor, **Vector Editor**, Skills Wiki); the shell
+contract and shared primitives are in `docs/ARCHITECTURE.md`.
 
-**Prompt Builder catalog:** 35 roles, 32 card lineages (4 grades each), 8
-output types, 25 archetypes (daily drivers first, then App build
-handoff/Agent skill/Agent gate/Social post at 7–10). The `action-clarify`/ASK
-card (grade 1 = the owner's "ask me clarifying questions until you have 95%
-confidence" pattern) and `format-tiers`/TIER card are equipped by the
-APP/SKILL/GATE archetypes.
+- **Prompt Builder** (flagship): C.R.A.F.T. prompts from explicit card choices —
+  35 roles, 32 card lineages, 25 archetypes (see `PRODUCT.md` + `CONTEXT.md`).
+- **Architect Wizard:** node-canvas architecture sketch → AI build brief.
+- **Image Editor:** Photopea-style raster cockpit; PNG/JPG/layered-.zip export.
+- **Vector Editor:** native-SVG vector cockpit (this session) — shapes, transform,
+  fill/stroke, layers, undo/autosave, pan/zoom/minimap, SVG+PNG export.
+- **Skills Wiki:** the document-style reference tool.
 
-**Image Editor:** Photopea-style cockpit — menubar in the context subbar,
-tool strip, docked canvas + minimap, tabbed right dock, statusbar in the
-global footer, PNG/JPG/layered-.zip export.
-
-**Shared framework:** `ToolSubbar` (+Title/Chip/Actions), `save-status`,
-`useUndoableState`, `useLocalDraft`, `ThemeScript`, `EditorMenubar`,
-`EditorTabs`+`tabPanelProps`, `zip.ts`, `browser-download.ts`,
-`prompt-storage.ts`, and now `MobileToolGate` + `useMediaQuery` +
-`useMobilePreviewOverride` (phone threshold = `PHONE_MEDIA_QUERY` in
-`tool-registry.ts`, the ONE source of truth, byte-identical to the CSS).
+**Shared framework:** `ToolSubbar`, `EditorTabs`/`tabPanelProps`,
+`EditorMenubar`, `save-status`/`ToolSaveStateChip`, `useUndoableState`,
+`useLocalDraft`, `usePortalTarget`, `useMediaQuery`, `MobileToolGate`,
+`zip.ts`, `browser-download.ts`, `prompt-storage.ts`. `EditorTabs` now has two
+importers (Image + Vector), a good reuse precedent.
 
 ## Backlog / in flight
 
-- **In flight: nothing.** This session's four pieces — the mobile tool gate,
-  the portal-hydration theme fix, the light-theme accent tokens, and the
-  dev-environment hardening — landed 2026-07-17 in commits `866b823` +
-  `7c92e0b` on `main` (the app files interleave — `globals.css` and
-  `prompt-builder.tsx` each span two pieces — so a per-piece split wasn't
-  possible without hunk-level staging; dev-env split out cleanly, the rest is
-  one commit).
-- **The cockpit light-theme bug is FIXED** (see Now). It was never the theme
-  script's fault: the 2026-07-16 relocation was sound, and the earlier
-  restore-matrix claim was simply only ever checked on the home page. The
-  real culprit was the render-time portal read that ARCHITECTURE.md itself
-  used to mandate.
-- **Next session:** run the `.ai/agent-evals/` fixtures against the
-  registered gates (they have still never run through it) and add fixtures
-  for the newer surfaces (image editor, prompt catalog, framework).
-- **Archetype card art:** all illustration entries remain `status: planned`.
-- **Pending amendments** (`npm run amendments`, owner consent needed): ~~cyan
-  as light-theme text color~~ → LANDED 2026-07-17 in DESIGN_DIRECTION
-  ("Accent colors mark; they do not spell"); §2.3 bare-cast hardening;
-  cardSystem affinity validator rule; §3.3 "every agent file must carry a
-  gov:node marker"; one motion/icon item from earlier sessions; plus these
-  raised this session — a candidate rule that a first-render portal must use
-  `usePortalTarget` (cheap to enforce: grep the render-time `document` read),
-  and —
-  DESIGN_DIRECTION's "no horizontal page scrolling" line is ambiguous about
-  the top-bar tab strip, and a candidate rule that a full-bleed surface must
-  not depend on the unscoped `overflow: hidden` lock.
-- **`npm run amendments` is line-wrap fragile** (found 2026-07-17): its regex
-  matches line by line, but SESSIONS.md is hard-wrapped at ~76 chars, so a
-  flag split across a wrap is INVISIBLE to the consent queue. Two were
-  hiding that way and are now rejoined (the queue reads 8, not 6). The
-  script should normalise whitespace before matching; it also prints only
-  the flag's tail line, so one entry shows as a contextless bullet.
-  Candidate fix — the consent gate is only as good as this scanner.
-- **Deferred polish:** unify the "Restoring..." vs "Restoring…" glyph (needs
-  owner sign-off); optional `writeStoredOrThrow` for the architect save path;
-  output docks + dialog portals + prompt-role-workbench tablist remain the
-  sanctioned extraction backlog (ARCHITECTURE §3). gate-sweep's
-  `TRIGGERS.security` globs don't cover the check-security allowlist file
-  itself — candidate heuristic improvement.
+- **In flight: nothing.** The Vector Editor landed 2026-07-19.
+- **Vector Editor v1.1 candidates** (Sean scoped v1 to Core): the **bezier pen**
+  + editable **text**, then gradients, boolean path ops, grouping, multi-select
+  + marquee, and numeric geometry edits for rotated objects in local space.
+- **Vector-editor pure modules have no unit tests** — a drop-in test is blocked
+  by the `@/` value-import alias (the `scripts/*.test.mjs` runner resolves only
+  relative imports) plus `project-io`'s `localStorage` coupling; needs a
+  path-alias loader or a small refactor. `project-io`'s validator is the
+  regression-prone piece worth covering.
+- **`image-editor.tsx` statusbar portal** still uses the render-time
+  `getElementById` idiom (inert — doc-gated — but the latent shape the portal
+  rule warns about). Task chip spawned 2026-07-19.
+- **Next session (still owed from before):** run the `.ai/agent-evals/`
+  fixtures against the registered gates; add fixtures for the newer surfaces.
+- **Pending amendments** (`npm run amendments`, owner consent): §2.3 bare-cast
+  hardening; cardSystem affinity validator; §3.3 "every agent file carries a
+  gov:node marker"; the earlier motion/icon item; the `usePortalTarget`
+  first-render-portal rule; the DESIGN_DIRECTION tab-strip / full-bleed-lock
+  ambiguities; **new this session** — a design motion-clause scope (hover-color
+  transitions vs card motion) and a codified "micro-label 0.58–0.72rem"
+  typography tier.
+- **`npm run amendments` is line-wrap fragile** — its regex matches line by
+  line but SESSIONS.md hard-wraps at ~76 chars, so a flag split across a wrap is
+  invisible to the queue. Candidate fix.
+- **Deferred polish:** the sanctioned extraction backlog (output docks, dialog
+  portals, prompt-role-workbench tablist — ARCHITECTURE §3); `writeStoredOrThrow`
+  for the architect save path.
 
 ## Pointers
 
-- Framework contract: `docs/ARCHITECTURE.md`. History:
-  `.ai/notes/SESSIONS.md` (newest-first). Rules: `docs/STANDARDS.md`. Gate
-  ledger: `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
+- Framework contract: `docs/ARCHITECTURE.md`. History: `.ai/notes/SESSIONS.md`
+  (newest-first). Rules: `docs/STANDARDS.md`. Gate ledger:
+  `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
 - `npm run amendments` shows the consent queue; `npm run gate:sweep` stamps
   `.ai/notes/gate-status.json` and warns when this page goes stale.

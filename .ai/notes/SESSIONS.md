@@ -5,6 +5,99 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-19: Vector Editor ships — fifth tool, a native-SVG "Illustrator-lite" built from the Image Editor's shell
+
+**Context.** The owner asked to build an SVG vector editor "like
+Illustrator," using the Image Editor as a guide. A clarify round (the
+standing clarify-to-95%-confidence preference) settled v1 scope =
+**"Core shapes + styling"** (no bezier pen/text yet) and render model =
+**native SVG DOM**, not canvas — then the owner said "keep going all
+phases."
+
+**Decisions.**
+- New tool `vector-editor`, the 5th registry entry — full-bleed,
+  mobile-gated, built strictly to the ARCHITECTURE.md add-a-tool recipe.
+  Objects are real SVG elements, not canvas pixels, so the edited scene
+  and the exported artifact are the same thing.
+- Reused every shell primitive rather than reinventing chrome:
+  `ToolSubbar` (via `usePortalTarget`), `useUndoableState`,
+  `useLocalDraft`, `browser-download`, `save-status`, the mobile gate.
+- Shipped across all phases: rect/ellipse/line/polygon draw-by-drag;
+  select + move/resize(rotation-aware)/rotate/delete; a Design panel
+  (fill/stroke/opacity/transform) and a Layers panel
+  (reorder/lock/hide/delete) sharing `EditorTabs`; undo/redo, autosave,
+  pan/zoom + minimap, SVG+PNG export; keyboard V/R/O/L/P, Delete, Esc,
+  Enter (drop a shape at center), Ctrl/⌘+Z/Y.
+
+**Learnings.**
+- Three end-to-end bugs, none visible from a code read alone: (1) draw
+  committed TWICE — a side effect (`onDraw`) inside a `setDraft` updater,
+  which React double-invokes in dev StrictMode — moved the commit out to
+  a ref; (2) fresh edits vanished — the `useLocalDraft` `restore`/`save`
+  callbacks were inline (a new identity every render), so the restore
+  effect re-ran every render and re-loaded the last-saved snapshot over
+  live edits; memoized them, per the hook's own documented call for
+  memoized adapters; (3) an inline `<svg>` with `max-width`/`max-height`
+  distorted aspect ratio — switched to a full-stage SVG with
+  `preserveAspectRatio`, which also set up Phase 5's pan/zoom viewBox
+  cleanly.
+- A string-built export needs escaping even when the live app is safe:
+  the SVG export concatenates colors into attributes; the live React
+  render escapes automatically but the export string doesn't — a
+  tampered-localStorage color could inject markup into an exported file.
+  Pre-empted with `escapeAttr` (serializer) + a `safeColor` allowlist
+  (loader); the security gate confirmed the two are redundant-safe.
+- "Audit with content" has a second level. The 2026-07-17 lesson (see
+  that entry, not restated here) was "audit a populated surface, not the
+  empty state." This session the Design gate sharpened it further: a
+  *populated* surface can still hide CONDITIONALLY-rendered subtrees —
+  the first "0 contrast failures" pass missed `.ve-layer-row.is-selected`
+  (needs the Layers tab + a selection) and the Fill/Stroke property
+  sub-fields (gated on a non-null fill/stroke). Re-running with those
+  painted, both themes, still confirmed 0 — but the gap was real.
+- Verification-harness artifacts to distrust, now in STATE.md's gotchas:
+  synthetic `dispatchEvent` sets `event.target` to the element
+  dispatched-on (not the coordinate target), so hit-testing must dispatch
+  on the actual shape/handle element; and live-toggling `data-theme`
+  mid-audit catches buttons mid `background-color` transition as a false
+  low-contrast reading (set theme via localStorage + reload instead).
+- Editing `globals.css` programmatically: use node/utf8, never
+  PowerShell `Get-Content`/`Set-Content` (mojibake) — used a node script
+  to reorder the CSS zones, with a character-multiset sanity check.
+
+**Gates.** All three ran as real registered subagents; reports in
+`.ai/notes/gate-reports/2026-07-19-*-vector-editor.md`.
+- Security: PASS (1 Low fixed — clamp validated sizes so a tampered
+  width/height can't ask the PNG canvas for a ~2e9-px allocation).
+- Integration: FAIL → PASS. (1) The tool's globals.css block was
+  appended AFTER the mobile-gate zone, but ARCHITECTURE §5 requires that
+  zone stay LAST (its overrides win on source order) — moved the block
+  before it. (2) `.button-small` was an unprefixed primitive stranded in
+  the tool banner — graduated to shared `.button.button-small` (also
+  fixes a specificity loss to `.prompt-flow-header-actions .button`).
+- Design: FAIL → PASS (1 High + 6 Medium + 3 Low). High: no non-pointer
+  create path — added Enter-to-drop-at-center, mirroring the
+  Architect's click-to-add. Medium: toggle `accent-color`, toggle
+  accessible names, replace the color-emoji lock glyph with a themed
+  `■`/`□`, add `role="application"` to the interactive artboard, and the
+  contrast re-sweep above. Low: drop box-shadows for Image-Editor
+  parity; delete the dead `.vector-editor-dock-head`.
+
+**Preferences / proposed amendments (need owner consent).**
+- The 0.68rem property/dock micro-labels sit under the documented
+  0.75rem Caption floor but match a pre-existing undocumented
+  micro-label tier (e.g. `.image-editor-field-caption` at 0.62rem) —
+  propose codifying a "micro-label 0.58–0.72rem" tier in
+  DESIGN_DIRECTION Typography. (proposed amendment, needs the owner's
+  consent)
+
+Two more triggers recurred this session; folded into their original
+entries rather than duplicated here, not re-flagged: the base-`.button`
+hover-transition vs. Motion clash (2026-07-08 entry, now reinforced a
+third time) and the rule that a first-render portal must use
+`usePortalTarget` (2026-07-17 entry — the vector editor followed it
+correctly from the start; `image-editor.tsx` still doesn't).
+
 ## 2026-07-17: Cyan-as-text amendment lands — ~247 light-theme AA failures fixed; dev-server health-check hardened
 
 **Context.** Fixing the portal-hydration bug (entry below) made light theme
@@ -182,8 +275,12 @@ the severity — checking which is what turns a fix into an understanding.
   its own gate review (see Correction above), because neither
   `check:standards` nor `check:security` greps for the idiom today; the
   cheap deterministic check doesn't exist yet, which is exactly how it
-  slipped through twice in one day. (proposed amendment, needs the owner's
-  consent)
+  slipped through twice in one day. **Reinforced again 2026-07-19:** the
+  new Vector Editor followed this rule correctly from the start, but
+  auditing it found the same idiom still latent in `image-editor.tsx`
+  (already task-chipped, not yet fixed) — the deterministic check
+  proposed here still doesn't exist. (proposed amendment, needs the
+  owner's consent)
 
 ## 2026-07-17: Mobile tool gate — cockpits gate below 768px, Skills and Welcome exempt
 
@@ -754,8 +851,9 @@ extras: selections, filters, shapes/text, transform/crop).
   reinforced independently by that session's Design gate: permit
   `background-color`/`border-color` micro-transitions (150–200ms) for
   hover/selected affordances specifically, keeping strict
-  opacity/transform-only for larger settle/panel motion. (proposed
-  amendment, needs the owner's consent)
+  opacity/transform-only for larger settle/panel motion. Reinforced a
+  third time 2026-07-19, same trigger, by the Vector Editor's Design
+  gate — still pending. (proposed amendment, needs the owner's consent)
 - No icon-language rule exists for mixed SVG-vs-Unicode glyph toolbars.
   (proposed amendment, needs the owner's consent)
 

@@ -5,6 +5,7 @@ import { TOOL_REGISTRY } from "@/lib/tool-registry";
 const promptTool = TOOL_REGISTRY["prompt-builder"];
 const architectTool = TOOL_REGISTRY["architect-wizard"];
 const imageTool = TOOL_REGISTRY["image-editor"];
+const vectorTool = TOOL_REGISTRY["vector-editor"];
 const skillsTool = TOOL_REGISTRY["skills"];
 
 export default function HomePage() {
@@ -141,11 +142,47 @@ Five prioritized findings with fixes.`}</code>
 
         <section
           className="home-feature"
+          id="vector-editor"
+          aria-labelledby="home-vector-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 04 · Vector</span>
+            <h2 id="home-vector-title">{vectorTool.name}</h2>
+            <p>{vectorTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Draw rectangles, ellipses, lines, and polygons on an SVG artboard.</li>
+              <li>Select, move, resize, rotate, and restyle — with full undo history.</li>
+              <li>Export clean SVG or a rasterized PNG. Nothing leaves your device.</li>
+            </ul>
+            <Link className="button button-primary" href={vectorTool.href}>
+              Open Vector Editor
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>artboard.svg</span>
+              <span className="file-badge">VECTOR</span>
+            </div>
+            <svg
+              className="home-spec-vector"
+              viewBox="0 0 220 120"
+              role="img"
+              aria-hidden="true"
+            >
+              <rect x="16" y="22" width="78" height="58" rx="8" />
+              <ellipse cx="150" cy="46" rx="40" ry="27" />
+              <polygon points="120,104 150,74 180,104" />
+            </svg>
+          </div>
+        </section>
+
+        <section
+          className="home-feature"
           id="skills"
           aria-labelledby="home-skills-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 04 · Skills</span>
+            <span className="tool-kicker">Tool 05 · Skills</span>
             <h2 id="home-skills-title">{skillsTool.name}</h2>
             <p>
               A wiki for the {skillCount} skills in your AI stack — what each one

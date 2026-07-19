@@ -523,6 +523,23 @@ a {
   padding: 16px;
 }
 
+/* Home preview of the vector artboard — accents mark, they don't spell, so the
+   bright --brand-cyan is fine on fills/strokes here (non-text). */
+.home-spec-vector {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 14px 16px;
+}
+
+.home-spec-vector rect,
+.home-spec-vector ellipse,
+.home-spec-vector polygon {
+  fill: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  stroke: var(--brand-cyan);
+  stroke-width: 1.5;
+}
+
 .home-spec-node {
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -903,6 +920,15 @@ a {
   border-color: var(--border);
   background: transparent;
   color: var(--foreground);
+}
+
+/* Shared compact size modifier. `.button.button-small` (not `.button-small`)
+   so it beats container rules like `.prompt-flow-header-actions .button`
+   (0,2,0) on specificity, not merely on source order. */
+.button.button-small {
+  min-height: 30px;
+  padding-inline: 10px;
+  font-size: 0.72rem;
 }
 
 .prompt-specimen {
@@ -7304,6 +7330,462 @@ body:has(.page-stage.is-fluid) {
 @media (prefers-reduced-motion: reduce) {
   .editor-tab {
     transition: none;
+  }
+}
+
+/* ===== Vector Editor ===== */
+
+.tool-page.vector-editor-page {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  height: calc(100dvh - var(--app-chrome-height));
+  min-height: 560px;
+  padding: 12px clamp(14px, 2.2vw, 30px);
+  overflow: hidden;
+}
+
+.page-stage.is-fluid .vector-editor-page {
+  width: 100vw;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vector-editor-layout {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr) 304px;
+  gap: 1px;
+  min-height: 0;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.page-stage.is-fluid .vector-editor-layout {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+/* Left tool strip */
+.vector-editor-toolstrip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px 6px;
+  background: var(--card);
+}
+
+.vector-editor-tool {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.vector-editor-tool:hover {
+  background: var(--accent);
+}
+
+.vector-editor-tool.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+}
+
+/* Center stage + artboard */
+.vector-editor-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 0;
+  height: 100%;
+  padding: clamp(16px, 3vw, 40px);
+  background: var(--background);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.vector-editor-surface {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* The artboard's own edge, drawn in-scene so preserveAspectRatio centers it
+   with the artwork. non-scaling-stroke keeps it a crisp 1px hairline whatever
+   the fit scale (and, later, the zoom level). */
+.vector-editor-artboard-bg {
+  stroke: var(--border);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.vector-editor-surface.is-drawing {
+  cursor: crosshair;
+}
+
+/* Selection frame + transform handles. Strokes are non-scaling so they stay a
+   crisp 1px, and the handle squares are sized in user units as HANDLE_PX/scale
+   so they read a constant size on screen. The frame and rotate arm don't take
+   pointer events (clicks fall through to move); the handles do. */
+.ve-sel-frame,
+.ve-sel-rot-line {
+  fill: none;
+  stroke: var(--brand-cyan);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.ve-sel-handle {
+  fill: var(--card);
+  stroke: var(--brand-cyan);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+}
+
+.ve-sel-rotate {
+  cursor: grab;
+}
+
+/* Dock panels (properties + layers) */
+.vector-editor-dock-panel {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.ve-field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ve-field-wide {
+  width: 100%;
+}
+
+.ve-field-label {
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.ve-input {
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.8rem;
+}
+
+.ve-prop-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ve-prop-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: end;
+  gap: 8px;
+}
+
+.ve-prop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.ve-swatch {
+  width: 34px;
+  height: 30px;
+  padding: 2px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  cursor: pointer;
+}
+
+.ve-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  cursor: pointer;
+}
+
+.ve-toggle input {
+  accent-color: var(--brand-cyan);
+}
+
+/* Layers list */
+.ve-layer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.ve-layer-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.ve-layer-row.is-selected {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+}
+
+.ve-layer-icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.ve-layer-icon:hover {
+  background: var(--accent);
+}
+
+.ve-layer-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 4px 6px;
+  border: none;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.8rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.ve-layer-glyph {
+  color: var(--muted-foreground);
+}
+
+.ve-layer-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ve-layer-actions {
+  display: flex;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.ve-layer-actions .button {
+  flex: 1;
+}
+
+/* On-canvas zoom cluster + minimap (solid surfaces, no glass — anti-goal) */
+.vector-editor-zoombar {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.vector-editor-zoombar button {
+  display: grid;
+  place-items: center;
+  min-width: 28px;
+  height: 26px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.vector-editor-zoombar button.is-text {
+  padding: 0 8px;
+  font-size: 0.72rem;
+}
+
+.vector-editor-zoombar button:hover {
+  background: var(--accent);
+}
+
+.vector-editor-zoom-readout {
+  min-width: 46px;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.vector-editor-minimap {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.vector-editor-minimap-artboard {
+  stroke: var(--border);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.vector-editor-minimap-view {
+  fill: color-mix(in oklch, var(--brand-cyan) 14%, transparent);
+  stroke: var(--brand-cyan);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+/* Right dock */
+.vector-editor-dock {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-height: 0;
+  background: var(--card);
+  overflow: hidden;
+}
+
+.vector-editor-dock-body {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 14px;
+}
+
+.vector-editor-dock-empty {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.vector-editor-dock-section {
+  display: grid;
+  gap: 8px;
+}
+
+.vector-editor-dock-label {
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vector-editor-doc-meta {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+}
+
+.vector-editor-doc-meta > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.vector-editor-doc-meta dt {
+  color: var(--muted-foreground);
+  font-size: 0.78rem;
+}
+
+.vector-editor-doc-meta dd {
+  margin: 0;
+  color: var(--foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.78rem;
+}
+
+/* Footer statusbar (portaled into #app-statusbar-slot) */
+.vector-editor-statusbar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.72rem;
+}
+
+.status-bar:has(.vector-editor-statusbar) .status-default {
+  display: none;
+}
+
+/* Medium screens: narrow the rails, matching the Image Editor. */
+@media (max-width: 980px) {
+  .vector-editor-layout {
+    grid-template-columns: 84px minmax(0, 1fr) 268px;
+  }
+}
+
+/* Below 900px (but above the 768px mobile gate) the cockpit stacks: tool strip
+   on top as a horizontal row, artboard, then the dock. */
+@media (max-width: 900px) {
+  .tool-page.vector-editor-page {
+    height: auto;
+    min-height: calc(100dvh - var(--app-chrome-height));
+    overflow: visible;
+  }
+  .vector-editor-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto minmax(360px, 60vh) auto;
+  }
+  .vector-editor-toolstrip {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 

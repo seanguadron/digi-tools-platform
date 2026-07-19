@@ -1,0 +1,90 @@
+// The vector document is a native SVG scene graph: an ordered list of objects
+// where array order IS z-order (index 0 = bottom, last = top). Each object stays
+// SEMANTIC — a rect keeps x/y/width/height, an ellipse keeps cx/cy/rx/ry — so
+// exporting is the live document with zero conversion (the whole point of the
+// native-SVG choice). Rotation is a single field (degrees clockwise about the
+// object's bbox center), applied as an SVG transform at render time; move and
+// resize edit the geometry directly rather than accumulating a matrix, which
+// keeps the model readable and the export clean.
+
+export type VectorObjectId = string;
+
+export type VectorShapeKind = "rect" | "ellipse" | "line" | "polygon";
+
+export interface Point {
+  x: number;
+  y: number;
+}
+
+export interface Paint {
+  color: string; // any CSS color string
+  opacity: number; // 0..1
+}
+
+export interface Stroke extends Paint {
+  width: number; // user units
+}
+
+interface VectorObjectBase {
+  id: VectorObjectId;
+  kind: VectorShapeKind;
+  name: string;
+  fill: Paint | null; // null = no fill
+  stroke: Stroke | null; // null = no stroke
+  opacity: number; // whole-object opacity, 0..1
+  rotation: number; // degrees clockwise, about the bbox center
+  locked: boolean;
+  hidden: boolean;
+}
+
+export interface RectObject extends VectorObjectBase {
+  kind: "rect";
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  radius: number; // corner radius, user units
+}
+
+export interface EllipseObject extends VectorObjectBase {
+  kind: "ellipse";
+  cx: number;
+  cy: number;
+  rx: number;
+  ry: number;
+}
+
+export interface LineObject extends VectorObjectBase {
+  kind: "line";
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+}
+
+export interface PolygonObject extends VectorObjectBase {
+  kind: "polygon";
+  points: Point[];
+}
+
+export type VectorObject =
+  | RectObject
+  | EllipseObject
+  | LineObject
+  | PolygonObject;
+
+export interface VectorDocument {
+  width: number; // artboard size, user units
+  height: number;
+  background: string | null; // artboard fill; null = transparent
+  objects: VectorObject[];
+}
+
+export const DEFAULT_ARTBOARD = { width: 960, height: 600 } as const;
+
+export function createEmptyDocument(
+  width: number = DEFAULT_ARTBOARD.width,
+  height: number = DEFAULT_ARTBOARD.height,
+): VectorDocument {
+  return { width, height, background: "#ffffff", objects: [] };
+}
