@@ -26,6 +26,7 @@ import {
 import { useCanvasViewport } from "@/hooks/use-canvas-viewport";
 import { useImageEditorHistory } from "@/hooks/use-image-editor-history";
 import { useImageEditorPersistence } from "@/hooks/use-image-editor-persistence";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import {
   downloadBlob,
   downloadTextFile,
@@ -1051,10 +1052,7 @@ export function ImageEditor() {
     </ToolSubbar>
   );
 
-  const statusTarget =
-    typeof document === "undefined"
-      ? null
-      : document.getElementById("app-statusbar-slot");
+  const statusTarget = usePortalTarget("app-statusbar-slot");
 
   const statusBar = doc ? (
     <div className="image-editor-statusbar">
