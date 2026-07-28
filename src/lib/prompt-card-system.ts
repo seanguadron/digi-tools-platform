@@ -151,10 +151,10 @@ export function sanitizeCardSystemShape<
     equipped: Record<CardSection, string[]>;
     overrides: TrackId[];
   },
->(state: T): T {
+>(state: T | null | undefined): T {
   const tracks = {} as TrackValues;
   for (const trackId of TRACK_IDS) {
-    const raw = state.tracks?.[trackId];
+    const raw = state?.tracks?.[trackId];
     const max = getTrackMax(trackId);
     tracks[trackId] =
       typeof raw === "number" && Number.isFinite(raw)
@@ -164,9 +164,8 @@ export function sanitizeCardSystemShape<
 
   const equipped = {} as Record<CardSection, string[]>;
   for (const section of CARD_SECTIONS) {
-    const ids = Array.isArray(state.equipped?.[section])
-      ? state.equipped[section]
-      : [];
+    const candidate = state?.equipped?.[section];
+    const ids = Array.isArray(candidate) ? candidate : [];
     equipped[section] = ids
       .filter(
         (id, index) =>
@@ -175,9 +174,12 @@ export function sanitizeCardSystemShape<
       .slice(0, SECTION_SLOT_BUDGETS[section]);
   }
 
-  const overrides = Array.isArray(state.overrides)
-    ? state.overrides.filter((trackId) => TRACK_IDS.includes(trackId))
+  const overrideList = state?.overrides;
+  const overrides = Array.isArray(overrideList)
+    ? overrideList.filter((trackId) => TRACK_IDS.includes(trackId))
     : [];
 
-  return { ...state, tracks, equipped, overrides };
+  // A null state degrades to the three sanitized keys; every in-repo caller
+  // passes a full object, so the cast only covers that degraded path.
+  return { ...(state ?? ({} as T)), tracks, equipped, overrides };
 }

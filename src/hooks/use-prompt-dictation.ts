@@ -134,10 +134,13 @@ export function usePromptDictation({
     const audioContext = new AudioContextClass();
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaStreamSource(stream);
-    const values = new Uint8Array(analyser.frequencyBinCount);
 
-    analyser.fftSize = 64;
+    // fftSize must be set before sizing the buffer: frequencyBinCount derives
+    // from it, and a buffer sized at the default 2048 leaves every bin past 31
+    // permanently empty (the "only the first bar animates" bug).
+    analyser.fftSize = 256;
     analyser.smoothingTimeConstant = 0.72;
+    const values = new Uint8Array(analyser.frequencyBinCount);
     source.connect(analyser);
     audioContextRef.current = audioContext;
 
@@ -146,11 +149,24 @@ export function usePromptDictation({
       const bars =
         waveformRef.current?.querySelectorAll<HTMLElement>("[data-level-bar]");
 
-      bars?.forEach((bar, index) => {
-        const bucket = Math.floor((index / bars.length) * values.length);
-        const level = Math.max(0.16, values[bucket] / 255);
-        bar.style.transform = `scaleY(${level})`;
-      });
+      if (bars && bars.length > 0) {
+        // Voice energy sits in the low end of the spectrum, so spread the
+        // bars across the lower third of the bins and average each slice.
+        const usable = Math.max(bars.length, Math.floor(values.length / 3));
+        bars.forEach((bar, index) => {
+          const start = Math.floor((index / bars.length) * usable);
+          const end = Math.max(
+            start + 1,
+            Math.floor(((index + 1) / bars.length) * usable),
+          );
+          let sum = 0;
+          for (let bin = start; bin < end; bin += 1) {
+            sum += values[bin];
+          }
+          const level = Math.max(0.16, sum / (end - start) / 255);
+          bar.style.transform = `scaleY(${level})`;
+        });
+      }
 
       animationFrameRef.current = window.requestAnimationFrame(drawMeter);
     }

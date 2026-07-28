@@ -18,43 +18,11 @@ import {
 import type {
   CardSystemState,
   PromptDraft,
+  PromptDraftTextField,
 } from "@/lib/prompt-builder-state";
 import { FLOW_PANEL_INDEX } from "@/lib/prompt-navigation";
 import type { CardSection, TrackId } from "@/lib/prompt-card-system";
 import type { PromptRole } from "@/lib/prompt-types";
-
-function CraftSubpageTabs({
-  label,
-  active,
-  onWrite,
-  onCards,
-}: {
-  label: string;
-  active: "write" | "cards";
-  onWrite: () => void;
-  onCards: () => void;
-}) {
-  return (
-    <div className="flow-subnav" aria-label={`${label} substeps`}>
-      <button
-        className={active === "write" ? "is-active" : ""}
-        type="button"
-        onClick={onWrite}
-        aria-current={active === "write" ? "step" : undefined}
-      >
-        Write
-      </button>
-      <button
-        className={active === "cards" ? "is-active" : ""}
-        type="button"
-        onClick={onCards}
-        aria-current={active === "cards" ? "step" : undefined}
-      >
-        Cards
-      </button>
-    </div>
-  );
-}
 
 export function CraftFlowPanels({
   activePanel,
@@ -74,6 +42,7 @@ export function CraftFlowPanels({
   navigateToCraftStep,
   onSelectOutputType,
   onUpdateDraft,
+  onSetUseDefault,
   onChangeTrack,
   onToggleCard,
   onDropCard,
@@ -106,9 +75,10 @@ export function CraftFlowPanels({
   navigateToPanel: (panelIndex: number, focusTargetId?: string) => void;
   navigateToCraftStep: (stepIndex: number) => void;
   onSelectOutputType: (value: string) => void;
-  onUpdateDraft: (
-    field: Exclude<keyof PromptDraft, "roleIds">,
-    value: string,
+  onUpdateDraft: (field: PromptDraftTextField, value: string) => void;
+  onSetUseDefault: (
+    field: "contextUseDefault" | "targetUseDefault",
+    value: boolean,
   ) => void;
   onChangeTrack: (trackId: TrackId, value: number) => void;
   onToggleCard: (section: CardSection, lineageId: string) => void;
@@ -205,7 +175,7 @@ export function CraftFlowPanels({
               ))}
             </div>
             <FlowActions
-              onNext={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
+              onNext={() => navigateToPanel(FLOW_PANEL_INDEX.context)}
               nextLabel="Start"
             />
           </div>
@@ -213,87 +183,20 @@ export function CraftFlowPanels({
 
         <section
           className="flow-panel"
-          aria-hidden={activePanel !== FLOW_PANEL_INDEX.contextWrite}
-          inert={activePanel !== FLOW_PANEL_INDEX.contextWrite}
+          aria-hidden={activePanel !== FLOW_PANEL_INDEX.context}
+          inert={activePanel !== FLOW_PANEL_INDEX.context}
         >
           <div className="flow-panel-heading">
             <span aria-hidden="true">C</span>
             <h2
               tabIndex={-1}
               ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.contextWrite, node);
+                registerPanelHeading(FLOW_PANEL_INDEX.context, node);
               }}
             >
               Context
             </h2>
           </div>
-          <CraftSubpageTabs
-            label="Context"
-            active="write"
-            onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-            onCards={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-          />
-
-          <div className="flow-panel-card">
-            <CraftCard letter="C" complete={isFieldComplete(draft, "context")}>
-              <div className="field craft-field">
-                <FieldHeading
-                  field="context"
-                  label="What are you working on?"
-                  controlId="prompt-context"
-                  hint="Give the model the topic, goal, source material, constraints, exclusions, and uncertainty."
-                />
-                <div className="brief-next-card">
-                  <strong>Cards come next</strong>
-                  <p>
-                    After this, context cards tune scope, constraints, evidence,
-                    and assumptions.
-                  </p>
-                </div>
-                <CraftDictationField
-                  id="prompt-context"
-                  field="context"
-                  label="Context"
-                  value={draft.context}
-                  placeholder="Describe the raw situation: goal, facts, source material, constraints, exclusions, uncertainty."
-                  rows={8}
-                  required
-                  attention={attentionTargetId === "prompt-context"}
-                  onChange={(value) => onUpdateDraft("context", value)}
-                  dictation={dictation}
-                />
-              </div>
-            </CraftCard>
-          </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.guide)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-            nextLabel="Next: context cards"
-          />
-        </section>
-
-        <section
-          className="flow-panel"
-          aria-hidden={activePanel !== FLOW_PANEL_INDEX.contextCards}
-          inert={activePanel !== FLOW_PANEL_INDEX.contextCards}
-        >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">C</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.contextCards, node);
-              }}
-            >
-              Context cards
-            </h2>
-          </div>
-          <CraftSubpageTabs
-            label="Context"
-            active="cards"
-            onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
-            onCards={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
-          />
 
           <div className="flow-panel-card">
             <CraftCard letter="C" complete={isFieldComplete(draft, "context")}>
@@ -324,11 +227,43 @@ export function CraftFlowPanels({
                     onClearCards={() => onClearCards("context")}
                   />
                 </div>
+                <div className="workbench-text-row">
+                  <label
+                    className="workbench-text-label"
+                    htmlFor="prompt-context"
+                  >
+                    Optional custom context
+                  </label>
+                  <label className="workbench-default-check">
+                    <input
+                      type="checkbox"
+                      checked={draft.contextUseDefault}
+                      onChange={(event) =>
+                        onSetUseDefault(
+                          "contextUseDefault",
+                          event.target.checked,
+                        )
+                      }
+                    />
+                    Use default context
+                  </label>
+                </div>
+                <CraftDictationField
+                  id="prompt-context"
+                  field="context"
+                  label="Context"
+                  value={draft.context}
+                  placeholder="Describe the raw situation: goal, facts, source material, constraints, exclusions, uncertainty."
+                  rows={4}
+                  attention={attentionTargetId === "prompt-context"}
+                  onChange={(value) => onUpdateDraft("context", value)}
+                  dictation={dictation}
+                />
               </div>
             </CraftCard>
           </div>
           <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.contextWrite)}
+            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.guide)}
             onNext={() => navigateToPanel(FLOW_PANEL_INDEX.role)}
           />
         </section>
@@ -385,7 +320,7 @@ export function CraftFlowPanels({
             </CraftCard>
           </div>
           <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.contextCards)}
+            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.context)}
             onNext={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
           />
         </section>
@@ -576,96 +511,26 @@ export function CraftFlowPanels({
           </div>
           <FlowActions
             onBack={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
+            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.target)}
           />
         </section>
 
         <section
           className="flow-panel"
-          aria-hidden={activePanel !== FLOW_PANEL_INDEX.targetWrite}
-          inert={activePanel !== FLOW_PANEL_INDEX.targetWrite}
+          aria-hidden={activePanel !== FLOW_PANEL_INDEX.target}
+          inert={activePanel !== FLOW_PANEL_INDEX.target}
         >
           <div className="flow-panel-heading">
             <span aria-hidden="true">T</span>
             <h2
               tabIndex={-1}
               ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.targetWrite, node);
+                registerPanelHeading(FLOW_PANEL_INDEX.target, node);
               }}
             >
               Target audience
             </h2>
           </div>
-          <CraftSubpageTabs
-            label="Target audience"
-            active="write"
-            onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-            onCards={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-          />
-
-          <div className="flow-panel-card">
-            <CraftCard
-              letter="T"
-              complete={isFieldComplete(draft, "targetAudience")}
-            >
-              <div className="field craft-field">
-                <FieldHeading
-                  field="targetAudience"
-                  label="Who exactly are you targeting?"
-                  controlId="prompt-target-audience"
-                  hint="Name the audience, knowledge level, decision context, tone sensitivity, and desired outcome."
-                />
-                <div className="brief-next-card">
-                  <strong>Cards come next</strong>
-                  <p>
-                    After this, audience cards tune expertise, tone, language,
-                    and delivery rules.
-                  </p>
-                </div>
-                <CraftDictationField
-                  id="prompt-target-audience"
-                  field="targetAudience"
-                  label="Target audience"
-                  value={draft.targetAudience}
-                  placeholder="Describe the real reader: role, knowledge level, goal, constraints, and what they need to do next."
-                  rows={7}
-                  required
-                  attention={attentionTargetId === "prompt-target-audience"}
-                  onChange={(value) => onUpdateDraft("targetAudience", value)}
-                  dictation={dictation}
-                />
-              </div>
-            </CraftCard>
-          </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-            nextLabel="Next: audience cards"
-          />
-        </section>
-
-        <section
-          className="flow-panel"
-          aria-hidden={activePanel !== FLOW_PANEL_INDEX.targetCards}
-          inert={activePanel !== FLOW_PANEL_INDEX.targetCards}
-        >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">T</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.targetCards, node);
-              }}
-            >
-              Audience cards
-            </h2>
-          </div>
-          <CraftSubpageTabs
-            label="Target audience"
-            active="cards"
-            onWrite={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
-            onCards={() => navigateToPanel(FLOW_PANEL_INDEX.targetCards)}
-          />
 
           <div className="flow-panel-card">
             <CraftCard
@@ -699,11 +564,43 @@ export function CraftFlowPanels({
                     onClearCards={() => onClearCards("target")}
                   />
                 </div>
+                <div className="workbench-text-row">
+                  <label
+                    className="workbench-text-label"
+                    htmlFor="prompt-target-audience"
+                  >
+                    Optional custom audience
+                  </label>
+                  <label className="workbench-default-check">
+                    <input
+                      type="checkbox"
+                      checked={draft.targetUseDefault}
+                      onChange={(event) =>
+                        onSetUseDefault(
+                          "targetUseDefault",
+                          event.target.checked,
+                        )
+                      }
+                    />
+                    Use default audience
+                  </label>
+                </div>
+                <CraftDictationField
+                  id="prompt-target-audience"
+                  field="targetAudience"
+                  label="Target audience"
+                  value={draft.targetAudience}
+                  placeholder="Describe the real reader: role, knowledge level, goal, constraints, and what they need to do next."
+                  rows={4}
+                  attention={attentionTargetId === "prompt-target-audience"}
+                  onChange={(value) => onUpdateDraft("targetAudience", value)}
+                  dictation={dictation}
+                />
               </div>
             </CraftCard>
           </div>
           <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.targetWrite)}
+            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
             onNext={onReviewOutput}
             nextLabel="Review output"
             onSecondary={onReset}

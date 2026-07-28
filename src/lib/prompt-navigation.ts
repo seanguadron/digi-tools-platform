@@ -1,101 +1,33 @@
 export const FLOW_PANEL_INDEX = {
   guide: 0,
-  contextWrite: 1,
-  contextCards: 2,
-  role: 3,
-  action: 4,
-  format: 5,
-  targetWrite: 6,
-  targetCards: 7,
+  context: 1,
+  role: 2,
+  action: 3,
+  format: 4,
+  target: 5,
 } as const;
 
 export type FlowPanelIndex =
   (typeof FLOW_PANEL_INDEX)[keyof typeof FLOW_PANEL_INDEX];
 
-const CRAFT_STEP_ENTRY_PANELS = [
-  FLOW_PANEL_INDEX.contextWrite,
+// One panel per C.R.A.F.T. step, in step order. Proof scenarios address
+// panels by these indices via their "panel" field.
+const CRAFT_STEP_PANELS: readonly number[] = [
+  FLOW_PANEL_INDEX.context,
   FLOW_PANEL_INDEX.role,
   FLOW_PANEL_INDEX.action,
   FLOW_PANEL_INDEX.format,
-  FLOW_PANEL_INDEX.targetWrite,
-] as const;
-
-const CRAFT_STEP_CARD_PANELS = [
-  FLOW_PANEL_INDEX.contextCards,
-  FLOW_PANEL_INDEX.role,
-  FLOW_PANEL_INDEX.action,
-  FLOW_PANEL_INDEX.format,
-  FLOW_PANEL_INDEX.targetCards,
-] as const;
+  FLOW_PANEL_INDEX.target,
+];
 
 export const FLOW_PANEL_COUNT = Object.keys(FLOW_PANEL_INDEX).length;
 
 export function getCraftStepIndexForPanel(activePanel: number) {
-  if (
-    activePanel === FLOW_PANEL_INDEX.contextWrite ||
-    activePanel === FLOW_PANEL_INDEX.contextCards
-  ) {
-    return 0;
-  }
-
-  if (activePanel === FLOW_PANEL_INDEX.role) {
-    return 1;
-  }
-
-  if (activePanel === FLOW_PANEL_INDEX.action) {
-    return 2;
-  }
-
-  if (activePanel === FLOW_PANEL_INDEX.format) {
-    return 3;
-  }
-
-  if (
-    activePanel === FLOW_PANEL_INDEX.targetWrite ||
-    activePanel === FLOW_PANEL_INDEX.targetCards
-  ) {
-    return 4;
-  }
-
-  return -1;
+  return CRAFT_STEP_PANELS.indexOf(activePanel);
 }
 
-export function getCraftStepPanel(
-  stepIndex: number,
-  completeSteps: readonly boolean[],
-  preferredPanel?: number,
-) {
-  if (
-    preferredPanel !== undefined &&
-    getCraftStepIndexForPanel(preferredPanel) === stepIndex
-  ) {
-    return preferredPanel;
-  }
-
-  if (!completeSteps[stepIndex]) {
-    return CRAFT_STEP_ENTRY_PANELS[stepIndex] ?? FLOW_PANEL_INDEX.guide;
-  }
-
-  return CRAFT_STEP_CARD_PANELS[stepIndex] ?? FLOW_PANEL_INDEX.guide;
-}
-
-export function getLegacyProofPanel(panel: number) {
-  switch (panel) {
-    case 0:
-      return FLOW_PANEL_INDEX.guide;
-    case 1:
-      return FLOW_PANEL_INDEX.contextCards;
-    case 2:
-      return FLOW_PANEL_INDEX.role;
-    case 3:
-      return FLOW_PANEL_INDEX.action;
-    case 4:
-      return FLOW_PANEL_INDEX.format;
-    case 5:
-      return FLOW_PANEL_INDEX.targetCards;
-    default:
-      return FLOW_PANEL_INDEX.guide;
-  }
+export function getCraftStepPanel(stepIndex: number) {
+  return CRAFT_STEP_PANELS[stepIndex] ?? FLOW_PANEL_INDEX.guide;
 }
 
 export function getNextIncompletePanel(
@@ -110,7 +42,7 @@ export function getNextIncompletePanel(
   for (let offset = 1; offset <= completeSteps.length; offset += 1) {
     const stepIndex = (activeStepIndex + offset) % completeSteps.length;
     if (!completeSteps[stepIndex]) {
-      return CRAFT_STEP_ENTRY_PANELS[stepIndex] ?? FLOW_PANEL_INDEX.guide;
+      return getCraftStepPanel(stepIndex);
     }
   }
 

@@ -6,7 +6,9 @@
     "action": "",
     "format": "A prioritized Markdown list with short explanations",
     "formatNotes": "",
-    "targetAudience": ""
+    "targetAudience": "",
+    "contextUseDefault": true,
+    "targetUseDefault": true
   },
   "exampleDraft": {
     "context": "Digi Tools is a local-first browser toolbox. The current onboarding should help a first-time user reach a useful prompt within two minutes. Review the flow without adding accounts, cloud sync, or a full redesign.",
@@ -16,7 +18,9 @@
     "action": "Review the onboarding flow and identify the largest points of friction.\nExplain why each issue matters to a first-time user.\nRecommend changes the team can ship within one week.\nPrioritize the findings by user impact and implementation effort.",
     "format": "A prioritized Markdown list with short explanations",
     "formatNotes": "For each finding, include the problem, evidence, recommended change, and expected effect.",
-    "targetAudience": "A product designer and frontend developer preparing the next iteration. They understand standard UX terminology and need implementation-ready guidance."
+    "targetAudience": "A product designer and frontend developer preparing the next iteration. They understand standard UX terminology and need implementation-ready guidance.",
+    "contextUseDefault": false,
+    "targetUseDefault": false
   },
   "craftParts": [
     {

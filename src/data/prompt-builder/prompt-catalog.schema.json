@@ -451,6 +451,7 @@
         "code",
         "name",
         "description",
+        "defaultAudience",
         "formatCode",
         "roleIds",
         "tracks",
@@ -466,6 +467,7 @@
         },
         "name": { "$ref": "#/$defs/nonEmptyString" },
         "description": { "$ref": "#/$defs/nonEmptyString" },
+        "defaultAudience": { "$ref": "#/$defs/nonEmptyString" },
         "formatCode": {
           "type": "string",
           "pattern": "^[A-Z][A-Z0-9]*$"
@@ -507,7 +509,9 @@
         "action",
         "format",
         "formatNotes",
-        "targetAudience"
+        "targetAudience",
+        "contextUseDefault",
+        "targetUseDefault"
       ],
       "properties": {
         "context": { "type": "string" },
@@ -520,7 +524,9 @@
         "action": { "type": "string" },
         "format": { "type": "string" },
         "formatNotes": { "type": "string" },
-        "targetAudience": { "type": "string" }
+        "targetAudience": { "type": "string" },
+        "contextUseDefault": { "type": "boolean" },
+        "targetUseDefault": { "type": "boolean" }
       }
     },
     "proofDraft": {

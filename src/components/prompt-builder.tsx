@@ -19,7 +19,7 @@ import { usePromptDictation } from "@/hooks/use-prompt-dictation";
 import { useCraftFlowNavigation } from "@/hooks/use-craft-flow-navigation";
 import { usePromptBuilderHistory } from "@/hooks/use-prompt-builder-history";
 import { usePromptBuilderPersistence } from "@/hooks/use-prompt-builder-persistence";
-import { downloadTextFile } from "@/lib/browser-download";
+import { downloadTextFile, slugifyFilename } from "@/lib/browser-download";
 import {
   PROMPT_ARCHETYPES,
   type PromptArchetype,
@@ -49,18 +49,21 @@ import {
   placeEquippedCard,
   removeEquippedCard,
   REQUIRED_FIELDS,
+  restoreCardSystem,
+  restoreDraft,
   setTrackValue,
   toggleEquippedCard,
+  withDraftText,
 } from "@/lib/prompt-builder-state";
 import {
   FLOW_PANEL_INDEX,
   getCraftStepIndexForPanel,
-  getLegacyProofPanel,
   getNextIncompletePanel,
 } from "@/lib/prompt-navigation";
 import type {
   CardSystemState,
   PromptDraft,
+  PromptDraftTextField,
 } from "@/lib/prompt-builder-state";
 import {
   PROOF_SCENARIOS,
@@ -101,6 +104,11 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [roleSelectionMessage, setRoleSelectionMessage] = useState("");
   const [roleWorkbenchVersion, setRoleWorkbenchVersion] = useState(0);
   const [activeArchetypeId, setActiveArchetypeId] = useState<string | null>(
+    null,
+  );
+  // The library name the current draft was loaded from or saved as; feeds the
+  // download filename when no archetype is active.
+  const [activePromptName, setActivePromptName] = useState<string | null>(
     null,
   );
   // At phone widths the expanded dock overlays the whole workspace, so the
@@ -157,7 +165,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     draft,
     onApply: (field, value) => {
       history.checkpoint();
-      setDraft((current) => ({ ...current, [field]: value }));
+      setDraft((current) => withDraftText(current, field, value));
       setCopyState("idle");
     },
   });
@@ -176,13 +184,37 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     () => getEquippedInstructions(cardSystem.equipped, cardSystem.tracks),
     [cardSystem.equipped, cardSystem.tracks],
   );
+  const activeArchetype = useMemo(
+    () =>
+      activeArchetypeId
+        ? ([...PROMPT_ARCHETYPES, ...customArchetypes].find(
+            (archetype) => archetype.id === activeArchetypeId,
+          ) ?? null)
+        : null,
+    [activeArchetypeId, customArchetypes],
+  );
+  const audienceDefault = activeArchetype?.defaultAudience ?? null;
+  // Best available name for exports: archetype, then the library name the
+  // draft came from, then the lead role. slugifyFilename falls back to
+  // "craft", reproducing the legacy craft-prompt.* / craft-session.json.
+  const exportBase = slugifyFilename(
+    activeArchetype?.name ?? activePromptName ?? selectedRoles[0]?.name ?? "",
+    "craft",
+  );
+  const promptFileBase = exportBase.endsWith("prompt")
+    ? exportBase
+    : `${exportBase}-prompt`;
   const prompt = useMemo(
-    () => buildPrompt(draft, selectedRoles, equippedInstructions),
-    [draft, equippedInstructions, selectedRoles],
+    () => buildPrompt(draft, selectedRoles, equippedInstructions, {
+      audienceDefault,
+    }),
+    [audienceDefault, draft, equippedInstructions, selectedRoles],
   );
   const promptSections = useMemo(
-    () => buildPromptSections(draft, selectedRoles, equippedInstructions),
-    [draft, equippedInstructions, selectedRoles],
+    () => buildPromptSections(draft, selectedRoles, equippedInstructions, {
+      audienceDefault,
+    }),
+    [audienceDefault, draft, equippedInstructions, selectedRoles],
   );
   const missingFields = REQUIRED_FIELDS.filter(({ field }) => {
     if (field === "action") {
@@ -208,7 +240,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     isFieldComplete(draft, "targetAudience"),
   ];
   const completedStepCount = flowStepComplete.filter(Boolean).length;
-  const nav = useCraftFlowNavigation(flowStepComplete);
+  const nav = useCraftFlowNavigation();
   const nextIncompletePanel = getNextIncompletePanel(
     nav.activePanel,
     flowStepComplete,
@@ -275,6 +307,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
         setRoleWorkbenchVersion((current) => current + 1);
         setActiveArchetypeId(null);
+        setActivePromptName(null);
         setSpeechMessage("Shared prompt loaded.");
       } catch {
         setSpeechMessage("That shared link could not be read.");
@@ -293,7 +326,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     const missingTargets: Record<string, { panel: number; controlId: string }> =
       {
         context: {
-          panel: FLOW_PANEL_INDEX.contextWrite,
+          panel: FLOW_PANEL_INDEX.context,
           controlId: "prompt-context",
         },
         roleIds: {
@@ -309,7 +342,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           controlId: "prompt-format-options",
         },
         targetAudience: {
-          panel: FLOW_PANEL_INDEX.targetWrite,
+          panel: FLOW_PANEL_INDEX.target,
           controlId: "prompt-target-audience",
         },
       };
@@ -323,14 +356,20 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     nav.navigateToPanel(target.panel, target.controlId);
   }
 
-  function updateDraft(
-    field: Exclude<keyof PromptDraft, "roleIds">,
-    value: string,
-  ) {
+  function updateDraft(field: PromptDraftTextField, value: string) {
     history.checkpoint();
     if (field !== "context" && field !== "targetAudience") {
       setActiveArchetypeId(null);
     }
+    setCopyState("idle");
+    setDraft((current) => withDraftText(current, field, value));
+  }
+
+  function setUseDefault(
+    field: "contextUseDefault" | "targetUseDefault",
+    value: boolean,
+  ) {
+    history.checkpoint();
     setCopyState("idle");
     setDraft((current) => ({ ...current, [field]: value }));
   }
@@ -388,7 +427,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     setActiveArchetypeId(archetype.id);
     setActiveProofId(null);
     setProofLabOpen(false);
-    setOutputExpanded(false);
     setCopyState("idle");
     setSpeechMessage(
       `${archetype.name} archetype applied. Your current section stayed in place.`,
@@ -460,6 +498,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     setRoleWorkbenchVersion((current) => current + 1);
     setRoleSelectionMessage("");
     setActiveArchetypeId(null);
+    setActivePromptName(null);
     setActiveProofId(null);
     nav.setActivePanel(FLOW_PANEL_INDEX.guide);
     setCopyState("idle");
@@ -490,6 +529,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       "Example loaded with UX / UI Advisor as the lead role.",
     );
     setActiveArchetypeId(null);
+    setActivePromptName(null);
     setCopyState("idle");
     setSpeechMessage("");
     setActiveProofId(null);
@@ -540,6 +580,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         : `${scenario.name} loaded with an empty role loadout.`,
     );
     setActiveArchetypeId(null);
+    setActivePromptName(null);
     setActiveProofId(scenario.id);
     setProofLabOpen(false);
     setOutputExpanded(scenario.outputExpanded ?? true);
@@ -547,7 +588,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     setSpeechMessage(
       `${scenario.name} proof loaded. Follow the verification checklist.`,
     );
-    nav.navigateToPanel(getLegacyProofPanel(scenario.panel));
+    nav.navigateToPanel(scenario.panel);
   }
 
   function toggleRole(role: PromptRole) {
@@ -636,7 +677,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           )
         : {};
       downloadTextFile(
-        "craft-prompt.json",
+        `${promptFileBase}.json`,
         `${JSON.stringify(data, null, 2)}\n`,
         "application/json;charset=utf-8",
       );
@@ -644,7 +685,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     }
 
     downloadTextFile(
-      `craft-prompt.${format}`,
+      `${promptFileBase}.${format}`,
       `${prompt}\n`,
       format === "txt"
         ? "text/plain;charset=utf-8"
@@ -658,7 +699,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
 
   function downloadSession() {
     downloadTextFile(
-      "craft-session.json",
+      `${exportBase}-session.json`,
       serializePromptSession(draft, cardSystem),
       "application/json;charset=utf-8",
     );
@@ -687,6 +728,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
       setRoleWorkbenchVersion((current) => current + 1);
       setActiveArchetypeId(null);
+      setActivePromptName(null);
       setActiveProofId(null);
       setCopyState("idle");
       setSpeechMessage("Session imported.");
@@ -699,18 +741,32 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
 
   function saveCurrentToLibrary(name: string) {
     setSavedPrompts(saveToLibrary(name, draft, cardSystem));
+    // Mirror saveToLibrary's fallback so exports pick up the saved name.
+    setActivePromptName(name.trim() || "Untitled prompt");
     setSpeechMessage("Saved to your prompt library.");
   }
 
   function loadSavedPrompt(entry: SavedPrompt) {
     history.checkpoint();
     cancelDictation(true);
-    setDraft(entry.draft);
-    setCardSystem(sanitizeCardSystemShape(entry.cardSystem));
-    const leadRole = roles.find((role) => role.id === entry.draft.roleIds[0]);
+    // Restore through the same validators as autosave, URL shares, and
+    // session imports: the library store is shape-filtered on read, but the
+    // field types inside draft/cardSystem are still unchecked JSON — a
+    // hand-edited entry must degrade to defaults, not crash. This also gives
+    // pre-boolean entries their use-default fields.
+    const nextDraft = restoreDraft(JSON.stringify(entry.draft ?? {}), roles);
+    setDraft(nextDraft);
+    setCardSystem(
+      restoreCardSystem(
+        JSON.stringify(entry.cardSystem ?? {}),
+        nextDraft.format,
+      ),
+    );
+    const leadRole = roles.find((role) => role.id === nextDraft.roleIds[0]);
     setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
     setRoleWorkbenchVersion((current) => current + 1);
     setActiveArchetypeId(null);
+    setActivePromptName(entry.name);
     setActiveProofId(null);
     setLibraryOpen(false);
     setCopyState("idle");
@@ -917,6 +973,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
               navigateToCraftStep={nav.navigateToCraftStep}
               onSelectOutputType={selectOutputType}
               onUpdateDraft={updateDraft}
+              onSetUseDefault={setUseDefault}
               onChangeTrack={changeTrack}
               onToggleCard={toggleWorkbenchCard}
               onDropCard={dropWorkbenchCard}

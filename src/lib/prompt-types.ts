@@ -24,7 +24,17 @@ export type PromptDraft = {
   format: string;
   formatNotes: string;
   targetAudience: string;
+  // When true and the matching text field is empty, the assembled prompt
+  // carries a default line that defers context/audience to the request that
+  // accompanies the exported file.
+  contextUseDefault: boolean;
+  targetUseDefault: boolean;
 };
+
+export type PromptDraftTextField = Exclude<
+  keyof PromptDraft,
+  "roleIds" | "contextUseDefault" | "targetUseDefault"
+>;
 
 export type CardSection = "context" | "action" | "format" | "target";
 
@@ -106,6 +116,9 @@ export type PromptArchetype = {
   illustration: CardIllustration;
   action?: string;
   formatNotes?: string;
+  // Audience assumption injected when Target audience uses the default text.
+  // Optional because custom presets never carry one.
+  defaultAudience?: string;
 };
 
 export type RolesCatalog = {

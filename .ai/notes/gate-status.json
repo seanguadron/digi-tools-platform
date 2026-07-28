@@ -1,16 +1,20 @@
 {
-  "lastSweep": "2026-07-19",
+  "lastSweep": "2026-07-28",
   "standards": "pass",
   "security": "pass",
   "stateFresh": true,
   "owed": [
     {
       "gate": "integration",
-      "reason": "9 uncommitted file(s) touch its surface"
+      "reason": "18 uncommitted file(s) touch its surface"
     },
     {
       "gate": "design",
-      "reason": "7 uncommitted file(s) touch its surface"
+      "reason": "3 uncommitted file(s) touch its surface"
+    },
+    {
+      "gate": "security",
+      "reason": "3 uncommitted file(s) touch its surface"
     }
   ],
   "notes": "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector."

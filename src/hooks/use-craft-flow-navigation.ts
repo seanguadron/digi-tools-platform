@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import {
-  FLOW_PANEL_COUNT,
-  FLOW_PANEL_INDEX,
-  getCraftStepPanel,
-} from "@/lib/prompt-navigation";
+import { FLOW_PANEL_COUNT, getCraftStepPanel } from "@/lib/prompt-navigation";
 
 /**
  * Owns the horizontal CRAFT panel slider: which panel is active, the refs used
@@ -13,7 +9,7 @@ import {
  * "attention" highlight. Extracted from PromptBuilder so the orchestrator only
  * has to call navigateToPanel / navigateToCraftStep.
  */
-export function useCraftFlowNavigation(flowStepComplete: boolean[]) {
+export function useCraftFlowNavigation() {
   const [activePanel, setActivePanel] = useState(0);
   const [attentionTargetId, setAttentionTargetId] = useState<string | null>(
     null,
@@ -22,24 +18,6 @@ export function useCraftFlowNavigation(flowStepComplete: boolean[]) {
   const flowViewportRef = useRef<HTMLDivElement | null>(null);
   const shouldFocusPanelRef = useRef(false);
   const pendingFocusTargetRef = useRef<string | null>(null);
-  const lastContextPanelRef = useRef<number>(FLOW_PANEL_INDEX.contextCards);
-  const lastTargetPanelRef = useRef<number>(FLOW_PANEL_INDEX.targetCards);
-
-  useEffect(() => {
-    if (
-      activePanel === FLOW_PANEL_INDEX.contextWrite ||
-      activePanel === FLOW_PANEL_INDEX.contextCards
-    ) {
-      lastContextPanelRef.current = activePanel;
-    }
-
-    if (
-      activePanel === FLOW_PANEL_INDEX.targetWrite ||
-      activePanel === FLOW_PANEL_INDEX.targetCards
-    ) {
-      lastTargetPanelRef.current = activePanel;
-    }
-  }, [activePanel]);
 
   useEffect(() => {
     const focusTargetId = pendingFocusTargetRef.current;
@@ -97,16 +75,7 @@ export function useCraftFlowNavigation(flowStepComplete: boolean[]) {
   }
 
   function navigateToCraftStep(stepIndex: number) {
-    const preferredPanel =
-      stepIndex === 0
-        ? lastContextPanelRef.current
-        : stepIndex === 4
-          ? lastTargetPanelRef.current
-          : undefined;
-
-    navigateToPanel(
-      getCraftStepPanel(stepIndex, flowStepComplete, preferredPanel),
-    );
+    navigateToPanel(getCraftStepPanel(stepIndex));
   }
 
   function registerPanelHeading(

@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   FLOW_PANEL_INDEX,
   getCraftStepIndexForPanel,
-  getLegacyProofPanel,
+  getCraftStepPanel,
   getNextIncompletePanel,
 } from "../src/lib/prompt-navigation.ts";
 
@@ -22,14 +22,14 @@ test("next unfinished moves forward from the current panel", () => {
 
 test("next unfinished wraps to an earlier incomplete panel", () => {
   assert.equal(
-    getNextIncompletePanel(FLOW_PANEL_INDEX.targetCards, [
+    getNextIncompletePanel(FLOW_PANEL_INDEX.target, [
       false,
       true,
       true,
       true,
       true,
     ]),
-    FLOW_PANEL_INDEX.contextWrite,
+    FLOW_PANEL_INDEX.context,
   );
 });
 
@@ -46,15 +46,16 @@ test("next unfinished returns null when the prompt is complete", () => {
   );
 });
 
-test("craft step lookup keeps context and target subpages grouped", () => {
-  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.contextWrite), 0);
-  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.contextCards), 0);
-  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.targetWrite), 4);
-  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.targetCards), 4);
+test("craft step lookup maps merged panels to steps", () => {
+  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.context), 0);
+  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.role), 1);
+  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.target), 4);
+  assert.equal(getCraftStepIndexForPanel(FLOW_PANEL_INDEX.guide), -1);
 });
 
-test("legacy proof scenario panels open the matching card workbench", () => {
-  assert.equal(getLegacyProofPanel(1), FLOW_PANEL_INDEX.contextCards);
-  assert.equal(getLegacyProofPanel(2), FLOW_PANEL_INDEX.role);
-  assert.equal(getLegacyProofPanel(5), FLOW_PANEL_INDEX.targetCards);
+test("craft step panel returns the matching panel and falls back to guide", () => {
+  assert.equal(getCraftStepPanel(0), FLOW_PANEL_INDEX.context);
+  assert.equal(getCraftStepPanel(3), FLOW_PANEL_INDEX.format);
+  assert.equal(getCraftStepPanel(4), FLOW_PANEL_INDEX.target);
+  assert.equal(getCraftStepPanel(9), FLOW_PANEL_INDEX.guide);
 });

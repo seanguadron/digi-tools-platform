@@ -6,6 +6,7 @@
       "code": "SUMM",
       "name": "Executive summary",
       "description": "Condense long or messy material into a short, decision-first summary.",
+      "defaultAudience": "a busy decision-maker who reads the bottom line first and skims the rest.",
       "formatCode": "RPT",
       "roleIds": [
         "summarizer",
@@ -64,6 +65,7 @@
       "code": "IDEA",
       "name": "Creative concept",
       "description": "Explore, shape, and strengthen a concept without losing usefulness.",
+      "defaultAudience": "a collaborator who wants sparks they can react to, not a finished pitch.",
       "formatCode": "DRAFT",
       "roleIds": [
         "creative-director",
@@ -122,6 +124,7 @@
       "code": "NOTE",
       "name": "Note taker",
       "description": "Turn raw material into clean, organized, faithful notes.",
+      "defaultAudience": "the note-taker's future self, returning weeks later and needing the notes to stand on their own.",
       "formatCode": "LIST",
       "roleIds": [
         "organizer",
@@ -176,6 +179,7 @@
       "code": "MSG",
       "name": "Message & email",
       "description": "Write or reply to an email or message in the right tone.",
+      "defaultAudience": "the message's actual recipient: busy, skimming, and judging tone as much as content.",
       "formatCode": "DRAFT",
       "roleIds": [
         "copywriter",
@@ -231,6 +235,7 @@
       "code": "META",
       "name": "Prompt improver",
       "description": "Diagnose a prompt and rebuild it sharper.",
+      "defaultAudience": "someone who writes prompts regularly and wants to see why each change earns its place.",
       "formatCode": "DRAFT",
       "roleIds": [
         "prompt-engineer",
@@ -288,6 +293,7 @@
       "code": "LEARN",
       "name": "Learning guide",
       "description": "Teach an idea clearly with examples and common questions.",
+      "defaultAudience": "a motivated beginner meeting the topic for the first time, with no assumed vocabulary.",
       "formatCode": "LIST",
       "roleIds": [
         "tutor",
@@ -345,6 +351,7 @@
       "code": "APP",
       "name": "App build handoff",
       "description": "One self-contained document an AI agent can build a whole app from.",
+      "defaultAudience": "an AI build agent that executes the document literally, with no chance to ask follow-ups.",
       "formatCode": "RPT",
       "roleIds": [
         "product-manager",
@@ -406,6 +413,7 @@
       "code": "SKILL",
       "name": "Agent skill",
       "description": "Author a reusable agent skill: trigger, procedure, guardrails, examples.",
+      "defaultAudience": "an AI agent that follows the skill verbatim, and a maintainer who reviews it.",
       "formatCode": "PLAN",
       "roleIds": [
         "prompt-engineer",
@@ -467,6 +475,7 @@
       "code": "GATE",
       "name": "Agent gate",
       "description": "Define a judgment gate agent and how the orchestrator runs it.",
+      "defaultAudience": "the orchestrator wiring the gate in, and the reviewer auditing its verdicts.",
       "formatCode": "DRAFT",
       "roleIds": [
         "prompt-engineer",
@@ -528,6 +537,7 @@
       "code": "SOCIAL",
       "name": "Social post",
       "description": "A platform-ready post tuned to its audience — Instagram, LinkedIn, and more.",
+      "defaultAudience": "scrollers on the target platform who give the post a second, maybe two.",
       "formatCode": "DRAFT",
       "roleIds": [
         "copywriter",
@@ -587,6 +597,7 @@
       "code": "INFO",
       "name": "Quick explanation",
       "description": "A plain, useful answer that is easy to scan.",
+      "defaultAudience": "someone who asked in passing and wants the useful part without the lecture.",
       "formatCode": "LIST",
       "roleIds": [
         "explainer-educator",
@@ -642,6 +653,7 @@
       "code": "RSH",
       "name": "Research brief",
       "description": "A sourced, balanced brief with uncertainty made visible.",
+      "defaultAudience": "an informed reader who will act on the findings and needs to see where the evidence is thin.",
       "formatCode": "RPT",
       "roleIds": [
         "researcher",
@@ -701,6 +713,7 @@
       "code": "DEC",
       "name": "Decision advisor",
       "description": "Compare options, surface tradeoffs, and recommend a path.",
+      "defaultAudience": "the person who owns the decision, familiar with the situation, weighing cost against risk.",
       "formatCode": "VS",
       "roleIds": [
         "strategist",
@@ -761,6 +774,7 @@
       "code": "ANLY",
       "name": "Data analysis",
       "description": "Work from a dataset or metrics to find and explain insights.",
+      "defaultAudience": "a stakeholder comfortable with charts and rates who needs the takeaway, not the method.",
       "formatCode": "RPT",
       "roleIds": [
         "data-analyst",
@@ -820,6 +834,7 @@
       "code": "RISK",
       "name": "Risk premortem",
       "description": "Assume it failed — find out why before it does.",
+      "defaultAudience": "the team that owns the launch and can still change course.",
       "formatCode": "RPT",
       "roleIds": [
         "qa-test-engineer",
@@ -879,6 +894,7 @@
       "code": "WRIT",
       "name": "Writing draft",
       "description": "Create or reshape text into a clear editable draft.",
+      "defaultAudience": "general readers of the finished piece, encountering it cold.",
       "formatCode": "DRAFT",
       "roleIds": [
         "writer",
@@ -936,6 +952,7 @@
       "code": "POLISH",
       "name": "Rewrite & polish",
       "description": "Improve existing text's clarity, flow, and tone while preserving meaning.",
+      "defaultAudience": "the text's original readership, unchanged; only the writing gets better.",
       "formatCode": "DRAFT",
       "roleIds": [
         "rewriter",
@@ -992,6 +1009,7 @@
       "code": "CRIT",
       "name": "Critique & review",
       "description": "Evaluate an existing artifact and return prioritized, actionable feedback.",
+      "defaultAudience": "the maker of the work, ready to act on specifics but protective of intent.",
       "formatCode": "RPT",
       "roleIds": [
         "comparative-reviewer",
@@ -1049,6 +1067,7 @@
       "code": "DECK",
       "name": "Presentation outline",
       "description": "Shape material into a slide-ready narrative.",
+      "defaultAudience": "a live audience seeing the slides once, at talking speed.",
       "formatCode": "DECK",
       "roleIds": [
         "presentation-slide-structurer",
@@ -1106,6 +1125,7 @@
       "code": "PLAN",
       "name": "Project plan",
       "description": "Turn a goal into ordered, implementation-ready work.",
+      "defaultAudience": "the team executing the plan, fluent in the domain and allergic to vague steps.",
       "formatCode": "PLAN",
       "roleIds": [
         "developer",
@@ -1165,6 +1185,7 @@
       "code": "SPEC",
       "name": "Spec / PRD",
       "description": "Turn an idea into a spec a builder could pick up.",
+      "defaultAudience": "a builder who was not in the room and gets only this document.",
       "formatCode": "PLAN",
       "roleIds": [
         "product-manager",
@@ -1225,6 +1246,7 @@
       "code": "DEV",
       "name": "Code implementation",
       "description": "Write or change code to meet a clear spec, with notes.",
+      "defaultAudience": "an experienced developer on this codebase who reviews diffs before merging.",
       "formatCode": "CODE",
       "roleIds": [
         "developer",
@@ -1284,6 +1306,7 @@
       "code": "FIX",
       "name": "Debug & fix",
       "description": "Diagnose a technical issue and produce practical next steps.",
+      "defaultAudience": "the engineer on call, mid-incident, who needs next steps more than theory.",
       "formatCode": "CODE",
       "roleIds": [
         "technical-troubleshooter",
@@ -1343,6 +1366,7 @@
       "code": "XPL",
       "name": "Explain code",
       "description": "Walk through unfamiliar code until it makes sense.",
+      "defaultAudience": "a developer new to this codebase: comfortable with code, unfamiliar with these choices.",
       "formatCode": "CODE",
       "roleIds": [
         "developer",
@@ -1399,6 +1423,7 @@
       "code": "DATA",
       "name": "Extract to data",
       "description": "Pull structured fields from source material into clean JSON.",
+      "defaultAudience": "a pipeline or script that consumes the JSON exactly as returned.",
       "formatCode": "JSON",
       "roleIds": [
         "analyst",

@@ -13,9 +13,37 @@ export function isCustomArchetype(archetype: PromptArchetype): boolean {
   return archetype.id.startsWith(CUSTOM_ARCHETYPE_PREFIX);
 }
 
+// Shape-check each stored preset: localStorage is user-editable, and these
+// entries feed rendering (name, code, effects), the export filename chain,
+// and the audience default line. Tracks/equipped stay loosely typed here —
+// applyArchetype runs them through sanitizeCardSystemShape.
+function isStoredArchetypeShape(entry: unknown): entry is PromptArchetype {
+  if (typeof entry !== "object" || entry === null) {
+    return false;
+  }
+
+  const candidate = entry as Partial<PromptArchetype>;
+  return (
+    typeof candidate.id === "string" &&
+    typeof candidate.code === "string" &&
+    typeof candidate.name === "string" &&
+    typeof candidate.description === "string" &&
+    typeof candidate.formatCode === "string" &&
+    Array.isArray(candidate.roleIds) &&
+    Array.isArray(candidate.effects) &&
+    typeof candidate.illustration === "object" &&
+    candidate.illustration !== null &&
+    (candidate.action === undefined || typeof candidate.action === "string") &&
+    (candidate.formatNotes === undefined ||
+      typeof candidate.formatNotes === "string") &&
+    (candidate.defaultAudience === undefined ||
+      typeof candidate.defaultAudience === "string")
+  );
+}
+
 export function listCustomArchetypes(): PromptArchetype[] {
   const entries = readStored<PromptArchetype[]>(CUSTOM_KEY, []);
-  return Array.isArray(entries) ? entries : [];
+  return Array.isArray(entries) ? entries.filter(isStoredArchetypeShape) : [];
 }
 
 export function buildCustomArchetype(

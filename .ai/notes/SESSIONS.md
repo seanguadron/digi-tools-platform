@@ -5,6 +5,201 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-28: Prompt Builder defaults rework — use-default checkboxes, archetype-aware audience defaults, best-name downloads, dictation/dock fixes
+
+**Context.** Sean's real workflow drove the session: he downloads prompt
+Markdown files and reuses them across Claude/ChatGPT/Gemini by attaching
+the file and typing the working context directly into the chat. One voice
+note bundled five fixes: a frozen dictation audio meter, the Write/Cards
+subnav under Context and Target audience ("no one's noticing it"), a "use
+default" path so an empty Context/Target still exports a recyclable file,
+downloads named after the prompt instead of `craft-prompt.md`, and the
+output dock collapsing on archetype clicks.
+
+**Decisions.** All four scoping questions answered via `AskUserQuestion`;
+the owner picked the recommended option every time.
+- "Use default" checkboxes start CHECKED so a fresh draft is export-ready
+  immediately; typing custom text auto-unchecks; unchecked + empty still
+  exports; clearing text back out never re-checks the box.
+- Default CONTEXT text reads as an instruction TO the AI ("the working
+  context is provided outside this file — treat the request that
+  accompanies this prompt as the task context...") rather than a fill-in
+  placeholder, matching how the file is actually consumed.
+- Default TARGET text is archetype-aware: 25 authored `defaultAudience`
+  one-liners in `archetypes.json` complete "Otherwise assume: ..."; a
+  generic infer-and-state fallback covers no-archetype-active and custom
+  presets (which have no authored line).
+- Downloads use a best-name chain — archetype name → loaded/saved library
+  name → lead role → "craft" fallback — reproducing legacy filenames
+  exactly when nothing is active; applied to .md/.txt/.json + the session
+  export via the shared `slugifyFilename`.
+- Design-model change, `docs/DESIGN_DIRECTION.md` updated in place: 8
+  slider panels → 6. Context and Target audience are now single panels
+  shaped like Action (card workbench first, optional custom text below);
+  the Write/Cards subnav pattern is retired entirely. Completion semantics
+  moved with it — C/T count complete when text is present OR use-default
+  is on — so a fresh reset now reads "2 missing" (Role, Action), not 4.
+
+**Learnings.**
+- The frozen audio meter was a buffer-allocation-order bug:
+  `new Uint8Array(analyser.frequencyBinCount)` ran BEFORE `analyser.fftSize
+  = 64` was set, sizing the buffer off the default 2048 (1024 bins) while
+  only 32 ever filled — bucket math against the stale length only ever
+  mapped bar 0 into live data. Fixed by setting `fftSize` (now 256) before
+  allocating, plus per-bar averaging over the lower third of the spectrum
+  (the voice band). Web Audio buffer sizing depends on analyser config
+  applied first — worth a habitual double-check.
+- The dock-collapse bug was exactly one line — `setOutputExpanded(false)`
+  inside `applyArchetype`, sitting among otherwise-intentional writers of
+  the same tri-state. An unintentional write to a shared state setter
+  reads identically to an intentional one at a glance.
+- The proof-scenario panel fixtures were authored against the LEGACY
+  6-panel layout, which `getLegacyProofPanel` translated into the (until
+  now) 8-panel one; the new merged 6-panel layout turned out
+  byte-identical to that legacy shape, so migrating the fixtures was
+  deleting the translator — zero data churn. When a translator function
+  exists, check whether the destination shape has quietly become the
+  source shape again before assuming a rewrite is needed.
+- `@dnd-kit`'s `useUniqueId` is a module-global counter, so SSR ids drift
+  from client ids by design — a pre-existing Prompt Builder dev-mode
+  hydration warning, predating this session (task-chipped; the fix is
+  stable `id` props on `DndContext`).
+- Headless-preview harness: `javascript_tool` keeps top-level `const`
+  declarations alive across evals on the same page — wrap probe scripts in
+  IIFEs. A promise that never resolves (a `find()` returning empty inside
+  nested `setTimeout`s) hangs the tool to its 30s timeout; return an early
+  probe result instead of assuming elements exist.
+
+**Gates.** Reports in
+`.ai/notes/gate-reports/2026-07-28-*-prompt-builder-defaults.md`.
+- Security: FAIL → PASS. High — `loadSavedPrompt` restored library entries
+  via a bare spread, skipping `restoreDraft`/`restoreCardSystem`; with no
+  error boundary anywhere in the app, one corrupted saved entry crashed
+  it — fixed by routing through the shared validators and shape-filtering
+  both `readStored`-backed lists on read. Medium — custom-archetype
+  entries were unvalidated into the new name/audience consumers; fixed the
+  same way plus a `typeof` guard in `buildAudienceDefaultLine`. Low —
+  `sanitizeCardSystemShape` made null-safe at its own parameter.
+- Integration: FAIL → PASS, 1 Medium — the SAME `loadSavedPrompt` defect,
+  independently found by both gates. This session also closes the
+  2026-07-04 §2.3 "`restoreDraft` remains the open half" flag (see that
+  entry, now annotated landed).
+- Design: PASS, 1 Low applied — a 24px minimum tap target on the new
+  checkbox; two pre-existing sibling checkbox classes with the same
+  shortfall were spun off as a task chip rather than fixed inline.
+- Two gates converging independently on the same defect (security High =
+  integration Medium) is the gate system working as designed — the
+  trust-boundary rule and the shell-conformance rule describe the same
+  underlying invariant from two angles.
+
+**Preferences / proposed amendments (need owner consent).**
+- From the security gate: every `readStored<T[]>`-backed list consumed by
+  UI state (prompt-library, prompt-custom-archetypes, and future ones)
+  should pair with a shape-validating restore mirroring
+  `restoreDraft`/`restoreCardSystem` — `Array.isArray` alone is not §2.3
+  compliance. (proposed amendment, needs the owner's consent)
+- Sean answers batched option questions decisively — all four
+  recommendations accepted this session, continuing the standing
+  clarify-to-95%-confidence pattern.
+- Voice-note transcripts carry phonetic artifacts worth reading literally
+  before asking for clarification ("writing cards" = "Write/Cards", "the
+  right option" = "the write option", "contacts" = "context" — all
+  resolved correctly this session without re-asking).
+
+One trigger recurred this session, folded into its original entry rather
+than duplicated here: the micro-label 0.58–0.72rem typography-tier flag
+(2026-07-19 entry, now reinforced a second time by the new use-default
+checkbox label — not re-flagged here).
+
+### Second act (same day): vector + image roadmap
+
+**Context.** The same working day continued into a second scoping
+session, this time on the two visual-canvas tools rather than the Prompt
+Builder. Sean's voice-note brief opened with a tool-by-tool comparison to
+a reference product: the vector editor is "pretty basic — it needs to be
+way more like Illustrator" — a black arrow and a white arrow, anchor
+points with editable handles in his own vocabulary (locked handle, auto
+handle, double handle, straight point, and "that chevron icon" to convert
+between them), a pen tool, basic shapes, and type. Beyond the vector
+tool: the Design tab shows raw pixels but should connect to
+inches/centimeters, the image editor's crop couldn't take exact numbers,
+and export needed to hit specific resolutions/sizes, including exporting
+vector work as a bitmap. The session's output is `docs/ROADMAP.md`; this
+entry records the decisions and the why, not the milestone-by-milestone
+WHAT, which lives in that doc.
+
+**Decisions.** Four `AskUserQuestion` scoping questions; the owner
+accepted the recommended option on all four — the second time in one day
+this session ran that exact pattern.
+- Build order: Vector path core first (Milestone V1) — the pen tool, the
+  white arrow (direct/anchor selection), the anchor-type model,
+  shapes-to-paths conversion, and multi-select all land before anything
+  else in the program.
+- Units: a per-document unit (px/in/cm/mm) plus PPI, stored on the
+  document and spoken by panels, dialogs, status bars, and exports in
+  BOTH editors; pixels stay the master unit internally, and physical
+  units are only ever a mapping through PPI.
+- Type tool v1 scope: point text only, edited in place; area text is
+  explicitly deferred to later.
+- Crop rework: a confirm-stage model — drag a region, then adjust it via
+  handles, numeric X/Y/W/H fields, and aspect presets, then Enter applies
+  and Esc cancels — replacing today's commit-on-pointer-release drag.
+
+Two decisions of record beyond the four scoping questions: Sean's handle
+vocabulary was mapped onto a five-type anchor model — corner / smooth /
+broken / auto, plus a convert control — and written into
+`docs/ROADMAP.md` as the project's domain language for anchors from here
+on; and the roadmap doc itself was created carrying a gov:node marker
+(`id=roadmap`, `reads=docs/STATE.md,docs/ARCHITECTURE.md`), so the
+deterministic §3.3 graph-accuracy check passes with it from the day it
+landed.
+
+**Learnings.** Exploration facts that shaped the design, worth keeping
+past this session:
+- The vector editor's artboard has NO resize UI at all —
+  `createEmptyDocument`'s 960×600 is fixed for the document's life, and
+  the Design tab shows it read-only. "Connect the Design tab to
+  inches/cm" and "let me set the artboard size" turned out to be one
+  feature, not two.
+- The vector PNG export silently renders at 2× (`rasterizePng`'s default
+  `scale=2`, called with no argument at the call site) into hardcoded
+  `vector-artboard.*` filenames — `slugifyFilename` has three consumers
+  today, and the vector editor isn't one of them.
+- The image editor's `resizeCanvas(doc, w, h, ox, oy)` primitive already
+  supports arbitrary anchor offsets but has exactly ONE caller
+  (`cropDoc`) and no UI of its own — a canvas-size dialog is mostly
+  dialog work; the engine already exists.
+- The image crop is one ref inside the canvas component: no state, no
+  numbers, no confirm stage — pointer-up IS the commit. Dragging outside
+  the canvas is the only path that reaches `resizeCanvas`'s extend
+  behavior today — a hidden feature worth making visible.
+- Neither editor has any DPI/unit concept anywhere in the codebase — a
+  repo-wide grep turned up only `devicePixelRatio` (HiDPI screen backing,
+  unrelated to document units).
+- Vector hit-testing is delegated entirely to the DOM
+  (`closest("[data-object-id]")`) — there is no geometric hit-test
+  function anywhere, which is the real new work a pen tool needs (anchor
+  picking, point-near-curve).
+- The vector modules already run 9 exhaustive switches over the
+  shape-kind union — a new `path` kind will fail compilation at every one
+  of those integration points, which is the built-in safety net for V1.
+- Shortcut collisions exist between the two editors today: `L` means
+  lasso in the image editor and line in the vector editor; `P` means
+  polygon in the vector editor, exactly where the pen tool needs to
+  live — harmonizing them is folded into the roadmap's continuity thread.
+
+**Preferences.**
+- Sean opens large feature asks with a tool-by-tool comparison to a
+  reference product ("way more like Illustrator") and wants co-design
+  rather than a spec handed down — a feature map plus batched scoping
+  questions worked well here too. He accepted every recommendation again
+  (two-for-two today), reinforcing the standing clarify-to-95%-confidence
+  / decisive-batched-answers pattern rather than establishing a new one.
+
+No new proposed-amendment flags from this act — a build-planning session
+that produced a roadmap doc, not a rule change; the amendment queue is
+unchanged.
+
 ## 2026-07-19: Vector Editor ships — fifth tool, a native-SVG "Illustrator-lite" built from the Image Editor's shell
 
 **Context.** The owner asked to build an SVG vector editor "like
@@ -88,8 +283,10 @@ phases."
   0.75rem Caption floor but match a pre-existing undocumented
   micro-label tier (e.g. `.image-editor-field-caption` at 0.62rem) —
   propose codifying a "micro-label 0.58–0.72rem" tier in
-  DESIGN_DIRECTION Typography. (proposed amendment, needs the owner's
-  consent)
+  DESIGN_DIRECTION Typography. **Reinforced 2026-07-28:** the Prompt
+  Builder defaults session's new use-default checkbox label sits in the
+  same tier too — a third independent data point. (proposed amendment,
+  needs the owner's consent)
 
 Two more triggers recurred this session; folded into their original
 entries rather than duplicated here, not re-flagged: the base-`.button`
@@ -888,7 +1085,8 @@ outcomes, and the archetype set. Owner confirmed full-restructure ambition
   `sanitizeCardSystemShape`, fixing the pre-existing ghost-slot bug and
   making catalog changes non-breaking by construction. This closes the
   cardSystem half of the standing §2.3 bare-cast audit point; `restoreDraft`
-  remains the open half.
+  remains the open half. (→ landed 2026-07-28: `restoreDraft` now coerces
+  field-by-field, and `loadSavedPrompt` restores through it.)
 
 **Learnings.**
 - The judgment gates (integration, security) were launched but aborted by

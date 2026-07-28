@@ -247,18 +247,20 @@ section's active Tuning Track positions. Store only a bounded set of recent
 configurations locally; do not attempt to merge independent per-track memories.
 
 - The builder is a guided horizontal workspace. An introductory C.R.A.F.T.
-  panel leads into the five main C.R.A.F.T. steps while allowing Context and
-  Target Audience to split into two internal subpages: Write first, Cards
-  second.
+  panel leads into five main C.R.A.F.T. steps, one panel per step.
 - The C/R/A/F/T step rail stays visible above the workspace. Clicking a step or
   using Back, Start, and Next moves the track left or right with a short
   transform-only transition.
-- Context Write and Target Write are required brief screens. Their copy should
-  make it clear that modifier cards come next to tune the rules, not replace
-  the user's written details.
-- Context Cards and Target Cards use the same card workbench alignment as Role,
-  Action, and Format. Their modifier cards are optional and do not determine
-  section completion by themselves.
+- Context and Target Audience follow the same panel shape as Action: the card
+  workbench first, then an optional free-write field at the bottom of the
+  panel. Each carries a "Use default" checkbox, on by default; when it is on
+  and the field is empty, the assembled prompt defers context to the request
+  that accompanies the exported file and states an audience assumption (the
+  active archetype's, or a generic infer-and-state line). Custom text always
+  wins over the default. A section is complete when it has text or its
+  use-default choice is on; unchecking with an empty field marks it missing.
+- Context and Target modifier cards use the same card workbench alignment as
+  Role, Action, and Format.
 - Each panel owns the full available canvas and scrolls vertically within that
   canvas when its card deck is taller than the viewport.
 - Context, Role, Action, Format, and Target Audience remain five distinct CRAFT

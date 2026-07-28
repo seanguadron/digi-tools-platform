@@ -30,6 +30,12 @@ test("the current prompt catalog is valid", async () => {
     128,
   );
   assert.ok(catalog.archetypes.archetypes.every((archetype) => archetype.effects.length > 0));
+  // The audience assumption backs the Target "Use default" line.
+  assert.ok(
+    catalog.archetypes.archetypes.every(
+      (archetype) => archetype.defaultAudience.trim().length > 0,
+    ),
+  );
   // Card goals are UI flavor only — instructions must stand alone in the prompt.
   assert.ok(
     catalog.cards.cards

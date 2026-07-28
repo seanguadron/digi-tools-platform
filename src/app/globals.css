@@ -2974,7 +2974,6 @@ button.role-loadout-slot {
 }
 
 .flow-panel-heading,
-.flow-subnav,
 .flow-panel-card,
 .flow-panel-actions {
   width: min(100%, 1120px);
@@ -3007,59 +3006,6 @@ button.role-loadout-slot {
   font-size: 1.35rem;
   letter-spacing: -0.025em;
   line-height: 1.15;
-}
-
-.flow-subnav {
-  display: inline-flex;
-  justify-self: start;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: color-mix(in oklch, var(--background) 72%, var(--card));
-}
-
-.flow-subnav button {
-  min-height: 32px;
-  border: 0;
-  border-radius: 7px;
-  padding: 0 12px;
-  background: transparent;
-  color: var(--muted-foreground);
-  cursor: pointer;
-  font-size: 0.72rem;
-  font-weight: 750;
-}
-
-.flow-subnav button:hover {
-  color: var(--foreground);
-}
-
-.flow-subnav button.is-active {
-  background: var(--card);
-  color: var(--brand-cyan-text);
-  box-shadow: inset 0 0 0 1px var(--border);
-}
-
-.brief-next-card {
-  display: grid;
-  gap: 4px;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 34%, var(--border));
-  border-radius: 10px;
-  padding: 10px 12px;
-  background: color-mix(in oklch, var(--brand-cyan) 6%, var(--background));
-}
-
-.brief-next-card strong {
-  font-size: 0.76rem;
-}
-
-.brief-next-card p {
-  max-width: 68ch;
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.75rem;
-  line-height: 1.5;
 }
 
 .flow-panel-card > .craft-card {
@@ -4208,6 +4154,39 @@ button.role-loadout-slot {
   margin-top: 4px;
   font-size: 0.72rem;
   font-weight: 700;
+}
+
+.workbench-text-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.workbench-text-row .workbench-text-label {
+  margin-top: 0;
+}
+
+.workbench-default-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  /* WCAG 2.5.8: the 14px box alone is under the 24px target floor. */
+  min-height: 24px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.workbench-default-check input {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  accent-color: var(--brand-cyan);
+  cursor: pointer;
 }
 
 .recommended-setup-notice {

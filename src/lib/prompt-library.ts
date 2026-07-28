@@ -17,9 +17,30 @@ export type SavedPrompt = {
   cardSystem: CardSystemState;
 };
 
+// Shape-check each stored entry: localStorage is user-editable, so a
+// malformed entry must drop out on read instead of crashing the panel or the
+// load path. Field types inside draft/cardSystem are coerced separately by
+// restoreDraft/restoreCardSystem when an entry is loaded.
+function isSavedPromptShape(entry: unknown): entry is SavedPrompt {
+  if (typeof entry !== "object" || entry === null) {
+    return false;
+  }
+
+  const candidate = entry as Partial<SavedPrompt>;
+  return (
+    typeof candidate.id === "string" &&
+    typeof candidate.name === "string" &&
+    typeof candidate.savedAt === "string" &&
+    typeof candidate.draft === "object" &&
+    candidate.draft !== null &&
+    typeof candidate.cardSystem === "object" &&
+    candidate.cardSystem !== null
+  );
+}
+
 export function listSavedPrompts(): SavedPrompt[] {
   const entries = readStored<SavedPrompt[]>(LIBRARY_KEY, []);
-  return Array.isArray(entries) ? entries : [];
+  return Array.isArray(entries) ? entries.filter(isSavedPromptShape) : [];
 }
 
 export function saveToLibrary(
