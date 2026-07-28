@@ -15,6 +15,17 @@ import type {
   TextSettings,
   ToolId,
 } from "@/lib/image-editor/tools";
+import type { Rect } from "@/lib/image-editor/types";
+import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
+
+// Crop aspect presets: label + width/height ratio (null = unconstrained).
+const CROP_ASPECTS: Array<{ label: string; value: number | null }> = [
+  { label: "Free", value: null },
+  { label: "1:1", value: 1 },
+  { label: "4:3", value: 4 / 3 },
+  { label: "3:2", value: 3 / 2 },
+  { label: "16:9", value: 16 / 9 },
+];
 
 // A small live preview of a brush tip, drawn with the real paintStamp so the
 // swatch matches how the tip actually stamps.
@@ -144,6 +155,12 @@ interface PropertiesProps {
   onGradientChange: (patch: Partial<GradientSettings>) => void;
   tolerance: number;
   onToleranceChange: (value: number) => void;
+  cropRect: Rect | null;
+  cropAspect: number | null;
+  onCropRect: (rect: Rect | null) => void;
+  onCropAspect: (aspect: number | null) => void;
+  onCropApply: () => void;
+  onCropSeed: () => void;
 }
 
 // The Properties tab of the right dock: color selection plus the options for the
@@ -173,7 +190,22 @@ export function ImageEditorProperties({
   onGradientChange,
   tolerance,
   onToleranceChange,
+  cropRect,
+  cropAspect,
+  onCropRect,
+  onCropAspect,
+  onCropApply,
+  onCropSeed,
 }: PropertiesProps) {
+  // The same size ceiling every doc-growing dialog enforces — a typed-in
+  // crop cannot request an allocation the app would never allow elsewhere.
+  const cropValid =
+    cropRect !== null &&
+    cropRect.width >= 2 &&
+    cropRect.height >= 2 &&
+    cropRect.width <= MAX_DOC_DIMENSION &&
+    cropRect.height <= MAX_DOC_DIMENSION &&
+    cropRect.width * cropRect.height <= MAX_DOC_PIXELS;
   const paintTool = tool === "brush" || tool === "eraser";
   const shapeTool =
     tool === "shape-rect" || tool === "shape-ellipse" || tool === "shape-line";
@@ -463,9 +495,121 @@ export function ImageEditorProperties({
       {tool === "crop" ? (
         <div className="image-editor-panel-block">
           <span className="image-editor-panel-label">Crop</span>
-          <p className="image-editor-hint">
-            Drag a region on the canvas; release to crop to it.
-          </p>
+          <div
+            className="image-editor-aspect-row"
+            role="radiogroup"
+            aria-label="Aspect ratio"
+          >
+            {CROP_ASPECTS.map((preset) => (
+              <button
+                key={preset.label}
+                type="button"
+                role="radio"
+                aria-checked={cropAspect === preset.value}
+                className={
+                  cropAspect === preset.value
+                    ? "image-editor-aspect-btn is-active"
+                    : "image-editor-aspect-btn"
+                }
+                onClick={() => {
+                  onCropAspect(preset.value);
+                  if (cropRect && preset.value) {
+                    onCropRect({
+                      ...cropRect,
+                      height: Math.max(1, Math.round(cropRect.width / preset.value)),
+                    });
+                  }
+                }}
+              >
+                {preset.label}
+              </button>
+            ))}
+          </div>
+          {cropRect ? (
+            <>
+              <div className="image-editor-crop-grid">
+                {(
+                  [
+                    ["X", "x"],
+                    ["Y", "y"],
+                    ["W", "width"],
+                    ["H", "height"],
+                  ] as const
+                ).map(([label, key]) => (
+                  <label key={key} className="image-editor-crop-field">
+                    <span>{label}</span>
+                    <input
+                      type="number"
+                      value={Math.round(cropRect[key])}
+                      min={key === "width" || key === "height" ? 1 : undefined}
+                      onChange={(event) => {
+                        const raw = Number(event.target.value);
+                        if (!Number.isFinite(raw)) {
+                          return;
+                        }
+                        const value =
+                          key === "width" || key === "height"
+                            ? Math.max(1, Math.round(raw))
+                            : Math.round(raw);
+                        const next = { ...cropRect, [key]: value };
+                        if (key === "width" && cropAspect) {
+                          next.height = Math.max(1, Math.round(value / cropAspect));
+                        }
+                        if (key === "height" && cropAspect) {
+                          next.width = Math.max(1, Math.round(value * cropAspect));
+                        }
+                        onCropRect(next);
+                      }}
+                    />
+                  </label>
+                ))}
+              </div>
+              <div className="image-editor-crop-actions">
+                <button
+                  type="button"
+                  className="button button-quiet button-small"
+                  onClick={() => onCropRect(null)}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="button button-primary button-small"
+                  disabled={!cropValid}
+                  onClick={onCropApply}
+                >
+                  Apply crop
+                </button>
+              </div>
+              {!cropValid ? (
+                <p className="image-editor-hint">
+                  Size must be 1–{MAX_DOC_DIMENSION.toLocaleString()}px per
+                  side and under {Math.round(MAX_DOC_PIXELS / 1_000_000)}M
+                  pixels total.
+                </p>
+              ) : (
+                <p className="image-editor-hint">
+                  Enter applies, Esc cancels. A region past the canvas edge
+                  grows the canvas with transparent pixels.
+                </p>
+              )}
+            </>
+          ) : (
+            <>
+              <button
+                type="button"
+                className="button button-secondary button-small"
+                onClick={onCropSeed}
+              >
+                Set crop region
+              </button>
+              <p className="image-editor-hint">
+                Drag a region on the canvas — or start from this button — then
+                adjust it with handles, these fields, or an aspect preset.
+                Enter or Apply commits the crop.
+              </p>
+            </>
+          )}
         </div>
       ) : null}
     </div>

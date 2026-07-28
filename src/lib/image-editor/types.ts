@@ -62,6 +62,9 @@ export interface ImageDoc {
   version: 1;
   width: number;
   height: number;
+  // Pixels per inch — how large these pixels print. Pixels stay the master
+  // unit; physical units (in/cm/mm) are a view through this (src/lib/units).
+  ppi: number;
   layers: Layer[]; // index 0 = bottom of the stack
   activeLayerId: string;
   selection: Selection | null;

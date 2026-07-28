@@ -4,6 +4,7 @@
 // any failure degrades to null (never throws) so callers fall back to defaults.
 
 import { makeId } from "@/lib/prompt-storage";
+import { clampPpi, DEFAULT_DOC_PPI } from "@/lib/units";
 import { createBitmap, get2d } from "./raster";
 import {
   BLEND_MODES,
@@ -32,6 +33,7 @@ export interface SerializedDoc {
   name: string;
   width: number;
   height: number;
+  ppi?: number; // absent in pre-ppi projects; restored via clampPpi default
   activeLayerId: string;
   layers: SerializedLayer[];
 }
@@ -42,6 +44,7 @@ export function serializeDoc(doc: ImageDoc, name: string): SerializedDoc {
     name,
     width: doc.width,
     height: doc.height,
+    ppi: doc.ppi,
     activeLayerId: doc.activeLayerId,
     layers: doc.layers.map((layer) => ({
       id: layer.id,
@@ -172,7 +175,21 @@ export async function deserializeDoc(
       : layers[layers.length - 1].id;
 
   return {
-    doc: { version: 1, width, height, layers, activeLayerId, selection: null },
+    doc: {
+      version: 1,
+      width,
+      height,
+      // Only scalar shapes ride Number()'s coercion; anything else (arrays,
+      // objects, absent) takes the documented pre-ppi default. Guards the
+      // Number([]) === 0 quirk from flooring a malformed value to 1 PPI.
+      ppi:
+        typeof value.ppi === "number" || typeof value.ppi === "string"
+          ? clampPpi(Number(value.ppi))
+          : DEFAULT_DOC_PPI,
+      layers,
+      activeLayerId,
+      selection: null,
+    },
     name: typeof value.name === "string" && value.name ? value.name : "Untitled",
   };
 }

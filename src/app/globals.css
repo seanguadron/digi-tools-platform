@@ -6635,6 +6635,125 @@ body:has(.page-stage.is-fluid) {
   gap: 8px;
 }
 
+/* Image size dialog: unit select + labeled rows. (.image-editor-select is
+   TAKEN — it's the Layers panel's blend-mode wrapper — so the dialog's bare
+   <select> gets its own class.) */
+.image-editor-unit-select {
+  height: 30px;
+  padding: 0 6px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+.image-editor-field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--muted-foreground);
+}
+
+.image-editor-dialog-unit {
+  align-self: end;
+  padding-bottom: 7px;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Canvas size dialog: 3x3 anchor grid */
+.image-editor-anchor-block {
+  display: grid;
+  gap: 6px;
+}
+
+.image-editor-anchor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 28px);
+  /* 6px so the sitewide focus ring (2px + 3px offset) clears the neighbors. */
+  gap: 6px;
+}
+
+.image-editor-anchor-cell {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--input);
+  border-radius: 6px;
+  background: var(--background);
+  cursor: pointer;
+}
+
+.image-editor-anchor-cell.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 18%, var(--card));
+}
+
+/* Crop tool: aspect presets, numeric region, apply/cancel */
+.image-editor-aspect-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.image-editor-aspect-btn {
+  min-height: 26px;
+  padding: 0 8px;
+  border: 1px solid var(--input);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.image-editor-aspect-btn:hover {
+  color: var(--foreground);
+}
+
+.image-editor-aspect-btn.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  color: var(--brand-cyan-text);
+}
+
+.image-editor-crop-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.image-editor-crop-field {
+  display: grid;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+.image-editor-crop-field input {
+  width: 100%;
+  min-width: 0;
+  height: 28px;
+  padding: 0 7px;
+  border: 1px solid var(--input);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+  font-size: 0.78rem;
+}
+
+.image-editor-crop-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
 /* Shape / text tool options */
 .image-editor-toggle-row {
   display: flex;

@@ -91,9 +91,30 @@ subbar consolidated to menus + one "Export SVG" primary; ✒ pen glyph
 verified monochrome via canvas probe). Ledger:
 `2026-07-28-*-vector-path-core.md`.
 
-**Next up: Milestone I1** (image precision pass) — crop confirm-stage,
-canvas-size dialog, image-size units/PPI/resample upgrade, shared
-`src/lib/units.ts`. Drafts already staged.
+**Milestone I1 — image precision pass: DONE and committed.** The crop tool
+is confirm-stage now: drag (or the keyboard-reachable "Set crop region"
+button) leaves an adjustable pending region — 8 handles, rule-of-thirds,
+live size readout, aspect presets (Free/1:1/4:3/3:2/16:9), numeric X/Y/W/H
+fields in Properties — Enter/Apply/double-click commits, Esc cancels;
+regions past the edge still grow the canvas, now visibly. New **Canvas
+size** dialog (3×3 anchor grid, transparent extension) drives the previously
+UI-less `resizeCanvas`. **Image size** is the Photoshop pair: units
+(px/in/cm/mm/%), per-doc PPI ("prints at" line), resample on/off (off =
+resolution only), interpolation choice. `ImageDoc.ppi` persists through
+save/open/autosave via `clampPpi`. Shared `src/lib/units.ts` (import-free,
+7 tests) is the px↔physical module the vector editor's V3 will reuse.
+Gates: security FAIL→PASS (Medium: the numeric crop fields had NO size
+ceiling — typing 999999999 reached `createBitmap`; now clamped at `cropDoc`
++ disabled-Apply UI gate), integration FAIL→PASS (High: `.image-editor-select`
+class collision regressed the Layers blend-mode wrapper — renamed
+`.image-editor-unit-select`), design FAIL→PASS (keyboard seed entry added;
+HUD font + focus-ring gap fixed; the radiogroup roving-tabindex gap is a
+4-site systemic item → task chip). Ledger:
+`2026-07-28-*-image-precision.md`.
+
+**Next up: Milestone V2** (vector point text) — text object kind, T tool
+with in-place overlay editing, curated font catalog, measured bounds.
+Module drafts staged.
 
 ## Runbook
 

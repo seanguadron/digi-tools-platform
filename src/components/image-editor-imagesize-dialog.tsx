@@ -3,34 +3,68 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
+import {
+  clampPpi,
+  fromPx,
+  MAX_DOC_PPI,
+  MIN_DOC_PPI,
+  roundForUnit,
+  toPx,
+  type DocUnit,
+} from "@/lib/units";
+
+// Image size: the resample dialog, Photoshop-style. With "Resample" on, the
+// pixel dimensions change (in px, physical units, or percent) and the content
+// rescales. With it off, the pixels are frozen and only the resolution (PPI)
+// changes — i.e. how large the same pixels print.
+
+export type ResampleQuality = "smooth" | "pixelated";
 
 interface ImageSizeDialogProps {
   open: boolean;
   width: number;
   height: number;
+  ppi: number;
   onClose: () => void;
-  onApply: (width: number, height: number) => void;
+  onApply: (
+    width: number,
+    height: number,
+    ppi: number,
+    resample: boolean,
+    quality: ResampleQuality,
+  ) => void;
 }
+
+type DialogUnit = DocUnit | "percent";
 
 export function ImageEditorImageSizeDialog({
   open,
   width,
   height,
+  ppi,
   onClose,
   onApply,
 }: ImageSizeDialogProps) {
-  const [w, setW] = useState(width);
-  const [h, setH] = useState(height);
+  const [pw, setPw] = useState(width);
+  const [ph, setPh] = useState(height);
+  const [docPpi, setDocPpi] = useState(ppi);
+  const [unit, setUnit] = useState<DialogUnit>("px");
   const [lock, setLock] = useState(true);
+  const [resample, setResample] = useState(true);
+  const [quality, setQuality] = useState<ResampleQuality>("smooth");
   const [wasOpen, setWasOpen] = useState(false);
   const ratio = width / height;
 
   if (open !== wasOpen) {
     setWasOpen(open);
     if (open) {
-      setW(width);
-      setH(height);
+      setPw(width);
+      setPh(height);
+      setDocPpi(ppi);
+      setUnit("px");
       setLock(true);
+      setResample(true);
+      setQuality("smooth");
     }
   }
 
@@ -52,24 +86,56 @@ export function ImageEditorImageSizeDialog({
   }
 
   const valid =
-    w >= 1 &&
-    h >= 1 &&
-    w <= MAX_DOC_DIMENSION &&
-    h <= MAX_DOC_DIMENSION &&
-    w * h <= MAX_DOC_PIXELS;
+    pw >= 1 &&
+    ph >= 1 &&
+    pw <= MAX_DOC_DIMENSION &&
+    ph <= MAX_DOC_DIMENSION &&
+    pw * ph <= MAX_DOC_PIXELS;
+
+  function displayValue(px: number, axis: "w" | "h"): number {
+    if (unit === "px") return px;
+    if (unit === "percent") {
+      return Math.round((px / (axis === "w" ? width : height)) * 1000) / 10;
+    }
+    return roundForUnit(fromPx(px, unit, docPpi), unit);
+  }
+
+  function toPixels(value: number, axis: "w" | "h"): number {
+    if (unit === "px") return Math.round(value);
+    if (unit === "percent") {
+      return Math.round(((axis === "w" ? width : height) * value) / 100);
+    }
+    return Math.round(toPx(value, unit, docPpi));
+  }
 
   const changeWidth = (value: number) => {
-    setW(value);
+    const next = Math.max(1, toPixels(value, "w"));
+    setPw(next);
     if (lock && ratio > 0) {
-      setH(Math.max(1, Math.round(value / ratio)));
+      setPh(Math.max(1, Math.round(next / ratio)));
     }
   };
   const changeHeight = (value: number) => {
-    setH(value);
+    const next = Math.max(1, toPixels(value, "h"));
+    setPh(next);
     if (lock && ratio > 0) {
-      setW(Math.max(1, Math.round(value * ratio)));
+      setPw(Math.max(1, Math.round(next * ratio)));
     }
   };
+  const changePpi = (value: number) => {
+    const next = clampPpi(value);
+    if (resample && (unit === "in" || unit === "cm" || unit === "mm")) {
+      // Keep the displayed physical size: new PPI means new pixel counts.
+      const physW = fromPx(pw, unit, docPpi);
+      const physH = fromPx(ph, unit, docPpi);
+      setPw(Math.max(1, Math.round(toPx(physW, unit, next))));
+      setPh(Math.max(1, Math.round(toPx(physH, unit, next))));
+    }
+    setDocPpi(next);
+  };
+
+  const printedW = roundForUnit(fromPx(pw, "in", docPpi), "in");
+  const printedH = roundForUnit(fromPx(ph, "in", docPpi), "in");
 
   return createPortal(
     <>
@@ -92,11 +158,12 @@ export function ImageEditorImageSizeDialog({
             <span>Width</span>
             <input
               type="number"
-              min={1}
-              max={MAX_DOC_DIMENSION}
-              value={w}
+              min={0}
+              step={unit === "px" ? 1 : 0.01}
+              value={displayValue(pw, "w")}
+              disabled={!resample}
               autoFocus
-              onChange={(event) => changeWidth(Math.round(Number(event.target.value)))}
+              onChange={(event) => changeWidth(Number(event.target.value))}
             />
           </label>
           <span className="image-editor-dialog-times">×</span>
@@ -104,22 +171,85 @@ export function ImageEditorImageSizeDialog({
             <span>Height</span>
             <input
               type="number"
-              min={1}
-              max={MAX_DOC_DIMENSION}
-              value={h}
-              onChange={(event) => changeHeight(Math.round(Number(event.target.value)))}
+              min={0}
+              step={unit === "px" ? 1 : 0.01}
+              value={displayValue(ph, "h")}
+              disabled={!resample}
+              onChange={(event) => changeHeight(Number(event.target.value))}
             />
           </label>
+          <label>
+            <span>Unit</span>
+            <select
+              className="image-editor-unit-select"
+              value={unit}
+              onChange={(event) => setUnit(event.target.value as DialogUnit)}
+            >
+              <option value="px">px</option>
+              <option value="in">in</option>
+              <option value="cm">cm</option>
+              <option value="mm">mm</option>
+              <option value="percent">%</option>
+            </select>
+          </label>
         </div>
+
+        <div className="image-editor-dialog-size">
+          <label>
+            <span>Resolution</span>
+            <input
+              type="number"
+              min={MIN_DOC_PPI}
+              max={MAX_DOC_PPI}
+              value={docPpi}
+              onChange={(event) => changePpi(Number(event.target.value))}
+            />
+          </label>
+          <span className="image-editor-dialog-unit">PPI</span>
+        </div>
+
+        <p className="image-editor-hint">
+          {pw} × {ph}px — prints at {printedW} × {printedH} in.
+        </p>
 
         <label className="image-editor-check">
           <input
             type="checkbox"
-            checked={lock}
-            onChange={(event) => setLock(event.target.checked)}
+            checked={resample}
+            onChange={(event) => setResample(event.target.checked)}
           />
-          Keep aspect ratio
+          Resample (change pixel dimensions)
         </label>
+
+        {resample ? (
+          <>
+            <label className="image-editor-check">
+              <input
+                type="checkbox"
+                checked={lock}
+                onChange={(event) => setLock(event.target.checked)}
+              />
+              Keep aspect ratio
+            </label>
+            <label className="image-editor-field-row">
+              <span>Interpolation</span>
+              <select
+                className="image-editor-unit-select"
+                value={quality}
+                onChange={(event) =>
+                  setQuality(event.target.value as ResampleQuality)
+                }
+              >
+                <option value="smooth">Smooth (photos)</option>
+                <option value="pixelated">Crisp (pixel art)</option>
+              </select>
+            </label>
+          </>
+        ) : (
+          <p className="image-editor-hint">
+            Pixels stay frozen — only the print resolution changes.
+          </p>
+        )}
 
         {!valid ? (
           <p className="image-editor-hint">
@@ -138,11 +268,11 @@ export function ImageEditorImageSizeDialog({
             disabled={!valid}
             onClick={() => {
               if (valid) {
-                onApply(w, h);
+                onApply(pw, ph, docPpi, resample, quality);
               }
             }}
           >
-            Resample
+            {resample ? "Resample" : "Set resolution"}
           </button>
         </div>
       </div>

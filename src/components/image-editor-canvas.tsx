@@ -15,7 +15,6 @@ import {
 import {
   commitLayerBitmap,
   commitPaintedBitmap,
-  cropDoc,
   setSelection,
 } from "@/lib/image-editor/document";
 import {
@@ -54,7 +53,7 @@ import type {
   ToolId,
 } from "@/lib/image-editor/tools";
 import { getTool } from "@/lib/image-editor/tools";
-import type { ImageDoc, Point } from "@/lib/image-editor/types";
+import type { ImageDoc, Point, Rect } from "@/lib/image-editor/types";
 
 type ViewportApi = ReturnType<typeof useCanvasViewport>;
 
@@ -143,6 +142,12 @@ interface ImageEditorCanvasProps {
   grid: { show: boolean; size: number; snap: boolean };
   guides: { x: number[]; y: number[] };
   channelView: ChannelView;
+  // Confirm-stage crop: the pending region lives in the orchestrator so the
+  // Properties panel can edit it numerically; drags update it on release.
+  cropRect: Rect | null;
+  cropAspect: number | null;
+  onCropRect: (rect: Rect | null) => void;
+  onCropApply: () => void;
   onGuidesChange: (next: { x: number[]; y: number[] }) => void;
   onCommitDoc: (mutate: (doc: ImageDoc) => ImageDoc, tag?: string) => void;
   onPickColor: (hex: string) => void;
@@ -219,6 +224,92 @@ function commitPaintedLayer(
   return commitPaintedBitmap(current, current.activeLayerId, working);
 }
 
+// Crop-rect construction helpers (pure, doc-space).
+type CropHandle = "nw" | "n" | "ne" | "e" | "se" | "s" | "sw" | "w";
+
+const CROP_HANDLES: CropHandle[] = ["nw", "n", "ne", "e", "se", "s", "sw", "w"];
+
+function cropHandlePoint(rect: Rect, handle: CropHandle): Point {
+  const x = handle.includes("w")
+    ? rect.x
+    : handle.includes("e")
+      ? rect.x + rect.width
+      : rect.x + rect.width / 2;
+  const y = handle.includes("n")
+    ? rect.y
+    : handle.includes("s")
+      ? rect.y + rect.height
+      : rect.y + rect.height / 2;
+  return { x, y };
+}
+
+// A drag-out rect, width-led when an aspect ratio is locked.
+function aspectDragRect(start: Point, current: Point, aspect: number | null): Rect {
+  const dx = current.x - start.x;
+  let dy = current.y - start.y;
+  if (aspect && aspect > 0) {
+    const h = Math.abs(dx) / aspect;
+    dy = dy < 0 ? -h : h;
+  }
+  return {
+    x: Math.min(start.x, start.x + dx),
+    y: Math.min(start.y, start.y + dy),
+    width: Math.abs(dx),
+    height: Math.abs(dy),
+  };
+}
+
+function resizeCropRect(
+  orig: Rect,
+  handle: CropHandle,
+  point: Point,
+  aspect: number | null,
+): Rect {
+  let left = orig.x;
+  let right = orig.x + orig.width;
+  let top = orig.y;
+  let bottom = orig.y + orig.height;
+  if (handle.includes("w")) left = point.x;
+  if (handle.includes("e")) right = point.x;
+  if (handle.includes("n")) top = point.y;
+  if (handle.includes("s")) bottom = point.y;
+
+  if (aspect && aspect > 0) {
+    const isCorner = handle.length === 2;
+    const isVertical = handle === "n" || handle === "s";
+    if (isCorner || !isVertical) {
+      const w = Math.abs(right - left);
+      const h = w / aspect;
+      if (isCorner) {
+        if (handle.includes("n")) top = bottom - h;
+        else bottom = top + h;
+      } else {
+        const cy = (top + bottom) / 2;
+        top = cy - h / 2;
+        bottom = cy + h / 2;
+      }
+    } else {
+      const h = Math.abs(bottom - top);
+      const w = h * aspect;
+      const cx = (left + right) / 2;
+      left = cx - w / 2;
+      right = cx + w / 2;
+    }
+  }
+
+  return {
+    x: Math.min(left, right),
+    y: Math.min(top, bottom),
+    width: Math.abs(right - left),
+    height: Math.abs(bottom - top),
+  };
+}
+
+type CropDrag =
+  | { mode: "new"; start: Point; live: Rect | null }
+  | { mode: "move"; start: Point; orig: Rect; live: Rect }
+  | { mode: "resize"; handle: CropHandle; orig: Rect; live: Rect };
+
 export function ImageEditorCanvas({
   doc,
   viewport,
@@ -234,6 +325,10 @@ export function ImageEditorCanvas({
   grid,
   guides,
   channelView,
+  cropRect,
+  cropAspect,
+  onCropRect,
+  onCropApply,
   onGuidesChange,
   onCommitDoc,
   onPickColor,
@@ -267,6 +362,8 @@ export function ImageEditorCanvas({
   const gridRef = useRef(grid);
   const guidesRef = useRef(guides);
   const channelViewRef = useRef(channelView);
+  const cropRectRef = useRef(cropRect);
+  const cropAspectRef = useRef(cropAspect);
   useEffect(() => {
     docRef.current = doc;
     viewRef.current = view;
@@ -274,7 +371,9 @@ export function ImageEditorCanvas({
     gridRef.current = grid;
     guidesRef.current = guides;
     channelViewRef.current = channelView;
-  }, [doc, view, tool, grid, guides, channelView]);
+    cropRectRef.current = cropRect;
+    cropAspectRef.current = cropAspect;
+  }, [doc, view, tool, grid, guides, channelView, cropRect, cropAspect]);
 
   const strokingRef = useRef(false);
   const lastPointRef = useRef<Point | null>(null);
@@ -283,7 +382,7 @@ export function ImageEditorCanvas({
   const moveRef = useRef<MoveDrag | null>(null);
   const shapeRef = useRef<{ start: Point; current: Point } | null>(null);
   const gradientRef = useRef<{ start: Point; current: Point } | null>(null);
-  const cropRef = useRef<{ start: Point; current: Point } | null>(null);
+  const cropDragRef = useRef<CropDrag | null>(null);
   // A guide being dragged with the Move tool (which axis + its index).
   const guideDragRef = useRef<{ axis: "x" | "y"; index: number } | null>(null);
   const strokeStartRef = useRef<Point | null>(null);
@@ -504,22 +603,60 @@ export function ImageEditorCanvas({
     }
     octx.restore();
 
-    // Crop preview: darken outside the pending crop rectangle.
-    const crop = cropRef.current;
-    if (crop) {
-      const a = toScreen(crop.start);
-      const b = toScreen(crop.current);
-      const x = Math.min(a.x, b.x);
-      const y = Math.min(a.y, b.y);
-      const w = Math.abs(a.x - b.x);
-      const h = Math.abs(a.y - b.y);
+    // Pending crop: darken outside, rule-of-thirds inside, handles on the
+    // frame, and a live size readout. Drawn from the drag's live rect when a
+    // gesture is in progress, else the confirmed pending region.
+    const cropPending = cropDragRef.current?.live ?? cropRectRef.current;
+    if (cropPending && toolRef.current === "crop") {
+      const tl = toScreen({ x: cropPending.x, y: cropPending.y });
+      const x = tl.x;
+      const y = tl.y;
+      const w = cropPending.width * v.scale;
+      const h = cropPending.height * v.scale;
       octx.save();
       octx.fillStyle = "rgba(10, 14, 22, 0.5)";
       octx.fillRect(0, 0, cssW, cssH);
       octx.clearRect(x, y, w, h);
+
+      // Thirds guides.
+      octx.strokeStyle = "rgba(255, 255, 255, 0.35)";
+      octx.lineWidth = 1;
+      for (let i = 1; i <= 2; i += 1) {
+        octx.beginPath();
+        octx.moveTo(x + (w * i) / 3, y);
+        octx.lineTo(x + (w * i) / 3, y + h);
+        octx.stroke();
+        octx.beginPath();
+        octx.moveTo(x, y + (h * i) / 3);
+        octx.lineTo(x + w, y + (h * i) / 3);
+        octx.stroke();
+      }
+
       octx.strokeStyle = cyan;
       octx.lineWidth = 1.25;
       octx.strokeRect(x, y, w, h);
+
+      // Handles.
+      const half = 3.5;
+      octx.fillStyle = "#ffffff";
+      for (const handle of CROP_HANDLES) {
+        const p = cropHandlePoint(cropPending, handle);
+        const s = toScreen(p);
+        octx.fillRect(s.x - half, s.y - half, half * 2, half * 2);
+        octx.strokeRect(s.x - half, s.y - half, half * 2, half * 2);
+      }
+
+      // Size readout above (or inside) the region. Font resolved from the
+      // stage's computed style so the HUD leads with the app face.
+      const label = `${Math.round(cropPending.width)} × ${Math.round(cropPending.height)}px`;
+      octx.font = `11px ${getComputedStyle(stage).fontFamily}`;
+      const metrics = octx.measureText(label);
+      const lx = x;
+      const ly = y >= 22 ? y - 8 : y + 16;
+      octx.fillStyle = "rgba(10, 14, 22, 0.78)";
+      octx.fillRect(lx - 3, ly - 12, metrics.width + 8, 17);
+      octx.fillStyle = "#ffffff";
+      octx.fillText(label, lx, ly);
       octx.restore();
     }
 
@@ -674,6 +811,13 @@ export function ImageEditorCanvas({
     }
     rafRef.current = window.requestAnimationFrame(draw);
   }, [draw]);
+
+  // Repaint the overlay when the pending crop changes from OUTSIDE a drag
+  // (numeric fields, aspect presets, Escape) — drags call requestRender
+  // themselves.
+  useEffect(() => {
+    requestRender();
+  }, [cropRect, cropAspect, requestRender]);
 
   // Recompute the channel-view display transform when it changes, then repaint.
   useEffect(() => {
@@ -1130,7 +1274,40 @@ export function ImageEditorCanvas({
     }
 
     if (tool === "crop") {
-      cropRef.current = { start: point, current: point };
+      const pending = cropRectRef.current;
+      const hitTolerance = 8 / view.scale;
+      if (pending) {
+        const handle = CROP_HANDLES.find((candidate) => {
+          const p = cropHandlePoint(pending, candidate);
+          return (
+            Math.abs(p.x - point.x) <= hitTolerance &&
+            Math.abs(p.y - point.y) <= hitTolerance
+          );
+        });
+        if (handle) {
+          cropDragRef.current = { mode: "resize", handle, orig: pending, live: pending };
+          capturePointer(event.pointerId);
+          requestRender();
+          return;
+        }
+        const inside =
+          point.x >= pending.x &&
+          point.x <= pending.x + pending.width &&
+          point.y >= pending.y &&
+          point.y <= pending.y + pending.height;
+        if (inside) {
+          cropDragRef.current = {
+            mode: "move",
+            start: point,
+            orig: pending,
+            live: pending,
+          };
+          capturePointer(event.pointerId);
+          requestRender();
+          return;
+        }
+      }
+      cropDragRef.current = { mode: "new", start: snapPoint(point), live: null };
       capturePointer(event.pointerId);
       requestRender();
       return;
@@ -1260,8 +1437,25 @@ export function ImageEditorCanvas({
       return;
     }
 
-    if (cropRef.current) {
-      cropRef.current.current = snapPoint(point);
+    const cropDrag = cropDragRef.current;
+    if (cropDrag) {
+      const p = snapPoint(point);
+      if (cropDrag.mode === "new") {
+        cropDrag.live = aspectDragRect(cropDrag.start, p, cropAspectRef.current);
+      } else if (cropDrag.mode === "move") {
+        cropDrag.live = {
+          ...cropDrag.orig,
+          x: cropDrag.orig.x + (p.x - cropDrag.start.x),
+          y: cropDrag.orig.y + (p.y - cropDrag.start.y),
+        };
+      } else {
+        cropDrag.live = resizeCropRect(
+          cropDrag.orig,
+          cropDrag.handle,
+          p,
+          cropAspectRef.current,
+        );
+      }
       requestRender();
       return;
     }
@@ -1481,13 +1675,17 @@ export function ImageEditorCanvas({
       return;
     }
 
-    const crop = cropRef.current;
-    if (crop) {
-      cropRef.current = null;
-      const end = snapPoint(screenToDoc(event.clientX, event.clientY));
-      const rect = normalizeRect(crop.start, end);
-      if (rect.width >= 2 && rect.height >= 2) {
-        onCommitDoc((current) => cropDoc(current, rect));
+    // Confirm-stage crop: releasing the pointer only updates the PENDING
+    // region — Enter / Apply / double-click commits it, Escape cancels.
+    const cropDrag = cropDragRef.current;
+    if (cropDrag) {
+      cropDragRef.current = null;
+      if (cropDrag.mode === "new") {
+        const rect = cropDrag.live;
+        // A sub-2px drag is a click: outside the old region it clears it.
+        onCropRect(rect && rect.width >= 2 && rect.height >= 2 ? rect : null);
+      } else if (cropDrag.live) {
+        onCropRect(cropDrag.live);
       }
       requestRender();
       return;
@@ -1547,6 +1745,12 @@ export function ImageEditorCanvas({
       onPointerMove={onPointerMove}
       onPointerUp={onPointerEnd}
       onPointerCancel={onPointerEnd}
+      onDoubleClick={() => {
+        // Double-click inside a pending crop commits it (Photoshop habit).
+        if (toolRef.current === "crop" && cropRectRef.current) {
+          onCropApply();
+        }
+      }}
       onDragOver={(event) => {
         if (event.dataTransfer.types.includes("Files")) {
           event.preventDefault();

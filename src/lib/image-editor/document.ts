@@ -13,7 +13,13 @@ import {
 } from "./raster";
 import { applySelectionClip } from "./selection";
 import type { BlendMode, ImageDoc, Layer, Rect } from "./types";
-import { DEFAULT_DOC_HEIGHT, DEFAULT_DOC_WIDTH } from "./types";
+import {
+  DEFAULT_DOC_HEIGHT,
+  DEFAULT_DOC_WIDTH,
+  MAX_DOC_DIMENSION,
+  MAX_DOC_PIXELS,
+} from "./types";
+import { DEFAULT_DOC_PPI } from "@/lib/units";
 
 function uid(prefix: string): string {
   return `${prefix}-${Date.now().toString(36)}-${Math.random()
@@ -53,6 +59,7 @@ export function createDoc(
     version: 1,
     width,
     height,
+    ppi: DEFAULT_DOC_PPI,
     layers: [layer],
     activeLayerId: layer.id,
     selection: null,
@@ -70,6 +77,7 @@ export function createDocFromImage(
     version: 1,
     width,
     height,
+    ppi: DEFAULT_DOC_PPI,
     layers: [layer],
     activeLayerId: layer.id,
     selection: null,
@@ -298,12 +306,21 @@ export function resizeCanvas(
   return { ...doc, width, height, layers, selection: null };
 }
 
-// Crop the canvas to a rect (doc-space), keeping all layers aligned.
+// Crop the canvas to a rect (doc-space), keeping all layers aligned. The
+// rect can come from free-typed numeric fields, so the app's size ceilings
+// are enforced HERE, at the allocation choke point — an out-of-budget rect
+// is a no-op, never a throw.
 export function cropDoc(doc: ImageDoc, rect: Rect): ImageDoc {
   const x = Math.round(rect.x);
   const y = Math.round(rect.y);
-  const width = Math.max(1, Math.round(rect.width));
-  const height = Math.max(1, Math.round(rect.height));
+  const width = Math.min(MAX_DOC_DIMENSION, Math.max(1, Math.round(rect.width)));
+  const height = Math.min(
+    MAX_DOC_DIMENSION,
+    Math.max(1, Math.round(rect.height)),
+  );
+  if (width * height > MAX_DOC_PIXELS) {
+    return doc;
+  }
   return resizeCanvas(doc, width, height, -x, -y);
 }
 
@@ -356,15 +373,21 @@ export function rotateDoc(doc: ImageDoc, dir: "cw" | "ccw"): ImageDoc {
 }
 
 // Resample every layer to a new size (scales content, unlike crop/resize-canvas).
+// "smooth" = high-quality interpolation for photos; "pixelated" = nearest
+// neighbor for pixel art and hard edges.
 export function resampleDoc(
   doc: ImageDoc,
   width: number,
   height: number,
+  quality: "smooth" | "pixelated" = "smooth",
 ): ImageDoc {
   const layers = doc.layers.map((layer) => {
     const next = createBitmap(width, height);
     const ctx = get2d(next);
-    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingEnabled = quality === "smooth";
+    if (quality === "smooth") {
+      ctx.imageSmoothingQuality = "high";
+    }
     ctx.drawImage(layer.bitmap, 0, 0, doc.width, doc.height, 0, 0, width, height);
     return { ...layer, bitmap: next };
   });

@@ -9,10 +9,14 @@ import {
   type EditorTabDef,
 } from "@/components/editor-tabs";
 import { ImageEditorCanvas } from "@/components/image-editor-canvas";
+import { ImageEditorCanvasSizeDialog } from "@/components/image-editor-canvassize-dialog";
 import { ImageEditorChannels } from "@/components/image-editor-channels";
 import { ImageEditorFilters } from "@/components/image-editor-filters";
 import { ImageEditorHistory } from "@/components/image-editor-history";
-import { ImageEditorImageSizeDialog } from "@/components/image-editor-imagesize-dialog";
+import {
+  ImageEditorImageSizeDialog,
+  type ResampleQuality,
+} from "@/components/image-editor-imagesize-dialog";
 import { ImageEditorLayers } from "@/components/image-editor-layers";
 import { ImageEditorMinimap } from "@/components/image-editor-minimap";
 import { ImageEditorNewDialog } from "@/components/image-editor-new-dialog";
@@ -50,6 +54,7 @@ import {
   commitPaintedBitmap,
   createDoc,
   createDocFromImage,
+  cropDoc,
   deleteLayer,
   duplicateLayer,
   flattenDoc,
@@ -59,6 +64,7 @@ import {
   patchLayer,
   reorderLayer,
   resampleDoc,
+  resizeCanvas,
   rotateDoc,
   setActiveLayer,
   setBlendMode,
@@ -106,7 +112,7 @@ import type {
   TextSettings,
   ToolId,
 } from "@/lib/image-editor/tools";
-import type { BlendMode, ImageDoc } from "@/lib/image-editor/types";
+import type { BlendMode, ImageDoc, Rect } from "@/lib/image-editor/types";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
 
 const IMAGE_LIMITS = {
@@ -139,6 +145,11 @@ export function ImageEditor() {
   const [gradient, setGradient] = useState<GradientSettings>(DEFAULT_GRADIENT);
   const [tolerance, setTolerance] = useState(32);
   const [imageSizeOpen, setImageSizeOpen] = useState(false);
+  const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
+  // Confirm-stage crop: the pending region stays adjustable (handles, numeric
+  // fields, aspect presets) until Enter/Apply commits or Escape cancels.
+  const [cropRect, setCropRect] = useState<Rect | null>(null);
+  const [cropAspect, setCropAspect] = useState<number | null>(null);
   const clipboardRef = useRef<HTMLCanvasElement | null>(null);
   const [name, setName] = useState("Untitled");
   const [newDialogOpen, setNewDialogOpen] = useState(false);
@@ -312,13 +323,68 @@ export function ImageEditor() {
     [commit],
   );
   const applyImageSize = useCallback(
-    (width: number, height: number) => {
-      commit((c) => resampleDoc(c, width, height));
-      fitDimsRef.current = "";
+    (
+      width: number,
+      height: number,
+      ppi: number,
+      resample: boolean,
+      quality: ResampleQuality,
+    ) => {
+      if (resample) {
+        commit((c) => ({ ...resampleDoc(c, width, height, quality), ppi }));
+        fitDimsRef.current = "";
+      } else {
+        // Pixels frozen — only how large they print changes.
+        commit((c) => ({ ...c, ppi }));
+      }
       setImageSizeOpen(false);
     },
     [commit],
   );
+  const applyCanvasSize = useCallback(
+    (width: number, height: number, offsetX: number, offsetY: number) => {
+      commit((c) => resizeCanvas(c, width, height, offsetX, offsetY));
+      fitDimsRef.current = "";
+      setCanvasSizeOpen(false);
+    },
+    [commit],
+  );
+  const applyCrop = useCallback(() => {
+    if (
+      cropRect &&
+      cropRect.width >= 2 &&
+      cropRect.height >= 2 &&
+      cropRect.width <= MAX_DOC_DIMENSION &&
+      cropRect.height <= MAX_DOC_DIMENSION &&
+      cropRect.width * cropRect.height <= MAX_DOC_PIXELS
+    ) {
+      commit((c) => cropDoc(c, cropRect));
+      fitDimsRef.current = "";
+    }
+    setCropRect(null);
+  }, [commit, cropRect]);
+  // Keyboard-reachable entry to the crop workflow: seed a centered region at
+  // 80% of the canvas, then the numeric fields / presets take over.
+  const seedCrop = useCallback(() => {
+    if (!doc) {
+      return;
+    }
+    const width = Math.max(2, Math.round(doc.width * 0.8));
+    const height = Math.max(2, Math.round(doc.height * 0.8));
+    setCropRect({
+      x: Math.round((doc.width - width) / 2),
+      y: Math.round((doc.height - height) / 2),
+      width,
+      height,
+    });
+  }, [doc]);
+  // Switching tools drops any pending crop, so the overlay can't go stale.
+  const selectTool = useCallback((next: ToolId) => {
+    setTool(next);
+    if (next !== "crop") {
+      setCropRect(null);
+    }
+  }, []);
 
   type SelectAction =
     | "deselect"
@@ -392,7 +458,7 @@ export function ImageEditor() {
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       // A modal owns the keyboard while it's open.
-      if (newDialogOpen || imageSizeOpen) {
+      if (newDialogOpen || imageSizeOpen || canvasSizeOpen) {
         return;
       }
       const el = document.activeElement;
@@ -402,6 +468,20 @@ export function ImageEditor() {
         tag === "TEXTAREA" ||
         tag === "SELECT" ||
         (el instanceof HTMLElement && el.isContentEditable);
+
+      // A pending crop owns Enter/Escape.
+      if (!inField && tool === "crop" && cropRect) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          applyCrop();
+          return;
+        }
+        if (event.key === "Escape") {
+          event.preventDefault();
+          setCropRect(null);
+          return;
+        }
+      }
 
       // Fill: Alt+Backspace = foreground, Ctrl/Cmd+Backspace = background.
       if (!inField && (event.key === "Backspace" || event.key === "Delete")) {
@@ -549,7 +629,7 @@ export function ImageEditor() {
       const next = toolForShortcut(event.key);
       if (next) {
         event.preventDefault();
-        setTool(next);
+        selectTool(next);
       }
     }
     window.addEventListener("keydown", onKeyDown);
@@ -560,6 +640,11 @@ export function ImageEditor() {
     commit,
     newDialogOpen,
     imageSizeOpen,
+    canvasSizeOpen,
+    tool,
+    cropRect,
+    applyCrop,
+    selectTool,
     color,
     bgColor,
     viewport,
@@ -797,6 +882,11 @@ export function ImageEditor() {
         {
           label: "Image size…",
           onSelect: () => setImageSizeOpen(true),
+          disabled: !doc,
+        },
+        {
+          label: "Canvas size…",
+          onSelect: () => setCanvasSizeOpen(true),
           disabled: !doc,
         },
         { separator: true, label: "" },
@@ -1077,7 +1167,7 @@ export function ImageEditor() {
         <div className="image-editor-layout">
           <ImageEditorToolbar
             tool={tool}
-            onToolChange={setTool}
+            onToolChange={selectTool}
             fgColor={color}
             bgColor={bgColor}
             activeSwatch={activeSwatch}
@@ -1101,6 +1191,10 @@ export function ImageEditor() {
             grid={grid}
             guides={guides}
             channelView={channelView}
+            cropRect={cropRect}
+            cropAspect={cropAspect}
+            onCropRect={setCropRect}
+            onCropApply={applyCrop}
             onGuidesChange={setGuides}
             onCommitDoc={commit}
             onPickColor={setColor}
@@ -1230,6 +1324,12 @@ export function ImageEditor() {
                     bgColor={bgColor}
                     activeSwatch={activeSwatch}
                     recentColors={recentColors}
+                    cropRect={cropRect}
+                    cropAspect={cropAspect}
+                    onCropRect={setCropRect}
+                    onCropAspect={setCropAspect}
+                    onCropApply={applyCrop}
+                    onCropSeed={seedCrop}
                     onColorChange={setActiveColor}
                     onSelectSwatch={setActiveSwatch}
                     onSwapColors={swapColors}
@@ -1357,8 +1457,17 @@ export function ImageEditor() {
         open={imageSizeOpen}
         width={doc?.width ?? 1280}
         height={doc?.height ?? 800}
+        ppi={doc?.ppi ?? 300}
         onClose={() => setImageSizeOpen(false)}
         onApply={applyImageSize}
+      />
+
+      <ImageEditorCanvasSizeDialog
+        open={canvasSizeOpen}
+        width={doc?.width ?? 1280}
+        height={doc?.height ?? 800}
+        onClose={() => setCanvasSizeOpen(false)}
+        onApply={applyCanvasSize}
       />
     </div>
   );
