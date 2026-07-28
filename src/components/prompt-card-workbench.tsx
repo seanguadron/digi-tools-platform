@@ -461,6 +461,7 @@ export function PromptCardWorkbench({
 
   return (
     <DndContext
+      id={`workbench-${section}`}
       sensors={sensors}
       onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
