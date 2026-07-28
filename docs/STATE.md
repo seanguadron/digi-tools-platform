@@ -67,12 +67,33 @@ backward-safe: old saves/shares/library entries inherit the booleans from
 
 **Same session, second act:** the owner and the agent designed the
 **vector + image feature program** — now `docs/ROADMAP.md` (owner-approved,
-four scoping decisions recorded there). Headline: the Vector Editor grows an
-Illustrator core (pen, white arrow, five anchor-point types, shapes→paths,
-then point text, per-doc units+PPI, export dialog), and the Image Editor gets
-a precision pass (confirm-stage crop, canvas-size dialog, Photoshop-style
-image-size, export dialog). First build: **Milestone V1, the vector path
-core**. No roadmap code exists yet.
+four scoping decisions recorded there). The owner then said "do it all":
+the roadmap is being executed milestone by milestone in this same session,
+each gate-passed and committed separately.
+
+**Milestone V1 — vector path core: DONE and committed.** The Vector Editor
+is now a real SVG path editor: `path` object kind (anchors with relative
+handle offsets), pen tool (P — click corners, drag smooth handles, click the
+first anchor to close), white arrow (A — anchor/handle selection + drag,
+marquee, double-click a segment to insert an anchor, Alt-drag breaks handle
+pairs), four anchor types (corner/smooth/broken/auto) with the Design-tab
+convert control, shapes→paths conversion (kappa-exact for
+ellipse/rounded-rect), object multi-select (shift-click + marquee, group
+move), EditorMenubar (File/Edit/Object), arrow-key nudge, and harmonized
+shortcuts (V/A/P/R/O/N/G — N and R/O now match the image editor). The
+bezier math lives in `src/lib/vector-editor/bezier.ts` — deliberately
+import-free and covered by 15 unit tests. Gates: integration PASS, security
+PASS (3 Low applied — finite-guarded formatters, coordinate clamp, bounds
+guard), design FAIL→PASS (High applied: canvas overlays now use
+artboard-pinned `--ve-overlay-accent`/`--ve-overlay-paper` tokens instead of
+theme-reactive cyan — the artboard is always white, the app theme is not;
+subbar consolidated to menus + one "Export SVG" primary; ✒ pen glyph
+verified monochrome via canvas probe). Ledger:
+`2026-07-28-*-vector-path-core.md`.
+
+**Next up: Milestone I1** (image precision pass) — crop confirm-stage,
+canvas-size dialog, image-size units/PPI/resample upgrade, shared
+`src/lib/units.ts`. Drafts already staged.
 
 ## Runbook
 

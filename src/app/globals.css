@@ -7401,6 +7401,12 @@ body:has(.page-stage.is-fluid) {
   display: block;
   width: 100%;
   height: 100%;
+  /* Canvas-overlay palette: picked against the ARTBOARD (always #ffffff in
+     v1), not the app theme — the same dark cyan in both themes, ≥4.9:1 on
+     white (WCAG 1.4.11 wants 3:1). Revisit when document setup makes
+     doc.background editable. */
+  --ve-overlay-accent: oklch(0.48 0.12 200);
+  --ve-overlay-paper: #ffffff;
 }
 
 /* The artboard's own edge, drawn in-scene so preserveAspectRatio centers it
@@ -7423,15 +7429,15 @@ body:has(.page-stage.is-fluid) {
 .ve-sel-frame,
 .ve-sel-rot-line {
   fill: none;
-  stroke: var(--brand-cyan);
+  stroke: var(--ve-overlay-accent);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
   pointer-events: none;
 }
 
 .ve-sel-handle {
-  fill: var(--card);
-  stroke: var(--brand-cyan);
+  fill: var(--ve-overlay-paper);
+  stroke: var(--ve-overlay-accent);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
   cursor: pointer;
@@ -7439,6 +7445,74 @@ body:has(.page-stage.is-fluid) {
 
 .ve-sel-rotate {
   cursor: grab;
+}
+
+/* Anchor points + bezier handles (the white arrow's overlay). Corner anchors
+   are squares, curve anchors circles; selected anchors fill cyan. All strokes
+   are non-scaling so the overlay reads the same at any zoom. */
+.ve-anchor {
+  fill: var(--ve-overlay-paper);
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  cursor: pointer;
+}
+
+.ve-anchor.is-selected {
+  fill: var(--ve-overlay-accent);
+}
+
+.ve-handle-line {
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.ve-handle-knob {
+  fill: var(--ve-overlay-paper);
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  cursor: grab;
+}
+
+/* The pen's in-progress drawing: solid path so far, dashed ghost segment to
+   the cursor. Its anchor dots are visual only — clicks must reach the svg. */
+.ve-pen-layer .ve-anchor {
+  pointer-events: none;
+}
+
+.ve-pen-first {
+  stroke-width: 2;
+}
+
+.ve-pen-path {
+  fill: none;
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+/* The ghost keeps full-contrast strokes; the dash pattern alone marks it as
+   provisional (a diluted stroke would fall under the 3:1 floor on white). */
+.ve-pen-ghost {
+  fill: none;
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
+}
+
+.ve-marquee {
+  fill: color-mix(in oklch, var(--ve-overlay-accent) 10%, transparent);
+  stroke: var(--ve-overlay-accent);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+  vector-effect: non-scaling-stroke;
+  pointer-events: none;
 }
 
 /* Dock panels (properties + layers) */
@@ -7518,6 +7592,57 @@ body:has(.page-stage.is-fluid) {
 
 .ve-toggle input {
   accent-color: var(--brand-cyan);
+}
+
+/* The vector subbar: menubar left, save chip beside it, actions pushed right
+   (same arrangement as the image editor's subbar). */
+.vector-editor-subbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vector-editor-subbar .prompt-flow-header-actions {
+  margin-left: auto;
+}
+
+/* Anchor-type convert control (corner / smooth / broken / auto). */
+.ve-anchor-types {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.ve-anchor-type {
+  min-height: 30px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ve-anchor-type:hover {
+  color: var(--foreground);
+}
+
+.ve-anchor-type.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  color: var(--brand-cyan-text);
+}
+
+.vector-editor-dock-hint {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.ve-convert-button {
+  justify-self: start;
 }
 
 /* Layers list */

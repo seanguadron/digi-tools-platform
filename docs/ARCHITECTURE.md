@@ -129,10 +129,10 @@ Do not expect a shell rail; DO recycle these primitives:
 | `useMediaQuery` | `src/hooks/use-media-query.ts` | Live matchMedia state, SSR-safe (`useSyncExternalStore`; the lint rules reject effect-driven setState). |
 | Output docks | `prompt-output-dock.tsx`, `architect-output-dock.tsx` | Two parallel copy/download artifact panels — pick one as your base; unifying them is sanctioned backlog. |
 
-Known single-owner caveat: `EditorMenubar` and `zip.ts` currently have one
-importer each (Image Editor) — generalize class names as you adopt them.
-`EditorTabs` now has two (Image Editor + Vector Editor), a good precedent for
-reusing it. The Vector Editor is also the first native-SVG tool: its scene
+Known single-owner caveat: `zip.ts` currently has one importer (Image
+Editor) — generalize class names as you adopt it. `EditorTabs` and
+`EditorMenubar` each have two (Image Editor + Vector Editor), a good
+precedent for reusing them. The Vector Editor is also the first native-SVG tool: its scene
 graph renders as real SVG elements, so edit and export are the same artifact
 (`src/lib/vector-editor/`). `CopyButton` (`copy-button.tsx`) hardcodes the
 `skill-copy` class.

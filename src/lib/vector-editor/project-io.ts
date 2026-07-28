@@ -5,6 +5,7 @@
 
 import type {
   Paint,
+  PathAnchor,
   Point,
   Stroke,
   VectorDocument,
@@ -68,11 +69,55 @@ function validatePoint(value: unknown): Point | null {
   return { x: object.x, y: object.y };
 }
 
+// Anchor coordinates are clamped in magnitude (not just finite-checked):
+// path math SUMS point + handle, and two independently-valid huge values
+// could overflow to Infinity downstream.
+function clampCoord(value: number): number {
+  return Math.min(MAX_DIMENSION, Math.max(-MAX_DIMENSION, value));
+}
+
+function validateAnchorPoint(value: unknown): Point | null {
+  const point = validatePoint(value);
+  if (!point) return null;
+  return { x: clampCoord(point.x), y: clampCoord(point.y) };
+}
+
+// A stored handle is either null/absent or a finite, clamped offset point.
+function validateHandle(value: unknown): Point | null {
+  if (value === null || value === undefined) return null;
+  return validateAnchorPoint(value);
+}
+
+const ANCHOR_TYPES = ["corner", "smooth", "broken", "auto"] as const;
+const MAX_ANCHORS = 5000;
+
+function validateAnchor(value: unknown): PathAnchor | null {
+  const object = record(value);
+  if (!object) return null;
+  const point = validateAnchorPoint(object.point);
+  if (!point) return null;
+  const type = ANCHOR_TYPES.includes(object.type as (typeof ANCHOR_TYPES)[number])
+    ? (object.type as PathAnchor["type"])
+    : "corner";
+  return {
+    point,
+    handleIn: validateHandle(object.handleIn),
+    handleOut: validateHandle(object.handleOut),
+    type,
+  };
+}
+
 function validateObject(value: unknown): VectorObject | null {
   const object = record(value);
   if (!object || typeof object.id !== "string") return null;
   const { kind } = object;
-  if (kind !== "rect" && kind !== "ellipse" && kind !== "line" && kind !== "polygon") {
+  if (
+    kind !== "rect" &&
+    kind !== "ellipse" &&
+    kind !== "line" &&
+    kind !== "polygon" &&
+    kind !== "path"
+  ) {
     return null;
   }
 
@@ -147,6 +192,17 @@ function validateObject(value: unknown): VectorObject | null {
         .filter((point): point is Point => point !== null);
       if (points.length < 3) return null;
       return { ...base, kind, points };
+    }
+    case "path": {
+      if (!Array.isArray(object.anchors)) return null;
+      const anchors = object.anchors
+        .slice(0, MAX_ANCHORS)
+        .map(validateAnchor)
+        .filter((anchor): anchor is PathAnchor => anchor !== null);
+      if (anchors.length < 2) return null;
+      const closed = object.closed === true;
+      if (closed && anchors.length < 3) return null;
+      return { ...base, kind, anchors, closed };
     }
   }
 }

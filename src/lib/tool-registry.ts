@@ -83,7 +83,7 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
     fullBleed: true,
     mobileSupport: "gated",
     mobileGateNotes: [
-      "Draws and arranges vector shapes on an SVG artboard — rectangles, ellipses, lines, polygons.",
+      "Draws vector artwork on an SVG artboard — pen paths with editable anchors, plus rectangles, ellipses, lines, polygons.",
       "Style fills and strokes, reorder and lock objects, then export clean SVG or PNG.",
       "Runs entirely in this browser — artwork never leaves your machine.",
     ],

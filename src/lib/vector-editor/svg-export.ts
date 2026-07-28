@@ -6,11 +6,12 @@
 // pickers, always #rrggbb) reach the output — there is no user-authored text in
 // the markup, so nothing needs HTML/attribute escaping in v1.
 
+import { pathToD } from "@/lib/vector-editor/bezier";
 import { objectBounds } from "@/lib/vector-editor/geometry";
 import type { VectorDocument, VectorObject } from "@/lib/vector-editor/types";
 
 function num(value: number): number {
-  return Math.round(value * 100) / 100;
+  return Number.isFinite(value) ? Math.round(value * 100) / 100 : 0;
 }
 
 // Colors are the only strings in the output. They come from native color
@@ -65,6 +66,10 @@ function objectToSvg(object: VectorObject): string {
       return `<line x1="${num(object.x1)}" y1="${num(object.y1)}" x2="${num(object.x2)}" y2="${num(object.y2)}" ${paint}${transform}/>`;
     case "polygon":
       return `<polygon points="${object.points.map((p) => `${num(p.x)},${num(p.y)}`).join(" ")}" ${paint}${transform}/>`;
+    // pathToD emits only M/L/C/Z commands over rounded numbers — no
+    // user-authored text can reach the d attribute.
+    case "path":
+      return `<path d="${pathToD(object.anchors, object.closed)}" ${paint}${transform}/>`;
   }
 }
 

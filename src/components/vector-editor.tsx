@@ -2,20 +2,24 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { EditorMenubar } from "@/components/editor-menubar";
 import { EditorTabs, tabPanelProps } from "@/components/editor-tabs";
 import {
   ToolSaveStateChip,
   ToolSubbar,
   ToolSubbarActions,
-  ToolSubbarTitle,
 } from "@/components/tool-subbar";
-import { VectorCanvas } from "@/components/vector-editor-canvas";
+import {
+  VectorCanvas,
+  type AnchorSelection,
+} from "@/components/vector-editor-canvas";
 import { VectorLayers } from "@/components/vector-editor-layers";
 import { VectorProperties } from "@/components/vector-editor-properties";
 import { useLocalDraft } from "@/hooks/use-local-draft";
 import { usePortalTarget } from "@/hooks/use-portal-target";
 import { useUndoableState } from "@/hooks/use-undoable-state";
 import { downloadBlob, downloadTextFile } from "@/lib/browser-download";
+import { applyAnchorType, removeAnchors } from "@/lib/vector-editor/bezier";
 import {
   addObject,
   createShape,
@@ -24,14 +28,24 @@ import {
   removeObject,
   updateObject,
 } from "@/lib/vector-editor/document";
+import {
+  convertToPath,
+  createPathObject,
+  minAnchorCount,
+  withAnchors,
+} from "@/lib/vector-editor/paths";
 import { loadProject, saveProject } from "@/lib/vector-editor/project-io";
 import { rasterizePng, serializeSvg } from "@/lib/vector-editor/svg-export";
+import { translateObject } from "@/lib/vector-editor/transform";
 import {
   createEmptyDocument,
+  type PathAnchor,
+  type AnchorType,
   type VectorDocument,
   type VectorObject,
 } from "@/lib/vector-editor/types";
 import {
+  isDragShapeTool,
   VECTOR_TOOLS,
   VECTOR_TOOL_BY_SHORTCUT,
   type VectorToolId,
@@ -49,13 +63,17 @@ const HISTORY_LIMIT = 100;
 export function VectorEditor() {
   const [doc, setDoc] = useState<VectorDocument>(createEmptyDocument);
   const [tool, setTool] = useState<VectorToolId>("select");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [anchorSelection, setAnchorSelection] =
+    useState<AnchorSelection | null>(null);
   const [dockTab, setDockTab] = useState<DockTab>("design");
   const [zoom, setZoom] = useState(1);
 
   const statusTarget = usePortalTarget("app-statusbar-slot");
-  const selectedObject =
-    doc.objects.find((object) => object.id === selectedId) ?? null;
+  const selectedObjects = doc.objects.filter((object) =>
+    selectedIds.includes(object.id),
+  );
+  const soleSelected = selectedObjects.length === 1 ? selectedObjects[0] : null;
   const objectCount = doc.objects.length;
 
   const applySnapshot = useCallback(
@@ -109,8 +127,31 @@ export function VectorEditor() {
     [checkpoint],
   );
 
+  // Selection state may hold ids/indices that no longer exist after an undo
+  // or delete — every consumer filters against the live document instead of
+  // pruning state in an effect (which would cascade renders).
+  function liveAnchorIndices(target: { anchors: unknown[] }): number[] {
+    if (!anchorSelection) return [];
+    return anchorSelection.indices.filter(
+      (index) => index < target.anchors.length,
+    );
+  }
+
+  function selectOnly(id: string | null) {
+    setSelectedIds(id ? [id] : []);
+    setAnchorSelection(null);
+  }
+
   function handleDraw(object: VectorObject) {
     commit((current) => addObject(current, object));
+    selectOnly(object.id);
+  }
+
+  function handleCreatePath(anchors: PathAnchor[], closed: boolean) {
+    const object = createPathObject(anchors, closed, doc.objects);
+    commit((current) => addObject(current, object));
+    setSelectedIds([object.id]);
+    setAnchorSelection(null);
   }
 
   function handleTransform(object: VectorObject) {
@@ -120,10 +161,71 @@ export function VectorEditor() {
     );
   }
 
+  function handleTransformMany(objects: VectorObject[]) {
+    commit(
+      (current) =>
+        objects.reduce(
+          (acc, object) => updateObject(acc, object.id, () => object),
+          current,
+        ),
+      "xf:multi",
+    );
+  }
+
+  function handleEditPath(object: VectorObject) {
+    commit(
+      (current) => updateObject(current, object.id, () => object),
+      `path:${object.id}`,
+    );
+  }
+
   function handleUpdateObject(object: VectorObject) {
     commit(
       (current) => updateObject(current, object.id, () => object),
       `prop:${object.id}`,
+    );
+  }
+
+  function handleConvertToPath(id: string) {
+    const target = doc.objects.find((object) => object.id === id);
+    if (!target || target.kind === "path") return;
+    commit((current) =>
+      updateObject(current, id, (object) => convertToPath(object)),
+    );
+    setSelectedIds([id]);
+    setAnchorSelection(null);
+    setTool("direct");
+  }
+
+  function handleConvertSelectedToPath() {
+    const convertible = selectedObjects.filter(
+      (object) => object.kind !== "path",
+    );
+    if (convertible.length === 0) return;
+    commit((current) =>
+      convertible.reduce(
+        (acc, target) =>
+          updateObject(acc, target.id, (object) => convertToPath(object)),
+        current,
+      ),
+    );
+    setAnchorSelection(null);
+  }
+
+  function handleConvertAnchors(type: AnchorType) {
+    if (!anchorSelection) return;
+    const target = doc.objects.find(
+      (object) => object.id === anchorSelection.objectId,
+    );
+    if (!target || target.kind !== "path") return;
+    const anchors = liveAnchorIndices(target).reduce(
+      (acc, index) => applyAnchorType(acc, index, type, target.closed),
+      target.anchors,
+    );
+    commit(
+      (current) =>
+        updateObject(current, target.id, () => withAnchors(target, anchors)),
+      `anchor-type:${target.id}`,
     );
   }
 
@@ -149,9 +251,79 @@ export function VectorEditor() {
     commit((current) => moveObject(current, id, delta));
   }
 
-  function handleDelete(id: string) {
-    commit((current) => removeObject(current, id));
-    setSelectedId((current) => (current === id ? null : current));
+  function deleteSelection() {
+    // Direct tool with anchors selected deletes the anchors; a path that
+    // would fall below its minimum is removed whole.
+    if (anchorSelection && tool === "direct") {
+      const target = doc.objects.find(
+        (object) => object.id === anchorSelection.objectId,
+      );
+      if (target && target.kind === "path") {
+        const indices = liveAnchorIndices(target);
+        if (indices.length === 0) {
+          setAnchorSelection(null);
+          return;
+        }
+        const remaining = target.anchors.length - indices.length;
+        if (remaining < minAnchorCount(target.closed)) {
+          commit((current) => removeObject(current, target.id));
+          selectOnly(null);
+        } else {
+          const anchors = removeAnchors(target.anchors, indices);
+          commit((current) =>
+            updateObject(current, target.id, () =>
+              withAnchors(target, anchors),
+            ),
+          );
+          setAnchorSelection(null);
+        }
+        return;
+      }
+    }
+    if (selectedIds.length === 0) return;
+    commit((current) =>
+      selectedIds.reduce((acc, id) => removeObject(acc, id), current),
+    );
+    selectOnly(null);
+  }
+
+  function nudgeSelection(dx: number, dy: number) {
+    if (anchorSelection && tool === "direct") {
+      const target = doc.objects.find(
+        (object) => object.id === anchorSelection.objectId,
+      );
+      if (target && target.kind === "path") {
+        const selectedSet = new Set(liveAnchorIndices(target));
+        const anchors = target.anchors.map((anchor, index) =>
+          selectedSet.has(index)
+            ? {
+                ...anchor,
+                point: { x: anchor.point.x + dx, y: anchor.point.y + dy },
+              }
+            : anchor,
+        );
+        commit(
+          (current) =>
+            updateObject(current, target.id, () =>
+              withAnchors(target, anchors),
+            ),
+          `nudge:${target.id}`,
+        );
+        return;
+      }
+    }
+    if (selectedObjects.length === 0) return;
+    commit(
+      (current) =>
+        selectedObjects.reduce(
+          (acc, object) =>
+            updateObject(acc, object.id, (live) =>
+              translateObject(live, dx, dy),
+            ),
+          current,
+        ),
+      "nudge:objects",
+    );
   }
 
   function exportSvg() {
@@ -198,20 +370,34 @@ export function VectorEditor() {
       }
       if (modifier || event.altKey) return;
 
-      if ((event.key === "Delete" || event.key === "Backspace") && selectedId) {
-        event.preventDefault();
-        commit((current) => removeObject(current, selectedId));
-        setSelectedId(null);
+      if (event.key === "Delete" || event.key === "Backspace") {
+        if (selectedIds.length > 0 || anchorSelection) {
+          event.preventDefault();
+          deleteSelection();
+        }
         return;
       }
       if (event.key === "Escape") {
-        setSelectedId(null);
+        if (anchorSelection) setAnchorSelection(null);
+        else selectOnly(null);
+        return;
+      }
+      if (event.key.startsWith("Arrow")) {
+        if (selectedIds.length === 0 && !anchorSelection) return;
+        event.preventDefault();
+        const step = event.shiftKey ? 10 : 1;
+        const dx =
+          event.key === "ArrowLeft" ? -step : event.key === "ArrowRight" ? step : 0;
+        const dy =
+          event.key === "ArrowUp" ? -step : event.key === "ArrowDown" ? step : 0;
+        nudgeSelection(dx, dy);
         return;
       }
       // Enter drops a default-size shape at the artboard center — a full
       // keyboard/no-drag path to create objects (the shape tools otherwise
       // only draw by dragging). Switches to Select so it's ready to adjust.
-      if (event.key === "Enter" && tool !== "select") {
+      // The pen handles its own Enter (finish path) in the canvas.
+      if (event.key === "Enter" && isDragShapeTool(tool)) {
         event.preventDefault();
         const cx = doc.width / 2;
         const cy = doc.height / 2;
@@ -222,7 +408,7 @@ export function VectorEditor() {
           doc.objects,
         );
         commit((current) => addObject(current, shape));
-        setSelectedId(shape.id);
+        selectOnly(shape.id);
         setTool("select");
         return;
       }
@@ -231,7 +417,78 @@ export function VectorEditor() {
     }
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [selectedId, tool, doc, commit, history]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedIds, anchorSelection, tool, doc, commit, history]);
+
+  const convertibleSelected = selectedObjects.some(
+    (object) => object.kind !== "path",
+  );
+
+  const menus = [
+    {
+      id: "file",
+      label: "File",
+      items: [
+        {
+          label: "Export SVG",
+          onSelect: exportSvg,
+          disabled: objectCount === 0,
+        },
+        {
+          label: "Export PNG",
+          onSelect: () => void exportPng(),
+          disabled: objectCount === 0,
+        },
+      ],
+    },
+    {
+      id: "edit",
+      label: "Edit",
+      items: [
+        {
+          label: "Undo",
+          shortcut: "Ctrl+Z",
+          onSelect: () => history.undo(),
+          disabled: !history.canUndo,
+        },
+        {
+          label: "Redo",
+          shortcut: "Ctrl+Shift+Z",
+          onSelect: () => history.redo(),
+          disabled: !history.canRedo,
+        },
+        { label: "", separator: true },
+        {
+          label: "Delete",
+          shortcut: "Del",
+          onSelect: deleteSelection,
+          disabled: selectedIds.length === 0 && !anchorSelection,
+        },
+      ],
+    },
+    {
+      id: "object",
+      label: "Object",
+      items: [
+        {
+          label: "Convert to path",
+          onSelect: handleConvertSelectedToPath,
+          disabled: !convertibleSelected,
+        },
+        { label: "", separator: true },
+        {
+          label: "Raise",
+          onSelect: () => soleSelected && handleMove(soleSelected.id, 1),
+          disabled: !soleSelected,
+        },
+        {
+          label: "Lower",
+          onSelect: () => soleSelected && handleMove(soleSelected.id, -1),
+          disabled: !soleSelected,
+        },
+      ],
+    },
+  ];
 
   const statusBar = (
     <div className="vector-editor-statusbar">
@@ -250,44 +507,19 @@ export function VectorEditor() {
   return (
     <div className="tool-page vector-editor-page">
       <ToolSubbar className="vector-editor-subbar">
-        <ToolSubbarTitle kicker="Vector Editor" heading="Draw with vectors.">
-          <ToolSaveStateChip
-            status={persistence.status}
-            lastSavedAt={persistence.lastSavedAt}
-          />
-        </ToolSubbarTitle>
+        <EditorMenubar menus={menus} label="Vector editor menu" />
+        <ToolSaveStateChip
+          status={persistence.status}
+          lastSavedAt={persistence.lastSavedAt}
+        />
         <ToolSubbarActions>
           <button
             type="button"
-            className="button button-secondary button-small"
-            onClick={() => history.undo()}
-            disabled={!history.canUndo}
-          >
-            Undo
-          </button>
-          <button
-            type="button"
-            className="button button-secondary button-small"
-            onClick={() => history.redo()}
-            disabled={!history.canRedo}
-          >
-            Redo
-          </button>
-          <button
-            type="button"
-            className="button button-secondary button-small"
+            className="button button-primary"
             onClick={exportSvg}
             disabled={objectCount === 0}
           >
-            SVG
-          </button>
-          <button
-            type="button"
-            className="button button-secondary button-small"
-            onClick={exportPng}
-            disabled={objectCount === 0}
-          >
-            PNG
+            Export SVG
           </button>
         </ToolSubbarActions>
       </ToolSubbar>
@@ -323,11 +555,17 @@ export function VectorEditor() {
         <VectorCanvas
           doc={doc}
           tool={tool}
-          selectedId={selectedId}
+          selectedIds={selectedIds}
+          anchorSelection={anchorSelection}
           onDraw={handleDraw}
-          onSelect={setSelectedId}
+          onCreatePath={handleCreatePath}
+          onSelectIds={setSelectedIds}
+          onAnchorSelection={setAnchorSelection}
           onTransform={handleTransform}
+          onTransformMany={handleTransformMany}
+          onEditPath={handleEditPath}
           onTransformEnd={seal}
+          onConvertToPath={handleConvertToPath}
           onZoom={setZoom}
         />
 
@@ -345,9 +583,12 @@ export function VectorEditor() {
               className="vector-editor-dock-panel"
             >
               <VectorProperties
-                object={selectedObject}
+                objects={selectedObjects}
                 doc={doc}
+                anchorSelection={anchorSelection}
                 onUpdate={handleUpdateObject}
+                onConvertToPath={handleConvertToPath}
+                onConvertAnchors={handleConvertAnchors}
               />
             </div>
           ) : (
@@ -357,12 +598,12 @@ export function VectorEditor() {
             >
               <VectorLayers
                 objects={doc.objects}
-                selectedId={selectedId}
-                onSelect={setSelectedId}
+                selectedIds={selectedIds}
+                onSelect={selectOnly}
                 onToggleHidden={handleToggleHidden}
                 onToggleLocked={handleToggleLocked}
                 onMove={handleMove}
-                onDelete={handleDelete}
+                onDeleteSelected={deleteSelection}
               />
             </div>
           )}

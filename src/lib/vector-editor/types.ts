@@ -7,14 +7,25 @@
 // resize edit the geometry directly rather than accumulating a matrix, which
 // keeps the model readable and the export clean.
 
+import type { Anchor, AnchorKind } from "./bezier";
+
 export type VectorObjectId = string;
 
+// The four drag-to-draw shape kinds. Paths are a fifth OBJECT kind but not a
+// drag shape — the pen builds them anchor by anchor.
 export type VectorShapeKind = "rect" | "ellipse" | "line" | "polygon";
+
+export type VectorObjectKind = VectorShapeKind | "path";
 
 export interface Point {
   x: number;
   y: number;
 }
+
+// A path anchor IS the bezier module's Anchor: a point, two optional handle
+// OFFSETS, and its type (corner | smooth | broken | auto).
+export type PathAnchor = Anchor;
+export type AnchorType = AnchorKind;
 
 export interface Paint {
   color: string; // any CSS color string
@@ -27,7 +38,7 @@ export interface Stroke extends Paint {
 
 interface VectorObjectBase {
   id: VectorObjectId;
-  kind: VectorShapeKind;
+  kind: VectorObjectKind;
   name: string;
   fill: Paint | null; // null = no fill
   stroke: Stroke | null; // null = no stroke
@@ -67,11 +78,18 @@ export interface PolygonObject extends VectorObjectBase {
   points: Point[];
 }
 
+export interface PathObject extends VectorObjectBase {
+  kind: "path";
+  anchors: PathAnchor[];
+  closed: boolean;
+}
+
 export type VectorObject =
   | RectObject
   | EllipseObject
   | LineObject
-  | PolygonObject;
+  | PolygonObject
+  | PathObject;
 
 export interface VectorDocument {
   width: number; // artboard size, user units

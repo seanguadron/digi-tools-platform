@@ -83,6 +83,9 @@ export function resizeShape(
           object.points.length || POLYGON_SIDES,
         ),
       };
+    // Paths are built by the pen, never by a two-point drag.
+    case "path":
+      return object;
   }
 }
 
@@ -168,6 +171,9 @@ export function createShape(
 export function isDegenerate(object: VectorObject): boolean {
   if (object.kind === "line") {
     return Math.hypot(object.x2 - object.x1, object.y2 - object.y1) < 1.5;
+  }
+  if (object.kind === "path" && object.anchors.length < 2) {
+    return true;
   }
   const box = objectBounds(object);
   return box.width < 1.5 && box.height < 1.5;

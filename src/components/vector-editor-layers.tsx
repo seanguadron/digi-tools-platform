@@ -1,33 +1,35 @@
 "use client";
 
-import type { VectorObject, VectorShapeKind } from "@/lib/vector-editor/types";
+import type { VectorObject, VectorObjectKind } from "@/lib/vector-editor/types";
 
-const KIND_GLYPH: Record<VectorShapeKind, string> = {
+const KIND_GLYPH: Record<VectorObjectKind, string> = {
   rect: "▭",
   ellipse: "◯",
   line: "╱",
   polygon: "⬠",
+  path: "∿",
 };
 
 export function VectorLayers({
   objects,
-  selectedId,
+  selectedIds,
   onSelect,
   onToggleHidden,
   onToggleLocked,
   onMove,
-  onDelete,
+  onDeleteSelected,
 }: {
   objects: VectorObject[];
-  selectedId: string | null;
+  selectedIds: string[];
   onSelect: (id: string | null) => void;
   onToggleHidden: (id: string) => void;
   onToggleLocked: (id: string) => void;
   onMove: (id: string, delta: number) => void;
-  onDelete: (id: string) => void;
+  onDeleteSelected: () => void;
 }) {
   // Top of the stack (last in z-order) reads first, like every layers panel.
   const rows = [...objects].reverse();
+  const soleSelectedId = selectedIds.length === 1 ? selectedIds[0] : null;
 
   return (
     <div className="vector-editor-dock-body vector-editor-layers">
@@ -41,7 +43,7 @@ export function VectorLayers({
             <li
               key={object.id}
               className={
-                object.id === selectedId
+                selectedIds.includes(object.id)
                   ? "ve-layer-row is-selected"
                   : "ve-layer-row"
               }
@@ -85,24 +87,24 @@ export function VectorLayers({
         <button
           type="button"
           className="button button-secondary button-small"
-          disabled={!selectedId}
-          onClick={() => selectedId && onMove(selectedId, 1)}
+          disabled={!soleSelectedId}
+          onClick={() => soleSelectedId && onMove(soleSelectedId, 1)}
         >
           Raise
         </button>
         <button
           type="button"
           className="button button-secondary button-small"
-          disabled={!selectedId}
-          onClick={() => selectedId && onMove(selectedId, -1)}
+          disabled={!soleSelectedId}
+          onClick={() => soleSelectedId && onMove(soleSelectedId, -1)}
         >
           Lower
         </button>
         <button
           type="button"
           className="button button-secondary button-small"
-          disabled={!selectedId}
-          onClick={() => selectedId && onDelete(selectedId)}
+          disabled={selectedIds.length === 0}
+          onClick={onDeleteSelected}
         >
           Delete
         </button>

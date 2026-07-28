@@ -2,29 +2,45 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
+import {
+  insertAnchor,
+  moveHandle,
+  nearestOnPath,
+  pathToD,
+} from "@/lib/vector-editor/bezier";
 import { objectBounds } from "@/lib/vector-editor/geometry";
 import {
   createShape,
   isDegenerate,
   resizeShape,
 } from "@/lib/vector-editor/document";
+import { withAnchors } from "@/lib/vector-editor/paths";
 import {
   RESIZE_HANDLES,
   resizeObject,
   rotateObject,
+  rotatePoint,
+  toLocalPoint,
   translateObject,
   type ResizeHandle,
 } from "@/lib/vector-editor/transform";
 import type {
+  PathAnchor,
+  PathObject,
   Point,
   VectorDocument,
   VectorObject,
 } from "@/lib/vector-editor/types";
-import type { VectorToolId } from "@/lib/vector-editor/tools";
+import { isDragShapeTool, type VectorToolId } from "@/lib/vector-editor/tools";
 
 const HANDLE_PX = 9; // on-screen handle size, kept constant via 1 / scale
 const ROTATE_OFFSET_PX = 26; // gap from the top edge to the rotate handle
 const MINIMAP_WIDTH = 168;
+const ANCHOR_PX = 8; // anchor dot size on screen
+const KNOB_PX = 7; // bezier handle knob diameter on screen
+const CLOSE_PX = 10; // pen: click this close to the first anchor to close
+const SEGMENT_HIT_PX = 8; // direct: double-click this close to insert
+const PEN_DRAG_PX = 3; // pen: drag past this to pull out handles
 
 interface ViewBox {
   x: number;
@@ -33,13 +49,43 @@ interface ViewBox {
   h: number;
 }
 
+// The rotation frame frozen at drag start, so pointer math stays in the
+// path's unrotated local space for the whole gesture.
+interface RotFrame {
+  cx: number;
+  cy: number;
+  rotation: number;
+}
+
+export interface AnchorSelection {
+  objectId: string;
+  indices: number[];
+}
+
 // A pointer gesture in progress.
 type Action =
   | { type: "draw"; start: Point }
-  | { type: "move"; object: VectorObject; start: Point }
+  | { type: "move"; objects: VectorObject[]; start: Point }
   | { type: "resize"; object: VectorObject; handle: ResizeHandle }
   | { type: "rotate"; object: VectorObject }
-  | { type: "pan"; startX: number; startY: number; startView: ViewBox };
+  | { type: "pan"; startX: number; startY: number; startView: ViewBox }
+  | { type: "marquee"; start: Point; additive: boolean }
+  | {
+      type: "anchor-move";
+      object: PathObject;
+      indices: number[];
+      start: Point;
+      frame: RotFrame;
+    }
+  | {
+      type: "handle-move";
+      object: PathObject;
+      index: number;
+      which: "in" | "out";
+      breakPair: boolean;
+      frame: RotFrame;
+    }
+  | { type: "pen-place"; index: number; start: Point };
 
 function clientToUser(
   svg: SVGSVGElement,
@@ -55,12 +101,45 @@ function clientToUser(
   return { x: user.x, y: user.y };
 }
 
+function frameFor(object: VectorObject): RotFrame {
+  const box = objectBounds(object);
+  return { cx: box.cx, cy: box.cy, rotation: object.rotation };
+}
+
+function toFrameLocal(point: Point, frame: RotFrame): Point {
+  if (frame.rotation === 0) return point;
+  return toLocalPoint(point, frame.cx, frame.cy, frame.rotation);
+}
+
+function boundsIntersect(
+  a: { x: number; y: number; width: number; height: number },
+  b: { x: number; y: number; width: number; height: number },
+): boolean {
+  return (
+    a.x <= b.x + b.width &&
+    b.x <= a.x + a.width &&
+    a.y <= b.y + b.height &&
+    b.y <= a.y + a.height
+  );
+}
+
+function normalizedRect(a: Point, b: Point) {
+  return {
+    x: Math.min(a.x, b.x),
+    y: Math.min(a.y, b.y),
+    width: Math.abs(b.x - a.x),
+    height: Math.abs(b.y - a.y),
+  };
+}
+
 function ShapeElement({
   object,
   interactive = true,
+  scale = 1,
 }: {
   object: VectorObject;
   interactive?: boolean;
+  scale?: number;
 }) {
   if (object.hidden) return null;
 
@@ -71,7 +150,9 @@ function ShapeElement({
       : undefined;
 
   const common = {
-    ...(interactive ? { "data-object-id": object.id } : { pointerEvents: "none" as const }),
+    ...(interactive
+      ? { "data-object-id": object.id }
+      : { pointerEvents: "none" as const }),
     transform,
     opacity: object.opacity,
     fill: object.fill ? object.fill.color : "none",
@@ -120,6 +201,38 @@ function ShapeElement({
           {...common}
         />
       );
+    case "path": {
+      const d = pathToD(object.anchors, object.closed);
+      if (!interactive) {
+        return <path d={d} {...common} />;
+      }
+      // A transparent fat-stroke twin makes thin curves forgiving to click —
+      // the DOM hit-tests the stroke band so no manual curve math is needed
+      // for plain selection.
+      const hitWidth = Math.max(
+        object.stroke ? object.stroke.width : 0,
+        10 / scale,
+      );
+      return (
+        <g data-object-id={object.id} transform={transform} opacity={object.opacity}>
+          <path
+            d={d}
+            fill={object.fill ? object.fill.color : "none"}
+            fillOpacity={object.fill ? object.fill.opacity : undefined}
+            stroke={object.stroke ? object.stroke.color : "none"}
+            strokeWidth={object.stroke ? object.stroke.width : undefined}
+            strokeOpacity={object.stroke ? object.stroke.opacity : undefined}
+          />
+          <path
+            d={d}
+            fill="none"
+            stroke="transparent"
+            strokeWidth={hitWidth}
+            pointerEvents="stroke"
+          />
+        </g>
+      );
+    }
   }
 }
 
@@ -136,9 +249,11 @@ function handlePosition(handle: ResizeHandle, b: ReturnType<typeof objectBounds>
 function SelectionOverlay({
   object,
   scale,
+  withHandles,
 }: {
   object: VectorObject;
   scale: number;
+  withHandles: boolean;
 }) {
   const b = objectBounds(object);
   const size = HANDLE_PX / scale;
@@ -152,28 +267,208 @@ function SelectionOverlay({
   return (
     <g className="ve-selection" transform={transform}>
       <rect className="ve-sel-frame" x={b.x} y={b.y} width={b.width} height={b.height} />
-      <line className="ve-sel-rot-line" x1={b.cx} y1={b.y} x2={b.cx} y2={b.y - rotateGap} />
-      <circle
-        className="ve-sel-handle ve-sel-rotate"
-        data-handle="rotate"
-        cx={b.cx}
-        cy={b.y - rotateGap}
-        r={half}
-      />
-      {RESIZE_HANDLES.map((handle) => {
-        const p = handlePosition(handle, b);
-        return (
-          <rect
-            key={handle}
-            className="ve-sel-handle"
-            data-handle={handle}
-            x={p.x - half}
-            y={p.y - half}
-            width={size}
-            height={size}
+      {withHandles ? (
+        <>
+          <line className="ve-sel-rot-line" x1={b.cx} y1={b.y} x2={b.cx} y2={b.y - rotateGap} />
+          <circle
+            className="ve-sel-handle ve-sel-rotate"
+            data-handle="rotate"
+            cx={b.cx}
+            cy={b.y - rotateGap}
+            r={half}
           />
+          {RESIZE_HANDLES.map((handle) => {
+            const p = handlePosition(handle, b);
+            return (
+              <rect
+                key={handle}
+                className="ve-sel-handle"
+                data-handle={handle}
+                x={p.x - half}
+                y={p.y - half}
+                width={size}
+                height={size}
+              />
+            );
+          })}
+        </>
+      ) : null}
+    </g>
+  );
+}
+
+// Anchor dots + bezier handles for the direct-selection tool. Rendered inside
+// the object's own rotation transform so the dots sit on the drawn shape;
+// pointer math converts back through the frozen frame.
+function AnchorOverlay({
+  object,
+  selectedIndices,
+  scale,
+}: {
+  object: PathObject;
+  selectedIndices: number[];
+  scale: number;
+}) {
+  const b = objectBounds(object);
+  const transform =
+    object.rotation !== 0
+      ? `rotate(${object.rotation} ${b.cx} ${b.cy})`
+      : undefined;
+  const size = ANCHOR_PX / scale;
+  const half = size / 2;
+  const knob = KNOB_PX / scale / 2;
+  const selected = new Set(selectedIndices);
+
+  return (
+    <g className="ve-anchor-layer" transform={transform}>
+      {object.anchors.map((anchor, index) => {
+        const isSelected = selected.has(index);
+        const { point } = anchor;
+        return (
+          <g key={index}>
+            {isSelected && anchor.handleIn ? (
+              <>
+                <line
+                  className="ve-handle-line"
+                  x1={point.x}
+                  y1={point.y}
+                  x2={point.x + anchor.handleIn.x}
+                  y2={point.y + anchor.handleIn.y}
+                />
+                <circle
+                  className="ve-handle-knob"
+                  data-anchor-handle="in"
+                  data-anchor-index={index}
+                  cx={point.x + anchor.handleIn.x}
+                  cy={point.y + anchor.handleIn.y}
+                  r={knob}
+                />
+              </>
+            ) : null}
+            {isSelected && anchor.handleOut ? (
+              <>
+                <line
+                  className="ve-handle-line"
+                  x1={point.x}
+                  y1={point.y}
+                  x2={point.x + anchor.handleOut.x}
+                  y2={point.y + anchor.handleOut.y}
+                />
+                <circle
+                  className="ve-handle-knob"
+                  data-anchor-handle="out"
+                  data-anchor-index={index}
+                  cx={point.x + anchor.handleOut.x}
+                  cy={point.y + anchor.handleOut.y}
+                  r={knob}
+                />
+              </>
+            ) : null}
+            {anchor.type === "corner" ? (
+              <rect
+                className={isSelected ? "ve-anchor is-selected" : "ve-anchor"}
+                data-anchor-index={index}
+                x={point.x - half}
+                y={point.y - half}
+                width={size}
+                height={size}
+              />
+            ) : (
+              <circle
+                className={isSelected ? "ve-anchor is-selected" : "ve-anchor"}
+                data-anchor-index={index}
+                cx={point.x}
+                cy={point.y}
+                r={half}
+              />
+            )}
+          </g>
         );
       })}
+    </g>
+  );
+}
+
+// The in-progress pen drawing: the path so far, a ghost segment to the
+// cursor, and the working anchors.
+function PenPreview({
+  anchors,
+  hover,
+  scale,
+}: {
+  anchors: PathAnchor[];
+  hover: Point | null;
+  scale: number;
+}) {
+  const size = ANCHOR_PX / scale;
+  const half = size / 2;
+  const knob = KNOB_PX / scale / 2;
+  const last = anchors[anchors.length - 1];
+  const ghost =
+    hover && anchors.length > 0
+      ? pathToD(
+          [
+            ...anchors.slice(-1),
+            { point: hover, handleIn: null, handleOut: null, type: "corner" },
+          ],
+          false,
+        )
+      : null;
+
+  return (
+    <g className="ve-pen-layer">
+      {anchors.length > 1 ? (
+        <path className="ve-pen-path" d={pathToD(anchors, false)} />
+      ) : null}
+      {ghost ? <path className="ve-pen-ghost" d={ghost} /> : null}
+      {last?.handleIn ? (
+        <>
+          <line
+            className="ve-handle-line"
+            x1={last.point.x}
+            y1={last.point.y}
+            x2={last.point.x + last.handleIn.x}
+            y2={last.point.y + last.handleIn.y}
+          />
+          <circle
+            className="ve-handle-knob"
+            cx={last.point.x + last.handleIn.x}
+            cy={last.point.y + last.handleIn.y}
+            r={knob}
+          />
+        </>
+      ) : null}
+      {last?.handleOut ? (
+        <>
+          <line
+            className="ve-handle-line"
+            x1={last.point.x}
+            y1={last.point.y}
+            x2={last.point.x + last.handleOut.x}
+            y2={last.point.y + last.handleOut.y}
+          />
+          <circle
+            className="ve-handle-knob"
+            cx={last.point.x + last.handleOut.x}
+            cy={last.point.y + last.handleOut.y}
+            r={knob}
+          />
+        </>
+      ) : null}
+      {anchors.map((anchor, index) => (
+        <rect
+          key={index}
+          className={
+            index === 0 && anchors.length >= 3
+              ? "ve-anchor ve-pen-first"
+              : "ve-anchor"
+          }
+          x={anchor.point.x - half}
+          y={anchor.point.y - half}
+          width={size}
+          height={size}
+        />
+      ))}
     </g>
   );
 }
@@ -253,27 +548,45 @@ function Minimap({
 export function VectorCanvas({
   doc,
   tool,
-  selectedId,
+  selectedIds,
+  anchorSelection,
   onDraw,
-  onSelect,
+  onCreatePath,
+  onSelectIds,
+  onAnchorSelection,
   onTransform,
+  onTransformMany,
+  onEditPath,
   onTransformEnd,
+  onConvertToPath,
   onZoom,
 }: {
   doc: VectorDocument;
   tool: VectorToolId;
-  selectedId: string | null;
+  selectedIds: string[];
+  anchorSelection: AnchorSelection | null;
   onDraw: (object: VectorObject) => void;
-  onSelect: (id: string | null) => void;
+  onCreatePath: (anchors: PathAnchor[], closed: boolean) => void;
+  onSelectIds: (ids: string[]) => void;
+  onAnchorSelection: (selection: AnchorSelection | null) => void;
   onTransform: (object: VectorObject) => void;
+  onTransformMany: (objects: VectorObject[]) => void;
+  onEditPath: (object: PathObject) => void;
   onTransformEnd: () => void;
+  onConvertToPath: (id: string) => void;
   onZoom: (scale: number) => void;
 }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const actionRef = useRef<Action | null>(null);
   const draftRef = useRef<VectorObject | null>(null);
+  const penRef = useRef<PathAnchor[] | null>(null);
   const spaceRef = useRef(false);
   const [draft, setDraft] = useState<VectorObject | null>(null);
+  const [penAnchors, setPenAnchors] = useState<PathAnchor[] | null>(null);
+  const [penHover, setPenHover] = useState<Point | null>(null);
+  const [marquee, setMarquee] = useState<{ start: Point; current: Point } | null>(
+    null,
+  );
   const [scale, setScale] = useState(1);
   const [view, setView] = useState<ViewBox>(() => ({
     x: 0,
@@ -282,9 +595,29 @@ export function VectorCanvas({
     h: doc.height,
   }));
 
-  const drawing = tool !== "select";
-  const selectedObject =
-    doc.objects.find((object) => object.id === selectedId) ?? null;
+  const drawing = isDragShapeTool(tool) || tool === "pen";
+  const selectedObjects = doc.objects.filter((object) =>
+    selectedIds.includes(object.id),
+  );
+  const soleSelected = selectedObjects.length === 1 ? selectedObjects[0] : null;
+  const selectedPath =
+    soleSelected && soleSelected.kind === "path" ? soleSelected : null;
+
+  function setPen(next: PathAnchor[] | null) {
+    penRef.current = next;
+    setPenAnchors(next);
+    if (next === null) setPenHover(null);
+  }
+
+  // Finish (or discard) the in-progress pen path.
+  function finishPen(close: boolean) {
+    const anchors = penRef.current;
+    setPen(null);
+    if (!anchors) return;
+    if (anchors.length >= (close ? 3 : 2)) {
+      onCreatePath(anchors, close);
+    }
+  }
 
   // Report the current user→screen scale (for the zoom readout) and keep the
   // selection handles a constant on-screen size. Re-measured on view change and
@@ -335,6 +668,31 @@ export function VectorCanvas({
       window.removeEventListener("keyup", up);
     };
   }, []);
+
+  // While a pen path is in progress, Enter/Escape finish it — captured before
+  // the editor-level key handler so Escape doesn't also clear the selection.
+  useEffect(() => {
+    if (penAnchors === null) return;
+    const finish = (event: KeyboardEvent) => {
+      if (event.key === "Enter" || event.key === "Escape") {
+        event.preventDefault();
+        event.stopPropagation();
+        finishPen(false);
+      }
+    };
+    window.addEventListener("keydown", finish, { capture: true });
+    return () => window.removeEventListener("keydown", finish, { capture: true });
+    // finishPen reads penRef, not state, so a stable identity is fine here.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [penAnchors !== null]);
+
+  // Leaving the pen tool finishes whatever was in progress.
+  useEffect(() => {
+    if (tool !== "pen" && penRef.current) {
+      finishPen(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tool]);
 
   // Wheel zoom toward the cursor. A native, non-passive listener so
   // preventDefault actually blocks page scroll.
@@ -398,6 +756,174 @@ export function VectorCanvas({
     }
   }
 
+  function handlePenDown(point: Point, event: ReactPointerEvent<SVGSVGElement>) {
+    const anchors = penRef.current ?? [];
+    // Clicking the first anchor closes the path (needs 3+ anchors).
+    if (anchors.length >= 3) {
+      const first = anchors[0].point;
+      const dist = Math.hypot(point.x - first.x, point.y - first.y);
+      if (dist <= CLOSE_PX / scale) {
+        finishPen(true);
+        return;
+      }
+    }
+    const next: PathAnchor[] = [
+      ...anchors,
+      { point, handleIn: null, handleOut: null, type: "corner" },
+    ];
+    setPen(next);
+    actionRef.current = { type: "pen-place", index: next.length - 1, start: point };
+    capture(event);
+  }
+
+  function handleDirectDown(
+    point: Point,
+    event: ReactPointerEvent<SVGSVGElement>,
+  ) {
+    const target = event.target as Element;
+
+    // Bounds guard, not just a type guard: safety must not depend on every
+    // downstream consumer remembering its own out-of-range check.
+    const validIndex = (index: number) =>
+      Number.isInteger(index) &&
+      index >= 0 &&
+      selectedPath !== null &&
+      index < selectedPath.anchors.length;
+
+    // 1. A bezier handle knob of the selected path.
+    const handleEl = target.closest("[data-anchor-handle]");
+    if (handleEl && selectedPath) {
+      const which = handleEl.getAttribute("data-anchor-handle") as "in" | "out";
+      const index = Number(handleEl.getAttribute("data-anchor-index"));
+      if (validIndex(index)) {
+        actionRef.current = {
+          type: "handle-move",
+          object: selectedPath,
+          index,
+          which,
+          breakPair: event.altKey,
+          frame: frameFor(selectedPath),
+        };
+        capture(event);
+        event.preventDefault();
+        return;
+      }
+    }
+
+    // 2. An anchor dot of the selected path.
+    const anchorEl = target.closest("[data-anchor-index]");
+    if (anchorEl && selectedPath) {
+      const index = Number(anchorEl.getAttribute("data-anchor-index"));
+      if (validIndex(index)) {
+        const current =
+          anchorSelection && anchorSelection.objectId === selectedPath.id
+            ? anchorSelection.indices
+            : [];
+        let indices: number[];
+        if (event.shiftKey) {
+          indices = current.includes(index)
+            ? current.filter((i) => i !== index)
+            : [...current, index];
+        } else {
+          indices = current.includes(index) ? current : [index];
+        }
+        onAnchorSelection(
+          indices.length > 0
+            ? { objectId: selectedPath.id, indices }
+            : null,
+        );
+        if (indices.includes(index)) {
+          actionRef.current = {
+            type: "anchor-move",
+            object: selectedPath,
+            indices,
+            start: point,
+            frame: frameFor(selectedPath),
+          };
+          capture(event);
+        }
+        event.preventDefault();
+        return;
+      }
+    }
+
+    // 3. An object body: select it; dragging moves it whole.
+    const objectId = target
+      .closest("[data-object-id]")
+      ?.getAttribute("data-object-id");
+    if (objectId) {
+      const hit = doc.objects.find((object) => object.id === objectId);
+      if (hit && !hit.locked) {
+        onSelectIds([objectId]);
+        if (!anchorSelection || anchorSelection.objectId !== objectId) {
+          onAnchorSelection(null);
+        }
+        actionRef.current = { type: "move", objects: [hit], start: point };
+        capture(event);
+        event.preventDefault();
+        return;
+      }
+    }
+
+    // 4. Empty canvas: marquee over anchors (of the selected path) or objects.
+    actionRef.current = { type: "marquee", start: point, additive: event.shiftKey };
+    setMarquee({ start: point, current: point });
+    capture(event);
+  }
+
+  function handleSelectDown(
+    point: Point,
+    event: ReactPointerEvent<SVGSVGElement>,
+  ) {
+    const target = event.target as Element;
+
+    const handle = target.closest("[data-handle]")?.getAttribute("data-handle");
+    if (handle && soleSelected) {
+      actionRef.current =
+        handle === "rotate"
+          ? { type: "rotate", object: soleSelected }
+          : {
+              type: "resize",
+              object: soleSelected,
+              handle: handle as ResizeHandle,
+            };
+      capture(event);
+      event.preventDefault();
+      return;
+    }
+
+    const objectId = target
+      .closest("[data-object-id]")
+      ?.getAttribute("data-object-id");
+    if (objectId) {
+      const hit = doc.objects.find((object) => object.id === objectId);
+      if (hit && !hit.locked) {
+        let nextIds: string[];
+        if (event.shiftKey) {
+          nextIds = selectedIds.includes(objectId)
+            ? selectedIds.filter((id) => id !== objectId)
+            : [...selectedIds, objectId];
+          onSelectIds(nextIds);
+          // Shift-click adjusts membership without starting a drag.
+          return;
+        }
+        nextIds = selectedIds.includes(objectId) ? selectedIds : [objectId];
+        if (nextIds !== selectedIds) onSelectIds(nextIds);
+        const objects = doc.objects.filter(
+          (object) => nextIds.includes(object.id) && !object.locked,
+        );
+        actionRef.current = { type: "move", objects, start: point };
+        capture(event);
+        event.preventDefault();
+        return;
+      }
+    }
+
+    actionRef.current = { type: "marquee", start: point, additive: event.shiftKey };
+    setMarquee({ start: point, current: point });
+    capture(event);
+  }
+
   function handlePointerDown(event: ReactPointerEvent<SVGSVGElement>) {
     const svg = svgRef.current;
     if (!svg) return;
@@ -418,7 +944,13 @@ export function VectorCanvas({
     if (event.button !== 0) return;
     const point = clientToUser(svg, event.clientX, event.clientY);
 
-    if (tool !== "select") {
+    if (tool === "pen") {
+      handlePenDown(point, event);
+      event.preventDefault();
+      return;
+    }
+
+    if (isDragShapeTool(tool)) {
       actionRef.current = { type: "draw", start: point };
       setLiveDraft(createShape(tool, point, point, doc.objects));
       capture(event);
@@ -426,39 +958,25 @@ export function VectorCanvas({
       return;
     }
 
-    const target = event.target as Element;
-    const handle = target.closest("[data-handle]")?.getAttribute("data-handle");
-    if (handle && selectedObject) {
-      actionRef.current =
-        handle === "rotate"
-          ? { type: "rotate", object: selectedObject }
-          : { type: "resize", object: selectedObject, handle: handle as ResizeHandle };
-      capture(event);
-      event.preventDefault();
+    if (tool === "direct") {
+      handleDirectDown(point, event);
       return;
     }
 
-    const objectId = target
-      .closest("[data-object-id]")
-      ?.getAttribute("data-object-id");
-    if (objectId) {
-      const hit = doc.objects.find((object) => object.id === objectId);
-      if (hit && !hit.locked) {
-        if (objectId !== selectedId) onSelect(objectId);
-        actionRef.current = { type: "move", object: hit, start: point };
-        capture(event);
-        event.preventDefault();
-        return;
-      }
-    }
-
-    onSelect(null);
+    handleSelectDown(point, event);
   }
 
   function handlePointerMove(event: ReactPointerEvent<SVGSVGElement>) {
     const action = actionRef.current;
     const svg = svgRef.current;
-    if (!action || !svg) return;
+    if (!svg) return;
+
+    if (!action) {
+      if (tool === "pen" && penRef.current) {
+        setPenHover(clientToUser(svg, event.clientX, event.clientY));
+      }
+      return;
+    }
 
     if (action.type === "pan") {
       const dx = (event.clientX - action.startX) / scale;
@@ -478,22 +996,140 @@ export function VectorCanvas({
           setLiveDraft(resizeShape(draftRef.current, action.start, point));
         }
         break;
-      case "move":
-        onTransform(
-          translateObject(
-            action.object,
-            point.x - action.start.x,
-            point.y - action.start.y,
-          ),
+      case "move": {
+        const dx = point.x - action.start.x;
+        const dy = point.y - action.start.y;
+        const moved = action.objects.map((object) =>
+          translateObject(object, dx, dy),
         );
+        if (moved.length === 1) onTransform(moved[0]);
+        else onTransformMany(moved);
         break;
+      }
       case "resize":
         onTransform(resizeObject(action.object, action.handle, point));
         break;
       case "rotate":
         onTransform(rotateObject(action.object, point, event.shiftKey));
         break;
+      case "marquee":
+        setMarquee({ start: action.start, current: point });
+        break;
+      case "anchor-move": {
+        const local = toFrameLocal(point, action.frame);
+        const startLocal = toFrameLocal(action.start, action.frame);
+        const dx = local.x - startLocal.x;
+        const dy = local.y - startLocal.y;
+        const selectedSet = new Set(action.indices);
+        const moved = action.object.anchors.map((anchor, index) =>
+          selectedSet.has(index)
+            ? {
+                ...anchor,
+                point: { x: anchor.point.x + dx, y: anchor.point.y + dy },
+              }
+            : anchor,
+        );
+        onEditPath(withAnchors(action.object, moved));
+        break;
+      }
+      case "handle-move": {
+        const local = toFrameLocal(point, action.frame);
+        onEditPath(
+          withAnchors(
+            action.object,
+            moveHandle(
+              action.object.anchors,
+              action.index,
+              action.which,
+              local,
+              action.breakPair || event.altKey,
+            ),
+          ),
+        );
+        break;
+      }
+      case "pen-place": {
+        const anchors = penRef.current;
+        if (!anchors) break;
+        const dx = point.x - action.start.x;
+        const dy = point.y - action.start.y;
+        if (Math.hypot(dx, dy) < PEN_DRAG_PX / scale) break;
+        const next = [...anchors];
+        next[action.index] = {
+          ...next[action.index],
+          handleOut: { x: dx, y: dy },
+          handleIn: { x: -dx, y: -dy },
+          type: "smooth",
+        };
+        setPen(next);
+        break;
+      }
     }
+  }
+
+  function applyMarquee(action: Extract<Action, { type: "marquee" }>, end: Point) {
+    const rect = normalizedRect(action.start, end);
+    const isClick = rect.width < 2 / scale && rect.height < 2 / scale;
+
+    // Direct tool with a path selected: marquee picks anchors.
+    if (tool === "direct" && selectedPath) {
+      if (isClick) {
+        onAnchorSelection(null);
+        if (!action.additive) onSelectIds([]);
+        return;
+      }
+      const frame = frameFor(selectedPath);
+      const inside = selectedPath.anchors
+        .map((anchor, index) => ({ anchor, index }))
+        .filter(({ anchor }) => {
+          const world =
+            frame.rotation === 0
+              ? anchor.point
+              : rotatePoint(anchor.point, frame.cx, frame.cy, frame.rotation);
+          return (
+            world.x >= rect.x &&
+            world.x <= rect.x + rect.width &&
+            world.y >= rect.y &&
+            world.y <= rect.y + rect.height
+          );
+        })
+        .map(({ index }) => index);
+      const current =
+        anchorSelection && anchorSelection.objectId === selectedPath.id
+          ? anchorSelection.indices
+          : [];
+      const indices = action.additive
+        ? [...new Set([...current, ...inside])]
+        : inside;
+      onAnchorSelection(
+        indices.length > 0
+          ? { objectId: selectedPath.id, indices }
+          : null,
+      );
+      return;
+    }
+
+    if (isClick) {
+      if (!action.additive) {
+        onSelectIds([]);
+        onAnchorSelection(null);
+      }
+      return;
+    }
+
+    const inside = doc.objects
+      .filter(
+        (object) =>
+          !object.locked &&
+          !object.hidden &&
+          boundsIntersect(objectBounds(object), rect),
+      )
+      .map((object) => object.id);
+    const next = action.additive
+      ? [...new Set([...selectedIds, ...inside])]
+      : inside;
+    onSelectIds(next);
+    if (next.length !== 1) onAnchorSelection(null);
   }
 
   function handlePointerUp(event: ReactPointerEvent<SVGSVGElement>) {
@@ -506,16 +1142,78 @@ export function VectorCanvas({
     } catch {
       /* best effort */
     }
-    if (action?.type === "draw") {
+    if (!action) return;
+
+    if (action.type === "draw") {
       const finished = draftRef.current;
       setLiveDraft(null);
       if (finished && !isDegenerate(finished)) onDraw(finished);
-    } else if (action && action.type !== "pan") {
+      return;
+    }
+    if (action.type === "marquee") {
+      setMarquee(null);
+      const svg = svgRef.current;
+      const end = svg
+        ? clientToUser(svg, event.clientX, event.clientY)
+        : action.start;
+      applyMarquee(action, end);
+      return;
+    }
+    if (action.type === "pen-place") {
+      return;
+    }
+    if (action.type !== "pan") {
       onTransformEnd();
     }
   }
 
+  // Direct tool double-click: convert a shape to a path, or insert an anchor
+  // on the nearest segment of the selected path.
+  function handleDoubleClick(event: React.MouseEvent<SVGSVGElement>) {
+    if (tool === "pen") {
+      finishPen(false);
+      return;
+    }
+    if (tool !== "direct") return;
+    const svg = svgRef.current;
+    if (!svg) return;
+    const target = event.target as Element;
+    if (target.closest("[data-anchor-index]")) return;
+
+    const objectId = target
+      .closest("[data-object-id]")
+      ?.getAttribute("data-object-id");
+    if (!objectId) return;
+    const hit = doc.objects.find((object) => object.id === objectId);
+    if (!hit || hit.locked) return;
+
+    if (hit.kind !== "path") {
+      onConvertToPath(hit.id);
+      return;
+    }
+
+    const point = clientToUser(svg, event.clientX, event.clientY);
+    const local = toFrameLocal(point, frameFor(hit));
+    const nearest = nearestOnPath(hit.anchors, hit.closed, local);
+    const threshold = SEGMENT_HIT_PX / scale;
+    if (!nearest || nearest.distSq > threshold * threshold) return;
+    const anchors = insertAnchor(
+      hit.anchors,
+      hit.closed,
+      nearest.segmentIndex,
+      nearest.t,
+    );
+    onEditPath(withAnchors(hit, anchors));
+    onAnchorSelection({ objectId: hit.id, indices: [nearest.segmentIndex + 1] });
+    onTransformEnd();
+  }
+
   const zoomPct = Math.round(scale * 100);
+  const marqueeRect = marquee ? normalizedRect(marquee.start, marquee.current) : null;
+  const anchorIndices =
+    selectedPath && anchorSelection?.objectId === selectedPath.id
+      ? anchorSelection.indices
+      : [];
 
   return (
     <div className="vector-editor-stage">
@@ -534,6 +1232,7 @@ export function VectorCanvas({
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerCancel={handlePointerUp}
+        onDoubleClick={handleDoubleClick}
       >
         <rect
           className="vector-editor-artboard-bg"
@@ -544,11 +1243,47 @@ export function VectorCanvas({
           fill={doc.background ?? "transparent"}
         />
         {doc.objects.map((object) => (
-          <ShapeElement key={object.id} object={object} />
+          <ShapeElement key={object.id} object={object} scale={scale} />
         ))}
-        {draft ? <ShapeElement object={draft} /> : null}
-        {!drawing && selectedObject && !selectedObject.hidden ? (
-          <SelectionOverlay object={selectedObject} scale={scale} />
+        {draft ? <ShapeElement object={draft} scale={scale} /> : null}
+        {tool === "select" && selectedObjects.length > 0
+          ? selectedObjects
+              .filter((object) => !object.hidden)
+              .map((object) => (
+                <SelectionOverlay
+                  key={object.id}
+                  object={object}
+                  scale={scale}
+                  withHandles={selectedObjects.length === 1}
+                />
+              ))
+          : null}
+        {tool === "direct" && soleSelected && !soleSelected.hidden ? (
+          selectedPath ? (
+            <AnchorOverlay
+              object={selectedPath}
+              selectedIndices={anchorIndices}
+              scale={scale}
+            />
+          ) : (
+            <SelectionOverlay
+              object={soleSelected}
+              scale={scale}
+              withHandles={false}
+            />
+          )
+        ) : null}
+        {penAnchors ? (
+          <PenPreview anchors={penAnchors} hover={penHover} scale={scale} />
+        ) : null}
+        {marqueeRect ? (
+          <rect
+            className="ve-marquee"
+            x={marqueeRect.x}
+            y={marqueeRect.y}
+            width={marqueeRect.width}
+            height={marqueeRect.height}
+          />
         ) : null}
       </svg>
 

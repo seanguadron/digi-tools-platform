@@ -2,6 +2,7 @@
 // scene-graph model, so it stays testable and shared between rendering,
 // interaction, and (later) selection/transform.
 
+import { pathBounds } from "@/lib/vector-editor/bezier";
 import type { Point, VectorObject } from "@/lib/vector-editor/types";
 
 export interface Bounds {
@@ -45,6 +46,10 @@ export function objectBounds(object: VectorObject): Bounds {
       const minX = Math.min(...xs);
       const minY = Math.min(...ys);
       return bounds(minX, minY, Math.max(...xs) - minX, Math.max(...ys) - minY);
+    }
+    case "path": {
+      const box = pathBounds(object.anchors, object.closed);
+      return bounds(box.x, box.y, box.width, box.height);
     }
   }
 }

@@ -3,6 +3,7 @@
 // world space, so a rotated shape doesn't drift as you drag it. All angles are
 // degrees clockwise, matching the model's `rotation` field.
 
+import { fitAnchors, translateAnchors } from "@/lib/vector-editor/bezier";
 import { objectBounds, type Bounds } from "@/lib/vector-editor/geometry";
 import type { Point, VectorObject } from "@/lib/vector-editor/types";
 
@@ -70,6 +71,8 @@ export function translateObject(
         ...object,
         points: object.points.map((p) => ({ x: p.x + dx, y: p.y + dy })),
       };
+    case "path":
+      return { ...object, anchors: translateAnchors(object.anchors, dx, dy) };
   }
 }
 
@@ -114,6 +117,8 @@ export function fitObjectToBounds(
         ...object,
         points: object.points.map((p) => ({ x: mapX(p.x), y: mapY(p.y) })),
       };
+    case "path":
+      return { ...object, anchors: fitAnchors(object.anchors, from, to) };
   }
 }
 

@@ -6,13 +6,24 @@ import {
   fitObjectToBounds,
   translateObject,
 } from "@/lib/vector-editor/transform";
+import type { AnchorSelection } from "@/components/vector-editor-canvas";
 import type {
+  AnchorType,
   VectorDocument,
   VectorObject,
 } from "@/lib/vector-editor/types";
 
 const DEFAULT_FILL = { color: "#64748b", opacity: 1 };
 const DEFAULT_STROKE = { color: "#0f172a", width: 2, opacity: 1 };
+
+// The convert control — Sean's "chevron": switch selected anchors between
+// the four point types.
+const ANCHOR_TYPES: Array<{ id: AnchorType; label: string; hint: string }> = [
+  { id: "corner", label: "Corner", hint: "No handles; segments meet straight" },
+  { id: "smooth", label: "Smooth", hint: "Handles locked in one line" },
+  { id: "broken", label: "Broken", hint: "Two independent handles" },
+  { id: "auto", label: "Auto", hint: "Handles follow the neighbors" },
+];
 
 function toPercent(value: number): number {
   return Math.round(value * 100);
@@ -50,21 +61,27 @@ function NumberField({
 }
 
 export function VectorProperties({
-  object,
+  objects,
   doc,
+  anchorSelection,
   onUpdate,
+  onConvertToPath,
+  onConvertAnchors,
 }: {
-  object: VectorObject | null;
+  objects: VectorObject[];
   doc: VectorDocument;
+  anchorSelection: AnchorSelection | null;
   onUpdate: (object: VectorObject) => void;
+  onConvertToPath: (id: string) => void;
+  onConvertAnchors: (type: AnchorType) => void;
 }) {
-  if (!object) {
+  if (objects.length === 0) {
     return (
       <div className="vector-editor-dock-body">
         <p className="vector-editor-dock-empty">
-          Select an object to edit its fill, stroke, and position. Pick a shape
-          tool and drag on the artboard — or press Enter to drop one at the
-          center — to add one.
+          Select an object to edit its fill, stroke, and position. Draw with a
+          shape tool, or lay a path down point by point with the pen (P) and
+          edit its anchors with the white arrow (A).
         </p>
         <div className="vector-editor-dock-section">
           <span className="vector-editor-dock-label">Document</span>
@@ -85,7 +102,36 @@ export function VectorProperties({
     );
   }
 
+  if (objects.length > 1) {
+    return (
+      <div className="vector-editor-dock-body">
+        <p className="vector-editor-dock-empty">
+          {objects.length} objects selected. Drag to move them together, use
+          Delete to remove them, or Object → Convert to path.
+        </p>
+      </div>
+    );
+  }
+
+  const object = objects[0];
   const bounds = objectBounds(object);
+  // Filtered against the live anchor count — the stored selection can hold
+  // stale indices after an undo shrinks the path.
+  const anchorIndices =
+    object.kind === "path" && anchorSelection?.objectId === object.id
+      ? anchorSelection.indices.filter(
+          (index) => index < object.anchors.length,
+        )
+      : [];
+  const selectedAnchorTypes = new Set(
+    object.kind === "path"
+      ? anchorIndices
+          .map((index) => object.anchors[index]?.type)
+          .filter((type): type is AnchorType => type !== undefined)
+      : [],
+  );
+  const commonAnchorType =
+    selectedAnchorTypes.size === 1 ? [...selectedAnchorTypes][0] : null;
 
   function setBounds(next: {
     x?: number;
@@ -93,7 +139,6 @@ export function VectorProperties({
     width?: number;
     height?: number;
   }) {
-    if (!object) return;
     if (next.x !== undefined) {
       onUpdate(translateObject(object, next.x - bounds.x, 0));
       return;
@@ -129,6 +174,60 @@ export function VectorProperties({
           />
         </label>
       </div>
+
+      {object.kind === "path" ? (
+        <div className="vector-editor-dock-section">
+          <span className="vector-editor-dock-label">
+            {anchorIndices.length > 0
+              ? `Anchor point${anchorIndices.length === 1 ? "" : "s"} (${anchorIndices.length})`
+              : "Anchor points"}
+          </span>
+          {anchorIndices.length > 0 ? (
+            <div
+              className="ve-anchor-types"
+              role="group"
+              aria-label="Anchor point type"
+            >
+              {ANCHOR_TYPES.map((entry) => (
+                <button
+                  key={entry.id}
+                  type="button"
+                  className={
+                    commonAnchorType === entry.id
+                      ? "ve-anchor-type is-active"
+                      : "ve-anchor-type"
+                  }
+                  aria-pressed={commonAnchorType === entry.id}
+                  title={entry.hint}
+                  onClick={() => onConvertAnchors(entry.id)}
+                >
+                  {entry.label}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="vector-editor-dock-hint">
+              With the white arrow (A), click an anchor to select it — or
+              double-click a segment to add one. Alt-drag a handle to break
+              the pair.
+            </p>
+          )}
+        </div>
+      ) : (
+        <div className="vector-editor-dock-section">
+          <span className="vector-editor-dock-label">Path</span>
+          <button
+            type="button"
+            className="button button-secondary button-small ve-convert-button"
+            onClick={() => onConvertToPath(object.id)}
+          >
+            Convert to path
+          </button>
+          <p className="vector-editor-dock-hint">
+            Turns the shape into editable anchor points.
+          </p>
+        </div>
+      )}
 
       <div className="vector-editor-dock-section">
         <div className="ve-prop-head">
