@@ -93,10 +93,14 @@ function objectToSvg(object: VectorObject): string {
   }
 }
 
-export function serializeSvg(doc: VectorDocument): string {
-  const background = doc.background
-    ? `\n  <rect x="0" y="0" width="${doc.width}" height="${doc.height}" fill="${escapeAttr(doc.background)}"/>`
-    : "";
+export function serializeSvg(
+  doc: VectorDocument,
+  options: { omitBackground?: boolean } = {},
+): string {
+  const background =
+    doc.background && !options.omitBackground
+      ? `\n  <rect x="0" y="0" width="${doc.width}" height="${doc.height}" fill="${escapeAttr(doc.background)}"/>`
+      : "";
   const body = doc.objects
     .filter((object) => !object.hidden)
     .map((object) => `\n  ${objectToSvg(object)}`)
@@ -104,11 +108,29 @@ export function serializeSvg(doc: VectorDocument): string {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${doc.width}" height="${doc.height}" viewBox="0 0 ${doc.width} ${doc.height}">${background}${body}\n</svg>\n`;
 }
 
-export async function rasterizePng(
+export interface RasterizeOptions {
+  format?: "png" | "jpeg";
+  scale?: number;
+  transparent?: boolean; // png only: drop the artboard background
+  quality?: number; // jpeg only, 0..1
+}
+
+// Bitmap exports cap at the same per-side ceiling the export dialog shows.
+const MAX_BITMAP_DIMENSION = 12000;
+
+export async function rasterizeBitmap(
   doc: VectorDocument,
-  scale = 2,
+  options: RasterizeOptions = {},
 ): Promise<Blob> {
-  const svg = serializeSvg(doc);
+  const {
+    format = "png",
+    scale = 2,
+    transparent = false,
+    quality = 0.92,
+  } = options;
+  const svg = serializeSvg(doc, {
+    omitBackground: format === "png" && transparent,
+  });
   const url = `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 
   const image = new Image();
@@ -119,17 +141,34 @@ export async function rasterizePng(
     image.src = url;
   });
 
+  const safeScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
   const canvas = document.createElement("canvas");
-  canvas.width = Math.max(1, Math.round(doc.width * scale));
-  canvas.height = Math.max(1, Math.round(doc.height * scale));
+  canvas.width = Math.min(
+    MAX_BITMAP_DIMENSION,
+    Math.max(1, Math.round(doc.width * safeScale)),
+  );
+  canvas.height = Math.min(
+    MAX_BITMAP_DIMENSION,
+    Math.max(1, Math.round(doc.height * safeScale)),
+  );
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Canvas 2D context unavailable");
+  if (format === "jpeg") {
+    // JPEG has no alpha — matte anything transparent onto white.
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  }
   context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
+  const mime = format === "jpeg" ? "image/jpeg" : "image/png";
   return await new Promise<Blob>((resolve, reject) => {
-    canvas.toBlob((blob) => {
-      if (blob) resolve(blob);
-      else reject(new Error("PNG encoding failed"));
-    }, "image/png");
+    canvas.toBlob(
+      (blob) => {
+        if (blob) resolve(blob);
+        else reject(new Error("Bitmap encoding failed"));
+      },
+      mime,
+      format === "jpeg" ? Math.min(1, Math.max(0.5, quality)) : undefined,
+    );
   });
 }

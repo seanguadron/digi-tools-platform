@@ -8,6 +8,7 @@
 // keeps the model readable and the export clean.
 
 import type { Anchor, AnchorKind } from "./bezier";
+import { DEFAULT_DOC_PPI, type DocUnit } from "@/lib/units";
 
 export type VectorObjectId = string;
 
@@ -110,9 +111,13 @@ export type VectorObject =
   | TextObject;
 
 export interface VectorDocument {
-  width: number; // artboard size, user units
+  width: number; // artboard size, px (the master unit)
   height: number;
   background: string | null; // artboard fill; null = transparent
+  // Physical-unit view: the unit panels/status/exports display in, and the
+  // PPI that maps px to it (src/lib/units).
+  unit: DocUnit;
+  ppi: number;
   objects: VectorObject[];
 }
 
@@ -122,5 +127,12 @@ export function createEmptyDocument(
   width: number = DEFAULT_ARTBOARD.width,
   height: number = DEFAULT_ARTBOARD.height,
 ): VectorDocument {
-  return { width, height, background: "#ffffff", objects: [] };
+  return {
+    width,
+    height,
+    background: "#ffffff",
+    unit: "px",
+    ppi: DEFAULT_DOC_PPI,
+    objects: [],
+  };
 }

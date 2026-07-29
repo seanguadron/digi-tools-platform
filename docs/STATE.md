@@ -132,9 +132,26 @@ halves green + main-agent inline review recorded; RE-RUN OWED when capacity
 returns (ledger `2026-07-28-*-vector-text.md`, per the 2026-07-19
 precedent).
 
-**Next up: Milestone V3** (documents/units/export for vector) — subagent
-gates unavailable (spend limit): deterministic halves + inline review +
-honest ledger entries, re-runs owed.
+**Milestone V3 — vector documents/units/export: DONE and committed.** The
+artboard finally has UI: File → Document setup… (size in px/in/cm/mm,
+per-doc PPI, background incl. transparent) plus inline W/H fields in the
+Design tab's empty state; `VectorDocument` gained validated `unit`/`ppi`.
+The subbar gained a persisted document title driving `slugifyFilename`
+names (4th consumer), and Export is a dialog now: SVG, or PNG/JPG at
+1×/2×/3×/exact-px (capped 12000/side, JPEG white-matted + quality slider,
+PNG transparent-background option). Under it all: the NEW shared
+`EditorDialog` primitive (portal/backdrop/Esc + focus trap + focus restore
+— the continuity-thread item; the image editor's three older dialogs
+migrate in I2). Statusbar is unit-aware ("8.5 × 11 in @ 300ppi"). Gates:
+**judgment agents BLOCKED (spend limit)** — deterministic halves green,
+inline review + live browser verification recorded in
+`2026-07-28-gates-vector-documents.md`; agent re-runs owed. ⚠ The
+unmanaged dev server on 5100 replays a stale Turbopack error snapshot from
+a mid-edit compile (disk code + typecheck clean) — run `dev:clean` when it
+gets restarted.
+
+**Next up: Milestone I2** (image export dialog + new-doc upgrade +
+continuity sweep) — same gate posture as V3.
 
 ## Runbook
 

@@ -10,6 +10,14 @@ import {
   ToolSubbarActions,
 } from "@/components/tool-subbar";
 import {
+  VectorDocSetupDialog,
+  type DocSetupValue,
+} from "@/components/vector-editor-docsetup-dialog";
+import {
+  VectorExportDialog,
+  type VectorExportOptions,
+} from "@/components/vector-editor-export-dialog";
+import {
   VectorCanvas,
   type AnchorSelection,
   type TextCommit,
@@ -19,7 +27,12 @@ import { VectorProperties } from "@/components/vector-editor-properties";
 import { useLocalDraft } from "@/hooks/use-local-draft";
 import { usePortalTarget } from "@/hooks/use-portal-target";
 import { useUndoableState } from "@/hooks/use-undoable-state";
-import { downloadBlob, downloadTextFile } from "@/lib/browser-download";
+import {
+  downloadBlob,
+  downloadTextFile,
+  slugifyFilename,
+} from "@/lib/browser-download";
+import { roundForUnit, fromPx } from "@/lib/units";
 import { applyAnchorType, removeAnchors } from "@/lib/vector-editor/bezier";
 import {
   addObject,
@@ -40,8 +53,16 @@ import {
   createTextObject,
   withMeasuredText,
 } from "@/lib/vector-editor/text-measure";
-import { loadProject, saveProject } from "@/lib/vector-editor/project-io";
-import { rasterizePng, serializeSvg } from "@/lib/vector-editor/svg-export";
+import {
+  loadDocName,
+  loadProject,
+  saveDocName,
+  saveProject,
+} from "@/lib/vector-editor/project-io";
+import {
+  rasterizeBitmap,
+  serializeSvg,
+} from "@/lib/vector-editor/svg-export";
 import { translateObject } from "@/lib/vector-editor/transform";
 import {
   createEmptyDocument,
@@ -74,6 +95,9 @@ export function VectorEditor() {
     useState<AnchorSelection | null>(null);
   const [dockTab, setDockTab] = useState<DockTab>("design");
   const [zoom, setZoom] = useState(1);
+  const [docName, setDocName] = useState("Untitled");
+  const [docSetupOpen, setDocSetupOpen] = useState(false);
+  const [exportOpen, setExportOpen] = useState(false);
 
   const statusTarget = usePortalTarget("app-statusbar-slot");
   const selectedObjects = doc.objects.filter((object) =>
@@ -95,6 +119,7 @@ export function VectorEditor() {
     ({ isCancelled }: { isCancelled: () => boolean }) => {
       const loaded = loadProject();
       if (isCancelled()) return null;
+      setDocName(loadDocName());
       if (loaded) {
         setDoc(loaded.doc);
         return { status: "saved" as const, savedAt: loaded.savedAt };
@@ -359,18 +384,50 @@ export function VectorEditor() {
     );
   }
 
-  function exportSvg() {
-    downloadTextFile(
-      "vector-artboard.svg",
-      serializeSvg(doc),
-      "image/svg+xml",
-    );
+  const fileBase = slugifyFilename(docName, "vector-artboard");
+
+  function renameDoc(name: string) {
+    setDocName(name);
+    saveDocName(name);
   }
 
-  async function exportPng() {
+  function resizeArtboard(width: number, height: number) {
+    const w = Math.min(20000, Math.max(1, Math.round(width)));
+    const h = Math.min(20000, Math.max(1, Math.round(height)));
+    commit((current) => ({ ...current, width: w, height: h }), "artboard");
+  }
+
+  function applyDocSetup(next: DocSetupValue) {
+    commit((current) => ({
+      ...current,
+      width: next.width,
+      height: next.height,
+      background: next.background,
+      unit: next.unit,
+      ppi: next.ppi,
+    }));
+    setDocSetupOpen(false);
+  }
+
+  function exportSvg() {
+    downloadTextFile(`${fileBase}.svg`, serializeSvg(doc), "image/svg+xml");
+  }
+
+  async function runExport(options: VectorExportOptions) {
+    setExportOpen(false);
+    if (options.format === "svg") {
+      exportSvg();
+      return;
+    }
     try {
-      const blob = await rasterizePng(doc);
-      downloadBlob("vector-artboard.png", blob);
+      const blob = await rasterizeBitmap(doc, {
+        format: options.format,
+        scale: options.scale,
+        transparent: options.transparent,
+        quality: options.quality,
+      });
+      const extension = options.format === "jpeg" ? "jpg" : "png";
+      downloadBlob(`${fileBase}.${extension}`, blob);
     } catch {
       // Rasterization is best-effort; the SVG export is always available.
     }
@@ -461,13 +518,18 @@ export function VectorEditor() {
       label: "File",
       items: [
         {
-          label: "Export SVG",
-          onSelect: exportSvg,
+          label: "Document setup…",
+          onSelect: () => setDocSetupOpen(true),
+        },
+        { label: "", separator: true },
+        {
+          label: "Export…",
+          onSelect: () => setExportOpen(true),
           disabled: objectCount === 0,
         },
         {
-          label: "Export PNG",
-          onSelect: () => void exportPng(),
+          label: "Export SVG",
+          onSelect: exportSvg,
           disabled: objectCount === 0,
         },
       ],
@@ -527,7 +589,9 @@ export function VectorEditor() {
         {Math.round(zoom * 100)}%
       </span>
       <span className="ve-status-dims">
-        {doc.width} × {doc.height}
+        {doc.unit === "px"
+          ? `${doc.width} × ${doc.height} px`
+          : `${roundForUnit(fromPx(doc.width, doc.unit, doc.ppi), doc.unit)} × ${roundForUnit(fromPx(doc.height, doc.unit, doc.ppi), doc.unit)} ${doc.unit} @ ${doc.ppi}ppi`}
       </span>
       <span className="ve-status-count">
         {objectCount} object{objectCount === 1 ? "" : "s"}
@@ -539,6 +603,13 @@ export function VectorEditor() {
     <div className="tool-page vector-editor-page">
       <ToolSubbar className="vector-editor-subbar">
         <EditorMenubar menus={menus} label="Vector editor menu" />
+        <input
+          className="ve-title-input"
+          value={docName}
+          spellCheck={false}
+          aria-label="Artwork name"
+          onChange={(event) => renameDoc(event.target.value)}
+        />
         <ToolSaveStateChip
           status={persistence.status}
           lastSavedAt={persistence.lastSavedAt}
@@ -547,13 +618,38 @@ export function VectorEditor() {
           <button
             type="button"
             className="button button-primary"
-            onClick={exportSvg}
+            onClick={() => setExportOpen(true)}
             disabled={objectCount === 0}
           >
-            Export SVG
+            Export
           </button>
         </ToolSubbarActions>
       </ToolSubbar>
+
+      <VectorDocSetupDialog
+        open={docSetupOpen}
+        value={{
+          width: doc.width,
+          height: doc.height,
+          ppi: doc.ppi,
+          unit: doc.unit,
+          background: doc.background,
+        }}
+        onClose={() => setDocSetupOpen(false)}
+        onApply={applyDocSetup}
+      />
+
+      <VectorExportDialog
+        open={exportOpen}
+        width={doc.width}
+        height={doc.height}
+        ppi={doc.ppi}
+        unit={doc.unit}
+        hasBackground={doc.background !== null}
+        fileBase={fileBase}
+        onClose={() => setExportOpen(false)}
+        onExport={(options) => void runExport(options)}
+      />
 
       {statusTarget ? createPortal(statusBar, statusTarget) : null}
 
@@ -621,6 +717,8 @@ export function VectorEditor() {
                 onUpdate={handleUpdateObject}
                 onConvertToPath={handleConvertToPath}
                 onConvertAnchors={handleConvertAnchors}
+                onArtboardResize={resizeArtboard}
+                onOpenDocSetup={() => setDocSetupOpen(true)}
               />
             </div>
           ) : (

@@ -3,6 +3,7 @@
 // validated field by field before use, never bare-cast, and a corrupt object
 // is dropped rather than allowed to crash the editor.
 
+import { clampPpi, DEFAULT_DOC_PPI, isDocUnit } from "@/lib/units";
 import {
   clampFontSize,
   DEFAULT_FONT_FAMILY,
@@ -262,8 +263,36 @@ function validateDocument(value: unknown): VectorDocument | null {
     width: clampSize(object.width, 1),
     height: clampSize(object.height, 1),
     background,
+    // Pre-unit documents (and tampered values) take the defaults.
+    unit: isDocUnit(object.unit) ? object.unit : "px",
+    ppi:
+      typeof object.ppi === "number" || typeof object.ppi === "string"
+        ? clampPpi(Number(object.ppi))
+        : DEFAULT_DOC_PPI,
     objects,
   };
+}
+
+const NAME_KEY = "digitools.vector-editor.name-v1";
+const MAX_NAME_LENGTH = 120;
+
+export function saveDocName(name: string): void {
+  try {
+    localStorage.setItem(NAME_KEY, name.slice(0, MAX_NAME_LENGTH));
+  } catch {
+    // Storage full or denied — the in-memory name still stands.
+  }
+}
+
+export function loadDocName(): string {
+  try {
+    const raw = localStorage.getItem(NAME_KEY);
+    return typeof raw === "string" && raw.length > 0
+      ? raw.slice(0, MAX_NAME_LENGTH)
+      : "Untitled";
+  } catch {
+    return "Untitled";
+  }
 }
 
 export function saveProject(

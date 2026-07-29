@@ -73,6 +73,8 @@ export function VectorProperties({
   onUpdate,
   onConvertToPath,
   onConvertAnchors,
+  onArtboardResize,
+  onOpenDocSetup,
 }: {
   objects: VectorObject[];
   doc: VectorDocument;
@@ -80,6 +82,8 @@ export function VectorProperties({
   onUpdate: (object: VectorObject) => void;
   onConvertToPath: (id: string) => void;
   onConvertAnchors: (type: AnchorType) => void;
+  onArtboardResize: (width: number, height: number) => void;
+  onOpenDocSetup: () => void;
 }) {
   if (objects.length === 0) {
     return (
@@ -90,12 +94,33 @@ export function VectorProperties({
           edit its anchors with the white arrow (A).
         </p>
         <div className="vector-editor-dock-section">
-          <span className="vector-editor-dock-label">Document</span>
+          <span className="vector-editor-dock-label">Artboard</span>
+          <div className="ve-prop-grid">
+            <NumberField
+              label="W (px)"
+              value={doc.width}
+              min={1}
+              onCommit={(width) => onArtboardResize(width, doc.height)}
+            />
+            <NumberField
+              label="H (px)"
+              value={doc.height}
+              min={1}
+              onCommit={(height) => onArtboardResize(doc.width, height)}
+            />
+          </div>
+          <button
+            type="button"
+            className="button button-secondary button-small ve-convert-button"
+            onClick={onOpenDocSetup}
+          >
+            Document setup…
+          </button>
           <dl className="vector-editor-doc-meta">
             <div>
-              <dt>Artboard</dt>
+              <dt>Units</dt>
               <dd>
-                {doc.width} × {doc.height}
+                {doc.unit === "px" ? "px" : `${doc.unit} @ ${doc.ppi} PPI`}
               </dd>
             </div>
             <div>
