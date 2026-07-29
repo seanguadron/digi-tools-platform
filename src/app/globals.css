@@ -6458,28 +6458,6 @@ body:has(.page-stage.is-fluid) {
   margin-left: auto;
 }
 
-.image-editor-subbar-tools {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  justify-self: center;
-}
-
-.image-editor-subbar-tools .button {
-  min-width: 34px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.image-editor-zoom-readout {
-  min-width: 46px;
-  text-align: center;
-  font-family: var(--font-mono), "Cascadia Mono", monospace;
-  font-size: 0.72rem;
-  color: var(--muted-foreground);
-  font-variant-numeric: tabular-nums;
-}
-
 .image-editor-title-input {
   width: 100%;
   max-width: 300px;
@@ -6860,64 +6838,6 @@ body:has(.page-stage.is-fluid) {
 .image-editor-picker-recent {
   display: grid;
   gap: 4px;
-}
-
-/* Canvas dropdown menu (subbar) */
-.image-editor-menu-wrap {
-  position: relative;
-  display: inline-flex;
-}
-
-.image-editor-menu-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 40;
-  border: none;
-  background: transparent;
-  cursor: default;
-}
-
-.image-editor-menu {
-  position: absolute;
-  z-index: 41;
-  top: calc(100% + 4px);
-  right: 0;
-  display: grid;
-  min-width: 172px;
-  padding: 5px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--card);
-  box-shadow: var(--shadow-card);
-}
-
-.image-editor-menu button {
-  padding: 8px 10px;
-  border: none;
-  border-radius: 7px;
-  background: none;
-  color: var(--foreground);
-  text-align: left;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.image-editor-menu button:hover:not(:disabled) {
-  background: var(--accent);
-}
-
-.image-editor-menu button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.image-editor-menu-hint {
-  margin: 4px 4px 2px;
-  padding: 6px 8px 0;
-  border-top: 1px solid var(--border);
-  color: var(--muted-foreground);
-  font-size: 0.68rem;
-  line-height: 1.4;
 }
 
 /* Desktop-first cockpit: narrow the rails on medium screens, then collapse to a
@@ -7503,6 +7423,35 @@ body:has(.page-stage.is-fluid) {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+}
+
+.editor-dialog-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.editor-dialog-preset {
+  min-height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  font-weight: 650;
+  cursor: pointer;
+  text-align: left;
+}
+
+.editor-dialog-preset:hover {
+  color: var(--foreground);
+}
+
+.editor-dialog-preset.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  color: var(--brand-cyan-text);
 }
 
 /* Channels tab */

@@ -2,10 +2,9 @@
 
 import { useRef, useState } from "react";
 
-// A classic application menu bar (File / Edit / Image / …). Generalizes the
-// editor's existing dropdown pattern (.image-editor-menu-wrap/.image-editor-menu)
-// into one keyboard-navigable menubar. All commands are supplied by the caller —
-// this component owns only open/close + focus, never the actions themselves.
+// A classic application menu bar (File / Edit / Image / …), keyboard
+// navigable. All commands are supplied by the caller — this component owns
+// only open/close + focus, never the actions themselves.
 
 export interface MenuItem {
   label: string;

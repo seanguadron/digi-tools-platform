@@ -10,6 +10,7 @@ import {
 } from "@/components/editor-tabs";
 import { ImageEditorCanvas } from "@/components/image-editor-canvas";
 import { ImageEditorCanvasSizeDialog } from "@/components/image-editor-canvassize-dialog";
+import { ImageEditorExportDialog } from "@/components/image-editor-export-dialog";
 import { ImageEditorChannels } from "@/components/image-editor-channels";
 import { ImageEditorFilters } from "@/components/image-editor-filters";
 import { ImageEditorHistory } from "@/components/image-editor-history";
@@ -146,6 +147,7 @@ export function ImageEditor() {
   const [tolerance, setTolerance] = useState(32);
   const [imageSizeOpen, setImageSizeOpen] = useState(false);
   const [canvasSizeOpen, setCanvasSizeOpen] = useState(false);
+  const [exportOpen, setExportOpen] = useState(false);
   // Confirm-stage crop: the pending region stays adjustable (handles, numeric
   // fields, aspect presets) until Enter/Apply commits or Escape cancels.
   const [cropRect, setCropRect] = useState<Rect | null>(null);
@@ -722,15 +724,55 @@ export function ImageEditor() {
   );
 
   const createSizedDoc = useCallback(
-    (width: number, height: number) => {
+    (width: number, height: number, ppi: number, background: string | null) => {
       history.reset();
       fitDimsRef.current = "";
-      setDoc(createDoc(width, height));
+      setDoc(createDoc(width, height, ppi, background));
       setName("Untitled");
       setNewDialogOpen(false);
       setNotice(null);
     },
     [history],
+  );
+
+  // Scaled bitmap export via the Export dialog (PNG, or JPG with a real
+  // quality choice — previously hardcoded).
+  const runExport = useCallback(
+    (options: {
+      format: "png" | "jpeg";
+      width: number;
+      height: number;
+      quality: number;
+    }) => {
+      setExportOpen(false);
+      if (!doc) {
+        return;
+      }
+      const flat = composite(doc);
+      const out = createBitmap(options.width, options.height);
+      const ctx = get2d(out);
+      if (options.format === "jpeg") {
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, options.width, options.height);
+      }
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(flat, 0, 0, options.width, options.height);
+      const mime = options.format === "jpeg" ? "image/jpeg" : "image/png";
+      const extension = options.format === "jpeg" ? "jpg" : "png";
+      out.toBlob(
+        (blob) => {
+          if (blob) {
+            downloadBlob(`${slugifyFilename(name)}.${extension}`, blob);
+          }
+        },
+        mime,
+        options.format === "jpeg"
+          ? Math.min(1, Math.max(0.5, options.quality))
+          : undefined,
+      );
+    },
+    [doc, name],
   );
 
   // Open an image as a brand-new document sized to the image.
@@ -815,6 +857,11 @@ export function ImageEditor() {
           disabled: !doc,
         },
         { separator: true, label: "" },
+        {
+          label: "Export…",
+          onSelect: () => setExportOpen(true),
+          disabled: !doc,
+        },
         { label: "Export PNG", onSelect: exportPng, disabled: !doc },
         { label: "Export JPG", onSelect: exportJpeg, disabled: !doc },
         { separator: true, label: "" },
@@ -1133,10 +1180,10 @@ export function ImageEditor() {
         <button
           type="button"
           className="button button-primary"
-          onClick={exportPng}
+          onClick={() => setExportOpen(true)}
           disabled={!doc}
         >
-          Export PNG
+          Export
         </button>
       </ToolSubbarActions>
     </ToolSubbar>
@@ -1468,6 +1515,15 @@ export function ImageEditor() {
         height={doc?.height ?? 800}
         onClose={() => setCanvasSizeOpen(false)}
         onApply={applyCanvasSize}
+      />
+
+      <ImageEditorExportDialog
+        open={exportOpen}
+        width={doc?.width ?? 1280}
+        height={doc?.height ?? 800}
+        fileBase={slugifyFilename(name)}
+        onClose={() => setExportOpen(false)}
+        onExport={runExport}
       />
     </div>
   );

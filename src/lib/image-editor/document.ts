@@ -49,17 +49,25 @@ export function createLayer(
   };
 }
 
-// A fresh document with a single empty raster layer.
+// A fresh document with a single raster layer — transparent by default, or
+// filled with a background color when one is chosen at creation.
 export function createDoc(
   width = DEFAULT_DOC_WIDTH,
   height = DEFAULT_DOC_HEIGHT,
+  ppi = DEFAULT_DOC_PPI,
+  background: string | null = null,
 ): ImageDoc {
   const layer = createLayer(width, height, "Background");
+  if (background) {
+    const ctx = get2d(layer.bitmap);
+    ctx.fillStyle = background;
+    ctx.fillRect(0, 0, width, height);
+  }
   return {
     version: 1,
     width,
     height,
-    ppi: DEFAULT_DOC_PPI,
+    ppi,
     layers: [layer],
     activeLayerId: layer.id,
     selection: null,
