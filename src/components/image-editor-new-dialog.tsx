@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EditorDialog } from "@/components/editor-dialog";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
 import {
   clampPpi,
@@ -51,6 +52,12 @@ export function ImageEditorNewDialog({
   const [background, setBackground] = useState<NewDocBackground>("transparent");
   const [customColor, setCustomColor] = useState("#ffffff");
   const [wasOpen, setWasOpen] = useState(false);
+  const BACKGROUNDS: NewDocBackground[] = ["transparent", "white", "custom"];
+  const backgroundGroup = useRovingRadioGroup(
+    BACKGROUNDS.length,
+    BACKGROUNDS.indexOf(background),
+    (index) => setBackground(BACKGROUNDS[index]),
+  );
 
   if (open !== wasOpen) {
     setWasOpen(open);
@@ -148,7 +155,7 @@ export function ImageEditorNewDialog({
               ["white", "White"],
               ["custom", "Color"],
             ] as const
-          ).map(([value, label]) => (
+          ).map(([value, label], index) => (
             <button
               key={value}
               type="button"
@@ -160,6 +167,7 @@ export function ImageEditorNewDialog({
                   : "editor-dialog-seg-btn"
               }
               onClick={() => setBackground(value)}
+              {...backgroundGroup.itemProps(index)}
             >
               {label}
             </button>

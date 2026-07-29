@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { ImageEditorColorPicker } from "@/components/image-editor-color-picker";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import {
   BUILTIN_TIPS,
   resolveStampTip,
@@ -197,6 +198,22 @@ export function ImageEditorProperties({
   onCropApply,
   onCropSeed,
 }: PropertiesProps) {
+  const aspectGroup = useRovingRadioGroup(
+    CROP_ASPECTS.length,
+    CROP_ASPECTS.findIndex((preset) => preset.value === cropAspect),
+    (index) => {
+      const preset = CROP_ASPECTS[index];
+      if (!preset) return;
+      onCropAspect(preset.value);
+      if (cropRect && preset.value) {
+        onCropRect({
+          ...cropRect,
+          height: Math.max(1, Math.round(cropRect.width / preset.value)),
+        });
+      }
+    },
+  );
+
   // The same size ceiling every doc-growing dialog enforces — a typed-in
   // crop cannot request an allocation the app would never allow elsewhere.
   const cropValid =
@@ -500,7 +517,7 @@ export function ImageEditorProperties({
             role="radiogroup"
             aria-label="Aspect ratio"
           >
-            {CROP_ASPECTS.map((preset) => (
+            {CROP_ASPECTS.map((preset, index) => (
               <button
                 key={preset.label}
                 type="button"
@@ -520,6 +537,7 @@ export function ImageEditorProperties({
                     });
                   }
                 }}
+                {...aspectGroup.itemProps(index)}
               >
                 {preset.label}
               </button>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
 
 // Canvas size: grow or trim the working area around an anchor, without
@@ -44,6 +45,8 @@ export function ImageEditorCanvasSizeDialog({
   const [h, setH] = useState(height);
   const [anchor, setAnchor] = useState(4); // center
   const [wasOpen, setWasOpen] = useState(false);
+  // 3-column grid: Up/Down step by rows.
+  const anchorGroup = useRovingRadioGroup(9, anchor, setAnchor, 3);
 
   if (open !== wasOpen) {
     setWasOpen(open);
@@ -153,6 +156,7 @@ export function ImageEditorCanvasSizeDialog({
                     : "image-editor-anchor-cell"
                 }
                 onClick={() => setAnchor(index)}
+                {...anchorGroup.itemProps(index)}
               />
             ))}
           </div>

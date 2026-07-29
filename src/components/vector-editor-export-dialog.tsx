@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EditorDialog } from "@/components/editor-dialog";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { formatSize } from "@/lib/units";
 import type { DocUnit } from "@/lib/units";
 
@@ -59,6 +60,21 @@ export function VectorExportDialog({
     }
   }
 
+  const FORMATS: VectorExportFormat[] = ["svg", "png", "jpeg"];
+  const formatGroup = useRovingRadioGroup(
+    FORMATS.length,
+    FORMATS.indexOf(format),
+    (index) => setFormat(FORMATS[index]),
+  );
+  const scaleGroup = useRovingRadioGroup(
+    SCALE_PRESETS.length,
+    exactWidth === null ? SCALE_PRESETS.indexOf(scale) : -1,
+    (index) => {
+      setScale(SCALE_PRESETS[index]);
+      setExactWidth(null);
+    },
+  );
+
   const effectiveScale = exactWidth ? exactWidth / width : scale;
   const outWidth = Math.max(1, Math.round(width * effectiveScale));
   const outHeight = Math.max(1, Math.round(height * effectiveScale));
@@ -74,7 +90,7 @@ export function VectorExportDialog({
       <h2 className="editor-dialog-title">Export</h2>
 
       <div className="editor-dialog-seg" role="radiogroup" aria-label="Format">
-        {(["svg", "png", "jpeg"] as const).map((entry) => (
+        {FORMATS.map((entry, index) => (
           <button
             key={entry}
             type="button"
@@ -86,6 +102,7 @@ export function VectorExportDialog({
                 : "editor-dialog-seg-btn"
             }
             onClick={() => setFormat(entry)}
+            {...formatGroup.itemProps(index)}
           >
             {entry === "jpeg" ? "JPG" : entry.toUpperCase()}
           </button>
@@ -103,7 +120,7 @@ export function VectorExportDialog({
           <div className="editor-dialog-row">
             <span className="editor-dialog-label">Scale</span>
             <div className="editor-dialog-seg" role="radiogroup" aria-label="Scale">
-              {SCALE_PRESETS.map((preset) => (
+              {SCALE_PRESETS.map((preset, index) => (
                 <button
                   key={preset}
                   type="button"
@@ -118,6 +135,7 @@ export function VectorExportDialog({
                     setScale(preset);
                     setExactWidth(null);
                   }}
+                  {...scaleGroup.itemProps(index)}
                 >
                   {preset}×
                 </button>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { EditorDialog } from "@/components/editor-dialog";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 
 // Export: PNG or JPG at a chosen scale / exact pixel size, with a real
 // quality control for JPG (previously hardcoded at 0.92). Built on the
@@ -50,6 +51,21 @@ export function ImageEditorExportDialog({
     }
   }
 
+  const FORMATS: ImageExportFormat[] = ["png", "jpeg"];
+  const formatGroup = useRovingRadioGroup(
+    FORMATS.length,
+    FORMATS.indexOf(format),
+    (index) => setFormat(FORMATS[index]),
+  );
+  const scaleGroup = useRovingRadioGroup(
+    SCALE_PRESETS.length,
+    exactWidth === null ? SCALE_PRESETS.indexOf(scale) : -1,
+    (index) => {
+      setScale(SCALE_PRESETS[index]);
+      setExactWidth(null);
+    },
+  );
+
   const effectiveScale = exactWidth ? exactWidth / width : scale;
   const outWidth = Math.max(1, Math.round(width * effectiveScale));
   const outHeight = Math.max(1, Math.round(height * effectiveScale));
@@ -62,7 +78,7 @@ export function ImageEditorExportDialog({
       <h2 className="editor-dialog-title">Export</h2>
 
       <div className="editor-dialog-seg" role="radiogroup" aria-label="Format">
-        {(["png", "jpeg"] as const).map((entry) => (
+        {FORMATS.map((entry, index) => (
           <button
             key={entry}
             type="button"
@@ -74,6 +90,7 @@ export function ImageEditorExportDialog({
                 : "editor-dialog-seg-btn"
             }
             onClick={() => setFormat(entry)}
+            {...formatGroup.itemProps(index)}
           >
             {entry === "jpeg" ? "JPG" : "PNG"}
           </button>
@@ -83,7 +100,7 @@ export function ImageEditorExportDialog({
       <div className="editor-dialog-row">
         <span className="editor-dialog-label">Scale</span>
         <div className="editor-dialog-seg" role="radiogroup" aria-label="Scale">
-          {SCALE_PRESETS.map((preset) => (
+          {SCALE_PRESETS.map((preset, index) => (
             <button
               key={preset}
               type="button"
@@ -98,6 +115,7 @@ export function ImageEditorExportDialog({
                 setScale(preset);
                 setExactWidth(null);
               }}
+              {...scaleGroup.itemProps(index)}
             >
               {preset}×
             </button>

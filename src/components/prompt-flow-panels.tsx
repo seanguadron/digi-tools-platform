@@ -20,6 +20,7 @@ import type {
   PromptDraft,
   PromptDraftTextField,
 } from "@/lib/prompt-builder-state";
+import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { FLOW_PANEL_INDEX } from "@/lib/prompt-navigation";
 import type { CardSection, TrackId } from "@/lib/prompt-card-system";
 import type { PromptRole } from "@/lib/prompt-types";
@@ -97,6 +98,26 @@ export function CraftFlowPanels({
   onReviewOutput: () => void;
   onReset: () => void;
 }) {
+  // Both output-type radio rows share the same options + selection, so one
+  // active index feeds two roving groups (guide panel + format panel).
+  const activeFormatIndex = FORMAT_OPTIONS.findIndex(
+    (option) => option.value === draft.format,
+  );
+  const selectFormatAt = (index: number) => {
+    const option = FORMAT_OPTIONS[index];
+    if (option) onSelectOutputType(option.value);
+  };
+  const guideFormatGroup = useRovingRadioGroup(
+    FORMAT_OPTIONS.length,
+    activeFormatIndex,
+    selectFormatAt,
+  );
+  const formatTabsGroup = useRovingRadioGroup(
+    FORMAT_OPTIONS.length,
+    activeFormatIndex,
+    selectFormatAt,
+  );
+
   return (
     <div className="flow-viewport" ref={flowViewportRef}>
       <div
@@ -137,7 +158,7 @@ export function CraftFlowPanels({
                 <small>{formatCode}</small>
               </div>
               <div className="output-type-card-row" role="radiogroup">
-                {FORMAT_OPTIONS.map((option) => {
+                {FORMAT_OPTIONS.map((option, index) => {
                   const selected = draft.format === option.value;
                   return (
                     <button
@@ -151,6 +172,7 @@ export function CraftFlowPanels({
                       aria-checked={selected}
                       onClick={() => onSelectOutputType(option.value)}
                       key={option.code}
+                      {...guideFormatGroup.itemProps(index)}
                     >
                       <span>{option.code}</span>
                       <strong>{option.name}</strong>
@@ -453,7 +475,7 @@ export function CraftFlowPanels({
                         : undefined
                     }
                   >
-                    {FORMAT_OPTIONS.map((option) => {
+                    {FORMAT_OPTIONS.map((option, index) => {
                       const selected = draft.format === option.value;
 
                       return (
@@ -468,6 +490,7 @@ export function CraftFlowPanels({
                           aria-checked={selected}
                           onClick={() => onSelectOutputType(option.value)}
                           key={option.value}
+                          {...formatTabsGroup.itemProps(index)}
                         >
                           <span>{option.code}</span>
                           <strong>{option.name}</strong>
