@@ -7629,14 +7629,21 @@ body:has(.page-stage.is-fluid) {
   touch-action: none;
 }
 
-/* Canvas-overlay palette: picked against the ARTBOARD (always #ffffff in
-   v1), not the app theme — the same dark cyan in both themes, ≥4.9:1 on
-   white (WCAG 1.4.11 wants 3:1). Declared on the STAGE so the svg's
-   overlays AND stage-level siblings (the in-place text editor) inherit one
-   value. Revisit when document setup makes doc.background editable. */
+/* Canvas-overlay palette: picked against the ARTBOARD, not the app theme.
+   The background is user-editable (Document setup), so the canvas flips
+   `is-dark-artboard` from the color's own luminance (transparent follows
+   the app theme): dark cyan on light artboards, bright cyan + dark paper
+   on dark ones — both clear WCAG 1.4.11's 3:1. Declared on the STAGE so
+   the svg's overlays AND stage-level siblings (the in-place text editor)
+   inherit one value. */
 .vector-editor-stage {
   --ve-overlay-accent: oklch(0.48 0.12 200);
   --ve-overlay-paper: #ffffff;
+}
+
+.vector-editor-stage.is-dark-artboard {
+  --ve-overlay-accent: oklch(0.82 0.18 200);
+  --ve-overlay-paper: #10141c;
 }
 
 .vector-editor-surface {

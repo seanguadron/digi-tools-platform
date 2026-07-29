@@ -1,11 +1,15 @@
-// Export the document as SVG (the live scene graph, serialized verbatim) and as
-// a rasterized PNG. Because the editor IS native SVG, the export is a
+// Export the document as SVG (the live scene graph, serialized verbatim) and
+// as a rasterized bitmap. Because the editor IS native SVG, the export is a
 // faithful, lossless copy — no canvas round-trip on the way out.
 //
-// Only numeric geometry and color strings (from the native <input type="color">
-// pickers, always #rrggbb) reach the output — there is no user-authored text in
-// the markup, so nothing needs HTML/attribute escaping in v1.
+// The markup carries three string kinds, each constrained: numeric geometry
+// (rounded, finite-guarded), colors (safeColor-validated on load AND
+// escapeAttr-escaped on the way out), and — since the text milestone —
+// USER-AUTHORED text content, escaped line by line through escapeAttr before
+// it lands in tspan content. Nothing reaches an attribute or element body
+// unescaped.
 
+import { MAX_EXPORT_DIMENSION, MAX_EXPORT_PIXELS } from "@/lib/units";
 import { pathToD } from "@/lib/vector-editor/bezier";
 import { objectBounds } from "@/lib/vector-editor/geometry";
 import {
@@ -115,9 +119,6 @@ export interface RasterizeOptions {
   quality?: number; // jpeg only, 0..1
 }
 
-// Bitmap exports cap at the same per-side ceiling the export dialog shows.
-const MAX_BITMAP_DIMENSION = 12000;
-
 export async function rasterizeBitmap(
   doc: VectorDocument,
   options: RasterizeOptions = {},
@@ -141,16 +142,26 @@ export async function rasterizeBitmap(
     image.src = url;
   });
 
+  // The allocation choke point re-clamps regardless of caller: per-side
+  // ceiling, then a TOTAL pixel budget (two individually-legal sides can
+  // still multiply into an absurd canvas) — shrink proportionally to fit.
   const safeScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
-  const canvas = document.createElement("canvas");
-  canvas.width = Math.min(
-    MAX_BITMAP_DIMENSION,
+  let outWidth = Math.min(
+    MAX_EXPORT_DIMENSION,
     Math.max(1, Math.round(doc.width * safeScale)),
   );
-  canvas.height = Math.min(
-    MAX_BITMAP_DIMENSION,
+  let outHeight = Math.min(
+    MAX_EXPORT_DIMENSION,
     Math.max(1, Math.round(doc.height * safeScale)),
   );
+  if (outWidth * outHeight > MAX_EXPORT_PIXELS) {
+    const shrink = Math.sqrt(MAX_EXPORT_PIXELS / (outWidth * outHeight));
+    outWidth = Math.max(1, Math.floor(outWidth * shrink));
+    outHeight = Math.max(1, Math.floor(outHeight * shrink));
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = outWidth;
+  canvas.height = outHeight;
   const context = canvas.getContext("2d");
   if (!context) throw new Error("Canvas 2D context unavailable");
   if (format === "jpeg") {
@@ -161,6 +172,10 @@ export async function rasterizeBitmap(
   context.drawImage(image, 0, 0, canvas.width, canvas.height);
 
   const mime = format === "jpeg" ? "image/jpeg" : "image/png";
+  const safeQuality =
+    Number.isFinite(quality) && quality > 0
+      ? Math.min(1, Math.max(0.5, quality))
+      : 0.92;
   return await new Promise<Blob>((resolve, reject) => {
     canvas.toBlob(
       (blob) => {
@@ -168,7 +183,7 @@ export async function rasterizeBitmap(
         else reject(new Error("Bitmap encoding failed"));
       },
       mime,
-      format === "jpeg" ? Math.min(1, Math.max(0.5, quality)) : undefined,
+      format === "jpeg" ? safeQuality : undefined,
     );
   });
 }

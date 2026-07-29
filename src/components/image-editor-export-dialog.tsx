@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { EditorDialog } from "@/components/editor-dialog";
 import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
+import { MAX_EXPORT_DIMENSION, MAX_EXPORT_PIXELS } from "@/lib/units";
 
 // Export: PNG or JPG at a chosen scale / exact pixel size, with a real
 // quality control for JPG (previously hardcoded at 0.92). Built on the
@@ -18,7 +19,6 @@ export interface ImageExportOptions {
 }
 
 const SCALE_PRESETS = [0.5, 1, 2];
-const MAX_EXPORT_DIMENSION = 12000;
 
 export function ImageEditorExportDialog({
   open,
@@ -70,7 +70,9 @@ export function ImageEditorExportDialog({
   const outWidth = Math.max(1, Math.round(width * effectiveScale));
   const outHeight = Math.max(1, Math.round(height * effectiveScale));
   const valid =
-    outWidth <= MAX_EXPORT_DIMENSION && outHeight <= MAX_EXPORT_DIMENSION;
+    outWidth <= MAX_EXPORT_DIMENSION &&
+    outHeight <= MAX_EXPORT_DIMENSION &&
+    outWidth * outHeight <= MAX_EXPORT_PIXELS;
   const extension = format === "jpeg" ? "jpg" : "png";
 
   return (
@@ -167,7 +169,8 @@ export function ImageEditorExportDialog({
 
       {!valid ? (
         <p className="editor-dialog-hint">
-          Exports cap at {MAX_EXPORT_DIMENSION.toLocaleString()}px per side.
+          Exports cap at {MAX_EXPORT_DIMENSION.toLocaleString()}px per side
+          and {Math.round(MAX_EXPORT_PIXELS / 1_000_000)}M pixels total.
         </p>
       ) : null}
 

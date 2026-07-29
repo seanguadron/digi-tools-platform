@@ -115,6 +115,7 @@ import type {
 } from "@/lib/image-editor/tools";
 import type { BlendMode, ImageDoc, Rect } from "@/lib/image-editor/types";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
+import { MAX_EXPORT_DIMENSION, MAX_EXPORT_PIXELS } from "@/lib/units";
 
 const IMAGE_LIMITS = {
   maxPixels: MAX_DOC_PIXELS,
@@ -748,16 +749,32 @@ export function ImageEditor() {
       if (!doc) {
         return;
       }
+      // Re-clamp at the allocation choke point, independent of the dialog's
+      // gate: per-side ceiling, then the total pixel budget (shrink
+      // proportionally to fit).
+      let outWidth = Math.min(
+        MAX_EXPORT_DIMENSION,
+        Math.max(1, Math.round(options.width)),
+      );
+      let outHeight = Math.min(
+        MAX_EXPORT_DIMENSION,
+        Math.max(1, Math.round(options.height)),
+      );
+      if (outWidth * outHeight > MAX_EXPORT_PIXELS) {
+        const shrink = Math.sqrt(MAX_EXPORT_PIXELS / (outWidth * outHeight));
+        outWidth = Math.max(1, Math.floor(outWidth * shrink));
+        outHeight = Math.max(1, Math.floor(outHeight * shrink));
+      }
       const flat = composite(doc);
-      const out = createBitmap(options.width, options.height);
+      const out = createBitmap(outWidth, outHeight);
       const ctx = get2d(out);
       if (options.format === "jpeg") {
         ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, options.width, options.height);
+        ctx.fillRect(0, 0, outWidth, outHeight);
       }
       ctx.imageSmoothingEnabled = true;
       ctx.imageSmoothingQuality = "high";
-      ctx.drawImage(flat, 0, 0, options.width, options.height);
+      ctx.drawImage(flat, 0, 0, outWidth, outHeight);
       const mime = options.format === "jpeg" ? "image/jpeg" : "image/png";
       const extension = options.format === "jpeg" ? "jpg" : "png";
       out.toBlob(

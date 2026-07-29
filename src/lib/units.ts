@@ -12,6 +12,12 @@ export const DEFAULT_DOC_PPI = 300;
 export const MIN_DOC_PPI = 1;
 export const MAX_DOC_PPI = 1200;
 
+// Bitmap-export ceilings shared by BOTH editors' export paths — one source
+// so the four former per-file declarations can't drift. Every export gates
+// per-side AND total pixels, at the dialog and again at the allocation.
+export const MAX_EXPORT_DIMENSION = 12000;
+export const MAX_EXPORT_PIXELS = 40_000_000;
+
 const UNITS_PER_INCH: Record<PhysicalUnit, number> = {
   in: 1,
   cm: 2.54,

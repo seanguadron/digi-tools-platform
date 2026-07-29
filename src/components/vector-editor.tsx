@@ -398,10 +398,14 @@ export function VectorEditor() {
   }
 
   function applyDocSetup(next: DocSetupValue) {
+    // Same defensive clamp as resizeArtboard — never trust the caller's
+    // gate alone.
+    const width = Math.min(20000, Math.max(1, Math.round(next.width)));
+    const height = Math.min(20000, Math.max(1, Math.round(next.height)));
     commit((current) => ({
       ...current,
-      width: next.width,
-      height: next.height,
+      width,
+      height,
       background: next.background,
       unit: next.unit,
       ppi: next.ppi,

@@ -48,17 +48,38 @@ the ENTIRE owner-approved `docs/ROADMAP.md` program is built and committed:
    (`2026-07-28-gates-vector-documents.md`,
    `2026-07-28-gates-image-export-newdoc.md`).
 
-**GATE DEBT (top priority when subagent capacity returns):** re-run the
-integration gate on V2, and all three judgment gates on V3 and I2. The
-ledger entries mark each as OWED, per the 2026-07-19 blocked-run precedent.
+7. `9b255bd` **shared roving-tabindex radiogroup helper** —
+   `useRovingRadioGroup` adopted at all 9 radiogroup sites (one Tab stop,
+   arrows move+select, Home/End, column stepping for the anchor grid),
+   closing the systemic a11y gap the design gates kept flagging.
+8. (this commit) **gate-debt discharge** — see below.
 
-Health at session end: `typecheck` · `lint` · `test` (53) · `data:validate`
-· `check:standards` · `check:security` all green. Owed from Sean: the
+**GATE DEBT — mostly discharged (2026-07-29).** The integration and
+security agents were re-run over the whole owed range once capacity
+returned, and their findings are applied:
+- **Integration DISCHARGED** for V2+V3+I2 (`2026-07-29-integration-gate-owed-range.md`):
+  Medium — the canvas-overlay palette was pinned to a white artboard while
+  V3 shipped an editable background; overlays now flip by background
+  luminance. Plus the 4× duplicated 12000px ceiling consolidated into
+  `units.ts`, an allocation-site clamp in the image `runExport`, a stale
+  escaping comment, and an ARCHITECTURE carve-out for closed-by-default
+  dialog portals.
+- **Security DISCHARGED** for V3+I2 (`2026-07-29-security-gate-owed-range.md`):
+  two Mediums — BOTH export paths capped per-side but never total pixels
+  (a 6000×6000 doc at 2× legally requested a 144-megapixel canvas). Now
+  gated by a shared `MAX_EXPORT_PIXELS` at the dialog AND re-clamped at
+  every allocation site; plus a doc-setup clamp parity fix and a
+  quality finite-guard.
+- **DESIGN for V3+I2 is the ONE gate still owed**
+  (`2026-07-29-design-gate-owed-range.md`) — the agent hit the provider
+  spend limit again. V2's design gate did complete on 2026-07-28.
+
+Health: `typecheck` · `lint` · `test` (53) · `data:validate` ·
+`check:standards` · `check:security` all green. Owed from Sean: the
 real-mic dictation-meter spot-check (headless browsers can't grant mic).
-⚠ The unmanaged dev server on port 5100 replays a stale Turbopack error
-snapshot ("rasterizePng doesn't exist") from a mid-edit compile — disk code
-and typecheck are clean; run `npm run dev:clean` whenever that server gets
-restarted.
+The port-5100 dev server was recycled with a cleared `.next` on 2026-07-29
+— the stale-error replay is gone; re-run `npm run dev:clean` if CSS edits
+ever stop landing again (that symptom recurred once during this session).
 
 ## Runbook
 
@@ -149,13 +170,15 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
 
 ## Backlog / in flight
 
-- **In flight: nothing mid-task.** All six commits landed; tree clean.
-- **GATE DEBT** (first thing when subagent capacity returns): integration
-  re-run on V2; all three gates on V3 + I2. Then annotate the OWED ledger
-  entries.
-- **Task chips open:** shared roving-tabindex radiogroup helper (now 6 call
-  sites); stable `DndContext` ids; 24px targets for `.image-editor-check` +
-  `.ve-toggle`; `image-editor.tsx` statusbar portal idiom (2026-07-19).
+- **In flight: nothing mid-task.** All commits landed; tree clean.
+- **GATE DEBT — one item left:** the DESIGN gate on V3 + I2 (blocked twice
+  by the provider spend limit). Integration and security are discharged
+  (`2026-07-29-*-owed-range.md`).
+- **Task chips open:** stable `DndContext` ids; 24px targets for
+  `.image-editor-check` + `.ve-toggle`; `image-editor.tsx` statusbar portal
+  idiom (2026-07-19). The roving-tabindex chip was implemented directly in
+  the main session (`9b255bd`) — if its worktree session produces a
+  duplicate, discard that worktree rather than merging.
 - **Owed from Sean:** real-mic dictation-meter spot-check; `dev:clean` on
   the wedged 5100 server.
 - **I2 deferrals:** migrate ImageSize/CanvasSize dialogs onto
@@ -178,7 +201,13 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
   restore; every doc-growing affordance gates on the size ceilings at UI
   AND `document.ts`; every `MAX_*`/`clamp*` invariant gets ONE enforcement
   point covering create/update/load. Also proposed: a DESIGN_DIRECTION
-  carve-out for canvas-drawn tool chrome over arbitrary imagery.
+  carve-out for canvas-drawn tool chrome over arbitrary imagery; and (new
+  2026-07-29) any bitmap-rasterizing surface enforces a TOTAL pixel ceiling,
+  not just per-side, re-clamped at the allocation site.
+- **Open question from the 2026-07-29 security gate:** shape
+  position/rotation fields in the vector `project-io.ts` are finite-checked
+  but not magnitude-clamped, unlike path anchors — decide whether V1's
+  coordinate-clamp convention should be document-wide.
 - **`npm run amendments` is line-wrap fragile** — candidate fix.
 - **Deferred polish:** the sanctioned extraction backlog (ARCHITECTURE §3);
   `writeStoredOrThrow` for the architect save path.

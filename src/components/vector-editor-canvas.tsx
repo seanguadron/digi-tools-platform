@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import {
   insertAnchor,
@@ -117,6 +117,48 @@ type Action =
       frame: RotFrame;
     }
   | { type: "pen-place"; index: number; start: Point };
+
+// Overlay palette selection: the artboard background is user-editable now,
+// so the overlay chrome flips to a light-on-dark palette when the artboard
+// is dark. Any safeColor form normalizes through a scratch canvas.
+let colorScratch: CanvasRenderingContext2D | null = null;
+
+function colorLuminance(color: string): number | null {
+  if (typeof document === "undefined") return null;
+  if (!colorScratch) {
+    colorScratch = document.createElement("canvas").getContext("2d");
+  }
+  if (!colorScratch) return null;
+  colorScratch.fillStyle = "#000000";
+  colorScratch.fillStyle = color; // invalid values keep the previous one
+  const normalized = colorScratch.fillStyle;
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  if (normalized.startsWith("#") && normalized.length >= 7) {
+    r = parseInt(normalized.slice(1, 3), 16);
+    g = parseInt(normalized.slice(3, 5), 16);
+    b = parseInt(normalized.slice(5, 7), 16);
+  } else {
+    const match = normalized.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)/);
+    if (!match) return null;
+    r = Number(match[1]);
+    g = Number(match[2]);
+    b = Number(match[3]);
+  }
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+}
+
+// A transparent artboard shows the theme's stage behind it, so the app
+// theme decides; otherwise the background color's own luminance does.
+function isArtboardDark(background: string | null): boolean {
+  if (typeof document === "undefined") return false;
+  if (background === null) {
+    return document.documentElement.getAttribute("data-theme") !== "light";
+  }
+  const luminance = colorLuminance(background);
+  return luminance !== null && luminance < 0.45;
+}
 
 function clientToUser(
   svg: SVGSVGElement,
@@ -1429,6 +1471,10 @@ export function VectorCanvas({
   }
 
   const zoomPct = Math.round(scale * 100);
+  const darkArtboard = useMemo(
+    () => isArtboardDark(doc.background),
+    [doc.background],
+  );
   const marqueeRect = marquee ? normalizedRect(marquee.start, marquee.current) : null;
   const anchorIndices =
     selectedPath && anchorSelection?.objectId === selectedPath.id
@@ -1436,7 +1482,13 @@ export function VectorCanvas({
       : [];
 
   return (
-    <div className="vector-editor-stage">
+    <div
+      className={
+        darkArtboard
+          ? "vector-editor-stage is-dark-artboard"
+          : "vector-editor-stage"
+      }
+    >
       <svg
         ref={svgRef}
         className={

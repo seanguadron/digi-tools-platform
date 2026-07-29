@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { EditorDialog } from "@/components/editor-dialog";
 import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
-import { formatSize } from "@/lib/units";
+import {
+  formatSize,
+  MAX_EXPORT_DIMENSION,
+  MAX_EXPORT_PIXELS,
+} from "@/lib/units";
 import type { DocUnit } from "@/lib/units";
 
 // Export: SVG as-is, or a bitmap at a chosen scale / exact pixel size.
@@ -19,7 +23,6 @@ export interface VectorExportOptions {
 }
 
 const SCALE_PRESETS = [1, 2, 3];
-const MAX_BITMAP_DIMENSION = 12000;
 
 export function VectorExportDialog({
   open,
@@ -81,7 +84,9 @@ export function VectorExportDialog({
   const bitmap = format !== "svg";
   const valid =
     !bitmap ||
-    (outWidth <= MAX_BITMAP_DIMENSION && outHeight <= MAX_BITMAP_DIMENSION);
+    (outWidth <= MAX_EXPORT_DIMENSION &&
+      outHeight <= MAX_EXPORT_DIMENSION &&
+      outWidth * outHeight <= MAX_EXPORT_PIXELS);
 
   const extension = format === "jpeg" ? "jpg" : format;
 
@@ -148,7 +153,7 @@ export function VectorExportDialog({
               <input
                 type="number"
                 min={1}
-                max={MAX_BITMAP_DIMENSION}
+                max={MAX_EXPORT_DIMENSION}
                 value={outWidth}
                 onChange={(event) => {
                   const next = Math.round(Number(event.target.value));
@@ -192,8 +197,9 @@ export function VectorExportDialog({
           )}
           {!valid ? (
             <p className="editor-dialog-hint">
-              Bitmap exports cap at {MAX_BITMAP_DIMENSION.toLocaleString()}px
-              per side.
+              Bitmap exports cap at {MAX_EXPORT_DIMENSION.toLocaleString()}px
+              per side and {Math.round(MAX_EXPORT_PIXELS / 1_000_000)}M pixels
+              total.
             </p>
           ) : null}
         </>

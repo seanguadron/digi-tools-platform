@@ -68,6 +68,11 @@ A tool's header is injected with a portal — use the shared **`<ToolSubbar>`**
   adds no nodes and is inert. Don't rely on that — route every first-render
   portal through the hook, because the day those children stop being null the
   breakage is silent.
+- **One deliberate carve-out:** `EditorDialog` (and dialogs built on it)
+  returns `null` until `open` is true, and every consumer initializes
+  `open` to `false` — it never portals on first render, so it may target
+  `document.body` directly. A dialog that is ever open-by-default loses the
+  exemption and must go through `usePortalTarget`.
 - The portaled root must be `div.prompt-subbar` (plus one per-tool modifier
   class, e.g. `image-editor-subbar`) with `data-component="Header:Tool"`,
   and **no wrapper element** around it — the slot is `display: contents`
