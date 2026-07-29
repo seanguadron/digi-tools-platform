@@ -3,6 +3,12 @@
 // validated field by field before use, never bare-cast, and a corrupt object
 // is dropped rather than allowed to crash the editor.
 
+import {
+  clampFontSize,
+  DEFAULT_FONT_FAMILY,
+  isFontFamilyName,
+  sanitizeText,
+} from "@/lib/vector-editor/text";
 import type {
   Paint,
   PathAnchor,
@@ -116,7 +122,8 @@ function validateObject(value: unknown): VectorObject | null {
     kind !== "ellipse" &&
     kind !== "line" &&
     kind !== "polygon" &&
-    kind !== "path"
+    kind !== "path" &&
+    kind !== "text"
   ) {
     return null;
   }
@@ -203,6 +210,41 @@ function validateObject(value: unknown): VectorObject | null {
       const closed = object.closed === true;
       if (closed && anchors.length < 3) return null;
       return { ...base, kind, anchors, closed };
+    }
+    case "text": {
+      if (!isNumber(object.x) || !isNumber(object.y)) return null;
+      if (typeof object.text !== "string") return null;
+      const text = sanitizeText(object.text);
+      if (text.trim().length === 0) return null;
+      const fontSize = clampFontSize(
+        isNumber(object.fontSize) ? object.fontSize : Number.NaN,
+      );
+      // Extents may be missing in older stores — estimate; the client
+      // re-measures and re-stamps on the next edit.
+      const lineCount = text.split("\n").length;
+      const width =
+        isNumber(object.width) && object.width > 0
+          ? clampSize(object.width)
+          : clampSize(text.length * fontSize * 0.6, 1);
+      const height =
+        isNumber(object.height) && object.height > 0
+          ? clampSize(object.height)
+          : clampSize(lineCount * fontSize * 1.2, 1);
+      return {
+        ...base,
+        kind,
+        x: clampCoord(object.x),
+        y: clampCoord(object.y),
+        text,
+        fontFamily: isFontFamilyName(object.fontFamily)
+          ? object.fontFamily
+          : DEFAULT_FONT_FAMILY,
+        fontSize,
+        bold: object.bold === true,
+        italic: object.italic === true,
+        width,
+        height,
+      };
     }
   }
 }

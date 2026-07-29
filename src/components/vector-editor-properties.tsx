@@ -7,6 +7,12 @@ import {
   translateObject,
 } from "@/lib/vector-editor/transform";
 import type { AnchorSelection } from "@/components/vector-editor-canvas";
+import {
+  FONT_FAMILIES,
+  MAX_FONT_SIZE,
+  MAX_TEXT_LENGTH,
+  MIN_FONT_SIZE,
+} from "@/lib/vector-editor/text";
 import type {
   AnchorType,
   VectorDocument,
@@ -175,7 +181,81 @@ export function VectorProperties({
         </label>
       </div>
 
-      {object.kind === "path" ? (
+      {object.kind === "text" ? (
+        <div className="vector-editor-dock-section">
+          <span className="vector-editor-dock-label">Type</span>
+          <label className="ve-field ve-field-wide">
+            <span className="ve-field-label">Text</span>
+            <textarea
+              className="ve-input ve-text-input"
+              rows={3}
+              maxLength={MAX_TEXT_LENGTH}
+              value={object.text}
+              onChange={(event) =>
+                onUpdate({ ...object, text: event.target.value })
+              }
+            />
+          </label>
+          <label className="ve-field ve-field-wide">
+            <span className="ve-field-label">Font</span>
+            <select
+              className="ve-input"
+              value={object.fontFamily}
+              onChange={(event) =>
+                onUpdate({ ...object, fontFamily: event.target.value })
+              }
+            >
+              {FONT_FAMILIES.map((family) => (
+                <option key={family.name} value={family.name}>
+                  {family.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <div className="ve-prop-row">
+            <NumberField
+              label="Size"
+              value={object.fontSize}
+              min={MIN_FONT_SIZE}
+              onCommit={(value) =>
+                onUpdate({
+                  ...object,
+                  fontSize: Math.min(
+                    MAX_FONT_SIZE,
+                    Math.max(MIN_FONT_SIZE, value),
+                  ),
+                })
+              }
+            />
+            <div className="ve-text-style-toggles">
+              <label className="ve-toggle">
+                <input
+                  type="checkbox"
+                  checked={object.bold}
+                  onChange={(event) =>
+                    onUpdate({ ...object, bold: event.target.checked })
+                  }
+                />
+                <span>Bold</span>
+              </label>
+              <label className="ve-toggle">
+                <input
+                  type="checkbox"
+                  checked={object.italic}
+                  onChange={(event) =>
+                    onUpdate({ ...object, italic: event.target.checked })
+                  }
+                />
+                <span>Italic</span>
+              </label>
+            </div>
+          </div>
+          <p className="vector-editor-dock-hint">
+            Double-click the text on the canvas to edit it in place. Enter
+            finishes, Esc cancels, Shift+Enter adds a line.
+          </p>
+        </div>
+      ) : object.kind === "path" ? (
         <div className="vector-editor-dock-section">
           <span className="vector-editor-dock-label">
             {anchorIndices.length > 0

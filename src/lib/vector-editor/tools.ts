@@ -7,6 +7,7 @@ export type VectorToolId =
   | "select"
   | "direct"
   | "pen"
+  | "text"
   | "rect"
   | "ellipse"
   | "line"
@@ -41,6 +42,13 @@ export const VECTOR_TOOLS: VectorToolDef[] = [
     glyph: "✒", // ✒
     hint: "Draw a path point by point; drag for curves",
     shortcut: "P",
+  },
+  {
+    id: "text",
+    label: "Type",
+    glyph: "T",
+    hint: "Click to place text; type, then Enter to finish",
+    shortcut: "T",
   },
   {
     id: "rect",

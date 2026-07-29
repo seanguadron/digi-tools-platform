@@ -15,7 +15,7 @@ export type VectorObjectId = string;
 // drag shape — the pen builds them anchor by anchor.
 export type VectorShapeKind = "rect" | "ellipse" | "line" | "polygon";
 
-export type VectorObjectKind = VectorShapeKind | "path";
+export type VectorObjectKind = VectorShapeKind | "path" | "text";
 
 export interface Point {
   x: number;
@@ -84,12 +84,30 @@ export interface PathObject extends VectorObjectBase {
   closed: boolean;
 }
 
+// Point text. x/y is the TOP-LEFT of the text block (baselines derive from
+// TEXT_ASCENT/TEXT_LINE_HEIGHT in text.ts); width/height are the measured
+// extents, stamped by text-measure.ts whenever content or font changes, so
+// pure geometry never needs the DOM.
+export interface TextObject extends VectorObjectBase {
+  kind: "text";
+  x: number;
+  y: number;
+  text: string;
+  fontFamily: string; // a catalog NAME from text.ts, never a free string
+  fontSize: number; // user units
+  bold: boolean;
+  italic: boolean;
+  width: number;
+  height: number;
+}
+
 export type VectorObject =
   | RectObject
   | EllipseObject
   | LineObject
   | PolygonObject
-  | PathObject;
+  | PathObject
+  | TextObject;
 
 export interface VectorDocument {
   width: number; // artboard size, user units

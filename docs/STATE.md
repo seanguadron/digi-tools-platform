@@ -112,9 +112,29 @@ HUD font + focus-ring gap fixed; the radiogroup roving-tabindex gap is a
 4-site systemic item → task chip). Ledger:
 `2026-07-28-*-image-precision.md`.
 
-**Next up: Milestone V2** (vector point text) — text object kind, T tool
-with in-place overlay editing, curated font catalog, measured bounds.
-Module drafts staged.
+**Milestone V2 — vector point text: DONE and committed.** The Vector Editor
+has a Type tool (T): click places text with a WYSIWYG in-place overlay
+editor (Enter finishes, Shift+Enter newline, Esc cancels, blur commits,
+double-click with Select re-edits, Enter with the tool places at center —
+keyboard entry), multi-line via tspans, curated 8-family font catalog
+(documents store the validated NAME; `fontCss` resolves stacks — a hostile
+family string can never reach markup), bold/italic, Design-tab Type section,
+measured extents stamped by `text-measure.ts` (pure geometry never touches
+the DOM). `sanitizeText` in `text.ts` is THE text-content enforcement point
+(5000-char cap + control-char strip on create AND edit AND load). Gates:
+security FAIL→PASS (Medium: the cap wasn't enforced on the edit path — an
+oversized paste could kill autosave; 2 Low), design FAIL→PASS (Medium:
+Enter-to-place stole button activation page-wide; Medium: commit dropped
+focus to body; Medium: the overlay token never resolved across the
+svg-sibling boundary — tokens moved to the stage), **integration gate
+BLOCKED by the provider's monthly subagent spend limit** — deterministic
+halves green + main-agent inline review recorded; RE-RUN OWED when capacity
+returns (ledger `2026-07-28-*-vector-text.md`, per the 2026-07-19
+precedent).
+
+**Next up: Milestone V3** (documents/units/export for vector) — subagent
+gates unavailable (spend limit): deterministic halves + inline review +
+honest ledger entries, re-runs owed.
 
 ## Runbook
 

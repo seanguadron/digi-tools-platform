@@ -16,6 +16,15 @@ import {
 } from "@/lib/vector-editor/document";
 import { withAnchors } from "@/lib/vector-editor/paths";
 import {
+  DEFAULT_FONT_FAMILY,
+  DEFAULT_FONT_SIZE,
+  fontCss,
+  MAX_TEXT_LENGTH,
+  TEXT_ASCENT,
+  TEXT_LINE_HEIGHT,
+  textLines,
+} from "@/lib/vector-editor/text";
+import {
   RESIZE_HANDLES,
   resizeObject,
   rotateObject,
@@ -60,6 +69,28 @@ interface RotFrame {
 export interface AnchorSelection {
   objectId: string;
   indices: number[];
+}
+
+// An in-progress text entry/edit: id null while creating a new object.
+// Font fields exist purely so the overlay renders WYSIWYG; the orchestrator
+// owns what actually lands on the object.
+export interface TextEditState {
+  id: string | null;
+  x: number;
+  y: number;
+  value: string;
+  fontFamily: string;
+  fontSize: number;
+  bold: boolean;
+  italic: boolean;
+  color: string;
+}
+
+export interface TextCommit {
+  id: string | null;
+  x: number;
+  y: number;
+  value: string;
 }
 
 // A pointer gesture in progress.
@@ -201,6 +232,56 @@ function ShapeElement({
           {...common}
         />
       );
+    case "text": {
+      const baseline = object.y + object.fontSize * TEXT_ASCENT;
+      const content = (
+        <text
+          x={object.x}
+          y={baseline}
+          fontFamily={fontCss(object.fontFamily)}
+          fontSize={object.fontSize}
+          fontWeight={object.bold ? 700 : 400}
+          fontStyle={object.italic ? "italic" : undefined}
+          fill={object.fill ? object.fill.color : "none"}
+          fillOpacity={object.fill ? object.fill.opacity : undefined}
+          stroke={object.stroke ? object.stroke.color : "none"}
+          strokeWidth={object.stroke ? object.stroke.width : undefined}
+          strokeOpacity={object.stroke ? object.stroke.opacity : undefined}
+        >
+          {textLines(object.text).map((line, index) => (
+            <tspan
+              key={index}
+              x={object.x}
+              y={baseline + index * object.fontSize * TEXT_LINE_HEIGHT}
+            >
+              {line || " "}
+            </tspan>
+          ))}
+        </text>
+      );
+      if (!interactive) {
+        return (
+          <g pointerEvents="none" transform={transform} opacity={object.opacity}>
+            {content}
+          </g>
+        );
+      }
+      // A transparent bounds rect makes the whole block clickable, not just
+      // the glyph strokes.
+      return (
+        <g data-object-id={object.id} transform={transform} opacity={object.opacity}>
+          {content}
+          <rect
+            x={object.x}
+            y={object.y}
+            width={object.width}
+            height={object.height}
+            fill="transparent"
+            stroke="none"
+          />
+        </g>
+      );
+    }
     case "path": {
       const d = pathToD(object.anchors, object.closed);
       if (!interactive) {
@@ -559,6 +640,7 @@ export function VectorCanvas({
   onEditPath,
   onTransformEnd,
   onConvertToPath,
+  onCommitText,
   onZoom,
 }: {
   doc: VectorDocument;
@@ -574,6 +656,7 @@ export function VectorCanvas({
   onEditPath: (object: PathObject) => void;
   onTransformEnd: () => void;
   onConvertToPath: (id: string) => void;
+  onCommitText: (commit: TextCommit) => void;
   onZoom: (scale: number) => void;
 }) {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -584,6 +667,8 @@ export function VectorCanvas({
   const [draft, setDraft] = useState<VectorObject | null>(null);
   const [penAnchors, setPenAnchors] = useState<PathAnchor[] | null>(null);
   const [penHover, setPenHover] = useState<Point | null>(null);
+  const [textEdit, setTextEdit] = useState<TextEditState | null>(null);
+  const textEditRef = useRef<HTMLTextAreaElement | null>(null);
   const [marquee, setMarquee] = useState<{ start: Point; current: Point } | null>(
     null,
   );
@@ -617,6 +702,60 @@ export function VectorCanvas({
     if (anchors.length >= (close ? 3 : 2)) {
       onCreatePath(anchors, close);
     }
+  }
+
+  function openTextEditor(state: TextEditState) {
+    setTextEdit(state);
+  }
+
+  function openTextEditorFor(object: VectorObject) {
+    if (object.kind !== "text") return;
+    openTextEditor({
+      id: object.id,
+      x: object.x,
+      y: object.y,
+      value: object.text,
+      fontFamily: object.fontFamily,
+      fontSize: object.fontSize,
+      bold: object.bold,
+      italic: object.italic,
+      // Fill-off text is invisible on canvas — the overlay shows a ghost
+      // ink so typing still reads, without faking a fill that isn't there.
+      color: object.fill?.color ?? "rgba(15, 23, 42, 0.4)",
+    });
+  }
+
+  function openNewTextEditor(point: Point) {
+    // The click marks the first baseline; the block's top sits an ascent up.
+    openTextEditor({
+      id: null,
+      x: point.x,
+      y: point.y - DEFAULT_FONT_SIZE * TEXT_ASCENT,
+      value: "",
+      fontFamily: DEFAULT_FONT_FAMILY,
+      fontSize: DEFAULT_FONT_SIZE,
+      bold: false,
+      italic: false,
+      color: "#0f172a",
+    });
+  }
+
+  function commitTextEdit() {
+    if (!textEdit) return;
+    setTextEdit(null);
+    onCommitText({
+      id: textEdit.id,
+      x: textEdit.x,
+      y: textEdit.y,
+      value: textEdit.value,
+    });
+    // Land focus back on the artboard, not <body>.
+    svgRef.current?.focus();
+  }
+
+  function cancelTextEdit() {
+    setTextEdit(null);
+    svgRef.current?.focus();
   }
 
   // Report the current user→screen scale (for the zoom readout) and keep the
@@ -693,6 +832,54 @@ export function VectorCanvas({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tool]);
+
+  // Keyboard entry for the type tool: Enter opens an editor at the artboard
+  // center (the pointer path is a click on the canvas).
+  useEffect(() => {
+    if (tool !== "text" || textEdit) return;
+    const onKey = (event: KeyboardEvent) => {
+      const target = event.target as HTMLElement | null;
+      // Buttons and selects keep their native Enter activation — this
+      // shortcut only fires from the canvas/body context.
+      if (
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.tagName === "BUTTON" ||
+          target.tagName === "SELECT" ||
+          target.isContentEditable)
+      ) {
+        return;
+      }
+      if (event.key === "Enter") {
+        event.preventDefault();
+        event.stopPropagation();
+        openNewTextEditor({ x: doc.width / 2, y: doc.height / 2 });
+      }
+    };
+    window.addEventListener("keydown", onKey, { capture: true });
+    return () => window.removeEventListener("keydown", onKey, { capture: true });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tool, textEdit, doc.width, doc.height]);
+
+  // Keep the overlay editor pinned to its doc-space point through pan/zoom;
+  // getScreenCTM covers the letterboxing preserveAspectRatio introduces.
+  useEffect(() => {
+    const svg = svgRef.current;
+    const el = textEditRef.current;
+    if (!svg || !el || !textEdit) return;
+    const stage = el.parentElement;
+    if (!stage) return;
+    const ctm = svg.getScreenCTM();
+    if (!ctm) return;
+    const stageRect = stage.getBoundingClientRect();
+    const sx = ctm.a * textEdit.x + ctm.c * textEdit.y + ctm.e - stageRect.left;
+    const sy = ctm.b * textEdit.x + ctm.d * textEdit.y + ctm.f - stageRect.top;
+    el.style.left = `${sx}px`;
+    el.style.top = `${sy}px`;
+    el.style.fontSize = `${textEdit.fontSize * (ctm.a || 1)}px`;
+    el.focus();
+  }, [textEdit, view, scale]);
 
   // Wheel zoom toward the cursor. A native, non-passive listener so
   // preventDefault actually blocks page scroll.
@@ -950,6 +1137,25 @@ export function VectorCanvas({
       return;
     }
 
+    if (tool === "text") {
+      // Clicking an existing text block edits it; empty canvas starts a new
+      // one. An open editor commits via its own blur first.
+      const objectId = (event.target as Element)
+        .closest("[data-object-id]")
+        ?.getAttribute("data-object-id");
+      const hit = objectId
+        ? doc.objects.find((object) => object.id === objectId)
+        : undefined;
+      if (hit && hit.kind === "text" && !hit.locked) {
+        onSelectIds([hit.id]);
+        openTextEditorFor(hit);
+      } else if (!textEdit) {
+        openNewTextEditor(point);
+      }
+      event.preventDefault();
+      return;
+    }
+
     if (isDragShapeTool(tool)) {
       actionRef.current = { type: "draw", start: point };
       setLiveDraft(createShape(tool, point, point, doc.objects));
@@ -1174,6 +1380,20 @@ export function VectorCanvas({
       finishPen(false);
       return;
     }
+    // Double-click with the black arrow drops into text editing.
+    if (tool === "select") {
+      const objectId = (event.target as Element)
+        .closest("[data-object-id]")
+        ?.getAttribute("data-object-id");
+      const hit = objectId
+        ? doc.objects.find((object) => object.id === objectId)
+        : undefined;
+      if (hit && hit.kind === "text" && !hit.locked) {
+        onSelectIds([hit.id]);
+        openTextEditorFor(hit);
+      }
+      return;
+    }
     if (tool !== "direct") return;
     const svg = svgRef.current;
     if (!svg) return;
@@ -1220,7 +1440,11 @@ export function VectorCanvas({
       <svg
         ref={svgRef}
         className={
-          drawing ? "vector-editor-surface is-drawing" : "vector-editor-surface"
+          tool === "text"
+            ? "vector-editor-surface is-texting"
+            : drawing
+              ? "vector-editor-surface is-drawing"
+              : "vector-editor-surface"
         }
         width="100%"
         height="100%"
@@ -1228,6 +1452,7 @@ export function VectorCanvas({
         preserveAspectRatio="xMidYMid meet"
         role="application"
         aria-label="Vector artboard"
+        tabIndex={-1}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -1242,9 +1467,12 @@ export function VectorCanvas({
           height={doc.height}
           fill={doc.background ?? "transparent"}
         />
-        {doc.objects.map((object) => (
-          <ShapeElement key={object.id} object={object} scale={scale} />
-        ))}
+        {doc.objects.map((object) =>
+          // The object being text-edited hides behind its live overlay.
+          textEdit?.id === object.id ? null : (
+            <ShapeElement key={object.id} object={object} scale={scale} />
+          ),
+        )}
         {draft ? <ShapeElement object={draft} scale={scale} /> : null}
         {tool === "select" && selectedObjects.length > 0
           ? selectedObjects
@@ -1286,6 +1514,39 @@ export function VectorCanvas({
           />
         ) : null}
       </svg>
+
+      {textEdit ? (
+        <textarea
+          ref={textEditRef}
+          className="ve-text-editor"
+          style={{
+            fontFamily: fontCss(textEdit.fontFamily),
+            fontWeight: textEdit.bold ? 700 : 400,
+            fontStyle: textEdit.italic ? "italic" : "normal",
+            lineHeight: TEXT_LINE_HEIGHT,
+            color: textEdit.color,
+          }}
+          value={textEdit.value}
+          maxLength={MAX_TEXT_LENGTH}
+          rows={Math.max(1, textEdit.value.split("\n").length)}
+          cols={Math.max(4, ...textEdit.value.split("\n").map((l) => l.length + 2))}
+          aria-label="Text content"
+          onChange={(event) =>
+            setTextEdit({ ...textEdit, value: event.target.value })
+          }
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && !event.shiftKey) {
+              event.preventDefault();
+              commitTextEdit();
+            } else if (event.key === "Escape") {
+              event.stopPropagation();
+              cancelTextEdit();
+            }
+          }}
+          onBlur={commitTextEdit}
+          onPointerDown={(event) => event.stopPropagation()}
+        />
+      ) : null}
 
       <div
         className="vector-editor-zoombar"

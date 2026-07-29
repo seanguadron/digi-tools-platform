@@ -8,6 +8,12 @@
 
 import { pathToD } from "@/lib/vector-editor/bezier";
 import { objectBounds } from "@/lib/vector-editor/geometry";
+import {
+  fontCss,
+  TEXT_ASCENT,
+  TEXT_LINE_HEIGHT,
+  textLines,
+} from "@/lib/vector-editor/text";
 import type { VectorDocument, VectorObject } from "@/lib/vector-editor/types";
 
 function num(value: number): number {
@@ -70,6 +76,20 @@ function objectToSvg(object: VectorObject): string {
     // user-authored text can reach the d attribute.
     case "path":
       return `<path d="${pathToD(object.anchors, object.closed)}" ${paint}${transform}/>`;
+    // Text CONTENT is user-authored, so every line is escaped; the font
+    // family is a validated catalog name resolved to its stack here, and
+    // the baseline math matches ShapeElement exactly.
+    case "text": {
+      const baseline = object.y + object.fontSize * TEXT_ASCENT;
+      const spans = textLines(object.text)
+        .map(
+          (line, index) =>
+            `<tspan x="${num(object.x)}" y="${num(baseline + index * object.fontSize * TEXT_LINE_HEIGHT)}">${escapeAttr(line)}</tspan>`,
+        )
+        .join("");
+      const style = ` font-family="${escapeAttr(fontCss(object.fontFamily))}" font-size="${num(object.fontSize)}"${object.bold ? ' font-weight="700"' : ""}${object.italic ? ' font-style="italic"' : ""}`;
+      return `<text ${paint}${style}${transform}>${spans}</text>`;
+    }
   }
 }
 

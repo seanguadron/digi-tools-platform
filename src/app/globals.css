@@ -7516,16 +7516,20 @@ body:has(.page-stage.is-fluid) {
   touch-action: none;
 }
 
+/* Canvas-overlay palette: picked against the ARTBOARD (always #ffffff in
+   v1), not the app theme — the same dark cyan in both themes, ≥4.9:1 on
+   white (WCAG 1.4.11 wants 3:1). Declared on the STAGE so the svg's
+   overlays AND stage-level siblings (the in-place text editor) inherit one
+   value. Revisit when document setup makes doc.background editable. */
+.vector-editor-stage {
+  --ve-overlay-accent: oklch(0.48 0.12 200);
+  --ve-overlay-paper: #ffffff;
+}
+
 .vector-editor-surface {
   display: block;
   width: 100%;
   height: 100%;
-  /* Canvas-overlay palette: picked against the ARTBOARD (always #ffffff in
-     v1), not the app theme — the same dark cyan in both themes, ≥4.9:1 on
-     white (WCAG 1.4.11 wants 3:1). Revisit when document setup makes
-     doc.background editable. */
-  --ve-overlay-accent: oklch(0.48 0.12 200);
-  --ve-overlay-paper: #ffffff;
 }
 
 /* The artboard's own edge, drawn in-scene so preserveAspectRatio centers it
@@ -7539,6 +7543,26 @@ body:has(.page-stage.is-fluid) {
 
 .vector-editor-surface.is-drawing {
   cursor: crosshair;
+}
+
+.vector-editor-surface.is-texting {
+  cursor: text;
+}
+
+/* The in-place text editor: an overlay pinned to the object's doc-space
+   point (positioned imperatively from getScreenCTM), styled to match the
+   object so typing is WYSIWYG. Colors are ARTWORK, not theme. */
+.ve-text-editor {
+  position: absolute;
+  z-index: 3;
+  min-width: 40px;
+  padding: 0;
+  border: 1px dashed var(--ve-overlay-accent);
+  border-radius: 2px;
+  background: transparent;
+  resize: none;
+  overflow: hidden;
+  white-space: pre;
 }
 
 /* Selection frame + transform handles. Strokes are non-scaling so they stay a
@@ -7762,6 +7786,23 @@ body:has(.page-stage.is-fluid) {
 
 .ve-convert-button {
   justify-self: start;
+}
+
+/* Type section */
+.ve-text-input {
+  height: auto;
+  min-height: 64px;
+  padding: 6px 8px;
+  font-family: inherit;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.ve-text-style-toggles {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  padding-bottom: 6px;
 }
 
 /* Layers list */

@@ -5,6 +5,7 @@
 
 import { fitAnchors, translateAnchors } from "@/lib/vector-editor/bezier";
 import { objectBounds, type Bounds } from "@/lib/vector-editor/geometry";
+import { clampFontSize } from "@/lib/vector-editor/text";
 import type { Point, VectorObject } from "@/lib/vector-editor/types";
 
 export type ResizeHandle = "nw" | "n" | "ne" | "e" | "se" | "s" | "sw" | "w";
@@ -73,6 +74,8 @@ export function translateObject(
       };
     case "path":
       return { ...object, anchors: translateAnchors(object.anchors, dx, dy) };
+    case "text":
+      return { ...object, x: object.x + dx, y: object.y + dy };
   }
 }
 
@@ -119,6 +122,25 @@ export function fitObjectToBounds(
       };
     case "path":
       return { ...object, anchors: fitAnchors(object.anchors, from, to) };
+    // Point text scales proportionally with the VERTICAL factor (glyph
+    // metrics track the font size; independent x-scaling would need a
+    // transform matrix the model deliberately doesn't have). Extents are
+    // scaled to match and re-measured on the next content/font edit.
+    case "text": {
+      const factor = from.height === 0 ? 1 : to.height / from.height;
+      const fontSize = clampFontSize(object.fontSize * factor);
+      // Extents scale by the factor that actually applied, so the clamp
+      // can't desync the stamped bounds from the glyph size.
+      const applied = object.fontSize === 0 ? 1 : fontSize / object.fontSize;
+      return {
+        ...object,
+        x: to.x,
+        y: to.y,
+        fontSize,
+        width: object.width * applied,
+        height: object.height * applied,
+      };
+    }
   }
 }
 

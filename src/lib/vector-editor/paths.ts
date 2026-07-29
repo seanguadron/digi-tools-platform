@@ -11,6 +11,7 @@ import { regularPolygonPoints } from "@/lib/vector-editor/geometry";
 import type {
   PathObject,
   Stroke,
+  TextObject,
   VectorObject,
 } from "@/lib/vector-editor/types";
 
@@ -57,18 +58,20 @@ export function createPathObject(
   };
 }
 
+// Text-to-outlines needs real glyph geometry — out of scope, so text is not
+// convertible (roadmap "Later").
 export function isConvertibleToPath(
   object: VectorObject,
-): object is Exclude<VectorObject, PathObject> {
-  return object.kind !== "path";
+): object is Exclude<VectorObject, PathObject | TextObject> {
+  return object.kind !== "path" && object.kind !== "text";
 }
 
 // Convert any shape into an equivalent path — same id, name, style, and
 // rotation, so selection and history stay coherent. The outline is exact
 // for straight-edged shapes and the standard kappa approximation for
-// rounded ones.
-export function convertToPath(object: VectorObject): PathObject {
-  if (object.kind === "path") return object;
+// rounded ones. Paths and text pass through unchanged.
+export function convertToPath(object: VectorObject): VectorObject {
+  if (object.kind === "path" || object.kind === "text") return object;
 
   const base = {
     id: object.id,

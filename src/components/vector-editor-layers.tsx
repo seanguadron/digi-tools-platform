@@ -8,6 +8,7 @@ const KIND_GLYPH: Record<VectorObjectKind, string> = {
   line: "╱",
   polygon: "⬠",
   path: "∿",
+  text: "T",
 };
 
 export function VectorLayers({

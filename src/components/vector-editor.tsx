@@ -12,6 +12,7 @@ import {
 import {
   VectorCanvas,
   type AnchorSelection,
+  type TextCommit,
 } from "@/components/vector-editor-canvas";
 import { VectorLayers } from "@/components/vector-editor-layers";
 import { VectorProperties } from "@/components/vector-editor-properties";
@@ -31,9 +32,14 @@ import {
 import {
   convertToPath,
   createPathObject,
+  isConvertibleToPath,
   minAnchorCount,
   withAnchors,
 } from "@/lib/vector-editor/paths";
+import {
+  createTextObject,
+  withMeasuredText,
+} from "@/lib/vector-editor/text-measure";
 import { loadProject, saveProject } from "@/lib/vector-editor/project-io";
 import { rasterizePng, serializeSvg } from "@/lib/vector-editor/svg-export";
 import { translateObject } from "@/lib/vector-editor/transform";
@@ -180,15 +186,44 @@ export function VectorEditor() {
   }
 
   function handleUpdateObject(object: VectorObject) {
+    // Text extents track content and font — re-stamp on every property edit.
+    const next = object.kind === "text" ? withMeasuredText(object) : object;
     commit(
-      (current) => updateObject(current, object.id, () => object),
-      `prop:${object.id}`,
+      (current) => updateObject(current, next.id, () => next),
+      `prop:${next.id}`,
     );
+  }
+
+  function handleCommitText(edit: TextCommit) {
+    const value = edit.value.trim();
+    if (edit.id) {
+      const target = doc.objects.find((object) => object.id === edit.id);
+      if (!target || target.kind !== "text") return;
+      if (value.length === 0) {
+        // Emptied out in the editor = deleted, like every pro editor.
+        commit((current) => removeObject(current, target.id));
+        selectOnly(null);
+        return;
+      }
+      commit(
+        (current) =>
+          updateObject(current, target.id, () =>
+            withMeasuredText({ ...target, text: edit.value }),
+          ),
+        `text:${target.id}`,
+      );
+      return;
+    }
+    if (value.length === 0) return;
+    const object = createTextObject(edit.x, edit.y, edit.value, doc.objects);
+    commit((current) => addObject(current, object));
+    setSelectedIds([object.id]);
+    setAnchorSelection(null);
   }
 
   function handleConvertToPath(id: string) {
     const target = doc.objects.find((object) => object.id === id);
-    if (!target || target.kind === "path") return;
+    if (!target || !isConvertibleToPath(target)) return;
     commit((current) =>
       updateObject(current, id, (object) => convertToPath(object)),
     );
@@ -198,9 +233,7 @@ export function VectorEditor() {
   }
 
   function handleConvertSelectedToPath() {
-    const convertible = selectedObjects.filter(
-      (object) => object.kind !== "path",
-    );
+    const convertible = selectedObjects.filter(isConvertibleToPath);
     if (convertible.length === 0) return;
     commit((current) =>
       convertible.reduce(
@@ -420,9 +453,7 @@ export function VectorEditor() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedIds, anchorSelection, tool, doc, commit, history]);
 
-  const convertibleSelected = selectedObjects.some(
-    (object) => object.kind !== "path",
-  );
+  const convertibleSelected = selectedObjects.some(isConvertibleToPath);
 
   const menus = [
     {
@@ -566,6 +597,7 @@ export function VectorEditor() {
           onEditPath={handleEditPath}
           onTransformEnd={seal}
           onConvertToPath={handleConvertToPath}
+          onCommitText={handleCommitText}
           onZoom={setZoom}
         />
 

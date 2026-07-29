@@ -51,6 +51,10 @@ export function objectBounds(object: VectorObject): Bounds {
       const box = pathBounds(object.anchors, object.closed);
       return bounds(box.x, box.y, box.width, box.height);
     }
+    // Text extents are measured in the component layer and stamped on the
+    // object, so pure geometry just reads them.
+    case "text":
+      return bounds(object.x, object.y, object.width, object.height);
   }
 }
 
