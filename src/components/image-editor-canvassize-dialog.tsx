@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useState } from "react";
+import { EditorDialog } from "@/components/editor-dialog";
 import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
 
@@ -57,23 +57,6 @@ export function ImageEditorCanvasSizeDialog({
     }
   }
 
-  useEffect(() => {
-    if (!open) {
-      return;
-    }
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") {
-        onClose();
-      }
-    }
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose]);
-
-  if (!open || typeof document === "undefined") {
-    return null;
-  }
-
   const valid =
     w >= 1 &&
     h >= 1 &&
@@ -90,50 +73,37 @@ export function ImageEditorCanvasSizeDialog({
     onApply(w, h, offsetX, offsetY);
   }
 
-  return createPortal(
-    <>
-      <button
-        type="button"
-        className="image-editor-modal-backdrop"
-        aria-label="Close dialog"
-        onClick={onClose}
-      />
-      <div
-        className="image-editor-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Canvas size"
-      >
-        <h2 className="image-editor-dialog-title">Canvas size</h2>
-        <p className="image-editor-hint">
-          Current canvas: {width} × {height}px. Pixels stay put; new area is
-          transparent.
-        </p>
+  return (
+    <EditorDialog open={open} label="Canvas size" onClose={onClose}>
+      <h2 className="editor-dialog-title">Canvas size</h2>
+      <p className="editor-dialog-hint">
+        Current canvas: {width} × {height}px. Pixels stay put; new area is
+        transparent.
+      </p>
 
-        <div className="image-editor-dialog-size">
-          <label>
-            <span>Width</span>
-            <input
-              type="number"
-              min={1}
-              max={MAX_DOC_DIMENSION}
-              value={w}
-              autoFocus
-              onChange={(event) => setW(Math.round(Number(event.target.value)))}
-            />
-          </label>
-          <span className="image-editor-dialog-times">×</span>
-          <label>
-            <span>Height</span>
-            <input
-              type="number"
-              min={1}
-              max={MAX_DOC_DIMENSION}
-              value={h}
-              onChange={(event) => setH(Math.round(Number(event.target.value)))}
-            />
-          </label>
-        </div>
+      <div className="editor-dialog-size">
+        <label>
+          <span>Width</span>
+          <input
+            type="number"
+            min={1}
+            max={MAX_DOC_DIMENSION}
+            value={w}
+            onChange={(event) => setW(Math.round(Number(event.target.value)))}
+          />
+        </label>
+        <span className="editor-dialog-times">×</span>
+        <label>
+          <span>Height</span>
+          <input
+            type="number"
+            min={1}
+            max={MAX_DOC_DIMENSION}
+            value={h}
+            onChange={(event) => setH(Math.round(Number(event.target.value)))}
+          />
+        </label>
+      </div>
 
         <div className="image-editor-anchor-block">
           <span className="image-editor-panel-label">Anchor</span>
@@ -162,28 +132,26 @@ export function ImageEditorCanvasSizeDialog({
           </div>
         </div>
 
-        {!valid ? (
-          <p className="image-editor-hint">
-            Size must be 1–{MAX_DOC_DIMENSION.toLocaleString()}px per side and
-            under {Math.round(MAX_DOC_PIXELS / 1_000_000)}M pixels total.
-          </p>
-        ) : null}
+      {!valid ? (
+        <p className="editor-dialog-hint">
+          Size must be 1–{MAX_DOC_DIMENSION.toLocaleString()}px per side and
+          under {Math.round(MAX_DOC_PIXELS / 1_000_000)}M pixels total.
+        </p>
+      ) : null}
 
-        <div className="image-editor-dialog-actions">
-          <button type="button" className="button button-quiet" onClick={onClose}>
-            Cancel
-          </button>
-          <button
-            type="button"
-            className="button button-primary"
-            disabled={!valid}
-            onClick={apply}
-          >
-            Resize canvas
-          </button>
-        </div>
+      <div className="editor-dialog-actions">
+        <button type="button" className="button button-quiet" onClick={onClose}>
+          Cancel
+        </button>
+        <button
+          type="button"
+          className="button button-primary"
+          disabled={!valid}
+          onClick={apply}
+        >
+          Resize canvas
+        </button>
       </div>
-    </>,
-    document.body,
+    </EditorDialog>
   );
 }

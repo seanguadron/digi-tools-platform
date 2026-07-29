@@ -28,6 +28,15 @@ export function EditorDialog({
 }) {
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const restoreRef = useRef<HTMLElement | null>(null);
+  // Callers pass inline arrows, so onClose is a new identity every render.
+  // Reading it through a ref keeps the trap effect keyed on `open` alone —
+  // otherwise every parent render tears the effect down and its cleanup
+  // yanks focus back out of the dialog it just opened. The ref is written
+  // in its own effect (never during render).
+  const closeRef = useRef(onClose);
+  useEffect(() => {
+    closeRef.current = onClose;
+  }, [onClose]);
 
   useEffect(() => {
     if (!open) {
@@ -41,7 +50,7 @@ export function EditorDialog({
     function onKey(event: KeyboardEvent) {
       if (event.key === "Escape") {
         event.stopPropagation();
-        onClose();
+        closeRef.current();
         return;
       }
       if (event.key !== "Tab") {
@@ -70,15 +79,16 @@ export function EditorDialog({
     }
 
     window.addEventListener("keydown", onKey, { capture: true });
-    // Focus the first field once mounted.
-    requestAnimationFrame(() => {
-      dialogRef.current?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
-    });
+    // Focus the first field. The portal's children are already committed to
+    // the DOM when this effect runs, so focus directly rather than waiting
+    // on a frame — rAF never fires in a backgrounded tab, which would leave
+    // the dialog open with focus stranded on <body>.
+    dialogRef.current?.querySelector<HTMLElement>(FOCUSABLE)?.focus();
     return () => {
       window.removeEventListener("keydown", onKey, { capture: true });
       restoreRef.current?.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open || typeof document === "undefined") {
     return null;

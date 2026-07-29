@@ -70,29 +70,25 @@ function validateStroke(value: unknown): Stroke | null {
   return { ...paint, width: Math.max(0, object.width) };
 }
 
-function validatePoint(value: unknown): Point | null {
-  const object = record(value);
-  if (!object || !isNumber(object.x) || !isNumber(object.y)) return null;
-  return { x: object.x, y: object.y };
-}
-
-// Anchor coordinates are clamped in magnitude (not just finite-checked):
-// path math SUMS point + handle, and two independently-valid huge values
-// could overflow to Infinity downstream.
+// Coordinates are clamped in magnitude, not merely finite-checked: geometry
+// SUMS positions with offsets (anchor + handle, point + rotation), so two
+// independently-valid huge values can overflow to Infinity downstream. This
+// is the single enforcement point — every stored coordinate in the document
+// (shape positions, polygon points, anchors, handles) passes through it.
 function clampCoord(value: number): number {
   return Math.min(MAX_DIMENSION, Math.max(-MAX_DIMENSION, value));
 }
 
-function validateAnchorPoint(value: unknown): Point | null {
-  const point = validatePoint(value);
-  if (!point) return null;
-  return { x: clampCoord(point.x), y: clampCoord(point.y) };
+function validatePoint(value: unknown): Point | null {
+  const object = record(value);
+  if (!object || !isNumber(object.x) || !isNumber(object.y)) return null;
+  return { x: clampCoord(object.x), y: clampCoord(object.y) };
 }
 
 // A stored handle is either null/absent or a finite, clamped offset point.
 function validateHandle(value: unknown): Point | null {
   if (value === null || value === undefined) return null;
-  return validateAnchorPoint(value);
+  return validatePoint(value);
 }
 
 const ANCHOR_TYPES = ["corner", "smooth", "broken", "auto"] as const;
@@ -101,7 +97,7 @@ const MAX_ANCHORS = 5000;
 function validateAnchor(value: unknown): PathAnchor | null {
   const object = record(value);
   if (!object) return null;
-  const point = validateAnchorPoint(object.point);
+  const point = validatePoint(object.point);
   if (!point) return null;
   const type = ANCHOR_TYPES.includes(object.type as (typeof ANCHOR_TYPES)[number])
     ? (object.type as PathAnchor["type"])
@@ -133,7 +129,11 @@ function validateObject(value: unknown): VectorObject | null {
     id: object.id,
     name: typeof object.name === "string" ? object.name : "Object",
     opacity: isNumber(object.opacity) ? clamp01(object.opacity) : 1,
-    rotation: isNumber(object.rotation) ? object.rotation : 0,
+    // Normalized to one turn: geometry sums positions with rotated offsets,
+    // and a stored 1e300 degrees is meaningless as well as hazardous.
+    rotation: isNumber(object.rotation)
+      ? ((object.rotation % 360) + 360) % 360
+      : 0,
     locked: object.locked === true,
     hidden: object.hidden === true,
     fill: validatePaint(object.fill),
@@ -153,8 +153,8 @@ function validateObject(value: unknown): VectorObject | null {
       return {
         ...base,
         kind,
-        x: object.x,
-        y: object.y,
+        x: clampCoord(object.x),
+        y: clampCoord(object.y),
         width: clampSize(object.width),
         height: clampSize(object.height),
         radius: isNumber(object.radius) ? Math.max(0, object.radius) : 0,
@@ -171,8 +171,8 @@ function validateObject(value: unknown): VectorObject | null {
       return {
         ...base,
         kind,
-        cx: object.cx,
-        cy: object.cy,
+        cx: clampCoord(object.cx),
+        cy: clampCoord(object.cy),
         rx: clampSize(object.rx),
         ry: clampSize(object.ry),
       };
@@ -188,10 +188,10 @@ function validateObject(value: unknown): VectorObject | null {
       return {
         ...base,
         kind,
-        x1: object.x1,
-        y1: object.y1,
-        x2: object.x2,
-        y2: object.y2,
+        x1: clampCoord(object.x1),
+        y1: clampCoord(object.y1),
+        x2: clampCoord(object.x2),
+        y2: clampCoord(object.y2),
       };
     case "polygon": {
       if (!Array.isArray(object.points)) return null;

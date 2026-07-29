@@ -130,6 +130,11 @@ ever stop landing again (that symptom recurred once during this session).
   - **Dev is the WRONG place to verify hydration/theme** — use a production
     build. The prompt builder's dev-only `@dnd-kit` hydration warning is
     pre-existing (task chip open).
+  - **`requestAnimationFrame` never fires while the preview pane is hidden.**
+    A promise awaiting one hangs the eval to its 30s timeout, and any
+    rAF-deferred behavior (focus-on-open, deferred measurement) silently
+    looks broken. Prefer running such work directly in the effect; when a
+    frame is genuinely required, don't try to verify it headlessly.
   - Headless browsers cannot grant mic permission — dictation/audio-meter
     behavior needs a headed browser.
 - **Editing `globals.css` / prompt-builder JSON programmatically:** use node
@@ -181,9 +186,10 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
   duplicate, discard that worktree rather than merging.
 - **Owed from Sean:** real-mic dictation-meter spot-check; `dev:clean` on
   the wedged 5100 server.
-- **I2 deferrals:** migrate ImageSize/CanvasSize dialogs onto
-  `EditorDialog`; custom new-doc preset save; vector Space-pan listener
-  BUTTON exemption (same gap the Enter listener fixed).
+- **I2 deferrals — CLEARED except one:** ImageSize/CanvasSize migrated onto
+  `EditorDialog` (every dialog in both editors now has the focus trap; the
+  old per-dialog CSS is gone), and the Space-pan BUTTON exemption landed.
+  Still open: custom new-doc preset save.
 - **Prompt-builder follow-ups:** proof scenarios with explicit
   context/target text still show "Use default" checked (cosmetic; needs the
   `proofDraft` schema widened); `restoreDraft` degradation unit test
@@ -204,10 +210,12 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
   carve-out for canvas-drawn tool chrome over arbitrary imagery; and (new
   2026-07-29) any bitmap-rasterizing surface enforces a TOTAL pixel ceiling,
   not just per-side, re-clamped at the allocation site.
-- **Open question from the 2026-07-29 security gate:** shape
-  position/rotation fields in the vector `project-io.ts` are finite-checked
-  but not magnitude-clamped, unlike path anchors — decide whether V1's
-  coordinate-clamp convention should be document-wide.
+- **Settled (2026-07-29):** the security gate's open question on coordinate
+  clamping — the convention IS document-wide now. `validatePoint` itself
+  clamps, so shape positions, polygon points, anchors, and handles all
+  inherit one enforcement point; rotation normalizes to one turn. Verified
+  with a tampered doc (1e30 coords, 1e12° rotation): everything clamps to
+  ±20000 / 280°, no Infinity or NaN reaches the DOM.
 - **`npm run amendments` is line-wrap fragile** — candidate fix.
 - **Deferred polish:** the sanctioned extraction backlog (ARCHITECTURE §3);
   `writeStoredOrThrow` for the architect save path.

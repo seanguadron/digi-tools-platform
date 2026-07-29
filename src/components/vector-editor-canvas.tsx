@@ -828,15 +828,23 @@ export function VectorCanvas({
     return () => observer.disconnect();
   }, [onZoom]);
 
-  // Space toggles temporary pan mode (hold + drag).
+  // Space toggles temporary pan mode (hold + drag). Buttons and selects keep
+  // their native Space activation — swallowing it there would break every
+  // toolbar and dock control (the same exemption the Enter shortcut carries).
   useEffect(() => {
     const down = (event: KeyboardEvent) => {
       if (event.code === "Space") {
-        spaceRef.current = true;
         const active = document.activeElement as HTMLElement | null;
-        if (!active || (active.tagName !== "INPUT" && active.tagName !== "TEXTAREA")) {
-          event.preventDefault();
-        }
+        const tag = active?.tagName;
+        const typing =
+          tag === "INPUT" ||
+          tag === "TEXTAREA" ||
+          tag === "BUTTON" ||
+          tag === "SELECT" ||
+          active?.isContentEditable === true;
+        if (typing) return;
+        spaceRef.current = true;
+        event.preventDefault();
       }
     };
     const up = (event: KeyboardEvent) => {
