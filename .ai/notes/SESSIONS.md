@@ -200,6 +200,87 @@ No new proposed-amendment flags from this act — a build-planning session
 that produced a roadmap doc, not a rule change; the amendment queue is
 unchanged.
 
+### Third act (same day): the roadmap, executed
+
+**Context.** With `docs/ROADMAP.md` in hand (second act), the owner said
+"Do it all," then later "keep going" — a full autonomous-execution grant
+across the whole program. Six feature milestones shipped in this same
+session, each its own commit, alongside the roadmap doc itself:
+prompt-builder defaults (58e53f1), `docs/ROADMAP.md` (140aedb), V1 vector
+path core (323a553), I1 image precision (84eada7), V2 vector point text
+(e5dac08), V3 vector documents/units/export (3cc425e), I2 image
+export/new-doc (315c7fa). Every milestone ran the same loop: build →
+browser-verify headlessly → gate → apply findings → ledger → commit.
+
+**Decisions.**
+- Cadence for a multi-milestone marathon: judgment gates + a ledger entry +
+  a surgical STATE.md update per MILESTONE commit, one sessions-log entry
+  at the end of the whole session rather than per milestone — kept each
+  milestone's diff reviewable without fragmenting the log. Worked well.
+- The provider's monthly subagent spend limit killed V2's integration gate
+  mid-run. Followed the 2026-07-19 precedent deliberately: deterministic
+  halves + main-agent inline review standing in for the judgment half,
+  plus an honest OWED ledger note for what the missing gate would have
+  covered — V2's integration half, and all three gates for V3 and I2.
+  That gap is now the top backlog item, **GATE DEBT**.
+- I2 scope call: left the pre-existing ImageSize/CanvasSize dialogs off
+  the new shared `EditorDialog` — they'd already been rebuilt and
+  gate-passed the same day, and migrating them with no judgment gate
+  available (see above) trades real risk for no user-facing gain.
+  New/rewritten dialogs (both vector dialogs, the image editor's Export
+  and New dialogs) adopt `EditorDialog` from day one; the two older ones
+  migrate later, gated.
+
+**Learnings.**
+- Gates keep converging independently on the same real defect: I1's
+  security Medium and integration Medium were both the missing crop-size
+  ceiling, echoing the first act's `loadSavedPrompt` convergence.
+  Independent-gate convergence is signal, not coincidence.
+- I1's design-gate High: `.image-editor-select`, a generically-named
+  class, was already taken by the Layers blend-mode wrapper — CSS is
+  additive, so both rules rendered and the collision was invisible until
+  a static cascade read caught it. Grep for a class name before coining
+  it.
+- V2's design gate: a custom property declared on the `<svg>` never
+  reached a stage-level SIBLING, and a CSS fallback that happened to
+  match the intended value masked the gap silently. Declare shared tokens
+  on the common ancestor; don't lean on a fallback that coincidentally
+  looks right — it hides exactly this class of bug.
+- V2 also: a capture-phase window Enter listener that only exempted
+  INPUT/TEXTAREA stole native button activation page-wide. Any global
+  key-shortcut listener needs to exempt BUTTON/SELECT too.
+- Writing a regex control-character class through `node -e` collapses
+  backslashes across the shell layer and can embed raw control characters
+  into source, which the tool-approval layer then rejects outright. Write
+  the fixer as a script FILE and run it instead (now in STATE's runbook).
+- A stale Turbopack cache replayed old COMPILE ERRORS in the console
+  indefinitely while serving the already-fixed app; `console.clear()` +
+  reload didn't help, only `dev:clean` did. Verify disk + typecheck
+  first — don't chase console ghosts.
+- A headless eval spanning `location.reload()` dies ("target navigated");
+  return before the reload and read again in a fresh eval afterward.
+
+**Preferences / proposed amendments (need owner consent).**
+- "Do it all" followed by "keep going" is a full autonomy grant across
+  every remaining milestone, including making the per-milestone commits —
+  no check-in wanted between milestones.
+- Every doc-growing affordance (crop, canvas resize, resample, etc.)
+  should gate its size ceiling at BOTH layers — the UI control and the
+  underlying pure `document.ts` operation, not one alone.
+  (proposed amendment, needs the owner's consent)
+- Every `MAX_*`/`clamp*` invariant should have exactly ONE enforcement
+  point covering create, update, AND load, not scattered per-call guards.
+  (proposed amendment, needs the owner's consent)
+- `docs/DESIGN_DIRECTION.md` should carve out canvas-drawn tool chrome
+  (artboard overlays, handles, guides) over arbitrary user imagery/color
+  as exempt from the theme-reactive-color default — it has to stay
+  legible against ANY canvas content, not just the app's own theme
+  surfaces.
+  (proposed amendment, needs the owner's consent)
+
+The `readStored` shape-validation flag already sits in this entry's first
+act, not repeated here.
+
 ## 2026-07-19: Vector Editor ships — fifth tool, a native-SVG "Illustrator-lite" built from the Image Editor's shell
 
 **Context.** The owner asked to build an SVG vector editor "like
