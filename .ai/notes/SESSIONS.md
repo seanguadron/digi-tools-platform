@@ -5,6 +5,92 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-07-29: Gate-debt discharge + a11y sweep
+
+**Context.** The owner's instruction covered three open items at once —
+"Gate debt Yes fix it all / resolve all three things to know" — meaning:
+discharge the gate debt left by 2026-07-28's spend-limit outage (the owed
+integration re-run on V2, all three judgment gates on V3 and I2), plus the
+wedged dev server and the roving-tabindex task chip. Two commits landed:
+`9b255bd` (the shared roving-tabindex radiogroup helper, applied across
+all 9 button groups) and `6b90ac8` (gate findings applied across the owed
+range, plus the ledger entries closing the debt).
+
+**Decisions.**
+- Built the roving-tabindex helper directly in this session rather than
+  waiting on the task chip's own spun-off worktree — that worktree's
+  session was already running the same work independently, so
+  `docs/STATE.md` now carries an explicit warning to DISCARD it rather
+  than merge a duplicate. Lesson: spinning off a chip into its own
+  worktree and then also doing the work inline creates a merge hazard —
+  pick one lane per task, not both.
+- Re-ran all three judgment agents over the WHOLE owed range as one span
+  (`84eada7..HEAD`, covering I1/V2/V3/I2) rather than gate-per-milestone.
+  Cheaper, and it paid off directly: the integration agent cross-
+  referenced milestones and caught that V2 had left a "revisit when
+  doc.background becomes editable" comment that V3 then fulfilled
+  exactly, inside the same range — a per-milestone run would likely have
+  missed that pairing.
+- The design gate hit the provider's monthly subagent spend limit a
+  SECOND time (see 2026-07-28's V2 precedent). Recorded honestly instead
+  of letting a partial re-run pass as "gate debt closed": this session's
+  ledger states plainly that security and integration ARE now discharged
+  across the owed range, and design is the one gate still owed.
+
+**Learnings.**
+- Two independently-run gates converged on the same underlying shape
+  again: security's Medium (export paths cap dimension per side but not
+  total pixels — a 6000×6000 doc exported at 2× legally requests a
+  144-megapixel canvas) and integration's Low-Medium (the same 12000px
+  ceiling redeclared in four separate files instead of owned in one
+  place). Both were the same root cause: a ceiling that exists but isn't
+  centrally owned. Fixed by giving `MAX_EXPORT_DIMENSION` /
+  `MAX_EXPORT_PIXELS` one home in `lib/units.ts`, gated at every export
+  dialog AND re-clamped (with a proportional shrink) at every allocation
+  site.
+- A comment reading "revisit when X happens" is a latent bug the moment X
+  ships, not a TODO that can wait. V2 pinned the vector canvas-overlay
+  palette to a literal white artboard background with exactly that
+  caveat; V3 then made the background user-editable and nobody revisited
+  it. Fixed by deriving the overlay palette from the background's actual
+  luminance — a transparent background now follows the app theme instead
+  of assuming white.
+- The stale-Turbopack-CSS trap (first logged 2026-07-17) recurred in a
+  new shape and cost real time: a brand-new CSS rule was valid on disk,
+  brace-balanced, syntactically fine, and simply ABSENT from
+  `document.styleSheets` at runtime — the class toggled but the custom
+  property it set never changed. Diagnosis that worked: enumerate
+  `document.styleSheets` for the selector itself; if the rule isn't there
+  AT ALL, it's the cache, not specificity. `dev:clean` fixed it again —
+  worth trying before chasing a cascade.
+- PowerShell's `Stop-Process` against the dev server can hang the
+  CALLING TOOL to its own timeout while the kill still succeeds
+  underneath — don't trust the command's exit/timeout status; verify
+  with a curl against port 5100 afterward instead.
+
+**Preferences / proposed amendments (need owner consent).**
+- The owner batches follow-ups tersely ("fix it all", "resolve all
+  three") and expects the full list handled autonomously, including the
+  bookkeeping (ledger, STATE.md, task-chip closure) — no per-item
+  check-in wanted.
+- Any bitmap-rasterizing surface must enforce a TOTAL pixel ceiling
+  (width × height), not just a per-side dimension cap, and must re-clamp
+  at the actual allocation site rather than trusting the dialog-level
+  gate alone. This is the SECOND independent occurrence of this exact
+  defect class — I1's crop-size fields (2026-07-28) were the first.
+  Related to but distinct from the already-queued "every doc-growing
+  affordance gates its ceiling at BOTH the UI and `document.ts`" flag
+  (2026-07-28 third act) — that flag is about WHERE the gate lives; this
+  one is about WHAT it must check (total pixels, not one dimension).
+  (proposed amendment, needs the owner's consent)
+
+Also raised this session, not flagged as an amendment: the security gate
+noted that vector shape position/rotation fields are finite-checked (no
+NaN/Infinity) but not magnitude-clamped, unlike path anchor coordinates,
+which V1 already clamps. Whether that clamp convention should extend
+document-wide is an open question for the owner, not a decision made
+here.
+
 ## 2026-07-28: Prompt Builder defaults rework — use-default checkboxes, archetype-aware audience defaults, best-name downloads, dictation/dock fixes
 
 **Context.** Sean's real workflow drove the session: he downloads prompt
