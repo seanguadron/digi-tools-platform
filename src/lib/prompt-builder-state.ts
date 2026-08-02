@@ -1,14 +1,10 @@
 import builderData from "@/data/prompt-builder/builder.json";
 import { getRoleActionSuggestions } from "@/lib/prompt-builder-options";
 import {
-  CARD_SECTIONS,
+  craftCardEngine,
   getFormatCode,
   getRecommendedTrackValues,
-  getSectionConfigurationKey,
-  getSectionDeck,
   sanitizeCardSystemShape,
-  SECTION_SLOT_BUDGETS,
-  TRACK_IDS,
 } from "@/lib/prompt-card-system";
 import type {
   CardSection,
@@ -25,7 +21,6 @@ import type {
   PromptRole,
   TrackId,
 } from "@/lib/prompt-types";
-import { insertIntoSlots } from "@/lib/slot-order";
 
 export type {
   PromptDraft,
@@ -50,60 +45,27 @@ export const EXAMPLE_DRAFT = builderCatalog.exampleDraft;
 export const CRAFT_PARTS = builderCatalog.craftParts;
 export const REQUIRED_FIELDS = builderCatalog.requiredFields;
 
-export function createEmptyEquippedCards(): EquippedCards {
-  return {
-    context: [],
-    action: [],
-    format: [],
-    target: [],
-  };
-}
-
-export function createEmptySnapMemory(): SnapMemory {
-  return {
-    context: {},
-    action: {},
-    format: {},
-    target: {},
-  };
-}
-
-export function createEmptySuggestedCards(): Record<
-  CardSection,
-  string | null
-> {
-  return {
-    context: null,
-    action: null,
-    format: null,
-    target: null,
-  };
-}
+// The generic slot/track state machinery lives in src/lib/card-engine.ts;
+// these bound re-exports keep the names this module has always provided.
+export const createEmptyEquippedCards =
+  craftCardEngine.createEmptyEquippedCards;
+export const createEmptySnapMemory = craftCardEngine.createEmptySnapMemory;
+export const createEmptySuggestedCards =
+  craftCardEngine.createEmptySuggestedCards;
+export const createEquippedSlots = craftCardEngine.createEquippedSlots;
+export const reconcileCardSystem = craftCardEngine.reconcileCardSystem;
+export const applyRecommendedTracks = craftCardEngine.applyRecommendedTracks;
+export const setTrackValue = craftCardEngine.setTrackValue;
+export const toggleEquippedCard = craftCardEngine.toggleEquippedCard;
+export const placeEquippedCard = craftCardEngine.placeEquippedCard;
+export const clearEquippedCards = craftCardEngine.clearEquippedCards;
+export const removeEquippedCard = craftCardEngine.removeEquippedCard;
 
 export function createCardSystem(
   formatValue = EMPTY_DRAFT.format,
 ): CardSystemState {
-  return {
-    tracks: getRecommendedTrackValues(getFormatCode(formatValue)),
-    equipped: createEmptyEquippedCards(),
-    memory: createEmptySnapMemory(),
-    overrides: [],
-    suggested: createEmptySuggestedCards(),
-  };
-}
-
-export function createEquippedSlots(
-  values: Partial<Record<CardSection, readonly string[]>> = {},
-): EquippedCards {
-  return CARD_SECTIONS.reduce(
-    (result, section) => {
-      result[section] = Array.from(
-        { length: SECTION_SLOT_BUDGETS[section] },
-        (_, slotIndex) => values[section]?.[slotIndex] ?? "",
-      );
-      return result;
-    },
-    createEmptyEquippedCards(),
+  return craftCardEngine.createCardSystem(
+    getRecommendedTrackValues(getFormatCode(formatValue)),
   );
 }
 
@@ -273,200 +235,6 @@ export function isFieldComplete(
   }
 
   return Array.isArray(value) ? value.length > 0 : value.trim().length > 0;
-}
-
-export function reconcileCardSystem(
-  current: CardSystemState,
-  nextTracks: TrackValues,
-  nextOverrides = current.overrides,
-) {
-  const nextMemory: SnapMemory = {
-    context: { ...current.memory.context },
-    action: { ...current.memory.action },
-    format: { ...current.memory.format },
-    target: { ...current.memory.target },
-  };
-  const nextEquipped: EquippedCards = {
-    context: [...current.equipped.context],
-    action: [...current.equipped.action],
-    format: [...current.equipped.format],
-    target: [...current.equipped.target],
-  };
-  const nextSuggested = createEmptySuggestedCards();
-
-  CARD_SECTIONS.forEach((section) => {
-    const oldKey = getSectionConfigurationKey(section, current.tracks);
-    const newKey = getSectionConfigurationKey(section, nextTracks);
-
-    if (oldKey === newKey) {
-      nextSuggested[section] = current.suggested[section];
-      return;
-    }
-
-    const sectionMemory = nextMemory[section];
-    sectionMemory[oldKey] = current.equipped[section];
-    const memoryKeys = Object.keys(sectionMemory);
-    if (memoryKeys.length > 12) {
-      delete sectionMemory[memoryKeys[0]];
-    }
-
-    const deckIds = getSectionDeck(section, nextTracks).map(
-      (lineage) => lineage.id,
-    );
-    const sourceSlots = sectionMemory[newKey] ?? current.equipped[section];
-    const restored = Array.from(
-      { length: SECTION_SLOT_BUDGETS[section] },
-      (_, slotIndex) => {
-        const lineageId = sourceSlots[slotIndex] ?? "";
-        return deckIds.includes(lineageId) ? lineageId : "";
-      },
-    );
-    const removedIndex = current.equipped[section].findIndex(
-      (lineageId, slotIndex) =>
-        Boolean(lineageId) && restored[slotIndex] !== lineageId,
-    );
-    const restoredIds = restored.filter(Boolean);
-    const replacement =
-      removedIndex >= 0
-        ? deckIds.find(
-            (lineageId, index) =>
-              index >= removedIndex && !restoredIds.includes(lineageId),
-          ) ??
-          deckIds.find((lineageId) => !restoredIds.includes(lineageId)) ??
-          null
-        : null;
-
-    nextEquipped[section] = restored;
-    nextSuggested[section] = replacement;
-  });
-
-  return {
-    tracks: nextTracks,
-    equipped: nextEquipped,
-    memory: nextMemory,
-    overrides: nextOverrides,
-    suggested: nextSuggested,
-  };
-}
-
-export function applyRecommendedTracks(
-  current: CardSystemState,
-  recommended: TrackValues,
-  preserveOverrides: boolean,
-) {
-  if (!preserveOverrides) {
-    return reconcileCardSystem(current, recommended, []);
-  }
-
-  const nextTracks = { ...current.tracks };
-  TRACK_IDS.forEach((trackId) => {
-    if (!current.overrides.includes(trackId)) {
-      nextTracks[trackId] = recommended[trackId];
-    }
-  });
-
-  return reconcileCardSystem(current, nextTracks);
-}
-
-export function setTrackValue(
-  current: CardSystemState,
-  trackId: TrackId,
-  value: number,
-) {
-  if (current.tracks[trackId] === value) {
-    return current;
-  }
-
-  const nextOverrides = current.overrides.includes(trackId)
-    ? current.overrides
-    : [...current.overrides, trackId];
-
-  return reconcileCardSystem(
-    current,
-    { ...current.tracks, [trackId]: value },
-    nextOverrides,
-  );
-}
-
-export function toggleEquippedCard(
-  current: CardSystemState,
-  section: CardSection,
-  lineageId: string,
-) {
-  const nextCards = Array.from(
-    { length: SECTION_SLOT_BUDGETS[section] },
-    (_, slotIndex) => current.equipped[section][slotIndex] ?? "",
-  );
-  const selectedIndex = nextCards.indexOf(lineageId);
-
-  if (selectedIndex >= 0) {
-    nextCards[selectedIndex] = "";
-  } else {
-    const emptyIndex = nextCards.indexOf("");
-    if (emptyIndex >= 0) {
-      nextCards[emptyIndex] = lineageId;
-    }
-  }
-
-  return {
-    ...current,
-    equipped: { ...current.equipped, [section]: nextCards },
-    suggested: { ...current.suggested, [section]: null },
-  };
-}
-
-export function placeEquippedCard(
-  current: CardSystemState,
-  section: CardSection,
-  slotIndex: number,
-  lineageId: string,
-) {
-  const nextCards = insertIntoSlots(
-    current.equipped[section],
-    slotIndex,
-    lineageId,
-    SECTION_SLOT_BUDGETS[section],
-  );
-
-  return {
-    ...current,
-    equipped: { ...current.equipped, [section]: nextCards },
-    suggested: { ...current.suggested, [section]: null },
-  };
-}
-
-export function clearEquippedCards(
-  current: CardSystemState,
-  section: CardSection,
-) {
-  return {
-    ...current,
-    equipped: {
-      ...current.equipped,
-      [section]: Array.from(
-        { length: SECTION_SLOT_BUDGETS[section] },
-        () => "",
-      ),
-    },
-    suggested: { ...current.suggested, [section]: null },
-  };
-}
-
-export function removeEquippedCard(
-  current: CardSystemState,
-  section: CardSection,
-  slotIndex: number,
-) {
-  const nextCards = Array.from(
-    { length: SECTION_SLOT_BUDGETS[section] },
-    (_, index) => current.equipped[section][index] ?? "",
-  );
-  nextCards[slotIndex] = "";
-
-  return {
-    ...current,
-    equipped: { ...current.equipped, [section]: nextCards },
-  };
 }
 
 function restoredString(value: unknown, fallback: string) {

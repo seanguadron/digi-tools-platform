@@ -22,6 +22,7 @@ import type {
 } from "@/lib/prompt-builder-state";
 import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
 import { FLOW_PANEL_INDEX } from "@/lib/prompt-navigation";
+import { craftCardEngine } from "@/lib/prompt-card-system";
 import type { CardSection, TrackId } from "@/lib/prompt-card-system";
 import type { PromptRole } from "@/lib/prompt-types";
 
@@ -231,8 +232,9 @@ export function CraftFlowPanels({
                 />
                 <div id="context-card-workbench">
                   <PromptCardWorkbench
+                    engine={craftCardEngine}
                     section="context"
-                    formatCode={formatCode}
+                    vocabularyKey={formatCode}
                     values={cardSystem.tracks}
                     equippedIds={cardSystem.equipped.context}
                     suggestedId={cardSystem.suggested.context}
@@ -379,8 +381,9 @@ export function CraftFlowPanels({
                   controlId="prompt-action"
                 />
                 <PromptCardWorkbench
+                  engine={craftCardEngine}
                   section="action"
-                  formatCode={formatCode}
+                  vocabularyKey={formatCode}
                   values={cardSystem.tracks}
                   equippedIds={cardSystem.equipped.action}
                   suggestedId={cardSystem.suggested.action}
@@ -443,8 +446,9 @@ export function CraftFlowPanels({
                   labelControl={false}
                 />
                 <PromptCardWorkbench
+                  engine={craftCardEngine}
                   section="format"
-                  formatCode={formatCode}
+                  vocabularyKey={formatCode}
                   values={cardSystem.tracks}
                   equippedIds={cardSystem.equipped.format}
                   suggestedId={cardSystem.suggested.format}
@@ -569,8 +573,9 @@ export function CraftFlowPanels({
                 />
                 <div id="target-card-workbench">
                   <PromptCardWorkbench
+                    engine={craftCardEngine}
                     section="target"
-                    formatCode={formatCode}
+                    vocabularyKey={formatCode}
                     values={cardSystem.tracks}
                     equippedIds={cardSystem.equipped.target}
                     suggestedId={cardSystem.suggested.target}

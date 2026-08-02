@@ -17,21 +17,11 @@ import {
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
 import { usePortalTarget } from "@/hooks/use-portal-target";
-import {
-  getCardFamily,
-  getCardGrade,
-  getLineage,
-  getSectionDeck,
-  getTrackDefinition,
-  SECTION_SLOT_BUDGETS,
-  SECTION_TRACKS,
-} from "@/lib/prompt-card-system";
 import type {
-  CardLineage,
-  CardSection,
-  TrackId,
-  TrackValues,
-} from "@/lib/prompt-card-system";
+  CardEngine,
+  CardLineageOf,
+  TrackValuesOf,
+} from "@/lib/card-engine";
 
 const FLOATING_PANEL_WIDTH = 390;
 const FLOATING_PANEL_GAP = 12;
@@ -65,21 +55,27 @@ function getFloatingPanelPosition(element: HTMLElement) {
   return { left, top };
 }
 
-function CardFace({
+function CardFace<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   lineage,
   values,
   selected,
 }: {
-  lineage: CardLineage;
-  values: TrackValues;
+  engine: CardEngine<S, T, L>;
+  lineage: L;
+  values: TrackValuesOf<T>;
   selected: boolean;
 }) {
-  const grade = getCardGrade(lineage, values);
+  const grade = engine.getCardGrade(lineage, values);
 
   return (
     <>
       <span className="lineage-card-topline">
-        <span>{getCardFamily(lineage.section)}</span>
+        <span>{engine.cardFamily(lineage.section)}</span>
         <span>{lineage.code}</span>
       </span>
       <CardIllustrationFrame
@@ -99,18 +95,24 @@ function CardFace({
   );
 }
 
-function SnapTrack({
+function SnapTrack<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   trackId,
   value,
-  formatCode,
+  vocabularyKey,
   onChange,
 }: {
-  trackId: TrackId;
+  engine: CardEngine<S, T, L>;
+  trackId: T;
   value: number;
-  formatCode: string;
+  vocabularyKey: string;
   onChange: (value: number) => void;
 }) {
-  const definition = getTrackDefinition(trackId, formatCode);
+  const definition = engine.getTrackDefinition(trackId, vocabularyKey);
   const activeLabel =
     definition.points[value] ?? definition.points[definition.points.length - 1];
 
@@ -153,7 +155,12 @@ function SnapTrack({
   );
 }
 
-function WorkbenchCard({
+function WorkbenchCard<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   lineage,
   values,
   selected,
@@ -162,15 +169,16 @@ function WorkbenchCard({
   onPreview,
   onClearPreview,
 }: {
-  lineage: CardLineage;
-  values: TrackValues;
+  engine: CardEngine<S, T, L>;
+  lineage: L;
+  values: TrackValuesOf<T>;
   selected: boolean;
   suggested: boolean;
   onToggle: () => void;
   onPreview: (element: HTMLElement) => void;
   onClearPreview: () => void;
 }) {
-  const grade = getCardGrade(lineage, values);
+  const grade = engine.getCardGrade(lineage, values);
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `card:${lineage.id}`,
     data: { lineageId: lineage.id, kind: "card" } satisfies ActiveDrag,
@@ -199,12 +207,22 @@ function WorkbenchCard({
       {...attributes}
       aria-pressed={selected}
     >
-      <CardFace lineage={lineage} values={values} selected={selected} />
+      <CardFace
+        engine={engine}
+        lineage={lineage}
+        values={values}
+        selected={selected}
+      />
     </button>
   );
 }
 
-function SlotCard({
+function SlotCard<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   lineage,
   values,
   slotIndex,
@@ -212,14 +230,15 @@ function SlotCard({
   onPreview,
   onClearPreview,
 }: {
-  lineage: CardLineage;
-  values: TrackValues;
+  engine: CardEngine<S, T, L>;
+  lineage: L;
+  values: TrackValuesOf<T>;
   slotIndex: number;
   settling: boolean;
   onPreview: (element: HTMLElement) => void;
   onClearPreview: () => void;
 }) {
-  const grade = getCardGrade(lineage, values);
+  const grade = engine.getCardGrade(lineage, values);
   const { attributes, listeners, setNodeRef, isDragging } = useDraggable({
     id: `slot:${slotIndex}`,
     data: {
@@ -247,12 +266,17 @@ function SlotCard({
       {...listeners}
       {...attributes}
     >
-      <CardFace lineage={lineage} values={values} selected />
+      <CardFace engine={engine} lineage={lineage} values={values} selected />
     </div>
   );
 }
 
-function CardSlot({
+function CardSlot<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   slotIndex,
   lineage,
   values,
@@ -261,9 +285,10 @@ function CardSlot({
   onPreview,
   onClearPreview,
 }: {
+  engine: CardEngine<S, T, L>;
   slotIndex: number;
-  lineage: CardLineage | null;
-  values: TrackValues;
+  lineage: L | null;
+  values: TrackValuesOf<T>;
   settling: boolean;
   onRemove: (slotIndex: number) => void;
   onPreview: (element: HTMLElement) => void;
@@ -273,7 +298,7 @@ function CardSlot({
     id: `dropslot:${slotIndex}`,
     data: { slotIndex, kind: "slot" },
   });
-  const grade = lineage ? getCardGrade(lineage, values) : null;
+  const grade = lineage ? engine.getCardGrade(lineage, values) : null;
 
   return (
     <div
@@ -296,6 +321,7 @@ function CardSlot({
       {lineage && grade ? (
         <>
           <SlotCard
+            engine={engine}
             lineage={lineage}
             values={values}
             slotIndex={slotIndex}
@@ -348,9 +374,14 @@ function DeckDropZone({
   );
 }
 
-export function PromptCardWorkbench({
+export function PromptCardWorkbench<
+  S extends string,
+  T extends string,
+  L extends CardLineageOf<S, T>,
+>({
+  engine,
   section,
-  formatCode,
+  vocabularyKey,
   values,
   equippedIds,
   suggestedId,
@@ -360,20 +391,21 @@ export function PromptCardWorkbench({
   onRemoveCard,
   onClearCards,
 }: {
-  section: CardSection;
-  formatCode: string;
-  values: TrackValues;
+  engine: CardEngine<S, T, L>;
+  section: S;
+  vocabularyKey: string;
+  values: TrackValuesOf<T>;
   equippedIds: string[];
   suggestedId: string | null;
-  onTrackChange: (trackId: TrackId, value: number) => void;
+  onTrackChange: (trackId: T, value: number) => void;
   onToggleCard: (lineageId: string) => void;
   onDropCard: (slotIndex: number, lineageId: string) => void;
   onRemoveCard: (slotIndex: number) => void;
   onClearCards: () => void;
 }) {
   const deck = useMemo(
-    () => getSectionDeck(section, values),
-    [section, values],
+    () => engine.getSectionDeck(section, values),
+    [engine, section, values],
   );
   const [previewId, setPreviewId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -397,10 +429,10 @@ export function PromptCardWorkbench({
     }
 
     return deck.filter((lineage) => {
-      const grade = getCardGrade(lineage, values);
+      const grade = engine.getCardGrade(lineage, values);
       return [
         lineage.code,
-        getCardFamily(lineage.section),
+        engine.cardFamily(lineage.section),
         grade.name,
         grade.description,
         ...lineage.goals,
@@ -409,13 +441,15 @@ export function PromptCardWorkbench({
         .toLowerCase()
         .includes(query);
     });
-  }, [deck, searchQuery, values]);
-  const previewLineage = getLineage(previewId ?? "");
+  }, [deck, engine, searchQuery, values]);
+  const previewLineage = engine.getLineage(previewId ?? "");
   const previewGrade = previewLineage
-    ? getCardGrade(previewLineage, values)
+    ? engine.getCardGrade(previewLineage, values)
     : null;
-  const slotBudget = SECTION_SLOT_BUDGETS[section];
-  const dragLineage = activeDrag ? getLineage(activeDrag.lineageId) : null;
+  const slotBudget = engine.slotBudgets[section];
+  const dragLineage = activeDrag
+    ? engine.getLineage(activeDrag.lineageId)
+    : null;
 
   function previewCard(lineageId: string, element: HTMLElement) {
     setPreviewId(lineageId);
@@ -482,8 +516,9 @@ export function PromptCardWorkbench({
           >
             {Array.from({ length: slotBudget }, (_, slotIndex) => (
               <CardSlot
+                engine={engine}
                 slotIndex={slotIndex}
-                lineage={getLineage(equippedIds[slotIndex] ?? "") ?? null}
+                lineage={engine.getLineage(equippedIds[slotIndex] ?? "") ?? null}
                 values={values}
                 settling={settlingSlot.index === slotIndex}
                 onRemove={onRemoveCard}
@@ -521,6 +556,7 @@ export function PromptCardWorkbench({
           >
             {visibleDeck.map((lineage) => (
               <WorkbenchCard
+                engine={engine}
                 lineage={lineage}
                 values={values}
                 selected={equippedIds.includes(lineage.id)}
@@ -550,14 +586,15 @@ export function PromptCardWorkbench({
         <section className="tuning-console" aria-label="Tuning tracks">
           <div className="workbench-section-heading">
             <strong>Tuning</strong>
-            <small>{SECTION_TRACKS[section].length}</small>
+            <small>{engine.sectionTracks[section].length}</small>
           </div>
           <div className="tuning-track-list">
-            {SECTION_TRACKS[section].map((trackId) => (
+            {engine.sectionTracks[section].map((trackId) => (
               <SnapTrack
+                engine={engine}
                 trackId={trackId}
                 value={values[trackId]}
-                formatCode={formatCode}
+                vocabularyKey={vocabularyKey}
                 onChange={(value) => onTrackChange(trackId, value)}
                 key={trackId}
               />
@@ -580,7 +617,7 @@ export function PromptCardWorkbench({
                   fallback={previewLineage.code.slice(0, 1)}
                 />
                 <div className="floating-card-panel-identity">
-                  <span>{previewLineage.code} / {getCardFamily(previewLineage.section)}</span>
+                  <span>{previewLineage.code} / {engine.cardFamily(previewLineage.section)}</span>
                   <strong>{previewGrade.name}</strong>
                   <p>{previewGrade.description}</p>
                 </div>
@@ -607,7 +644,12 @@ export function PromptCardWorkbench({
             <DragOverlay dropAnimation={null} zIndex={120}>
               {dragLineage ? (
                 <div className="lineage-card card-drag-overlay is-selected">
-                  <CardFace lineage={dragLineage} values={values} selected />
+                  <CardFace
+                    engine={engine}
+                    lineage={dragLineage}
+                    values={values}
+                    selected
+                  />
                 </div>
               ) : null}
             </DragOverlay>,
