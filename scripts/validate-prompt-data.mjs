@@ -2,14 +2,13 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
 import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
+import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import {
   loadPromptCatalog,
   readPromptDataJson,
 } from "./prompt-data-files.mjs";
 
 const SECTIONS = ["context", "action", "format", "target"];
-const ILLUSTRATION_PROMPT_RULE =
-  "no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame";
 let schemaValidatorPromise;
 
 export const loadCatalog = loadPromptCatalog;

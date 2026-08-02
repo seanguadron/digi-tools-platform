@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "baseDraft": {
+    "subject": "a fox in a yellow raincoat crossing a flooded street"
+  },
+  "scenarios": [
+    {
+      "id": "grade-morph",
+      "name": "Grade morphing",
+      "proves": "One Intensity dial re-grades every equipped card's text",
+      "panel": 2,
+      "tracks": { "intensity": 0 },
+      "equipped": {
+        "illumination": ["golden-hour"],
+        "canvas": ["oil-painting"]
+      },
+      "checks": [
+        "Slide Intensity from Subtle to Extreme on the Illumination panel",
+        "The equipped cards' grade names change on their faces",
+        "The merged prompt line swaps in the louder fragments"
+      ]
+    },
+    {
+      "id": "tail-toggle",
+      "name": "Tail toggle",
+      "proves": "The Midjourney tail joins the prompt only while enabled",
+      "panel": 7,
+      "draft": {
+        "mjTailEnabled": true,
+        "aspectRatio": "16:9",
+        "stylize": 250
+      },
+      "equipped": {
+        "execution": ["wide-establishing"]
+      },
+      "checks": [
+        "The merged prompt ends with --ar 16:9 --stylize 250",
+        "Toggle the Midjourney tail off on the Execution panel",
+        "The parameters leave the prompt; the descriptive line stays intact"
+      ]
+    }
+  ]
+}

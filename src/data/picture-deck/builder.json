@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "emptyDraft": {
+    "subject": "",
+    "negative": "",
+    "mjTailEnabled": false,
+    "aspectRatio": "1:1",
+    "stylize": null,
+    "chaos": null,
+    "weird": null
+  },
+  "exampleDraft": {
+    "subject": "a lighthouse keeper reading by lamplight in a storm-battered tower",
+    "negative": "",
+    "mjTailEnabled": true,
+    "aspectRatio": "3:2",
+    "stylize": 250,
+    "chaos": null,
+    "weird": null
+  },
+  "pictureParts": [
+    {
+      "letter": "P",
+      "label": "Protagonist",
+      "summary": "Who or what the image is about."
+    },
+    {
+      "letter": "I",
+      "label": "Illumination",
+      "summary": "The light the scene is built from."
+    },
+    {
+      "letter": "C",
+      "label": "Canvas",
+      "summary": "The medium the image pretends to be."
+    },
+    {
+      "letter": "T",
+      "label": "Tone",
+      "summary": "The palette and its attitude."
+    },
+    {
+      "letter": "U",
+      "label": "Universe",
+      "summary": "The world, era, and setting around the subject."
+    },
+    {
+      "letter": "R",
+      "label": "References",
+      "summary": "Artists, movements, and aesthetics to channel."
+    },
+    {
+      "letter": "E",
+      "label": "Execution",
+      "summary": "Framing, finish, and the parameter tail."
+    }
+  ],
+  "requiredFields": [
+    {
+      "label": "Subject",
+      "field": "subject"
+    }
+  ],
+  "aspectRatios": [
+    { "id": "square", "label": "Square 1:1", "value": "1:1" },
+    { "id": "photo", "label": "Photo 3:2", "value": "3:2" },
+    { "id": "portrait", "label": "Portrait 2:3", "value": "2:3" },
+    { "id": "wide", "label": "Wide 16:9", "value": "16:9" },
+    { "id": "tall", "label": "Tall 9:16", "value": "9:16" },
+    { "id": "cinema", "label": "Cinema 21:9", "value": "21:9" },
+    { "id": "social", "label": "Social 4:5", "value": "4:5" }
+  ],
+  "stylizeRange": { "min": 0, "max": 1000, "step": 50, "fallback": 100 },
+  "chaosRange": { "min": 0, "max": 100, "step": 5, "fallback": 0 },
+  "weirdRange": { "min": 0, "max": 3000, "step": 100, "fallback": 0 }
+}

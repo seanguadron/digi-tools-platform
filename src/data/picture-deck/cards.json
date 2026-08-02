@@ -1,0 +1,484 @@
+{
+  "schemaVersion": 1,
+  "cards": [
+    {
+      "id": "lone-wanderer",
+      "code": "WNDR",
+      "section": "protagonist",
+      "driver": "intensity",
+      "goals": [
+        "Give the image one clear focal figure",
+        "Add narrative loneliness without naming a story"
+      ],
+      "grades": [
+        {
+          "name": "Distant Traveler",
+          "description": "A solitary figure placed quietly in the middle distance.",
+          "instruction": "a solitary traveler visible in the middle distance"
+        },
+        {
+          "name": "Lone Wanderer",
+          "description": "A cloaked wanderer carries the frame as its focal point.",
+          "instruction": "a lone cloaked wanderer as the clear focal point"
+        },
+        {
+          "name": "Speck in the Vast",
+          "description": "A tiny figure dwarfed by an overwhelming emptiness.",
+          "instruction": "a tiny lone figure dwarfed by a vast empty landscape"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/lone-wanderer.webp",
+        "alt": "A lone cloaked wanderer on an empty road",
+        "motif": "solitary figure",
+        "prompt": "a lone cloaked wanderer seen from behind on an empty winding road, painterly concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "gentle-giant",
+      "code": "GIANT",
+      "section": "protagonist",
+      "driver": "intensity",
+      "goals": [
+        "Introduce a benevolent colossal creature",
+        "Set scale contrast against the environment"
+      ],
+      "grades": [
+        {
+          "name": "Resting Colossus",
+          "description": "A large friendly creature rests at the scene's edge.",
+          "instruction": "a large gentle creature resting at the edge of the scene"
+        },
+        {
+          "name": "Gentle Giant",
+          "description": "A towering benevolent creature anchors the composition.",
+          "instruction": "a gentle giant creature towering benevolently over the scene"
+        },
+        {
+          "name": "Sky-Filling Titan",
+          "description": "A colossal titan fills the sky and bends the horizon.",
+          "instruction": "a colossal benevolent titan filling the sky above"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/gentle-giant.webp",
+        "alt": "A huge gentle creature towering over a small figure",
+        "motif": "benevolent colossus",
+        "prompt": "a moss-covered gentle giant creature towering over a tiny human figure, warm fantasy concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "golden-hour",
+      "code": "GOLD",
+      "section": "illumination",
+      "driver": "intensity",
+      "goals": [
+        "Warm the scene with low-angle sunlight",
+        "Add long shadows and atmospheric depth"
+      ],
+      "grades": [
+        {
+          "name": "Golden Wash",
+          "description": "A soft golden-hour warmth settles over the scene.",
+          "instruction": "soft golden-hour light"
+        },
+        {
+          "name": "Golden Hour",
+          "description": "Warm directional light rakes the scene with long shadows.",
+          "instruction": "warm golden-hour glow, long raking shadows"
+        },
+        {
+          "name": "Blazing Sundown",
+          "description": "The sun flares straight into the lens and ignites the frame.",
+          "instruction": "blazing golden-hour backlight, sun flaring across the frame"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/golden-hour.webp",
+        "alt": "A lone tree on a hillside in golden-hour light",
+        "motif": "low warm sun",
+        "prompt": "a lone tree on a grassy hillside bathed in warm golden-hour light with long shadows, cinematic landscape photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "bioluminescence",
+      "code": "BIOL",
+      "section": "illumination",
+      "driver": "intensity",
+      "goals": [
+        "Light the scene from living glowing sources",
+        "Shift the palette toward cool blue-green glow"
+      ],
+      "grades": [
+        {
+          "name": "Faint Glow",
+          "description": "Small bioluminescent accents dot the darkness.",
+          "instruction": "faint bioluminescent accents in the shadows"
+        },
+        {
+          "name": "Living Light",
+          "description": "Glowing organisms become real light sources.",
+          "instruction": "glowing bioluminescent plants and creatures lighting the scene"
+        },
+        {
+          "name": "Abyssal Radiance",
+          "description": "Bioluminescence is the only light in the world.",
+          "instruction": "the entire scene lit only by intense blue-green bioluminescence"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/bioluminescence.webp",
+        "alt": "A dark forest pool lit by glowing blue organisms",
+        "motif": "living glow",
+        "prompt": "a dark forest pool lit by glowing blue bioluminescent mushrooms and drifting spores, fantasy illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "oil-painting",
+      "code": "OIL",
+      "section": "canvas",
+      "driver": "intensity",
+      "goals": [
+        "Render the image as a painted object",
+        "Bring brushwork and pigment texture forward"
+      ],
+      "grades": [
+        {
+          "name": "Oiled Surface",
+          "description": "A gentle oil-paint texture sits under the image.",
+          "instruction": "with the soft texture of an oil painting"
+        },
+        {
+          "name": "Oil Painting",
+          "description": "Confident visible brushstrokes carry the forms.",
+          "instruction": "expressive oil painting, visible brushstrokes"
+        },
+        {
+          "name": "Impasto Storm",
+          "description": "Thick sculptural paint ridges catch real light.",
+          "instruction": "thick impasto oil painting, sculptural ridges of paint"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/oil-painting.webp",
+        "alt": "A sailing ship on rough seas as a textured oil painting",
+        "motif": "brushstroke texture",
+        "prompt": "a sailing ship on rough seas painted as an expressive oil painting with thick visible brushstrokes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "watercolor",
+      "code": "WATER",
+      "section": "canvas",
+      "driver": "intensity",
+      "goals": [
+        "Soften the image into translucent washes",
+        "Let paper and pigment behavior show"
+      ],
+      "grades": [
+        {
+          "name": "Light Wash",
+          "description": "Delicate watercolor washes tint the scene.",
+          "instruction": "delicate watercolor washes"
+        },
+        {
+          "name": "Watercolor",
+          "description": "Loose blooming pigment defines the forms.",
+          "instruction": "loose watercolor painting, blooming pigment edges"
+        },
+        {
+          "name": "Runaway Water",
+          "description": "Drips, blooms, and raw paper take over the frame.",
+          "instruction": "wild watercolor, running drips and patches of untouched paper"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/watercolor.webp",
+        "alt": "A sailing ship on rough seas as a loose watercolor",
+        "motif": "translucent washes",
+        "prompt": "a sailing ship on rough seas painted as a loose watercolor with blooming pigment and visible paper texture, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "muted-palette",
+      "code": "MUTE",
+      "section": "tone",
+      "driver": "intensity",
+      "goals": [
+        "Pull saturation down toward quiet restraint",
+        "Let value structure carry the image"
+      ],
+      "grades": [
+        {
+          "name": "Softened Color",
+          "description": "Colors ease back a step from full strength.",
+          "instruction": "slightly muted colors"
+        },
+        {
+          "name": "Muted Palette",
+          "description": "A desaturated, restrained palette sets the mood.",
+          "instruction": "muted desaturated palette"
+        },
+        {
+          "name": "Ash and Ember",
+          "description": "Near-monochrome grays with one surviving accent color.",
+          "instruction": "almost monochrome palette with a single accent color"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/muted-palette.webp",
+        "alt": "A street market rendered in muted desaturated colors",
+        "motif": "quiet palette",
+        "prompt": "a quiet street market scene in a muted desaturated palette with soft gray light, atmospheric illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "neon-saturation",
+      "code": "NEON",
+      "section": "tone",
+      "driver": "intensity",
+      "goals": [
+        "Push color into electric saturation",
+        "Trade realism for signal and glow"
+      ],
+      "grades": [
+        {
+          "name": "Neon Hints",
+          "description": "Electric color sneaks into signs and reflections.",
+          "instruction": "hints of neon color in signs and reflections"
+        },
+        {
+          "name": "Neon Saturation",
+          "description": "A saturated neon palette takes the lead.",
+          "instruction": "saturated neon palette, glowing magenta and cyan"
+        },
+        {
+          "name": "Signal Overload",
+          "description": "Every surface burns with electric color.",
+          "instruction": "electric neon color overload, every surface glowing"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/neon-saturation.webp",
+        "alt": "A street market glowing with saturated neon color",
+        "motif": "electric color",
+        "prompt": "a night street market glowing with saturated neon magenta and cyan light, vivid digital illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      },
+      "affinity": {
+        "intensity": [1, 2]
+      }
+    },
+    {
+      "id": "rainswept-city",
+      "code": "RAIN",
+      "section": "universe",
+      "driver": "intensity",
+      "goals": [
+        "Set the scene in a wet nocturnal city",
+        "Earn reflections and weather atmosphere"
+      ],
+      "grades": [
+        {
+          "name": "After the Rain",
+          "description": "Wet streets and drizzle soften the city.",
+          "instruction": "in a rainy city street, wet pavement"
+        },
+        {
+          "name": "Rain-Swept City",
+          "description": "A night city under steady rain, streets like mirrors.",
+          "instruction": "in a rain-swept night city, streets reflecting the lights"
+        },
+        {
+          "name": "Drowned Metropolis",
+          "description": "Torrential rain floods a glowing metropolis.",
+          "instruction": "in a torrential downpour over a flooded glowing metropolis"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/rainswept-city.webp",
+        "alt": "A night city street under rain with mirror reflections",
+        "motif": "wet night streets",
+        "prompt": "a night city street under heavy rain with mirror-like reflections on the pavement, moody cinematic illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "ancient-forest",
+      "code": "FRST",
+      "section": "universe",
+      "driver": "intensity",
+      "goals": [
+        "Place the subject in deep old-growth woods",
+        "Add moss, scale, and green quiet"
+      ],
+      "grades": [
+        {
+          "name": "Forest Edge",
+          "description": "The treeline waits at the edge of the scene.",
+          "instruction": "at the edge of an old mossy forest"
+        },
+        {
+          "name": "Ancient Forest",
+          "description": "Deep old-growth woods surround the subject.",
+          "instruction": "deep in an ancient mossy forest, shafts of light between trunks"
+        },
+        {
+          "name": "Primeval Depths",
+          "description": "Colossal primeval trees swallow the whole frame.",
+          "instruction": "swallowed by a primeval forest of colossal ancient trees"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/ancient-forest.webp",
+        "alt": "Colossal mossy trees with light shafts",
+        "motif": "old-growth green",
+        "prompt": "colossal mossy ancient trees with shafts of light breaking through the canopy, lush fantasy environment art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "art-nouveau",
+      "code": "NOUV",
+      "section": "references",
+      "driver": "intensity",
+      "goals": [
+        "Channel flowing organic art nouveau linework",
+        "Bring in ornamental period elegance"
+      ],
+      "grades": [
+        {
+          "name": "Nouveau Touch",
+          "description": "Organic curves sneak into the composition.",
+          "instruction": "with art nouveau touches"
+        },
+        {
+          "name": "Art Nouveau",
+          "description": "Flowing linework and organic ornament lead the style.",
+          "instruction": "in art nouveau style, flowing organic linework"
+        },
+        {
+          "name": "Full Mucha",
+          "description": "Ornamental poster framing and decorative halos take over.",
+          "instruction": "full art nouveau poster style, ornamental decorative framing"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/art-nouveau.webp",
+        "alt": "A woman's portrait with flowing art nouveau linework",
+        "motif": "organic linework",
+        "prompt": "a portrait of a woman with flowing hair in art nouveau style with organic decorative linework, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "ukiyo-e",
+      "code": "UKIYO",
+      "section": "references",
+      "driver": "intensity",
+      "goals": [
+        "Channel Japanese woodblock print language",
+        "Flatten color into confident planes"
+      ],
+      "grades": [
+        {
+          "name": "Ukiyo-e Accents",
+          "description": "Woodblock influences color the rendering.",
+          "instruction": "with ukiyo-e influences"
+        },
+        {
+          "name": "Ukiyo-e",
+          "description": "A woodblock print with flat color planes and clean line.",
+          "instruction": "in ukiyo-e woodblock print style, flat color planes"
+        },
+        {
+          "name": "Great Wave",
+          "description": "Bold woodblock stylization with dramatic wave motifs.",
+          "instruction": "bold ukiyo-e woodblock stylization, dramatic wave motifs"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/ukiyo-e.webp",
+        "alt": "A mountain and wave in ukiyo-e woodblock style",
+        "motif": "woodblock planes",
+        "prompt": "a mountain and cresting wave in ukiyo-e woodblock print style with flat color planes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "close-portrait",
+      "code": "CLOSE",
+      "section": "execution",
+      "driver": "intensity",
+      "goals": [
+        "Frame tight on the subject",
+        "Add shallow depth and intimacy"
+      ],
+      "grades": [
+        {
+          "name": "Portrait Frame",
+          "description": "A classic portrait crop centers the subject.",
+          "instruction": "portrait framing"
+        },
+        {
+          "name": "Close Portrait",
+          "description": "An intimate close-up with melting background.",
+          "instruction": "intimate close-up portrait, shallow depth of field"
+        },
+        {
+          "name": "Macro Gaze",
+          "description": "An extreme close-up that fills the frame with the face.",
+          "instruction": "extreme macro close-up filling the frame with the face"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/close-portrait.webp",
+        "alt": "An intimate close-up portrait with shallow depth of field",
+        "motif": "tight framing",
+        "prompt": "an intimate close-up portrait of a weathered face with shallow depth of field, cinematic photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "wide-establishing",
+      "code": "WIDE",
+      "section": "execution",
+      "driver": "intensity",
+      "goals": [
+        "Pull back for scale and geography",
+        "Give the world room around the subject"
+      ],
+      "grades": [
+        {
+          "name": "Wide Frame",
+          "description": "A generous wide crop gives the scene air.",
+          "instruction": "wide framing"
+        },
+        {
+          "name": "Establishing Shot",
+          "description": "A sweeping establishing view sets the geography.",
+          "instruction": "wide establishing shot, sweeping vista"
+        },
+        {
+          "name": "God's Eye",
+          "description": "An ultra-wide aerial panorama swallows the scene.",
+          "instruction": "ultra-wide aerial panorama"
+        }
+      ],
+      "illustration": {
+        "src": "/card-art/picture/cards/wide-establishing.webp",
+        "alt": "A sweeping wide vista of a mountain village",
+        "motif": "sweeping vista",
+        "prompt": "a sweeping wide establishing shot of a mountain village at dawn, epic landscape concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    }
+  ]
+}

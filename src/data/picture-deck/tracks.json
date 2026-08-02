@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "sectionTracks": {
+    "protagonist": ["intensity"],
+    "illumination": ["intensity"],
+    "canvas": ["intensity"],
+    "tone": ["intensity"],
+    "universe": ["intensity"],
+    "references": ["intensity"],
+    "execution": ["intensity"]
+  },
+  "slotBudgets": {
+    "protagonist": 2,
+    "illumination": 2,
+    "canvas": 2,
+    "tone": 2,
+    "universe": 2,
+    "references": 4,
+    "execution": 3
+  },
+  "definitions": [
+    {
+      "id": "intensity",
+      "label": "Intensity",
+      "description": "How hard every equipped card pushes its effect, from a whisper in the corner of the image to the whole frame.",
+      "points": ["Subtle", "Bold", "Extreme"]
+    }
+  ],
+  "defaultValues": {
+    "intensity": 1
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "archetypes": [
+    {
+      "id": "storybook-cover",
+      "code": "STORY",
+      "name": "Storybook Cover",
+      "description": "A wistful children's-book cover: watercolor washes, golden light, and a deep old forest behind your subject.",
+      "tracks": { "intensity": 1 },
+      "equipped": {
+        "canvas": ["watercolor"],
+        "illumination": ["golden-hour"],
+        "universe": ["ancient-forest"],
+        "references": ["art-nouveau"],
+        "execution": ["wide-establishing"]
+      },
+      "mjTail": {
+        "aspectRatio": "2:3",
+        "stylize": 250
+      },
+      "effects": [
+        "Equips five style cards across Canvas, Illumination, Universe, References, and Execution",
+        "Sets the tail preset to portrait 2:3 at stylize 250",
+        "Leaves your subject line untouched"
+      ],
+      "illustration": {
+        "src": "/card-art/picture/archetypes/storybook-cover.webp",
+        "alt": "A watercolor forest scene in warm golden light",
+        "motif": "wistful storybook",
+        "prompt": "a watercolor storybook scene of a small figure walking into a golden ancient forest, gentle art nouveau linework, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    },
+    {
+      "id": "neon-noir",
+      "code": "NOIR",
+      "name": "Neon Noir",
+      "description": "A rain-soaked electric night: neon saturation, living glow, and a tight cinematic portrait crop.",
+      "tracks": { "intensity": 2 },
+      "equipped": {
+        "tone": ["neon-saturation"],
+        "universe": ["rainswept-city"],
+        "illumination": ["bioluminescence"],
+        "execution": ["close-portrait"]
+      },
+      "mjTail": {
+        "aspectRatio": "16:9",
+        "stylize": 400,
+        "chaos": 10
+      },
+      "effects": [
+        "Equips four cards across Tone, Universe, Illumination, and Execution",
+        "Pushes Intensity to Extreme so every card goes loud",
+        "Sets the tail preset to wide 16:9, stylize 400, chaos 10"
+      ],
+      "illustration": {
+        "src": "/card-art/picture/archetypes/neon-noir.webp",
+        "alt": "A rain-soaked neon street reflected in wet pavement",
+        "motif": "electric noir",
+        "prompt": "a rain-soaked night street glowing with neon magenta and cyan reflections, moody cinematic noir illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
+        "status": "planned"
+      }
+    }
+  ]
+}
