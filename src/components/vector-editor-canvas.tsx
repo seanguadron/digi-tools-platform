@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { PointerEvent as ReactPointerEvent } from "react";
+import type { CSSProperties, PointerEvent as ReactPointerEvent } from "react";
 import {
   insertAnchor,
   moveHandle,
@@ -14,6 +14,11 @@ import {
   isDegenerate,
   resizeShape,
 } from "@/lib/vector-editor/document";
+import {
+  paletteForBackground,
+  type OverlayPalette,
+  type Rgb,
+} from "@/lib/vector-editor/overlay-palette";
 import { withAnchors } from "@/lib/vector-editor/paths";
 import {
   DEFAULT_FONT_FAMILY,
@@ -118,46 +123,42 @@ type Action =
     }
   | { type: "pen-place"; index: number; start: Point };
 
-// Overlay palette selection: the artboard background is user-editable now,
-// so the overlay chrome flips to a light-on-dark palette when the artboard
-// is dark. Any safeColor form normalizes through a scratch canvas.
+// Resolve any CSS color the document may carry (hex, rgb(), a bare name)
+// to sRGB bytes by painting it — the palette math itself lives in the pure,
+// unit-tested overlay-palette module.
 let colorScratch: CanvasRenderingContext2D | null = null;
 
-function colorLuminance(color: string): number | null {
+function resolveRgb(color: string): Rgb | null {
   if (typeof document === "undefined") return null;
   if (!colorScratch) {
-    colorScratch = document.createElement("canvas").getContext("2d");
+    colorScratch = document
+      .createElement("canvas")
+      .getContext("2d", { willReadFrequently: true });
+    if (colorScratch) {
+      colorScratch.canvas.width = 1;
+      colorScratch.canvas.height = 1;
+    }
   }
   if (!colorScratch) return null;
+  colorScratch.clearRect(0, 0, 1, 1);
   colorScratch.fillStyle = "#000000";
-  colorScratch.fillStyle = color; // invalid values keep the previous one
-  const normalized = colorScratch.fillStyle;
-  let r = 0;
-  let g = 0;
-  let b = 0;
-  if (normalized.startsWith("#") && normalized.length >= 7) {
-    r = parseInt(normalized.slice(1, 3), 16);
-    g = parseInt(normalized.slice(3, 5), 16);
-    b = parseInt(normalized.slice(5, 7), 16);
-  } else {
-    const match = normalized.match(/rgba?\(([\d.]+),\s*([\d.]+),\s*([\d.]+)/);
-    if (!match) return null;
-    r = Number(match[1]);
-    g = Number(match[2]);
-    b = Number(match[3]);
-  }
-  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+  colorScratch.fillStyle = color; // an invalid value keeps the previous one
+  colorScratch.fillRect(0, 0, 1, 1);
+  const [r, g, b] = colorScratch.getImageData(0, 0, 1, 1).data;
+  return { r, g, b };
 }
 
-// A transparent artboard shows the theme's stage behind it, so the app
-// theme decides; otherwise the background color's own luminance does.
-function isArtboardDark(background: string | null): boolean {
-  if (typeof document === "undefined") return false;
+// A transparent artboard shows the app's stage through it, so the theme's
+// own surface is what the overlay must contrast against.
+function overlayPaletteFor(background: string | null): OverlayPalette {
+  if (typeof document === "undefined") return paletteForBackground(null);
   if (background === null) {
-    return document.documentElement.getAttribute("data-theme") !== "light";
+    const stageColor = getComputedStyle(document.documentElement)
+      .getPropertyValue("--background")
+      .trim();
+    return paletteForBackground(stageColor ? resolveRgb(stageColor) : null);
   }
-  const luminance = colorLuminance(background);
-  return luminance !== null && luminance < 0.45;
+  return paletteForBackground(resolveRgb(background));
 }
 
 function clientToUser(
@@ -1479,8 +1480,8 @@ export function VectorCanvas({
   }
 
   const zoomPct = Math.round(scale * 100);
-  const darkArtboard = useMemo(
-    () => isArtboardDark(doc.background),
+  const overlayPalette = useMemo(
+    () => overlayPaletteFor(doc.background),
     [doc.background],
   );
   const marqueeRect = marquee ? normalizedRect(marquee.start, marquee.current) : null;
@@ -1491,10 +1492,12 @@ export function VectorCanvas({
 
   return (
     <div
-      className={
-        darkArtboard
-          ? "vector-editor-stage is-dark-artboard"
-          : "vector-editor-stage"
+      className="vector-editor-stage"
+      style={
+        {
+          "--ve-overlay-accent": overlayPalette.accent,
+          "--ve-overlay-paper": overlayPalette.paper,
+        } as CSSProperties
       }
     >
       <svg

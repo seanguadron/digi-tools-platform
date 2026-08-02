@@ -597,6 +597,7 @@ export function VectorEditor() {
           ? `${doc.width} × ${doc.height} px`
           : `${roundForUnit(fromPx(doc.width, doc.unit, doc.ppi), doc.unit)} × ${roundForUnit(fromPx(doc.height, doc.unit, doc.ppi), doc.unit)} ${doc.unit} @ ${doc.ppi}ppi`}
       </span>
+
       <span className="ve-status-count">
         {objectCount} object{objectCount === 1 ? "" : "s"}
       </span>

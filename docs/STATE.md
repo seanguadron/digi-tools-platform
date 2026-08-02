@@ -70,9 +70,20 @@ returned, and their findings are applied:
   gated by a shared `MAX_EXPORT_PIXELS` at the dialog AND re-clamped at
   every allocation site; plus a doc-setup clamp parity fix and a
   quality finite-guard.
-- **DESIGN for V3+I2 is the ONE gate still owed**
-  (`2026-07-29-design-gate-owed-range.md`) — the agent hit the provider
-  spend limit again. V2's design gate did complete on 2026-07-28.
+- **Design DISCHARGED** on the third attempt
+  (`2026-07-29-design-gate-owed-range.md`): High — the artboard-aware
+  overlay palette had a DEAD ZONE (gamma-uncorrected luminance + a fixed
+  two-color flip meant mid-tone artboards like gray/khaki/olive/orange got
+  ~1.4–2.9:1, under the 3:1 floor, despite the comment claiming otherwise).
+  Replaced by `lib/vector-editor/overlay-palette.ts`, which computes real
+  WCAG luminance and falls back to black/white when no brand cyan clears
+  the floor — mathematically total (≥4.58:1 for any background), 8 tests
+  incl. a full sRGB sweep. Plus dialog-title weight, an image statusbar
+  that now shows physical size + PPI, one canonical "size @ resolution"
+  phrasing, and an always-visible rename cue on the vector title.
+
+**GATE DEBT IS CLEAR.** Every owed run from the spend-limit outage has been
+re-run and discharged.
 
 Health: `typecheck` · `lint` · `test` (53) · `data:validate` ·
 `check:standards` · `check:security` all green. Owed from Sean: the
@@ -176,9 +187,12 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.** All commits landed; tree clean.
-- **GATE DEBT — one item left:** the DESIGN gate on V3 + I2 (blocked twice
-  by the provider spend limit). Integration and security are discharged
-  (`2026-07-29-*-owed-range.md`).
+- **GATE DEBT: NONE.** All three owed runs discharged 2026-07-29
+  (`2026-07-29-*-owed-range.md`); findings applied and verified.
+- **Deferred from the design gate:** migrate the Filters/"Adjust" dialog
+  onto `EditorDialog` (last one on the old primitive — 7 dialogs, 2
+  families); back-port the `.ve-title-input` focus pattern to
+  `.image-editor-title-input`, which still does `outline: none`.
 - **Task chips: CLEARED (2026-07-29).** The dnd-kit stable-`DndContext`-id
   fix was merged from its worktree (`52188ff`, production-build verified
   there); the 24px tap targets for `.image-editor-check` + `.ve-toggle`

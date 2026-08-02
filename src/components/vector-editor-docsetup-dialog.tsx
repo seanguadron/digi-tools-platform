@@ -125,8 +125,9 @@ export function VectorDocSetupDialog({
       </div>
 
       <p className="editor-dialog-hint">
-        {Math.round(pw)} × {Math.round(ph)}px — {roundForUnit(fromPx(pw, "in", ppi), "in")} ×{" "}
-        {roundForUnit(fromPx(ph, "in", ppi), "in")} in at {ppi} PPI.
+        {Math.round(pw)} × {Math.round(ph)} px ·{" "}
+        {roundForUnit(fromPx(pw, "in", ppi), "in")} ×{" "}
+        {roundForUnit(fromPx(ph, "in", ppi), "in")} in @ {ppi}ppi
       </p>
 
       <div className="editor-dialog-row">

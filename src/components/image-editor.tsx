@@ -115,7 +115,12 @@ import type {
 } from "@/lib/image-editor/tools";
 import type { BlendMode, ImageDoc, Rect } from "@/lib/image-editor/types";
 import { MAX_DOC_DIMENSION, MAX_DOC_PIXELS } from "@/lib/image-editor/types";
-import { MAX_EXPORT_DIMENSION, MAX_EXPORT_PIXELS } from "@/lib/units";
+import {
+  fromPx,
+  MAX_EXPORT_DIMENSION,
+  MAX_EXPORT_PIXELS,
+  roundForUnit,
+} from "@/lib/units";
 
 const IMAGE_LIMITS = {
   maxPixels: MAX_DOC_PIXELS,
@@ -1213,8 +1218,13 @@ export function ImageEditor() {
       <span className="ie-status-zoom" role="status">
         {zoomPct}%
       </span>
+      {/* Physical size stays visible after the dialog closes — the vector
+          editor's statusbar does the same, in the same phrasing. */}
       <span className="ie-status-dims">
-        {doc.width} × {doc.height} px
+        {doc.width} × {doc.height} px ·{" "}
+        {roundForUnit(fromPx(doc.width, "in", doc.ppi), "in")} ×{" "}
+        {roundForUnit(fromPx(doc.height, "in", doc.ppi), "in")} in @ {doc.ppi}
+        ppi
       </span>
       <span className="ie-status-tool">{getTool(tool)?.label ?? ""}</span>
     </div>

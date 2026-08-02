@@ -21,13 +21,15 @@ interface Preset {
   ppi: number;
 }
 
+// Labels follow the one canonical "size @ resolution" phrasing used by both
+// statusbars and the doc-setup hint: spaced ×, unit suffix, "@ Nppi".
 const PRESETS: Preset[] = [
-  { label: "Default 1280×800", width: 1280, height: 800, ppi: DEFAULT_DOC_PPI },
-  { label: "HD 1920×1080", width: 1920, height: 1080, ppi: DEFAULT_DOC_PPI },
-  { label: "Square 1080×1080", width: 1080, height: 1080, ppi: DEFAULT_DOC_PPI },
-  { label: "Portrait 1080×1350", width: 1080, height: 1350, ppi: DEFAULT_DOC_PPI },
-  { label: "Letter 8.5×11 in @300", width: 2550, height: 3300, ppi: 300 },
-  { label: "A4 210×297 mm @300", width: 2480, height: 3508, ppi: 300 },
+  { label: "Default 1280 × 800 px", width: 1280, height: 800, ppi: DEFAULT_DOC_PPI },
+  { label: "HD 1920 × 1080 px", width: 1920, height: 1080, ppi: DEFAULT_DOC_PPI },
+  { label: "Square 1080 × 1080 px", width: 1080, height: 1080, ppi: DEFAULT_DOC_PPI },
+  { label: "Portrait 1080 × 1350 px", width: 1080, height: 1350, ppi: DEFAULT_DOC_PPI },
+  { label: "Letter 8.5 × 11 in @ 300ppi", width: 2550, height: 3300, ppi: 300 },
+  { label: "A4 210 × 297 mm @ 300ppi", width: 2480, height: 3508, ppi: 300 },
 ];
 
 export type NewDocBackground = "transparent" | "white" | "custom";
