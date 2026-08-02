@@ -367,6 +367,64 @@ browser-verify headlessly → gate → apply findings → ledger → commit.
 The `readStored` shape-validation flag already sits in this entry's first
 act, not repeated here.
 
+### Later that day: debt fully cleared
+
+**Context.** The owner said "let's resolve the Remaining issues" and
+answered two batched scoping questions, both times taking the
+recommended option: retry the design gate with an inline-review
+fallback; merge the finished dnd-kit worktree and discard the other
+two. Commits: `52188ff` (dnd-kit cherry-pick), `cfccb23` (tap targets +
+stopPropagation), `eec0052` (design-gate fixes).
+
+**Decisions.**
+- Gate debt is now FULLY discharged — the design gate ran on its third
+  attempt (after two spend-limit blocks: 2026-07-28, and this entry's
+  first act) and turned out the most valuable of the three: it caught a
+  real High in code shipped this same session.
+- Merged the dnd-kit fix by cherry-pick after reviewing it directly (one
+  line, production-build-verified in its own worktree) rather than
+  redoing the work; deleted all three worktrees and their branches so
+  `main` is the only lane again.
+
+**Learnings.**
+- The parallel worktree earned its keep. Diffing the superseded
+  roving-tabindex worktree against this session's version before
+  discarding it surfaced a bug the merged version lacked: consumed
+  arrow keys need `stopPropagation` as well as `preventDefault`, because
+  both editors bind window-level arrow shortcuts that exempt inputs but
+  not BUTTONS — arrowing through any radiogroup was also nudging the
+  artwork, dialogs included (they portal to `body`, so those listeners
+  stay live). Took that fix, kept this session's grid-stepping which the
+  worktree lacked — the merged result beat either version alone. Diff a
+  duplicate before discarding it.
+- The artboard-aware overlay palette was wrong in a way only real math
+  caught: it branched on a gamma-uncorrected weighted average of 8-bit
+  channels against an arbitrary 0.45 cutoff, with a comment asserting
+  "both clear 3:1." The design gate computed actual WCAG contrast and
+  found a dead zone — mid-tone artboards (gray 1.90:1, olive 1.39:1,
+  orange 2.44:1, khaki 2.77:1) failed with EITHER cyan, plus a
+  one-shade cliff at the boundary (#727272 3.09:1 vs. #737373 1.23:1).
+  Replaced with a pure module computing real sRGB-linearized luminance,
+  falling back to black/white when no brand cyan clears the floor — a
+  fallback that is mathematically total (at least 4.58:1 against any
+  background; the new test sweeps the sRGB cube). A confident comment
+  is not a proof — if a threshold claims a contrast guarantee, compute
+  it and test the whole space.
+- A "revisit when X" comment already burned this project once this same
+  week (this entry's first act); this time it was worse than stale — it
+  was actively false. Prefer an assertion in a test over an assertion in
+  a comment.
+
+**Preferences.** Declined the mic spot-check for now ("I'll let you
+know later if there's issues"); for a multi-part cleanup, again wanted
+clarifying questions batched up front rather than asked per item — the
+two-question format worked.
+
+**Amendment flag (proposed, needs the owner's consent):** any contrast
+guarantee asserted in a comment must be backed by a computed check or a
+test, not eyeballed; UI chrome drawn over user-chosen colors picks its
+palette by measured contrast rather than a luminance threshold.
+
 ## 2026-07-19: Vector Editor ships — fifth tool, a native-SVG "Illustrator-lite" built from the Image Editor's shell
 
 **Context.** The owner asked to build an SVG vector editor "like
