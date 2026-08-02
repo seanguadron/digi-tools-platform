@@ -1,18 +1,28 @@
 "use client";
 
-import { PROOF_SCENARIOS } from "@/lib/prompt-proof-scenarios";
-import type { ProofScenario } from "@/lib/prompt-proof-scenarios";
+// The structural slice of a proof scenario this drawer renders; each deck
+// passes its own catalog's scenarios.
+export type ProofLabScenario = {
+  id: string;
+  name: string;
+  proves: string;
+  checks: readonly string[];
+};
 
-export function PromptProofLab({
+export function PromptProofLab<Sc extends ProofLabScenario>({
   open,
   activeProofId,
+  scenarios,
+  id = "prompt-proof-lab",
   onClose,
   onLoad,
 }: {
   open: boolean;
   activeProofId: string | null;
+  scenarios: readonly Sc[];
+  id?: string;
   onClose: () => void;
-  onLoad: (scenario: ProofScenario) => void;
+  onLoad: (scenario: Sc) => void;
 }) {
   return (
     <>
@@ -27,7 +37,7 @@ export function PromptProofLab({
 
       <aside
         className={open ? "proof-lab is-open" : "proof-lab"}
-        id="prompt-proof-lab"
+        id={id}
         aria-labelledby="proof-lab-title"
         aria-hidden={!open}
         inert={!open}
@@ -47,7 +57,7 @@ export function PromptProofLab({
           verified.
         </p>
         <div className="proof-scenario-list">
-          {PROOF_SCENARIOS.map((scenario, index) => (
+          {scenarios.map((scenario, index) => (
             <button
               className={
                 scenario.id === activeProofId
@@ -73,11 +83,11 @@ export function PromptProofLab({
   );
 }
 
-export function ProofScenarioStatus({
+export function ProofScenarioStatus<Sc extends ProofLabScenario>({
   scenario,
   onDismiss,
 }: {
-  scenario: ProofScenario | undefined;
+  scenario: Sc | undefined;
   onDismiss: () => void;
 }) {
   if (!scenario) {

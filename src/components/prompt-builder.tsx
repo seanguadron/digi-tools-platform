@@ -873,6 +873,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       <PromptProofLab
         open={proofLabOpen}
         activeProofId={activeProofId}
+        scenarios={PROOF_SCENARIOS}
         onClose={() => setProofLabOpen(false)}
         onLoad={loadProofScenario}
       />

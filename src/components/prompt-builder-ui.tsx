@@ -160,7 +160,7 @@ export function RoleCardFace({
   );
 }
 
-export function DictationSession({
+export function DictationSession<F extends string>({
   activeField,
   field,
   label,
@@ -171,8 +171,8 @@ export function DictationSession({
   onStop,
   onSubmit,
 }: {
-  activeField: DictationField | null;
-  field: DictationField;
+  activeField: F | null;
+  field: F;
   label: string;
   phase: DictationPhase | null;
   transcript: string;
@@ -259,18 +259,20 @@ export function DictationSession({
   );
 }
 
-export type CraftDictationApi = {
-  activeField: DictationField | null;
+export type DictationApi<F extends string> = {
+  activeField: F | null;
   phase: DictationPhase | null;
   transcript: string;
   waveformRef: RefObject<HTMLDivElement | null>;
-  start: (field: DictationField, label: string) => void;
+  start: (field: F, label: string) => void;
   cancel: () => void;
   stop: () => void;
   submit: () => void;
 };
 
-export function CraftDictationField({
+export type CraftDictationApi = DictationApi<DictationField>;
+
+export function CraftDictationField<F extends string>({
   id,
   field,
   label,
@@ -283,7 +285,7 @@ export function CraftDictationField({
   dictation,
 }: {
   id: string;
-  field: DictationField;
+  field: F;
   label: string;
   value: string;
   placeholder: string;
@@ -291,7 +293,7 @@ export function CraftDictationField({
   required?: boolean;
   attention?: boolean;
   onChange: (value: string) => void;
-  dictation: CraftDictationApi;
+  dictation: DictationApi<F>;
 }) {
   const isRecording =
     dictation.activeField === field && dictation.phase === "recording";
@@ -336,13 +338,13 @@ export function CraftDictationField({
   );
 }
 
-function InfoDisclosure({
-  field,
-}: {
-  field: keyof typeof FIELD_GUIDANCE;
-}) {
-  const guidance = FIELD_GUIDANCE[field];
+export type FieldGuidance = {
+  title: string;
+  body: string;
+  points: readonly string[];
+};
 
+function InfoDisclosure({ guidance }: { guidance: FieldGuidance }) {
   return (
     <details className="info-disclosure">
       <summary aria-label={`More information about ${guidance.title}`}>
@@ -363,17 +365,22 @@ function InfoDisclosure({
 
 export function FieldHeading({
   field,
+  guidance,
   label,
   hint,
   controlId,
   labelControl = true,
 }: {
-  field: keyof typeof FIELD_GUIDANCE;
+  // Either a CRAFT guidance key or an inline guidance object (other decks).
+  field?: keyof typeof FIELD_GUIDANCE;
+  guidance?: FieldGuidance;
   label: string;
   hint?: string;
   controlId: string;
   labelControl?: boolean;
 }) {
+  const resolvedGuidance = guidance ?? (field ? FIELD_GUIDANCE[field] : null);
+
   return (
     <div className="field-label">
       <div className="field-title-row">
@@ -384,7 +391,7 @@ export function FieldHeading({
         ) : (
           <strong id={`${controlId}-label`}>{label}</strong>
         )}
-        <InfoDisclosure field={field} />
+        {resolvedGuidance ? <InfoDisclosure guidance={resolvedGuidance} /> : null}
       </div>
       {hint ? <small id={`${controlId}-hint`}>{hint}</small> : null}
     </div>

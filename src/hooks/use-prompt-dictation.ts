@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import type { PromptDraft } from "@/lib/prompt-builder-state";
 
+// The CRAFT deck's dictation surfaces; other decks instantiate the hook with
+// their own field union via the type parameter.
 export type DictationField =
   | "context"
   | "action"
@@ -80,15 +81,17 @@ function appendTranscript(currentValue: string, transcript: string) {
   return `${currentValue}${separator}${cleanTranscript}`;
 }
 
-export function usePromptDictation({
+export function usePromptDictation<F extends string = DictationField>({
   draft,
   onApply,
 }: {
-  draft: PromptDraft;
-  onApply: (field: DictationField, value: string) => void;
+  // NoInfer: the draft object usually carries more keys than the dictation
+  // fields, so it must never widen F — F comes from the type argument (or the
+  // DictationField default), and the draft merely has to cover those keys.
+  draft: NoInfer<Record<F, string>>;
+  onApply: (field: F, value: string) => void;
 }) {
-  const [listeningField, setListeningField] =
-    useState<DictationField | null>(null);
+  const [listeningField, setListeningField] = useState<F | null>(null);
   const [phase, setPhase] = useState<DictationPhase | null>(null);
   const [transcript, setTranscript] = useState("");
   const [message, setMessage] = useState("");
@@ -97,7 +100,7 @@ export function usePromptDictation({
   const audioContextRef = useRef<AudioContext | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const waveformRef = useRef<HTMLDivElement | null>(null);
-  const activeFieldRef = useRef<DictationField | null>(null);
+  const activeFieldRef = useRef<F | null>(null);
   const activeLabelRef = useRef("");
   const baseValueRef = useRef("");
   const transcriptRef = useRef("");
@@ -259,7 +262,7 @@ export function usePromptDictation({
     }
   }
 
-  async function start(field: DictationField, label: string) {
+  async function start(field: F, label: string) {
     if (listeningField === field && phase === "recording") {
       stop();
       return;

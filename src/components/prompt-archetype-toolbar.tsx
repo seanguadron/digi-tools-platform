@@ -5,39 +5,12 @@ import { createPortal } from "react-dom";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
 import { isCustomArchetype } from "@/lib/prompt-custom-archetypes";
+import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
 import { readStored, writeStored } from "@/lib/prompt-storage";
 import type { PromptArchetype } from "@/lib/prompt-archetypes";
 import type { PromptRole } from "@/lib/prompt-types";
 
 const FAVORITES_KEY = "digitools.prompt-builder.favorites-v1";
-const FLOATING_PANEL_WIDTH = 390;
-const FLOATING_PANEL_GAP = 12;
-const FLOATING_PANEL_MARGIN = 16;
-const FLOATING_PANEL_MAX_HEIGHT = 480;
-
-function getFloatingPanelPosition(element: HTMLElement) {
-  const rect = element.getBoundingClientRect();
-  const rightSideLeft = rect.right + FLOATING_PANEL_GAP;
-  const leftSideLeft = rect.left - FLOATING_PANEL_WIDTH - FLOATING_PANEL_GAP;
-  const fitsRight =
-    rightSideLeft + FLOATING_PANEL_WIDTH <=
-    window.innerWidth - FLOATING_PANEL_MARGIN;
-  const left = fitsRight
-    ? rightSideLeft
-    : Math.max(FLOATING_PANEL_MARGIN, leftSideLeft);
-  const top = Math.min(
-    Math.max(FLOATING_PANEL_MARGIN, rect.top),
-    Math.max(
-      FLOATING_PANEL_MARGIN,
-      window.innerHeight - FLOATING_PANEL_MAX_HEIGHT - FLOATING_PANEL_MARGIN,
-    ),
-  );
-
-  return {
-    left,
-    top,
-  };
-}
 
 export function PromptArchetypeToolbar({
   archetypes,

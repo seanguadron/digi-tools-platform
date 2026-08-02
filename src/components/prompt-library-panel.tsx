@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { createPortal } from "react-dom";
-import type { SavedPrompt } from "@/lib/prompt-library";
 
-export function PromptLibraryPanel({
+export function PromptLibraryPanel<
+  E extends { id: string; name: string; savedAt: string },
+>({
   open,
   savedPrompts,
   onClose,
@@ -13,10 +14,10 @@ export function PromptLibraryPanel({
   onDelete,
 }: {
   open: boolean;
-  savedPrompts: SavedPrompt[];
+  savedPrompts: E[];
   onClose: () => void;
   onSave: (name: string) => void;
-  onLoad: (entry: SavedPrompt) => void;
+  onLoad: (entry: E) => void;
   onDelete: (id: string) => void;
 }) {
   const [name, setName] = useState("");
