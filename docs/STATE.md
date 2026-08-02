@@ -179,11 +179,19 @@ per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
 - **GATE DEBT — one item left:** the DESIGN gate on V3 + I2 (blocked twice
   by the provider spend limit). Integration and security are discharged
   (`2026-07-29-*-owed-range.md`).
-- **Task chips open:** stable `DndContext` ids; 24px targets for
-  `.image-editor-check` + `.ve-toggle`; `image-editor.tsx` statusbar portal
-  idiom (2026-07-19). The roving-tabindex chip was implemented directly in
-  the main session (`9b255bd`) — if its worktree session produces a
-  duplicate, discard that worktree rather than merging.
+- **Task chips: CLEARED (2026-07-29).** The dnd-kit stable-`DndContext`-id
+  fix was merged from its worktree (`52188ff`, production-build verified
+  there); the 24px tap targets for `.image-editor-check` + `.ve-toggle`
+  landed here; the roving-tabindex chip was superseded by `9b255bd`. All
+  three worktrees and branches are removed — `git worktree list` shows only
+  main. Still open from 2026-07-19: the `image-editor.tsx` statusbar portal
+  idiom.
+- **Adopted from the discarded roving worktree:** its version called
+  `stopPropagation` as well as `preventDefault`, which the shared hook now
+  does too — both editors bind window-level arrow shortcuts that exempt
+  inputs but NOT buttons, so arrowing through a radiogroup used to nudge
+  the artwork at the same time (dialogs included, since they portal to
+  body and leave those listeners live). Verified fixed.
 - **Owed from Sean:** real-mic dictation-meter spot-check; `dev:clean` on
   the wedged 5100 server.
 - **I2 deferrals — CLEARED except one:** ImageSize/CanvasSize migrated onto

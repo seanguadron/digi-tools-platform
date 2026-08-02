@@ -9,6 +9,12 @@ import type { KeyboardEvent } from "react";
 // contract the radiogroup role promises assistive tech. `columns` makes
 // Up/Down step by rows for grid-shaped groups (the canvas-size anchor
 // grid); linear rows leave it at 1 so both axes work, per the APG pattern.
+//
+// Consumed keys stopPropagation as well as preventDefault: both editors
+// bind window-level arrow shortcuts (nudge the selection) that exempt
+// inputs but NOT buttons, so an arrow that moved a radio would otherwise
+// also shove the artwork — including from a dialog, since dialogs portal
+// to document.body and leave those listeners live.
 export function useRovingRadioGroup(
   count: number,
   activeIndex: number,
@@ -29,6 +35,7 @@ export function useRovingRadioGroup(
     else if (event.key === "End") next = count - 1;
     if (next === null) return;
     event.preventDefault();
+    event.stopPropagation();
     onSelect(next);
     refs.current[next]?.focus();
   }

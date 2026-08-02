@@ -6692,6 +6692,8 @@ body:has(.page-stage.is-fluid) {
   display: flex;
   align-items: center;
   gap: 5px;
+  /* WCAG 2.5.8: the 14px box alone is under the 24px target floor. */
+  min-height: 24px;
   font-size: 0.72rem;
   color: var(--muted-foreground);
   cursor: pointer;
@@ -7798,6 +7800,8 @@ body:has(.page-stage.is-fluid) {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  /* WCAG 2.5.8: the 14px box alone is under the 24px target floor. */
+  min-height: 24px;
   color: var(--muted-foreground);
   font-size: 0.72rem;
   cursor: pointer;
