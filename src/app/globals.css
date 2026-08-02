@@ -8150,6 +8150,157 @@ body:has(.page-stage.is-fluid) {
   }
 }
 
+/* ===== PICTURE Deck ===== */
+/* The PICTURE Deck reuses the CRAFT deck's flow/workbench/dock vocabulary
+   wholesale (a deliberate shared-language coupling recorded in
+   DESIGN_DIRECTION); the rules here cover only what is new — the Midjourney
+   parameter tail on the Execution panel. */
+
+.picture-deck-tail {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.picture-deck-tail-toggle {
+  margin: 0;
+}
+
+.picture-deck-tail-body {
+  display: grid;
+  gap: 0.75rem;
+  transition: opacity 160ms ease;
+}
+
+.picture-deck-tail-body.is-disabled {
+  opacity: 0.45;
+}
+
+.picture-deck-tail-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.picture-deck-ar-group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.picture-deck-ar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.picture-deck-ar-tab {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 4.25rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface-raised);
+  color: var(--text);
+  text-align: center;
+  cursor: pointer;
+}
+
+.picture-deck-ar-tab span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.picture-deck-ar-tab small {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.picture-deck-ar-tab:hover:not(:disabled) {
+  border-color: var(--brand-cyan);
+}
+
+.picture-deck-ar-tab.is-selected {
+  border-color: var(--brand-cyan);
+  box-shadow: inset 0 0 0 1px var(--brand-cyan);
+}
+
+.picture-deck-ar-tab.is-selected span {
+  color: var(--brand-cyan-text);
+}
+
+.picture-deck-ar-tab:disabled {
+  cursor: default;
+}
+
+.picture-deck-range-row {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr) 3.25rem auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.picture-deck-range-row label {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.picture-deck-range-row label strong {
+  font-size: 0.85rem;
+}
+
+.picture-deck-range-row label small {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.picture-deck-range-row output {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+.picture-deck-negative {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.picture-deck-negative > span {
+  display: grid;
+  gap: 0.05rem;
+}
+
+.picture-deck-negative > span strong {
+  font-size: 0.85rem;
+}
+
+.picture-deck-negative > span small {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+  .picture-deck-range-row,
+  .picture-deck-negative {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .picture-deck-range-row output {
+    text-align: left;
+  }
+}
+
 /* ============================================================
    Mobile tool gate (shell-level, registry-driven)
    Registry entries with mobileSupport: "gated" swap their stage

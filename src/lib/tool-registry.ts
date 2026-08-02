@@ -3,7 +3,8 @@ export type ToolId =
   | "architect-wizard"
   | "image-editor"
   | "vector-editor"
-  | "skills";
+  | "skills"
+  | "picture-deck";
 
 // The one "this is a phone" threshold. Kept byte-identical to the media query
 // that drives the mobile gate in globals.css ("Mobile tool gate" section):
@@ -96,6 +97,21 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
       "A curated library of AI skills — what each one does and how to install it.",
     href: "/tools/skills",
     fullBleed: false,
+  },
+  "picture-deck": {
+    id: "picture-deck",
+    name: "PICTURE Deck",
+    shortName: "PICTURE",
+    tagline:
+      "Compose image-generation prompts from P.I.C.T.U.R.E. cards — subject, light, medium, palette, world, references, finish.",
+    href: "/tools/picture-deck",
+    fullBleed: true,
+    mobileSupport: "gated",
+    mobileGateNotes: [
+      "Builds image-model prompts from P.I.C.T.U.R.E. card choices — lighting, medium, palette, world, references, and framing.",
+      "One Intensity dial tunes every equipped card from subtle to extreme; an optional Midjourney tail adds --ar and friends.",
+      "Drafts autosave in this browser; prompts copy and download as local files.",
+    ],
   },
 };
 

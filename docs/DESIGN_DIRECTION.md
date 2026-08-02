@@ -325,6 +325,34 @@ configurations locally; do not attempt to merge independent per-track memories.
 - Cyan remains the selected and focus color. The game reference changes
   structure and interaction, not the established Digi Tools palette.
 
+### PICTURE Deck
+
+The PICTURE Deck (tool id `picture-deck`) is the CRAFT Deck's sibling for
+image-generation prompts and deliberately reuses the same card language —
+flow panels, stepper, workbench, slots, tuning console, archetype rail, and
+output dock share their classes with the CRAFT deck rather than forking them.
+That coupling is intentional: the two decks must read as one family, and a
+future family-wide restyle (the Pip Decks-inspired direction the owner is
+considering) lands on both at once. Rules specific to this deck:
+
+- Seven letter panels (P.I.C.T.U.R.E.) plus the guide; the one required
+  input is the Subject line on Protagonist. Everything else is optional
+  stacking, so empty panels are a legitimate finished state.
+- Card faces show a real example swatch (generated from the card's authored
+  illustration prompt) once its image exists; until then the shared
+  initial-letter placeholder frame carries the card. Swatch art must follow
+  the no-text illustration rule and live under `/card-art/picture/`.
+- The merged prompt is ONE flowing line in Geist Mono — never sectioned
+  prose. The optional Midjourney tail renders as part of that line and
+  disappears entirely while the tail toggle is off; the base line stays
+  model-agnostic.
+- The Execution panel's tail fieldset is quiet chrome: checkbox toggle,
+  aspect-ratio radio tabs, three labeled ranges with an explicit Auto state,
+  and the --no exclude field. Disabled state dims the whole body (opacity)
+  rather than hiding controls, so the shape of the feature stays learnable.
+- New selectors are prefixed `picture-deck-`; shared classes are never
+  redefined inside the PICTURE Deck banner section.
+
 ## Motion
 
 Motion communicates state. Keep common transitions between 150ms and 200ms;

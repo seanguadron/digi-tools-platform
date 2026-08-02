@@ -7,6 +7,7 @@ const architectTool = TOOL_REGISTRY["architect-wizard"];
 const imageTool = TOOL_REGISTRY["image-editor"];
 const vectorTool = TOOL_REGISTRY["vector-editor"];
 const skillsTool = TOOL_REGISTRY["skills"];
+const pictureTool = TOOL_REGISTRY["picture-deck"];
 
 export default function HomePage() {
   const skillGroups = getSkillsByLayer();
@@ -210,6 +211,40 @@ Five prioritized findings with fixes.`}</code>
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section
+          className="home-feature"
+          id="pictures"
+          aria-labelledby="home-pictures-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">Tool 06 · PICTURE</span>
+            <h2 id="home-pictures-title">{pictureTool.name}</h2>
+            <p>{pictureTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Name a subject, then stack light, medium, and style cards.</li>
+              <li>One Intensity dial re-grades every card, subtle to extreme.</li>
+              <li>Optional Midjourney tail; copy or download the prompt.</li>
+            </ul>
+            <Link className="button button-primary" href={pictureTool.href}>
+              Open the PICTURE Deck
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>prompt.txt</span>
+              <span className="file-badge">IMAGE</span>
+            </div>
+            <pre>
+              <code>{`a lighthouse keeper reading
+by lamplight, oil painting,
+rain-swept night city, warm
+golden-hour glow, muted
+palette, wide establishing
+shot --ar 3:2 --stylize 250`}</code>
+            </pre>
           </div>
         </section>
       </div>

@@ -1,9 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import type { PromptSection } from "@/lib/prompt-builder-state";
 
 type CopyState = "idle" | "copied" | "error";
+
+// Structural section shape so both decks' section types fit (their key
+// unions differ; the dock only renders and copies them).
+type PromptSection = {
+  key: string;
+  heading: string;
+  label: string;
+  body: string;
+};
 
 export type MissingPromptItem = {
   field: string;
