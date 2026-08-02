@@ -3,7 +3,7 @@ import { PromptBuilder } from "@/components/prompt-builder";
 import { getPromptRoles } from "@/lib/prompt-content";
 
 export const metadata: Metadata = {
-  title: "Prompt Builder",
+  title: "CRAFT Deck",
   description:
     "Build a structured prompt for ChatGPT, Claude, or another language model.",
 };

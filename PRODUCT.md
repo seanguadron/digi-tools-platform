@@ -14,7 +14,8 @@ new script or hand-writing every file.
 
 Digi Tools is a local-first browser toolbox. Each tool helps the user shape a
 small artifact, inspect the result, and export it to their own machine. The
-first tool is a Prompt Builder for ChatGPT, Claude, and other language models.
+first tool is the CRAFT Deck, a prompt builder for ChatGPT, Claude, and other
+language models.
 
 Success means a user can move from a rough idea to a useful, portable prompt in
 one short session. The product does not require an account, database, or cloud

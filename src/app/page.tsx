@@ -34,7 +34,7 @@ export default function HomePage() {
           aria-labelledby="home-prompts-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 01 · Prompts</span>
+            <span className="tool-kicker">Tool 01 · CRAFT</span>
             <h2 id="home-prompts-title">{promptTool.name}</h2>
             <p>{promptTool.tagline}</p>
             <ul className="home-feature-points">
@@ -43,7 +43,7 @@ export default function HomePage() {
               <li>Copy, download, or share the finished prompt.</li>
             </ul>
             <Link className="button button-primary" href={promptTool.href}>
-              Open Prompt Builder
+              Open the CRAFT Deck
             </Link>
           </div>
           <div className="home-spec" aria-hidden="true">

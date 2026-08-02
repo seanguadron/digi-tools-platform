@@ -31,9 +31,9 @@ export interface ToolDescriptor {
 export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
   "prompt-builder": {
     id: "prompt-builder",
-    name: "Prompt Builder",
-    shortName: "Prompts",
-    tagline: "Turn a rough request into a clear, reusable model prompt.",
+    name: "CRAFT Deck",
+    shortName: "CRAFT",
+    tagline: "Turn a rough request into a clear, reusable language-model prompt.",
     href: "/tools/prompt-builder",
     fullBleed: true,
     mobileSupport: "gated",

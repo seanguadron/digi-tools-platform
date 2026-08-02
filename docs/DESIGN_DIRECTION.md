@@ -6,7 +6,7 @@
 
 Digi Tools is a working cockpit, not a public marketing showcase. The welcome
 page should explain the product quickly, then move the user into a real tool.
-The Prompt Builder should feel useful on first load and remain clear at narrow
+The CRAFT Deck should feel useful on first load and remain clear at narrow
 viewport widths.
 
 ## References
@@ -103,9 +103,10 @@ usable without horizontal page scrolling.
   when it changes the user's decision.
 - The live prompt preview uses Geist Mono and preserves whitespace.
 
-### Prompt Builder card system
+### CRAFT Deck card system
 
-The Prompt Builder uses an original collectible-card interaction inspired by
+The CRAFT Deck (tool id `prompt-builder`) uses an original collectible-card
+interaction inspired by
 the structure of Fallout 76 perk management: category tabs, tall role cards,
 an ordered role loadout, and an inspection panel that appears beside the active
 card. It does not copy Fallout illustrations, typography, names, colors, or

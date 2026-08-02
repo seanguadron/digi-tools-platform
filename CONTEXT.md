@@ -1,7 +1,8 @@
-# Digi Tools Prompt Builder
+# Digi Tools CRAFT Deck
 
-The Prompt Builder helps a person assemble a portable C.R.A.F.T. prompt from
-explicit choices rather than asking a model to infer the missing brief.
+The CRAFT Deck (tool id `prompt-builder`) helps a person assemble a portable
+C.R.A.F.T. prompt from explicit choices rather than asking a model to infer
+the missing brief.
 
 ## Language
 

@@ -1,6 +1,6 @@
 # CRAFT Prompt Technique
 
-CRAFT is the organizing method used by the Digi Tools Prompt Builder. It turns a
+CRAFT is the organizing method used by the Digi Tools CRAFT Deck. It turns a
 rough request into five explicit sections that a language model can follow.
 
 ## Context
@@ -79,7 +79,7 @@ Useful audience details include:
 
 ## Assembly Rules
 
-The Prompt Builder assembles sections in this order:
+The CRAFT Deck assembles sections in this order:
 
 1. CONTEXT
 2. ROLE

@@ -1,6 +1,7 @@
-# Prompt Builder Data
+# CRAFT Deck Data
 
-This directory is the editable source of truth for the Prompt Builder catalog.
+This directory is the editable source of truth for the CRAFT Deck catalog
+(tool id `prompt-builder` — the directory keeps the id name).
 Application behavior remains in `src/lib`; these files contain only declarative
 content and configuration.
 
