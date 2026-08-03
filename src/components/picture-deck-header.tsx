@@ -20,11 +20,13 @@ export function PictureDeckHeader({
   onUndo,
   onRedo,
   onContinue,
+  proofLabOpen,
   onExportSession,
   onImportSession,
   onLoadExample,
   onOpenLibrary,
   onCopyShareLink,
+  onOpenProofLab,
   onReset,
 }: {
   saveStatus: SaveStatus;
@@ -36,11 +38,13 @@ export function PictureDeckHeader({
   onUndo: () => void;
   onRedo: () => void;
   onContinue: () => void;
+  proofLabOpen: boolean;
   onExportSession: () => void;
   onImportSession: (event: ChangeEvent<HTMLInputElement>) => void;
   onLoadExample: () => void;
   onOpenLibrary: () => void;
   onCopyShareLink: () => void;
+  onOpenProofLab: () => void;
   onReset: () => void;
 }) {
   const toolsMenuRef = useRef<HTMLDetailsElement | null>(null);
@@ -122,6 +126,14 @@ export function PictureDeckHeader({
             </button>
             <button type="button" onClick={() => runTool(onCopyShareLink)}>
               Copy share link
+            </button>
+            <button
+              type="button"
+              onClick={() => runTool(onOpenProofLab)}
+              aria-expanded={proofLabOpen}
+              aria-controls="picture-proof-lab"
+            >
+              Proof Lab
             </button>
             <button type="button" onClick={() => runTool(onReset)}>
               Reset

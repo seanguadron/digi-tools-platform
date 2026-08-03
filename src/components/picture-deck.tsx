@@ -10,6 +10,10 @@ import type { PictureDictationField } from "@/components/picture-flow-panels";
 import type { DictationApi } from "@/components/prompt-builder-ui";
 import { PromptLibraryPanel } from "@/components/prompt-library-panel";
 import { PromptOutputDock } from "@/components/prompt-output-dock";
+import {
+  PromptProofLab,
+  ProofScenarioStatus,
+} from "@/components/prompt-proof-lab";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePictureDeckHistory } from "@/hooks/use-picture-deck-history";
 import { usePictureDeckPersistence } from "@/hooks/use-picture-deck-persistence";
@@ -21,7 +25,13 @@ import { PICTURE_ARCHETYPES } from "@/lib/picture-archetypes";
 import {
   getEquippedFragments,
   pictureCardEngine,
+  PICTURE_TRACK_IDS,
 } from "@/lib/picture-card-system";
+import {
+  PICTURE_PROOF_BASE_DRAFT,
+  PICTURE_PROOF_SCENARIOS,
+} from "@/lib/picture-proof-scenarios";
+import type { PictureProofScenario } from "@/lib/picture-proof-scenarios";
 import {
   buildCustomPictureArchetype,
   deleteCustomPictureArchetype,
@@ -93,6 +103,8 @@ export function PictureDeck() {
   );
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [savedPrompts, setSavedPrompts] = useState<SavedPicturePrompt[]>([]);
+  const [proofLabOpen, setProofLabOpen] = useState(false);
+  const [activeProofId, setActiveProofId] = useState<string | null>(null);
   // The library name the current draft was loaded from or saved as; feeds the
   // download filename when no archetype is active.
   const [activePromptName, setActivePromptName] = useState<string | null>(
@@ -210,6 +222,9 @@ export function PictureDeck() {
           ) ?? null)
         : null,
     [activeArchetypeId, customArchetypes],
+  );
+  const activeProof = PICTURE_PROOF_SCENARIOS.find(
+    (scenario) => scenario.id === activeProofId,
   );
   // Best available name for exports: archetype, then the library name the
   // draft came from, then the subject line.
@@ -406,6 +421,8 @@ export function PictureDeck() {
     setDraft((current) => applyTailPreset(current, archetype.mjTail));
     setActiveArchetypeId(archetype.id);
     setActivePromptName(null);
+    setActiveProofId(null);
+    setProofLabOpen(false);
     setCopyState("idle");
     setSpeechMessage(
       `${archetype.name} archetype applied. Your subject stayed in place.`,
@@ -448,6 +465,7 @@ export function PictureDeck() {
       setCardSystem(nextCardSystem);
       setActiveArchetypeId(null);
       setActivePromptName(null);
+      setActiveProofId(null);
       setCopyState("idle");
       setSpeechMessage("Session imported.");
     } catch {
@@ -488,6 +506,7 @@ export function PictureDeck() {
     );
     setActiveArchetypeId(null);
     setActivePromptName(entry.name);
+    setActiveProofId(null);
     setLibraryOpen(false);
     setCopyState("idle");
     setSpeechMessage(`Loaded "${entry.name}".`);
@@ -497,6 +516,38 @@ export function PictureDeck() {
     setSavedPrompts(deleteFromPictureLibrary(id));
   }
 
+  function loadProofScenario(scenario: PictureProofScenario) {
+    history.checkpoint();
+    cancelDictation(true);
+    setDraft({
+      ...EMPTY_PICTURE_DRAFT,
+      ...PICTURE_PROOF_BASE_DRAFT,
+      ...scenario.draft,
+    });
+    setCardSystem({
+      tracks: {
+        ...pictureCardEngine.defaultTrackValues,
+        ...scenario.tracks,
+      },
+      equipped: pictureCardEngine.createEquippedSlots(scenario.equipped),
+      memory: pictureCardEngine.createEmptySnapMemory(),
+      overrides: PICTURE_TRACK_IDS.filter(
+        (trackId) => scenario.tracks?.[trackId] !== undefined,
+      ),
+      suggested: pictureCardEngine.createEmptySuggestedCards(),
+    });
+    setActiveArchetypeId(null);
+    setActivePromptName(null);
+    setActiveProofId(scenario.id);
+    setProofLabOpen(false);
+    setOutputExpanded(true);
+    setCopyState("idle");
+    setSpeechMessage(
+      `${scenario.name} proof loaded. Follow the verification checklist.`,
+    );
+    nav.navigateToPanel(scenario.panel);
+  }
+
   function resetDeck() {
     history.checkpoint();
     cancelDictation(true);
@@ -504,6 +555,7 @@ export function PictureDeck() {
     setCardSystem(createPictureCardSystem());
     setActiveArchetypeId(null);
     setActivePromptName(null);
+    setActiveProofId(null);
     nav.setActivePanel(PICTURE_PANEL_INDEX.guide);
     setCopyState("idle");
     setSpeechMessage("");
@@ -525,6 +577,7 @@ export function PictureDeck() {
     });
     setActiveArchetypeId(null);
     setActivePromptName(null);
+    setActiveProofId(null);
     setCopyState("idle");
     setSpeechMessage("Example loaded: a lighthouse keeper, five cards, tail on.");
   }
@@ -621,7 +674,21 @@ export function PictureDeck() {
         onLoadExample={loadExample}
         onOpenLibrary={() => setLibraryOpen(true)}
         onCopyShareLink={copyShareLink}
+        proofLabOpen={proofLabOpen}
+        onOpenProofLab={() => {
+          setProofLabOpen(true);
+          setOutputExpanded(false);
+        }}
         onReset={resetDeck}
+      />
+
+      <PromptProofLab
+        open={proofLabOpen}
+        activeProofId={activeProofId}
+        scenarios={PICTURE_PROOF_SCENARIOS}
+        id="picture-proof-lab"
+        onClose={() => setProofLabOpen(false)}
+        onLoad={loadProofScenario}
       />
 
       <PromptLibraryPanel
@@ -693,6 +760,10 @@ export function PictureDeck() {
         />
 
         <div className="flow-workspace">
+          <ProofScenarioStatus
+            scenario={activeProof}
+            onDismiss={() => setActiveProofId(null)}
+          />
           <form
             className="builder-form flow-form"
             aria-label="P.I.C.T.U.R.E. image prompt brief"
