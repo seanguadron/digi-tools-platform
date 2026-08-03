@@ -8163,7 +8163,7 @@ body:has(.page-stage.is-fluid) {
   padding: 0.85rem;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: var(--surface);
+  background: var(--card);
 }
 
 .picture-deck-tail-toggle {
@@ -8173,10 +8173,23 @@ body:has(.page-stage.is-fluid) {
 .picture-deck-tail-body {
   display: grid;
   gap: 0.75rem;
+}
+
+.picture-deck-tail-body .picture-deck-ar-tab,
+.picture-deck-tail-body input,
+.picture-deck-tail-body output,
+.picture-deck-tail-body .button {
   transition: opacity 160ms ease;
 }
 
-.picture-deck-tail-body.is-disabled {
+/* Disabled tail: dim only the CONTROLS (inactive components, so the 0.45 is
+   WCAG-exempt) while the labels keep full-opacity --muted-foreground
+   (8.4:1 light / 7.2:1 dark on --card) so the shape of the feature stays
+   learnable. Whole-body dimming measured the muted labels at 2.2:1. */
+.picture-deck-tail-body.is-disabled .picture-deck-ar-tab,
+.picture-deck-tail-body.is-disabled input,
+.picture-deck-tail-body.is-disabled output,
+.picture-deck-tail-body.is-disabled .button {
   opacity: 0.45;
 }
 
@@ -8185,7 +8198,7 @@ body:has(.page-stage.is-fluid) {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--muted-foreground);
 }
 
 .picture-deck-ar-group {
@@ -8206,8 +8219,8 @@ body:has(.page-stage.is-fluid) {
   padding: 0.4rem 0.6rem;
   border: 1px solid var(--border);
   border-radius: 10px;
-  background: var(--surface-raised);
-  color: var(--text);
+  background: var(--muted);
+  color: var(--foreground);
   text-align: center;
   cursor: pointer;
 }
@@ -8220,7 +8233,7 @@ body:has(.page-stage.is-fluid) {
 
 .picture-deck-ar-tab small {
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--muted-foreground);
 }
 
 .picture-deck-ar-tab:hover:not(:disabled) {
@@ -8259,7 +8272,12 @@ body:has(.page-stage.is-fluid) {
 .picture-deck-range-row label small {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--muted-foreground);
+}
+
+/* WCAG 2.5.8: the bare range box alone is under the 24px target floor. */
+.picture-deck-range-row input[type="range"] {
+  min-height: 24px;
 }
 
 .picture-deck-range-row output {
@@ -8287,7 +8305,7 @@ body:has(.page-stage.is-fluid) {
 .picture-deck-negative > span small {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.68rem;
-  color: var(--text-muted);
+  color: var(--muted-foreground);
 }
 
 @media (max-width: 900px) {

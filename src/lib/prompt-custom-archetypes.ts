@@ -30,7 +30,11 @@ function isStoredArchetypeShape(entry: unknown): entry is PromptArchetype {
     typeof candidate.description === "string" &&
     typeof candidate.formatCode === "string" &&
     Array.isArray(candidate.roleIds) &&
+    (candidate.equipped === undefined ||
+      (typeof candidate.equipped === "object" &&
+        candidate.equipped !== null)) &&
     Array.isArray(candidate.effects) &&
+    candidate.effects.every((effect) => typeof effect === "string") &&
     typeof candidate.illustration === "object" &&
     candidate.illustration !== null &&
     (candidate.action === undefined || typeof candidate.action === "string") &&

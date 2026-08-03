@@ -85,6 +85,24 @@ function restoredAspectRatio(value: unknown) {
     : EMPTY_PICTURE_DRAFT.aspectRatio;
 }
 
+const TAIL_NUMBER_RANGES = {
+  stylize: STYLIZE_RANGE,
+  chaos: CHAOS_RANGE,
+  weird: WEIRD_RANGE,
+} as const;
+
+export type TailNumberField = keyof typeof TAIL_NUMBER_RANGES;
+
+// The ONE enforcement point for tail numbers: the UI setter routes through
+// this exactly like every restore path, so no caller can put an out-of-range
+// or non-finite value into the draft.
+export function clampTailValue(
+  field: TailNumberField,
+  value: number | null,
+): number | null {
+  return restoredTailNumber(value, TAIL_NUMBER_RANGES[field]);
+}
+
 // Apply an archetype's tail preset onto the draft: enables the tail, clamps
 // every number it carries, and resets numbers it omits so the preset is
 // deterministic. The negative field is only replaced when the preset carries
@@ -116,9 +134,11 @@ export function applyTailPreset(
 
 // Coerce field-by-field: this path restores autosave, URL shares, imported
 // session files, and library entries, so a tampered payload must degrade to
-// defaults, not leak arbitrary shapes into the draft.
+// defaults, not leak arbitrary shapes into the draft. A literal JSON null
+// degrades the same way instead of throwing on property access.
 export function restorePictureDraft(value: string): PictureDraft {
-  const parsed = JSON.parse(value) as Partial<PictureDraft>;
+  const raw = JSON.parse(value) as Partial<PictureDraft> | null;
+  const parsed = typeof raw === "object" && raw !== null ? raw : {};
 
   return {
     subject: restoredString(parsed.subject, EMPTY_PICTURE_DRAFT.subject),
@@ -135,7 +155,8 @@ export function restorePictureDraft(value: string): PictureDraft {
 }
 
 export function restorePictureCardSystem(value: string): PictureCardSystemState {
-  const restored = JSON.parse(value) as Partial<PictureCardSystemState>;
+  const raw = JSON.parse(value) as Partial<PictureCardSystemState> | null;
+  const restored = typeof raw === "object" && raw !== null ? raw : {};
 
   // Sanitize against the current catalog so stale saves (removed cards,
   // out-of-range values) degrade gracefully instead of ghost-slotting.

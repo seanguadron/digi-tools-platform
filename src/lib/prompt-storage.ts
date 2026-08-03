@@ -17,6 +17,17 @@ export function readStored<T>(key: string, fallback: T): T {
   }
 }
 
+// For list-shaped keys (favorites, id lists): localStorage is user-editable,
+// so the parsed value must be filtered to a real string array — a tampered
+// value like `null` or `{}` degrades to the sound subset instead of putting
+// non-array state into a component.
+export function readStoredStringArray(key: string): string[] {
+  const entries = readStored<unknown>(key, []);
+  return Array.isArray(entries)
+    ? entries.filter((entry): entry is string => typeof entry === "string")
+    : [];
+}
+
 export function writeStored(key: string, value: unknown): void {
   if (typeof window === "undefined") {
     return;

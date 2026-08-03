@@ -56,6 +56,7 @@ import {
 } from "@/lib/picture-deck-state";
 import {
   applyTailPreset,
+  clampTailValue,
   createPictureCardSystem,
   draftTail,
   EMPTY_PICTURE_DRAFT,
@@ -343,7 +344,9 @@ export function PictureDeck() {
     history.checkpoint();
     setActiveArchetypeId(null);
     setCopyState("idle");
-    setDraft((current) => ({ ...current, [field]: value }));
+    // Clamped here too, not just on restore, so the UI setter shares the
+    // same enforcement point as every load path.
+    setDraft((current) => ({ ...current, [field]: clampTailValue(field, value) }));
   }
 
   function changeTrack(
@@ -494,22 +497,29 @@ export function PictureDeck() {
   }
 
   function loadSavedPrompt(entry: SavedPicturePrompt) {
-    history.checkpoint();
-    cancelDictation(true);
     // Restore through the same validators as autosave, URL shares, and
     // session imports: the library store is shape-filtered on read, but the
     // field types inside draft/cardSystem are still unchecked JSON — a
-    // hand-edited entry must degrade to defaults, not crash.
-    setDraft(restorePictureDraft(JSON.stringify(entry.draft ?? {})));
-    setCardSystem(
-      restorePictureCardSystem(JSON.stringify(entry.cardSystem ?? {})),
-    );
-    setActiveArchetypeId(null);
-    setActivePromptName(entry.name);
-    setActiveProofId(null);
-    setLibraryOpen(false);
-    setCopyState("idle");
-    setSpeechMessage(`Loaded "${entry.name}".`);
+    // hand-edited entry must degrade to defaults, not crash. The try/catch
+    // is defense in depth for the same reason.
+    try {
+      const nextDraft = restorePictureDraft(JSON.stringify(entry.draft ?? {}));
+      const nextCardSystem = restorePictureCardSystem(
+        JSON.stringify(entry.cardSystem ?? {}),
+      );
+      history.checkpoint();
+      cancelDictation(true);
+      setDraft(nextDraft);
+      setCardSystem(nextCardSystem);
+      setActiveArchetypeId(null);
+      setActivePromptName(entry.name);
+      setActiveProofId(null);
+      setLibraryOpen(false);
+      setCopyState("idle");
+      setSpeechMessage(`Loaded "${entry.name}".`);
+    } catch {
+      setSpeechMessage(`"${entry.name}" could not be loaded.`);
+    }
   }
 
   function removeSavedPrompt(id: string) {
@@ -654,7 +664,7 @@ export function PictureDeck() {
   };
 
   return (
-    <div className="tool-page prompt-flow-page picture-deck-page">
+    <div className="tool-page prompt-flow-page">
       <PictureDeckHeader
         saveStatus={persistence.status}
         lastSavedAt={persistence.lastSavedAt}
@@ -746,8 +756,8 @@ export function PictureDeck() {
       <div
         className={
           outputExpanded
-            ? "builder-main-layout picture-deck-layout"
-            : "builder-main-layout picture-deck-layout is-output-collapsed"
+            ? "builder-main-layout"
+            : "builder-main-layout is-output-collapsed"
         }
       >
         <PictureArchetypeToolbar

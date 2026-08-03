@@ -36,8 +36,14 @@ export function serializePictureSession(
 }
 
 export function restorePictureSession(value: string) {
-  const parsed = JSON.parse(value) as Partial<PictureSession>;
-  if (parsed.tool !== "picture-deck" || !parsed.draft || !parsed.cardSystem) {
+  const parsed = JSON.parse(value) as Partial<PictureSession> | null;
+  if (
+    typeof parsed !== "object" ||
+    parsed === null ||
+    parsed.tool !== "picture-deck" ||
+    !parsed.draft ||
+    !parsed.cardSystem
+  ) {
     throw new Error("Not a PICTURE Deck session.");
   }
 

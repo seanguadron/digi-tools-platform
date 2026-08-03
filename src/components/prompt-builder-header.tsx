@@ -58,7 +58,7 @@ export function PromptBuilderHeader({
   }
 
   return (
-    <ToolSubbar>
+    <ToolSubbar className="prompt-builder-subbar">
       <ToolSubbarTitle kicker="C.R.A.F.T. Prompt Deck" heading="Build a prompt.">
         <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
       </ToolSubbarTitle>

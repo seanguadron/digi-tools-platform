@@ -11,6 +11,11 @@ import type { PromptRole } from "@/lib/prompt-types";
 
 type PromptSession = {
   version: 1;
+  // Discriminator mirroring picture-session.ts: a PICTURE Deck payload
+  // imported here must fail loudly instead of silently defaulting every
+  // CRAFT field. Optional because legacy CRAFT links and files carry no
+  // tag — only a PRESENT foreign tag is rejected.
+  tool?: "craft-deck";
   exportedAt: string;
   draft: PromptDraft;
   cardSystem: CardSystemState;
@@ -22,6 +27,7 @@ export function serializePromptSession(
 ) {
   const session: PromptSession = {
     version: 1,
+    tool: "craft-deck",
     exportedAt: new Date().toISOString(),
     draft,
     cardSystem,
@@ -31,8 +37,14 @@ export function serializePromptSession(
 }
 
 export function restorePromptSession(value: string, roles: PromptRole[]) {
-  const parsed = JSON.parse(value) as Partial<PromptSession>;
-  if (!parsed.draft || !parsed.cardSystem) {
+  const parsed = JSON.parse(value) as Partial<PromptSession> | null;
+  if (
+    typeof parsed !== "object" ||
+    parsed === null ||
+    (parsed.tool !== undefined && parsed.tool !== "craft-deck") ||
+    !parsed.draft ||
+    !parsed.cardSystem
+  ) {
     throw new Error("Missing session data.");
   }
 

@@ -249,12 +249,16 @@ export function createCardEngine<
   }
 
   function createEquippedSlots(
-    values: Partial<Record<S, readonly string[]>> = {},
+    values: Partial<Record<S, readonly string[]>> | null = {},
   ): EquippedCardsOf<S> {
+    // ?? {} rather than a default parameter: stored presets are user-editable
+    // JSON, so a literal null must degrade like undefined instead of throwing
+    // one expression before the sanitizer gets to run.
+    const source: Partial<Record<S, readonly string[]>> = values ?? {};
     return sections.reduce((result, section) => {
       result[section] = Array.from(
         { length: slotBudgets[section] },
-        (_, slotIndex) => values[section]?.[slotIndex] ?? "",
+        (_, slotIndex) => source[section]?.[slotIndex] ?? "",
       );
       return result;
     }, createEmptyEquippedCards());

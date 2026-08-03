@@ -467,7 +467,7 @@ export function PictureFlowPanels({
                 onSetNumber={onSetTailNumber}
               />
 
-              <label className="picture-deck-negative">
+              <label className="field picture-deck-negative">
                 <span>
                   <strong>Exclude</strong>
                   <small>--no</small>

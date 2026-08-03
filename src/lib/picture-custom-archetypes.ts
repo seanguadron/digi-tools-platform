@@ -35,7 +35,11 @@ function isStoredArchetypeShape(entry: unknown): entry is PictureArchetype {
     typeof candidate.description === "string" &&
     typeof candidate.tracks === "object" &&
     candidate.tracks !== null &&
+    (candidate.equipped === undefined ||
+      (typeof candidate.equipped === "object" &&
+        candidate.equipped !== null)) &&
     Array.isArray(candidate.effects) &&
+    candidate.effects.every((effect) => typeof effect === "string") &&
     typeof candidate.illustration === "object" &&
     candidate.illustration !== null &&
     (candidate.mjTail === undefined ||

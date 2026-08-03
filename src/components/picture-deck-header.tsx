@@ -58,7 +58,7 @@ export function PictureDeckHeader({
   }
 
   return (
-    <ToolSubbar>
+    <ToolSubbar className="picture-deck-subbar">
       <ToolSubbarTitle
         kicker="P.I.C.T.U.R.E. Image Deck"
         heading="Build an image prompt."

@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import { isCustomArchetype } from "@/lib/prompt-custom-archetypes";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
-import { readStored, writeStored } from "@/lib/prompt-storage";
+import { readStoredStringArray, writeStored } from "@/lib/prompt-storage";
 import type { PromptArchetype } from "@/lib/prompt-archetypes";
 import type { PromptRole } from "@/lib/prompt-types";
 
@@ -37,12 +38,11 @@ export function PromptArchetypeToolbar({
   const [favorites, setFavorites] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [presetName, setPresetName] = useState("");
-  const portalTarget =
-    typeof document === "undefined" ? null : document.body;
+  const portalTarget = usePortalTarget();
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      setFavorites(readStored<string[]>(FAVORITES_KEY, []));
+      setFavorites(readStoredStringArray(FAVORITES_KEY));
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
@@ -65,8 +65,8 @@ export function PromptArchetypeToolbar({
         .filter((name): name is string => Boolean(name))
     : [];
   const previewCardCount = previewArchetype
-    ? Object.values(previewArchetype.equipped).reduce(
-        (total, cardIds) => total + cardIds.length,
+    ? Object.values(previewArchetype.equipped ?? {}).reduce(
+        (total, cardIds) => total + (cardIds?.length ?? 0),
         0,
       )
     : 0;

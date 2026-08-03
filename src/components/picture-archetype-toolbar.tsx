@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
 import { isCustomPictureArchetype } from "@/lib/picture-custom-archetypes";
-import { readStored, writeStored } from "@/lib/prompt-storage";
+import { readStoredStringArray, writeStored } from "@/lib/prompt-storage";
 import type { PictureArchetype } from "@/lib/picture-types";
 
 const FAVORITES_KEY = "digitools.picture-deck.favorites-v1";
@@ -51,12 +52,11 @@ export function PictureArchetypeToolbar({
   const [favorites, setFavorites] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [presetName, setPresetName] = useState("");
-  const portalTarget =
-    typeof document === "undefined" ? null : document.body;
+  const portalTarget = usePortalTarget();
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
-      setFavorites(readStored<string[]>(FAVORITES_KEY, []));
+      setFavorites(readStoredStringArray(FAVORITES_KEY));
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
@@ -71,7 +71,7 @@ export function PictureArchetypeToolbar({
     (archetype) => archetype.id === previewId,
   );
   const previewCardCount = previewArchetype
-    ? Object.values(previewArchetype.equipped).reduce(
+    ? Object.values(previewArchetype.equipped ?? {}).reduce(
         (total, cardIds) => total + (cardIds?.length ?? 0),
         0,
       )
