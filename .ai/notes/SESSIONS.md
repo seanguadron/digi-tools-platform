@@ -5,6 +5,107 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-08-02: The PICTURE Deck — second card deck, CRAFT rename, shared card engine
+
+**Context.** The owner's dictated brief for a sibling deck to the Prompt
+Builder — for image/diffusion-model prompts — went through three
+`AskUserQuestion` rounds (branding; the PICTURE-letter mapping plus
+depth/scope; output format plus swatch strategy) before any code landed,
+then built end-to-end in one session: ten commits (`e54d3dc..fa577a4`)
+spanning the shared-engine extraction (`e59043c`), the CRAFT
+display-rename (`056d80d`), the PICTURE data pipeline and seed catalog
+(`65002f9`), and the tool skeleton (`8917ace`) — with all three judgment
+gates run and their findings discharged the same day.
+
+**Decisions.**
+- Deck family is ACRONYM-BRANDED: Prompt Builder display-renamed to
+  "CRAFT Deck" (nav "CRAFT"); the new tool is the "PICTURE Deck" (nav
+  "PICTURE"). Ids, routes, and storage keys deliberately kept as
+  `prompt-builder`/`picture-deck` — the rename is presentation-only, with
+  zero migration risk to existing saved data.
+- P.I.C.T.U.R.E. = Protagonist, Illumination, Canvas, Tone, Universe,
+  References, Execution — chosen over FRAME/PRISM/STAGE for two reasons:
+  a literal S.P.E.C.I.A.L. parallel (7 letters) and a 1:1 match to
+  Midjourney's own published prompt anatomy.
+- "PEP decks," from the owner's original dictated request, resolved to
+  **Pip Decks** (pipdecks.com) — the owner's stated north star for a
+  universal card-crafting family of AI tools, with an idea-making deck
+  floated as a future sibling. A family-wide Pip-influenced restyle was
+  explicitly DEFERRED: v1 PICTURE stays visually consistent with the
+  existing CRAFT card language, recorded in a new PICTURE Deck subsection
+  of `docs/DESIGN_DIRECTION.md`.
+- Output strategy: a model-agnostic one-line prompt plus an optional,
+  toggleable Midjourney parameter tail (`--ar`/`--stylize`/`--chaos`/
+  `--weird`/`--no`); multi-model formatters (e.g. Stable Diffusion
+  negative-prompt syntax) deferred.
+- Scope favored breadth over per-card grade depth: ONE Intensity track
+  (Subtle/Bold/Extreme) at 3 grades per card, one swatch per LINEAGE
+  rather than per grade, but the full catalog (100 lineages, 18
+  archetypes) ships with every CRAFT feature extra from day one —
+  library, share, sessions, dictation, proof lab.
+- Card swatches are REAL generated images, not illustration placeholders:
+  the owner batch-generates them from a new
+  `docs/PICTURE_ART_MANIFEST.md` (118 prompts, priority-ordered,
+  drift-checked against the catalog); the existing `illustration.status`
+  convention gates rendering until each swatch actually lands.
+- Card stacking uses per-section slot budgets, with References set
+  highest at 4 slots.
+
+**Learnings.**
+- The extraction pattern worked end-to-end: a `createCardEngine` factory
+  built from verbatim code moves plus a byte-compatible adapter export
+  surface meant `prompt-builder.tsx` compiled UNCHANGED after the
+  extraction, and writing `scripts/card-engine.test.mjs` BEFORE the move
+  locked the semantics being preserved. The alias-free constraint (no
+  imports; a private twin of `insertIntoSlots`) is what keeps engine
+  logic testable under the plain node runner.
+- One plan claim didn't survive contact with the compiler: "the dictation
+  hook call site compiles unchanged" — generic inference widened `F` from
+  the draft object; fixed with `NoInfer<Record<F, string>>` on the draft
+  param. Worth a habitual check on any future generic-with-default hook.
+- Forking the CRAFT archetype toolbar for PICTURE REPRODUCED two latent
+  bugs into a second surface — an unvalidated favorites-v1 read, and a
+  shape check that ignored equipped/effects — both caught by the gates
+  and fixed in BOTH decks. Fork-small copies bugs, not just code.
+- The design gate caught four UNDEFINED CSS custom properties
+  (`--surface`, `--text-muted`, etc.) that silently resolved to
+  transparent/inherited instead of erroring — invented token names, not
+  this system's real ones (`--card`, `--muted-foreground`). New-surface
+  CSS needs to be written against the actual `:root` inventory, not
+  assumed names.
+- Disabled-state design: whole-body opacity dimming measured muted labels
+  at 2.2:1; the fix satisfying both "quiet chrome" and legibility is
+  control-only dimming with full-opacity muted labels (measured 8.4:1
+  light / 7.2:1 dark) — contrast verified with the same OKLCH→sRGB method
+  as `lib/vector-editor/overlay-palette.ts` (2026-07-29 entry).
+- Cross-tool session safety needs both directions, not one: the new deck
+  shipped a `tool` discriminator on its session payload from day one, and
+  the security gate then required the REVERSE check too — CRAFT now tags
+  its own payloads `"craft-deck"` and rejects a present-but-foreign tag,
+  while staying lenient toward its own legacy tag-less files.
+
+**Gates.** All three ran and were discharged same-day; reports in
+`.ai/notes/gate-reports/2026-08-02-*-picture-deck.md`. Findings are
+folded into Learnings above rather than restated.
+
+**Preferences / proposed amendments (need owner consent).**
+- Session/share payloads should carry a `tool` discriminator in BOTH
+  directions as a rule for every future deck/tool, not just the newest
+  one — generalizing this session's cross-tool finding (Learnings,
+  above) past PICTURE/CRAFT specifically. (proposed amendment, needs the
+  owner's consent)
+- A shared length ceiling for free-text draft fields, applied across both
+  decks (and future ones) rather than per-field. (proposed amendment,
+  needs the owner's consent)
+- Generalize STANDARDS §2.2's generated-doc drift rule beyond
+  `PROMPT_ROLES.md` so `PICTURE_ART_MANIFEST.md`'s drift check (already
+  living inside `data:validate`, not yet named by the rule text) is
+  explicitly covered by the same rule. (proposed amendment, needs the
+  owner's consent)
+
+The `readStored<T[]>` shape-validation flag is reinforced in the
+2026-07-28 entry (first act), not repeated here.
+
 ## 2026-07-29: Gate-debt discharge + a11y sweep
 
 **Context.** The owner's instruction covered three open items at once —
@@ -183,7 +284,12 @@ the owner picked the recommended option every time.
   UI state (prompt-library, prompt-custom-archetypes, and future ones)
   should pair with a shape-validating restore mirroring
   `restoreDraft`/`restoreCardSystem` — `Array.isArray` alone is not §2.3
-  compliance. (proposed amendment, needs the owner's consent)
+  compliance. **Reinforced 2026-08-02:** forking the CRAFT archetype
+  toolbar into the new PICTURE Deck reproduced the same unvalidated
+  favorites-v1 read in a second surface (fixed in both decks); the fix
+  now points at a concrete shared helper — generalize
+  `readStoredStringArray` into `readStoredArray(key, isShape)` — rather
+  than a per-list guard. (proposed amendment, needs the owner's consent)
 - Sean answers batched option questions decisively — all four
   recommendations accepted this session, continuing the standing
   clarify-to-95%-confidence pattern.

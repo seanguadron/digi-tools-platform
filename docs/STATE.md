@@ -9,245 +9,167 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-07-28 (end of the marathon "defaults rework + full
-vector/image roadmap" session).
+Last rewritten: 2026-08-02 (end of the "PICTURE Deck" session).
 
 ## Now
 
-Branch **`main`**, working tree clean, six commits from this one session —
-the ENTIRE owner-approved `docs/ROADMAP.md` program is built and committed:
+Branch **`main`**, working tree clean apart from this rewrite's own commit.
+Ten commits this session built and gated the ENTIRE approved plan
+(`C:\Users\seang\.claude\plans\now-very-similar-to-lovely-cookie.md`): a
+sixth tool — the **PICTURE Deck**, an image/diffusion-model prompt builder —
+plus the display rename of the Prompt Builder to **CRAFT Deck** and the
+extraction of a shared card engine that now powers both decks (and any
+future deck; the owner's long-term vision is a Pip-Decks-style universal
+card-crafting family, next candidate: an idea-making deck).
 
-1. `58e53f1` **Prompt Builder defaults rework** — recyclable use-default
-   MDs (checked-by-default boxes, archetype-authored audience defaults),
-   6-panel merge, dictation-meter + dock-collapse fixes, best-name
-   downloads. Fully gate-passed (3 agents ran; ledger
-   `2026-07-28-*-prompt-builder-defaults.md`).
-2. `140aedb` **docs/ROADMAP.md** — the program + four owner decisions.
-3. `323a553` **V1 vector path core** — pen (P), white arrow (A), four
-   anchor types + convert control, shapes→paths, multi-select/marquee,
-   EditorMenubar, artboard-pinned overlay tokens. Fully gate-passed
-   (`2026-07-28-*-vector-path-core.md`).
-4. `84eada7` **I1 image precision** — confirm-stage crop (handles, thirds,
-   numeric X/Y/W/H, aspect presets, keyboard seed, size-ceiling gated),
-   Canvas-size dialog (anchor grid), Photoshop-style Image-size
-   (units/PPI/resample/interpolation), `ImageDoc.ppi`, shared
-   `src/lib/units.ts`. Fully gate-passed (`2026-07-28-*-image-precision.md`).
-5. `e5dac08` **V2 vector point text** — Type tool with WYSIWYG in-place
-   overlay editing, curated font catalog (validated names), `sanitizeText`
-   single enforcement point. Security + design gates passed with findings
-   applied; **integration agent BLOCKED mid-run by the provider's monthly
-   subagent spend limit** (`2026-07-28-*-vector-text.md`).
-6. `3cc425e` **V3 vector documents/units/export** and (the commit carrying
-   this rewrite) **I2 image export/new-doc** — artboard setup dialog +
-   per-doc unit/PPI + unit-aware statusbar + persisted titles + export
-   dialogs on the NEW shared `EditorDialog` primitive (focus trap +
-   restore); image New-doc rebuilt with print presets + background choice;
-   JPG quality finally adjustable; dead pre-menubar CSS removed.
-   **Judgment agents blocked (spend limit)** for both — deterministic
-   halves green + inline reviews recorded
-   (`2026-07-28-gates-vector-documents.md`,
-   `2026-07-28-gates-image-export-newdoc.md`).
+1. `e54d3dc` **card-engine extraction** — `createCardEngine<S,T,L>` in
+   `src/lib/card-engine.ts` owns decks/grades/slots/snap-memory/sanitize;
+   CRAFT modules became thin adapters with byte-compatible export surfaces;
+   `prompt-builder.tsx` compiled untouched. The engine is alias-free, so
+   `scripts/card-engine.test.mjs` (20 tests) finally covers logic the
+   @/-alias wall had left untestable.
+2. `e59043c` **deck-adjacent generalizations** — floating-panel math,
+   `useFlowNavigation`, dictation generics (NoInfer), proof-lab/library
+   panels take props, `share-param.ts` codecs.
+3. `056d80d` **CRAFT Deck display rename** — registry/name/kicker/CTA/
+   metadata/header + prose sweep + PROMPT_ROLES regenerated. Ids, routes,
+   storage keys, filenames untouched (drafts and share links survive).
+4. `65002f9` **PICTURE data pipeline** — schema (AJV strict), validator
+   with referential checks, seed catalog, and the alias-free
+   `picture-prompt.ts` merge (tested from day one, unlike CRAFT's).
+5. `8917ace` **PICTURE Deck skeleton (Tool 06)** — 8-panel slider
+   (guide + P.I.C.T.U.R.E.), engine-driven workbenches, Midjourney tail
+   fieldset, dictation on Subject, validated persistence, undo, dock.
+6. `5d23190` **full catalog** — 100 lineages ×3 intensity grades
+   (P12 I12 C14 T12 U14 R20 E16), 18 archetypes, 8 proof scenarios, and
+   `docs/PICTURE_ART_MANIFEST.md` (118 paste-ready Midjourney swatch
+   prompts, drift-checked, chained into `data:generate`).
+7. `a143c54` **archetype toolbar + custom presets** (tail presets clamp
+   through one enforcement point).
+8. `743bf7b` **library + share links + sessions** — `?p=` param, session
+   files with a `tool: "picture-deck"` discriminator.
+9. `5bebe10` **proof lab** (8 scenarios wired).
+10. `fa577a4` **gate findings applied** — see GATES below.
 
-7. `9b255bd` **shared roving-tabindex radiogroup helper** —
-   `useRovingRadioGroup` adopted at all 9 radiogroup sites (one Tab stop,
-   arrows move+select, Home/End, column stepping for the anchor grid),
-   closing the systemic a11y gap the design gates kept flagging.
-8. (this commit) **gate-debt discharge** — see below.
+**GATES: ALL THREE RUN AND DISCHARGED SAME-DAY** (ledger:
+`2026-08-02-{integration,security,design}-gate-picture-deck.md`).
+Highlights of what they caught and `fa577a4` fixed, in BOTH decks where
+applicable: unvalidated `favorites-v1` reads (route-crashing; new
+`readStoredStringArray` helper), custom-archetype shape checks now cover
+`equipped`/`effects` (render-phase crash vectors), CRAFT sessions gained the
+tool discriminator (a PICTURE import used to silently empty the CRAFT
+draft), the tail's UI setter now shares the restore paths' range clamp,
+four undefined CSS tokens in the tail fieldset replaced with real system
+tokens, the disabled tail redesigned to control-only dimming (labels
+measured 8.4:1/7.2:1; whole-body dimming was 2.2:1), the Exclude input
+joined the `.field` chrome, ranges got the 24px WCAG floor.
 
-**GATE DEBT — mostly discharged (2026-07-29).** The integration and
-security agents were re-run over the whole owed range once capacity
-returned, and their findings are applied:
-- **Integration DISCHARGED** for V2+V3+I2 (`2026-07-29-integration-gate-owed-range.md`):
-  Medium — the canvas-overlay palette was pinned to a white artboard while
-  V3 shipped an editable background; overlays now flip by background
-  luminance. Plus the 4× duplicated 12000px ceiling consolidated into
-  `units.ts`, an allocation-site clamp in the image `runExport`, a stale
-  escaping comment, and an ARCHITECTURE carve-out for closed-by-default
-  dialog portals.
-- **Security DISCHARGED** for V3+I2 (`2026-07-29-security-gate-owed-range.md`):
-  two Mediums — BOTH export paths capped per-side but never total pixels
-  (a 6000×6000 doc at 2× legally requested a 144-megapixel canvas). Now
-  gated by a shared `MAX_EXPORT_PIXELS` at the dialog AND re-clamped at
-  every allocation site; plus a doc-setup clamp parity fix and a
-  quality finite-guard.
-- **Design DISCHARGED** on the third attempt
-  (`2026-07-29-design-gate-owed-range.md`): High — the artboard-aware
-  overlay palette had a DEAD ZONE (gamma-uncorrected luminance + a fixed
-  two-color flip meant mid-tone artboards like gray/khaki/olive/orange got
-  ~1.4–2.9:1, under the 3:1 floor, despite the comment claiming otherwise).
-  Replaced by `lib/vector-editor/overlay-palette.ts`, which computes real
-  WCAG luminance and falls back to black/white when no brand cyan clears
-  the floor — mathematically total (≥4.58:1 for any background), 8 tests
-  incl. a full sRGB sweep. Plus dialog-title weight, an image statusbar
-  that now shows physical size + PPI, one canonical "size @ resolution"
-  phrasing, and an always-visible rename cue on the vector title.
+Health: `typecheck` · `lint` · `test` (102) · `data:validate` (both
+catalogs) · `check:standards` · `check:security` · **`npm run build`** all
+green (build run with the dev server stopped; server restarted after).
 
-**GATE DEBT IS CLEAR.** Every owed run from the spend-limit outage has been
-re-run and discharged.
-
-Health: `typecheck` · `lint` · `test` (53) · `data:validate` ·
-`check:standards` · `check:security` all green. Owed from Sean: the
-real-mic dictation-meter spot-check (headless browsers can't grant mic).
-The port-5100 dev server was recycled with a cleared `.next` on 2026-07-29
-— the stale-error replay is gone; re-run `npm run dev:clean` if CSS edits
-ever stop landing again (that symptom recurred once during this session).
+**Owed from Sean:**
+- **Generate the card swatches**: work through `docs/PICTURE_ART_MANIFEST.md`
+  (118 entries, archetypes first; paste prompt → save webp to the listed
+  `public/card-art/picture/...` path → flip `status` to `"generated"` →
+  `npm run data:generate`). Cards render styled placeholders until then.
+- Real-mic dictation spot-check now covers BOTH decks (headless browsers
+  can't grant mic).
 
 ## Runbook
 
 - **Start:** `StartDigiTools.bat` or `npm run dev`, port 5100
-  (http://localhost:5100). Never start a second dev server if one is already
-  running; verify inside the running one. Never `npm run build` while a dev
-  server may be live (shared `.next/`).
+  (http://localhost:5100). Never start a second dev server if one is
+  already running; verify inside the running one. Never `npm run build`
+  while a dev server may be live (shared `.next/`).
 - **If CSS edits stop taking effect (or stale compile errors replay):**
-  `npm run dev:clean` (clears `.next`, then dev).
-- **`StartDigiTools.bat` health-CHECKS port 5100** (curls it) rather than
-  trusting the socket is held, and offers to end a wedged process.
+  `npm run dev:clean`.
 - **Framework:** read `docs/ARCHITECTURE.md` before building or changing a
-  tool — registry, portal slots, ToolSubbar, EditorTabs, EditorMenubar,
-  **EditorDialog** (the shared modal with focus trap — new dialogs use it),
-  useUndoableState / useLocalDraft, the add-a-tool recipe. STANDARDS §1.4
-  gates conformance. The theme bootstrap lives in
-  `src/components/theme-script.tsx` (the repo's ONE sanctioned
-  `dangerouslySetInnerHTML`, §2.4). Any FIRST-render portal must resolve its
-  target through `usePortalTarget` (never a render-time DOM read).
+  tool. The card-deck tools' engine is `src/lib/card-engine.ts`
+  (alias-free; instantiated by `prompt-card-system.ts` and
+  `picture-card-system.ts`). Any FIRST-render portal resolves its target
+  through `usePortalTarget` (the archetype toolbars were the last
+  offenders; fixed). The theme bootstrap in
+  `src/components/theme-script.tsx` stays the ONE sanctioned
+  `dangerouslySetInnerHTML` (§2.4).
 - **Checks:** `npm run typecheck` · `lint` · `test` · `data:validate` ·
-  `check:standards && check:security`.
-- **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex (36),
-  `.claude/skills/` Claude Code (16 incl. `/digi`); never cross-install.
+  `check:standards && check:security`. `data:generate` regenerates
+  PROMPT_ROLES.md AND PICTURE_ART_MANIFEST.md (both drift-checked).
+- **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex,
+  `.claude/skills/` Claude Code; never cross-install.
 - **Gate agents:** `integration-gate`, `security-gate`, `design-gate`
-  register as subagent types — read-only; the main agent writes the ledger
-  reports. **Currently blocked by the monthly subagent spend limit** — see
-  GATE DEBT above.
-- **Headless preview gotchas** (this list keeps earning its keep):
-  - The pane can report a 0×0 viewport — drive/verify via DOM/`javascript_tool`,
-    not screenshots (`computer{action:"screenshot"}` may time out).
-  - `javascript_tool` keeps top-level `const` declarations across evals on the
-    same page — wrap probe scripts in IIFEs. A returned promise that never
-    resolves hangs the tool to its 30s timeout — probe-and-return-early. An
-    eval that spans a `location.reload()` dies with "target navigated" —
-    return BEFORE the reload, read state in the NEXT eval.
-  - Canvas/`<img>` work is RAF/decode-driven: poll for blobs, don't assume one
-    tick. React reads after a `.click()` need a deferred read (setTimeout).
-  - Synthetic `dispatchEvent` sets `event.target` to the element you dispatch
-    ON — dispatch pointer events on the actual shape/handle, not the `<svg>`.
-  - React controlled inputs need the native value setter + an `input` event
-    (`Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value").set`).
-  - **Don't audit contrast while LIVE-toggling `data-theme`** — set theme via
-    localStorage + reload.
-  - `window.scrollTo(x,y)` silently no-ops; use
-    `scrollTo({ top, behavior: "instant" })`.
-  - A stale `.next` Turbopack cache can serve old CSS — and replay stale
-    COMPILE ERRORS in the console — indefinitely; fix with `dev:clean`.
-  - **Dev is the WRONG place to verify hydration/theme** — use a production
-    build. The prompt builder's dev-only `@dnd-kit` hydration warning is
-    pre-existing (task chip open).
-  - **`requestAnimationFrame` never fires while the preview pane is hidden.**
-    A promise awaiting one hangs the eval to its 30s timeout, and any
-    rAF-deferred behavior (focus-on-open, deferred measurement) silently
-    looks broken. Prefer running such work directly in the effect; when a
-    frame is genuinely required, don't try to verify it headlessly.
-  - Headless browsers cannot grant mic permission — dictation/audio-meter
-    behavior needs a headed browser.
-- **Editing `globals.css` / prompt-builder JSON programmatically:** use node
-  with `utf8` (em-dashes); PowerShell `Get-Content`/`Set-Content` mangles
-  non-ASCII into mojibake. Regexes with control-character classes: write the
-  fixer as a SCRIPT FILE (Write tool) — inline `node -e` collapses
-  backslashes through the shell and embeds raw control chars.
+  subagent types — read-only; the main agent applies fixes and writes the
+  ledger. Subagent capacity is available again (three ran today).
+- **Headless preview gotchas** (see the 2026-07-28 list in SESSIONS.md;
+  all still true): IIFE evals, deferred reads after clicks, native value
+  setters for controlled inputs, focusin (not focus()) for React focus
+  handlers, no screenshots at 0×0 viewport, no mic, don't verify
+  hydration in dev.
+- **Editing JSON catalogs programmatically:** node with `utf8`;
+  PowerShell Get/Set-Content mangles non-ASCII.
 
 ## Built
 
-**Five tools** registered in `src/lib/tool-registry.ts`; the shell contract
-and shared primitives are in `docs/ARCHITECTURE.md`.
+**Six tools** registered in `src/lib/tool-registry.ts`; shell contract and
+shared primitives in `docs/ARCHITECTURE.md`.
 
-- **Prompt Builder** (flagship): C.R.A.F.T. prompts from explicit card
-  choices — 35 roles, 32 lineages, 25 archetypes with authored
-  `defaultAudience`. Six-panel slider; "Use default" recyclable-MD workflow;
-  named downloads.
-- **Architect Wizard:** node-canvas architecture sketch → AI build brief.
-- **Image Editor:** Photopea-style raster cockpit — layers, filters,
-  channels; confirm-stage crop, Canvas/Image-size dialogs with units + PPI;
-  print-preset New dialog; Export dialog (PNG/JPG, scale/exact size,
-  quality); PNG/JPG/layered-.zip export.
-- **Vector Editor:** native-SVG "Illustrator-core" cockpit — pen paths with
-  four anchor types, white-arrow editing, point text with in-place editing
-  and a curated font catalog, shapes→paths, multi-select, per-doc
-  units/PPI, document-setup + export dialogs (SVG/PNG/JPG at any size),
-  persisted titles, undo/autosave, pan/zoom/minimap.
-- **Skills Wiki:** the document-style reference tool.
+- **CRAFT Deck** (id `prompt-builder`): C.R.A.F.T. language-model prompts
+  from card choices — 35 roles, 32 lineages ×4 grades, 25 archetypes,
+  library/share/sessions/dictation/proof lab.
+- **PICTURE Deck** (id `picture-deck`): P.I.C.T.U.R.E. image-model prompts
+  — Protagonist · Illumination · Canvas · Tone · Universe · References ·
+  Execution. 100 lineages ×3 grades driven by ONE Intensity track,
+  18 archetypes with Midjourney tail presets, model-agnostic one-line
+  merge + toggleable --ar/--stylize/--chaos/--weird/--no tail, dictation
+  on Subject, library/share/sessions/proof lab. Swatch art arrives via
+  `docs/PICTURE_ART_MANIFEST.md`; `illustration.status` gates rendering.
+- **Architect Wizard**, **Image Editor**, **Vector Editor**, **Skills
+  Wiki**: unchanged this session (see their SESSIONS.md history).
 
-**Shared framework:** `ToolSubbar`, `EditorTabs`, `EditorMenubar`,
-**`EditorDialog`** (new: portal/backdrop/Esc + focus trap + restore),
-`save-status`, `useUndoableState`, `useLocalDraft`, `usePortalTarget`,
-`useMediaQuery`, `MobileToolGate`, `zip.ts`, `browser-download.ts`
-(`slugifyFilename`: 4 consumers), **`units.ts`** (new: px↔in/cm/mm through
-per-doc PPI; import-free, 7 tests), `prompt-storage.ts`,
-`prompt-defaults.ts`. Vector pure modules `bezier.ts` (15 tests) and
-`text.ts` (6 tests) are import-free/runner-testable by design.
+**Shared framework additions this session:** `card-engine.ts` (the deck
+engine), `floating-panel-position.ts`, `use-flow-navigation.ts`,
+`share-param.ts`, `readStoredStringArray` in `prompt-storage.ts`,
+generalized `PromptCardWorkbench`/`PromptProofLab`/`PromptLibraryPanel`/
+`PromptOutputDock`/`usePromptDictation`/`CraftDictationField`/`FieldHeading`.
 
 ## Backlog / in flight
 
-- **In flight: nothing mid-task.** All commits landed; tree clean.
-- **GATE DEBT: NONE.** All three owed runs discharged 2026-07-29
-  (`2026-07-29-*-owed-range.md`); findings applied and verified.
-- **Deferred from the design gate:** migrate the Filters/"Adjust" dialog
-  onto `EditorDialog` (last one on the old primitive — 7 dialogs, 2
-  families); back-port the `.ve-title-input` focus pattern to
-  `.image-editor-title-input`, which still does `outline: none`.
-- **Task chips: CLEARED (2026-07-29).** The dnd-kit stable-`DndContext`-id
-  fix was merged from its worktree (`52188ff`, production-build verified
-  there); the 24px tap targets for `.image-editor-check` + `.ve-toggle`
-  landed here; the roving-tabindex chip was superseded by `9b255bd`. All
-  three worktrees and branches are removed — `git worktree list` shows only
-  main. Still open from 2026-07-19: the `image-editor.tsx` statusbar portal
-  idiom.
-- **Adopted from the discarded roving worktree:** its version called
-  `stopPropagation` as well as `preventDefault`, which the shared hook now
-  does too — both editors bind window-level arrow shortcuts that exempt
-  inputs but NOT buttons, so arrowing through a radiogroup used to nudge
-  the artwork at the same time (dialogs included, since they portal to
-  body and leave those listeners live). Verified fixed.
-- **Owed from Sean:** real-mic dictation-meter spot-check; `dev:clean` on
-  the wedged 5100 server.
-- **I2 deferrals — CLEARED except one:** ImageSize/CanvasSize migrated onto
-  `EditorDialog` (every dialog in both editors now has the focus trap; the
-  old per-dialog CSS is gone), and the Space-pan BUTTON exemption landed.
-  Still open: custom new-doc preset save.
-- **Prompt-builder follow-ups:** proof scenarios with explicit
-  context/target text still show "Use default" checked (cosmetic; needs the
-  `proofDraft` schema widened); `restoreDraft` degradation unit test
-  (blocked on the `@/`-alias runner gap).
-- **Vector "Later" list:** gradients, dash/linecap, boolean ops, grouping,
-  masks, snapping/smart guides, area text, text-to-outlines, local-space
-  numeric edits for rotated objects — `docs/ROADMAP.md` §Later.
-- **Still owed from before:** run `.ai/agent-evals/` fixtures against the
-  gates; add fixtures for newer surfaces.
+- **In flight: nothing mid-task.** All commits landed; gates discharged.
+- **Sean's queue:** swatch generation (see Owed above); real-mic dictation
+  check (both decks).
+- **PICTURE follow-ups:** CONTEXT.md has no PICTURE vocabulary yet
+  (Subject, Intensity dial, tail, panel letters — integration-gate note);
+  consider per-panel tuning vocabulary (the engine supports per-key
+  vocabulary; PICTURE passes none). Later list from the plan: per-model
+  output formatter (SD negative syntax), Pip-Decks family restyle /
+  per-letter color coding, the idea-making deck.
 - **Pending amendments** (`npm run amendments`, owner consent): the
-  standing queue (§2.3 bare-cast, affinity validator, §3.3 agent markers,
-  motion/icon, `usePortalTarget`, DESIGN_DIRECTION ambiguities, micro-label
-  tier — reinforced repeatedly today) **plus three new from this session's
-  gates:** every `readStored<T[]>` list pairs with a shape-validating
-  restore; every doc-growing affordance gates on the size ceilings at UI
-  AND `document.ts`; every `MAX_*`/`clamp*` invariant gets ONE enforcement
-  point covering create/update/load. Also proposed: a DESIGN_DIRECTION
-  carve-out for canvas-drawn tool chrome over arbitrary imagery; and (new
-  2026-07-29) any bitmap-rasterizing surface enforces a TOTAL pixel ceiling,
-  not just per-side, re-clamped at the allocation site.
-- **Settled (2026-07-29):** the security gate's open question on coordinate
-  clamping — the convention IS document-wide now. `validatePoint` itself
-  clamps, so shape positions, polygon points, anchors, and handles all
-  inherit one enforcement point; rotation normalizes to one turn. Verified
-  with a tampered doc (1e30 coords, 1e12° rotation): everything clamps to
-  ±20000 / 280°, no Infinity or NaN reaches the DOM.
-- **`npm run amendments` is line-wrap fragile** — candidate fix.
-- **Deferred polish:** the sanctioned extraction backlog (ARCHITECTURE §3);
+  standing queue (bare-cast §2.3, affinity validator, §3.3 agent markers,
+  motion/icon, `usePortalTarget`, DESIGN_DIRECTION ambiguities,
+  micro-label tier, total-pixel ceilings) **plus new from today's gates:**
+  (a) every `readStored<T[]>` routes through a shared validated-array
+  helper; (b) session/share payloads carry a `tool` discriminator in both
+  directions (now true for both decks; make it a rule); (c) a shared
+  length ceiling for free-text draft fields; (d) generalize §2.2's
+  generated-doc rule to cover PICTURE_ART_MANIFEST (its drift check lives
+  in data:validate today, not check:standards).
+- **Pre-existing, still open:** Filters/"Adjust" dialog onto EditorDialog;
+  `.image-editor-title-input` focus pattern; image-editor statusbar portal
+  idiom chip (2026-07-19); agent-eval fixtures vs the gates (the gate
+  agents' tool lists in `.claude/agents/*.md` also still say "Prompt
+  Builder" and predate Image/Vector/PICTURE — update + re-run evals
+  together); prompt-builder proofDraft schema widening; `restoreDraft`
+  degradation unit test (alias-runner gap); vector "Later" list
+  (`docs/ROADMAP.md`); `npm run amendments` line-wrap fragility;
   `writeStoredOrThrow` for the architect save path.
 
 ## Pointers
 
-- Framework contract: `docs/ARCHITECTURE.md`. Feature program:
-  `docs/ROADMAP.md` (now fully built; its "Later" section is the live
-  wishlist). History: `.ai/notes/SESSIONS.md` (newest-first). Rules:
-  `docs/STANDARDS.md`. Gate ledger: `.ai/notes/gate-reports/`. Domain
-  language: `CONTEXT.md`.
-- `npm run amendments` shows the consent queue; `npm run gate:sweep` stamps
-  `.ai/notes/gate-status.json` and warns when this page goes stale.
+- Framework contract: `docs/ARCHITECTURE.md`. The build plan this session
+  executed: `C:\Users\seang\.claude\plans\now-very-similar-to-lovely-cookie.md`
+  (product decisions + research live there). Swatch manifest:
+  `docs/PICTURE_ART_MANIFEST.md`. History: `.ai/notes/SESSIONS.md`
+  (newest-first). Rules: `docs/STANDARDS.md`. Gate ledger:
+  `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
+- `npm run amendments` shows the consent queue; `npm run gate:sweep`
+  stamps `.ai/notes/gate-status.json` and warns when this page goes stale.

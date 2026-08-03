@@ -1,13 +1,8 @@
 {
-  "lastSweep": "2026-08-02",
+  "lastSweep": "2026-08-03",
   "standards": "pass",
   "security": "pass",
   "stateFresh": true,
-  "owed": [
-    {
-      "gate": "integration",
-      "reason": "8 file(s) committed since its last report (2026-07-29)"
-    }
-  ],
+  "owed": [],
   "notes": "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector."
 }
