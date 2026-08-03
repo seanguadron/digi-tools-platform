@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import type { ChangeEvent } from "react";
 import {
   ToolSaveStateChip,
   ToolSubbar,
@@ -19,7 +20,11 @@ export function PictureDeckHeader({
   onUndo,
   onRedo,
   onContinue,
+  onExportSession,
+  onImportSession,
   onLoadExample,
+  onOpenLibrary,
+  onCopyShareLink,
   onReset,
 }: {
   saveStatus: SaveStatus;
@@ -31,10 +36,15 @@ export function PictureDeckHeader({
   onUndo: () => void;
   onRedo: () => void;
   onContinue: () => void;
+  onExportSession: () => void;
+  onImportSession: (event: ChangeEvent<HTMLInputElement>) => void;
   onLoadExample: () => void;
+  onOpenLibrary: () => void;
+  onCopyShareLink: () => void;
   onReset: () => void;
 }) {
   const toolsMenuRef = useRef<HTMLDetailsElement | null>(null);
+  const sessionInputRef = useRef<HTMLInputElement | null>(null);
 
   function runTool(action: () => void) {
     action();
@@ -83,8 +93,35 @@ export function PictureDeckHeader({
         <details className="builder-tools-menu" ref={toolsMenuRef}>
           <summary className="button button-quiet">Tools</summary>
           <div>
+            <button type="button" onClick={() => runTool(onExportSession)}>
+              Export session
+            </button>
+            <button
+              type="button"
+              onClick={() => sessionInputRef.current?.click()}
+            >
+              Import session
+            </button>
+            <input
+              className="sr-only"
+              ref={sessionInputRef}
+              type="file"
+              accept="application/json,.json"
+              onChange={(event) => {
+                onImportSession(event);
+                if (toolsMenuRef.current) {
+                  toolsMenuRef.current.open = false;
+                }
+              }}
+            />
             <button type="button" onClick={() => runTool(onLoadExample)}>
               Load example
+            </button>
+            <button type="button" onClick={() => runTool(onOpenLibrary)}>
+              Saved prompts
+            </button>
+            <button type="button" onClick={() => runTool(onCopyShareLink)}>
+              Copy share link
             </button>
             <button type="button" onClick={() => runTool(onReset)}>
               Reset

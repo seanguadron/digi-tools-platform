@@ -2,11 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import type { ChangeEvent } from "react";
 import { PictureArchetypeToolbar } from "@/components/picture-archetype-toolbar";
 import { PictureDeckHeader } from "@/components/picture-deck-header";
 import { PictureFlowPanels } from "@/components/picture-flow-panels";
 import type { PictureDictationField } from "@/components/picture-flow-panels";
 import type { DictationApi } from "@/components/prompt-builder-ui";
+import { PromptLibraryPanel } from "@/components/prompt-library-panel";
 import { PromptOutputDock } from "@/components/prompt-output-dock";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { usePictureDeckHistory } from "@/hooks/use-picture-deck-history";
@@ -26,6 +28,22 @@ import {
   listCustomPictureArchetypes,
   saveCustomPictureArchetype,
 } from "@/lib/picture-custom-archetypes";
+import {
+  deleteFromPictureLibrary,
+  listSavedPicturePrompts,
+  saveToPictureLibrary,
+} from "@/lib/picture-library";
+import type { SavedPicturePrompt } from "@/lib/picture-library";
+import {
+  decodePictureSessionParam,
+  encodePictureSessionParam,
+  restorePictureSession,
+  serializePictureSession,
+} from "@/lib/picture-session";
+import {
+  restorePictureCardSystem,
+  restorePictureDraft,
+} from "@/lib/picture-deck-state";
 import {
   applyTailPreset,
   createPictureCardSystem,
@@ -72,6 +90,13 @@ export function PictureDeck() {
   );
   const [customArchetypes, setCustomArchetypes] = useState<PictureArchetype[]>(
     [],
+  );
+  const [libraryOpen, setLibraryOpen] = useState(false);
+  const [savedPrompts, setSavedPrompts] = useState<SavedPicturePrompt[]>([]);
+  // The library name the current draft was loaded from or saved as; feeds the
+  // download filename when no archetype is active.
+  const [activePromptName, setActivePromptName] = useState<string | null>(
+    null,
   );
   // At phone widths the expanded dock overlays the whole workspace, so the
   // default is collapsed there and expanded everywhere else; any explicit
@@ -186,9 +211,10 @@ export function PictureDeck() {
         : null,
     [activeArchetypeId, customArchetypes],
   );
-  // Best available name for exports: archetype first, then the subject line.
+  // Best available name for exports: archetype, then the library name the
+  // draft came from, then the subject line.
   const exportBase = slugifyFilename(
-    activeArchetype?.name ?? draft.subject,
+    activeArchetype?.name ?? activePromptName ?? draft.subject,
     "picture",
   );
   const promptFileBase = exportBase.endsWith("prompt")
@@ -224,9 +250,38 @@ export function PictureDeck() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       setCustomArchetypes(listCustomPictureArchetypes());
+      setSavedPrompts(listSavedPicturePrompts());
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const shared = new URLSearchParams(window.location.search).get("p");
+      if (!shared) {
+        return;
+      }
+
+      try {
+        const { draft: nextDraft, cardSystem: nextCardSystem } =
+          decodePictureSessionParam(shared);
+        setDraft(nextDraft);
+        setCardSystem(nextCardSystem);
+        setActiveArchetypeId(null);
+        setActivePromptName(null);
+        setSpeechMessage("Shared prompt loaded.");
+      } catch {
+        setSpeechMessage("That shared link could not be read.");
+      } finally {
+        window.history.replaceState(
+          null,
+          "",
+          `${window.location.pathname}${window.location.hash}`,
+        );
+      }
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [setSpeechMessage]);
 
   function navigateToPictureStep(stepIndex: number) {
     nav.navigateToPanel(getPictureStepPanel(stepIndex));
@@ -350,6 +405,7 @@ export function PictureDeck() {
     );
     setDraft((current) => applyTailPreset(current, archetype.mjTail));
     setActiveArchetypeId(archetype.id);
+    setActivePromptName(null);
     setCopyState("idle");
     setSpeechMessage(
       `${archetype.name} archetype applied. Your subject stayed in place.`,
@@ -368,12 +424,86 @@ export function PictureDeck() {
     setActiveArchetypeId((current) => (current === id ? null : current));
   }
 
+  function downloadSession() {
+    downloadTextFile(
+      `${exportBase}-session.json`,
+      serializePictureSession(draft, cardSystem),
+      "application/json;charset=utf-8",
+    );
+    setSpeechMessage("Session exported as JSON.");
+  }
+
+  async function importSession(event: ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
+    if (!file) {
+      return;
+    }
+
+    try {
+      const { draft: nextDraft, cardSystem: nextCardSystem } =
+        restorePictureSession(await file.text());
+      history.checkpoint();
+      cancelDictation(true);
+      setDraft(nextDraft);
+      setCardSystem(nextCardSystem);
+      setActiveArchetypeId(null);
+      setActivePromptName(null);
+      setCopyState("idle");
+      setSpeechMessage("Session imported.");
+    } catch {
+      setSpeechMessage("That file is not a valid P.I.C.T.U.R.E. session.");
+    } finally {
+      event.target.value = "";
+    }
+  }
+
+  async function copyShareLink() {
+    try {
+      const param = encodePictureSessionParam(draft, cardSystem);
+      const url = `${window.location.origin}${window.location.pathname}?p=${param}`;
+      await navigator.clipboard.writeText(url);
+      setSpeechMessage("Share link copied to clipboard.");
+    } catch {
+      setSpeechMessage("Could not copy the share link.");
+    }
+  }
+
+  function saveCurrentToLibrary(name: string) {
+    setSavedPrompts(saveToPictureLibrary(name, draft, cardSystem));
+    // Mirror saveToPictureLibrary's fallback so exports pick up the name.
+    setActivePromptName(name.trim() || "Untitled prompt");
+    setSpeechMessage("Saved to your prompt library.");
+  }
+
+  function loadSavedPrompt(entry: SavedPicturePrompt) {
+    history.checkpoint();
+    cancelDictation(true);
+    // Restore through the same validators as autosave, URL shares, and
+    // session imports: the library store is shape-filtered on read, but the
+    // field types inside draft/cardSystem are still unchecked JSON — a
+    // hand-edited entry must degrade to defaults, not crash.
+    setDraft(restorePictureDraft(JSON.stringify(entry.draft ?? {})));
+    setCardSystem(
+      restorePictureCardSystem(JSON.stringify(entry.cardSystem ?? {})),
+    );
+    setActiveArchetypeId(null);
+    setActivePromptName(entry.name);
+    setLibraryOpen(false);
+    setCopyState("idle");
+    setSpeechMessage(`Loaded "${entry.name}".`);
+  }
+
+  function removeSavedPrompt(id: string) {
+    setSavedPrompts(deleteFromPictureLibrary(id));
+  }
+
   function resetDeck() {
     history.checkpoint();
     cancelDictation(true);
     setDraft(EMPTY_PICTURE_DRAFT);
     setCardSystem(createPictureCardSystem());
     setActiveArchetypeId(null);
+    setActivePromptName(null);
     nav.setActivePanel(PICTURE_PANEL_INDEX.guide);
     setCopyState("idle");
     setSpeechMessage("");
@@ -394,6 +524,7 @@ export function PictureDeck() {
       }),
     });
     setActiveArchetypeId(null);
+    setActivePromptName(null);
     setCopyState("idle");
     setSpeechMessage("Example loaded: a lighthouse keeper, five cards, tail on.");
   }
@@ -485,8 +616,21 @@ export function PictureDeck() {
         onUndo={undoLastChange}
         onRedo={redoLastChange}
         onContinue={continueBuilding}
+        onExportSession={downloadSession}
+        onImportSession={importSession}
         onLoadExample={loadExample}
+        onOpenLibrary={() => setLibraryOpen(true)}
+        onCopyShareLink={copyShareLink}
         onReset={resetDeck}
+      />
+
+      <PromptLibraryPanel
+        open={libraryOpen}
+        savedPrompts={savedPrompts}
+        onClose={() => setLibraryOpen(false)}
+        onSave={saveCurrentToLibrary}
+        onLoad={loadSavedPrompt}
+        onDelete={removeSavedPrompt}
       />
 
       <nav className="flow-stepper" aria-label="P.I.C.T.U.R.E. builder steps">
