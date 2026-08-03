@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
+import { PictureArchetypeToolbar } from "@/components/picture-archetype-toolbar";
 import { PictureDeckHeader } from "@/components/picture-deck-header";
 import { PictureFlowPanels } from "@/components/picture-flow-panels";
 import type { PictureDictationField } from "@/components/picture-flow-panels";
@@ -14,11 +15,19 @@ import { usePortalTarget } from "@/hooks/use-portal-target";
 import { usePromptDictation } from "@/hooks/use-prompt-dictation";
 import { useFlowNavigation } from "@/hooks/use-flow-navigation";
 import { downloadTextFile, slugifyFilename } from "@/lib/browser-download";
+import { PICTURE_ARCHETYPES } from "@/lib/picture-archetypes";
 import {
   getEquippedFragments,
   pictureCardEngine,
 } from "@/lib/picture-card-system";
 import {
+  buildCustomPictureArchetype,
+  deleteCustomPictureArchetype,
+  listCustomPictureArchetypes,
+  saveCustomPictureArchetype,
+} from "@/lib/picture-custom-archetypes";
+import {
+  applyTailPreset,
   createPictureCardSystem,
   draftTail,
   EMPTY_PICTURE_DRAFT,
@@ -42,6 +51,7 @@ import {
 } from "@/lib/picture-prompt";
 import type { PictureSection } from "@/lib/picture-prompt";
 import type {
+  PictureArchetype,
   PictureCardSystemState,
   PictureDraft,
   PictureDraftTextField,
@@ -56,6 +66,12 @@ export function PictureDeck() {
   );
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
     "idle",
+  );
+  const [activeArchetypeId, setActiveArchetypeId] = useState<string | null>(
+    null,
+  );
+  const [customArchetypes, setCustomArchetypes] = useState<PictureArchetype[]>(
+    [],
   );
   // At phone widths the expanded dock overlays the whole workspace, so the
   // default is collapsed there and expanded everywhere else; any explicit
@@ -161,7 +177,20 @@ export function PictureDeck() {
   const nextIncompletePart =
     nextIncompleteStepIndex < 0 ? null : PICTURE_PARTS[nextIncompleteStepIndex];
   const activeStepIndex = getPictureStepIndexForPanel(nav.activePanel);
-  const exportBase = slugifyFilename(draft.subject, "picture");
+  const activeArchetype = useMemo(
+    () =>
+      activeArchetypeId
+        ? ([...PICTURE_ARCHETYPES, ...customArchetypes].find(
+            (archetype) => archetype.id === activeArchetypeId,
+          ) ?? null)
+        : null,
+    [activeArchetypeId, customArchetypes],
+  );
+  // Best available name for exports: archetype first, then the subject line.
+  const exportBase = slugifyFilename(
+    activeArchetype?.name ?? draft.subject,
+    "picture",
+  );
   const promptFileBase = exportBase.endsWith("prompt")
     ? exportBase
     : `${exportBase}-prompt`;
@@ -192,6 +221,13 @@ export function PictureDeck() {
     return () => window.removeEventListener("keydown", handleHistoryShortcut);
   }, [history, setSpeechMessage]);
 
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setCustomArchetypes(listCustomPictureArchetypes());
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   function navigateToPictureStep(stepIndex: number) {
     nav.navigateToPanel(getPictureStepPanel(stepIndex));
   }
@@ -207,18 +243,25 @@ export function PictureDeck() {
 
   function updateDraft(field: PictureDraftTextField, value: string) {
     history.checkpoint();
+    // Editing the exclusion field diverges from an applied preset; the
+    // subject line never belongs to a preset, so typing it keeps the badge.
+    if (field === "negative") {
+      setActiveArchetypeId(null);
+    }
     setCopyState("idle");
     setDraft((current) => withPictureDraftText(current, field, value));
   }
 
   function setTailEnabled(value: boolean) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCopyState("idle");
     setDraft((current) => ({ ...current, mjTailEnabled: value }));
   }
 
   function selectAspectRatio(value: string) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCopyState("idle");
     setDraft((current) => ({ ...current, aspectRatio: value }));
   }
@@ -228,6 +271,7 @@ export function PictureDeck() {
     value: number | null,
   ) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCopyState("idle");
     setDraft((current) => ({ ...current, [field]: value }));
   }
@@ -238,6 +282,7 @@ export function PictureDeck() {
     value: number,
   ) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCardSystem((current) =>
       pictureCardEngine.setTrackValue(current, trackId, value),
     );
@@ -246,6 +291,7 @@ export function PictureDeck() {
 
   function toggleWorkbenchCard(section: PictureSection, lineageId: string) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCardSystem((current) =>
       pictureCardEngine.toggleEquippedCard(current, section, lineageId),
     );
@@ -258,6 +304,7 @@ export function PictureDeck() {
     lineageId: string,
   ) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCardSystem((current) =>
       pictureCardEngine.placeEquippedCard(
         current,
@@ -271,6 +318,7 @@ export function PictureDeck() {
 
   function removeWorkbenchCard(section: PictureSection, slotIndex: number) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCardSystem((current) =>
       pictureCardEngine.removeEquippedCard(current, section, slotIndex),
     );
@@ -279,10 +327,45 @@ export function PictureDeck() {
 
   function clearWorkbenchCards(section: PictureSection) {
     history.checkpoint();
+    setActiveArchetypeId(null);
     setCardSystem((current) =>
       pictureCardEngine.clearEquippedCards(current, section),
     );
     setCopyState("idle");
+  }
+
+  function applyPictureArchetype(archetype: PictureArchetype) {
+    history.checkpoint();
+    cancelDictation(true);
+    // Sanitized so custom archetypes saved against an older catalog still
+    // apply; the tail preset passes through the range clamps.
+    setCardSystem(
+      pictureCardEngine.sanitizeCardSystemShape({
+        tracks: { ...archetype.tracks },
+        equipped: pictureCardEngine.createEquippedSlots(archetype.equipped),
+        memory: pictureCardEngine.createEmptySnapMemory(),
+        overrides: [],
+        suggested: pictureCardEngine.createEmptySuggestedCards(),
+      }),
+    );
+    setDraft((current) => applyTailPreset(current, archetype.mjTail));
+    setActiveArchetypeId(archetype.id);
+    setCopyState("idle");
+    setSpeechMessage(
+      `${archetype.name} archetype applied. Your subject stayed in place.`,
+    );
+  }
+
+  function saveCurrentAsPreset(name: string) {
+    const archetype = buildCustomPictureArchetype(name, draft, cardSystem);
+    setCustomArchetypes(saveCustomPictureArchetype(archetype));
+    setActiveArchetypeId(archetype.id);
+    setSpeechMessage(`Saved "${archetype.name}" as a preset.`);
+  }
+
+  function removeCustomPreset(id: string) {
+    setCustomArchetypes(deleteCustomPictureArchetype(id));
+    setActiveArchetypeId((current) => (current === id ? null : current));
   }
 
   function resetDeck() {
@@ -290,6 +373,7 @@ export function PictureDeck() {
     cancelDictation(true);
     setDraft(EMPTY_PICTURE_DRAFT);
     setCardSystem(createPictureCardSystem());
+    setActiveArchetypeId(null);
     nav.setActivePanel(PICTURE_PANEL_INDEX.guide);
     setCopyState("idle");
     setSpeechMessage("");
@@ -309,6 +393,7 @@ export function PictureDeck() {
         execution: ["wide-establishing"],
       }),
     });
+    setActiveArchetypeId(null);
     setCopyState("idle");
     setSpeechMessage("Example loaded: a lighthouse keeper, five cards, tail on.");
   }
@@ -454,6 +539,15 @@ export function PictureDeck() {
             : "builder-main-layout picture-deck-layout is-output-collapsed"
         }
       >
+        <PictureArchetypeToolbar
+          archetypes={PICTURE_ARCHETYPES}
+          customArchetypes={customArchetypes}
+          activeId={activeArchetypeId}
+          onApply={applyPictureArchetype}
+          onSaveCustom={saveCurrentAsPreset}
+          onDeleteCustom={removeCustomPreset}
+        />
+
         <div className="flow-workspace">
           <form
             className="builder-form flow-form"

@@ -6,6 +6,7 @@ import type {
   PictureCardSystemState,
   PictureDraft,
   PictureDraftTextField,
+  PictureMjTailPreset,
   PictureRange,
 } from "@/lib/picture-types";
 
@@ -82,6 +83,35 @@ function restoredAspectRatio(value: unknown) {
   return typeof value === "string" && ASPECT_RATIO_VALUES.has(value)
     ? value
     : EMPTY_PICTURE_DRAFT.aspectRatio;
+}
+
+// Apply an archetype's tail preset onto the draft: enables the tail, clamps
+// every number it carries, and resets numbers it omits so the preset is
+// deterministic. The negative field is only replaced when the preset carries
+// one — user-typed exclusions survive. Presets from localStorage customs pass
+// through the same clamps as catalog ones (one enforcement point).
+export function applyTailPreset(
+  draft: PictureDraft,
+  preset: PictureMjTailPreset | undefined,
+): PictureDraft {
+  if (!preset) {
+    return draft;
+  }
+
+  return {
+    ...draft,
+    mjTailEnabled: true,
+    aspectRatio: preset.aspectRatio
+      ? restoredAspectRatio(preset.aspectRatio)
+      : draft.aspectRatio,
+    stylize: restoredTailNumber(preset.stylize, STYLIZE_RANGE),
+    chaos: restoredTailNumber(preset.chaos, CHAOS_RANGE),
+    weird: restoredTailNumber(preset.weird, WEIRD_RANGE),
+    negative:
+      typeof preset.negative === "string" && preset.negative.trim()
+        ? preset.negative
+        : draft.negative,
+  };
 }
 
 // Coerce field-by-field: this path restores autosave, URL shares, imported
