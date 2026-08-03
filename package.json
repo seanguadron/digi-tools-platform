@@ -10,7 +10,7 @@
     "start": "next start -p 5100",
     "lint": "eslint src next.config.ts",
     "typecheck": "tsc --noEmit",
-    "data:generate": "node scripts/generate-prompt-role-docs.mjs",
+    "data:generate": "node scripts/generate-prompt-role-docs.mjs && node scripts/generate-picture-art-manifest.mjs",
     "data:validate": "node scripts/validate-prompt-data.mjs && node scripts/validate-picture-data.mjs",
     "data:test": "node --test scripts/prompt-data.test.mjs scripts/picture-data.test.mjs",
     "test": "node --experimental-strip-types --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/*.test.mjs",

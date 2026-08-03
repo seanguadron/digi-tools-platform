@@ -1,6 +1,7 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
+import { generatePictureArtManifest } from "./generate-picture-art-manifest.mjs";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import {
   loadPictureCatalog,
@@ -367,7 +368,7 @@ function validateScenarios(catalog, indexes) {
   return errors;
 }
 
-export async function validateCatalog(catalog) {
+export async function validateCatalog(catalog, { checkDocs = false } = {}) {
   const validateSchema = await getSchemaValidator();
   if (!validateSchema(catalog)) {
     throw new Error(
@@ -393,6 +394,10 @@ export async function validateCatalog(catalog) {
       `Picture data validation failed:\n- ${errors.join("\n- ")}`,
     );
   }
+
+  if (checkDocs) {
+    await generatePictureArtManifest({ check: true });
+  }
 }
 
 export async function validatePictureData(options = {}) {
@@ -404,7 +409,7 @@ const isMain =
   import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href;
 
 if (isMain) {
-  validatePictureData()
+  validatePictureData({ checkDocs: true })
     .then(() => {
       console.log("Picture data is valid.");
     })

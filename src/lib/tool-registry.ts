@@ -109,8 +109,8 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
     mobileSupport: "gated",
     mobileGateNotes: [
       "Builds image-model prompts from P.I.C.T.U.R.E. card choices — lighting, medium, palette, world, references, and framing.",
-      "One Intensity dial tunes every equipped card from subtle to extreme; an optional Midjourney tail adds --ar and friends.",
-      "Drafts autosave in this browser; prompts copy and download as local files.",
+      "100 card lineages and 18 archetype presets; one Intensity dial tunes every card from subtle to extreme.",
+      "Optional Midjourney tail (--ar, --stylize, --no). Drafts autosave in this browser; prompts download as local files.",
     ],
   },
 };

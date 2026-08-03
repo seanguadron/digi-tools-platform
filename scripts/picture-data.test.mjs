@@ -8,13 +8,13 @@ test("the current picture catalog is valid", async () => {
   await validateCatalog(await catalogPromise);
 });
 
-test("seed catalog counts and invariants", async () => {
+test("catalog counts and invariants", async () => {
   const catalog = await catalogPromise;
   const cards = catalog.cards.cards;
 
-  assert.equal(cards.length, 14);
-  assert.equal(catalog.archetypes.archetypes.length, 2);
-  assert.equal(catalog.proofScenarios.scenarios.length, 2);
+  assert.equal(cards.length, 100);
+  assert.equal(catalog.archetypes.archetypes.length, 18);
+  assert.equal(catalog.proofScenarios.scenarios.length, 8);
 
   for (const card of cards) {
     assert.equal(card.grades.length, 3, `${card.id} must carry 3 grades`);
@@ -26,19 +26,22 @@ test("seed catalog counts and invariants", async () => {
   }
 });
 
-test("every section has at least two seed cards", async () => {
+test("per-section card counts match the authored plan", async () => {
   const catalog = await catalogPromise;
   const counts = {};
   for (const card of catalog.cards.cards) {
     counts[card.section] = (counts[card.section] ?? 0) + 1;
   }
 
-  for (const section of Object.keys(catalog.tracks.slotBudgets)) {
-    assert.ok(
-      (counts[section] ?? 0) >= 2,
-      `section ${section} has fewer than 2 cards`,
-    );
-  }
+  assert.deepEqual(counts, {
+    protagonist: 12,
+    illumination: 12,
+    canvas: 14,
+    tone: 12,
+    universe: 14,
+    references: 20,
+    execution: 16,
+  });
 });
 
 test("duplicate card ids fail validation", async () => {

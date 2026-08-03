@@ -38,6 +38,116 @@
         "Toggle the Midjourney tail off on the Execution panel",
         "The parameters leave the prompt; the descriptive line stays intact"
       ]
+    },
+    {
+      "id": "affinity-filter",
+      "name": "Affinity filter",
+      "proves": "Intensity-gated cards leave and rejoin the deck as the dial moves",
+      "panel": 4,
+      "tracks": { "intensity": 0 },
+      "equipped": {
+        "tone": ["muted-palette"]
+      },
+      "checks": [
+        "At Subtle the Tone deck hides Neon Saturation and Candy Pop",
+        "Slide Intensity to Bold and both return to the deck",
+        "The equipped Muted Palette card stays in its slot throughout"
+      ]
+    },
+    {
+      "id": "reference-stack",
+      "name": "Reference stack",
+      "proves": "References holds four stacked influences and caps there",
+      "panel": 6,
+      "equipped": {
+        "references": [
+          "art-nouveau",
+          "ukiyo-e",
+          "impressionist-brush",
+          "tarot-card-mystic"
+        ]
+      },
+      "checks": [
+        "The References loadout reads 4/4",
+        "Clicking a fifth reference card does not equip it",
+        "All four reference fragments join the merged prompt in slot order"
+      ]
+    },
+    {
+      "id": "snap-memory",
+      "name": "Snap memory",
+      "proves": "Arrangements are remembered per Intensity configuration",
+      "panel": 2,
+      "tracks": { "intensity": 2 },
+      "equipped": {
+        "illumination": ["storm-light", "golden-hour"]
+      },
+      "checks": [
+        "Slide Intensity to Subtle: Storm Light drops from its slot and a replacement is suggested",
+        "Slide back to Extreme: the original two-card arrangement returns from memory",
+        "Golden Hour never leaves its slot"
+      ]
+    },
+    {
+      "id": "comma-hygiene",
+      "name": "Comma hygiene",
+      "proves": "The merge collapses whitespace and never doubles commas",
+      "panel": 1,
+      "draft": {
+        "subject": "  a fox,\nin a yellow raincoat,  "
+      },
+      "equipped": {
+        "canvas": ["oil-painting"]
+      },
+      "checks": [
+        "The merged line reads as one clean comma-separated sentence",
+        "No doubled commas or stray line breaks appear",
+        "The subject's internal comma survives; its trailing comma does not"
+      ]
+    },
+    {
+      "id": "exclusion-tail",
+      "name": "Exclusion tail",
+      "proves": "The --no exclusion rides the tail and leaves with it",
+      "panel": 7,
+      "draft": {
+        "mjTailEnabled": true,
+        "negative": "text, watermark"
+      },
+      "equipped": {
+        "execution": ["silhouette-shot"]
+      },
+      "checks": [
+        "The merged prompt ends with --no text, watermark",
+        "Disable the tail: the exclusion leaves with the other parameters",
+        "The exclusion field keeps its value for when the tail returns"
+      ]
+    },
+    {
+      "id": "full-house",
+      "name": "Full house",
+      "proves": "Every panel contributes one fragment in merge order",
+      "panel": 7,
+      "tracks": { "intensity": 1 },
+      "draft": {
+        "mjTailEnabled": true,
+        "aspectRatio": "21:9",
+        "stylize": 200
+      },
+      "equipped": {
+        "protagonist": ["lone-wanderer"],
+        "illumination": ["golden-hour"],
+        "canvas": ["oil-painting"],
+        "tone": ["muted-palette"],
+        "universe": ["ancient-forest"],
+        "references": ["ukiyo-e"],
+        "execution": ["wide-establishing"]
+      },
+      "checks": [
+        "The stepper shows all seven letters complete",
+        "The merged line runs subject, protagonist, canvas, universe, illumination, tone, references, execution",
+        "The tail closes the line with --ar 21:9 --stylize 200"
+      ]
     }
   ]
 }
