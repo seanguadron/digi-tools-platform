@@ -22,9 +22,9 @@ export default function HomePage() {
         </div>
         <h1 id="welcome-title">Sharp tools for working with AI.</h1>
         <p>
-          Digi Tools is a local-first toolbox — craft prompts, sketch
-          architectures, and browse your skill stack. Everything stays in your
-          browser.
+          Digi Tools is a local-first toolbox — build prompts for language and
+          image models, sketch architectures, edit images and vectors, and
+          browse your skill stack. Everything stays in your browser.
         </p>
       </header>
 
