@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createCardEngine } from "../src/lib/card-engine.ts";
+import {
+  createCardEngine,
+  resolveCardIllustration,
+} from "../src/lib/card-engine.ts";
 
 // Synthetic two-section catalog. "power" carries 14 points so the snap-memory
 // eviction cap (12 entries) can be exercised with real configuration keys.
@@ -405,6 +408,31 @@ test("equipped instructions follow slot order and skip holes and unknowns", () =
   );
   assert.deepEqual(instructions.alpha, ["a1 i1"]);
   assert.deepEqual(instructions.beta, ["b2 i2", "b1 i2"]);
+});
+
+test("card art prefers a generated grade image over the lineage image", () => {
+  const lineage = illustration("lineage");
+  const generatedGrade = { ...illustration("grade"), status: "generated" };
+
+  assert.equal(
+    resolveCardIllustration(generatedGrade, lineage).src,
+    "/card-art/test/grade.webp",
+  );
+});
+
+test("a planned or missing grade image falls back to the lineage image", () => {
+  const lineage = illustration("lineage");
+
+  // Every CRAFT grade ships a placeholder record; without the status check
+  // these two cases would hide the lineage art behind a letter placeholder.
+  assert.equal(
+    resolveCardIllustration(illustration("grade"), lineage).src,
+    "/card-art/test/lineage.webp",
+  );
+  assert.equal(
+    resolveCardIllustration(undefined, lineage).src,
+    "/card-art/test/lineage.webp",
+  );
 });
 
 test("createCardSystem copies default tracks instead of sharing them", () => {

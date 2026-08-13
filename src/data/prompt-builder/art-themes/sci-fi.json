@@ -1,0 +1,313 @@
+{
+  "schemaVersion": 1,
+  "theme": {
+    "id": "sci-fi",
+    "name": "Sci-Fi",
+    "pathSegment": "sci-fi",
+    "generator": "Higgsfield.ai - Seedream 5.0 Lite",
+    "aspectRatio": "1:1",
+    "style": "Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame."
+  },
+  "craft": {
+    "C": "Context. A vast dark situation table where a holographic terrain of the problem resolves out of nothing, a bounded pool of cyan light defining exactly how far the known world extends and open shadow beyond its edge.",
+    "R": "Role. A rank of identical armored crew silhouettes standing in shadow while one steps forward into full cyan key light, its specialist gear catching the beam, the chosen perspective made physical.",
+    "A": "Action. The moment of commitment: a heavy mechanism driving forward along a rail, thrust light blooming behind it, energy discharging in a decisive forward vector across the frame.",
+    "F": "Format. A precision mold closing around molten luminous material and pressing it into one exact geometric form, a clean shaped artifact emerging from formless glow.",
+    "T": "Target audience. A single figure seen from behind at a wide viewport, lit from the front by the transmission arriving for them, the whole scene built around who is receiving it."
+  },
+  "roles": {
+    "researcher": "A xenoarchivist in a modular field rig, half-lit by the cracked data-core she is coaxing back to life, spectral survey planes and annotated star-charts hovering around her hands as she traces one thread back to its origin.",
+    "analyst": "An analyst standing inside a suspended lattice of readings, pulling two conflicting data strands apart with both hands so the pattern between them resolves, outlier points burning brighter than the rest.",
+    "strategist": "A campaign strategist over a darkened war table, three glowing approach vectors projected above it, one hand hovering to commit while the others dim, distant terrain rendered in wireframe.",
+    "historian": "A chronicler at a towering memory spindle, drawing a single luminous timeline thread out of a vault of stacked archive cores, older layers dimmer and deeper behind.",
+    "fact-checker": "A verification officer holding a claim slab in an authentication clamp, provenance beams shooting from it toward distant source cores, some locking solid and others flickering unresolved.",
+    "synthesizer": "A signal weaver at a braiding loom, gathering many separate glowing data strands into a single coherent cable, the incompatible strands left visibly standing apart.",
+    "explainer-educator": "An instructor unfolding a complex mechanism into a floating exploded diagram, the pieces separating in mid-air along clean cyan guide-lines, one hand steadying the sequence.",
+    "comparative-reviewer": "A critical reviewer between two suspended prototypes in an inspection bay, stress beams probing both, hairline stress-fractures glowing where each one is weakest.",
+    "developer": "An engineer wrist-deep in a modular lattice of interlocking components, seating one new part into place while the surrounding structure lights up to accept it.",
+    "technical-troubleshooter": "A diagnostics technician tracing a fault arc through a machine's exposed guts, one glowing break in an otherwise dark circuit, probe held steady at the exact point of failure.",
+    "systems-designer": "A systems architect inside a hovering orbital schematic, moving whole subsystems into relation with each other, data flows drawn as light between them.",
+    "workflow-architect": "A pipeline designer above a conveyor of light, rerouting a stalled segment so the flow runs clean, the old bottleneck dark and bypassed beside it.",
+    "ux-ui-advisor": "An interface ergonomist testing a control surface with a gloved hand, heat-bloom showing where the reach is awkward, a cleaner layout ghosted over the old one.",
+    "data-analyst": "A data diver suspended in a dense particle field of measurements, cupping a cluster where the signal concentrates, sparse noise drifting away at the edges.",
+    "qa-test-engineer": "A stress-test operator deliberately driving a prototype past its limits inside a reinforced bay, the exact failure point flaring bright as the structure gives.",
+    "security-reviewer": "A breach analyst probing a shield lattice from outside, one hairline seam in the barrier lighting up under the probe, the rest of the wall holding dark and solid.",
+    "writer": "A composer at a text-loom, drawing a single clean line of luminous thread out of raw formless material, the finished passage hanging in ordered rows behind.",
+    "editor": "An editor over a manuscript slab with a precision cutting tool, lifting away excess material in clean slivers, the strong original structure left standing and lit.",
+    "copywriter": "A signal-caster tuning a broadcast pod down to one sharp focused beam, the wide scattered transmission collapsing into a single bright directional lance.",
+    "rewriter": "A reforge specialist melting a bent component and recasting it in a cleaner mold, the original shape ghosted alongside so the meaning is visibly preserved.",
+    "pitch-strategist": "A presenter at the head of a dark hall commanding a rising arc of light from problem to proof, incoming objection-bolts breaking against it as it climbs.",
+    "presentation-slide-structurer": "A deck builder sequencing floating stage panels into a single ordered run, each panel holding one clear shape, the sequence receding into the dark.",
+    "creative-director": "A creative director at a rig projecting several genuinely different directions at once, each a distinct silhouette, one hand raised toward the boldest.",
+    "concept-developer": "A concept smith growing a raw luminous seed into a structured form inside a shaping chamber, the hook of the idea crystallizing hard and bright at its center.",
+    "brainstorming-partner": "An idea generator releasing a swarm of divergent spark-drones from an open case, each one a different shape, the strongest few already clustering together.",
+    "prompt-engineer": "A prompt-smith tuning a glowing instruction core on a calibration bench, ambiguity venting off as dark vapor while the core settles into a clean stable pulse.",
+    "tutor": "A patient tutor guiding a learner's hand onto the next rung of a rising ladder of light, the rungs already climbed still glowing warm behind them.",
+    "curriculum-designer": "A curriculum designer laying a sequenced path of platforms across a dark gap, each platform locking into the last, checkpoint beacons marking mastery.",
+    "mentor": "A veteran mentor beside a younger figure at a high overlook, pointing out one specific route through the terrain below rather than the whole horizon.",
+    "consultant": "A consultant at a client's situation table, sweeping away clutter to leave one clearly lit recommended path, discarded alternatives dimmed at the table edge.",
+    "product-strategist": "A product strategist weighing glowing opportunity masses on a suspended scale, one pan clearly heavier and lit, the rejected mass set aside in shadow.",
+    "market-positioning-advisor": "A positioning strategist plotting a claim-marker into open unoccupied space on a category map, rival markers clustered and crowded elsewhere on the field.",
+    "product-manager": "A product manager triaging a queue of incoming work slabs, pulling three forward into the lit build lane and holding the rest back behind a barrier.",
+    "summarizer": "A compression operator feeding a towering volume of material into a distillation press and drawing out one dense luminous shard that holds all of its weight.",
+    "organizer": "An organizer standing in drifting unsorted debris, snapping the pieces into a clean filing lattice, the empty cells where things are missing left visibly dark."
+  },
+  "lineages": {
+    "context-scope": "A survey drone projecting a bounded pool of light onto dark ground, its clean edge marking exactly how far the work extends, everything beyond the boundary falling into shadow.",
+    "context-evidence": "An evidence spindle: a rack of glowing source cores with provenance filaments running from each one up to the claim it supports, the weakest filaments visibly thinner.",
+    "context-constraints": "A set of heavy limiter clamps closed around a working volume, hard immovable jaws holding the shape in, softer preference-markers resting loose outside them.",
+    "context-assumptions": "A scaffold of translucent placeholder blocks holding up a structure, the load-bearing ones pulsing with a warning glow to show what would fall if they are wrong.",
+    "context-success": "A calibration target with an acceptance gauge locking into the green, the exact tolerance ring visible and the failure zone marked dark beyond it.",
+    "context-exclusions": "A diverter gate splitting an incoming stream, sending one branch cleanly away into a sealed dark channel while the approved flow continues lit.",
+    "action-inspect": "A magnifier probe hovering over an opened assembly, sweeping its beam across the parts and catching one loose connection glinting out of alignment.",
+    "action-analyze": "A separation column pulling a single mixed signal apart into distinct luminous strata, causes settling into layered bands, one anomalous band burning brighter.",
+    "action-compare": "A twin-pan balance suspended in the dark holding two artifacts against the same measuring beam, the tipping difference clearly readable in its tilt.",
+    "action-create": "A fabricator arm assembling a finished form out of drifting component parts, the artifact taking shape in a bloom of cyan construction light.",
+    "action-recommend": "A selector mechanism committing to one of several branching rails, the chosen track lighting up bright and continuous while the others go dark.",
+    "action-verify": "A test rig running a finished component through a gauntlet of measuring gates, each gate lighting green as it passes, one gate still probing hard.",
+    "action-summarize": "A compression press reducing a tall stack of material into one dense bright wafer, the original volume ghosted behind at its true scale.",
+    "action-research": "A deep-scan array fanning search beams into surrounding darkness, one distant return signal locking in bright while weaker returns fade.",
+    "action-plan": "A sequencer laying ordered nodes along a track, dependency lines drawn between them, the next executable node lit and the blocked ones dimmed.",
+    "action-ideate": "A spark chamber throwing off many genuinely different forms at once, no two alike, a few of the strongest already drifting together into a cluster.",
+    "action-explain": "An exploded-view projector unfolding a mechanism in mid-air, the parts separating along clean guide-lines so the workings between them become visible.",
+    "action-clarify": "A query beacon pulsing into a dark gap in a structure, its light outlining the exact shape of the missing piece rather than filling it in.",
+    "format-info-card": "A single clean answer slab standing alone in the dark, its face flat and legible, no ornament and nothing stacked around it.",
+    "format-key-points": "A rack of separated point-shards standing in a row, each one distinct and evenly lit, clear dark gaps holding them apart.",
+    "format-summary": "A distillation vessel with the heaviest conclusion settled bright at the top and the supporting sediment layered below it in shadow.",
+    "format-sections": "A segmented column of stacked chambers, each chamber a distinct sealed volume with its own internal glow, the divisions between them crisp.",
+    "format-evidence": "Anchor lines running from a floating claim down to solid source cores below, each line taut and lit, one unanchored claim drifting loose.",
+    "format-comparison": "A grid lattice aligning several items along the same measuring axes, the intersections where they diverge flaring brighter than the rest.",
+    "format-next": "A launch rail with ordered ready-markers lit in sequence, the first one primed and glowing hot, the later ones waiting cooler down the line.",
+    "format-length": "A precision caliper clamped around a body of luminous material, compressing it to an exact marked width, the trimmed excess venting away as vapor.",
+    "format-tiers": "A stepped platform descending into the dark, the top step small and brilliantly lit, each lower step wider and dimmer with supporting depth.",
+    "target-language": "A translator prism stepping a dense beam down through graded facets, the light emerging simpler and clearer at each stage without losing its color.",
+    "target-voice": "A tone modulator with a resonating fork held in a field of register bands, the selected band ringing bright and steady across its whole length.",
+    "target-examples": "A projector casting small concrete miniature scenes into the air beneath a large abstract form, the miniatures sharp where the abstraction is vague.",
+    "target-decisions": "A decision console of weighted levers, each one linked by a taut line to the consequence it triggers further down the board.",
+    "target-stance": "A stance dial set between a warm amber pole and a hard cold pole, the needle locked firmly at a chosen point and the chosen temperature washing the scene."
+  },
+  "archetypes": {
+    "executive-summary": "A command table where a mountain of raw material has been distilled to one decision slab hovering at eye level under a spotlight, the source volume receding into darkness behind it.",
+    "creative-concept": "A concept forge with a luminous idea suspended in the shaping field, growing structure and a hard bright hook at its core while rough offcuts drift away.",
+    "note-taker": "A capture array turning a chaotic incoming stream of fragments into neat ordered tablets stacking themselves into a clean archive rack.",
+    "message-email": "A comms relay composing one sealed transmission capsule, its tone-tuning ring glowing at the chosen register, ready to launch into a dark channel.",
+    "prompt-improver": "A workbench where an old instruction core has been stripped down and rebuilt sharper, the discarded ambiguous parts laid out dark to one side.",
+    "learning-guide": "A teaching orrery with a central idea at its heart and a guided path of illuminated waypoints circling it, worked examples orbiting close.",
+    "app-build-handoff": "A sealed blueprint capsule holding a complete self-contained plan, every layer visible through its shell, docked into an autonomous builder waiting to execute.",
+    "agent-skill": "A modular skill cartridge on a mounting rail, its trigger face lit, procedure rails and guardrail clamps visible along its length.",
+    "agent-gate": "A judgment gate arch scanning an artifact passing beneath it, a hard scanning plane sweeping the object and a verdict light holding at the top of the arch.",
+    "social-post": "A broadcast pod fitted with several interchangeable antenna heads, one selected and extended, its shaped signal already carrying out into the dark.",
+    "quick-explanation": "A compact answer beacon standing alone, one clear steady light, nothing around it and nothing between the viewer and the point.",
+    "research-brief": "A balanced dossier suspended between two source pillars, confidence bands rendered as visible width around each finding, the uncertain ones deliberately wider.",
+    "decision-advisor": "A weighing console with several options mounted on measured arms, one arm settling low and lighting bright as the recommendation commits.",
+    "data-analysis": "A data core being read open, its contents fanning out into layered insight strata, one segment isolated and brought forward glowing.",
+    "risk-premortem": "A wreckage diorama being read in reverse, luminous failure lines running backward from the broken result to the small quiet cause that started it.",
+    "writing-draft": "A text loom weaving a first continuous draft out of raw fiber, the fabric clean but still on the frame, edges deliberately unfinished.",
+    "rewrite-polish": "A polishing lathe refining an existing form, dull surface lifting away under the tool to reveal the same shape underneath, sharper and brighter.",
+    "critique-review": "An inspection bay with an artifact held in restraints, prioritized flag-markers planted along it, the most serious one burning hottest.",
+    "presentation-outline": "A run of floating stage panels receding in sequence, each holding one clear shape, a bright throughline connecting them front to back.",
+    "build-plan": "A project scaffold rising in ordered stages with milestone nodes locked at each level, dependency struts drawn taut between them.",
+    "spec-prd": "A spec capsule with requirement plates locked around its core, each plate seated and sealed, tolerances etched as clean grooves in the metal.",
+    "coding": "A code fabricator writing a working component into being, structure knitting itself into place under the emitter head, test probes already touching the finished edge.",
+    "technical-troubleshoot": "A diagnostic bay with a machine opened up and one traced fault line glowing along its length, a repair clamp moving in toward the exact break.",
+    "explain-code": "A walkthrough projector stepping through a mechanism one stage at a time, the active stage lit and moving while the rest of the path stays visible.",
+    "extract-data": "An extractor drawing clean uniform structured shards out of raw unsorted ore, the finished shards racking themselves in perfect rows."
+  },
+  "grades": {
+    "context-scope": [
+      "A survey drone holding a small tight pool of light around a single object, only the ground immediately beneath it visible and everything else swallowed by dark.",
+      "A survey drone with its pool widened to take in the nearby inputs it may use, a clean marked boundary edge drawn where the light stops.",
+      "A survey drone lighting a broad field with stakeholder markers standing inside it and worn paths crossing the ground where things have already been tried.",
+      "A survey drone fully deployed, its light thrown to the horizon so the entire terrain reads at once with nothing left guessed at in shadow."
+    ],
+    "context-evidence": [
+      "An evidence spindle with claim cores mounted and accepted as given, the provenance filaments still coiled unused at the base of the rack.",
+      "An evidence spindle with filaments run from the load-bearing claims down to a few solid source cores, the unsupported claims left dark.",
+      "An evidence spindle where each key claim is cross-braced by several converging filaments arriving from different cores.",
+      "An evidence spindle threaded end to end, conflicting filaments held deliberately apart and lit against each other, confidence readable in every strand."
+    ],
+    "context-constraints": [
+      "A pair of limiter clamps resting lightly at the edges of a working volume, barely engaged, holding only the stated exclusions.",
+      "Four limiter clamps closed on a working volume, compressing it to a smaller practical footprint of time, tools, and budget.",
+      "Hard steel limiter clamps locked tight while softer preference-markers sit visibly separate and loose beside them, the difference obvious.",
+      "A full cage of limiter clamps around a volume with stress readouts glowing at every joint and exception latches sprung along the frame."
+    ],
+    "context-assumptions": [
+      "A scaffold with a few translucent placeholder blocks plainly visible among the solid structure, simply shown rather than hidden.",
+      "A scaffold where the load-bearing translucent blocks pulse with warning light, marking the ones that would change everything.",
+      "A scaffold where every translucent block carries its own base-plate and a consequence line running out from it.",
+      "A scaffold of translucent blocks ranked by height and brightness, tilt lines projecting how far the whole structure moves if each one fails."
+    ],
+    "context-success": [
+      "A simple calibration target ring with the needle resting quietly on it, one clear mark for what finished means.",
+      "An acceptance gauge locked into the green with the pass threshold scored sharply on its face.",
+      "A bank of acceptance gauges mounted together, pass zones lit green and failure zones marked hard in dark red.",
+      "A full instrument wall of graded measures, thresholds etched into each dial and the whole board reading out at once."
+    ],
+    "context-exclusions": [
+      "A diverter gate shunting a few marked items aside into a small dark holding bin while the rest of the flow continues.",
+      "A diverter gate holding a clean lit line across the channel, the flow kept firmly on one side of it.",
+      "A diverter gate as a hard sealed barrier with rejected forms visibly pressed up against its face, unable to pass.",
+      "A diverter gate firing actively, alarm light sweeping the channel, an escaping branch caught and turned back mid-diversion."
+    ],
+    "action-inspect": [
+      "A magnifier probe following a single pointed line across an opened assembly, one indicated area lit and the rest dim.",
+      "A magnifier probe stepping across marked checkpoints in sequence along an opened assembly, each one lighting as it clears.",
+      "A magnifier probe roaming an opened assembly under its own control, several gaps and conflicts flagged where it has been.",
+      "An opened assembly fully disassembled under a bank of magnifier probes, every part lit and measured at once."
+    ],
+    "action-analyze": [
+      "A separation column resolving a mixed signal into two or three clean luminous bands.",
+      "Two separation columns held side by side, a candidate band-pattern in each, the rival readings compared directly.",
+      "A separation column driven harder until the assumptions inside crack apart into visible sub-bands.",
+      "A separation column run to its extremes, hunting through the residue for the one disconfirming trace that breaks the pattern."
+    ],
+    "action-compare": [
+      "A twin-pan balance with two artifacts simply laid out on its pans, the beam still level, differences visible but unjudged.",
+      "A twin-pan balance with a measuring beam sighted across both artifacts against marked criteria etched on the frame.",
+      "A twin-pan balance with calibrated weights added along its arms, the tilt now decisive rather than incidental.",
+      "A full array of balance pans on scored arms, every artifact measured against every axis, a verdict light burning above the winner."
+    ],
+    "action-create": [
+      "A fabricator arm holding a rough unfinished armature, open questions sparking at the points where a decision is still needed.",
+      "A fabricator arm building precisely along a projected plan, following its guide-lines without deviation.",
+      "A fabricator arm working with no plan projected, filling the silent gaps with its own decisions as the form completes.",
+      "A finished artifact released from the fabricator cradle, verified and lit, the arm already retracting behind it."
+    ],
+    "action-recommend": [
+      "A selector mechanism with several branching rails all lit equally, none chosen, each simply shown as possible.",
+      "A selector mechanism with one rail selected and the constraint gates it fits standing open along its length.",
+      "A selector mechanism with the chosen rail blazing, the runner-up dimmed but still visible beside it, a risk flare marked on the choice.",
+      "A selector mechanism with the switch thrown hard, a single rail blazing full length and every alternative retracted into the dark."
+    ],
+    "action-verify": [
+      "A test rig running a component through one quick gate, an obvious flaw catching in the beam.",
+      "A test rig with each gate lighting pass or fail in turn as the component travels the line.",
+      "A test rig pushing a component past its normal load, the edges and joints glowing hot where they strain.",
+      "A test rig turned hostile, attacking the component from every side at once like a hunting adversary."
+    ],
+    "action-summarize": [
+      "A compression press lifting a few key points cleanly out of a tall stack of material.",
+      "A compression press reducing a stack evenly, the original proportions still readable in the compressed slab.",
+      "A compression press with the decision-critical layer pulled bright to the top and the remainder crushed thin beneath it.",
+      "A compression press yielding one brilliant dense wafer, the enormous source volume behind it only a faint ghost."
+    ],
+    "action-research": [
+      "A deep-scan array pointed at a few supplied cores, the dark gaps between them plainly marked and unfilled.",
+      "A deep-scan array firing narrow targeted beams into specific gaps, each return tagged where it came from.",
+      "A deep-scan array sweeping wide across open darkness on its own initiative, weighing the returns it finds.",
+      "A deep-scan array with several beams converging to corroborate one distant return, confidence rings tightening around the lock."
+    ],
+    "action-plan": [
+      "A sequencer track with a few nodes set loosely along it in a sensible order.",
+      "A sequencer track with ordered nodes, dependency lines drawn taut between them and one risk flare burning.",
+      "A sequencer track phased into grouped stages with milestone gates and verification checks standing between them.",
+      "A sequencer track fully built out and running itself, every node firing in order with no operator anywhere in the frame."
+    ],
+    "action-ideate": [
+      "A spark chamber throwing off a small handful of distinct starting forms.",
+      "A spark chamber flinging many genuinely different shapes wide, no two alike anywhere in the spread.",
+      "A spark chamber mid-burst with the strongest few forms already pulled together into a lit converging cluster.",
+      "A spark chamber showing its full spectrum from safe compact forms to wild irregular ones, ranked along a lit gradient."
+    ],
+    "action-explain": [
+      "An exploded-view projector showing a single part in isolation, the rest of the mechanism still folded shut.",
+      "An exploded-view projector unfolding parts one at a time along a lit path, each step following from the one before.",
+      "An exploded-view projector with the mechanism fully open, the hidden linkage exposed and one trap-point flagged bright.",
+      "An exploded-view projector with everything unfolded and further branches still opening outward at the edges of the frame."
+    ],
+    "action-clarify": [
+      "A query beacon firing many pulses in patient batches into a dark gap, its outline almost completely mapped by the returns.",
+      "A query beacon still pulsing into a gap that is nearly closed, only a thin sliver of unknown shape left dark.",
+      "A query beacon sending one single hard pulse into the one gap that actually blocks the path forward.",
+      "A query beacon gone dark, the gap bridged instead by a placed assumption block with a bright log tag fixed to its face."
+    ],
+    "format-info-card": [
+      "A single answer slab standing bare in the dark, its face plain and unornamented.",
+      "A single answer slab tightened down, its essentials arranged in one clean scannable block.",
+      "A thicker answer slab with context strata visible in its cut edge, layered beneath the face.",
+      "A substantial reference monolith with caveat notches cut into its margin and worked examples inset along its side."
+    ],
+    "format-key-points": [
+      "A rack holding a few point-shards leaning loosely, unaligned but separate.",
+      "A rack of point-shards clustered into labeled groups, related shards standing together.",
+      "A full rack of point-shards arranged into clearly divided labeled sections.",
+      "A rack of uniform atomic point-shards, each identical in size with a tick-notch cut into its head."
+    ],
+    "format-summary": [
+      "A distillation vessel holding one bright drop suspended at the very top.",
+      "A distillation vessel with a small clear band of summary floating above the settled sediment.",
+      "A distillation vessel with a thick lit layer of findings and an implication channel running off it toward a marked move.",
+      "A sealed self-contained distillation vessel, complete on its own, needing nothing outside its own glass."
+    ],
+    "format-sections": [
+      "A mostly continuous column with only one or two divisions cut where they genuinely help.",
+      "A column divided into evenly spaced chambers, each one distinct and separately lit.",
+      "A column of chambers in a fixed ordered stack, every chamber present and none skipped.",
+      "A column machined to an exact template, chamber seams flush and sealed, nothing added and nothing dropped."
+    ],
+    "format-evidence": [
+      "A floating claim with a couple of anchor lines dropped to the strongest source cores below it.",
+      "Several floating claims each tethered inline to its own source core, lines short and taut.",
+      "Anchor lines rendered at visible thicknesses, each strand's width showing the weight of evidence it carries.",
+      "Every claim anchored to a core, with inference lines rendered distinctly as dashed strands among the solid ones."
+    ],
+    "format-comparison": [
+      "Several alternatives standing separated in the dark, clearly apart from each other but with no grid drawn yet.",
+      "A compact grid lattice with the alternatives placed on it and the key measuring axes lit.",
+      "A grid lattice with criteria explicit along its edges and the winning row glowing across its full width.",
+      "A dense grid lattice of weighted cells with scored intersections and a ranked verdict column burning down one side."
+    ],
+    "format-next": [
+      "A launch rail with a single marker primed and glowing hot at its head.",
+      "A launch rail with a short ordered run of markers lit in sequence down its length.",
+      "A launch rail with markers ranked by heat, owner tags clipped to the hottest ones.",
+      "A launch rail fully loaded and released, running its whole sequence with no operator present to drive it."
+    ],
+    "format-length": [
+      "A precision caliper clamped hard on a body of luminous material, a heavy offcut venting away as vapor.",
+      "A precision caliper holding material to a single dense measure, compact and fully packed.",
+      "A precision caliper opened to the material's natural width, the space spent on substance rather than padding.",
+      "A precision caliper opened wide but stopping exactly at the material's true edge, complete with nothing added beyond it."
+    ],
+    "format-tiers": [
+      "A stepped platform with one small brilliantly lit top step and the depth below it only suggested in shadow.",
+      "A stepped platform of three clean descending steps, each one clearly separated from the next.",
+      "A stepped platform of three labeled steps with every item visibly assigned to one of them.",
+      "A strictly machined terrace of tiers with hard edges, nothing resting anywhere outside the hierarchy."
+    ],
+    "target-language": [
+      "A translator prism stepping its beam all the way down to the simplest broadest facet, emerging plain and unhurried.",
+      "A translator prism holding a clear middle facet, unfamiliar terms visibly unpacked as the light enters.",
+      "A translator prism running at standard density, only the most obscure facets clarified along the path.",
+      "A translator prism passed straight through undiluted, the beam leaving at full technical density."
+    ],
+    "target-voice": [
+      "A tone modulator with its fork ringing loose and natural, the band warm and conversational.",
+      "A tone modulator holding a calm even band without ornament or flourish.",
+      "A tone modulator holding a polished precise band, its edges clean and deliberate.",
+      "A tone modulator holding a rigid disciplined band exactly on its mark, formal and unwavering."
+    ],
+    "target-examples": [
+      "A projector casting one familiar homely miniature scene beneath a large abstract form.",
+      "A projector carrying a single miniature scene all the way through from start to finish.",
+      "A projector casting realistic miniature scenes with their messy irregular detail deliberately left in.",
+      "A projector placing miniature scenes right at the boundary where the larger rule visibly breaks down."
+    ],
+    "target-decisions": [
+      "A decision console with one lever highlighted and the input it still needs lit beside it.",
+      "A decision console with its levers labeled by the action each one enables further down the board.",
+      "A decision console of paired levers, each pair showing what is gained against what is given up.",
+      "A decision console with the chosen lever locked in place and its accepted consequences recorded along the board."
+    ],
+    "target-stance": [
+      "A stance dial with the needle at the warm amber pole, the scene washed in soft encouraging light.",
+      "A stance dial with the needle centered, the light even and matter-of-fact with no lean either way.",
+      "A stance dial with the needle pushed toward the cold pole, the light hard, clear, and unsoftened.",
+      "A stance dial with the needle locked hard at the cold pole, the light sharp and absolute across the whole frame."
+    ]
+  },
+  "shared": {
+    "custom-preset": "A blank preset core resting in an open forge cradle, its mounting rails and empty slots cut and ready, a faint cyan charge already running through the unfilled frame."
+  }
+}

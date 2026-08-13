@@ -94,7 +94,7 @@ export function buildCustomArchetype(
       "Preserves the user's Context and Target writing fields.",
     ],
     illustration: {
-      src: "/card-art/archetypes/custom-preset.webp",
+      src: "/card-art/sci-fi/archetypes/custom-preset.webp",
       alt: `Illustration asset for the ${cleanName} preset.`,
       motif: "Custom preset master-plan artifact",
       prompt: "Custom user preset.",

@@ -55,6 +55,21 @@ export type CardSystemStateOf<S extends string, T extends string> = {
   suggested: SuggestedCardsOf<S>;
 };
 
+// Which artwork a card face shows. A grade's own art wins ONLY once it has
+// actually been generated: every CRAFT grade already carries a placeholder
+// illustration record, so a plain `grade.illustration ?? lineage.illustration`
+// would make lineage art unreachable and leave the whole deck on letter
+// placeholders until all 128 grade images existed. Falling back on status
+// instead lets one lineage image cover its grades today, and each grade
+// upgrades itself the moment its own art lands. (PICTURE grades carry no
+// illustration at all, so this returns the lineage art for them as before.)
+export function resolveCardIllustration(
+  grade: CardIllustration | undefined,
+  lineage: CardIllustration,
+): CardIllustration {
+  return grade?.status === "generated" ? grade : lineage;
+}
+
 export type CardEngineConfig<
   S extends string,
   T extends string,

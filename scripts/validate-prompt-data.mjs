@@ -1,6 +1,7 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
+import { generateCraftArtDocs } from "./generate-craft-art-docs.mjs";
 import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import {
@@ -470,6 +471,9 @@ export async function validateCatalog(catalog, { checkDocs = false } = {}) {
 
   if (checkDocs) {
     await generateRoleDocs({ check: true });
+    // Also fails when an art pack is missing a card or carries an orphan
+    // entry, so a pack can never silently fall behind the catalog.
+    await generateCraftArtDocs({ check: true });
   }
 }
 

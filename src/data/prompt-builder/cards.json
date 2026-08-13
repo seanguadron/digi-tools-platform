@@ -12,7 +12,7 @@
           "description": "Capture the immediate situation and the result you need.",
           "instruction": "State the immediate situation and the result you need in two or three sentences.",
           "illustration": {
-            "src": "/card-art/cards/context-scope/01-situation-snapshot.webp",
+            "src": "/card-art/sci-fi/cards/context-scope/01-situation-snapshot.webp",
             "alt": "Illustration asset for Situation Snapshot.",
             "motif": "SCP Modifier showing situation snapshot",
             "prompt": "Retro-tech guild toolkit square illustration asset for Situation Snapshot, a Modifier card used in context prompt building. Visual metaphor: Capture the immediate situation and the result you need. Keep the SCP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -24,7 +24,7 @@
           "description": "Add the goal, available inputs, and practical boundaries.",
           "instruction": "Describe the goal, the inputs available to work from, and the practical boundaries in play.",
           "illustration": {
-            "src": "/card-art/cards/context-scope/02-working-brief.webp",
+            "src": "/card-art/sci-fi/cards/context-scope/02-working-brief.webp",
             "alt": "Illustration asset for Working Brief.",
             "motif": "SCP Modifier showing working brief",
             "prompt": "Retro-tech guild toolkit square illustration asset for Working Brief, a Modifier card used in context prompt building. Visual metaphor: Add the goal, available inputs, and practical boundaries. Keep the SCP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -36,7 +36,7 @@
           "description": "Explain the decision, its stakeholders, and what has been tried.",
           "instruction": "Lay out the stakeholders, the decision being made, the constraints that bind it, and what has already been tried or ruled out.",
           "illustration": {
-            "src": "/card-art/cards/context-scope/03-decision-context.webp",
+            "src": "/card-art/sci-fi/cards/context-scope/03-decision-context.webp",
             "alt": "Illustration asset for Decision Context.",
             "motif": "SCP Modifier showing decision context",
             "prompt": "Retro-tech guild toolkit square illustration asset for Decision Context, a Modifier card used in context prompt building. Visual metaphor: Explain the decision, its stakeholders, and what has been tried. Keep the SCP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -48,7 +48,7 @@
           "description": "Supply the full background needed to act without guessing.",
           "instruction": "Supply the full operating picture — background, dependencies, prior decisions and their reasons, and the downstream effects a change would touch — so the work can proceed without guessing.",
           "illustration": {
-            "src": "/card-art/cards/context-scope/04-complete-operating-picture.webp",
+            "src": "/card-art/sci-fi/cards/context-scope/04-complete-operating-picture.webp",
             "alt": "Illustration asset for Complete Operating Picture.",
             "motif": "SCP Modifier showing complete operating picture",
             "prompt": "Retro-tech guild toolkit square illustration asset for Complete Operating Picture, a Modifier card used in context prompt building. Visual metaphor: Supply the full background needed to act without guessing. Keep the SCP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -62,7 +62,7 @@
         "Name the boundaries that shape a useful answer."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-scope/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-scope/lineage.webp",
         "alt": "Illustration asset for the context-scope modifier lineage.",
         "motif": "SCP Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable SCP lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -80,7 +80,7 @@
           "description": "Treat the supplied information as the working truth.",
           "instruction": "Treat the supplied information as the working truth; do not spend effort second-guessing it.",
           "illustration": {
-            "src": "/card-art/cards/context-evidence/01-given-as-true.webp",
+            "src": "/card-art/sci-fi/cards/context-evidence/01-given-as-true.webp",
             "alt": "Illustration asset for Given As True.",
             "motif": "SRC Modifier showing given as true",
             "prompt": "Retro-tech guild toolkit square illustration asset for Given As True, a Modifier card used in context prompt building. Visual metaphor: Treat the supplied information as the working truth. Keep the SRC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -92,7 +92,7 @@
           "description": "Ground load-bearing claims in credible references.",
           "instruction": "Ground load-bearing claims in a credible reference, and say when you are relying on general knowledge instead.",
           "illustration": {
-            "src": "/card-art/cards/context-evidence/02-source-support.webp",
+            "src": "/card-art/sci-fi/cards/context-evidence/02-source-support.webp",
             "alt": "Illustration asset for Source Support.",
             "motif": "SRC Modifier showing source support",
             "prompt": "Retro-tech guild toolkit square illustration asset for Source Support, a Modifier card used in context prompt building. Visual metaphor: Ground load-bearing claims in credible references. Keep the SRC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -104,7 +104,7 @@
           "description": "Cross-check the claims the conclusion depends on.",
           "instruction": "Corroborate every claim the conclusion depends on across at least two independent, credible sources, and surface any disagreement between them.",
           "illustration": {
-            "src": "/card-art/cards/context-evidence/03-corroborated-sources.webp",
+            "src": "/card-art/sci-fi/cards/context-evidence/03-corroborated-sources.webp",
             "alt": "Illustration asset for Corroborated Sources.",
             "motif": "SRC Modifier showing corroborated sources",
             "prompt": "Retro-tech guild toolkit square illustration asset for Corroborated Sources, a Modifier card used in context prompt building. Visual metaphor: Cross-check the claims the conclusion depends on. Keep the SRC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -116,7 +116,7 @@
           "description": "Make evidence, conflicts, and confidence fully traceable.",
           "instruction": "Attach evidence to every material claim, note where sources conflict and which you weighted, and mark each key conclusion with your confidence and the reason for it.",
           "illustration": {
-            "src": "/card-art/cards/context-evidence/04-audit-trail.webp",
+            "src": "/card-art/sci-fi/cards/context-evidence/04-audit-trail.webp",
             "alt": "Illustration asset for Audit Trail.",
             "motif": "SRC Modifier showing audit trail",
             "prompt": "Retro-tech guild toolkit square illustration asset for Audit Trail, a Modifier card used in context prompt building. Visual metaphor: Make evidence, conflicts, and confidence fully traceable. Keep the SRC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -130,7 +130,7 @@
         "Make uncertainty and disagreement visible."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-evidence/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-evidence/lineage.webp",
         "alt": "Illustration asset for the context-evidence modifier lineage.",
         "motif": "SRC Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable SRC lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -148,7 +148,7 @@
           "description": "Respect the stated exclusions and say when they bind.",
           "instruction": "Respect the stated exclusions; if a requirement collides with one, say so rather than quietly working around it.",
           "illustration": {
-            "src": "/card-art/cards/context-constraints/01-basic-limits.webp",
+            "src": "/card-art/sci-fi/cards/context-constraints/01-basic-limits.webp",
             "alt": "Illustration asset for Basic Limits.",
             "motif": "LIM Modifier showing basic limits",
             "prompt": "Retro-tech guild toolkit square illustration asset for Basic Limits, a Modifier card used in context prompt building. Visual metaphor: Respect the stated exclusions and say when they bind. Keep the LIM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -160,7 +160,7 @@
           "description": "Work inside time, tool, budget, and scope limits.",
           "instruction": "Work inside the stated time, tool, budget, and scope limits, and call out any recommendation that presses against one.",
           "illustration": {
-            "src": "/card-art/cards/context-constraints/02-operating-limits.webp",
+            "src": "/card-art/sci-fi/cards/context-constraints/02-operating-limits.webp",
             "alt": "Illustration asset for Operating Limits.",
             "motif": "LIM Modifier showing operating limits",
             "prompt": "Retro-tech guild toolkit square illustration asset for Operating Limits, a Modifier card used in context prompt building. Visual metaphor: Work inside time, tool, budget, and scope limits. Keep the LIM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -172,7 +172,7 @@
           "description": "Separate hard constraints from negotiable preferences.",
           "instruction": "Separate hard constraints from negotiable preferences, honor the hard ones absolutely, and say which preferences you traded away and why.",
           "illustration": {
-            "src": "/card-art/cards/context-constraints/03-constraint-map.webp",
+            "src": "/card-art/sci-fi/cards/context-constraints/03-constraint-map.webp",
             "alt": "Illustration asset for Constraint Map.",
             "motif": "LIM Modifier showing constraint map",
             "prompt": "Retro-tech guild toolkit square illustration asset for Constraint Map, a Modifier card used in context prompt building. Visual metaphor: Separate hard constraints from negotiable preferences. Keep the LIM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -184,7 +184,7 @@
           "description": "Treat dependencies, exceptions, and failure states explicitly.",
           "instruction": "Treat dependencies, exceptions, and failure conditions as first-class constraints: state what breaks each recommendation and where its limits sit.",
           "illustration": {
-            "src": "/card-art/cards/context-constraints/04-boundary-conditions.webp",
+            "src": "/card-art/sci-fi/cards/context-constraints/04-boundary-conditions.webp",
             "alt": "Illustration asset for Boundary Conditions.",
             "motif": "LIM Modifier showing boundary conditions",
             "prompt": "Retro-tech guild toolkit square illustration asset for Boundary Conditions, a Modifier card used in context prompt building. Visual metaphor: Treat dependencies, exceptions, and failure states explicitly. Keep the LIM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -198,7 +198,7 @@
         "Prevent recommendations that cannot be used."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-constraints/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-constraints/lineage.webp",
         "alt": "Illustration asset for the context-constraints modifier lineage.",
         "motif": "LIM Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable LIM lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -216,7 +216,7 @@
           "description": "Say what is being assumed instead of building on it silently.",
           "instruction": "When you must assume something to proceed, say so in one line rather than silently building on it.",
           "illustration": {
-            "src": "/card-art/cards/context-assumptions/01-working-assumptions.webp",
+            "src": "/card-art/sci-fi/cards/context-assumptions/01-working-assumptions.webp",
             "alt": "Illustration asset for Working Assumptions.",
             "motif": "ASM Modifier showing working assumptions",
             "prompt": "Retro-tech guild toolkit square illustration asset for Working Assumptions, a Modifier card used in context prompt building. Visual metaphor: Say what is being assumed instead of building on it silently. Keep the ASM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -228,7 +228,7 @@
           "description": "Flag the assumptions that would change the answer.",
           "instruction": "List the assumptions that would change the answer if wrong, and mark the one that worries you most.",
           "illustration": {
-            "src": "/card-art/cards/context-assumptions/02-assumption-check.webp",
+            "src": "/card-art/sci-fi/cards/context-assumptions/02-assumption-check.webp",
             "alt": "Illustration asset for Assumption Check.",
             "motif": "ASM Modifier showing assumption check",
             "prompt": "Retro-tech guild toolkit square illustration asset for Assumption Check, a Modifier card used in context prompt building. Visual metaphor: Flag the assumptions that would change the answer. Keep the ASM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -240,7 +240,7 @@
           "description": "Track each assumption, its basis, and its consequence.",
           "instruction": "Keep a short register of material assumptions — each with its basis and the consequence if it fails — and refer back to it in the conclusion.",
           "illustration": {
-            "src": "/card-art/cards/context-assumptions/03-assumption-register.webp",
+            "src": "/card-art/sci-fi/cards/context-assumptions/03-assumption-register.webp",
             "alt": "Illustration asset for Assumption Register.",
             "motif": "ASM Modifier showing assumption register",
             "prompt": "Retro-tech guild toolkit square illustration asset for Assumption Register, a Modifier card used in context prompt building. Visual metaphor: Track each assumption, its basis, and its consequence. Keep the ASM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -252,7 +252,7 @@
           "description": "Rank the unknowns and show how each shifts the answer.",
           "instruction": "Model the uncertainty explicitly: rank the material unknowns by impact, show how each would shift the recommendation, and name what evidence would settle them.",
           "illustration": {
-            "src": "/card-art/cards/context-assumptions/04-uncertainty-model.webp",
+            "src": "/card-art/sci-fi/cards/context-assumptions/04-uncertainty-model.webp",
             "alt": "Illustration asset for Uncertainty Model.",
             "motif": "ASM Modifier showing uncertainty model",
             "prompt": "Retro-tech guild toolkit square illustration asset for Uncertainty Model, a Modifier card used in context prompt building. Visual metaphor: Rank the unknowns and show how each shifts the answer. Keep the ASM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -266,7 +266,7 @@
         "Connect uncertainty to the final recommendation."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-assumptions/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-assumptions/lineage.webp",
         "alt": "Illustration asset for the context-assumptions modifier lineage.",
         "motif": "ASM Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable ASM lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -290,7 +290,7 @@
           "description": "Name what success looks like and check against it.",
           "instruction": "State, in one line, what a successful result looks like — and check the answer against it before finishing.",
           "illustration": {
-            "src": "/card-art/cards/context-success/01-done-means.webp",
+            "src": "/card-art/sci-fi/cards/context-success/01-done-means.webp",
             "alt": "Illustration asset for Done Means.",
             "motif": "WIN Modifier showing done means",
             "prompt": "Retro-tech guild toolkit square illustration asset for Done Means, a Modifier card used in context prompt building. Visual metaphor: Name what success looks like and check against it. Keep the WIN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -302,7 +302,7 @@
           "description": "Define a practical acceptance test and pass it.",
           "instruction": "Define a practical acceptance test for the result and show that the answer passes it.",
           "illustration": {
-            "src": "/card-art/cards/context-success/02-success-check.webp",
+            "src": "/card-art/sci-fi/cards/context-success/02-success-check.webp",
             "alt": "Illustration asset for Success Check.",
             "motif": "WIN Modifier showing success check",
             "prompt": "Retro-tech guild toolkit square illustration asset for Success Check, a Modifier card used in context prompt building. Visual metaphor: Define a practical acceptance test and pass it. Keep the WIN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -314,7 +314,7 @@
           "description": "Work against explicit success and failure conditions.",
           "instruction": "Work against explicit success criteria and explicit failure conditions; if any criterion cannot be met, say which and why.",
           "illustration": {
-            "src": "/card-art/cards/context-success/03-success-criteria.webp",
+            "src": "/card-art/sci-fi/cards/context-success/03-success-criteria.webp",
             "alt": "Illustration asset for Success Criteria.",
             "motif": "WIN Modifier showing success criteria",
             "prompt": "Retro-tech guild toolkit square illustration asset for Success Criteria, a Modifier card used in context prompt building. Visual metaphor: Work against explicit success and failure conditions. Keep the WIN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -326,7 +326,7 @@
           "description": "Define measures and thresholds, then evaluate against them.",
           "instruction": "Define measures, thresholds, and validation steps up front, and evaluate the final result against each one before presenting it.",
           "illustration": {
-            "src": "/card-art/cards/context-success/04-evaluation-framework.webp",
+            "src": "/card-art/sci-fi/cards/context-success/04-evaluation-framework.webp",
             "alt": "Illustration asset for Evaluation Framework.",
             "motif": "WIN Modifier showing evaluation framework",
             "prompt": "Retro-tech guild toolkit square illustration asset for Evaluation Framework, a Modifier card used in context prompt building. Visual metaphor: Define measures and thresholds, then evaluate against them. Keep the WIN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -340,7 +340,7 @@
         "Name outcomes that would count as failure."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-success/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-success/lineage.webp",
         "alt": "Illustration asset for the context-success modifier lineage.",
         "motif": "WIN Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable WIN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -358,7 +358,7 @@
           "description": "Respect the stated no-go items.",
           "instruction": "Respect the stated no-go items; do not include or suggest them.",
           "illustration": {
-            "src": "/card-art/cards/context-exclusions/01-no-go-list.webp",
+            "src": "/card-art/sci-fi/cards/context-exclusions/01-no-go-list.webp",
             "alt": "Illustration asset for No-Go List.",
             "motif": "OUT Modifier showing no-go list",
             "prompt": "Retro-tech guild toolkit square illustration asset for No-Go List, a Modifier card used in context prompt building. Visual metaphor: Respect the stated no-go items. Keep the OUT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -370,7 +370,7 @@
           "description": "Keep an explicit line between in and out of scope.",
           "instruction": "Keep an explicit line between in-scope and out-of-scope; if useful ideas fall outside it, park them in one line instead of pursuing them.",
           "illustration": {
-            "src": "/card-art/cards/context-exclusions/02-scope-fence.webp",
+            "src": "/card-art/sci-fi/cards/context-exclusions/02-scope-fence.webp",
             "alt": "Illustration asset for Scope Fence.",
             "motif": "OUT Modifier showing scope fence",
             "prompt": "Retro-tech guild toolkit square illustration asset for Scope Fence, a Modifier card used in context prompt building. Visual metaphor: Keep an explicit line between in and out of scope. Keep the OUT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -382,7 +382,7 @@
           "description": "Treat what this must not become as binding.",
           "instruction": "Treat the anti-goals as binding: check the draft against them before finishing, and cut anything that drifts toward what this work must not become.",
           "illustration": {
-            "src": "/card-art/cards/context-exclusions/03-anti-goals.webp",
+            "src": "/card-art/sci-fi/cards/context-exclusions/03-anti-goals.webp",
             "alt": "Illustration asset for Anti-Goals.",
             "motif": "OUT Modifier showing anti-goals",
             "prompt": "Retro-tech guild toolkit square illustration asset for Anti-Goals, a Modifier card used in context prompt building. Visual metaphor: Treat what this must not become as binding. Keep the OUT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -394,7 +394,7 @@
           "description": "Actively police scope and flag any pull outside it.",
           "instruction": "Police scope actively: if the task, the evidence, or your own reasoning pulls toward an excluded area, stop, flag the pull explicitly, and continue only inside the fence.",
           "illustration": {
-            "src": "/card-art/cards/context-exclusions/04-drift-alarm.webp",
+            "src": "/card-art/sci-fi/cards/context-exclusions/04-drift-alarm.webp",
             "alt": "Illustration asset for Drift Alarm.",
             "motif": "OUT Modifier showing drift alarm",
             "prompt": "Retro-tech guild toolkit square illustration asset for Drift Alarm, a Modifier card used in context prompt building. Visual metaphor: Actively police scope and flag any pull outside it. Keep the OUT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -408,7 +408,7 @@
         "Catch scope drift before it costs anything."
       ],
       "illustration": {
-        "src": "/card-art/cards/context-exclusions/lineage.webp",
+        "src": "/card-art/sci-fi/cards/context-exclusions/lineage.webp",
         "alt": "Illustration asset for the context-exclusions modifier lineage.",
         "motif": "OUT Modifier card for context",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for context prompt building, stable OUT lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -426,7 +426,7 @@
           "description": "Review the material where the user points.",
           "instruction": "Review the supplied material and report what it contains, following the user's pointers about where to look.",
           "illustration": {
-            "src": "/card-art/cards/action-inspect/01-guided-review.webp",
+            "src": "/card-art/sci-fi/cards/action-inspect/01-guided-review.webp",
             "alt": "Illustration asset for Guided Review.",
             "motif": "INS Modifier showing guided review",
             "prompt": "Retro-tech guild toolkit square illustration asset for Guided Review, a Modifier card used in action prompt building. Visual metaphor: Review the material where the user points. Keep the INS lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -438,7 +438,7 @@
           "description": "Inspect against the stated questions and criteria.",
           "instruction": "Inspect the inputs against the stated questions and criteria, and answer each one directly.",
           "illustration": {
-            "src": "/card-art/cards/action-inspect/02-checklist-inspection.webp",
+            "src": "/card-art/sci-fi/cards/action-inspect/02-checklist-inspection.webp",
             "alt": "Illustration asset for Checklist Inspection.",
             "motif": "INS Modifier showing checklist inspection",
             "prompt": "Retro-tech guild toolkit square illustration asset for Checklist Inspection, a Modifier card used in action prompt building. Visual metaphor: Inspect against the stated questions and criteria. Keep the INS lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -450,7 +450,7 @@
           "description": "Decide what needs inspecting and report the gaps.",
           "instruction": "Decide for yourself what needs inspecting, examine it, and report the material gaps, conflicts, and surprises you find.",
           "illustration": {
-            "src": "/card-art/cards/action-inspect/03-independent-inspection.webp",
+            "src": "/card-art/sci-fi/cards/action-inspect/03-independent-inspection.webp",
             "alt": "Illustration asset for Independent Inspection.",
             "motif": "INS Modifier showing independent inspection",
             "prompt": "Retro-tech guild toolkit square illustration asset for Independent Inspection, a Modifier card used in action prompt building. Visual metaphor: Decide what needs inspecting and report the gaps. Keep the INS lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -462,7 +462,7 @@
           "description": "Run a complete audit before acting.",
           "instruction": "Plan and run a complete audit before acting: cover every relevant input, log the gaps and conflicts, and give a short verdict on whether the material is fit for the task.",
           "illustration": {
-            "src": "/card-art/cards/action-inspect/04-full-audit.webp",
+            "src": "/card-art/sci-fi/cards/action-inspect/04-full-audit.webp",
             "alt": "Illustration asset for Full Audit.",
             "motif": "INS Modifier showing full audit",
             "prompt": "Retro-tech guild toolkit square illustration asset for Full Audit, a Modifier card used in action prompt building. Visual metaphor: Run a complete audit before acting. Keep the INS lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -476,7 +476,7 @@
         "Use the inspection to guide the next step."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-inspect/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-inspect/lineage.webp",
         "alt": "Illustration asset for the action-inspect modifier lineage.",
         "motif": "INS Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable INS lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -494,7 +494,7 @@
           "description": "Find the clearest patterns and what they suggest.",
           "instruction": "Identify the clearest patterns in the material and explain plainly what they suggest.",
           "illustration": {
-            "src": "/card-art/cards/action-analyze/01-pattern-read.webp",
+            "src": "/card-art/sci-fi/cards/action-analyze/01-pattern-read.webp",
             "alt": "Illustration asset for Pattern Read.",
             "motif": "ANL Modifier showing pattern read",
             "prompt": "Retro-tech guild toolkit square illustration asset for Pattern Read, a Modifier card used in action prompt building. Visual metaphor: Find the clearest patterns and what they suggest. Keep the ANL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -506,7 +506,7 @@
           "description": "Test the main pattern against a rival explanation.",
           "instruction": "For the main pattern you find, test at least one rival explanation and say why you kept or rejected it.",
           "illustration": {
-            "src": "/card-art/cards/action-analyze/02-rival-explanations.webp",
+            "src": "/card-art/sci-fi/cards/action-analyze/02-rival-explanations.webp",
             "alt": "Illustration asset for Rival Explanations.",
             "motif": "ANL Modifier showing rival explanations",
             "prompt": "Retro-tech guild toolkit square illustration asset for Rival Explanations, a Modifier card used in action prompt building. Visual metaphor: Test the main pattern against a rival explanation. Keep the ANL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -518,7 +518,7 @@
           "description": "Challenge assumptions, causes, and inferences.",
           "instruction": "Pressure-test the reasoning: challenge the key assumptions, probe the causal claims, and separate what the evidence shows from what is being inferred.",
           "illustration": {
-            "src": "/card-art/cards/action-analyze/03-critical-analysis.webp",
+            "src": "/card-art/sci-fi/cards/action-analyze/03-critical-analysis.webp",
             "alt": "Illustration asset for Critical Analysis.",
             "motif": "ANL Modifier showing critical analysis",
             "prompt": "Retro-tech guild toolkit square illustration asset for Critical Analysis, a Modifier card used in action prompt building. Visual metaphor: Challenge assumptions, causes, and inferences. Keep the ANL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -530,7 +530,7 @@
           "description": "Hunt for disconfirming evidence and failure modes.",
           "instruction": "Actively try to break the conclusion — hunt for disconfirming evidence, hidden assumptions, and failure modes — and report what survived and what did not.",
           "illustration": {
-            "src": "/card-art/cards/action-analyze/04-adversarial-analysis.webp",
+            "src": "/card-art/sci-fi/cards/action-analyze/04-adversarial-analysis.webp",
             "alt": "Illustration asset for Adversarial Analysis.",
             "motif": "ANL Modifier showing adversarial analysis",
             "prompt": "Retro-tech guild toolkit square illustration asset for Adversarial Analysis, a Modifier card used in action prompt building. Visual metaphor: Hunt for disconfirming evidence and failure modes. Keep the ANL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -544,7 +544,7 @@
         "Separate evidence from assumption."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-analyze/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-analyze/lineage.webp",
         "alt": "Illustration asset for the action-analyze modifier lineage.",
         "motif": "ANL Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable ANL lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -562,7 +562,7 @@
           "description": "Lay out the options and their core differences.",
           "instruction": "Lay out the supplied options side by side and explain their core differences.",
           "illustration": {
-            "src": "/card-art/cards/action-compare/01-options-on-the-table.webp",
+            "src": "/card-art/sci-fi/cards/action-compare/01-options-on-the-table.webp",
             "alt": "Illustration asset for Options on the Table.",
             "motif": "CMP Modifier showing options on the table",
             "prompt": "Retro-tech guild toolkit square illustration asset for Options on the Table, a Modifier card used in action prompt building. Visual metaphor: Lay out the options and their core differences. Keep the CMP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -574,7 +574,7 @@
           "description": "Compare against the stated criteria and constraints.",
           "instruction": "Compare the options against the stated criteria and constraints, showing where each wins and loses.",
           "illustration": {
-            "src": "/card-art/cards/action-compare/02-framed-comparison.webp",
+            "src": "/card-art/sci-fi/cards/action-compare/02-framed-comparison.webp",
             "alt": "Illustration asset for Framed Comparison.",
             "motif": "CMP Modifier showing framed comparison",
             "prompt": "Retro-tech guild toolkit square illustration asset for Framed Comparison, a Modifier card used in action prompt building. Visual metaphor: Compare against the stated criteria and constraints. Keep the CMP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -586,7 +586,7 @@
           "description": "Choose and weight the criteria that matter here.",
           "instruction": "Choose the comparison criteria yourself, weight them by what matters most here, and show the tradeoffs that actually change the decision.",
           "illustration": {
-            "src": "/card-art/cards/action-compare/03-weighted-comparison.webp",
+            "src": "/card-art/sci-fi/cards/action-compare/03-weighted-comparison.webp",
             "alt": "Illustration asset for Weighted Comparison.",
             "motif": "CMP Modifier showing weighted comparison",
             "prompt": "Retro-tech guild toolkit square illustration asset for Weighted Comparison, a Modifier card used in action prompt building. Visual metaphor: Choose and weight the criteria that matter here. Keep the CMP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -598,7 +598,7 @@
           "description": "Full matrix with scores, rationale, and a verdict.",
           "instruction": "Build the full decision matrix — criteria, weights, scores, and rationale — and state which option wins, under what conditions the ranking flips, and what you excluded.",
           "illustration": {
-            "src": "/card-art/cards/action-compare/04-decision-matrix.webp",
+            "src": "/card-art/sci-fi/cards/action-compare/04-decision-matrix.webp",
             "alt": "Illustration asset for Decision Matrix.",
             "motif": "CMP Modifier showing decision matrix",
             "prompt": "Retro-tech guild toolkit square illustration asset for Decision Matrix, a Modifier card used in action prompt building. Visual metaphor: Full matrix with scores, rationale, and a verdict. Keep the CMP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -612,7 +612,7 @@
         "Make the preferred option easy to defend."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-compare/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-compare/lineage.webp",
         "alt": "Illustration asset for the action-compare modifier lineage.",
         "motif": "CMP Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable CMP lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -630,7 +630,7 @@
           "description": "Rough first pass; surface the decisions needing direction.",
           "instruction": "Produce a first rough pass quickly, and surface the decisions you need direction on before going further.",
           "illustration": {
-            "src": "/card-art/cards/action-create/01-draft-together.webp",
+            "src": "/card-art/sci-fi/cards/action-create/01-draft-together.webp",
             "alt": "Illustration asset for Draft Together.",
             "motif": "BLD Modifier showing draft together",
             "prompt": "Retro-tech guild toolkit square illustration asset for Draft Together, a Modifier card used in action prompt building. Visual metaphor: Rough first pass; surface the decisions needing direction. Keep the BLD lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -642,7 +642,7 @@
           "description": "Build faithfully from the supplied plan and constraints.",
           "instruction": "Build the artifact from the supplied plan and constraints, following them faithfully and noting where they were ambiguous.",
           "illustration": {
-            "src": "/card-art/cards/action-create/02-build-to-plan.webp",
+            "src": "/card-art/sci-fi/cards/action-create/02-build-to-plan.webp",
             "alt": "Illustration asset for Build to Plan.",
             "motif": "BLD Modifier showing build to plan",
             "prompt": "Retro-tech guild toolkit square illustration asset for Build to Plan, a Modifier card used in action prompt building. Visual metaphor: Build faithfully from the supplied plan and constraints. Keep the BLD lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -654,7 +654,7 @@
           "description": "Make the silent decisions and deliver complete work.",
           "instruction": "Make the implementation decisions yourself where the brief is silent — recording each one in a line — and deliver the complete artifact.",
           "illustration": {
-            "src": "/card-art/cards/action-create/03-independent-build.webp",
+            "src": "/card-art/sci-fi/cards/action-create/03-independent-build.webp",
             "alt": "Illustration asset for Independent Build.",
             "motif": "BLD Modifier showing independent build",
             "prompt": "Retro-tech guild toolkit square illustration asset for Independent Build, a Modifier card used in action prompt building. Visual metaphor: Make the silent decisions and deliver complete work. Keep the BLD lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -666,7 +666,7 @@
           "description": "Plan, build, verify, and hand over the finished result.",
           "instruction": "Own the delivery end to end: plan it, build it, verify it against the success criteria, and hand over the finished result with a note on what you checked.",
           "illustration": {
-            "src": "/card-art/cards/action-create/04-end-to-end-delivery.webp",
+            "src": "/card-art/sci-fi/cards/action-create/04-end-to-end-delivery.webp",
             "alt": "Illustration asset for End-to-End Delivery.",
             "motif": "BLD Modifier showing end-to-end delivery",
             "prompt": "Retro-tech guild toolkit square illustration asset for End-to-End Delivery, a Modifier card used in action prompt building. Visual metaphor: Plan, build, verify, and hand over the finished result. Keep the BLD lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -680,7 +680,7 @@
         "Check the work before presenting it."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-create/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-create/lineage.webp",
         "alt": "Illustration asset for the action-create modifier lineage.",
         "motif": "BLD Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable BLD lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -698,7 +698,7 @@
           "description": "Offer promising directions and when each fits.",
           "instruction": "Offer two or three promising directions and say when each one fits best.",
           "illustration": {
-            "src": "/card-art/cards/action-recommend/01-directions.webp",
+            "src": "/card-art/sci-fi/cards/action-recommend/01-directions.webp",
             "alt": "Illustration asset for Directions.",
             "motif": "REC Modifier showing directions",
             "prompt": "Retro-tech guild toolkit square illustration asset for Directions, a Modifier card used in action prompt building. Visual metaphor: Offer promising directions and when each fits. Keep the REC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -710,7 +710,7 @@
           "description": "Pick what fits the constraints, with the deciding reason.",
           "instruction": "Recommend the option that best fits the stated constraints, and give the one reason that decides it.",
           "illustration": {
-            "src": "/card-art/cards/action-recommend/02-practical-pick.webp",
+            "src": "/card-art/sci-fi/cards/action-recommend/02-practical-pick.webp",
             "alt": "Illustration asset for Practical Pick.",
             "motif": "REC Modifier showing practical pick",
             "prompt": "Retro-tech guild toolkit square illustration asset for Practical Pick, a Modifier card used in action prompt building. Visual metaphor: Pick what fits the constraints, with the deciding reason. Keep the REC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -722,7 +722,7 @@
           "description": "Commit, justify against the runner-up, and name the risk.",
           "instruction": "Commit to one recommendation, justify it against the strongest alternative, and name the main risk of following it.",
           "illustration": {
-            "src": "/card-art/cards/action-recommend/03-backed-recommendation.webp",
+            "src": "/card-art/sci-fi/cards/action-recommend/03-backed-recommendation.webp",
             "alt": "Illustration asset for Backed Recommendation.",
             "motif": "REC Modifier showing backed recommendation",
             "prompt": "Retro-tech guild toolkit square illustration asset for Backed Recommendation, a Modifier card used in action prompt building. Visual metaphor: Commit, justify against the runner-up, and name the risk. Keep the REC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -734,7 +734,7 @@
           "description": "Make the call as if you owned the outcome.",
           "instruction": "Make the call as if you owned the outcome: one recommendation, the evidence that supports it, the conditions that would reverse it, and the first step to act on it.",
           "illustration": {
-            "src": "/card-art/cards/action-recommend/04-full-conviction.webp",
+            "src": "/card-art/sci-fi/cards/action-recommend/04-full-conviction.webp",
             "alt": "Illustration asset for Full Conviction.",
             "motif": "REC Modifier showing full conviction",
             "prompt": "Retro-tech guild toolkit square illustration asset for Full Conviction, a Modifier card used in action prompt building. Visual metaphor: Make the call as if you owned the outcome. Keep the REC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -748,7 +748,7 @@
         "Justify the choice against the alternatives."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-recommend/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-recommend/lineage.webp",
         "alt": "Illustration asset for the action-recommend modifier lineage.",
         "motif": "REC Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable REC lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -766,7 +766,7 @@
           "description": "Quick pass for obvious errors and contradictions.",
           "instruction": "Give the result a quick sanity pass for obvious errors, omissions, and contradictions.",
           "illustration": {
-            "src": "/card-art/cards/action-verify/01-sanity-pass.webp",
+            "src": "/card-art/sci-fi/cards/action-verify/01-sanity-pass.webp",
             "alt": "Illustration asset for Sanity Pass.",
             "motif": "TST Modifier showing sanity pass",
             "prompt": "Retro-tech guild toolkit square illustration asset for Sanity Pass, a Modifier card used in action prompt building. Visual metaphor: Quick pass for obvious errors and contradictions. Keep the TST lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -778,7 +778,7 @@
           "description": "Verify each acceptance criterion, pass or fail.",
           "instruction": "Verify the result against each stated acceptance criterion and report pass or fail per item.",
           "illustration": {
-            "src": "/card-art/cards/action-verify/02-criteria-check.webp",
+            "src": "/card-art/sci-fi/cards/action-verify/02-criteria-check.webp",
             "alt": "Illustration asset for Criteria Check.",
             "motif": "TST Modifier showing criteria check",
             "prompt": "Retro-tech guild toolkit square illustration asset for Criteria Check, a Modifier card used in action prompt building. Visual metaphor: Verify each acceptance criterion, pass or fail. Keep the TST lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -790,7 +790,7 @@
           "description": "Push on edge cases and likely failure modes.",
           "instruction": "Stress-test the result against edge cases, awkward inputs, and the most likely failure modes; fix what breaks or say why it stands.",
           "illustration": {
-            "src": "/card-art/cards/action-verify/03-stress-test.webp",
+            "src": "/card-art/sci-fi/cards/action-verify/03-stress-test.webp",
             "alt": "Illustration asset for Stress Test.",
             "motif": "TST Modifier showing stress test",
             "prompt": "Retro-tech guild toolkit square illustration asset for Stress Test, a Modifier card used in action prompt building. Visual metaphor: Push on edge cases and likely failure modes. Keep the TST lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -802,7 +802,7 @@
           "description": "Attack the result like a hostile reviewer.",
           "instruction": "Attack the result as a hostile reviewer would — strongest counter-arguments, nastiest inputs, worst-case readings — and do not call it finished until the serious findings are resolved.",
           "illustration": {
-            "src": "/card-art/cards/action-verify/04-red-team.webp",
+            "src": "/card-art/sci-fi/cards/action-verify/04-red-team.webp",
             "alt": "Illustration asset for Red Team.",
             "motif": "TST Modifier showing red team",
             "prompt": "Retro-tech guild toolkit square illustration asset for Red Team, a Modifier card used in action prompt building. Visual metaphor: Attack the result like a hostile reviewer. Keep the TST lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -816,7 +816,7 @@
         "Resolve serious weaknesses before calling it done."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-verify/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-verify/lineage.webp",
         "alt": "Illustration asset for the action-verify modifier lineage.",
         "motif": "TST Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable TST lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -834,7 +834,7 @@
           "description": "Condense the material into its main points.",
           "instruction": "Condense the supplied material into its main points without adding interpretation.",
           "illustration": {
-            "src": "/card-art/cards/action-summarize/01-key-points-pull.webp",
+            "src": "/card-art/sci-fi/cards/action-summarize/01-key-points-pull.webp",
             "alt": "Illustration asset for Key Points Pull.",
             "motif": "SMR Modifier showing key points pull",
             "prompt": "Retro-tech guild toolkit square illustration asset for Key Points Pull, a Modifier card used in action prompt building. Visual metaphor: Condense the material into its main points. Keep the SMR lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -846,7 +846,7 @@
           "description": "Summarize faithfully; flag what needs judgment.",
           "instruction": "Summarize the material faithfully and flag the points that need the user's own judgment.",
           "illustration": {
-            "src": "/card-art/cards/action-summarize/02-faithful-summary.webp",
+            "src": "/card-art/sci-fi/cards/action-summarize/02-faithful-summary.webp",
             "alt": "Illustration asset for Faithful Summary.",
             "motif": "SMR Modifier showing faithful summary",
             "prompt": "Retro-tech guild toolkit square illustration asset for Faithful Summary, a Modifier card used in action prompt building. Visual metaphor: Summarize faithfully; flag what needs judgment. Keep the SMR lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -858,7 +858,7 @@
           "description": "Lead with what the reader needs; compress the rest.",
           "instruction": "Decide what the reader actually needs from this material, lead with it, and compress everything else hard.",
           "illustration": {
-            "src": "/card-art/cards/action-summarize/03-decision-summary.webp",
+            "src": "/card-art/sci-fi/cards/action-summarize/03-decision-summary.webp",
             "alt": "Illustration asset for Decision Summary.",
             "motif": "SMR Modifier showing decision summary",
             "prompt": "Retro-tech guild toolkit square illustration asset for Decision Summary, a Modifier card used in action prompt building. Visual metaphor: Lead with what the reader needs; compress the rest. Keep the SMR lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -870,7 +870,7 @@
           "description": "Bottom line first, then only what drives it.",
           "instruction": "Distill the material to its decision-critical core: the bottom line first, the two or three facts that drive it, and nothing that does not change a decision.",
           "illustration": {
-            "src": "/card-art/cards/action-summarize/04-executive-distillation.webp",
+            "src": "/card-art/sci-fi/cards/action-summarize/04-executive-distillation.webp",
             "alt": "Illustration asset for Executive Distillation.",
             "motif": "SMR Modifier showing executive distillation",
             "prompt": "Retro-tech guild toolkit square illustration asset for Executive Distillation, a Modifier card used in action prompt building. Visual metaphor: Bottom line first, then only what drives it. Keep the SMR lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -884,7 +884,7 @@
         "Match the detail to what the reader needs."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-summarize/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-summarize/lineage.webp",
         "alt": "Illustration asset for the action-summarize modifier lineage.",
         "motif": "SMR Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable SMR lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -902,7 +902,7 @@
           "description": "Work from the given sources; list what is missing.",
           "instruction": "Work strictly from the supplied sources and list what is missing to answer fully.",
           "illustration": {
-            "src": "/card-art/cards/action-research/01-supplied-sources.webp",
+            "src": "/card-art/sci-fi/cards/action-research/01-supplied-sources.webp",
             "alt": "Illustration asset for Supplied Sources.",
             "motif": "RES Modifier showing supplied sources",
             "prompt": "Retro-tech guild toolkit square illustration asset for Supplied Sources, a Modifier card used in action prompt building. Visual metaphor: Work from the given sources; list what is missing. Keep the RES lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -914,7 +914,7 @@
           "description": "Fill the specific gaps and cite where facts came from.",
           "instruction": "Fill the specific gaps the task exposes, and cite where each found fact came from.",
           "illustration": {
-            "src": "/card-art/cards/action-research/02-targeted-lookup.webp",
+            "src": "/card-art/sci-fi/cards/action-research/02-targeted-lookup.webp",
             "alt": "Illustration asset for Targeted Lookup.",
             "motif": "RES Modifier showing targeted lookup",
             "prompt": "Retro-tech guild toolkit square illustration asset for Targeted Lookup, a Modifier card used in action prompt building. Visual metaphor: Fill the specific gaps and cite where facts came from. Keep the RES lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -926,7 +926,7 @@
           "description": "Scope the investigation and weigh what you find.",
           "instruction": "Scope the investigation yourself: decide what needs finding, gather it, and weigh the credibility of what you found.",
           "illustration": {
-            "src": "/card-art/cards/action-research/03-open-research.webp",
+            "src": "/card-art/sci-fi/cards/action-research/03-open-research.webp",
             "alt": "Illustration asset for Open Research.",
             "motif": "RES Modifier showing open research",
             "prompt": "Retro-tech guild toolkit square illustration asset for Open Research, a Modifier card used in action prompt building. Visual metaphor: Scope the investigation and weigh what you find. Keep the RES lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -938,7 +938,7 @@
           "description": "Corroborate key claims and state confidence with reasons.",
           "instruction": "Run the investigation to ground: corroborate the load-bearing claims, chase the disagreements to their source, and state confidence with reasons for each key finding.",
           "illustration": {
-            "src": "/card-art/cards/action-research/04-deep-investigation.webp",
+            "src": "/card-art/sci-fi/cards/action-research/04-deep-investigation.webp",
             "alt": "Illustration asset for Deep Investigation.",
             "motif": "RES Modifier showing deep investigation",
             "prompt": "Retro-tech guild toolkit square illustration asset for Deep Investigation, a Modifier card used in action prompt building. Visual metaphor: Corroborate key claims and state confidence with reasons. Keep the RES lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -952,7 +952,7 @@
         "Separate what is known from what is assumed."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-research/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-research/lineage.webp",
         "alt": "Illustration asset for the action-research modifier lineage.",
         "motif": "RES Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable RES lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -970,7 +970,7 @@
           "description": "Sketch the main steps in a sensible order.",
           "instruction": "Sketch the main steps in a sensible order so the shape of the work is visible.",
           "illustration": {
-            "src": "/card-art/cards/action-plan/01-rough-outline.webp",
+            "src": "/card-art/sci-fi/cards/action-plan/01-rough-outline.webp",
             "alt": "Illustration asset for Rough Outline.",
             "motif": "PLN Modifier showing rough outline",
             "prompt": "Retro-tech guild toolkit square illustration asset for Rough Outline, a Modifier card used in action prompt building. Visual metaphor: Sketch the main steps in a sensible order. Keep the PLN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -982,7 +982,7 @@
           "description": "Order the steps, mark dependencies, flag the risk.",
           "instruction": "Sequence the steps, mark the dependencies between them, and flag the riskiest one.",
           "illustration": {
-            "src": "/card-art/cards/action-plan/02-sequenced-plan.webp",
+            "src": "/card-art/sci-fi/cards/action-plan/02-sequenced-plan.webp",
             "alt": "Illustration asset for Sequenced Plan.",
             "motif": "PLN Modifier showing sequenced plan",
             "prompt": "Retro-tech guild toolkit square illustration asset for Sequenced Plan, a Modifier card used in action prompt building. Visual metaphor: Order the steps, mark dependencies, flag the risk. Keep the PLN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -994,7 +994,7 @@
           "description": "Phase the work with milestones and verification.",
           "instruction": "Phase the work into milestones with owners, dependencies, and a verification step per phase.",
           "illustration": {
-            "src": "/card-art/cards/action-plan/03-delivery-plan.webp",
+            "src": "/card-art/sci-fi/cards/action-plan/03-delivery-plan.webp",
             "alt": "Illustration asset for Delivery Plan.",
             "motif": "PLN Modifier showing delivery plan",
             "prompt": "Retro-tech guild toolkit square illustration asset for Delivery Plan, a Modifier card used in action prompt building. Visual metaphor: Phase the work with milestones and verification. Keep the PLN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1006,7 +1006,7 @@
           "description": "A plan someone could run without you.",
           "instruction": "Produce a plan someone could run without you: phases, owners, dependencies, entry and exit criteria per phase, and the contingency for the most likely slip.",
           "illustration": {
-            "src": "/card-art/cards/action-plan/04-executable-program.webp",
+            "src": "/card-art/sci-fi/cards/action-plan/04-executable-program.webp",
             "alt": "Illustration asset for Executable Program.",
             "motif": "PLN Modifier showing executable program",
             "prompt": "Retro-tech guild toolkit square illustration asset for Executable Program, a Modifier card used in action prompt building. Visual metaphor: A plan someone could run without you. Keep the PLN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1020,7 +1020,7 @@
         "Make the plan something a team can execute."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-plan/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-plan/lineage.webp",
         "alt": "Illustration asset for the action-plan modifier lineage.",
         "motif": "PLN Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable PLN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1038,7 +1038,7 @@
           "description": "A handful of distinct starting ideas.",
           "instruction": "Offer a handful of distinct starting ideas, each in a line or two.",
           "illustration": {
-            "src": "/card-art/cards/action-ideate/01-quick-options.webp",
+            "src": "/card-art/sci-fi/cards/action-ideate/01-quick-options.webp",
             "alt": "Illustration asset for Quick Options.",
             "motif": "IDE Modifier showing quick options",
             "prompt": "Retro-tech guild toolkit square illustration asset for Quick Options, a Modifier card used in action prompt building. Visual metaphor: A handful of distinct starting ideas. Keep the IDE lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1050,7 +1050,7 @@
           "description": "A genuinely diverse set — vary the approach.",
           "instruction": "Generate a genuinely diverse set of options — vary the approach, not the wording — and name what makes each one different.",
           "illustration": {
-            "src": "/card-art/cards/action-ideate/02-divergent-set.webp",
+            "src": "/card-art/sci-fi/cards/action-ideate/02-divergent-set.webp",
             "alt": "Illustration asset for Divergent Set.",
             "motif": "IDE Modifier showing divergent set",
             "prompt": "Retro-tech guild toolkit square illustration asset for Divergent Set, a Modifier card used in action prompt building. Visual metaphor: A genuinely diverse set — vary the approach. Keep the IDE lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1062,7 +1062,7 @@
           "description": "Go wide, then pick the strongest and say why.",
           "instruction": "Explore widely first, including at least one unconventional option, then converge: pick the two or three strongest and say what earned them the cut.",
           "illustration": {
-            "src": "/card-art/cards/action-ideate/03-explore-and-converge.webp",
+            "src": "/card-art/sci-fi/cards/action-ideate/03-explore-and-converge.webp",
             "alt": "Illustration asset for Explore and Converge.",
             "motif": "IDE Modifier showing explore and converge",
             "prompt": "Retro-tech guild toolkit square illustration asset for Explore and Converge, a Modifier card used in action prompt building. Visual metaphor: Go wide, then pick the strongest and say why. Keep the IDE lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1074,7 +1074,7 @@
           "description": "Sweep safe bets to wildcards, then rank and test.",
           "instruction": "Sweep the option space deliberately — safe bets, adjacent moves, and wildcards — then rank the strongest candidates and state what would prove each one out.",
           "illustration": {
-            "src": "/card-art/cards/action-ideate/04-creative-sweep.webp",
+            "src": "/card-art/sci-fi/cards/action-ideate/04-creative-sweep.webp",
             "alt": "Illustration asset for Creative Sweep.",
             "motif": "IDE Modifier showing creative sweep",
             "prompt": "Retro-tech guild toolkit square illustration asset for Creative Sweep, a Modifier card used in action prompt building. Visual metaphor: Sweep safe bets to wildcards, then rank and test. Keep the IDE lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1088,7 +1088,7 @@
         "Say what would prove the strongest ideas out."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-ideate/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-ideate/lineage.webp",
         "alt": "Illustration asset for the action-ideate modifier lineage.",
         "motif": "IDE Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable IDE lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1106,7 +1106,7 @@
           "description": "Explain the thing asked, no more.",
           "instruction": "Explain the specific thing asked, plainly, without teaching more than the question needs.",
           "illustration": {
-            "src": "/card-art/cards/action-explain/01-direct-answer.webp",
+            "src": "/card-art/sci-fi/cards/action-explain/01-direct-answer.webp",
             "alt": "Illustration asset for Direct Answer.",
             "motif": "EXP Modifier showing direct answer",
             "prompt": "Retro-tech guild toolkit square illustration asset for Direct Answer, a Modifier card used in action prompt building. Visual metaphor: Explain the thing asked, no more. Keep the EXP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1118,7 +1118,7 @@
           "description": "Step-by-step, each step following from the last.",
           "instruction": "Walk through the idea step by step, checking each step follows from the last, with one concrete illustration.",
           "illustration": {
-            "src": "/card-art/cards/action-explain/02-guided-walkthrough.webp",
+            "src": "/card-art/sci-fi/cards/action-explain/02-guided-walkthrough.webp",
             "alt": "Illustration asset for Guided Walkthrough.",
             "motif": "EXP Modifier showing guided walkthrough",
             "prompt": "Retro-tech guild toolkit square illustration asset for Guided Walkthrough, a Modifier card used in action prompt building. Visual metaphor: Step-by-step, each step following from the last. Keep the EXP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1130,7 +1130,7 @@
           "description": "The mechanism, the why, and the common trap.",
           "instruction": "Explain both how it works and why it is built that way — the mechanism, the reasons behind it, and the misconception most people trip on.",
           "illustration": {
-            "src": "/card-art/cards/action-explain/03-deep-explanation.webp",
+            "src": "/card-art/sci-fi/cards/action-explain/03-deep-explanation.webp",
             "alt": "Illustration asset for Deep Explanation.",
             "motif": "EXP Modifier showing deep explanation",
             "prompt": "Retro-tech guild toolkit square illustration asset for Deep Explanation, a Modifier card used in action prompt building. Visual metaphor: The mechanism, the why, and the common trap. Keep the EXP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1142,7 +1142,7 @@
           "description": "Teach it completely, ending with the next questions.",
           "instruction": "Teach it completely: build from what the reader knows, layer the mechanism and the why, contrast it with what it is not, and end with the questions a sharp learner would ask next.",
           "illustration": {
-            "src": "/card-art/cards/action-explain/04-full-teaching-pass.webp",
+            "src": "/card-art/sci-fi/cards/action-explain/04-full-teaching-pass.webp",
             "alt": "Illustration asset for Full Teaching Pass.",
             "motif": "EXP Modifier showing full teaching pass",
             "prompt": "Retro-tech guild toolkit square illustration asset for Full Teaching Pass, a Modifier card used in action prompt building. Visual metaphor: Teach it completely, ending with the next questions. Keep the EXP lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1156,7 +1156,7 @@
         "Surface the misconception most people trip on."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-explain/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-explain/lineage.webp",
         "alt": "Illustration asset for the action-explain modifier lineage.",
         "motif": "EXP Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable EXP lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1174,7 +1174,7 @@
           "description": "Interview in batches to 95% confidence, then confirm the brief.",
           "instruction": "Before any work, interview me in small batches of clarifying questions until you are at least 95% confident in the goal, constraints, and success criteria — if the context above is thin or missing, gather it here — then restate the brief in one short paragraph and wait for my confirmation.",
           "illustration": {
-            "src": "/card-art/cards/action-clarify/01-full-interview.webp",
+            "src": "/card-art/sci-fi/cards/action-clarify/01-full-interview.webp",
             "alt": "Illustration asset for Full Interview.",
             "motif": "ASK Modifier showing full interview",
             "prompt": "Retro-tech guild toolkit square illustration asset for Full Interview, a Modifier card used in action prompt building. Visual metaphor: Interview in batches until the brief is fully understood. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1186,7 +1186,7 @@
           "description": "Ask clarifying questions until 95% confident, then proceed.",
           "instruction": "Ask me clarifying questions until you have 95% confidence in the answer; if the context above is thin or missing, fill the gaps through your questions, then proceed.",
           "illustration": {
-            "src": "/card-art/cards/action-clarify/02-confidence-check.webp",
+            "src": "/card-art/sci-fi/cards/action-clarify/02-confidence-check.webp",
             "alt": "Illustration asset for 95% Confidence Check.",
             "motif": "ASK Modifier showing confidence check",
             "prompt": "Retro-tech guild toolkit square illustration asset for Confidence Check, a Modifier card used in action prompt building. Visual metaphor: Ask clarifying questions until confident, then proceed. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1198,7 +1198,7 @@
           "description": "Ask only what would change the work; assume the rest.",
           "instruction": "Ask only the questions whose answers would change the work; state your working assumptions for everything else and proceed.",
           "illustration": {
-            "src": "/card-art/cards/action-clarify/03-blocking-questions-only.webp",
+            "src": "/card-art/sci-fi/cards/action-clarify/03-blocking-questions-only.webp",
             "alt": "Illustration asset for Blocking Questions Only.",
             "motif": "ASK Modifier showing blocking questions only",
             "prompt": "Retro-tech guild toolkit square illustration asset for Blocking Questions Only, a Modifier card used in action prompt building. Visual metaphor: Ask only what would change the work; assume the rest. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1210,7 +1210,7 @@
           "description": "Never stop to ask; log every assumption made.",
           "instruction": "Do not stop to ask questions; proceed on your best judgment and keep a visible log of every assumption you made and how to correct the work if one is wrong.",
           "illustration": {
-            "src": "/card-art/cards/action-clarify/04-assume-and-log.webp",
+            "src": "/card-art/sci-fi/cards/action-clarify/04-assume-and-log.webp",
             "alt": "Illustration asset for Assume & Log.",
             "motif": "ASK Modifier showing assume and log",
             "prompt": "Retro-tech guild toolkit square illustration asset for Assume and Log, a Modifier card used in action prompt building. Visual metaphor: Proceed without stopping while logging every assumption. Keep the ASK lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1224,7 +1224,7 @@
         "Make missing context explicit instead of guessed."
       ],
       "illustration": {
-        "src": "/card-art/cards/action-clarify/lineage.webp",
+        "src": "/card-art/sci-fi/cards/action-clarify/lineage.webp",
         "alt": "Illustration asset for the action-clarify modifier lineage.",
         "motif": "ASK Modifier card for action",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for action prompt building, stable ASK lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1242,7 +1242,7 @@
           "description": "The direct answer first, in plain sentences.",
           "instruction": "Give the direct answer first, in plain sentences, before any elaboration.",
           "illustration": {
-            "src": "/card-art/cards/format-info-card/01-plain-answer.webp",
+            "src": "/card-art/sci-fi/cards/format-info-card/01-plain-answer.webp",
             "alt": "Illustration asset for Plain Answer.",
             "motif": "INF Modifier showing plain answer",
             "prompt": "Retro-tech guild toolkit square illustration asset for Plain Answer, a Modifier card used in format prompt building. Visual metaphor: The direct answer first, in plain sentences. Keep the INF lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1254,7 +1254,7 @@
           "description": "One tight, scannable block of essentials.",
           "instruction": "Present the essentials as one tight, scannable block: the answer, the two or three facts behind it, and nothing else.",
           "illustration": {
-            "src": "/card-art/cards/format-info-card/02-answer-card.webp",
+            "src": "/card-art/sci-fi/cards/format-info-card/02-answer-card.webp",
             "alt": "Illustration asset for Answer Card.",
             "motif": "INF Modifier showing answer card",
             "prompt": "Retro-tech guild toolkit square illustration asset for Answer Card, a Modifier card used in format prompt building. Visual metaphor: One tight, scannable block of essentials. Keep the INF lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1266,7 +1266,7 @@
           "description": "Key facts, their context, and their implications.",
           "instruction": "Deliver a brief that covers the key facts, the context that makes them meaningful, and their implications.",
           "illustration": {
-            "src": "/card-art/cards/format-info-card/03-information-brief.webp",
+            "src": "/card-art/sci-fi/cards/format-info-card/03-information-brief.webp",
             "alt": "Illustration asset for Information Brief.",
             "motif": "INF Modifier showing information brief",
             "prompt": "Retro-tech guild toolkit square illustration asset for Information Brief, a Modifier card used in format prompt building. Visual metaphor: Key facts, their context, and their implications. Keep the INF lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1278,7 +1278,7 @@
           "description": "A reference others can rely on, with caveats and examples.",
           "instruction": "Write it as a reference others can rely on: definitions where terms could be misread, caveats where the answer bends, and examples where abstraction hides the point.",
           "illustration": {
-            "src": "/card-art/cards/format-info-card/04-reference-piece.webp",
+            "src": "/card-art/sci-fi/cards/format-info-card/04-reference-piece.webp",
             "alt": "Illustration asset for Reference Piece.",
             "motif": "INF Modifier showing reference piece",
             "prompt": "Retro-tech guild toolkit square illustration asset for Reference Piece, a Modifier card used in format prompt building. Visual metaphor: A reference others can rely on, with caveats and examples. Keep the INF lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1292,7 +1292,7 @@
         "Add context only when it helps understanding."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-info-card/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-info-card/lineage.webp",
         "alt": "Illustration asset for the format-info-card modifier lineage.",
         "motif": "INF Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable INF lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1310,7 +1310,7 @@
           "description": "A short bullet list for the main points.",
           "instruction": "Carry the main points as a short bullet list.",
           "illustration": {
-            "src": "/card-art/cards/format-key-points/01-loose-bullets.webp",
+            "src": "/card-art/sci-fi/cards/format-key-points/01-loose-bullets.webp",
             "alt": "Illustration asset for Loose Bullets.",
             "motif": "KEY Modifier showing loose bullets",
             "prompt": "Retro-tech guild toolkit square illustration asset for Loose Bullets, a Modifier card used in format prompt building. Visual metaphor: A short bullet list for the main points. Keep the KEY lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1322,7 +1322,7 @@
           "description": "Related points grouped under plain labels.",
           "instruction": "Group related points under short plain labels so the reader can jump to what matters.",
           "illustration": {
-            "src": "/card-art/cards/format-key-points/02-grouped-points.webp",
+            "src": "/card-art/sci-fi/cards/format-key-points/02-grouped-points.webp",
             "alt": "Illustration asset for Grouped Points.",
             "motif": "KEY Modifier showing grouped points",
             "prompt": "Retro-tech guild toolkit square illustration asset for Grouped Points, a Modifier card used in format prompt building. Visual metaphor: Related points grouped under plain labels. Keep the KEY lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1334,7 +1334,7 @@
           "description": "The whole answer as labeled key-point sections.",
           "instruction": "Organize the whole answer as labeled key-point sections, one idea per point.",
           "illustration": {
-            "src": "/card-art/cards/format-key-points/03-sectioned-points.webp",
+            "src": "/card-art/sci-fi/cards/format-key-points/03-sectioned-points.webp",
             "alt": "Illustration asset for Sectioned Points.",
             "motif": "KEY Modifier showing sectioned points",
             "prompt": "Retro-tech guild toolkit square illustration asset for Sectioned Points, a Modifier card used in format prompt building. Visual metaphor: The whole answer as labeled key-point sections. Keep the KEY lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1346,7 +1346,7 @@
           "description": "Atomic, checkable points that can be ticked off.",
           "instruction": "Make every point atomic and checkable — one action or fact each — so the list can be worked through and ticked off.",
           "illustration": {
-            "src": "/card-art/cards/format-key-points/04-checklist-discipline.webp",
+            "src": "/card-art/sci-fi/cards/format-key-points/04-checklist-discipline.webp",
             "alt": "Illustration asset for Checklist Discipline.",
             "motif": "KEY Modifier showing checklist discipline",
             "prompt": "Retro-tech guild toolkit square illustration asset for Checklist Discipline, a Modifier card used in format prompt building. Visual metaphor: Atomic, checkable points that can be ticked off. Keep the KEY lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1360,7 +1360,7 @@
         "Help the reader find the useful part quickly."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-key-points/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-key-points/lineage.webp",
         "alt": "Illustration asset for the format-key-points modifier lineage.",
         "motif": "KEY Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable KEY lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1378,7 +1378,7 @@
           "description": "Open with the single sentence that matters.",
           "instruction": "Open with the single sentence a busy reader needs.",
           "illustration": {
-            "src": "/card-art/cards/format-summary/01-one-liner.webp",
+            "src": "/card-art/sci-fi/cards/format-summary/01-one-liner.webp",
             "alt": "Illustration asset for One-Liner.",
             "motif": "SUM Modifier showing one-liner",
             "prompt": "Retro-tech guild toolkit square illustration asset for One-Liner, a Modifier card used in format prompt building. Visual metaphor: Open with the single sentence that matters. Keep the SUM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1390,7 +1390,7 @@
           "description": "A few sentences of summary before the detail.",
           "instruction": "Open with a two-to-four sentence summary of the result before the detail.",
           "illustration": {
-            "src": "/card-art/cards/format-summary/02-quick-summary.webp",
+            "src": "/card-art/sci-fi/cards/format-summary/02-quick-summary.webp",
             "alt": "Illustration asset for Quick Summary.",
             "motif": "SUM Modifier showing quick summary",
             "prompt": "Retro-tech guild toolkit square illustration asset for Quick Summary, a Modifier card used in format prompt building. Visual metaphor: A few sentences of summary before the detail. Keep the SUM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1402,7 +1402,7 @@
           "description": "Findings, what they mean, and the recommended move.",
           "instruction": "Open with an executive summary: the findings, what they mean, and the recommended move.",
           "illustration": {
-            "src": "/card-art/cards/format-summary/03-executive-summary.webp",
+            "src": "/card-art/sci-fi/cards/format-summary/03-executive-summary.webp",
             "alt": "Illustration asset for Executive Summary.",
             "motif": "SUM Modifier showing executive summary",
             "prompt": "Retro-tech guild toolkit square illustration asset for Executive Summary, a Modifier card used in format prompt building. Visual metaphor: Findings, what they mean, and the recommended move. Keep the SUM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1414,7 +1414,7 @@
           "description": "An abstract that works for someone who reads nothing else.",
           "instruction": "Open with an abstract that stands alone — conclusions, key caveats, and the decision it supports — for a reader who reads nothing else.",
           "illustration": {
-            "src": "/card-art/cards/format-summary/04-standalone-abstract.webp",
+            "src": "/card-art/sci-fi/cards/format-summary/04-standalone-abstract.webp",
             "alt": "Illustration asset for Standalone Abstract.",
             "motif": "SUM Modifier showing standalone abstract",
             "prompt": "Retro-tech guild toolkit square illustration asset for Standalone Abstract, a Modifier card used in format prompt building. Visual metaphor: An abstract that works for someone who reads nothing else. Keep the SUM lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1428,7 +1428,7 @@
         "Connect findings to implications or next steps."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-summary/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-summary/lineage.webp",
         "alt": "Illustration asset for the format-summary modifier lineage.",
         "motif": "SUM Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable SUM lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1446,7 +1446,7 @@
           "description": "Headings only where they genuinely help.",
           "instruction": "Let the answer flow naturally; add a heading only where it genuinely helps.",
           "illustration": {
-            "src": "/card-art/cards/format-sections/01-natural-flow.webp",
+            "src": "/card-art/sci-fi/cards/format-sections/01-natural-flow.webp",
             "alt": "Illustration asset for Natural Flow.",
             "motif": "SEC Modifier showing natural flow",
             "prompt": "Retro-tech guild toolkit square illustration asset for Natural Flow, a Modifier card used in format prompt building. Visual metaphor: Headings only where they genuinely help. Keep the SEC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1458,7 +1458,7 @@
           "description": "Short, clearly headed sections with one job each.",
           "instruction": "Break the answer into short, clearly headed sections with one job each.",
           "illustration": {
-            "src": "/card-art/cards/format-sections/02-clear-sections.webp",
+            "src": "/card-art/sci-fi/cards/format-sections/02-clear-sections.webp",
             "alt": "Illustration asset for Clear Sections.",
             "motif": "SEC Modifier showing clear sections",
             "prompt": "Retro-tech guild toolkit square illustration asset for Clear Sections, a Modifier card used in format prompt building. Visual metaphor: Short, clearly headed sections with one job each. Keep the SEC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1470,7 +1470,7 @@
           "description": "A defined section sequence, every section kept.",
           "instruction": "Follow a defined section sequence and keep every section, even if only to say it is not applicable.",
           "illustration": {
-            "src": "/card-art/cards/format-sections/03-set-sequence.webp",
+            "src": "/card-art/sci-fi/cards/format-sections/03-set-sequence.webp",
             "alt": "Illustration asset for Set Sequence.",
             "motif": "SEC Modifier showing set sequence",
             "prompt": "Retro-tech guild toolkit square illustration asset for Set Sequence, a Modifier card used in format prompt building. Visual metaphor: A defined section sequence, every section kept. Keep the SEC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1482,7 +1482,7 @@
           "description": "The requested structure exactly, nothing added or dropped.",
           "instruction": "Match the requested structure exactly — section names, order, and fields — with no additions or omissions.",
           "illustration": {
-            "src": "/card-art/cards/format-sections/04-locked-template.webp",
+            "src": "/card-art/sci-fi/cards/format-sections/04-locked-template.webp",
             "alt": "Illustration asset for Locked Template.",
             "motif": "SEC Modifier showing locked template",
             "prompt": "Retro-tech guild toolkit square illustration asset for Locked Template, a Modifier card used in format prompt building. Visual metaphor: The requested structure exactly, nothing added or dropped. Keep the SEC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1496,7 +1496,7 @@
         "Match the requested structure when one is supplied."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-sections/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-sections/lineage.webp",
         "alt": "Illustration asset for the format-sections modifier lineage.",
         "motif": "SEC Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable SEC lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1514,7 +1514,7 @@
           "description": "Name the sources that did the most work.",
           "instruction": "Name the sources that did the most work, informally.",
           "illustration": {
-            "src": "/card-art/cards/format-evidence/01-source-notes.webp",
+            "src": "/card-art/sci-fi/cards/format-evidence/01-source-notes.webp",
             "alt": "Illustration asset for Source Notes.",
             "motif": "CIT Modifier showing source notes",
             "prompt": "Retro-tech guild toolkit square illustration asset for Source Notes, a Modifier card used in format prompt building. Visual metaphor: Name the sources that did the most work. Keep the CIT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1526,7 +1526,7 @@
           "description": "Cite supporting sources inline, with links.",
           "instruction": "Cite supporting sources inline, with links where they exist.",
           "illustration": {
-            "src": "/card-art/cards/format-evidence/02-linked-sources.webp",
+            "src": "/card-art/sci-fi/cards/format-evidence/02-linked-sources.webp",
             "alt": "Illustration asset for Linked Sources.",
             "motif": "CIT Modifier showing linked sources",
             "prompt": "Retro-tech guild toolkit square illustration asset for Linked Sources, a Modifier card used in format prompt building. Visual metaphor: Cite supporting sources inline, with links. Keep the CIT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1538,7 +1538,7 @@
           "description": "Tie findings to evidence and the weight it bears.",
           "instruction": "Tie each major finding to its evidence and note how much weight it can bear.",
           "illustration": {
-            "src": "/card-art/cards/format-evidence/03-evidence-notes.webp",
+            "src": "/card-art/sci-fi/cards/format-evidence/03-evidence-notes.webp",
             "alt": "Illustration asset for Evidence Notes.",
             "motif": "CIT Modifier showing evidence notes",
             "prompt": "Retro-tech guild toolkit square illustration asset for Evidence Notes, a Modifier card used in format prompt building. Visual metaphor: Tie findings to evidence and the weight it bears. Keep the CIT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1550,7 +1550,7 @@
           "description": "Every important claim cited; inference marked as such.",
           "instruction": "Give every important factual claim a citation, mark which claims rest on inference instead, and list the sources at the end.",
           "illustration": {
-            "src": "/card-art/cards/format-evidence/04-citation-record.webp",
+            "src": "/card-art/sci-fi/cards/format-evidence/04-citation-record.webp",
             "alt": "Illustration asset for Citation Record.",
             "motif": "CIT Modifier showing citation record",
             "prompt": "Retro-tech guild toolkit square illustration asset for Citation Record, a Modifier card used in format prompt building. Visual metaphor: Every important claim cited; inference marked as such. Keep the CIT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1564,7 +1564,7 @@
         "Distinguish supported fact from interpretation."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-evidence/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-evidence/lineage.webp",
         "alt": "Illustration asset for the format-evidence modifier lineage.",
         "motif": "CIT Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable CIT lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1582,7 +1582,7 @@
           "description": "Alternatives clearly separated in prose.",
           "instruction": "Keep the alternatives clearly separated in prose.",
           "illustration": {
-            "src": "/card-art/cards/format-comparison/01-option-notes.webp",
+            "src": "/card-art/sci-fi/cards/format-comparison/01-option-notes.webp",
             "alt": "Illustration asset for Option Notes.",
             "motif": "TAB Modifier showing option notes",
             "prompt": "Retro-tech guild toolkit square illustration asset for Option Notes, a Modifier card used in format prompt building. Visual metaphor: Alternatives clearly separated in prose. Keep the TAB lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1594,7 +1594,7 @@
           "description": "A compact table against the criteria that matter.",
           "instruction": "Put the alternatives in a compact table against the criteria that matter.",
           "illustration": {
-            "src": "/card-art/cards/format-comparison/02-comparison-table.webp",
+            "src": "/card-art/sci-fi/cards/format-comparison/02-comparison-table.webp",
             "alt": "Illustration asset for Comparison Table.",
             "motif": "TAB Modifier showing comparison table",
             "prompt": "Retro-tech guild toolkit square illustration asset for Comparison Table, a Modifier card used in format prompt building. Visual metaphor: A compact table against the criteria that matter. Keep the TAB lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1606,7 +1606,7 @@
           "description": "Explicit criteria; the winner defensible at a glance.",
           "instruction": "Build the table around explicit decision criteria, and make the winner's row defensible at a glance.",
           "illustration": {
-            "src": "/card-art/cards/format-comparison/03-decision-table.webp",
+            "src": "/card-art/sci-fi/cards/format-comparison/03-decision-table.webp",
             "alt": "Illustration asset for Decision Table.",
             "motif": "TAB Modifier showing decision table",
             "prompt": "Retro-tech guild toolkit square illustration asset for Decision Table, a Modifier card used in format prompt building. Visual metaphor: Explicit criteria; the winner defensible at a glance. Keep the TAB lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1618,7 +1618,7 @@
           "description": "Weights, scores, rationale, and a ranked verdict.",
           "instruction": "Use a strict matrix — criteria, weights, scores, one-line rationale per cell — and finish with the ranked verdict.",
           "illustration": {
-            "src": "/card-art/cards/format-comparison/04-evaluation-matrix.webp",
+            "src": "/card-art/sci-fi/cards/format-comparison/04-evaluation-matrix.webp",
             "alt": "Illustration asset for Evaluation Matrix.",
             "motif": "TAB Modifier showing evaluation matrix",
             "prompt": "Retro-tech guild toolkit square illustration asset for Evaluation Matrix, a Modifier card used in format prompt building. Visual metaphor: Weights, scores, rationale, and a ranked verdict. Keep the TAB lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1632,7 +1632,7 @@
         "End with a clear judgment when one is requested."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-comparison/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-comparison/lineage.webp",
         "alt": "Illustration asset for the format-comparison modifier lineage.",
         "motif": "TAB Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable TAB lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1650,7 +1650,7 @@
           "description": "The single next action worth taking.",
           "instruction": "End with the single next action worth taking.",
           "illustration": {
-            "src": "/card-art/cards/format-next/01-next-move.webp",
+            "src": "/card-art/sci-fi/cards/format-next/01-next-move.webp",
             "alt": "Illustration asset for Next Move.",
             "motif": "NXT Modifier showing next move",
             "prompt": "Retro-tech guild toolkit square illustration asset for Next Move, a Modifier card used in format prompt building. Visual metaphor: The single next action worth taking. Keep the NXT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1662,7 +1662,7 @@
           "description": "A short ordered list of next steps.",
           "instruction": "End with a short ordered list of next steps.",
           "illustration": {
-            "src": "/card-art/cards/format-next/02-next-steps.webp",
+            "src": "/card-art/sci-fi/cards/format-next/02-next-steps.webp",
             "alt": "Illustration asset for Next Steps.",
             "motif": "NXT Modifier showing next steps",
             "prompt": "Retro-tech guild toolkit square illustration asset for Next Steps, a Modifier card used in format prompt building. Visual metaphor: A short ordered list of next steps. Keep the NXT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1674,7 +1674,7 @@
           "description": "Priorities with owners or timing where known.",
           "instruction": "End with prioritized actions — each with an owner or timeframe where known.",
           "illustration": {
-            "src": "/card-art/cards/format-next/03-prioritized-actions.webp",
+            "src": "/card-art/sci-fi/cards/format-next/03-prioritized-actions.webp",
             "alt": "Illustration asset for Prioritized Actions.",
             "motif": "NXT Modifier showing prioritized actions",
             "prompt": "Retro-tech guild toolkit square illustration asset for Prioritized Actions, a Modifier card used in format prompt building. Visual metaphor: Priorities with owners or timing where known. Keep the NXT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1686,7 +1686,7 @@
           "description": "A handoff someone could execute cold.",
           "instruction": "End with a handoff someone could execute cold: actions, owners, dependencies, and how to verify each is done.",
           "illustration": {
-            "src": "/card-art/cards/format-next/04-execution-handoff.webp",
+            "src": "/card-art/sci-fi/cards/format-next/04-execution-handoff.webp",
             "alt": "Illustration asset for Execution Handoff.",
             "motif": "NXT Modifier showing execution handoff",
             "prompt": "Retro-tech guild toolkit square illustration asset for Execution Handoff, a Modifier card used in format prompt building. Visual metaphor: A handoff someone could execute cold. Keep the NXT lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1700,7 +1700,7 @@
         "Include owners, timing, or dependencies when known."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-next/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-next/lineage.webp",
         "alt": "Illustration asset for the format-next modifier lineage.",
         "motif": "NXT Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable NXT lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1718,7 +1718,7 @@
           "description": "Under ~150 words; say what got cut.",
           "instruction": "Keep the entire response under roughly 150 words; if it cannot fit, say what you cut.",
           "illustration": {
-            "src": "/card-art/cards/format-length/01-tight-budget.webp",
+            "src": "/card-art/sci-fi/cards/format-length/01-tight-budget.webp",
             "alt": "Illustration asset for Tight Budget.",
             "motif": "LEN Modifier showing tight budget",
             "prompt": "Retro-tech guild toolkit square illustration asset for Tight Budget, a Modifier card used in format prompt building. Visual metaphor: Under ~150 words; say what got cut. Keep the LEN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1730,7 +1730,7 @@
           "description": "About one screen; density over coverage.",
           "instruction": "Keep the response to about one screen — roughly 300 words — favoring density over coverage.",
           "illustration": {
-            "src": "/card-art/cards/format-length/02-one-screen.webp",
+            "src": "/card-art/sci-fi/cards/format-length/02-one-screen.webp",
             "alt": "Illustration asset for One Screen.",
             "motif": "LEN Modifier showing one screen",
             "prompt": "Retro-tech guild toolkit square illustration asset for One Screen, a Modifier card used in format prompt building. Visual metaphor: About one screen; density over coverage. Keep the LEN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1742,7 +1742,7 @@
           "description": "The space the subject needs, spent on substance.",
           "instruction": "Take the space the subject needs, but spend it on substance: no throat-clearing, no restating the question, no padded transitions.",
           "illustration": {
-            "src": "/card-art/cards/format-length/03-room-to-explain.webp",
+            "src": "/card-art/sci-fi/cards/format-length/03-room-to-explain.webp",
             "alt": "Illustration asset for Room to Explain.",
             "motif": "LEN Modifier showing room to explain",
             "prompt": "Retro-tech guild toolkit square illustration asset for Room to Explain, a Modifier card used in format prompt building. Visual metaphor: The space the subject needs, spent on substance. Keep the LEN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1754,7 +1754,7 @@
           "description": "As long as completeness demands and no longer.",
           "instruction": "Be as long as completeness demands and no longer — every section must earn its length, and repetition or filler is a defect.",
           "illustration": {
-            "src": "/card-art/cards/format-length/04-complete-treatment.webp",
+            "src": "/card-art/sci-fi/cards/format-length/04-complete-treatment.webp",
             "alt": "Illustration asset for Complete Treatment.",
             "motif": "LEN Modifier showing complete treatment",
             "prompt": "Retro-tech guild toolkit square illustration asset for Complete Treatment, a Modifier card used in format prompt building. Visual metaphor: As long as completeness demands and no longer. Keep the LEN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1768,7 +1768,7 @@
         "Treat padding as a defect."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-length/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-length/lineage.webp",
         "alt": "Illustration asset for the format-length modifier lineage.",
         "motif": "LEN Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable LEN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1786,7 +1786,7 @@
           "description": "Lead with the must-know; add depth only as needed.",
           "instruction": "Lead with the essentials a reader must know, then add depth only where it earns its place.",
           "illustration": {
-            "src": "/card-art/cards/format-tiers/01-essentials-first.webp",
+            "src": "/card-art/sci-fi/cards/format-tiers/01-essentials-first.webp",
             "alt": "Illustration asset for Essentials First.",
             "motif": "TIER Modifier showing essentials first",
             "prompt": "Retro-tech guild toolkit square illustration asset for Essentials First, a Modifier card used in format prompt building. Visual metaphor: Lead with the must-know; add depth only as needed. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1798,7 +1798,7 @@
           "description": "Break it into three tiers: essentials, working detail, edge.",
           "instruction": "Break the content into three tiers of information: the essentials everyone needs, the working detail for people acting on it, and the deep or edge material that completes the picture.",
           "illustration": {
-            "src": "/card-art/cards/format-tiers/02-three-tiers.webp",
+            "src": "/card-art/sci-fi/cards/format-tiers/02-three-tiers.webp",
             "alt": "Illustration asset for Three Tiers.",
             "motif": "TIER Modifier showing three tiers",
             "prompt": "Retro-tech guild toolkit square illustration asset for Three Tiers, a Modifier card used in format prompt building. Visual metaphor: Information layered into three tiers of depth. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1810,7 +1810,7 @@
           "description": "Three labeled tiers as sections; every item assigned.",
           "instruction": "Organize the response as three labeled tiers — essentials, working detail, and deep material — and place every piece of information in exactly one tier.",
           "illustration": {
-            "src": "/card-art/cards/format-tiers/03-tiered-sections.webp",
+            "src": "/card-art/sci-fi/cards/format-tiers/03-tiered-sections.webp",
             "alt": "Illustration asset for Tiered Sections.",
             "motif": "TIER Modifier showing tiered sections",
             "prompt": "Retro-tech guild toolkit square illustration asset for Tiered Sections, a Modifier card used in format prompt building. Visual metaphor: Three labeled tiers as sections with every item assigned. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1822,7 +1822,7 @@
           "description": "Strict tier discipline; nothing lives outside the hierarchy.",
           "instruction": "Enforce a strict three-tier hierarchy: name each tier, state what belongs in it, keep every section inside its declared tier, and cut anything that fits no tier.",
           "illustration": {
-            "src": "/card-art/cards/format-tiers/04-locked-tier-hierarchy.webp",
+            "src": "/card-art/sci-fi/cards/format-tiers/04-locked-tier-hierarchy.webp",
             "alt": "Illustration asset for Locked Tier Hierarchy.",
             "motif": "TIER Modifier showing locked tier hierarchy",
             "prompt": "Retro-tech guild toolkit square illustration asset for Locked Tier Hierarchy, a Modifier card used in format prompt building. Visual metaphor: Strict tier discipline with nothing outside the hierarchy. Keep the TIER lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1836,7 +1836,7 @@
         "Keep deep material from burying the point."
       ],
       "illustration": {
-        "src": "/card-art/cards/format-tiers/lineage.webp",
+        "src": "/card-art/sci-fi/cards/format-tiers/lineage.webp",
         "alt": "Illustration asset for the format-tiers modifier lineage.",
         "motif": "TIER Modifier card for format",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for format prompt building, stable TIER lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1854,7 +1854,7 @@
           "description": "No prior knowledge assumed; first principles.",
           "instruction": "Assume no prior knowledge: explain from first principles and use everyday words before introducing any term of art.",
           "illustration": {
-            "src": "/card-art/cards/target-language/01-first-contact.webp",
+            "src": "/card-art/sci-fi/cards/target-language/01-first-contact.webp",
             "alt": "Illustration asset for First Contact.",
             "motif": "LVL Modifier showing first contact",
             "prompt": "Retro-tech guild toolkit square illustration asset for First Contact, a Modifier card used in target prompt building. Visual metaphor: No prior knowledge assumed; first principles. Keep the LVL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1866,7 +1866,7 @@
           "description": "Smart-generalist language; define terms on first use.",
           "instruction": "Write for a smart generalist: define specialized terms on first use and prefer the plain word when it exists.",
           "illustration": {
-            "src": "/card-art/cards/target-language/02-plain-language.webp",
+            "src": "/card-art/sci-fi/cards/target-language/02-plain-language.webp",
             "alt": "Illustration asset for Plain Language.",
             "motif": "LVL Modifier showing plain language",
             "prompt": "Retro-tech guild toolkit square illustration asset for Plain Language, a Modifier card used in target prompt building. Visual metaphor: Smart-generalist language; define terms on first use. Keep the LVL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1878,7 +1878,7 @@
           "description": "Standard terminology, clarified only when obscure.",
           "instruction": "Use the field's standard terminology freely, clarifying only genuinely obscure terms.",
           "illustration": {
-            "src": "/card-art/cards/target-language/03-working-vocabulary.webp",
+            "src": "/card-art/sci-fi/cards/target-language/03-working-vocabulary.webp",
             "alt": "Illustration asset for Working Vocabulary.",
             "motif": "LVL Modifier showing working vocabulary",
             "prompt": "Retro-tech guild toolkit square illustration asset for Working Vocabulary, a Modifier card used in target prompt building. Visual metaphor: Standard terminology, clarified only when obscure. Keep the LVL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1890,7 +1890,7 @@
           "description": "Full technical vocabulary for an expert peer.",
           "instruction": "Write for an expert peer: full technical vocabulary, no introductory explanations, precision over accessibility.",
           "illustration": {
-            "src": "/card-art/cards/target-language/04-expert-shorthand.webp",
+            "src": "/card-art/sci-fi/cards/target-language/04-expert-shorthand.webp",
             "alt": "Illustration asset for Expert Shorthand.",
             "motif": "LVL Modifier showing expert shorthand",
             "prompt": "Retro-tech guild toolkit square illustration asset for Expert Shorthand, a Modifier card used in target prompt building. Visual metaphor: Full technical vocabulary for an expert peer. Keep the LVL lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1904,7 +1904,7 @@
         "Avoid background the audience does not need."
       ],
       "illustration": {
-        "src": "/card-art/cards/target-language/lineage.webp",
+        "src": "/card-art/sci-fi/cards/target-language/lineage.webp",
         "alt": "Illustration asset for the target-language modifier lineage.",
         "motif": "LVL Modifier card for target",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for target prompt building, stable LVL lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1922,7 +1922,7 @@
           "description": "Natural, direct, conversational language.",
           "instruction": "Write like a sharp colleague talking: contractions, natural rhythm, no stiffness.",
           "illustration": {
-            "src": "/card-art/cards/target-voice/01-straight-talk.webp",
+            "src": "/card-art/sci-fi/cards/target-voice/01-straight-talk.webp",
             "alt": "Illustration asset for Straight Talk.",
             "motif": "VOC Modifier showing straight talk",
             "prompt": "Retro-tech guild toolkit square illustration asset for Straight Talk, a Modifier card used in target prompt building. Visual metaphor: Natural, direct, conversational language. Keep the VOC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1934,7 +1934,7 @@
           "description": "Calm, neutral language without ceremony.",
           "instruction": "Keep the language calm and neutral — no ceremony, no chattiness.",
           "illustration": {
-            "src": "/card-art/cards/target-voice/02-clear-neutral.webp",
+            "src": "/card-art/sci-fi/cards/target-voice/02-clear-neutral.webp",
             "alt": "Illustration asset for Clear Neutral.",
             "motif": "VOC Modifier showing clear neutral",
             "prompt": "Retro-tech guild toolkit square illustration asset for Clear Neutral, a Modifier card used in target prompt building. Visual metaphor: Calm, neutral language without ceremony. Keep the VOC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1946,7 +1946,7 @@
           "description": "Polished, precise workplace language.",
           "instruction": "Use polished, precise professional language fit for a workplace document.",
           "illustration": {
-            "src": "/card-art/cards/target-voice/03-professional-voice.webp",
+            "src": "/card-art/sci-fi/cards/target-voice/03-professional-voice.webp",
             "alt": "Illustration asset for Professional Voice.",
             "motif": "VOC Modifier showing professional voice",
             "prompt": "Retro-tech guild toolkit square illustration asset for Professional Voice, a Modifier card used in target prompt building. Visual metaphor: Polished, precise workplace language. Keep the VOC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1958,7 +1958,7 @@
           "description": "Disciplined formal phrasing throughout.",
           "instruction": "Hold a disciplined formal register throughout: complete phrasing, exact wording, nothing colloquial.",
           "illustration": {
-            "src": "/card-art/cards/target-voice/04-formal-register.webp",
+            "src": "/card-art/sci-fi/cards/target-voice/04-formal-register.webp",
             "alt": "Illustration asset for Formal Register.",
             "motif": "VOC Modifier showing formal register",
             "prompt": "Retro-tech guild toolkit square illustration asset for Formal Register, a Modifier card used in target prompt building. Visual metaphor: Disciplined formal phrasing throughout. Keep the VOC lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1972,7 +1972,7 @@
         "Change the register without losing clarity."
       ],
       "illustration": {
-        "src": "/card-art/cards/target-voice/lineage.webp",
+        "src": "/card-art/sci-fi/cards/target-voice/lineage.webp",
         "alt": "Illustration asset for the target-voice modifier lineage.",
         "motif": "VOC Modifier card for target",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for target prompt building, stable VOC lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1990,7 +1990,7 @@
           "description": "Familiar examples before the abstract version.",
           "instruction": "Anchor each major idea with an everyday example or analogy before the abstract version.",
           "illustration": {
-            "src": "/card-art/cards/target-examples/01-everyday-analogy.webp",
+            "src": "/card-art/sci-fi/cards/target-examples/01-everyday-analogy.webp",
             "alt": "Illustration asset for Everyday Analogy.",
             "motif": "EX Modifier showing everyday analogy",
             "prompt": "Retro-tech guild toolkit square illustration asset for Everyday Analogy, a Modifier card used in target prompt building. Visual metaphor: Familiar examples before the abstract version. Keep the EX lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2002,7 +2002,7 @@
           "description": "One example taken start to finish.",
           "instruction": "Include one worked example that goes start to finish, not just the setup.",
           "illustration": {
-            "src": "/card-art/cards/target-examples/02-worked-example.webp",
+            "src": "/card-art/sci-fi/cards/target-examples/02-worked-example.webp",
             "alt": "Illustration asset for Worked Example.",
             "motif": "EX Modifier showing worked example",
             "prompt": "Retro-tech guild toolkit square illustration asset for Worked Example, a Modifier card used in target prompt building. Visual metaphor: One example taken start to finish. Keep the EX lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2014,7 +2014,7 @@
           "description": "Realistic examples with the messy details left in.",
           "instruction": "Use realistic domain examples with the messy details left in, since that is where the lesson lives.",
           "illustration": {
-            "src": "/card-art/cards/target-examples/03-domain-example.webp",
+            "src": "/card-art/sci-fi/cards/target-examples/03-domain-example.webp",
             "alt": "Illustration asset for Domain Example.",
             "motif": "EX Modifier showing domain example",
             "prompt": "Retro-tech guild toolkit square illustration asset for Domain Example, a Modifier card used in target prompt building. Visual metaphor: Realistic examples with the messy details left in. Keep the EX lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2026,7 +2026,7 @@
           "description": "Examples that expose the boundaries of the rule.",
           "instruction": "Choose examples that expose the boundaries — the edge case, the counterexample, the place the rule bends.",
           "illustration": {
-            "src": "/card-art/cards/target-examples/04-edge-case.webp",
+            "src": "/card-art/sci-fi/cards/target-examples/04-edge-case.webp",
             "alt": "Illustration asset for Edge Case.",
             "motif": "EX Modifier showing edge case",
             "prompt": "Retro-tech guild toolkit square illustration asset for Edge Case, a Modifier card used in target prompt building. Visual metaphor: Examples that expose the boundaries of the rule. Keep the EX lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2040,7 +2040,7 @@
         "Choose examples that expose the important detail."
       ],
       "illustration": {
-        "src": "/card-art/cards/target-examples/lineage.webp",
+        "src": "/card-art/sci-fi/cards/target-examples/lineage.webp",
         "alt": "Illustration asset for the target-examples modifier lineage.",
         "motif": "EX Modifier card for target",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for target prompt building, stable EX lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2058,7 +2058,7 @@
           "description": "What to decide next and what is needed to decide it.",
           "instruction": "Make explicit what the reader should decide next and what they need in order to decide it.",
           "illustration": {
-            "src": "/card-art/cards/target-decisions/01-next-decision.webp",
+            "src": "/card-art/sci-fi/cards/target-decisions/01-next-decision.webp",
             "alt": "Illustration asset for Next Decision.",
             "motif": "DCN Modifier showing next decision",
             "prompt": "Retro-tech guild toolkit square illustration asset for Next Decision, a Modifier card used in target prompt building. Visual metaphor: What to decide next and what is needed to decide it. Keep the DCN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2070,7 +2070,7 @@
           "description": "Frame around the actions the answer enables.",
           "instruction": "Frame the answer around the actions it enables: what to do, in what order, and what to watch for.",
           "illustration": {
-            "src": "/card-art/cards/target-decisions/02-actionable-framing.webp",
+            "src": "/card-art/sci-fi/cards/target-decisions/02-actionable-framing.webp",
             "alt": "Illustration asset for Actionable Framing.",
             "motif": "DCN Modifier showing actionable framing",
             "prompt": "Retro-tech guild toolkit square illustration asset for Actionable Framing, a Modifier card used in target prompt building. Visual metaphor: Frame around the actions the answer enables. Keep the DCN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2082,7 +2082,7 @@
           "description": "Center what is gained, given up, and which way to lean.",
           "instruction": "Center the material tradeoffs — what is gained, what is given up, and which way the evidence leans.",
           "illustration": {
-            "src": "/card-art/cards/target-decisions/03-tradeoff-brief.webp",
+            "src": "/card-art/sci-fi/cards/target-decisions/03-tradeoff-brief.webp",
             "alt": "Illustration asset for Tradeoff Brief.",
             "motif": "DCN Modifier showing tradeoff brief",
             "prompt": "Retro-tech guild toolkit square illustration asset for Tradeoff Brief, a Modifier card used in target prompt building. Visual metaphor: Center what is gained, given up, and which way to lean. Keep the DCN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2094,7 +2094,7 @@
           "description": "Options, choice, rationale, and accepted consequences.",
           "instruction": "Frame the answer as a decision record: the options considered, the choice, the rationale, and the consequences accepted.",
           "illustration": {
-            "src": "/card-art/cards/target-decisions/04-decision-record.webp",
+            "src": "/card-art/sci-fi/cards/target-decisions/04-decision-record.webp",
             "alt": "Illustration asset for Decision Record.",
             "motif": "DCN Modifier showing decision record",
             "prompt": "Retro-tech guild toolkit square illustration asset for Decision Record, a Modifier card used in target prompt building. Visual metaphor: Options, choice, rationale, and accepted consequences. Keep the DCN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2108,7 +2108,7 @@
         "Write at a level the reader can act on."
       ],
       "illustration": {
-        "src": "/card-art/cards/target-decisions/lineage.webp",
+        "src": "/card-art/sci-fi/cards/target-decisions/lineage.webp",
         "alt": "Illustration asset for the target-decisions modifier lineage.",
         "motif": "DCN Modifier card for target",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for target prompt building, stable DCN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2126,7 +2126,7 @@
           "description": "Acknowledge the difficulty; make the next step feel doable.",
           "instruction": "Take a warm, encouraging stance: acknowledge the difficulty, and make the next step feel doable.",
           "illustration": {
-            "src": "/card-art/cards/target-stance/01-warm-and-encouraging.webp",
+            "src": "/card-art/sci-fi/cards/target-stance/01-warm-and-encouraging.webp",
             "alt": "Illustration asset for Warm & Encouraging.",
             "motif": "STN Modifier showing warm & encouraging",
             "prompt": "Retro-tech guild toolkit square illustration asset for Warm & Encouraging, a Modifier card used in target prompt building. Visual metaphor: Acknowledge the difficulty; make the next step feel doable. Keep the STN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2138,7 +2138,7 @@
           "description": "State things as they are, without cheerleading or alarm.",
           "instruction": "Keep an even, matter-of-fact stance: state things as they are, without cheerleading or alarm.",
           "illustration": {
-            "src": "/card-art/cards/target-stance/02-even-and-matter-of-fact.webp",
+            "src": "/card-art/sci-fi/cards/target-stance/02-even-and-matter-of-fact.webp",
             "alt": "Illustration asset for Even & Matter-of-Fact.",
             "motif": "STN Modifier showing even & matter-of-fact",
             "prompt": "Retro-tech guild toolkit square illustration asset for Even & Matter-of-Fact, a Modifier card used in target prompt building. Visual metaphor: State things as they are, without cheerleading or alarm. Keep the STN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2150,7 +2150,7 @@
           "description": "Lead with conclusions; say the uncomfortable part.",
           "instruction": "Be candid: lead with conclusions, skip the hedging, and say the uncomfortable part out loud, professionally.",
           "illustration": {
-            "src": "/card-art/cards/target-stance/03-candid-and-direct.webp",
+            "src": "/card-art/sci-fi/cards/target-stance/03-candid-and-direct.webp",
             "alt": "Illustration asset for Candid & Direct.",
             "motif": "STN Modifier showing candid & direct",
             "prompt": "Retro-tech guild toolkit square illustration asset for Candid & Direct, a Modifier card used in target prompt building. Visual metaphor: Lead with conclusions; say the uncomfortable part. Keep the STN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2162,7 +2162,7 @@
           "description": "Firm conclusions and unambiguous requirements.",
           "instruction": "Take the authoritative stance of the accountable expert: firm conclusions, unambiguous requirements, and no false balance.",
           "illustration": {
-            "src": "/card-art/cards/target-stance/04-authoritative-and-decisive.webp",
+            "src": "/card-art/sci-fi/cards/target-stance/04-authoritative-and-decisive.webp",
             "alt": "Illustration asset for Authoritative & Decisive.",
             "motif": "STN Modifier showing authoritative & decisive",
             "prompt": "Retro-tech guild toolkit square illustration asset for Authoritative & Decisive, a Modifier card used in target prompt building. Visual metaphor: Firm conclusions and unambiguous requirements. Keep the STN lineage motif recognizable across morph grades, with cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -2176,7 +2176,7 @@
         "Keep the stance consistent from open to close."
       ],
       "illustration": {
-        "src": "/card-art/cards/target-stance/lineage.webp",
+        "src": "/card-art/sci-fi/cards/target-stance/lineage.webp",
         "alt": "Illustration asset for the target-stance modifier lineage.",
         "motif": "STN Modifier card for target",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Modifier card for target prompt building, stable STN lineage motif, cyan instrument light, dark blue neutral background, compact mechanical detail, no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",

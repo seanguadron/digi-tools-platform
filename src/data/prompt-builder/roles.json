@@ -16,7 +16,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/researcher.webp",
+        "src": "/card-art/sci-fi/roles/researcher.webp",
         "alt": "Illustration asset for the Researcher role.",
         "motif": "Researcher specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Researcher specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -38,7 +38,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/analyst.webp",
+        "src": "/card-art/sci-fi/roles/analyst.webp",
         "alt": "Illustration asset for the Analyst role.",
         "motif": "Analyst specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of an Analyst specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -60,7 +60,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/strategist.webp",
+        "src": "/card-art/sci-fi/roles/strategist.webp",
         "alt": "Illustration asset for the Strategist role.",
         "motif": "Strategist specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Strategist specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -82,7 +82,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/historian.webp",
+        "src": "/card-art/sci-fi/roles/historian.webp",
         "alt": "Illustration asset for the Historian role.",
         "motif": "Historian specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Historian specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -104,7 +104,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/fact-checker.webp",
+        "src": "/card-art/sci-fi/roles/fact-checker.webp",
         "alt": "Illustration asset for the Fact-checker role.",
         "motif": "Fact-checker specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Fact-checker specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -126,7 +126,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/synthesizer.webp",
+        "src": "/card-art/sci-fi/roles/synthesizer.webp",
         "alt": "Illustration asset for the Synthesizer role.",
         "motif": "Synthesizer specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Synthesizer specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -148,7 +148,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/explainer-educator.webp",
+        "src": "/card-art/sci-fi/roles/explainer-educator.webp",
         "alt": "Illustration asset for the Explainer / Educator role.",
         "motif": "Explainer / Educator specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of an Explainer / Educator specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -170,7 +170,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/comparative-reviewer.webp",
+        "src": "/card-art/sci-fi/roles/comparative-reviewer.webp",
         "alt": "Illustration asset for the Critical Reviewer role.",
         "motif": "Critical Reviewer specialist with core thinking and research tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Critical Reviewer specialist with research instruments, source files, annotated maps, and signal analysis tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -192,7 +192,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/developer.webp",
+        "src": "/card-art/sci-fi/roles/developer.webp",
         "alt": "Illustration asset for the Developer role.",
         "motif": "Developer specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Developer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -214,7 +214,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/technical-troubleshooter.webp",
+        "src": "/card-art/sci-fi/roles/technical-troubleshooter.webp",
         "alt": "Illustration asset for the Technical Troubleshooter role.",
         "motif": "Technical Troubleshooter specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Technical Troubleshooter specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -236,7 +236,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/systems-designer.webp",
+        "src": "/card-art/sci-fi/roles/systems-designer.webp",
         "alt": "Illustration asset for the Systems Designer role.",
         "motif": "Systems Designer specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Systems Designer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -258,7 +258,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/workflow-architect.webp",
+        "src": "/card-art/sci-fi/roles/workflow-architect.webp",
         "alt": "Illustration asset for the Workflow Architect role.",
         "motif": "Workflow Architect specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Workflow Architect specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -280,7 +280,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/ux-ui-advisor.webp",
+        "src": "/card-art/sci-fi/roles/ux-ui-advisor.webp",
         "alt": "Illustration asset for the UX / UI Advisor role.",
         "motif": "UX / UI Advisor specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a UX / UI Advisor specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -302,7 +302,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/data-analyst.webp",
+        "src": "/card-art/sci-fi/roles/data-analyst.webp",
         "alt": "Illustration asset for the Data Analyst role.",
         "motif": "Data Analyst specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Data Analyst specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -324,7 +324,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/qa-test-engineer.webp",
+        "src": "/card-art/sci-fi/roles/qa-test-engineer.webp",
         "alt": "Illustration asset for the QA / Test Engineer role.",
         "motif": "QA / Test Engineer specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a QA / Test Engineer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -346,7 +346,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/security-reviewer.webp",
+        "src": "/card-art/sci-fi/roles/security-reviewer.webp",
         "alt": "Illustration asset for the Security Reviewer role.",
         "motif": "Security Reviewer specialist with technical and build tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Security Reviewer specialist with workbench hardware, code panels, interface rigs, and diagnostic tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -368,7 +368,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/writer.webp",
+        "src": "/card-art/sci-fi/roles/writer.webp",
         "alt": "Illustration asset for the Writer role.",
         "motif": "Writer specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Writer specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -390,7 +390,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/editor.webp",
+        "src": "/card-art/sci-fi/roles/editor.webp",
         "alt": "Illustration asset for the Editor role.",
         "motif": "Editor specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of an Editor specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -412,7 +412,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/copywriter.webp",
+        "src": "/card-art/sci-fi/roles/copywriter.webp",
         "alt": "Illustration asset for the Copywriter role.",
         "motif": "Copywriter specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Copywriter specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -434,7 +434,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/rewriter.webp",
+        "src": "/card-art/sci-fi/roles/rewriter.webp",
         "alt": "Illustration asset for the Rewriter role.",
         "motif": "Rewriter specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Rewriter specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -456,7 +456,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/pitch-strategist.webp",
+        "src": "/card-art/sci-fi/roles/pitch-strategist.webp",
         "alt": "Illustration asset for the Pitch Strategist role.",
         "motif": "Pitch Strategist specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Pitch Strategist specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -478,7 +478,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/presentation-slide-structurer.webp",
+        "src": "/card-art/sci-fi/roles/presentation-slide-structurer.webp",
         "alt": "Illustration asset for the Presentation Designer role.",
         "motif": "Presentation Designer specialist with writing and communication tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Presentation Designer specialist with draft pages, editorial marks, message routing tools, and presentation boards, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -500,7 +500,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/creative-director.webp",
+        "src": "/card-art/sci-fi/roles/creative-director.webp",
         "alt": "Illustration asset for the Creative Director role.",
         "motif": "Creative Director specialist with creative and concept tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Creative Director specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -522,7 +522,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/concept-developer.webp",
+        "src": "/card-art/sci-fi/roles/concept-developer.webp",
         "alt": "Illustration asset for the Concept Developer role.",
         "motif": "Concept Developer specialist with creative and concept tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Concept Developer specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -544,7 +544,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/brainstorming-partner.webp",
+        "src": "/card-art/sci-fi/roles/brainstorming-partner.webp",
         "alt": "Illustration asset for the Brainstorming Partner role.",
         "motif": "Brainstorming Partner specialist with creative and concept tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Brainstorming Partner specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -566,7 +566,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/prompt-engineer.webp",
+        "src": "/card-art/sci-fi/roles/prompt-engineer.webp",
         "alt": "Illustration asset for the Prompt Engineer role.",
         "motif": "Prompt Engineer specialist with creative and concept tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Prompt Engineer specialist with concept boards, light tables, prototype props, and visual direction tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -588,7 +588,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/tutor.webp",
+        "src": "/card-art/sci-fi/roles/tutor.webp",
         "alt": "Illustration asset for the Tutor role.",
         "motif": "Tutor specialist with teaching and coaching tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Tutor specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -610,7 +610,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/curriculum-designer.webp",
+        "src": "/card-art/sci-fi/roles/curriculum-designer.webp",
         "alt": "Illustration asset for the Curriculum Designer role.",
         "motif": "Curriculum Designer specialist with teaching and coaching tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Curriculum Designer specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -632,7 +632,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/mentor.webp",
+        "src": "/card-art/sci-fi/roles/mentor.webp",
         "alt": "Illustration asset for the Mentor role.",
         "motif": "Mentor specialist with teaching and coaching tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Mentor specialist with lesson boards, practice cards, feedback tools, and learning instruments, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -654,7 +654,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/consultant.webp",
+        "src": "/card-art/sci-fi/roles/consultant.webp",
         "alt": "Illustration asset for the Consultant role.",
         "motif": "Consultant specialist with business and opportunity tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Consultant specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -676,7 +676,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/product-strategist.webp",
+        "src": "/card-art/sci-fi/roles/product-strategist.webp",
         "alt": "Illustration asset for the Product Strategist role.",
         "motif": "Product Strategist specialist with business and opportunity tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Product Strategist specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -698,7 +698,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/market-positioning-advisor.webp",
+        "src": "/card-art/sci-fi/roles/market-positioning-advisor.webp",
         "alt": "Illustration asset for the Positioning Strategist role.",
         "motif": "Positioning Strategist specialist with business and opportunity tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Positioning Strategist specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -720,7 +720,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/product-manager.webp",
+        "src": "/card-art/sci-fi/roles/product-manager.webp",
         "alt": "Illustration asset for the Product Manager role.",
         "motif": "Product Manager specialist with business and opportunity tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Product Manager specialist with strategy maps, offer models, market signals, and negotiation tools, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -742,7 +742,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/summarizer.webp",
+        "src": "/card-art/sci-fi/roles/summarizer.webp",
         "alt": "Illustration asset for the Summarizer role.",
         "motif": "Summarizer specialist with utility tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of a Summarizer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -764,7 +764,7 @@
         ]
       },
       "illustration": {
-        "src": "/card-art/roles/organizer.webp",
+        "src": "/card-art/sci-fi/roles/organizer.webp",
         "alt": "Illustration asset for the Organizer role.",
         "motif": "Organizer specialist with utility tools",
         "prompt": "Retro-tech guild toolkit square illustration asset of an Organizer specialist with field notes, practical guides, reference tools, and decision aids, compact cyan instrument light, dark blue neutral background, crisp digital painting, focused human professional, no readable interface details. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",

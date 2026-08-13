@@ -53,7 +53,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/executive-summary.webp",
+        "src": "/card-art/sci-fi/archetypes/executive-summary.webp",
         "alt": "Illustration asset for the Executive summary archetype.",
         "motif": "Executive summary premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Executive summary master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a short, decision-first summary distilled from long material. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -112,7 +112,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/creative-concept.webp",
+        "src": "/card-art/sci-fi/archetypes/creative-concept.webp",
         "alt": "Illustration asset for the Creative concept archetype.",
         "motif": "Creative concept premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Creative concept master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests explore, shape, and strengthen a concept without losing usefulness. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -167,7 +167,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/note-taker.webp",
+        "src": "/card-art/sci-fi/archetypes/note-taker.webp",
         "alt": "Illustration asset for the Note taker archetype.",
         "motif": "Note taker premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Note taker master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests organized, faithful notes captured from raw material. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -223,7 +223,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/message-email.webp",
+        "src": "/card-art/sci-fi/archetypes/message-email.webp",
         "alt": "Illustration asset for the Message & email archetype.",
         "motif": "Message & email premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Message & email master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a clear, well-judged message or email written in the right tone. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -281,7 +281,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/prompt-improver.webp",
+        "src": "/card-art/sci-fi/archetypes/prompt-improver.webp",
         "alt": "Illustration asset for the Prompt improver archetype.",
         "motif": "Prompt improver premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Prompt improver master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests diagnose a prompt and rebuild it sharper. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -339,7 +339,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/learning-guide.webp",
+        "src": "/card-art/sci-fi/archetypes/learning-guide.webp",
         "alt": "Illustration asset for the Learning guide archetype.",
         "motif": "Learning guide premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Learning guide master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests teach an idea clearly with examples and common questions. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -401,7 +401,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/app-build-handoff.webp",
+        "src": "/card-art/sci-fi/archetypes/app-build-handoff.webp",
         "alt": "Illustration asset for the App build handoff archetype.",
         "motif": "App build handoff premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the App build handoff master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests one self-contained document an AI agent can build a whole app from. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -463,7 +463,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/agent-skill.webp",
+        "src": "/card-art/sci-fi/archetypes/agent-skill.webp",
         "alt": "Illustration asset for the Agent skill archetype.",
         "motif": "Agent skill premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Agent skill master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a reusable procedure an agent can pick up and run. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -525,7 +525,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/agent-gate.webp",
+        "src": "/card-art/sci-fi/archetypes/agent-gate.webp",
         "alt": "Illustration asset for the Agent gate archetype.",
         "motif": "Agent gate premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Agent gate master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a watchful inspection gate that judges work and reports findings. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -585,7 +585,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/social-post.webp",
+        "src": "/card-art/sci-fi/archetypes/social-post.webp",
         "alt": "Illustration asset for the Social post archetype.",
         "motif": "Social post premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Social post master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a sharp post crafted for the audience of one platform. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -641,7 +641,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/quick-explanation.webp",
+        "src": "/card-art/sci-fi/archetypes/quick-explanation.webp",
         "alt": "Illustration asset for the Quick explanation archetype.",
         "motif": "Quick explanation premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Quick explanation master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a plain, useful answer that is easy to scan. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -701,7 +701,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/research-brief.webp",
+        "src": "/card-art/sci-fi/archetypes/research-brief.webp",
         "alt": "Illustration asset for the Research brief archetype.",
         "motif": "Research brief premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Research brief master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a sourced, balanced brief with uncertainty made visible. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -762,7 +762,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/decision-advisor.webp",
+        "src": "/card-art/sci-fi/archetypes/decision-advisor.webp",
         "alt": "Illustration asset for the Decision advisor archetype.",
         "motif": "Decision advisor premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Decision advisor master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests compare options, surface tradeoffs, and recommend a path. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -822,7 +822,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/data-analysis.webp",
+        "src": "/card-art/sci-fi/archetypes/data-analysis.webp",
         "alt": "Illustration asset for the Data analysis archetype.",
         "motif": "Data analysis premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Data analysis master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests finding and explaining insights from a dataset or metrics. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -882,7 +882,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/risk-premortem.webp",
+        "src": "/card-art/sci-fi/archetypes/risk-premortem.webp",
         "alt": "Illustration asset for the Risk premortem archetype.",
         "motif": "Risk premortem premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Risk premortem master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests assume it failed — find out why before it does. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -940,7 +940,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/writing-draft.webp",
+        "src": "/card-art/sci-fi/archetypes/writing-draft.webp",
         "alt": "Illustration asset for the Writing draft archetype.",
         "motif": "Writing draft premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Writing draft master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests create or reshape text into a clear editable draft. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -997,7 +997,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/rewrite-polish.webp",
+        "src": "/card-art/sci-fi/archetypes/rewrite-polish.webp",
         "alt": "Illustration asset for the Rewrite & polish archetype.",
         "motif": "Rewrite & polish premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Rewrite & polish master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests improving existing text for clarity and flow while preserving its meaning. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1055,7 +1055,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/critique-review.webp",
+        "src": "/card-art/sci-fi/archetypes/critique-review.webp",
         "alt": "Illustration asset for the Critique & review archetype.",
         "motif": "Critique & review premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Critique & review master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests a structured critique of an existing artifact with prioritized, actionable fixes. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1113,7 +1113,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/presentation-outline.webp",
+        "src": "/card-art/sci-fi/archetypes/presentation-outline.webp",
         "alt": "Illustration asset for the Presentation outline archetype.",
         "motif": "Presentation outline premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Presentation outline master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests shape material into a slide-ready narrative. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1173,7 +1173,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/build-plan.webp",
+        "src": "/card-art/sci-fi/archetypes/build-plan.webp",
         "alt": "Illustration asset for the Project plan archetype.",
         "motif": "Project plan premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Project plan master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests turn a goal into ordered, implementation-ready work. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1234,7 +1234,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/spec-prd.webp",
+        "src": "/card-art/sci-fi/archetypes/spec-prd.webp",
         "alt": "Illustration asset for the Spec / PRD archetype.",
         "motif": "Spec / PRD premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Spec / PRD master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests turn an idea into a spec a builder could pick up. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1294,7 +1294,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/coding.webp",
+        "src": "/card-art/sci-fi/archetypes/coding.webp",
         "alt": "Illustration asset for the Code implementation archetype.",
         "motif": "Code implementation premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Code implementation master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests writing and verifying code from a clear spec. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1354,7 +1354,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/technical-troubleshoot.webp",
+        "src": "/card-art/sci-fi/archetypes/technical-troubleshoot.webp",
         "alt": "Illustration asset for the Debug & fix archetype.",
         "motif": "Debug & fix premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Debug & fix master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests diagnose a technical issue and produce practical next steps. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1411,7 +1411,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/explain-code.webp",
+        "src": "/card-art/sci-fi/archetypes/explain-code.webp",
         "alt": "Illustration asset for the Explain code archetype.",
         "motif": "Explain code premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Explain code master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests walk through unfamiliar code until it makes sense. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
@@ -1467,7 +1467,7 @@
         "Preserves the user's Context and Target writing fields."
       ],
       "illustration": {
-        "src": "/card-art/archetypes/extract-data.webp",
+        "src": "/card-art/sci-fi/archetypes/extract-data.webp",
         "alt": "Illustration asset for the Extract to data archetype.",
         "motif": "Extract to data premium master-plan artifact",
         "prompt": "Retro-tech guild toolkit square illustration asset for the Extract to data master-plan archetype. Show a premium planning artifact, foil-like material, layered tools, and a compact command-table scene that suggests pulling clean structured data fields out of messy source material. Use cyan instrument light, dark blue neutral background, and no readable markings. Image only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",

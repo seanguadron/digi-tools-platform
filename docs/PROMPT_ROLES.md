@@ -20,7 +20,7 @@ Researcher frames the question and grounds each claim in credible, well-compared
 - Find credible primary and secondary sources for each major claim.
 - Compare the strongest sources and document disagreements or gaps.
 
-**Illustration:** /card-art/roles/researcher.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/researcher.webp (planned)
 
 ### Analyst
 **Core:** Yes
@@ -35,7 +35,7 @@ Analyst breaks information into patterns and tests the assumptions behind a deci
 - Break the available information into patterns, causes, and outliers.
 - Test the main assumptions and explain important tradeoffs.
 
-**Illustration:** /card-art/roles/analyst.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/analyst.webp (planned)
 
 ### Strategist
 **Core:** Yes
@@ -50,7 +50,7 @@ Strategist weighs objectives, risks, and options to recommend a high-leverage pa
 - Identify the highest-impact opportunities and major risks.
 - Compare strategic options against impact, effort, and timing.
 
-**Illustration:** /card-art/roles/strategist.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/strategist.webp (planned)
 
 ### Historian
 **Core:** Yes
@@ -65,7 +65,7 @@ Historian builds a reliable chronology and explains causes, context, and consequ
 - Explain the causes, competing interpretations, and historical context.
 - Identify continuities, turning points, and consequences.
 
-**Illustration:** /card-art/roles/historian.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/historian.webp (planned)
 
 ### Fact-checker
 **Core:** No
@@ -80,7 +80,7 @@ Fact-checker isolates checkable claims and rates each against the strongest sour
 - Trace each claim to the strongest available primary or credible source.
 - Mark each claim as verified, disputed, misleading, or unresolved.
 
-**Illustration:** /card-art/roles/fact-checker.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/fact-checker.webp (planned)
 
 ### Synthesizer
 **Core:** No
@@ -95,7 +95,7 @@ Synthesizer reconciles many sources into one model without hiding disagreement.
 - Identify agreements, contradictions, and important distinctions.
 - Reconcile compatible findings without hiding meaningful disagreement.
 
-**Illustration:** /card-art/roles/synthesizer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/synthesizer.webp (planned)
 
 ### Explainer / Educator
 **Core:** Yes
@@ -110,7 +110,7 @@ Explainer / Educator sequences an idea to the audience's level using concrete ex
 - Break the idea into a clear sequence of concepts.
 - Use concrete examples and analogies without oversimplifying.
 
-**Illustration:** /card-art/roles/explainer-educator.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/explainer-educator.webp (planned)
 
 ### Critical Reviewer
 **Core:** No
@@ -125,7 +125,7 @@ Critical Reviewer weighs claims and options and stress-tests the reasoning behin
 - Weigh the alternatives and probe the reasoning for weak spots.
 - Separate what is well supported from what is merely asserted.
 
-**Illustration:** /card-art/roles/comparative-reviewer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/comparative-reviewer.webp (planned)
 
 ## Technical and build roles
 
@@ -142,7 +142,7 @@ Developer ships the smallest safe change, matched to the project's real conventi
 - Define the expected behavior and the smallest safe implementation.
 - Implement the change with focused tests for the affected workflow.
 
-**Illustration:** /card-art/roles/developer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/developer.webp (planned)
 
 ### Technical Troubleshooter
 **Core:** Yes
@@ -157,7 +157,7 @@ Technical Troubleshooter isolates a failure's root cause and proves the fix actu
 - Rank likely root causes and test them from most to least likely.
 - Recommend the safest fix and a check that confirms it is resolved.
 
-**Illustration:** /card-art/roles/technical-troubleshooter.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/technical-troubleshooter.webp (planned)
 
 ### Systems Designer
 **Core:** No
@@ -172,7 +172,7 @@ Systems Designer shapes how components interact, fail, and scale before any code
 - Design how the parts interact, fail, and scale together.
 - Make the structural tradeoffs explicit for review.
 
-**Illustration:** /card-art/roles/systems-designer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/systems-designer.webp (planned)
 
 ### Workflow Architect
 **Core:** No
@@ -187,7 +187,7 @@ Workflow Architect redesigns a process to remove friction without dropping neces
 - Redesign the sequence to cut friction while keeping key checks.
 - Define the triggers, owners, and tools each step needs.
 
-**Illustration:** /card-art/roles/workflow-architect.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/workflow-architect.webp (planned)
 
 ### UX / UI Advisor
 **Core:** No
@@ -202,7 +202,7 @@ UX / UI Advisor finds interface friction and recommends specific, accessible imp
 - Evaluate clarity, hierarchy, accessibility, and consistency.
 - Recommend specific interface changes and their user impact.
 
-**Illustration:** /card-art/roles/ux-ui-advisor.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/ux-ui-advisor.webp (planned)
 
 ### Data Analyst
 **Core:** No
@@ -217,7 +217,7 @@ Data Analyst turns raw data into trustworthy findings, with the caveats made exp
 - Explore the data for patterns, segments, and anomalies that matter.
 - Report findings with the caveats, sample sizes, and assumptions behind them.
 
-**Illustration:** /card-art/roles/data-analyst.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/data-analyst.webp (planned)
 
 ### QA / Test Engineer
 **Core:** No
@@ -232,7 +232,7 @@ QA / Test Engineer probes for the ways something breaks and documents them repro
 - Design test cases covering main paths, edge cases, and failure modes.
 - Report defects with steps to reproduce and expected versus actual results.
 
-**Illustration:** /card-art/roles/qa-test-engineer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/qa-test-engineer.webp (planned)
 
 ### Security Reviewer
 **Core:** No
@@ -247,7 +247,7 @@ Security Reviewer threat-models the work and ranks the weaknesses that matter mo
 - Identify likely threats and weaknesses, ranked by impact and likelihood.
 - Recommend concrete mitigations and what to verify before shipping.
 
-**Illustration:** /card-art/roles/security-reviewer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/security-reviewer.webp (planned)
 
 ## Writing and communication roles
 
@@ -264,7 +264,7 @@ Writer outlines with intent and drafts in precise, natural language.
 - Create an outline that gives each section one clear job.
 - Draft with precise language and varied natural rhythm.
 
-**Illustration:** /card-art/roles/writer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/writer.webp (planned)
 
 ### Editor
 **Core:** Yes
@@ -279,7 +279,7 @@ Editor repairs structure and logic before polishing, without erasing the author'
 - Repair structure and logic before editing individual sentences.
 - Improve clarity, accuracy, flow, and tone without erasing the author's voice.
 
-**Illustration:** /card-art/roles/editor.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/editor.webp (planned)
 
 ### Copywriter
 **Core:** No
@@ -294,7 +294,7 @@ Copywriter turns a goal into tight, on-voice copy that drives one clear action.
 - Lead with the benefit and cut anything that does not earn its place.
 - Match the brand voice in language the reader actually uses.
 
-**Illustration:** /card-art/roles/copywriter.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/copywriter.webp (planned)
 
 ### Rewriter
 **Core:** No
@@ -309,7 +309,7 @@ Rewriter sharpens existing text for clarity and flow while preserving its meanin
 - Improve clarity, flow, and concision without changing meaning.
 - Flag any edit that materially shifts the message.
 
-**Illustration:** /card-art/roles/rewriter.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/rewriter.webp (planned)
 
 ### Pitch Strategist
 **Core:** No
@@ -324,7 +324,7 @@ Pitch Strategist builds a persuasive arc and pre-empts the audience's hardest ob
 - Build the arc from problem to solution to proof to ask.
 - Anticipate the strongest objections and answer them up front.
 
-**Illustration:** /card-art/roles/pitch-strategist.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/pitch-strategist.webp (planned)
 
 ### Presentation Designer
 **Core:** No
@@ -339,7 +339,7 @@ Presentation Designer turns material into a one-idea-per-slide narrative.
 - Sequence the slides with one clear idea each.
 - Separate headlines, slide content, and speaker notes.
 
-**Illustration:** /card-art/roles/presentation-slide-structurer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/presentation-slide-structurer.webp (planned)
 
 ## Creative and concept roles
 
@@ -356,7 +356,7 @@ Creative Director generates distinct directions and judges them for originality 
 - Generate several distinct directions instead of minor variations.
 - Evaluate each direction for originality, fit, feasibility, and coherence.
 
-**Illustration:** /card-art/roles/creative-director.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/creative-director.webp (planned)
 
 ### Concept Developer
 **Core:** No
@@ -371,7 +371,7 @@ Concept Developer grows a raw idea into a coherent, testable concept.
 - Develop a coherent concept with a clear hook and structure.
 - Pressure-test it for originality, feasibility, and weak points.
 
-**Illustration:** /card-art/roles/concept-developer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/concept-developer.webp (planned)
 
 ### Brainstorming Partner
 **Core:** Yes
@@ -386,7 +386,7 @@ Brainstorming Partner generates wide-ranging ideas, then surfaces the ones worth
 - Push past the obvious first answers and build on the user's direction.
 - Cluster the strongest options and suggest what to develop.
 
-**Illustration:** /card-art/roles/brainstorming-partner.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/brainstorming-partner.webp (planned)
 
 ### Prompt Engineer
 **Core:** Yes
@@ -401,7 +401,7 @@ Prompt Engineer turns a fuzzy goal into a clear, testable instruction for a mode
 - Structure instructions, context, and constraints that cut ambiguity.
 - Recommend tests and refinements for reliability.
 
-**Illustration:** /card-art/roles/prompt-engineer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/prompt-engineer.webp (planned)
 
 ## Teaching and coaching roles
 
@@ -418,7 +418,7 @@ Tutor meets the learner where they are and builds understanding step by step.
 - Break the subject into a sequence that builds understanding step by step.
 - Use examples, questions, or practice tasks to test comprehension.
 
-**Illustration:** /card-art/roles/tutor.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/tutor.webp (planned)
 
 ### Curriculum Designer
 **Core:** No
@@ -433,7 +433,7 @@ Curriculum Designer turns learning outcomes into a sequenced, assessable course 
 - Sequence the material into modules that build on each other.
 - Add practice, checkpoints, and resources for each outcome.
 
-**Illustration:** /card-art/roles/curriculum-designer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/curriculum-designer.webp (planned)
 
 ### Mentor
 **Core:** No
@@ -448,7 +448,7 @@ Mentor gives experience-based guidance and a concrete next step toward the perso
 - Share targeted guidance and perspective from experience.
 - Recommend a concrete next step and a growth focus.
 
-**Illustration:** /card-art/roles/mentor.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/mentor.webp (planned)
 
 ## Business and opportunity roles
 
@@ -465,7 +465,7 @@ Consultant frames the problem and recommends a focused, evidence-backed strategy
 - Evaluate the opportunity, alternatives, incentives, risks, and constraints.
 - Recommend a focused strategy with priorities and measurable next steps.
 
-**Illustration:** /card-art/roles/consultant.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/consultant.webp (planned)
 
 ### Product Strategist
 **Core:** No
@@ -480,7 +480,7 @@ Product Strategist decides what to build and validate by weighing user value aga
 - Weigh opportunities against effort, differentiation, and fit.
 - Recommend what to build, cut, and validate next.
 
-**Illustration:** /card-art/roles/product-strategist.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/product-strategist.webp (planned)
 
 ### Positioning Strategist
 **Core:** No
@@ -495,7 +495,7 @@ Positioning Strategist sharpens differentiation and a credible, distinct value p
 - Sharpen the differentiation that sets the offer apart.
 - Recommend messaging that makes the position clear and credible.
 
-**Illustration:** /card-art/roles/market-positioning-advisor.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/market-positioning-advisor.webp (planned)
 
 ### Product Manager
 **Core:** No
@@ -510,7 +510,7 @@ Product Manager turns a fuzzy goal into prioritized, buildable requirements.
 - Prioritize what to build against impact, effort, and constraints.
 - Write requirements clearly enough for a team to act on.
 
-**Illustration:** /card-art/roles/product-manager.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/product-manager.webp (planned)
 
 ## Utility roles
 
@@ -527,7 +527,7 @@ Summarizer condenses material to its essential points without distorting the mea
 - Condense faithfully without dropping essential caveats.
 - Lead with the takeaway and keep it easy to scan.
 
-**Illustration:** /card-art/roles/summarizer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/summarizer.webp (planned)
 
 ### Organizer
 **Core:** No
@@ -542,4 +542,4 @@ Organizer turns loose material into a clear, consistent structure that is easy t
 - Structure it into a clear, consistent system.
 - Label the parts so related items group and gaps show.
 
-**Illustration:** /card-art/roles/organizer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/organizer.webp (planned)

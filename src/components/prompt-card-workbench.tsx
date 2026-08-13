@@ -17,6 +17,7 @@ import {
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
 import { usePortalTarget } from "@/hooks/use-portal-target";
+import { resolveCardIllustration } from "@/lib/card-engine";
 import type {
   CardEngine,
   CardLineageOf,
@@ -55,7 +56,10 @@ function CardFace<
       </span>
       <CardIllustrationFrame
         className="lineage-card-art"
-        illustration={grade.illustration ?? lineage.illustration}
+        illustration={resolveCardIllustration(
+          grade.illustration,
+          lineage.illustration,
+        )}
         fallback={lineage.code.slice(0, 1)}
       />
       <span className="lineage-card-copy" key={grade.name}>
@@ -586,9 +590,10 @@ export function PromptCardWorkbench<
               >
                 <CardIllustrationFrame
                   className="floating-card-art"
-                  illustration={
-                    previewGrade.illustration ?? previewLineage.illustration
-                  }
+                  illustration={resolveCardIllustration(
+                    previewGrade.illustration,
+                    previewLineage.illustration,
+                  )}
                   fallback={previewLineage.code.slice(0, 1)}
                 />
                 <div className="floating-card-panel-identity">

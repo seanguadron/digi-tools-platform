@@ -88,7 +88,7 @@ test("duplicate illustration paths fail validation", async () => {
 
   await assert.rejects(
     () => validateCatalog(invalid),
-    /Duplicate illustration path: \/card-art\/roles\/researcher\.webp/,
+    /Duplicate illustration path: \/card-art\/sci-fi\/roles\/researcher\.webp/,
   );
 });
 
