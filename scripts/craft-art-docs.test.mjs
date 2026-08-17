@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   ART_THEME_IDS,
+  artFileName,
   collectCraftArtEntries,
   craftArtCoverageErrors,
   loadArtTheme,
@@ -65,6 +66,33 @@ test("rendered prompts carry no generator flags and pair both paragraphs", async
   // One copy of the style paragraph per entry, plus the standalone one in
   // the shared art direction section.
   assert.equal(rendered.split(style).length - 1, 227);
+});
+
+test("file names follow PREFIX-NNN-Name and stay filesystem-safe", async () => {
+  const theme = await themePromise;
+
+  assert.equal(artFileName(theme, 11, "Synthesizer"), "SCI-011-Synthesizer.png");
+  assert.equal(artFileName(theme, 7, "Analyst"), "SCI-007-Analyst.png");
+  // Slashes, dots, and spaces all collapse to single dashes.
+  assert.equal(
+    artFileName(theme, 12, "Explainer / Educator"),
+    "SCI-012-Explainer-Educator.png",
+  );
+  assert.equal(
+    artFileName(theme, 132, "SCP 1. Situation Snapshot"),
+    "SCI-132-SCP-1-Situation-Snapshot.png",
+  );
+});
+
+test("every entry gets a unique, safe file name", async () => {
+  const theme = await themePromise;
+  const entries = collectCraftArtEntries(await catalogPromise, theme);
+  const names = entries.map((entry, index) => artFileName(theme, index + 1, entry.name));
+
+  assert.equal(new Set(names).size, entries.length);
+  for (const name of names) {
+    assert.match(name, /^SCI-\d{3}-[A-Za-z0-9-]+\.png$/, `unsafe file name: ${name}`);
+  }
 });
 
 test("a missing paragraph fails coverage", async () => {

@@ -14,9 +14,11 @@ the whole prompt.
 Per image:
 
 1. Copy the whole block and generate it square.
-2. Save the pick as a webp at the listed target path under `public/`.
-3. Flip that entry's `status` to `"generated"` in its catalog JSON.
-4. Run `npm run data:generate` so this file re-renders.
+2. Save the pick under its listed file name, e.g. `SCI-011-Synthesizer.png`.
+3. To put it in the app, convert it to webp and place it at the listed
+   target path under `public/` - the catalog only accepts `.webp`.
+4. Flip that entry's `status` to `"generated"` in its catalog JSON.
+5. Run `npm run data:generate` so this file re-renders.
 
 Progress: 0/226 generated - 98 core images first, then 128 per-grade variants.
 
@@ -32,8 +34,9 @@ Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: pain
 
 #### 001. Context
 
-- Owner: craftParts `C`
+- File name: `SCI-001-Context.png`
 - Target: `public/card-art/sci-fi/craft/context.webp`
+- Owner: craftParts `C`
 - Status: not wired yet
 
 ```
@@ -44,8 +47,9 @@ Context. A vast dark situation table where a holographic terrain of the problem 
 
 #### 002. Role
 
-- Owner: craftParts `R`
+- File name: `SCI-002-Role.png`
 - Target: `public/card-art/sci-fi/craft/role.webp`
+- Owner: craftParts `R`
 - Status: not wired yet
 
 ```
@@ -56,8 +60,9 @@ Role. A rank of identical armored crew silhouettes standing in shadow while one 
 
 #### 003. Action
 
-- Owner: craftParts `A`
+- File name: `SCI-003-Action.png`
 - Target: `public/card-art/sci-fi/craft/action.webp`
+- Owner: craftParts `A`
 - Status: not wired yet
 
 ```
@@ -68,8 +73,9 @@ Action. The moment of commitment: a heavy mechanism driving forward along a rail
 
 #### 004. Format
 
-- Owner: craftParts `F`
+- File name: `SCI-004-Format.png`
 - Target: `public/card-art/sci-fi/craft/format.webp`
+- Owner: craftParts `F`
 - Status: not wired yet
 
 ```
@@ -80,8 +86,9 @@ Format. A precision mold closing around molten luminous material and pressing it
 
 #### 005. Target audience
 
-- Owner: craftParts `T`
+- File name: `SCI-005-Target-audience.png`
 - Target: `public/card-art/sci-fi/craft/target-audience.webp`
+- Owner: craftParts `T`
 - Status: not wired yet
 
 ```
@@ -94,8 +101,9 @@ Target audience. A single figure seen from behind at a wide viewport, lit from t
 
 #### 006. Researcher
 
-- Owner: Role `researcher`
+- File name: `SCI-006-Researcher.png`
 - Target: `public/card-art/sci-fi/roles/researcher.webp`
+- Owner: Role `researcher`
 - Status: planned
 
 ```
@@ -106,8 +114,9 @@ A xenoarchivist in a modular field rig, half-lit by the cracked data-core she is
 
 #### 007. Analyst
 
-- Owner: Role `analyst`
+- File name: `SCI-007-Analyst.png`
 - Target: `public/card-art/sci-fi/roles/analyst.webp`
+- Owner: Role `analyst`
 - Status: planned
 
 ```
@@ -118,8 +127,9 @@ An analyst standing inside a suspended lattice of readings, pulling two conflict
 
 #### 008. Strategist
 
-- Owner: Role `strategist`
+- File name: `SCI-008-Strategist.png`
 - Target: `public/card-art/sci-fi/roles/strategist.webp`
+- Owner: Role `strategist`
 - Status: planned
 
 ```
@@ -130,8 +140,9 @@ A campaign strategist over a darkened war table, three glowing approach vectors 
 
 #### 009. Historian
 
-- Owner: Role `historian`
+- File name: `SCI-009-Historian.png`
 - Target: `public/card-art/sci-fi/roles/historian.webp`
+- Owner: Role `historian`
 - Status: planned
 
 ```
@@ -142,8 +153,9 @@ A chronicler at a towering memory spindle, drawing a single luminous timeline th
 
 #### 010. Fact-checker
 
-- Owner: Role `fact-checker`
+- File name: `SCI-010-Fact-checker.png`
 - Target: `public/card-art/sci-fi/roles/fact-checker.webp`
+- Owner: Role `fact-checker`
 - Status: planned
 
 ```
@@ -154,8 +166,9 @@ A verification officer holding a claim slab in an authentication clamp, provenan
 
 #### 011. Synthesizer
 
-- Owner: Role `synthesizer`
+- File name: `SCI-011-Synthesizer.png`
 - Target: `public/card-art/sci-fi/roles/synthesizer.webp`
+- Owner: Role `synthesizer`
 - Status: planned
 
 ```
@@ -166,8 +179,9 @@ A signal weaver at a braiding loom, gathering many separate glowing data strands
 
 #### 012. Explainer / Educator
 
-- Owner: Role `explainer-educator`
+- File name: `SCI-012-Explainer-Educator.png`
 - Target: `public/card-art/sci-fi/roles/explainer-educator.webp`
+- Owner: Role `explainer-educator`
 - Status: planned
 
 ```
@@ -178,8 +192,9 @@ An instructor unfolding a complex mechanism into a floating exploded diagram, th
 
 #### 013. Critical Reviewer
 
-- Owner: Role `comparative-reviewer`
+- File name: `SCI-013-Critical-Reviewer.png`
 - Target: `public/card-art/sci-fi/roles/comparative-reviewer.webp`
+- Owner: Role `comparative-reviewer`
 - Status: planned
 
 ```
@@ -192,8 +207,9 @@ A critical reviewer between two suspended prototypes in an inspection bay, stres
 
 #### 014. Developer
 
-- Owner: Role `developer`
+- File name: `SCI-014-Developer.png`
 - Target: `public/card-art/sci-fi/roles/developer.webp`
+- Owner: Role `developer`
 - Status: planned
 
 ```
@@ -204,8 +220,9 @@ An engineer wrist-deep in a modular lattice of interlocking components, seating 
 
 #### 015. Technical Troubleshooter
 
-- Owner: Role `technical-troubleshooter`
+- File name: `SCI-015-Technical-Troubleshooter.png`
 - Target: `public/card-art/sci-fi/roles/technical-troubleshooter.webp`
+- Owner: Role `technical-troubleshooter`
 - Status: planned
 
 ```
@@ -216,8 +233,9 @@ A diagnostics technician tracing a fault arc through a machine's exposed guts, o
 
 #### 016. Systems Designer
 
-- Owner: Role `systems-designer`
+- File name: `SCI-016-Systems-Designer.png`
 - Target: `public/card-art/sci-fi/roles/systems-designer.webp`
+- Owner: Role `systems-designer`
 - Status: planned
 
 ```
@@ -228,8 +246,9 @@ A systems architect inside a hovering orbital schematic, moving whole subsystems
 
 #### 017. Workflow Architect
 
-- Owner: Role `workflow-architect`
+- File name: `SCI-017-Workflow-Architect.png`
 - Target: `public/card-art/sci-fi/roles/workflow-architect.webp`
+- Owner: Role `workflow-architect`
 - Status: planned
 
 ```
@@ -240,8 +259,9 @@ A pipeline designer above a conveyor of light, rerouting a stalled segment so th
 
 #### 018. UX / UI Advisor
 
-- Owner: Role `ux-ui-advisor`
+- File name: `SCI-018-UX-UI-Advisor.png`
 - Target: `public/card-art/sci-fi/roles/ux-ui-advisor.webp`
+- Owner: Role `ux-ui-advisor`
 - Status: planned
 
 ```
@@ -252,8 +272,9 @@ An interface ergonomist testing a control surface with a gloved hand, heat-bloom
 
 #### 019. Data Analyst
 
-- Owner: Role `data-analyst`
+- File name: `SCI-019-Data-Analyst.png`
 - Target: `public/card-art/sci-fi/roles/data-analyst.webp`
+- Owner: Role `data-analyst`
 - Status: planned
 
 ```
@@ -264,8 +285,9 @@ A data diver suspended in a dense particle field of measurements, cupping a clus
 
 #### 020. QA / Test Engineer
 
-- Owner: Role `qa-test-engineer`
+- File name: `SCI-020-QA-Test-Engineer.png`
 - Target: `public/card-art/sci-fi/roles/qa-test-engineer.webp`
+- Owner: Role `qa-test-engineer`
 - Status: planned
 
 ```
@@ -276,8 +298,9 @@ A stress-test operator deliberately driving a prototype past its limits inside a
 
 #### 021. Security Reviewer
 
-- Owner: Role `security-reviewer`
+- File name: `SCI-021-Security-Reviewer.png`
 - Target: `public/card-art/sci-fi/roles/security-reviewer.webp`
+- Owner: Role `security-reviewer`
 - Status: planned
 
 ```
@@ -290,8 +313,9 @@ A breach analyst probing a shield lattice from outside, one hairline seam in the
 
 #### 022. Writer
 
-- Owner: Role `writer`
+- File name: `SCI-022-Writer.png`
 - Target: `public/card-art/sci-fi/roles/writer.webp`
+- Owner: Role `writer`
 - Status: planned
 
 ```
@@ -302,8 +326,9 @@ A composer at a text-loom, drawing a single clean line of luminous thread out of
 
 #### 023. Editor
 
-- Owner: Role `editor`
+- File name: `SCI-023-Editor.png`
 - Target: `public/card-art/sci-fi/roles/editor.webp`
+- Owner: Role `editor`
 - Status: planned
 
 ```
@@ -314,8 +339,9 @@ An editor over a manuscript slab with a precision cutting tool, lifting away exc
 
 #### 024. Copywriter
 
-- Owner: Role `copywriter`
+- File name: `SCI-024-Copywriter.png`
 - Target: `public/card-art/sci-fi/roles/copywriter.webp`
+- Owner: Role `copywriter`
 - Status: planned
 
 ```
@@ -326,8 +352,9 @@ A signal-caster tuning a broadcast pod down to one sharp focused beam, the wide 
 
 #### 025. Rewriter
 
-- Owner: Role `rewriter`
+- File name: `SCI-025-Rewriter.png`
 - Target: `public/card-art/sci-fi/roles/rewriter.webp`
+- Owner: Role `rewriter`
 - Status: planned
 
 ```
@@ -338,8 +365,9 @@ A reforge specialist melting a bent component and recasting it in a cleaner mold
 
 #### 026. Pitch Strategist
 
-- Owner: Role `pitch-strategist`
+- File name: `SCI-026-Pitch-Strategist.png`
 - Target: `public/card-art/sci-fi/roles/pitch-strategist.webp`
+- Owner: Role `pitch-strategist`
 - Status: planned
 
 ```
@@ -350,8 +378,9 @@ A presenter at the head of a dark hall commanding a rising arc of light from pro
 
 #### 027. Presentation Designer
 
-- Owner: Role `presentation-slide-structurer`
+- File name: `SCI-027-Presentation-Designer.png`
 - Target: `public/card-art/sci-fi/roles/presentation-slide-structurer.webp`
+- Owner: Role `presentation-slide-structurer`
 - Status: planned
 
 ```
@@ -364,8 +393,9 @@ A deck builder sequencing floating stage panels into a single ordered run, each 
 
 #### 028. Creative Director
 
-- Owner: Role `creative-director`
+- File name: `SCI-028-Creative-Director.png`
 - Target: `public/card-art/sci-fi/roles/creative-director.webp`
+- Owner: Role `creative-director`
 - Status: planned
 
 ```
@@ -376,8 +406,9 @@ A creative director at a rig projecting several genuinely different directions a
 
 #### 029. Concept Developer
 
-- Owner: Role `concept-developer`
+- File name: `SCI-029-Concept-Developer.png`
 - Target: `public/card-art/sci-fi/roles/concept-developer.webp`
+- Owner: Role `concept-developer`
 - Status: planned
 
 ```
@@ -388,8 +419,9 @@ A concept smith growing a raw luminous seed into a structured form inside a shap
 
 #### 030. Brainstorming Partner
 
-- Owner: Role `brainstorming-partner`
+- File name: `SCI-030-Brainstorming-Partner.png`
 - Target: `public/card-art/sci-fi/roles/brainstorming-partner.webp`
+- Owner: Role `brainstorming-partner`
 - Status: planned
 
 ```
@@ -400,8 +432,9 @@ An idea generator releasing a swarm of divergent spark-drones from an open case,
 
 #### 031. Prompt Engineer
 
-- Owner: Role `prompt-engineer`
+- File name: `SCI-031-Prompt-Engineer.png`
 - Target: `public/card-art/sci-fi/roles/prompt-engineer.webp`
+- Owner: Role `prompt-engineer`
 - Status: planned
 
 ```
@@ -414,8 +447,9 @@ A prompt-smith tuning a glowing instruction core on a calibration bench, ambigui
 
 #### 032. Tutor
 
-- Owner: Role `tutor`
+- File name: `SCI-032-Tutor.png`
 - Target: `public/card-art/sci-fi/roles/tutor.webp`
+- Owner: Role `tutor`
 - Status: planned
 
 ```
@@ -426,8 +460,9 @@ A patient tutor guiding a learner's hand onto the next rung of a rising ladder o
 
 #### 033. Curriculum Designer
 
-- Owner: Role `curriculum-designer`
+- File name: `SCI-033-Curriculum-Designer.png`
 - Target: `public/card-art/sci-fi/roles/curriculum-designer.webp`
+- Owner: Role `curriculum-designer`
 - Status: planned
 
 ```
@@ -438,8 +473,9 @@ A curriculum designer laying a sequenced path of platforms across a dark gap, ea
 
 #### 034. Mentor
 
-- Owner: Role `mentor`
+- File name: `SCI-034-Mentor.png`
 - Target: `public/card-art/sci-fi/roles/mentor.webp`
+- Owner: Role `mentor`
 - Status: planned
 
 ```
@@ -452,8 +488,9 @@ A veteran mentor beside a younger figure at a high overlook, pointing out one sp
 
 #### 035. Consultant
 
-- Owner: Role `consultant`
+- File name: `SCI-035-Consultant.png`
 - Target: `public/card-art/sci-fi/roles/consultant.webp`
+- Owner: Role `consultant`
 - Status: planned
 
 ```
@@ -464,8 +501,9 @@ A consultant at a client's situation table, sweeping away clutter to leave one c
 
 #### 036. Product Strategist
 
-- Owner: Role `product-strategist`
+- File name: `SCI-036-Product-Strategist.png`
 - Target: `public/card-art/sci-fi/roles/product-strategist.webp`
+- Owner: Role `product-strategist`
 - Status: planned
 
 ```
@@ -476,8 +514,9 @@ A product strategist weighing glowing opportunity masses on a suspended scale, o
 
 #### 037. Positioning Strategist
 
-- Owner: Role `market-positioning-advisor`
+- File name: `SCI-037-Positioning-Strategist.png`
 - Target: `public/card-art/sci-fi/roles/market-positioning-advisor.webp`
+- Owner: Role `market-positioning-advisor`
 - Status: planned
 
 ```
@@ -488,8 +527,9 @@ A positioning strategist plotting a claim-marker into open unoccupied space on a
 
 #### 038. Product Manager
 
-- Owner: Role `product-manager`
+- File name: `SCI-038-Product-Manager.png`
 - Target: `public/card-art/sci-fi/roles/product-manager.webp`
+- Owner: Role `product-manager`
 - Status: planned
 
 ```
@@ -502,8 +542,9 @@ A product manager triaging a queue of incoming work slabs, pulling three forward
 
 #### 039. Summarizer
 
-- Owner: Role `summarizer`
+- File name: `SCI-039-Summarizer.png`
 - Target: `public/card-art/sci-fi/roles/summarizer.webp`
+- Owner: Role `summarizer`
 - Status: planned
 
 ```
@@ -514,8 +555,9 @@ A compression operator feeding a towering volume of material into a distillation
 
 #### 040. Organizer
 
-- Owner: Role `organizer`
+- File name: `SCI-040-Organizer.png`
 - Target: `public/card-art/sci-fi/roles/organizer.webp`
+- Owner: Role `organizer`
 - Status: planned
 
 ```
@@ -528,8 +570,9 @@ An organizer standing in drifting unsorted debris, snapping the pieces into a cl
 
 #### 041. SCP lineage
 
-- Owner: Card `context-scope`
+- File name: `SCI-041-SCP-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-scope/lineage.webp`
+- Owner: Card `context-scope`
 - Status: planned
 
 ```
@@ -540,8 +583,9 @@ A survey drone projecting a bounded pool of light onto dark ground, its clean ed
 
 #### 042. SRC lineage
 
-- Owner: Card `context-evidence`
+- File name: `SCI-042-SRC-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-evidence/lineage.webp`
+- Owner: Card `context-evidence`
 - Status: planned
 
 ```
@@ -552,8 +596,9 @@ An evidence spindle: a rack of glowing source cores with provenance filaments ru
 
 #### 043. LIM lineage
 
-- Owner: Card `context-constraints`
+- File name: `SCI-043-LIM-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-constraints/lineage.webp`
+- Owner: Card `context-constraints`
 - Status: planned
 
 ```
@@ -564,8 +609,9 @@ A set of heavy limiter clamps closed around a working volume, hard immovable jaw
 
 #### 044. ASM lineage
 
-- Owner: Card `context-assumptions`
+- File name: `SCI-044-ASM-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-assumptions/lineage.webp`
+- Owner: Card `context-assumptions`
 - Status: planned
 
 ```
@@ -576,8 +622,9 @@ A scaffold of translucent placeholder blocks holding up a structure, the load-be
 
 #### 045. WIN lineage
 
-- Owner: Card `context-success`
+- File name: `SCI-045-WIN-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-success/lineage.webp`
+- Owner: Card `context-success`
 - Status: planned
 
 ```
@@ -588,8 +635,9 @@ A calibration target with an acceptance gauge locking into the green, the exact 
 
 #### 046. OUT lineage
 
-- Owner: Card `context-exclusions`
+- File name: `SCI-046-OUT-lineage.png`
 - Target: `public/card-art/sci-fi/cards/context-exclusions/lineage.webp`
+- Owner: Card `context-exclusions`
 - Status: planned
 
 ```
@@ -602,8 +650,9 @@ A diverter gate splitting an incoming stream, sending one branch cleanly away in
 
 #### 047. INS lineage
 
-- Owner: Card `action-inspect`
+- File name: `SCI-047-INS-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-inspect/lineage.webp`
+- Owner: Card `action-inspect`
 - Status: planned
 
 ```
@@ -614,8 +663,9 @@ A magnifier probe hovering over an opened assembly, sweeping its beam across the
 
 #### 048. ANL lineage
 
-- Owner: Card `action-analyze`
+- File name: `SCI-048-ANL-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-analyze/lineage.webp`
+- Owner: Card `action-analyze`
 - Status: planned
 
 ```
@@ -626,8 +676,9 @@ A separation column pulling a single mixed signal apart into distinct luminous s
 
 #### 049. CMP lineage
 
-- Owner: Card `action-compare`
+- File name: `SCI-049-CMP-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-compare/lineage.webp`
+- Owner: Card `action-compare`
 - Status: planned
 
 ```
@@ -638,8 +689,9 @@ A twin-pan balance suspended in the dark holding two artifacts against the same 
 
 #### 050. BLD lineage
 
-- Owner: Card `action-create`
+- File name: `SCI-050-BLD-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-create/lineage.webp`
+- Owner: Card `action-create`
 - Status: planned
 
 ```
@@ -650,8 +702,9 @@ A fabricator arm assembling a finished form out of drifting component parts, the
 
 #### 051. REC lineage
 
-- Owner: Card `action-recommend`
+- File name: `SCI-051-REC-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-recommend/lineage.webp`
+- Owner: Card `action-recommend`
 - Status: planned
 
 ```
@@ -662,8 +715,9 @@ A selector mechanism committing to one of several branching rails, the chosen tr
 
 #### 052. TST lineage
 
-- Owner: Card `action-verify`
+- File name: `SCI-052-TST-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-verify/lineage.webp`
+- Owner: Card `action-verify`
 - Status: planned
 
 ```
@@ -674,8 +728,9 @@ A test rig running a finished component through a gauntlet of measuring gates, e
 
 #### 053. SMR lineage
 
-- Owner: Card `action-summarize`
+- File name: `SCI-053-SMR-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-summarize/lineage.webp`
+- Owner: Card `action-summarize`
 - Status: planned
 
 ```
@@ -686,8 +741,9 @@ A compression press reducing a tall stack of material into one dense bright wafe
 
 #### 054. RES lineage
 
-- Owner: Card `action-research`
+- File name: `SCI-054-RES-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-research/lineage.webp`
+- Owner: Card `action-research`
 - Status: planned
 
 ```
@@ -698,8 +754,9 @@ A deep-scan array fanning search beams into surrounding darkness, one distant re
 
 #### 055. PLN lineage
 
-- Owner: Card `action-plan`
+- File name: `SCI-055-PLN-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-plan/lineage.webp`
+- Owner: Card `action-plan`
 - Status: planned
 
 ```
@@ -710,8 +767,9 @@ A sequencer laying ordered nodes along a track, dependency lines drawn between t
 
 #### 056. IDE lineage
 
-- Owner: Card `action-ideate`
+- File name: `SCI-056-IDE-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-ideate/lineage.webp`
+- Owner: Card `action-ideate`
 - Status: planned
 
 ```
@@ -722,8 +780,9 @@ A spark chamber throwing off many genuinely different forms at once, no two alik
 
 #### 057. EXP lineage
 
-- Owner: Card `action-explain`
+- File name: `SCI-057-EXP-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-explain/lineage.webp`
+- Owner: Card `action-explain`
 - Status: planned
 
 ```
@@ -734,8 +793,9 @@ An exploded-view projector unfolding a mechanism in mid-air, the parts separatin
 
 #### 058. ASK lineage
 
-- Owner: Card `action-clarify`
+- File name: `SCI-058-ASK-lineage.png`
 - Target: `public/card-art/sci-fi/cards/action-clarify/lineage.webp`
+- Owner: Card `action-clarify`
 - Status: planned
 
 ```
@@ -748,8 +808,9 @@ A query beacon pulsing into a dark gap in a structure, its light outlining the e
 
 #### 059. INF lineage
 
-- Owner: Card `format-info-card`
+- File name: `SCI-059-INF-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-info-card/lineage.webp`
+- Owner: Card `format-info-card`
 - Status: planned
 
 ```
@@ -760,8 +821,9 @@ A single clean answer slab standing alone in the dark, its face flat and legible
 
 #### 060. KEY lineage
 
-- Owner: Card `format-key-points`
+- File name: `SCI-060-KEY-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-key-points/lineage.webp`
+- Owner: Card `format-key-points`
 - Status: planned
 
 ```
@@ -772,8 +834,9 @@ A rack of separated point-shards standing in a row, each one distinct and evenly
 
 #### 061. SUM lineage
 
-- Owner: Card `format-summary`
+- File name: `SCI-061-SUM-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-summary/lineage.webp`
+- Owner: Card `format-summary`
 - Status: planned
 
 ```
@@ -784,8 +847,9 @@ A distillation vessel with the heaviest conclusion settled bright at the top and
 
 #### 062. SEC lineage
 
-- Owner: Card `format-sections`
+- File name: `SCI-062-SEC-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-sections/lineage.webp`
+- Owner: Card `format-sections`
 - Status: planned
 
 ```
@@ -796,8 +860,9 @@ A segmented column of stacked chambers, each chamber a distinct sealed volume wi
 
 #### 063. CIT lineage
 
-- Owner: Card `format-evidence`
+- File name: `SCI-063-CIT-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-evidence/lineage.webp`
+- Owner: Card `format-evidence`
 - Status: planned
 
 ```
@@ -808,8 +873,9 @@ Anchor lines running from a floating claim down to solid source cores below, eac
 
 #### 064. TAB lineage
 
-- Owner: Card `format-comparison`
+- File name: `SCI-064-TAB-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-comparison/lineage.webp`
+- Owner: Card `format-comparison`
 - Status: planned
 
 ```
@@ -820,8 +886,9 @@ A grid lattice aligning several items along the same measuring axes, the interse
 
 #### 065. NXT lineage
 
-- Owner: Card `format-next`
+- File name: `SCI-065-NXT-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-next/lineage.webp`
+- Owner: Card `format-next`
 - Status: planned
 
 ```
@@ -832,8 +899,9 @@ A launch rail with ordered ready-markers lit in sequence, the first one primed a
 
 #### 066. LEN lineage
 
-- Owner: Card `format-length`
+- File name: `SCI-066-LEN-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-length/lineage.webp`
+- Owner: Card `format-length`
 - Status: planned
 
 ```
@@ -844,8 +912,9 @@ A precision caliper clamped around a body of luminous material, compressing it t
 
 #### 067. TIER lineage
 
-- Owner: Card `format-tiers`
+- File name: `SCI-067-TIER-lineage.png`
 - Target: `public/card-art/sci-fi/cards/format-tiers/lineage.webp`
+- Owner: Card `format-tiers`
 - Status: planned
 
 ```
@@ -858,8 +927,9 @@ A stepped platform descending into the dark, the top step small and brilliantly 
 
 #### 068. LVL lineage
 
-- Owner: Card `target-language`
+- File name: `SCI-068-LVL-lineage.png`
 - Target: `public/card-art/sci-fi/cards/target-language/lineage.webp`
+- Owner: Card `target-language`
 - Status: planned
 
 ```
@@ -870,8 +940,9 @@ A translator prism stepping a dense beam down through graded facets, the light e
 
 #### 069. VOC lineage
 
-- Owner: Card `target-voice`
+- File name: `SCI-069-VOC-lineage.png`
 - Target: `public/card-art/sci-fi/cards/target-voice/lineage.webp`
+- Owner: Card `target-voice`
 - Status: planned
 
 ```
@@ -882,8 +953,9 @@ A tone modulator with a resonating fork held in a field of register bands, the s
 
 #### 070. EX lineage
 
-- Owner: Card `target-examples`
+- File name: `SCI-070-EX-lineage.png`
 - Target: `public/card-art/sci-fi/cards/target-examples/lineage.webp`
+- Owner: Card `target-examples`
 - Status: planned
 
 ```
@@ -894,8 +966,9 @@ A projector casting small concrete miniature scenes into the air beneath a large
 
 #### 071. DCN lineage
 
-- Owner: Card `target-decisions`
+- File name: `SCI-071-DCN-lineage.png`
 - Target: `public/card-art/sci-fi/cards/target-decisions/lineage.webp`
+- Owner: Card `target-decisions`
 - Status: planned
 
 ```
@@ -906,8 +979,9 @@ A decision console of weighted levers, each one linked by a taut line to the con
 
 #### 072. STN lineage
 
-- Owner: Card `target-stance`
+- File name: `SCI-072-STN-lineage.png`
 - Target: `public/card-art/sci-fi/cards/target-stance/lineage.webp`
+- Owner: Card `target-stance`
 - Status: planned
 
 ```
@@ -920,8 +994,9 @@ A stance dial set between a warm amber pole and a hard cold pole, the needle loc
 
 #### 073. Executive summary
 
-- Owner: Archetype `executive-summary`
+- File name: `SCI-073-Executive-summary.png`
 - Target: `public/card-art/sci-fi/archetypes/executive-summary.webp`
+- Owner: Archetype `executive-summary`
 - Status: planned
 
 ```
@@ -932,8 +1007,9 @@ A command table where a mountain of raw material has been distilled to one decis
 
 #### 074. Creative concept
 
-- Owner: Archetype `creative-concept`
+- File name: `SCI-074-Creative-concept.png`
 - Target: `public/card-art/sci-fi/archetypes/creative-concept.webp`
+- Owner: Archetype `creative-concept`
 - Status: planned
 
 ```
@@ -944,8 +1020,9 @@ A concept forge with a luminous idea suspended in the shaping field, growing str
 
 #### 075. Note taker
 
-- Owner: Archetype `note-taker`
+- File name: `SCI-075-Note-taker.png`
 - Target: `public/card-art/sci-fi/archetypes/note-taker.webp`
+- Owner: Archetype `note-taker`
 - Status: planned
 
 ```
@@ -956,8 +1033,9 @@ A capture array turning a chaotic incoming stream of fragments into neat ordered
 
 #### 076. Message & email
 
-- Owner: Archetype `message-email`
+- File name: `SCI-076-Message-email.png`
 - Target: `public/card-art/sci-fi/archetypes/message-email.webp`
+- Owner: Archetype `message-email`
 - Status: planned
 
 ```
@@ -968,8 +1046,9 @@ A comms relay composing one sealed transmission capsule, its tone-tuning ring gl
 
 #### 077. Prompt improver
 
-- Owner: Archetype `prompt-improver`
+- File name: `SCI-077-Prompt-improver.png`
 - Target: `public/card-art/sci-fi/archetypes/prompt-improver.webp`
+- Owner: Archetype `prompt-improver`
 - Status: planned
 
 ```
@@ -980,8 +1059,9 @@ A workbench where an old instruction core has been stripped down and rebuilt sha
 
 #### 078. Learning guide
 
-- Owner: Archetype `learning-guide`
+- File name: `SCI-078-Learning-guide.png`
 - Target: `public/card-art/sci-fi/archetypes/learning-guide.webp`
+- Owner: Archetype `learning-guide`
 - Status: planned
 
 ```
@@ -992,8 +1072,9 @@ A teaching orrery with a central idea at its heart and a guided path of illumina
 
 #### 079. App build handoff
 
-- Owner: Archetype `app-build-handoff`
+- File name: `SCI-079-App-build-handoff.png`
 - Target: `public/card-art/sci-fi/archetypes/app-build-handoff.webp`
+- Owner: Archetype `app-build-handoff`
 - Status: planned
 
 ```
@@ -1004,8 +1085,9 @@ A sealed blueprint capsule holding a complete self-contained plan, every layer v
 
 #### 080. Agent skill
 
-- Owner: Archetype `agent-skill`
+- File name: `SCI-080-Agent-skill.png`
 - Target: `public/card-art/sci-fi/archetypes/agent-skill.webp`
+- Owner: Archetype `agent-skill`
 - Status: planned
 
 ```
@@ -1016,8 +1098,9 @@ A modular skill cartridge on a mounting rail, its trigger face lit, procedure ra
 
 #### 081. Agent gate
 
-- Owner: Archetype `agent-gate`
+- File name: `SCI-081-Agent-gate.png`
 - Target: `public/card-art/sci-fi/archetypes/agent-gate.webp`
+- Owner: Archetype `agent-gate`
 - Status: planned
 
 ```
@@ -1028,8 +1111,9 @@ A judgment gate arch scanning an artifact passing beneath it, a hard scanning pl
 
 #### 082. Social post
 
-- Owner: Archetype `social-post`
+- File name: `SCI-082-Social-post.png`
 - Target: `public/card-art/sci-fi/archetypes/social-post.webp`
+- Owner: Archetype `social-post`
 - Status: planned
 
 ```
@@ -1040,8 +1124,9 @@ A broadcast pod fitted with several interchangeable antenna heads, one selected 
 
 #### 083. Quick explanation
 
-- Owner: Archetype `quick-explanation`
+- File name: `SCI-083-Quick-explanation.png`
 - Target: `public/card-art/sci-fi/archetypes/quick-explanation.webp`
+- Owner: Archetype `quick-explanation`
 - Status: planned
 
 ```
@@ -1052,8 +1137,9 @@ A compact answer beacon standing alone, one clear steady light, nothing around i
 
 #### 084. Research brief
 
-- Owner: Archetype `research-brief`
+- File name: `SCI-084-Research-brief.png`
 - Target: `public/card-art/sci-fi/archetypes/research-brief.webp`
+- Owner: Archetype `research-brief`
 - Status: planned
 
 ```
@@ -1064,8 +1150,9 @@ A balanced dossier suspended between two source pillars, confidence bands render
 
 #### 085. Decision advisor
 
-- Owner: Archetype `decision-advisor`
+- File name: `SCI-085-Decision-advisor.png`
 - Target: `public/card-art/sci-fi/archetypes/decision-advisor.webp`
+- Owner: Archetype `decision-advisor`
 - Status: planned
 
 ```
@@ -1076,8 +1163,9 @@ A weighing console with several options mounted on measured arms, one arm settli
 
 #### 086. Data analysis
 
-- Owner: Archetype `data-analysis`
+- File name: `SCI-086-Data-analysis.png`
 - Target: `public/card-art/sci-fi/archetypes/data-analysis.webp`
+- Owner: Archetype `data-analysis`
 - Status: planned
 
 ```
@@ -1088,8 +1176,9 @@ A data core being read open, its contents fanning out into layered insight strat
 
 #### 087. Risk premortem
 
-- Owner: Archetype `risk-premortem`
+- File name: `SCI-087-Risk-premortem.png`
 - Target: `public/card-art/sci-fi/archetypes/risk-premortem.webp`
+- Owner: Archetype `risk-premortem`
 - Status: planned
 
 ```
@@ -1100,8 +1189,9 @@ A wreckage diorama being read in reverse, luminous failure lines running backwar
 
 #### 088. Writing draft
 
-- Owner: Archetype `writing-draft`
+- File name: `SCI-088-Writing-draft.png`
 - Target: `public/card-art/sci-fi/archetypes/writing-draft.webp`
+- Owner: Archetype `writing-draft`
 - Status: planned
 
 ```
@@ -1112,8 +1202,9 @@ A text loom weaving a first continuous draft out of raw fiber, the fabric clean 
 
 #### 089. Rewrite & polish
 
-- Owner: Archetype `rewrite-polish`
+- File name: `SCI-089-Rewrite-polish.png`
 - Target: `public/card-art/sci-fi/archetypes/rewrite-polish.webp`
+- Owner: Archetype `rewrite-polish`
 - Status: planned
 
 ```
@@ -1124,8 +1215,9 @@ A polishing lathe refining an existing form, dull surface lifting away under the
 
 #### 090. Critique & review
 
-- Owner: Archetype `critique-review`
+- File name: `SCI-090-Critique-review.png`
 - Target: `public/card-art/sci-fi/archetypes/critique-review.webp`
+- Owner: Archetype `critique-review`
 - Status: planned
 
 ```
@@ -1136,8 +1228,9 @@ An inspection bay with an artifact held in restraints, prioritized flag-markers 
 
 #### 091. Presentation outline
 
-- Owner: Archetype `presentation-outline`
+- File name: `SCI-091-Presentation-outline.png`
 - Target: `public/card-art/sci-fi/archetypes/presentation-outline.webp`
+- Owner: Archetype `presentation-outline`
 - Status: planned
 
 ```
@@ -1148,8 +1241,9 @@ A run of floating stage panels receding in sequence, each holding one clear shap
 
 #### 092. Project plan
 
-- Owner: Archetype `build-plan`
+- File name: `SCI-092-Project-plan.png`
 - Target: `public/card-art/sci-fi/archetypes/build-plan.webp`
+- Owner: Archetype `build-plan`
 - Status: planned
 
 ```
@@ -1160,8 +1254,9 @@ A project scaffold rising in ordered stages with milestone nodes locked at each 
 
 #### 093. Spec / PRD
 
-- Owner: Archetype `spec-prd`
+- File name: `SCI-093-Spec-PRD.png`
 - Target: `public/card-art/sci-fi/archetypes/spec-prd.webp`
+- Owner: Archetype `spec-prd`
 - Status: planned
 
 ```
@@ -1172,8 +1267,9 @@ A spec capsule with requirement plates locked around its core, each plate seated
 
 #### 094. Code implementation
 
-- Owner: Archetype `coding`
+- File name: `SCI-094-Code-implementation.png`
 - Target: `public/card-art/sci-fi/archetypes/coding.webp`
+- Owner: Archetype `coding`
 - Status: planned
 
 ```
@@ -1184,8 +1280,9 @@ A code fabricator writing a working component into being, structure knitting its
 
 #### 095. Debug & fix
 
-- Owner: Archetype `technical-troubleshoot`
+- File name: `SCI-095-Debug-fix.png`
 - Target: `public/card-art/sci-fi/archetypes/technical-troubleshoot.webp`
+- Owner: Archetype `technical-troubleshoot`
 - Status: planned
 
 ```
@@ -1196,8 +1293,9 @@ A diagnostic bay with a machine opened up and one traced fault line glowing alon
 
 #### 096. Explain code
 
-- Owner: Archetype `explain-code`
+- File name: `SCI-096-Explain-code.png`
 - Target: `public/card-art/sci-fi/archetypes/explain-code.webp`
+- Owner: Archetype `explain-code`
 - Status: planned
 
 ```
@@ -1208,8 +1306,9 @@ A walkthrough projector stepping through a mechanism one stage at a time, the ac
 
 #### 097. Extract to data
 
-- Owner: Archetype `extract-data`
+- File name: `SCI-097-Extract-to-data.png`
 - Target: `public/card-art/sci-fi/archetypes/extract-data.webp`
+- Owner: Archetype `extract-data`
 - Status: planned
 
 ```
@@ -1222,8 +1321,9 @@ An extractor drawing clean uniform structured shards out of raw unsorted ore, th
 
 #### 098. Custom preset swatch
 
-- Owner: prompt-custom-archetypes.ts
+- File name: `SCI-098-Custom-preset-swatch.png`
 - Target: `public/card-art/sci-fi/archetypes/custom-preset.webp`
+- Owner: prompt-custom-archetypes.ts
 - Status: planned
 
 ```
@@ -1242,8 +1342,9 @@ without these. Generate a grade here to override its card face.
 
 #### 099. SCP 1. Situation Snapshot
 
-- Owner: Card `context-scope` grade `Situation Snapshot`
+- File name: `SCI-099-SCP-1-Situation-Snapshot.png`
 - Target: `public/card-art/sci-fi/cards/context-scope/01-situation-snapshot.webp`
+- Owner: Card `context-scope` grade `Situation Snapshot`
 - Status: planned
 
 ```
@@ -1254,8 +1355,9 @@ A survey drone holding a small tight pool of light around a single object, only 
 
 #### 100. SCP 2. Working Brief
 
-- Owner: Card `context-scope` grade `Working Brief`
+- File name: `SCI-100-SCP-2-Working-Brief.png`
 - Target: `public/card-art/sci-fi/cards/context-scope/02-working-brief.webp`
+- Owner: Card `context-scope` grade `Working Brief`
 - Status: planned
 
 ```
@@ -1266,8 +1368,9 @@ A survey drone with its pool widened to take in the nearby inputs it may use, a 
 
 #### 101. SCP 3. Decision Context
 
-- Owner: Card `context-scope` grade `Decision Context`
+- File name: `SCI-101-SCP-3-Decision-Context.png`
 - Target: `public/card-art/sci-fi/cards/context-scope/03-decision-context.webp`
+- Owner: Card `context-scope` grade `Decision Context`
 - Status: planned
 
 ```
@@ -1278,8 +1381,9 @@ A survey drone lighting a broad field with stakeholder markers standing inside i
 
 #### 102. SCP 4. Complete Operating Picture
 
-- Owner: Card `context-scope` grade `Complete Operating Picture`
+- File name: `SCI-102-SCP-4-Complete-Operating-Picture.png`
 - Target: `public/card-art/sci-fi/cards/context-scope/04-complete-operating-picture.webp`
+- Owner: Card `context-scope` grade `Complete Operating Picture`
 - Status: planned
 
 ```
@@ -1290,8 +1394,9 @@ A survey drone fully deployed, its light thrown to the horizon so the entire ter
 
 #### 103. SRC 1. Given As True
 
-- Owner: Card `context-evidence` grade `Given As True`
+- File name: `SCI-103-SRC-1-Given-As-True.png`
 - Target: `public/card-art/sci-fi/cards/context-evidence/01-given-as-true.webp`
+- Owner: Card `context-evidence` grade `Given As True`
 - Status: planned
 
 ```
@@ -1302,8 +1407,9 @@ An evidence spindle with claim cores mounted and accepted as given, the provenan
 
 #### 104. SRC 2. Source Support
 
-- Owner: Card `context-evidence` grade `Source Support`
+- File name: `SCI-104-SRC-2-Source-Support.png`
 - Target: `public/card-art/sci-fi/cards/context-evidence/02-source-support.webp`
+- Owner: Card `context-evidence` grade `Source Support`
 - Status: planned
 
 ```
@@ -1314,8 +1420,9 @@ An evidence spindle with filaments run from the load-bearing claims down to a fe
 
 #### 105. SRC 3. Corroborated Sources
 
-- Owner: Card `context-evidence` grade `Corroborated Sources`
+- File name: `SCI-105-SRC-3-Corroborated-Sources.png`
 - Target: `public/card-art/sci-fi/cards/context-evidence/03-corroborated-sources.webp`
+- Owner: Card `context-evidence` grade `Corroborated Sources`
 - Status: planned
 
 ```
@@ -1326,8 +1433,9 @@ An evidence spindle where each key claim is cross-braced by several converging f
 
 #### 106. SRC 4. Audit Trail
 
-- Owner: Card `context-evidence` grade `Audit Trail`
+- File name: `SCI-106-SRC-4-Audit-Trail.png`
 - Target: `public/card-art/sci-fi/cards/context-evidence/04-audit-trail.webp`
+- Owner: Card `context-evidence` grade `Audit Trail`
 - Status: planned
 
 ```
@@ -1338,8 +1446,9 @@ An evidence spindle threaded end to end, conflicting filaments held deliberately
 
 #### 107. LIM 1. Basic Limits
 
-- Owner: Card `context-constraints` grade `Basic Limits`
+- File name: `SCI-107-LIM-1-Basic-Limits.png`
 - Target: `public/card-art/sci-fi/cards/context-constraints/01-basic-limits.webp`
+- Owner: Card `context-constraints` grade `Basic Limits`
 - Status: planned
 
 ```
@@ -1350,8 +1459,9 @@ A pair of limiter clamps resting lightly at the edges of a working volume, barel
 
 #### 108. LIM 2. Operating Limits
 
-- Owner: Card `context-constraints` grade `Operating Limits`
+- File name: `SCI-108-LIM-2-Operating-Limits.png`
 - Target: `public/card-art/sci-fi/cards/context-constraints/02-operating-limits.webp`
+- Owner: Card `context-constraints` grade `Operating Limits`
 - Status: planned
 
 ```
@@ -1362,8 +1472,9 @@ Four limiter clamps closed on a working volume, compressing it to a smaller prac
 
 #### 109. LIM 3. Constraint Map
 
-- Owner: Card `context-constraints` grade `Constraint Map`
+- File name: `SCI-109-LIM-3-Constraint-Map.png`
 - Target: `public/card-art/sci-fi/cards/context-constraints/03-constraint-map.webp`
+- Owner: Card `context-constraints` grade `Constraint Map`
 - Status: planned
 
 ```
@@ -1374,8 +1485,9 @@ Hard steel limiter clamps locked tight while softer preference-markers sit visib
 
 #### 110. LIM 4. Boundary Conditions
 
-- Owner: Card `context-constraints` grade `Boundary Conditions`
+- File name: `SCI-110-LIM-4-Boundary-Conditions.png`
 - Target: `public/card-art/sci-fi/cards/context-constraints/04-boundary-conditions.webp`
+- Owner: Card `context-constraints` grade `Boundary Conditions`
 - Status: planned
 
 ```
@@ -1386,8 +1498,9 @@ A full cage of limiter clamps around a volume with stress readouts glowing at ev
 
 #### 111. ASM 1. Working Assumptions
 
-- Owner: Card `context-assumptions` grade `Working Assumptions`
+- File name: `SCI-111-ASM-1-Working-Assumptions.png`
 - Target: `public/card-art/sci-fi/cards/context-assumptions/01-working-assumptions.webp`
+- Owner: Card `context-assumptions` grade `Working Assumptions`
 - Status: planned
 
 ```
@@ -1398,8 +1511,9 @@ A scaffold with a few translucent placeholder blocks plainly visible among the s
 
 #### 112. ASM 2. Assumption Check
 
-- Owner: Card `context-assumptions` grade `Assumption Check`
+- File name: `SCI-112-ASM-2-Assumption-Check.png`
 - Target: `public/card-art/sci-fi/cards/context-assumptions/02-assumption-check.webp`
+- Owner: Card `context-assumptions` grade `Assumption Check`
 - Status: planned
 
 ```
@@ -1410,8 +1524,9 @@ A scaffold where the load-bearing translucent blocks pulse with warning light, m
 
 #### 113. ASM 3. Assumption Register
 
-- Owner: Card `context-assumptions` grade `Assumption Register`
+- File name: `SCI-113-ASM-3-Assumption-Register.png`
 - Target: `public/card-art/sci-fi/cards/context-assumptions/03-assumption-register.webp`
+- Owner: Card `context-assumptions` grade `Assumption Register`
 - Status: planned
 
 ```
@@ -1422,8 +1537,9 @@ A scaffold where every translucent block carries its own base-plate and a conseq
 
 #### 114. ASM 4. Uncertainty Model
 
-- Owner: Card `context-assumptions` grade `Uncertainty Model`
+- File name: `SCI-114-ASM-4-Uncertainty-Model.png`
 - Target: `public/card-art/sci-fi/cards/context-assumptions/04-uncertainty-model.webp`
+- Owner: Card `context-assumptions` grade `Uncertainty Model`
 - Status: planned
 
 ```
@@ -1434,8 +1550,9 @@ A scaffold of translucent blocks ranked by height and brightness, tilt lines pro
 
 #### 115. WIN 1. Done Means
 
-- Owner: Card `context-success` grade `Done Means`
+- File name: `SCI-115-WIN-1-Done-Means.png`
 - Target: `public/card-art/sci-fi/cards/context-success/01-done-means.webp`
+- Owner: Card `context-success` grade `Done Means`
 - Status: planned
 
 ```
@@ -1446,8 +1563,9 @@ A simple calibration target ring with the needle resting quietly on it, one clea
 
 #### 116. WIN 2. Success Check
 
-- Owner: Card `context-success` grade `Success Check`
+- File name: `SCI-116-WIN-2-Success-Check.png`
 - Target: `public/card-art/sci-fi/cards/context-success/02-success-check.webp`
+- Owner: Card `context-success` grade `Success Check`
 - Status: planned
 
 ```
@@ -1458,8 +1576,9 @@ An acceptance gauge locked into the green with the pass threshold scored sharply
 
 #### 117. WIN 3. Success Criteria
 
-- Owner: Card `context-success` grade `Success Criteria`
+- File name: `SCI-117-WIN-3-Success-Criteria.png`
 - Target: `public/card-art/sci-fi/cards/context-success/03-success-criteria.webp`
+- Owner: Card `context-success` grade `Success Criteria`
 - Status: planned
 
 ```
@@ -1470,8 +1589,9 @@ A bank of acceptance gauges mounted together, pass zones lit green and failure z
 
 #### 118. WIN 4. Evaluation Framework
 
-- Owner: Card `context-success` grade `Evaluation Framework`
+- File name: `SCI-118-WIN-4-Evaluation-Framework.png`
 - Target: `public/card-art/sci-fi/cards/context-success/04-evaluation-framework.webp`
+- Owner: Card `context-success` grade `Evaluation Framework`
 - Status: planned
 
 ```
@@ -1482,8 +1602,9 @@ A full instrument wall of graded measures, thresholds etched into each dial and 
 
 #### 119. OUT 1. No-Go List
 
-- Owner: Card `context-exclusions` grade `No-Go List`
+- File name: `SCI-119-OUT-1-No-Go-List.png`
 - Target: `public/card-art/sci-fi/cards/context-exclusions/01-no-go-list.webp`
+- Owner: Card `context-exclusions` grade `No-Go List`
 - Status: planned
 
 ```
@@ -1494,8 +1615,9 @@ A diverter gate shunting a few marked items aside into a small dark holding bin 
 
 #### 120. OUT 2. Scope Fence
 
-- Owner: Card `context-exclusions` grade `Scope Fence`
+- File name: `SCI-120-OUT-2-Scope-Fence.png`
 - Target: `public/card-art/sci-fi/cards/context-exclusions/02-scope-fence.webp`
+- Owner: Card `context-exclusions` grade `Scope Fence`
 - Status: planned
 
 ```
@@ -1506,8 +1628,9 @@ A diverter gate holding a clean lit line across the channel, the flow kept firml
 
 #### 121. OUT 3. Anti-Goals
 
-- Owner: Card `context-exclusions` grade `Anti-Goals`
+- File name: `SCI-121-OUT-3-Anti-Goals.png`
 - Target: `public/card-art/sci-fi/cards/context-exclusions/03-anti-goals.webp`
+- Owner: Card `context-exclusions` grade `Anti-Goals`
 - Status: planned
 
 ```
@@ -1518,8 +1641,9 @@ A diverter gate as a hard sealed barrier with rejected forms visibly pressed up 
 
 #### 122. OUT 4. Drift Alarm
 
-- Owner: Card `context-exclusions` grade `Drift Alarm`
+- File name: `SCI-122-OUT-4-Drift-Alarm.png`
 - Target: `public/card-art/sci-fi/cards/context-exclusions/04-drift-alarm.webp`
+- Owner: Card `context-exclusions` grade `Drift Alarm`
 - Status: planned
 
 ```
@@ -1532,8 +1656,9 @@ A diverter gate firing actively, alarm light sweeping the channel, an escaping b
 
 #### 123. INS 1. Guided Review
 
-- Owner: Card `action-inspect` grade `Guided Review`
+- File name: `SCI-123-INS-1-Guided-Review.png`
 - Target: `public/card-art/sci-fi/cards/action-inspect/01-guided-review.webp`
+- Owner: Card `action-inspect` grade `Guided Review`
 - Status: planned
 
 ```
@@ -1544,8 +1669,9 @@ A magnifier probe following a single pointed line across an opened assembly, one
 
 #### 124. INS 2. Checklist Inspection
 
-- Owner: Card `action-inspect` grade `Checklist Inspection`
+- File name: `SCI-124-INS-2-Checklist-Inspection.png`
 - Target: `public/card-art/sci-fi/cards/action-inspect/02-checklist-inspection.webp`
+- Owner: Card `action-inspect` grade `Checklist Inspection`
 - Status: planned
 
 ```
@@ -1556,8 +1682,9 @@ A magnifier probe stepping across marked checkpoints in sequence along an opened
 
 #### 125. INS 3. Independent Inspection
 
-- Owner: Card `action-inspect` grade `Independent Inspection`
+- File name: `SCI-125-INS-3-Independent-Inspection.png`
 - Target: `public/card-art/sci-fi/cards/action-inspect/03-independent-inspection.webp`
+- Owner: Card `action-inspect` grade `Independent Inspection`
 - Status: planned
 
 ```
@@ -1568,8 +1695,9 @@ A magnifier probe roaming an opened assembly under its own control, several gaps
 
 #### 126. INS 4. Full Audit
 
-- Owner: Card `action-inspect` grade `Full Audit`
+- File name: `SCI-126-INS-4-Full-Audit.png`
 - Target: `public/card-art/sci-fi/cards/action-inspect/04-full-audit.webp`
+- Owner: Card `action-inspect` grade `Full Audit`
 - Status: planned
 
 ```
@@ -1580,8 +1708,9 @@ An opened assembly fully disassembled under a bank of magnifier probes, every pa
 
 #### 127. ANL 1. Pattern Read
 
-- Owner: Card `action-analyze` grade `Pattern Read`
+- File name: `SCI-127-ANL-1-Pattern-Read.png`
 - Target: `public/card-art/sci-fi/cards/action-analyze/01-pattern-read.webp`
+- Owner: Card `action-analyze` grade `Pattern Read`
 - Status: planned
 
 ```
@@ -1592,8 +1721,9 @@ A separation column resolving a mixed signal into two or three clean luminous ba
 
 #### 128. ANL 2. Rival Explanations
 
-- Owner: Card `action-analyze` grade `Rival Explanations`
+- File name: `SCI-128-ANL-2-Rival-Explanations.png`
 - Target: `public/card-art/sci-fi/cards/action-analyze/02-rival-explanations.webp`
+- Owner: Card `action-analyze` grade `Rival Explanations`
 - Status: planned
 
 ```
@@ -1604,8 +1734,9 @@ Two separation columns held side by side, a candidate band-pattern in each, the 
 
 #### 129. ANL 3. Critical Analysis
 
-- Owner: Card `action-analyze` grade `Critical Analysis`
+- File name: `SCI-129-ANL-3-Critical-Analysis.png`
 - Target: `public/card-art/sci-fi/cards/action-analyze/03-critical-analysis.webp`
+- Owner: Card `action-analyze` grade `Critical Analysis`
 - Status: planned
 
 ```
@@ -1616,8 +1747,9 @@ A separation column driven harder until the assumptions inside crack apart into 
 
 #### 130. ANL 4. Adversarial Analysis
 
-- Owner: Card `action-analyze` grade `Adversarial Analysis`
+- File name: `SCI-130-ANL-4-Adversarial-Analysis.png`
 - Target: `public/card-art/sci-fi/cards/action-analyze/04-adversarial-analysis.webp`
+- Owner: Card `action-analyze` grade `Adversarial Analysis`
 - Status: planned
 
 ```
@@ -1628,8 +1760,9 @@ A separation column run to its extremes, hunting through the residue for the one
 
 #### 131. CMP 1. Options on the Table
 
-- Owner: Card `action-compare` grade `Options on the Table`
+- File name: `SCI-131-CMP-1-Options-on-the-Table.png`
 - Target: `public/card-art/sci-fi/cards/action-compare/01-options-on-the-table.webp`
+- Owner: Card `action-compare` grade `Options on the Table`
 - Status: planned
 
 ```
@@ -1640,8 +1773,9 @@ A twin-pan balance with two artifacts simply laid out on its pans, the beam stil
 
 #### 132. CMP 2. Framed Comparison
 
-- Owner: Card `action-compare` grade `Framed Comparison`
+- File name: `SCI-132-CMP-2-Framed-Comparison.png`
 - Target: `public/card-art/sci-fi/cards/action-compare/02-framed-comparison.webp`
+- Owner: Card `action-compare` grade `Framed Comparison`
 - Status: planned
 
 ```
@@ -1652,8 +1786,9 @@ A twin-pan balance with a measuring beam sighted across both artifacts against m
 
 #### 133. CMP 3. Weighted Comparison
 
-- Owner: Card `action-compare` grade `Weighted Comparison`
+- File name: `SCI-133-CMP-3-Weighted-Comparison.png`
 - Target: `public/card-art/sci-fi/cards/action-compare/03-weighted-comparison.webp`
+- Owner: Card `action-compare` grade `Weighted Comparison`
 - Status: planned
 
 ```
@@ -1664,8 +1799,9 @@ A twin-pan balance with calibrated weights added along its arms, the tilt now de
 
 #### 134. CMP 4. Decision Matrix
 
-- Owner: Card `action-compare` grade `Decision Matrix`
+- File name: `SCI-134-CMP-4-Decision-Matrix.png`
 - Target: `public/card-art/sci-fi/cards/action-compare/04-decision-matrix.webp`
+- Owner: Card `action-compare` grade `Decision Matrix`
 - Status: planned
 
 ```
@@ -1676,8 +1812,9 @@ A full array of balance pans on scored arms, every artifact measured against eve
 
 #### 135. BLD 1. Draft Together
 
-- Owner: Card `action-create` grade `Draft Together`
+- File name: `SCI-135-BLD-1-Draft-Together.png`
 - Target: `public/card-art/sci-fi/cards/action-create/01-draft-together.webp`
+- Owner: Card `action-create` grade `Draft Together`
 - Status: planned
 
 ```
@@ -1688,8 +1825,9 @@ A fabricator arm holding a rough unfinished armature, open questions sparking at
 
 #### 136. BLD 2. Build to Plan
 
-- Owner: Card `action-create` grade `Build to Plan`
+- File name: `SCI-136-BLD-2-Build-to-Plan.png`
 - Target: `public/card-art/sci-fi/cards/action-create/02-build-to-plan.webp`
+- Owner: Card `action-create` grade `Build to Plan`
 - Status: planned
 
 ```
@@ -1700,8 +1838,9 @@ A fabricator arm building precisely along a projected plan, following its guide-
 
 #### 137. BLD 3. Independent Build
 
-- Owner: Card `action-create` grade `Independent Build`
+- File name: `SCI-137-BLD-3-Independent-Build.png`
 - Target: `public/card-art/sci-fi/cards/action-create/03-independent-build.webp`
+- Owner: Card `action-create` grade `Independent Build`
 - Status: planned
 
 ```
@@ -1712,8 +1851,9 @@ A fabricator arm working with no plan projected, filling the silent gaps with it
 
 #### 138. BLD 4. End-to-End Delivery
 
-- Owner: Card `action-create` grade `End-to-End Delivery`
+- File name: `SCI-138-BLD-4-End-to-End-Delivery.png`
 - Target: `public/card-art/sci-fi/cards/action-create/04-end-to-end-delivery.webp`
+- Owner: Card `action-create` grade `End-to-End Delivery`
 - Status: planned
 
 ```
@@ -1724,8 +1864,9 @@ A finished artifact released from the fabricator cradle, verified and lit, the a
 
 #### 139. REC 1. Directions
 
-- Owner: Card `action-recommend` grade `Directions`
+- File name: `SCI-139-REC-1-Directions.png`
 - Target: `public/card-art/sci-fi/cards/action-recommend/01-directions.webp`
+- Owner: Card `action-recommend` grade `Directions`
 - Status: planned
 
 ```
@@ -1736,8 +1877,9 @@ A selector mechanism with several branching rails all lit equally, none chosen, 
 
 #### 140. REC 2. Practical Pick
 
-- Owner: Card `action-recommend` grade `Practical Pick`
+- File name: `SCI-140-REC-2-Practical-Pick.png`
 - Target: `public/card-art/sci-fi/cards/action-recommend/02-practical-pick.webp`
+- Owner: Card `action-recommend` grade `Practical Pick`
 - Status: planned
 
 ```
@@ -1748,8 +1890,9 @@ A selector mechanism with one rail selected and the constraint gates it fits sta
 
 #### 141. REC 3. Backed Recommendation
 
-- Owner: Card `action-recommend` grade `Backed Recommendation`
+- File name: `SCI-141-REC-3-Backed-Recommendation.png`
 - Target: `public/card-art/sci-fi/cards/action-recommend/03-backed-recommendation.webp`
+- Owner: Card `action-recommend` grade `Backed Recommendation`
 - Status: planned
 
 ```
@@ -1760,8 +1903,9 @@ A selector mechanism with the chosen rail blazing, the runner-up dimmed but stil
 
 #### 142. REC 4. Full Conviction
 
-- Owner: Card `action-recommend` grade `Full Conviction`
+- File name: `SCI-142-REC-4-Full-Conviction.png`
 - Target: `public/card-art/sci-fi/cards/action-recommend/04-full-conviction.webp`
+- Owner: Card `action-recommend` grade `Full Conviction`
 - Status: planned
 
 ```
@@ -1772,8 +1916,9 @@ A selector mechanism with the switch thrown hard, a single rail blazing full len
 
 #### 143. TST 1. Sanity Pass
 
-- Owner: Card `action-verify` grade `Sanity Pass`
+- File name: `SCI-143-TST-1-Sanity-Pass.png`
 - Target: `public/card-art/sci-fi/cards/action-verify/01-sanity-pass.webp`
+- Owner: Card `action-verify` grade `Sanity Pass`
 - Status: planned
 
 ```
@@ -1784,8 +1929,9 @@ A test rig running a component through one quick gate, an obvious flaw catching 
 
 #### 144. TST 2. Criteria Check
 
-- Owner: Card `action-verify` grade `Criteria Check`
+- File name: `SCI-144-TST-2-Criteria-Check.png`
 - Target: `public/card-art/sci-fi/cards/action-verify/02-criteria-check.webp`
+- Owner: Card `action-verify` grade `Criteria Check`
 - Status: planned
 
 ```
@@ -1796,8 +1942,9 @@ A test rig with each gate lighting pass or fail in turn as the component travels
 
 #### 145. TST 3. Stress Test
 
-- Owner: Card `action-verify` grade `Stress Test`
+- File name: `SCI-145-TST-3-Stress-Test.png`
 - Target: `public/card-art/sci-fi/cards/action-verify/03-stress-test.webp`
+- Owner: Card `action-verify` grade `Stress Test`
 - Status: planned
 
 ```
@@ -1808,8 +1955,9 @@ A test rig pushing a component past its normal load, the edges and joints glowin
 
 #### 146. TST 4. Red Team
 
-- Owner: Card `action-verify` grade `Red Team`
+- File name: `SCI-146-TST-4-Red-Team.png`
 - Target: `public/card-art/sci-fi/cards/action-verify/04-red-team.webp`
+- Owner: Card `action-verify` grade `Red Team`
 - Status: planned
 
 ```
@@ -1820,8 +1968,9 @@ A test rig turned hostile, attacking the component from every side at once like 
 
 #### 147. SMR 1. Key Points Pull
 
-- Owner: Card `action-summarize` grade `Key Points Pull`
+- File name: `SCI-147-SMR-1-Key-Points-Pull.png`
 - Target: `public/card-art/sci-fi/cards/action-summarize/01-key-points-pull.webp`
+- Owner: Card `action-summarize` grade `Key Points Pull`
 - Status: planned
 
 ```
@@ -1832,8 +1981,9 @@ A compression press lifting a few key points cleanly out of a tall stack of mate
 
 #### 148. SMR 2. Faithful Summary
 
-- Owner: Card `action-summarize` grade `Faithful Summary`
+- File name: `SCI-148-SMR-2-Faithful-Summary.png`
 - Target: `public/card-art/sci-fi/cards/action-summarize/02-faithful-summary.webp`
+- Owner: Card `action-summarize` grade `Faithful Summary`
 - Status: planned
 
 ```
@@ -1844,8 +1994,9 @@ A compression press reducing a stack evenly, the original proportions still read
 
 #### 149. SMR 3. Decision Summary
 
-- Owner: Card `action-summarize` grade `Decision Summary`
+- File name: `SCI-149-SMR-3-Decision-Summary.png`
 - Target: `public/card-art/sci-fi/cards/action-summarize/03-decision-summary.webp`
+- Owner: Card `action-summarize` grade `Decision Summary`
 - Status: planned
 
 ```
@@ -1856,8 +2007,9 @@ A compression press with the decision-critical layer pulled bright to the top an
 
 #### 150. SMR 4. Executive Distillation
 
-- Owner: Card `action-summarize` grade `Executive Distillation`
+- File name: `SCI-150-SMR-4-Executive-Distillation.png`
 - Target: `public/card-art/sci-fi/cards/action-summarize/04-executive-distillation.webp`
+- Owner: Card `action-summarize` grade `Executive Distillation`
 - Status: planned
 
 ```
@@ -1868,8 +2020,9 @@ A compression press yielding one brilliant dense wafer, the enormous source volu
 
 #### 151. RES 1. Supplied Sources
 
-- Owner: Card `action-research` grade `Supplied Sources`
+- File name: `SCI-151-RES-1-Supplied-Sources.png`
 - Target: `public/card-art/sci-fi/cards/action-research/01-supplied-sources.webp`
+- Owner: Card `action-research` grade `Supplied Sources`
 - Status: planned
 
 ```
@@ -1880,8 +2033,9 @@ A deep-scan array pointed at a few supplied cores, the dark gaps between them pl
 
 #### 152. RES 2. Targeted Lookup
 
-- Owner: Card `action-research` grade `Targeted Lookup`
+- File name: `SCI-152-RES-2-Targeted-Lookup.png`
 - Target: `public/card-art/sci-fi/cards/action-research/02-targeted-lookup.webp`
+- Owner: Card `action-research` grade `Targeted Lookup`
 - Status: planned
 
 ```
@@ -1892,8 +2046,9 @@ A deep-scan array firing narrow targeted beams into specific gaps, each return t
 
 #### 153. RES 3. Open Research
 
-- Owner: Card `action-research` grade `Open Research`
+- File name: `SCI-153-RES-3-Open-Research.png`
 - Target: `public/card-art/sci-fi/cards/action-research/03-open-research.webp`
+- Owner: Card `action-research` grade `Open Research`
 - Status: planned
 
 ```
@@ -1904,8 +2059,9 @@ A deep-scan array sweeping wide across open darkness on its own initiative, weig
 
 #### 154. RES 4. Deep Investigation
 
-- Owner: Card `action-research` grade `Deep Investigation`
+- File name: `SCI-154-RES-4-Deep-Investigation.png`
 - Target: `public/card-art/sci-fi/cards/action-research/04-deep-investigation.webp`
+- Owner: Card `action-research` grade `Deep Investigation`
 - Status: planned
 
 ```
@@ -1916,8 +2072,9 @@ A deep-scan array with several beams converging to corroborate one distant retur
 
 #### 155. PLN 1. Rough Outline
 
-- Owner: Card `action-plan` grade `Rough Outline`
+- File name: `SCI-155-PLN-1-Rough-Outline.png`
 - Target: `public/card-art/sci-fi/cards/action-plan/01-rough-outline.webp`
+- Owner: Card `action-plan` grade `Rough Outline`
 - Status: planned
 
 ```
@@ -1928,8 +2085,9 @@ A sequencer track with a few nodes set loosely along it in a sensible order.
 
 #### 156. PLN 2. Sequenced Plan
 
-- Owner: Card `action-plan` grade `Sequenced Plan`
+- File name: `SCI-156-PLN-2-Sequenced-Plan.png`
 - Target: `public/card-art/sci-fi/cards/action-plan/02-sequenced-plan.webp`
+- Owner: Card `action-plan` grade `Sequenced Plan`
 - Status: planned
 
 ```
@@ -1940,8 +2098,9 @@ A sequencer track with ordered nodes, dependency lines drawn taut between them a
 
 #### 157. PLN 3. Delivery Plan
 
-- Owner: Card `action-plan` grade `Delivery Plan`
+- File name: `SCI-157-PLN-3-Delivery-Plan.png`
 - Target: `public/card-art/sci-fi/cards/action-plan/03-delivery-plan.webp`
+- Owner: Card `action-plan` grade `Delivery Plan`
 - Status: planned
 
 ```
@@ -1952,8 +2111,9 @@ A sequencer track phased into grouped stages with milestone gates and verificati
 
 #### 158. PLN 4. Executable Program
 
-- Owner: Card `action-plan` grade `Executable Program`
+- File name: `SCI-158-PLN-4-Executable-Program.png`
 - Target: `public/card-art/sci-fi/cards/action-plan/04-executable-program.webp`
+- Owner: Card `action-plan` grade `Executable Program`
 - Status: planned
 
 ```
@@ -1964,8 +2124,9 @@ A sequencer track fully built out and running itself, every node firing in order
 
 #### 159. IDE 1. Quick Options
 
-- Owner: Card `action-ideate` grade `Quick Options`
+- File name: `SCI-159-IDE-1-Quick-Options.png`
 - Target: `public/card-art/sci-fi/cards/action-ideate/01-quick-options.webp`
+- Owner: Card `action-ideate` grade `Quick Options`
 - Status: planned
 
 ```
@@ -1976,8 +2137,9 @@ A spark chamber throwing off a small handful of distinct starting forms.
 
 #### 160. IDE 2. Divergent Set
 
-- Owner: Card `action-ideate` grade `Divergent Set`
+- File name: `SCI-160-IDE-2-Divergent-Set.png`
 - Target: `public/card-art/sci-fi/cards/action-ideate/02-divergent-set.webp`
+- Owner: Card `action-ideate` grade `Divergent Set`
 - Status: planned
 
 ```
@@ -1988,8 +2150,9 @@ A spark chamber flinging many genuinely different shapes wide, no two alike anyw
 
 #### 161. IDE 3. Explore and Converge
 
-- Owner: Card `action-ideate` grade `Explore and Converge`
+- File name: `SCI-161-IDE-3-Explore-and-Converge.png`
 - Target: `public/card-art/sci-fi/cards/action-ideate/03-explore-and-converge.webp`
+- Owner: Card `action-ideate` grade `Explore and Converge`
 - Status: planned
 
 ```
@@ -2000,8 +2163,9 @@ A spark chamber mid-burst with the strongest few forms already pulled together i
 
 #### 162. IDE 4. Creative Sweep
 
-- Owner: Card `action-ideate` grade `Creative Sweep`
+- File name: `SCI-162-IDE-4-Creative-Sweep.png`
 - Target: `public/card-art/sci-fi/cards/action-ideate/04-creative-sweep.webp`
+- Owner: Card `action-ideate` grade `Creative Sweep`
 - Status: planned
 
 ```
@@ -2012,8 +2176,9 @@ A spark chamber showing its full spectrum from safe compact forms to wild irregu
 
 #### 163. EXP 1. Direct Answer
 
-- Owner: Card `action-explain` grade `Direct Answer`
+- File name: `SCI-163-EXP-1-Direct-Answer.png`
 - Target: `public/card-art/sci-fi/cards/action-explain/01-direct-answer.webp`
+- Owner: Card `action-explain` grade `Direct Answer`
 - Status: planned
 
 ```
@@ -2024,8 +2189,9 @@ An exploded-view projector showing a single part in isolation, the rest of the m
 
 #### 164. EXP 2. Guided Walkthrough
 
-- Owner: Card `action-explain` grade `Guided Walkthrough`
+- File name: `SCI-164-EXP-2-Guided-Walkthrough.png`
 - Target: `public/card-art/sci-fi/cards/action-explain/02-guided-walkthrough.webp`
+- Owner: Card `action-explain` grade `Guided Walkthrough`
 - Status: planned
 
 ```
@@ -2036,8 +2202,9 @@ An exploded-view projector unfolding parts one at a time along a lit path, each 
 
 #### 165. EXP 3. Deep Explanation
 
-- Owner: Card `action-explain` grade `Deep Explanation`
+- File name: `SCI-165-EXP-3-Deep-Explanation.png`
 - Target: `public/card-art/sci-fi/cards/action-explain/03-deep-explanation.webp`
+- Owner: Card `action-explain` grade `Deep Explanation`
 - Status: planned
 
 ```
@@ -2048,8 +2215,9 @@ An exploded-view projector with the mechanism fully open, the hidden linkage exp
 
 #### 166. EXP 4. Full Teaching Pass
 
-- Owner: Card `action-explain` grade `Full Teaching Pass`
+- File name: `SCI-166-EXP-4-Full-Teaching-Pass.png`
 - Target: `public/card-art/sci-fi/cards/action-explain/04-full-teaching-pass.webp`
+- Owner: Card `action-explain` grade `Full Teaching Pass`
 - Status: planned
 
 ```
@@ -2060,8 +2228,9 @@ An exploded-view projector with everything unfolded and further branches still o
 
 #### 167. ASK 1. Full Interview
 
-- Owner: Card `action-clarify` grade `Full Interview`
+- File name: `SCI-167-ASK-1-Full-Interview.png`
 - Target: `public/card-art/sci-fi/cards/action-clarify/01-full-interview.webp`
+- Owner: Card `action-clarify` grade `Full Interview`
 - Status: planned
 
 ```
@@ -2072,8 +2241,9 @@ A query beacon firing many pulses in patient batches into a dark gap, its outlin
 
 #### 168. ASK 2. 95% Confidence Check
 
-- Owner: Card `action-clarify` grade `95% Confidence Check`
+- File name: `SCI-168-ASK-2-95-Confidence-Check.png`
 - Target: `public/card-art/sci-fi/cards/action-clarify/02-confidence-check.webp`
+- Owner: Card `action-clarify` grade `95% Confidence Check`
 - Status: planned
 
 ```
@@ -2084,8 +2254,9 @@ A query beacon still pulsing into a gap that is nearly closed, only a thin slive
 
 #### 169. ASK 3. Blocking Questions Only
 
-- Owner: Card `action-clarify` grade `Blocking Questions Only`
+- File name: `SCI-169-ASK-3-Blocking-Questions-Only.png`
 - Target: `public/card-art/sci-fi/cards/action-clarify/03-blocking-questions-only.webp`
+- Owner: Card `action-clarify` grade `Blocking Questions Only`
 - Status: planned
 
 ```
@@ -2096,8 +2267,9 @@ A query beacon sending one single hard pulse into the one gap that actually bloc
 
 #### 170. ASK 4. Assume & Log
 
-- Owner: Card `action-clarify` grade `Assume & Log`
+- File name: `SCI-170-ASK-4-Assume-Log.png`
 - Target: `public/card-art/sci-fi/cards/action-clarify/04-assume-and-log.webp`
+- Owner: Card `action-clarify` grade `Assume & Log`
 - Status: planned
 
 ```
@@ -2110,8 +2282,9 @@ A query beacon gone dark, the gap bridged instead by a placed assumption block w
 
 #### 171. INF 1. Plain Answer
 
-- Owner: Card `format-info-card` grade `Plain Answer`
+- File name: `SCI-171-INF-1-Plain-Answer.png`
 - Target: `public/card-art/sci-fi/cards/format-info-card/01-plain-answer.webp`
+- Owner: Card `format-info-card` grade `Plain Answer`
 - Status: planned
 
 ```
@@ -2122,8 +2295,9 @@ A single answer slab standing bare in the dark, its face plain and unornamented.
 
 #### 172. INF 2. Answer Card
 
-- Owner: Card `format-info-card` grade `Answer Card`
+- File name: `SCI-172-INF-2-Answer-Card.png`
 - Target: `public/card-art/sci-fi/cards/format-info-card/02-answer-card.webp`
+- Owner: Card `format-info-card` grade `Answer Card`
 - Status: planned
 
 ```
@@ -2134,8 +2308,9 @@ A single answer slab tightened down, its essentials arranged in one clean scanna
 
 #### 173. INF 3. Information Brief
 
-- Owner: Card `format-info-card` grade `Information Brief`
+- File name: `SCI-173-INF-3-Information-Brief.png`
 - Target: `public/card-art/sci-fi/cards/format-info-card/03-information-brief.webp`
+- Owner: Card `format-info-card` grade `Information Brief`
 - Status: planned
 
 ```
@@ -2146,8 +2321,9 @@ A thicker answer slab with context strata visible in its cut edge, layered benea
 
 #### 174. INF 4. Reference Piece
 
-- Owner: Card `format-info-card` grade `Reference Piece`
+- File name: `SCI-174-INF-4-Reference-Piece.png`
 - Target: `public/card-art/sci-fi/cards/format-info-card/04-reference-piece.webp`
+- Owner: Card `format-info-card` grade `Reference Piece`
 - Status: planned
 
 ```
@@ -2158,8 +2334,9 @@ A substantial reference monolith with caveat notches cut into its margin and wor
 
 #### 175. KEY 1. Loose Bullets
 
-- Owner: Card `format-key-points` grade `Loose Bullets`
+- File name: `SCI-175-KEY-1-Loose-Bullets.png`
 - Target: `public/card-art/sci-fi/cards/format-key-points/01-loose-bullets.webp`
+- Owner: Card `format-key-points` grade `Loose Bullets`
 - Status: planned
 
 ```
@@ -2170,8 +2347,9 @@ A rack holding a few point-shards leaning loosely, unaligned but separate.
 
 #### 176. KEY 2. Grouped Points
 
-- Owner: Card `format-key-points` grade `Grouped Points`
+- File name: `SCI-176-KEY-2-Grouped-Points.png`
 - Target: `public/card-art/sci-fi/cards/format-key-points/02-grouped-points.webp`
+- Owner: Card `format-key-points` grade `Grouped Points`
 - Status: planned
 
 ```
@@ -2182,8 +2360,9 @@ A rack of point-shards clustered into labeled groups, related shards standing to
 
 #### 177. KEY 3. Sectioned Points
 
-- Owner: Card `format-key-points` grade `Sectioned Points`
+- File name: `SCI-177-KEY-3-Sectioned-Points.png`
 - Target: `public/card-art/sci-fi/cards/format-key-points/03-sectioned-points.webp`
+- Owner: Card `format-key-points` grade `Sectioned Points`
 - Status: planned
 
 ```
@@ -2194,8 +2373,9 @@ A full rack of point-shards arranged into clearly divided labeled sections.
 
 #### 178. KEY 4. Checklist Discipline
 
-- Owner: Card `format-key-points` grade `Checklist Discipline`
+- File name: `SCI-178-KEY-4-Checklist-Discipline.png`
 - Target: `public/card-art/sci-fi/cards/format-key-points/04-checklist-discipline.webp`
+- Owner: Card `format-key-points` grade `Checklist Discipline`
 - Status: planned
 
 ```
@@ -2206,8 +2386,9 @@ A rack of uniform atomic point-shards, each identical in size with a tick-notch 
 
 #### 179. SUM 1. One-Liner
 
-- Owner: Card `format-summary` grade `One-Liner`
+- File name: `SCI-179-SUM-1-One-Liner.png`
 - Target: `public/card-art/sci-fi/cards/format-summary/01-one-liner.webp`
+- Owner: Card `format-summary` grade `One-Liner`
 - Status: planned
 
 ```
@@ -2218,8 +2399,9 @@ A distillation vessel holding one bright drop suspended at the very top.
 
 #### 180. SUM 2. Quick Summary
 
-- Owner: Card `format-summary` grade `Quick Summary`
+- File name: `SCI-180-SUM-2-Quick-Summary.png`
 - Target: `public/card-art/sci-fi/cards/format-summary/02-quick-summary.webp`
+- Owner: Card `format-summary` grade `Quick Summary`
 - Status: planned
 
 ```
@@ -2230,8 +2412,9 @@ A distillation vessel with a small clear band of summary floating above the sett
 
 #### 181. SUM 3. Executive Summary
 
-- Owner: Card `format-summary` grade `Executive Summary`
+- File name: `SCI-181-SUM-3-Executive-Summary.png`
 - Target: `public/card-art/sci-fi/cards/format-summary/03-executive-summary.webp`
+- Owner: Card `format-summary` grade `Executive Summary`
 - Status: planned
 
 ```
@@ -2242,8 +2425,9 @@ A distillation vessel with a thick lit layer of findings and an implication chan
 
 #### 182. SUM 4. Standalone Abstract
 
-- Owner: Card `format-summary` grade `Standalone Abstract`
+- File name: `SCI-182-SUM-4-Standalone-Abstract.png`
 - Target: `public/card-art/sci-fi/cards/format-summary/04-standalone-abstract.webp`
+- Owner: Card `format-summary` grade `Standalone Abstract`
 - Status: planned
 
 ```
@@ -2254,8 +2438,9 @@ A sealed self-contained distillation vessel, complete on its own, needing nothin
 
 #### 183. SEC 1. Natural Flow
 
-- Owner: Card `format-sections` grade `Natural Flow`
+- File name: `SCI-183-SEC-1-Natural-Flow.png`
 - Target: `public/card-art/sci-fi/cards/format-sections/01-natural-flow.webp`
+- Owner: Card `format-sections` grade `Natural Flow`
 - Status: planned
 
 ```
@@ -2266,8 +2451,9 @@ A mostly continuous column with only one or two divisions cut where they genuine
 
 #### 184. SEC 2. Clear Sections
 
-- Owner: Card `format-sections` grade `Clear Sections`
+- File name: `SCI-184-SEC-2-Clear-Sections.png`
 - Target: `public/card-art/sci-fi/cards/format-sections/02-clear-sections.webp`
+- Owner: Card `format-sections` grade `Clear Sections`
 - Status: planned
 
 ```
@@ -2278,8 +2464,9 @@ A column divided into evenly spaced chambers, each one distinct and separately l
 
 #### 185. SEC 3. Set Sequence
 
-- Owner: Card `format-sections` grade `Set Sequence`
+- File name: `SCI-185-SEC-3-Set-Sequence.png`
 - Target: `public/card-art/sci-fi/cards/format-sections/03-set-sequence.webp`
+- Owner: Card `format-sections` grade `Set Sequence`
 - Status: planned
 
 ```
@@ -2290,8 +2477,9 @@ A column of chambers in a fixed ordered stack, every chamber present and none sk
 
 #### 186. SEC 4. Locked Template
 
-- Owner: Card `format-sections` grade `Locked Template`
+- File name: `SCI-186-SEC-4-Locked-Template.png`
 - Target: `public/card-art/sci-fi/cards/format-sections/04-locked-template.webp`
+- Owner: Card `format-sections` grade `Locked Template`
 - Status: planned
 
 ```
@@ -2302,8 +2490,9 @@ A column machined to an exact template, chamber seams flush and sealed, nothing 
 
 #### 187. CIT 1. Source Notes
 
-- Owner: Card `format-evidence` grade `Source Notes`
+- File name: `SCI-187-CIT-1-Source-Notes.png`
 - Target: `public/card-art/sci-fi/cards/format-evidence/01-source-notes.webp`
+- Owner: Card `format-evidence` grade `Source Notes`
 - Status: planned
 
 ```
@@ -2314,8 +2503,9 @@ A floating claim with a couple of anchor lines dropped to the strongest source c
 
 #### 188. CIT 2. Linked Sources
 
-- Owner: Card `format-evidence` grade `Linked Sources`
+- File name: `SCI-188-CIT-2-Linked-Sources.png`
 - Target: `public/card-art/sci-fi/cards/format-evidence/02-linked-sources.webp`
+- Owner: Card `format-evidence` grade `Linked Sources`
 - Status: planned
 
 ```
@@ -2326,8 +2516,9 @@ Several floating claims each tethered inline to its own source core, lines short
 
 #### 189. CIT 3. Evidence Notes
 
-- Owner: Card `format-evidence` grade `Evidence Notes`
+- File name: `SCI-189-CIT-3-Evidence-Notes.png`
 - Target: `public/card-art/sci-fi/cards/format-evidence/03-evidence-notes.webp`
+- Owner: Card `format-evidence` grade `Evidence Notes`
 - Status: planned
 
 ```
@@ -2338,8 +2529,9 @@ Anchor lines rendered at visible thicknesses, each strand's width showing the we
 
 #### 190. CIT 4. Citation Record
 
-- Owner: Card `format-evidence` grade `Citation Record`
+- File name: `SCI-190-CIT-4-Citation-Record.png`
 - Target: `public/card-art/sci-fi/cards/format-evidence/04-citation-record.webp`
+- Owner: Card `format-evidence` grade `Citation Record`
 - Status: planned
 
 ```
@@ -2350,8 +2542,9 @@ Every claim anchored to a core, with inference lines rendered distinctly as dash
 
 #### 191. TAB 1. Option Notes
 
-- Owner: Card `format-comparison` grade `Option Notes`
+- File name: `SCI-191-TAB-1-Option-Notes.png`
 - Target: `public/card-art/sci-fi/cards/format-comparison/01-option-notes.webp`
+- Owner: Card `format-comparison` grade `Option Notes`
 - Status: planned
 
 ```
@@ -2362,8 +2555,9 @@ Several alternatives standing separated in the dark, clearly apart from each oth
 
 #### 192. TAB 2. Comparison Table
 
-- Owner: Card `format-comparison` grade `Comparison Table`
+- File name: `SCI-192-TAB-2-Comparison-Table.png`
 - Target: `public/card-art/sci-fi/cards/format-comparison/02-comparison-table.webp`
+- Owner: Card `format-comparison` grade `Comparison Table`
 - Status: planned
 
 ```
@@ -2374,8 +2568,9 @@ A compact grid lattice with the alternatives placed on it and the key measuring 
 
 #### 193. TAB 3. Decision Table
 
-- Owner: Card `format-comparison` grade `Decision Table`
+- File name: `SCI-193-TAB-3-Decision-Table.png`
 - Target: `public/card-art/sci-fi/cards/format-comparison/03-decision-table.webp`
+- Owner: Card `format-comparison` grade `Decision Table`
 - Status: planned
 
 ```
@@ -2386,8 +2581,9 @@ A grid lattice with criteria explicit along its edges and the winning row glowin
 
 #### 194. TAB 4. Evaluation Matrix
 
-- Owner: Card `format-comparison` grade `Evaluation Matrix`
+- File name: `SCI-194-TAB-4-Evaluation-Matrix.png`
 - Target: `public/card-art/sci-fi/cards/format-comparison/04-evaluation-matrix.webp`
+- Owner: Card `format-comparison` grade `Evaluation Matrix`
 - Status: planned
 
 ```
@@ -2398,8 +2594,9 @@ A dense grid lattice of weighted cells with scored intersections and a ranked ve
 
 #### 195. NXT 1. Next Move
 
-- Owner: Card `format-next` grade `Next Move`
+- File name: `SCI-195-NXT-1-Next-Move.png`
 - Target: `public/card-art/sci-fi/cards/format-next/01-next-move.webp`
+- Owner: Card `format-next` grade `Next Move`
 - Status: planned
 
 ```
@@ -2410,8 +2607,9 @@ A launch rail with a single marker primed and glowing hot at its head.
 
 #### 196. NXT 2. Next Steps
 
-- Owner: Card `format-next` grade `Next Steps`
+- File name: `SCI-196-NXT-2-Next-Steps.png`
 - Target: `public/card-art/sci-fi/cards/format-next/02-next-steps.webp`
+- Owner: Card `format-next` grade `Next Steps`
 - Status: planned
 
 ```
@@ -2422,8 +2620,9 @@ A launch rail with a short ordered run of markers lit in sequence down its lengt
 
 #### 197. NXT 3. Prioritized Actions
 
-- Owner: Card `format-next` grade `Prioritized Actions`
+- File name: `SCI-197-NXT-3-Prioritized-Actions.png`
 - Target: `public/card-art/sci-fi/cards/format-next/03-prioritized-actions.webp`
+- Owner: Card `format-next` grade `Prioritized Actions`
 - Status: planned
 
 ```
@@ -2434,8 +2633,9 @@ A launch rail with markers ranked by heat, owner tags clipped to the hottest one
 
 #### 198. NXT 4. Execution Handoff
 
-- Owner: Card `format-next` grade `Execution Handoff`
+- File name: `SCI-198-NXT-4-Execution-Handoff.png`
 - Target: `public/card-art/sci-fi/cards/format-next/04-execution-handoff.webp`
+- Owner: Card `format-next` grade `Execution Handoff`
 - Status: planned
 
 ```
@@ -2446,8 +2646,9 @@ A launch rail fully loaded and released, running its whole sequence with no oper
 
 #### 199. LEN 1. Tight Budget
 
-- Owner: Card `format-length` grade `Tight Budget`
+- File name: `SCI-199-LEN-1-Tight-Budget.png`
 - Target: `public/card-art/sci-fi/cards/format-length/01-tight-budget.webp`
+- Owner: Card `format-length` grade `Tight Budget`
 - Status: planned
 
 ```
@@ -2458,8 +2659,9 @@ A precision caliper clamped hard on a body of luminous material, a heavy offcut 
 
 #### 200. LEN 2. One Screen
 
-- Owner: Card `format-length` grade `One Screen`
+- File name: `SCI-200-LEN-2-One-Screen.png`
 - Target: `public/card-art/sci-fi/cards/format-length/02-one-screen.webp`
+- Owner: Card `format-length` grade `One Screen`
 - Status: planned
 
 ```
@@ -2470,8 +2672,9 @@ A precision caliper holding material to a single dense measure, compact and full
 
 #### 201. LEN 3. Room to Explain
 
-- Owner: Card `format-length` grade `Room to Explain`
+- File name: `SCI-201-LEN-3-Room-to-Explain.png`
 - Target: `public/card-art/sci-fi/cards/format-length/03-room-to-explain.webp`
+- Owner: Card `format-length` grade `Room to Explain`
 - Status: planned
 
 ```
@@ -2482,8 +2685,9 @@ A precision caliper opened to the material's natural width, the space spent on s
 
 #### 202. LEN 4. Complete Treatment
 
-- Owner: Card `format-length` grade `Complete Treatment`
+- File name: `SCI-202-LEN-4-Complete-Treatment.png`
 - Target: `public/card-art/sci-fi/cards/format-length/04-complete-treatment.webp`
+- Owner: Card `format-length` grade `Complete Treatment`
 - Status: planned
 
 ```
@@ -2494,8 +2698,9 @@ A precision caliper opened wide but stopping exactly at the material's true edge
 
 #### 203. TIER 1. Essentials First
 
-- Owner: Card `format-tiers` grade `Essentials First`
+- File name: `SCI-203-TIER-1-Essentials-First.png`
 - Target: `public/card-art/sci-fi/cards/format-tiers/01-essentials-first.webp`
+- Owner: Card `format-tiers` grade `Essentials First`
 - Status: planned
 
 ```
@@ -2506,8 +2711,9 @@ A stepped platform with one small brilliantly lit top step and the depth below i
 
 #### 204. TIER 2. Three Tiers
 
-- Owner: Card `format-tiers` grade `Three Tiers`
+- File name: `SCI-204-TIER-2-Three-Tiers.png`
 - Target: `public/card-art/sci-fi/cards/format-tiers/02-three-tiers.webp`
+- Owner: Card `format-tiers` grade `Three Tiers`
 - Status: planned
 
 ```
@@ -2518,8 +2724,9 @@ A stepped platform of three clean descending steps, each one clearly separated f
 
 #### 205. TIER 3. Tiered Sections
 
-- Owner: Card `format-tiers` grade `Tiered Sections`
+- File name: `SCI-205-TIER-3-Tiered-Sections.png`
 - Target: `public/card-art/sci-fi/cards/format-tiers/03-tiered-sections.webp`
+- Owner: Card `format-tiers` grade `Tiered Sections`
 - Status: planned
 
 ```
@@ -2530,8 +2737,9 @@ A stepped platform of three labeled steps with every item visibly assigned to on
 
 #### 206. TIER 4. Locked Tier Hierarchy
 
-- Owner: Card `format-tiers` grade `Locked Tier Hierarchy`
+- File name: `SCI-206-TIER-4-Locked-Tier-Hierarchy.png`
 - Target: `public/card-art/sci-fi/cards/format-tiers/04-locked-tier-hierarchy.webp`
+- Owner: Card `format-tiers` grade `Locked Tier Hierarchy`
 - Status: planned
 
 ```
@@ -2544,8 +2752,9 @@ A strictly machined terrace of tiers with hard edges, nothing resting anywhere o
 
 #### 207. LVL 1. First Contact
 
-- Owner: Card `target-language` grade `First Contact`
+- File name: `SCI-207-LVL-1-First-Contact.png`
 - Target: `public/card-art/sci-fi/cards/target-language/01-first-contact.webp`
+- Owner: Card `target-language` grade `First Contact`
 - Status: planned
 
 ```
@@ -2556,8 +2765,9 @@ A translator prism stepping its beam all the way down to the simplest broadest f
 
 #### 208. LVL 2. Plain Language
 
-- Owner: Card `target-language` grade `Plain Language`
+- File name: `SCI-208-LVL-2-Plain-Language.png`
 - Target: `public/card-art/sci-fi/cards/target-language/02-plain-language.webp`
+- Owner: Card `target-language` grade `Plain Language`
 - Status: planned
 
 ```
@@ -2568,8 +2778,9 @@ A translator prism holding a clear middle facet, unfamiliar terms visibly unpack
 
 #### 209. LVL 3. Working Vocabulary
 
-- Owner: Card `target-language` grade `Working Vocabulary`
+- File name: `SCI-209-LVL-3-Working-Vocabulary.png`
 - Target: `public/card-art/sci-fi/cards/target-language/03-working-vocabulary.webp`
+- Owner: Card `target-language` grade `Working Vocabulary`
 - Status: planned
 
 ```
@@ -2580,8 +2791,9 @@ A translator prism running at standard density, only the most obscure facets cla
 
 #### 210. LVL 4. Expert Shorthand
 
-- Owner: Card `target-language` grade `Expert Shorthand`
+- File name: `SCI-210-LVL-4-Expert-Shorthand.png`
 - Target: `public/card-art/sci-fi/cards/target-language/04-expert-shorthand.webp`
+- Owner: Card `target-language` grade `Expert Shorthand`
 - Status: planned
 
 ```
@@ -2592,8 +2804,9 @@ A translator prism passed straight through undiluted, the beam leaving at full t
 
 #### 211. VOC 1. Straight Talk
 
-- Owner: Card `target-voice` grade `Straight Talk`
+- File name: `SCI-211-VOC-1-Straight-Talk.png`
 - Target: `public/card-art/sci-fi/cards/target-voice/01-straight-talk.webp`
+- Owner: Card `target-voice` grade `Straight Talk`
 - Status: planned
 
 ```
@@ -2604,8 +2817,9 @@ A tone modulator with its fork ringing loose and natural, the band warm and conv
 
 #### 212. VOC 2. Clear Neutral
 
-- Owner: Card `target-voice` grade `Clear Neutral`
+- File name: `SCI-212-VOC-2-Clear-Neutral.png`
 - Target: `public/card-art/sci-fi/cards/target-voice/02-clear-neutral.webp`
+- Owner: Card `target-voice` grade `Clear Neutral`
 - Status: planned
 
 ```
@@ -2616,8 +2830,9 @@ A tone modulator holding a calm even band without ornament or flourish.
 
 #### 213. VOC 3. Professional Voice
 
-- Owner: Card `target-voice` grade `Professional Voice`
+- File name: `SCI-213-VOC-3-Professional-Voice.png`
 - Target: `public/card-art/sci-fi/cards/target-voice/03-professional-voice.webp`
+- Owner: Card `target-voice` grade `Professional Voice`
 - Status: planned
 
 ```
@@ -2628,8 +2843,9 @@ A tone modulator holding a polished precise band, its edges clean and deliberate
 
 #### 214. VOC 4. Formal Register
 
-- Owner: Card `target-voice` grade `Formal Register`
+- File name: `SCI-214-VOC-4-Formal-Register.png`
 - Target: `public/card-art/sci-fi/cards/target-voice/04-formal-register.webp`
+- Owner: Card `target-voice` grade `Formal Register`
 - Status: planned
 
 ```
@@ -2640,8 +2856,9 @@ A tone modulator holding a rigid disciplined band exactly on its mark, formal an
 
 #### 215. EX 1. Everyday Analogy
 
-- Owner: Card `target-examples` grade `Everyday Analogy`
+- File name: `SCI-215-EX-1-Everyday-Analogy.png`
 - Target: `public/card-art/sci-fi/cards/target-examples/01-everyday-analogy.webp`
+- Owner: Card `target-examples` grade `Everyday Analogy`
 - Status: planned
 
 ```
@@ -2652,8 +2869,9 @@ A projector casting one familiar homely miniature scene beneath a large abstract
 
 #### 216. EX 2. Worked Example
 
-- Owner: Card `target-examples` grade `Worked Example`
+- File name: `SCI-216-EX-2-Worked-Example.png`
 - Target: `public/card-art/sci-fi/cards/target-examples/02-worked-example.webp`
+- Owner: Card `target-examples` grade `Worked Example`
 - Status: planned
 
 ```
@@ -2664,8 +2882,9 @@ A projector carrying a single miniature scene all the way through from start to 
 
 #### 217. EX 3. Domain Example
 
-- Owner: Card `target-examples` grade `Domain Example`
+- File name: `SCI-217-EX-3-Domain-Example.png`
 - Target: `public/card-art/sci-fi/cards/target-examples/03-domain-example.webp`
+- Owner: Card `target-examples` grade `Domain Example`
 - Status: planned
 
 ```
@@ -2676,8 +2895,9 @@ A projector casting realistic miniature scenes with their messy irregular detail
 
 #### 218. EX 4. Edge Case
 
-- Owner: Card `target-examples` grade `Edge Case`
+- File name: `SCI-218-EX-4-Edge-Case.png`
 - Target: `public/card-art/sci-fi/cards/target-examples/04-edge-case.webp`
+- Owner: Card `target-examples` grade `Edge Case`
 - Status: planned
 
 ```
@@ -2688,8 +2908,9 @@ A projector placing miniature scenes right at the boundary where the larger rule
 
 #### 219. DCN 1. Next Decision
 
-- Owner: Card `target-decisions` grade `Next Decision`
+- File name: `SCI-219-DCN-1-Next-Decision.png`
 - Target: `public/card-art/sci-fi/cards/target-decisions/01-next-decision.webp`
+- Owner: Card `target-decisions` grade `Next Decision`
 - Status: planned
 
 ```
@@ -2700,8 +2921,9 @@ A decision console with one lever highlighted and the input it still needs lit b
 
 #### 220. DCN 2. Actionable Framing
 
-- Owner: Card `target-decisions` grade `Actionable Framing`
+- File name: `SCI-220-DCN-2-Actionable-Framing.png`
 - Target: `public/card-art/sci-fi/cards/target-decisions/02-actionable-framing.webp`
+- Owner: Card `target-decisions` grade `Actionable Framing`
 - Status: planned
 
 ```
@@ -2712,8 +2934,9 @@ A decision console with its levers labeled by the action each one enables furthe
 
 #### 221. DCN 3. Tradeoff Brief
 
-- Owner: Card `target-decisions` grade `Tradeoff Brief`
+- File name: `SCI-221-DCN-3-Tradeoff-Brief.png`
 - Target: `public/card-art/sci-fi/cards/target-decisions/03-tradeoff-brief.webp`
+- Owner: Card `target-decisions` grade `Tradeoff Brief`
 - Status: planned
 
 ```
@@ -2724,8 +2947,9 @@ A decision console of paired levers, each pair showing what is gained against wh
 
 #### 222. DCN 4. Decision Record
 
-- Owner: Card `target-decisions` grade `Decision Record`
+- File name: `SCI-222-DCN-4-Decision-Record.png`
 - Target: `public/card-art/sci-fi/cards/target-decisions/04-decision-record.webp`
+- Owner: Card `target-decisions` grade `Decision Record`
 - Status: planned
 
 ```
@@ -2736,8 +2960,9 @@ A decision console with the chosen lever locked in place and its accepted conseq
 
 #### 223. STN 1. Warm & Encouraging
 
-- Owner: Card `target-stance` grade `Warm & Encouraging`
+- File name: `SCI-223-STN-1-Warm-Encouraging.png`
 - Target: `public/card-art/sci-fi/cards/target-stance/01-warm-and-encouraging.webp`
+- Owner: Card `target-stance` grade `Warm & Encouraging`
 - Status: planned
 
 ```
@@ -2748,8 +2973,9 @@ A stance dial with the needle at the warm amber pole, the scene washed in soft e
 
 #### 224. STN 2. Even & Matter-of-Fact
 
-- Owner: Card `target-stance` grade `Even & Matter-of-Fact`
+- File name: `SCI-224-STN-2-Even-Matter-of-Fact.png`
 - Target: `public/card-art/sci-fi/cards/target-stance/02-even-and-matter-of-fact.webp`
+- Owner: Card `target-stance` grade `Even & Matter-of-Fact`
 - Status: planned
 
 ```
@@ -2760,8 +2986,9 @@ A stance dial with the needle centered, the light even and matter-of-fact with n
 
 #### 225. STN 3. Candid & Direct
 
-- Owner: Card `target-stance` grade `Candid & Direct`
+- File name: `SCI-225-STN-3-Candid-Direct.png`
 - Target: `public/card-art/sci-fi/cards/target-stance/03-candid-and-direct.webp`
+- Owner: Card `target-stance` grade `Candid & Direct`
 - Status: planned
 
 ```
@@ -2772,8 +2999,9 @@ A stance dial with the needle pushed toward the cold pole, the light hard, clear
 
 #### 226. STN 4. Authoritative & Decisive
 
-- Owner: Card `target-stance` grade `Authoritative & Decisive`
+- File name: `SCI-226-STN-4-Authoritative-Decisive.png`
 - Target: `public/card-art/sci-fi/cards/target-stance/04-authoritative-and-decisive.webp`
+- Owner: Card `target-stance` grade `Authoritative & Decisive`
 - Status: planned
 
 ```

@@ -49,6 +49,16 @@ function craftSlug(label) {
   return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+// The name to save a generated image under, e.g. SCI-011-Synthesizer.png.
+// Keeps the entry's own capitalization so the file is readable in a download
+// folder, and leads with the sequence number so the batch sorts in doc order.
+// This is the working file; the app wants a webp at the entry's target path.
+export function artFileName(theme, sequence, name) {
+  const prefix = theme.theme.filePrefix;
+  const slug = name.replace(/[^A-Za-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return `${prefix}-${String(sequence).padStart(3, "0")}-${slug}.${theme.theme.fileExtension}`;
+}
+
 function craftTarget(theme, part) {
   return `/card-art/${theme.theme.pathSegment}/craft/${craftSlug(part.label)}.webp`;
 }
@@ -232,9 +242,11 @@ export function renderCraftArtDoc(catalog, theme) {
     "Per image:",
     "",
     "1. Copy the whole block and generate it square.",
-    "2. Save the pick as a webp at the listed target path under `public/`.",
-    "3. Flip that entry's `status` to `\"generated\"` in its catalog JSON.",
-    "4. Run `npm run data:generate` so this file re-renders.",
+    `2. Save the pick under its listed file name, e.g. \`${artFileName(theme, 11, "Synthesizer")}\`.`,
+    "3. To put it in the app, convert it to webp and place it at the listed",
+    "   target path under `public/` - the catalog only accepts `.webp`.",
+    "4. Flip that entry's `status` to `\"generated\"` in its catalog JSON.",
+    "5. Run `npm run data:generate` so this file re-renders.",
     "",
     `Progress: ${generated}/${entries.length} generated - ${core.length} core images first, then ${later.length} per-grade variants.`,
     "",
@@ -275,8 +287,9 @@ export function renderCraftArtDoc(catalog, theme) {
     lines.push(
       `#### ${String(sequence).padStart(3, "0")}. ${entry.name}`,
       "",
-      `- Owner: ${entry.owner}`,
+      `- File name: \`${artFileName(theme, sequence, entry.name)}\``,
       `- Target: \`public${entry.target}\``,
+      `- Owner: ${entry.owner}`,
       `- Status: ${entry.status}`,
       "",
       "```",
