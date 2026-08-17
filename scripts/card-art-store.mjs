@@ -19,6 +19,7 @@ import {
   ART_PACKS,
   ART_PACK_GROUPS,
   MAX_BIO_LENGTH,
+  artKeyFor,
   artPathFor,
   artRelativePath,
   parseArtKey,
@@ -246,8 +247,91 @@ export function createCardArtStore({
     throw new CardArtError("This entry already has 26 variants", 409);
   }
 
+  // How a card relates to the other cards — the morph chain above all. A
+  // lineage and its grades are ONE card at four intensities, so the studio
+  // shows them as a chain rather than as strangers 128 rows apart; roles and
+  // archetypes reference each other through roleIds and equipped cards.
+  // Everything is expressed as {key, label} chips so the client can decorate
+  // each chip with that entry's own thumbnail.
+  function buildRelations(catalog) {
+    const relations = new Map();
+    const add = (key, group) => {
+      const groups = relations.get(key) ?? [];
+      groups.push(group);
+      relations.set(key, groups);
+    };
+
+    for (const lineage of catalog.cards.cards) {
+      const chain = lineage.grades.map((grade, index) => ({
+        key: artKeyFor("grades", lineage.id, index),
+        label: `${index + 1} · ${grade.name}`,
+      }));
+      add(artKeyFor("lineages", lineage.id), [
+        { label: "Morphs into", items: chain },
+      ]);
+      lineage.grades.forEach((grade, index) => {
+        add(artKeyFor("grades", lineage.id, index), [
+          {
+            label: `Morph ${index + 1} of ${lineage.grades.length} · ${lineage.code}`,
+            items: [
+              { key: artKeyFor("lineages", lineage.id), label: `${lineage.code} lineage` },
+              ...chain.filter((_, chainIndex) => chainIndex !== index),
+            ],
+          },
+        ]);
+      });
+    }
+
+    const roleNames = new Map(
+      catalog.roles.roles.map((role) => [role.id, role.name]),
+    );
+    const usedBy = new Map();
+    for (const archetype of catalog.archetypes.archetypes) {
+      const key = artKeyFor("archetypes", archetype.id);
+      const groups = [];
+
+      const roles = archetype.roleIds
+        .filter((roleId) => roleNames.has(roleId))
+        .map((roleId) => ({
+          key: artKeyFor("roles", roleId),
+          label: roleNames.get(roleId),
+        }));
+      if (roles.length) {
+        groups.push({ label: "Loads roles", items: roles });
+      }
+
+      const equipped = Object.values(archetype.equipped ?? {})
+        .flat()
+        .filter((cardId) => catalog.cards.cards.some((card) => card.id === cardId))
+        .map((cardId) => {
+          const card = catalog.cards.cards.find((candidate) => candidate.id === cardId);
+          return { key: artKeyFor("lineages", cardId), label: `${card.code}` };
+        });
+      if (equipped.length) {
+        groups.push({ label: "Equips", items: equipped });
+      }
+      groups.push({ label: "Output type", items: [{ label: archetype.formatCode }] });
+      add(key, groups.flat().length ? groups : []);
+
+      for (const roleId of archetype.roleIds) {
+        const list = usedBy.get(roleId) ?? [];
+        list.push({ key, label: archetype.name });
+        usedBy.set(roleId, list);
+      }
+    }
+
+    for (const [roleId, archetypes] of usedBy) {
+      add(artKeyFor("roles", roleId), [
+        { label: "Used by archetypes", items: archetypes },
+      ]);
+    }
+
+    return relations;
+  }
+
   async function listEntries(themeId) {
-    const { entries } = await loadContext(themeId);
+    const { catalog, entries } = await loadContext(themeId);
+    const relations = buildRelations(catalog);
     const withVariants = await Promise.all(
       entries.map(async (entry) => ({
         key: entry.key,
@@ -261,6 +345,7 @@ export function createCardArtStore({
         status: entry.status,
         prompt: entry.unique,
         bio: entry.bio ?? "",
+        related: (relations.get(entry.key) ?? []).flat(),
         variants: await readVariants(themeId, entry),
       })),
     );

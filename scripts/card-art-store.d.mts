@@ -21,6 +21,11 @@ export type CardArtVariant = {
   file: string;
 };
 
+/** One chip in a relations group; `key` present when it names another entry. */
+export type CardArtLink = { key?: string; label: string };
+
+export type CardArtRelation = { label: string; items: CardArtLink[] };
+
 export type CardArtEntry = {
   key: string;
   sequence: number;
@@ -33,6 +38,7 @@ export type CardArtEntry = {
   status: string;
   prompt: string;
   bio: string;
+  related: CardArtRelation[];
   variants: CardArtVariant[];
 };
 

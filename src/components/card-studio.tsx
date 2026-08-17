@@ -18,6 +18,9 @@ const CARD_FACET = "card";
 
 type Variant = { id: string; letter: string; cropped: boolean; file: string };
 
+type RelatedLink = { key?: string; label: string };
+type RelatedGroup = { label: string; items: RelatedLink[] };
+
 type Entry = {
   key: string;
   sequence: number;
@@ -30,6 +33,7 @@ type Entry = {
   status: string;
   prompt: string;
   bio: string;
+  related: RelatedGroup[];
   variants: Variant[];
 };
 
@@ -76,6 +80,24 @@ function isVariant(value: unknown): value is Variant {
   );
 }
 
+function isRelatedGroup(value: unknown): value is RelatedGroup {
+  const candidate = value as Partial<RelatedGroup> | null;
+  return (
+    typeof candidate === "object" &&
+    candidate !== null &&
+    typeof candidate.label === "string" &&
+    Array.isArray(candidate.items) &&
+    candidate.items.every(
+      (item) =>
+        typeof item === "object" &&
+        item !== null &&
+        typeof (item as RelatedLink).label === "string" &&
+        ((item as RelatedLink).key === undefined ||
+          typeof (item as RelatedLink).key === "string"),
+    )
+  );
+}
+
 function isEntry(value: unknown): value is Entry {
   const candidate = value as Partial<Entry> | null;
   return (
@@ -88,6 +110,8 @@ function isEntry(value: unknown): value is Entry {
     typeof candidate.status === "string" &&
     typeof candidate.bio === "string" &&
     typeof candidate.sequence === "number" &&
+    Array.isArray(candidate.related) &&
+    candidate.related.every(isRelatedGroup) &&
     Array.isArray(candidate.variants) &&
     candidate.variants.every(isVariant)
   );
@@ -494,6 +518,35 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     }
   }
 
+  const entryByKey = useMemo(
+    () => new Map(entries.map((entry) => [entry.key, entry])),
+    [entries],
+  );
+
+  // Jump to a related card: clear whatever filter is hiding it, open it, and
+  // scroll its row into view once it exists.
+  const jumpTo = useCallback(
+    (key: string) => {
+      const target = entryByKey.get(key);
+      if (!target) {
+        return;
+      }
+      if (target.later) {
+        setShowLater(true);
+      }
+      setGroup("all");
+      setSearch("");
+      setOnlyMissing(false);
+      setActiveKey(key);
+      window.setTimeout(() => {
+        document
+          .getElementById(`card-row-${key}`)
+          ?.scrollIntoView({ block: "center", behavior: "smooth" });
+      }, 60);
+    },
+    [entryByKey],
+  );
+
   return (
     <div className="card-art-studio">
       <header className="card-art-studio-head">
@@ -587,6 +640,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                 .filter(Boolean)
                 .join(" ")}
               key={entry.key}
+              id={`card-row-${entry.key}`}
             >
               <button
                 className="card-art-row-main"
@@ -638,6 +692,52 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
 
               {isActive ? (
                 <div className="card-art-detail">
+                  {entry.related.length > 0 ? (
+                    <div className="card-relations">
+                      {entry.related.map((relGroup) => (
+                        <div className="card-relations-group" key={relGroup.label}>
+                          <span className="card-relations-label">{relGroup.label}</span>
+                          <span className="card-relations-chips">
+                            {relGroup.items.map((link, linkIndex) => {
+                              const relEntry = link.key ? entryByKey.get(link.key) : null;
+                              const relThumb = relEntry ? thumbnailFor(relEntry) : null;
+                              const chipBody = (
+                                <>
+                                  {relThumb ? (
+                                    <span className="card-relations-thumb">
+                                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                                      <img alt="" src={relThumb} />
+                                    </span>
+                                  ) : null}
+                                  <span>{link.label}</span>
+                                  {relEntry?.status === "generated" ? (
+                                    <span className="card-relations-live" aria-label="live on the card" />
+                                  ) : null}
+                                </>
+                              );
+                              return link.key && relEntry ? (
+                                <button
+                                  className="card-relations-chip"
+                                  type="button"
+                                  key={`${link.key}-${linkIndex}`}
+                                  onClick={() => jumpTo(link.key as string)}
+                                >
+                                  {chipBody}
+                                </button>
+                              ) : (
+                                <span
+                                  className="card-relations-chip is-static"
+                                  key={`${link.label}-${linkIndex}`}
+                                >
+                                  {chipBody}
+                                </span>
+                              );
+                            })}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   {/* The shared tab strip, so the facets get the keyboard
                       contract (roving tabindex, arrows, Home/End) and the
                       panel wiring rather than a hand-rolled lookalike. */}

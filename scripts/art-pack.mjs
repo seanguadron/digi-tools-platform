@@ -25,7 +25,8 @@
 export const ART_PACKS = [
   { id: "sci-fi", name: "Sci-Fi" },
   { id: "fantasy", name: "Fantasy" },
-  { id: "animal", name: "Animal" },
+  // Pivoted from the Pokemon/creature-collector idea (owner, 2026-08-17).
+  { id: "superhero", name: "Superhero" },
 ];
 
 // A bio renders in a panel that clips silently, so its ceiling is load-bearing

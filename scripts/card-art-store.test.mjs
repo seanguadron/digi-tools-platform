@@ -432,3 +432,51 @@ test("scaffolding the same world twice cannot clobber the first", async () => {
     await cleanup();
   }
 });
+
+// --- relationships ---------------------------------------------------------
+
+test("every card knows its relatives: morph chains, roles, archetypes", async () => {
+  const { store, cleanup } = await makeStore();
+  try {
+    const manifest = await store.listEntries("sci-fi");
+    const byKey = new Map(manifest.entries.map((entry) => [entry.key, entry]));
+
+    // A lineage lists its whole morph chain, in order.
+    const lineage = byKey.get("lineages.context-scope");
+    const chain = lineage.related.find((group) => group.label === "Morphs into");
+    assert.deepEqual(
+      chain.items.map((item) => item.key),
+      [0, 1, 2, 3].map((i) => `grades.context-scope[${i}]`),
+    );
+
+    // A grade points back at its lineage and names its position.
+    const grade = byKey.get("grades.context-scope[1]");
+    const morph = grade.related[0];
+    assert.match(morph.label, /Morph 2 of 4/);
+    assert.equal(morph.items[0].key, "lineages.context-scope");
+
+    // Every related key that exists resolves to a real entry.
+    for (const entry of manifest.entries) {
+      for (const group of entry.related) {
+        for (const item of group.items) {
+          if (item.key) {
+            assert.ok(byKey.has(item.key), `${entry.key} links to unknown ${item.key}`);
+          }
+        }
+      }
+    }
+
+    // Roles and archetypes reference each other both ways.
+    const researcher = byKey.get("roles.researcher");
+    const usedBy = researcher.related.find((g) => g.label === "Used by archetypes");
+    assert.ok(usedBy && usedBy.items.length > 0, "researcher is used by no archetype");
+    const archetype = byKey.get(usedBy.items[0].key);
+    const loads = archetype.related.find((g) => g.label === "Loads roles");
+    assert.ok(
+      loads.items.some((item) => item.key === "roles.researcher"),
+      "archetype does not link back to the role that claims it",
+    );
+  } finally {
+    await cleanup();
+  }
+});

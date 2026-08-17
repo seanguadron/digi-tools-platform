@@ -8599,6 +8599,86 @@ body:has(.page-stage.is-fluid) {
   padding: 4px 14px 16px;
 }
 
+/* How this card relates to the others — the morph chain above all. Chips
+   carry the related card's own thumbnail and jump to its row on click. */
+.card-relations {
+  display: grid;
+  gap: 6px;
+  padding: 8px 10px;
+  border: 1px solid color-mix(in oklch, var(--brand-cyan) 22%, var(--border));
+  border-radius: 10px;
+  background: color-mix(in oklch, var(--brand-cyan) 4%, var(--background));
+}
+
+.card-relations-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.card-relations-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-cyan-text);
+  white-space: nowrap;
+}
+
+.card-relations-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.card-relations-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 24px;
+  padding: 2px 8px 2px 3px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--foreground);
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.card-relations-chip:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+}
+
+.card-relations-chip.is-static {
+  cursor: default;
+  padding-left: 8px;
+  color: var(--muted-foreground);
+}
+
+.card-relations-thumb {
+  display: inline-grid;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in oklch, var(--brand-cyan) 10%, var(--background));
+}
+
+.card-relations-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-relations-live {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-cyan);
+}
+
 /* One tab per facet of a card: what it IS, then one world per art pack.
    Worlds that do not exist yet still get a tab, so the plan is visible. */
 .card-facet-tabs {
