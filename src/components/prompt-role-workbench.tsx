@@ -4,11 +4,13 @@ import { useMemo, useRef, useState } from "react";
 import type { DragEvent } from "react";
 import { createPortal } from "react-dom";
 import {
+  CardBio,
   CardIllustrationFrame,
   RoleCardFace,
   roleCategoryCode,
 } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
+import { roleArt } from "@/lib/art-pack";
 import { attachCardDragPreview } from "@/lib/card-motion";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
 import type { PromptRole } from "@/lib/prompt-types";
@@ -405,7 +407,7 @@ export function PromptRoleWorkbench({
             >
               <CardIllustrationFrame
                 className="floating-card-art"
-                illustration={previewRole.illustration}
+                illustration={roleArt(previewRole.id)}
                 fallback={previewRole.name.slice(0, 1).toUpperCase()}
               />
               <div className="floating-card-panel-identity">
@@ -413,6 +415,7 @@ export function PromptRoleWorkbench({
                 <strong>{previewRole.name}</strong>
                 <p>{previewRole.ability.summary}</p>
               </div>
+              <CardBio text={roleArt(previewRole.id)?.bio} />
               <div className="ability-guidance">
                 <span>What this role does</span>
                 <ul>

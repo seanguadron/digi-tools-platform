@@ -35,8 +35,6 @@ function isStoredArchetypeShape(entry: unknown): entry is PromptArchetype {
         candidate.equipped !== null)) &&
     Array.isArray(candidate.effects) &&
     candidate.effects.every((effect) => typeof effect === "string") &&
-    typeof candidate.illustration === "object" &&
-    candidate.illustration !== null &&
     (candidate.action === undefined || typeof candidate.action === "string") &&
     (candidate.formatNotes === undefined ||
       typeof candidate.formatNotes === "string") &&
@@ -93,13 +91,9 @@ export function buildCustomArchetype(
       }.`,
       "Preserves the user's Context and Target writing fields.",
     ],
-    illustration: {
-      src: "/card-art/sci-fi/archetypes/custom-preset.webp",
-      alt: `Illustration asset for the ${cleanName} preset.`,
-      motif: "Custom preset master-plan artifact",
-      prompt: "Custom user preset.",
-      status: "planned",
-    },
+    // No illustration: a saved preset has no pack entry of its own, so it
+    // borrows the pack's shared preset swatch at render time. Storing a path
+    // here would freeze one world's art into a saved preset forever.
   };
 }
 

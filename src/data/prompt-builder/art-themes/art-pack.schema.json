@@ -1,0 +1,102 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CRAFT Deck art pack",
+  "description": "One world's look for the whole deck: an image brief, alt text, an optional character bio, and a generated status per card. Never a path - every path is derived from the pack id plus the entry key by scripts/art-pack.mjs.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "theme",
+    "craft",
+    "roles",
+    "lineages",
+    "archetypes",
+    "grades",
+    "shared"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 2 },
+    "theme": { "$ref": "#/$defs/theme" },
+    "craft": {
+      "type": "object",
+      "propertyNames": { "pattern": "^[A-Z]$" },
+      "additionalProperties": { "$ref": "#/$defs/entry" }
+    },
+    "roles": { "$ref": "#/$defs/entryMap" },
+    "lineages": { "$ref": "#/$defs/entryMap" },
+    "archetypes": { "$ref": "#/$defs/entryMap" },
+    "grades": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/id" },
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 5,
+        "items": { "$ref": "#/$defs/entry" }
+      }
+    },
+    "shared": { "$ref": "#/$defs/entryMap" }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "filePrefix",
+        "fileExtension",
+        "generator",
+        "aspectRatio",
+        "style"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "filePrefix": {
+          "type": "string",
+          "pattern": "^[A-Z]{2,4}$"
+        },
+        "fileExtension": {
+          "type": "string",
+          "enum": ["png", "jpg", "webp"]
+        },
+        "generator": { "$ref": "#/$defs/nonEmptyString" },
+        "aspectRatio": { "$ref": "#/$defs/nonEmptyString" },
+        "style": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prompt", "alt", "status"],
+      "properties": {
+        "prompt": { "$ref": "#/$defs/nonEmptyString" },
+        "alt": { "$ref": "#/$defs/nonEmptyString" },
+        "bio": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The card's short character blurb, shown in the inspection panel next to its ability. Capped so it cannot push the ability bullets out of a panel that clips silently.",
+          "maxLength": 240
+        },
+        "status": {
+          "type": "string",
+          "enum": ["planned", "generated"]
+        }
+      }
+    },
+    "entryMap": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/id" },
+      "additionalProperties": { "$ref": "#/$defs/entry" }
+    }
+  }
+}

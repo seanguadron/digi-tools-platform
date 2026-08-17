@@ -8,7 +8,6 @@ export interface PromptRole {
     summary: string;
     bullets: readonly string[];
   };
-  illustration: CardIllustration;
 }
 
 export type FormatOption = {
@@ -61,16 +60,11 @@ export type CardGrade = {
   name: string;
   description: string;
   instruction: string;
-  illustration: CardIllustration;
 };
 
-export type CardIllustration = {
-  src: string;
-  alt: string;
-  motif: string;
-  prompt: string;
-  status: "planned" | "generated";
-};
+// The CRAFT deck's card art moved to art packs (src/lib/art-pack.ts), so
+// nothing here carries an illustration any more. The PICTURE deck still keeps
+// its own inline and imports the engine's CardIllustration for it.
 
 export type CardLineage = {
   id: string;
@@ -79,7 +73,6 @@ export type CardLineage = {
   driver: TrackId;
   goals: readonly string[];
   grades: readonly CardGrade[];
-  illustration: CardIllustration;
   affinity?: Partial<Record<TrackId, readonly [number, number]>>;
 };
 
@@ -113,7 +106,6 @@ export type PromptArchetype = {
   tracks: TrackValues;
   equipped: Partial<Record<CardSection, readonly string[]>>;
   effects: readonly string[];
-  illustration: CardIllustration;
   action?: string;
   formatNotes?: string;
   // Audience assumption injected when Target audience uses the default text.

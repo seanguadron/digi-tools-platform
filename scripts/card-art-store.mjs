@@ -6,33 +6,27 @@
 //   card-art-source/<theme>/<dir>/<entry>/<file>.png   committed, never built
 //   public/card-art/<theme>/<dir>/<entry>.webp         the one live file
 //
-// Callers address entries by their catalog KEY (roles.researcher). Every path
-// is derived here from the catalog; a caller can never supply one.
+// Callers address entries by their KEY (roles.researcher). Every path is
+// derived from that key by scripts/art-pack.mjs; a caller can never supply one.
+//
+// The only data file this writes is the art pack: catalogs are untouched, so
+// the studio cannot change what a card DOES, only how it looks.
 
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { artPathFor, artRelativePath, parseArtKey } from "./art-pack.mjs";
 import {
   ART_THEME_IDS,
   collectCraftArtEntries,
   artFileName,
   generateCraftArtDocs,
-  loadArtTheme,
 } from "./generate-craft-art-docs.mjs";
-import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
-import { catalogFiles, loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
+import { loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
 
 export const VARIANT_ROOT = "card-art-source";
 const CROP_SUFFIX = "_cropped";
 const MAX_IMAGE_BYTES = 32 * 1024 * 1024;
 const DATA_URL = /^data:image\/(png|jpeg|webp);base64,([A-Za-z0-9+/=]+)$/;
-
-// Which catalog file owns each entry group, for the status flip.
-const CATALOG_FOR_GROUP = {
-  roles: "roles",
-  lineages: "cards",
-  grades: "cards",
-  archetypes: "archetypes",
-};
 
 export class CardArtError extends Error {
   constructor(message, status = 400) {
@@ -50,6 +44,7 @@ export function createCardArtStore({
 } = {}) {
   const variantRoot = path.join(root, VARIANT_ROOT);
   const publicRoot = path.join(root, "public");
+  const packRoot = path.join(root, "src", "data", "prompt-builder", "art-themes");
 
   function assertInside(candidate, base, label) {
     const resolved = path.resolve(candidate);
@@ -67,11 +62,26 @@ export function createCardArtStore({
     return themeId;
   }
 
+  // The pack is the one data file this store writes, so it is read from the
+  // store's own root rather than the repo root: a test pointing `root` at a
+  // temp dir then reads back exactly what it wrote.
+  function packPath(themeId) {
+    return assertInside(
+      path.join(packRoot, `${requireTheme(themeId)}.json`),
+      packRoot,
+      "art pack",
+    );
+  }
+
+  async function loadPack(themeId) {
+    return JSON.parse(await readFile(packPath(themeId), "utf8"));
+  }
+
   async function loadContext(themeId) {
     requireTheme(themeId);
     const [catalog, theme] = await Promise.all([
       loadPromptCatalog(),
-      loadArtTheme(themeId),
+      loadPack(themeId),
     ]);
     const entries = collectCraftArtEntries(catalog, theme).map((entry, index) => ({
       ...entry,
@@ -92,18 +102,17 @@ export function createCardArtStore({
   // The variant folder mirrors the live target's own directory structure, so
   // an entry's sources sit next to nothing else.
   function variantDir(themeId, entry) {
-    // entry.target is "/card-art/sci-fi/roles/researcher.webp" -> "roles/researcher"
-    const relative = entry.target.replace(/^\/card-art\/[^/]+\//, "").replace(/\.webp$/, "");
+    // "roles.researcher" -> card-art-source/sci-fi/roles/researcher
     return assertInside(
-      path.join(variantRoot, themeId, relative),
+      path.join(variantRoot, themeId, artRelativePath(themeId, entry.key)),
       variantRoot,
       "variant directory",
     );
   }
 
-  function livePath(entry) {
+  function livePath(themeId, entry) {
     return assertInside(
-      path.join(publicRoot, entry.target.replace(/^\//, "")),
+      path.join(publicRoot, artPathFor(themeId, entry.key).replace(/^\//, "")),
       publicRoot,
       "live art path",
     );
@@ -222,13 +231,14 @@ export function createCardArtStore({
         target: entry.target,
         status: entry.status,
         prompt: entry.unique,
+        bio: entry.bio ?? "",
         variants: await readVariants(themeId, entry),
       })),
     );
 
     return {
       theme: themeId,
-      style: (await loadArtTheme(themeId)).theme.style,
+      style: (await loadPack(themeId)).theme.style,
       entries: withVariants,
       progress: {
         generated: withVariants.filter((entry) => entry.status === "generated").length,
@@ -321,78 +331,62 @@ export function createCardArtStore({
     return { removed: variant.id };
   }
 
-  // Catalog writes run one at a time. Two requests landing together would
+  // Pack writes run one at a time. Two requests landing together would
   // otherwise each read the pre-edit file and the second would silently
   // revert the first's flip.
-  let catalogQueue = Promise.resolve();
+  let packQueue = Promise.resolve();
 
-  // Flip one entry's status in its catalog JSON. Targeted string surgery on
-  // the illustration block that owns this src, so the rest of the file keeps
-  // its exact formatting (a JSON round-trip would reformat 3k lines).
-  function setStatus(entry, status) {
-    const run = catalogQueue.then(async () => {
-      const group = entry.key.split(".")[0];
-      const catalogKey = CATALOG_FOR_GROUP[group];
-      if (!catalogKey) {
-        // craft letters and the shared swatch have no catalog record yet.
+  // Flip one entry's status in its art pack. The pack is machine-formatted
+  // JSON that only this store and `npm run data:generate` write, so a plain
+  // round-trip is safe here where it would not have been on the catalogs.
+  function setStatus(themeId, entry, status) {
+    const run = packQueue.then(async () => {
+      const pack = await loadPack(themeId);
+      const { group, id, index } = parseArtKey(entry.key);
+      const record =
+        group === "grades" ? pack.grades?.[id]?.[index] : pack[group]?.[id];
+
+      if (!record) {
+        throw new CardArtError(
+          `Could not find ${entry.key} in the ${themeId} art pack`,
+          500,
+        );
+      }
+      if (record.status !== "planned" && record.status !== "generated") {
+        throw new CardArtError(
+          `Unexpected status "${record.status}" for ${entry.key}`,
+          500,
+        );
+      }
+      if (record.status === status) {
         return false;
       }
 
-      const name = catalogFiles[catalogKey];
-      const file = path.join(root, "src", "data", "prompt-builder", name);
-      const source = await readFile(file, "utf8");
-      const marker = `"src": "${entry.target}"`;
-      const at = source.indexOf(marker);
-      if (at === -1) {
-        throw new CardArtError(`Could not find ${entry.target} in ${name}`, 500);
-      }
-      // Illustration src values are globally unique (validate-prompt-data
-      // enforces it). If that ever stops being true, editing the first match
-      // would silently flip the wrong card — refuse instead of guessing.
-      if (source.indexOf(marker, at + marker.length) !== -1) {
-        throw new CardArtError(`${entry.target} appears more than once in ${name}`, 500);
-      }
-      const statusAt = source.indexOf('"status": "', at);
-      if (statusAt === -1) {
-        throw new CardArtError(`Could not find a status field for ${entry.target}`, 500);
-      }
-      const valueStart = statusAt + '"status": "'.length;
-      const valueEnd = source.indexOf('"', valueStart);
-      const current = source.slice(valueStart, valueEnd);
-      if (current !== "planned" && current !== "generated") {
-        throw new CardArtError(`Unexpected status "${current}" for ${entry.target}`, 500);
-      }
-      if (current === status) {
-        return false;
-      }
-
+      record.status = status;
       await writeFile(
-        file,
-        source.slice(0, valueStart) + status + source.slice(valueEnd),
+        packPath(themeId),
+        `${JSON.stringify(pack, null, 2)}\n`,
         "utf8",
       );
       return true;
     });
 
     // Keep the chain alive even when this write fails.
-    catalogQueue = run.then(
+    packQueue = run.then(
       () => undefined,
       () => undefined,
     );
     return run;
   }
 
-  // Both generated docs embed illustration status, so a flip has to refresh
-  // whichever ones quote the entry that moved — PROMPT_ROLES.md prints a
-  // status line per role, and check:standards fails the build on its drift.
-  async function refreshGeneratedDocs(entry) {
+  // The pack's generated doc prints a status line per entry, and
+  // check:standards fails the build on its drift, so a flip has to re-render
+  // it. Only one doc quotes status now that it belongs to the pack alone.
+  async function refreshGeneratedDocs() {
     if (!regenerateDocs) {
       return;
     }
     await generateCraftArtDocs();
-    if (entry.key.startsWith("roles.")) {
-      await generateRoleDocs();
-    }
   }
 
   async function selectVariant(themeId, key, variantId, webpDataUrl) {
@@ -408,12 +402,12 @@ export function createCardArtStore({
       throw new CardArtError("The live card image must be webp");
     }
 
-    const target = livePath(entry);
+    const target = livePath(themeId, entry);
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, bytes);
-    const flipped = await setStatus(entry, "generated");
+    const flipped = await setStatus(themeId, entry, "generated");
     if (flipped) {
-      await refreshGeneratedDocs(entry);
+      await refreshGeneratedDocs();
     }
 
     return { target: entry.target, selected: variantId, statusChanged: flipped };
@@ -422,10 +416,10 @@ export function createCardArtStore({
   async function clearLive(themeId, key) {
     const { entries } = await loadContext(themeId);
     const entry = findEntry(entries, key);
-    await rm(livePath(entry), { force: true });
-    const flipped = await setStatus(entry, "planned");
+    await rm(livePath(themeId, entry), { force: true });
+    const flipped = await setStatus(themeId, entry, "planned");
     if (flipped) {
-      await refreshGeneratedDocs(entry);
+      await refreshGeneratedDocs();
     }
     return { target: entry.target, statusChanged: flipped };
   }

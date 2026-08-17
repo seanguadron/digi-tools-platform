@@ -14,10 +14,9 @@ import {
   type DragEndEvent,
   type DragStartEvent,
 } from "@dnd-kit/core";
-import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
+import { CardBio, CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
 import { usePortalTarget } from "@/hooks/use-portal-target";
-import { resolveCardIllustration } from "@/lib/card-engine";
 import type {
   CardEngine,
   CardLineageOf,
@@ -56,10 +55,7 @@ function CardFace<
       </span>
       <CardIllustrationFrame
         className="lineage-card-art"
-        illustration={resolveCardIllustration(
-          grade.illustration,
-          lineage.illustration,
-        )}
+        illustration={engine.getCardArt(lineage, values)}
         fallback={lineage.code.slice(0, 1)}
       />
       <span className="lineage-card-copy" key={grade.name}>
@@ -590,10 +586,7 @@ export function PromptCardWorkbench<
               >
                 <CardIllustrationFrame
                   className="floating-card-art"
-                  illustration={resolveCardIllustration(
-                    previewGrade.illustration,
-                    previewLineage.illustration,
-                  )}
+                  illustration={engine.getCardArt(previewLineage, values)}
                   fallback={previewLineage.code.slice(0, 1)}
                 />
                 <div className="floating-card-panel-identity">
@@ -601,6 +594,7 @@ export function PromptCardWorkbench<
                   <strong>{previewGrade.name}</strong>
                   <p>{previewGrade.description}</p>
                 </div>
+                <CardBio text={engine.getCardBio(previewLineage)} />
                 <div className="ability-guidance">
                   <span>What this adds</span>
                   <ul>

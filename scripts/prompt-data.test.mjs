@@ -18,16 +18,21 @@ test("the current prompt catalog is valid", async () => {
   );
   // Every lineage carries exactly 4 grades — one per snap point on its driver.
   assert.ok(catalog.cards.cards.every((card) => card.grades.length === 4));
-  assert.ok(catalog.roles.roles.every((role) => role.illustration));
   assert.ok(
     catalog.roles.roles.every(
       (role) => role.ability.bullets.length >= 1 && role.ability.bullets.length <= 6,
     ),
   );
-  assert.equal(
-    catalog.cards.cards.flatMap((card) => card.grades).filter((grade) => grade.illustration)
-      .length,
-    128,
+  // Art belongs to an art pack now, not to the catalog. A stray illustration
+  // block would mean a half-finished migration rather than extra data, and
+  // the schema's additionalProperties would reject it anyway.
+  assert.ok(catalog.roles.roles.every((role) => !("illustration" in role)));
+  assert.ok(
+    catalog.cards.cards.every(
+      (card) =>
+        !("illustration" in card) &&
+        card.grades.every((grade) => !("illustration" in grade)),
+    ),
   );
   assert.ok(catalog.archetypes.archetypes.every((archetype) => archetype.effects.length > 0));
   // The audience assumption backs the Target "Use default" line.
@@ -81,24 +86,19 @@ test("track values cannot exceed their snap points", async () => {
   );
 });
 
-test("duplicate illustration paths fail validation", async () => {
+// Art-side rules (paths, the no-text rule, pack coverage) moved with the art
+// itself: see art-pack.test.mjs and craft-art-docs.test.mjs.
+
+test("an illustration left on a card is rejected, not ignored", async () => {
   const catalog = await loadCatalog();
   const invalid = clone(catalog);
-  invalid.roles.roles[1].illustration.src = invalid.roles.roles[0].illustration.src;
+  invalid.roles.roles[0].illustration = {
+    src: "/card-art/sci-fi/roles/researcher.webp",
+    status: "generated",
+  };
 
   await assert.rejects(
     () => validateCatalog(invalid),
-    /Duplicate illustration path: \/card-art\/sci-fi\/roles\/researcher\.webp/,
-  );
-});
-
-test("illustration prompts must ban embedded text", async () => {
-  const catalog = await loadCatalog();
-  const invalid = clone(catalog);
-  invalid.archetypes.archetypes[0].illustration.prompt = "Draw a card.";
-
-  await assert.rejects(
-    () => validateCatalog(invalid),
-    /illustration prompt is missing the image-only no-text rule/,
+    /must NOT have additional properties/,
   );
 });

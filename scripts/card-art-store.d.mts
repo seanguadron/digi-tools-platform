@@ -28,6 +28,7 @@ export type CardArtEntry = {
   target: string;
   status: string;
   prompt: string;
+  bio: string;
   variants: CardArtVariant[];
 };
 
@@ -67,8 +68,8 @@ export type CardArtStore = {
     themeId: string,
     key: string,
   ): Promise<{ target: string; statusChanged: boolean }>;
-  variantDir(themeId: string, entry: { target: string }): string;
-  livePath(entry: { target: string }): string;
+  variantDir(themeId: string, entry: { key: string }): string;
+  livePath(themeId: string, entry: { key: string }): string;
 };
 
 export declare function createCardArtStore(options?: {

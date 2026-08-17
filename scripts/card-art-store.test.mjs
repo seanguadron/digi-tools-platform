@@ -14,26 +14,47 @@ const WEBP = "data:image/webp;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+
 
 const ROLE_KEY = "roles.researcher";
 
+const PACK_RELATIVE = path.join(
+  "src",
+  "data",
+  "prompt-builder",
+  "art-themes",
+  "sci-fi.json",
+);
+
 async function makeStore() {
   const root = await mkdtemp(path.join(os.tmpdir(), "card-art-"));
-  // The status flip edits a catalog file, so give the temp root real copies.
-  const dataDir = path.join(root, "src", "data", "prompt-builder");
-  await mkdir(dataDir, { recursive: true });
-  for (const file of ["roles.json", "cards.json", "archetypes.json"]) {
-    const source = await readFile(
-      path.join(projectRoot, "src", "data", "prompt-builder", file),
-      "utf8",
-    );
-    // Normalize to "planned" so these tests describe the store's behavior
-    // rather than however much art has actually been generated so far.
-    await writeFile(
-      path.join(dataDir, file),
-      source.replaceAll('"status": "generated"', '"status": "planned"'),
-      "utf8",
-    );
-  }
+  // The status flip edits the art pack, so give the temp root a real copy.
+  await mkdir(path.join(root, path.dirname(PACK_RELATIVE)), { recursive: true });
+  const source = await readFile(path.join(projectRoot, PACK_RELATIVE), "utf8");
+  // Normalize to "planned" so these tests describe the store's behavior
+  // rather than however much art has actually been generated so far.
+  await writeFile(
+    path.join(root, PACK_RELATIVE),
+    source.replaceAll('"status": "generated"', '"status": "planned"'),
+    "utf8",
+  );
   const store = createCardArtStore({ root, regenerateDocs: false });
   return { root, store, cleanup: () => rm(root, { recursive: true, force: true }) };
+}
+
+async function readPack(root) {
+  return JSON.parse(await readFile(path.join(root, PACK_RELATIVE), "utf8"));
+}
+
+function generatedKeys(pack) {
+  const keys = [];
+  for (const group of ["craft", "roles", "lineages", "archetypes", "shared"]) {
+    for (const [id, entry] of Object.entries(pack[group])) {
+      if (entry.status === "generated") keys.push(`${group}.${id}`);
+    }
+  }
+  for (const [id, grades] of Object.entries(pack.grades)) {
+    grades.forEach((entry, index) => {
+      if (entry.status === "generated") keys.push(`grades.${id}[${index}]`);
+    });
+  }
+  return keys;
 }
 
 test("entries come from the catalog with their file names and prompts", async () => {
@@ -110,7 +131,7 @@ test("deleting a variant frees its letter for reuse", async () => {
   }
 });
 
-test("selecting writes the live webp and flips the catalog status", async () => {
+test("selecting writes the live webp and flips the pack status", async () => {
   const { root, store, cleanup } = await makeStore();
   try {
     await store.addVariant("sci-fi", ROLE_KEY, PNG);
@@ -122,13 +143,29 @@ test("selecting writes the live webp and flips the catalog status", async () => 
     const live = path.join(root, "public", "card-art", "sci-fi", "roles", "researcher.webp");
     assert.ok(existsSync(live), "live webp was not written");
 
-    const roles = JSON.parse(
-      await readFile(path.join(root, "src", "data", "prompt-builder", "roles.json"), "utf8"),
-    );
-    const researcher = roles.roles.find((role) => role.id === "researcher");
-    assert.equal(researcher.illustration.status, "generated");
-    // Only the targeted entry moved.
-    assert.equal(roles.roles.filter((r) => r.illustration.status === "generated").length, 1);
+    // Only the targeted entry moved, and only in the pack.
+    assert.deepEqual(generatedKeys(await readPack(root)), [ROLE_KEY]);
+  } finally {
+    await cleanup();
+  }
+});
+
+test("the studio never writes a catalog file", async () => {
+  const { root, store, cleanup } = await makeStore();
+  try {
+    await store.addVariant("sci-fi", ROLE_KEY, PNG);
+    await store.selectVariant("sci-fi", ROLE_KEY, "a", WEBP);
+    await store.clearLive("sci-fi", ROLE_KEY);
+
+    // The fixture seeds ONLY the pack. If any of the above reached for a
+    // catalog it would have had to create one, so absence is the proof.
+    for (const file of ["roles.json", "cards.json", "archetypes.json"]) {
+      assert.equal(
+        existsSync(path.join(root, "src", "data", "prompt-builder", file)),
+        false,
+        `the store wrote ${file}`,
+      );
+    }
   } finally {
     await cleanup();
   }
@@ -143,12 +180,7 @@ test("clearing removes the live file and returns the status to planned", async (
 
     const live = path.join(root, "public", "card-art", "sci-fi", "roles", "researcher.webp");
     assert.equal(existsSync(live), false, "live webp survived the clear");
-
-    const roles = JSON.parse(
-      await readFile(path.join(root, "src", "data", "prompt-builder", "roles.json"), "utf8"),
-    );
-    const researcher = roles.roles.find((role) => role.id === "researcher");
-    assert.equal(researcher.illustration.status, "planned");
+    assert.deepEqual(generatedKeys(await readPack(root)), []);
   } finally {
     await cleanup();
   }
@@ -218,8 +250,8 @@ test("every derived path stays inside its own root", async () => {
   try {
     const manifest = await store.listEntries("sci-fi");
     for (const entry of manifest.entries) {
-      const dir = store.variantDir("sci-fi", { ...entry, fileName: entry.fileName });
-      const live = store.livePath(entry);
+      const dir = store.variantDir("sci-fi", entry);
+      const live = store.livePath("sci-fi", entry);
       assert.ok(
         dir.startsWith(path.join(root, "card-art-source")),
         `variant dir escaped: ${dir}`,
@@ -231,21 +263,24 @@ test("every derived path stays inside its own root", async () => {
   }
 });
 
-test("a catalog whose entry is missing fails loudly instead of writing", async () => {
+test("a pack whose entry is missing fails loudly instead of writing", async () => {
   const { root, store, cleanup } = await makeStore();
   try {
-    const rolesPath = path.join(root, "src", "data", "prompt-builder", "roles.json");
-    const source = await readFile(rolesPath, "utf8");
+    await store.addVariant("sci-fi", ROLE_KEY, PNG);
+
+    // The manifest still owes this image (the catalog says so), but the pack
+    // it would be written into no longer describes it.
+    const pack = await readPack(root);
+    delete pack.roles.researcher;
     await writeFile(
-      rolesPath,
-      source.replace('"src": "/card-art/sci-fi/roles/researcher.webp"', '"src": "/card-art/sci-fi/roles/moved.webp"'),
+      path.join(root, PACK_RELATIVE),
+      JSON.stringify(pack, null, 2),
       "utf8",
     );
 
-    await store.addVariant("sci-fi", ROLE_KEY, PNG);
     await assert.rejects(
       () => store.selectVariant("sci-fi", ROLE_KEY, "a", WEBP),
-      /Could not find/,
+      /Could not find roles\.researcher/,
     );
   } finally {
     await cleanup();

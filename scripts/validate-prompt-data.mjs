@@ -1,7 +1,11 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
-import { generateCraftArtDocs } from "./generate-craft-art-docs.mjs";
+import {
+  ART_THEME_IDS,
+  generateCraftArtDocs,
+  loadArtTheme,
+} from "./generate-craft-art-docs.mjs";
 import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import {
@@ -11,17 +15,24 @@ import {
 
 const SECTIONS = ["context", "action", "format", "target"];
 let schemaValidatorPromise;
+let artPackValidatorPromise;
 
 export const loadCatalog = loadPromptCatalog;
 
-function getSchemaValidator() {
-  schemaValidatorPromise ??= readPromptDataJson(
-    "prompt-catalog.schema.json",
-  ).then((schema) =>
+function compileSchema(relativePath) {
+  return readPromptDataJson(relativePath).then((schema) =>
     new Ajv({ allErrors: true, strict: true }).compile(schema),
   );
+}
 
+function getSchemaValidator() {
+  schemaValidatorPromise ??= compileSchema("prompt-catalog.schema.json");
   return schemaValidatorPromise;
+}
+
+function getArtPackValidator() {
+  artPackValidatorPromise ??= compileSchema("art-themes/art-pack.schema.json");
+  return artPackValidatorPromise;
 }
 
 function schemaErrors(validationErrors = []) {
@@ -219,49 +230,37 @@ function validateCards(catalog, indexes) {
   return errors;
 }
 
-function validateIllustration(errors, illustration, ownerLabel, paths) {
-  if (paths.has(illustration.src)) {
-    errors.push(`Duplicate illustration path: ${illustration.src}`);
-  }
-  paths.add(illustration.src);
-
-  if (!illustration.src.startsWith("/card-art/")) {
-    errors.push(`${ownerLabel} illustration must use /card-art/: ${illustration.src}`);
-  }
-
-  if (!illustration.prompt.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)) {
-    errors.push(`${ownerLabel} illustration prompt is missing the image-only no-text rule`);
-  }
-}
-
-function validateIllustrations(catalog) {
+// Art lives in packs now, not in the catalog. What the catalog still owes the
+// pack is the LIST of cards; `generateCraftArtDocs({check:true})` below is
+// what fails when a pack falls behind that list. This validates the pack's own
+// shape, so a hand-edited pack fails the build the way a hand-edited catalog
+// does rather than surfacing as a missing image at runtime.
+async function validateArtPacks() {
+  const validatePack = await getArtPackValidator();
   const errors = [];
-  const paths = new Set();
 
-  for (const role of catalog.roles.roles) {
-    validateIllustration(errors, role.illustration, `Role ${role.id}`, paths);
-  }
-
-  for (const card of catalog.cards.cards) {
-    validateIllustration(errors, card.illustration, `Card ${card.id}`, paths);
-
-    for (const grade of card.grades) {
-      validateIllustration(
-        errors,
-        grade.illustration,
-        `Card ${card.id} grade ${grade.name}`,
-        paths,
+  for (const themeId of ART_THEME_IDS) {
+    const pack = await loadArtTheme(themeId);
+    if (!validatePack(pack)) {
+      errors.push(
+        ...schemaErrors(validatePack.errors).map(
+          (message) => `art-themes/${themeId}.json: ${message}`,
+        ),
+      );
+      continue;
+    }
+    if (pack.theme.id !== themeId) {
+      errors.push(
+        `art-themes/${themeId}.json declares theme id "${pack.theme.id}"`,
       );
     }
-  }
-
-  for (const archetype of catalog.archetypes.archetypes) {
-    validateIllustration(
-      errors,
-      archetype.illustration,
-      `Archetype ${archetype.id}`,
-      paths,
-    );
+    // The pack's shared paragraph opens every prompt in it, so this one check
+    // covers all 226 briefs at once.
+    if (!pack.theme.style.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)) {
+      errors.push(
+        `art-themes/${themeId}.json style paragraph is missing the image-only no-text rule`,
+      );
+    }
   }
 
   return errors;
@@ -458,7 +457,6 @@ export async function validateCatalog(catalog, { checkDocs = false } = {}) {
     ...validateUniqueIds(catalog),
     ...validateTracks(catalog, indexes),
     ...validateCards(catalog, indexes),
-    ...validateIllustrations(catalog),
     ...validateSuggestions(catalog, indexes),
     ...validateBuilder(catalog, indexes),
     ...validateArchetypes(catalog, indexes),
@@ -479,6 +477,15 @@ export async function validateCatalog(catalog, { checkDocs = false } = {}) {
 
 export async function validatePromptData(options = {}) {
   await validateCatalog(await loadCatalog(), options);
+
+  // Deliberately outside validateCatalog: that function must stay a pure
+  // check of the catalog it is handed, because the Card Studio runs it against
+  // an unsaved candidate to decide whether an edit is allowed to land. Packs
+  // are a separate file with a separate lifecycle.
+  const errors = await validateArtPacks();
+  if (errors.length > 0) {
+    throw new Error(`Art pack validation failed:\n- ${errors.join("\n- ")}`);
+  }
 }
 
 const isMain =

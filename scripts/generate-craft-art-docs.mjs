@@ -1,13 +1,14 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { ART_PACK_GROUPS, artPackEntry, artPathFor } from "./art-pack.mjs";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import { loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
 
-// Art packs for the CRAFT deck. Each theme file holds one shared style
-// paragraph plus a unique second paragraph per image; this generator joins
-// them into paste-ready prompts. Add a pack by dropping in its JSON and
-// listing its id here.
+// Art packs for the CRAFT deck. Each pack file holds one shared style
+// paragraph plus a per-image entry (brief, alt text, optional bio, status);
+// this generator joins them into paste-ready prompts. Add a pack by dropping
+// in its JSON and listing its id here.
 export const ART_THEME_IDS = ["sci-fi"];
 
 const SECTION_ORDER = ["context", "action", "format", "target"];
@@ -45,10 +46,6 @@ export async function loadArtTheme(themeId) {
   }
 }
 
-function craftSlug(label) {
-  return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
 // The name to save a generated image under, e.g. SCI-011-Synthesizer.png.
 // Keeps the entry's own capitalization so the file is readable in a download
 // folder, and leads with the sequence number so the batch sorts in doc order.
@@ -59,12 +56,18 @@ export function artFileName(theme, sequence, name) {
   return `${prefix}-${String(sequence).padStart(3, "0")}-${slug}.${theme.theme.fileExtension}`;
 }
 
-function craftTarget(theme, part) {
-  return `/card-art/${theme.theme.pathSegment}/craft/${craftSlug(part.label)}.webp`;
-}
-
-function sharedTarget(theme, key) {
-  return `/card-art/${theme.theme.pathSegment}/archetypes/${key}.webp`;
+// The catalog names WHICH images a pack owes and in what order; the pack
+// itself supplies every word and the status. Nothing here reads a path out of
+// the catalog any more - `artPathFor` derives it from the pack id and the key.
+function packEntry(theme, key) {
+  const resolved = artPackEntry(theme, key);
+  return {
+    target: artPathFor(theme.theme.id, key),
+    status: resolved?.status ?? "missing",
+    unique: resolved?.prompt,
+    bio: resolved?.bio,
+    key,
+  };
 }
 
 // One flat, ordered list of every image the pack owes. The acronym leads
@@ -78,10 +81,7 @@ export function collectCraftArtEntries(catalog, theme) {
       group: "Acronym",
       name: part.label,
       owner: `craftParts \`${part.letter}\``,
-      target: craftTarget(theme, part),
-      status: "not wired yet",
-      unique: theme.craft?.[part.letter],
-      key: `craft.${part.letter}`,
+      ...packEntry(theme, `craft.${part.letter}`),
     });
   }
 
@@ -100,10 +100,7 @@ export function collectCraftArtEntries(catalog, theme) {
         group: `Roles - ${category}`,
         name: role.name,
         owner: `Role \`${role.id}\``,
-        target: role.illustration.src,
-        status: role.illustration.status,
-        unique: theme.roles?.[role.id],
-        key: `roles.${role.id}`,
+        ...packEntry(theme, `roles.${role.id}`),
       });
     }
   }
@@ -117,10 +114,7 @@ export function collectCraftArtEntries(catalog, theme) {
         group: `Cards - ${SECTION_LABELS[section]}`,
         name: `${lineage.code} lineage`,
         owner: `Card \`${lineage.id}\``,
-        target: lineage.illustration.src,
-        status: lineage.illustration.status,
-        unique: theme.lineages?.[lineage.id],
-        key: `lineages.${lineage.id}`,
+        ...packEntry(theme, `lineages.${lineage.id}`),
       });
     }
   }
@@ -130,10 +124,7 @@ export function collectCraftArtEntries(catalog, theme) {
       group: "Archetypes",
       name: archetype.name,
       owner: `Archetype \`${archetype.id}\``,
-      target: archetype.illustration.src,
-      status: archetype.illustration.status,
-      unique: theme.archetypes?.[archetype.id],
-      key: `archetypes.${archetype.id}`,
+      ...packEntry(theme, `archetypes.${archetype.id}`),
     });
   }
 
@@ -142,10 +133,7 @@ export function collectCraftArtEntries(catalog, theme) {
       group: "Shared",
       name: "Custom preset swatch",
       owner: "prompt-custom-archetypes.ts",
-      target: sharedTarget(theme, key),
-      status: "planned",
-      unique: theme.shared[key],
-      key: `shared.${key}`,
+      ...packEntry(theme, `shared.${key}`),
     });
   }
 
@@ -160,10 +148,7 @@ export function collectCraftArtEntries(catalog, theme) {
           group: `Per-grade variants - ${SECTION_LABELS[section]}`,
           name: `${lineage.code} ${index + 1}. ${grade.name}`,
           owner: `Card \`${lineage.id}\` grade \`${grade.name}\``,
-          target: grade.illustration.src,
-          status: grade.illustration.status,
-          unique: theme.grades?.[lineage.id]?.[index],
-          key: `grades.${lineage.id}[${index}]`,
+          ...packEntry(theme, `grades.${lineage.id}[${index}]`),
           later: true,
         });
       });
@@ -174,20 +159,33 @@ export function collectCraftArtEntries(catalog, theme) {
 }
 
 // The guarantee that a pack can never silently miss a card: every entry the
-// catalog owes needs an authored paragraph, and the pack may not carry
-// paragraphs for things that no longer exist.
+// catalog owes needs an authored brief, and the pack may not carry entries for
+// things that no longer exist.
 export function craftArtCoverageErrors(catalog, theme) {
   const errors = [];
   const entries = collectCraftArtEntries(catalog, theme);
 
+  // Paths are derived rather than stored, so a collision is a bug in the key
+  // scheme rather than a typo - but it would silently make two cards share an
+  // image, so it is still worth refusing.
+  const targets = new Set();
   for (const entry of entries) {
     if (typeof entry.unique !== "string" || !entry.unique.trim()) {
       errors.push(`${theme.theme.id} art pack is missing ${entry.key}`);
     }
+    if (targets.has(entry.target)) {
+      errors.push(
+        `${theme.theme.id} art pack derives ${entry.target} more than once (${entry.key})`,
+      );
+    }
+    targets.add(entry.target);
   }
 
   const expected = new Set(entries.map((entry) => entry.key));
-  for (const group of ["craft", "roles", "lineages", "archetypes", "shared"]) {
+  for (const group of ART_PACK_GROUPS) {
+    if (group === "grades") {
+      continue;
+    }
     for (const key of Object.keys(theme[group] ?? {})) {
       if (!expected.has(`${group}.${key}`)) {
         errors.push(`${theme.theme.id} art pack has an orphan entry ${group}.${key}`);
@@ -232,6 +230,11 @@ export function renderCraftArtDoc(catalog, theme) {
     `> \`src/data/prompt-builder/art-themes/${theme.theme.id}.json\` by`,
     "> `scripts/generate-craft-art-docs.mjs`. Do not edit by hand; run",
     "> `npm run data:generate` after changing the art pack or the catalog.",
+    ">",
+    "> The catalog decides WHICH images this pack owes and in what order; the",
+    "> pack supplies every word below. Target paths are derived from the pack",
+    "> id and the entry key, never stored, so a second pack lands beside this",
+    "> one without moving a file.",
     "",
     `Target generator: **${generator}**. Set the aspect ratio to **${aspectRatio}**`,
     "in the generator's own controls - the prompts below carry no parameter",
@@ -243,10 +246,12 @@ export function renderCraftArtDoc(catalog, theme) {
     "",
     "1. Copy the whole block and generate it square.",
     `2. Save the pick under its listed file name, e.g. \`${artFileName(theme, 11, "Synthesizer")}\`.`,
-    "3. To put it in the app, convert it to webp and place it at the listed",
-    "   target path under `public/` - the catalog only accepts `.webp`.",
-    "4. Flip that entry's `status` to `\"generated\"` in its catalog JSON.",
-    "5. Run `npm run data:generate` so this file re-renders.",
+    "3. Paste it into the Card Studio (`/studio/cards`), crop it, and press",
+    "   \"Use this\" - it writes the webp to the listed target path, flips this",
+    "   pack's `status` to `\"generated\"`, and re-renders this file.",
+    "4. By hand instead: convert to webp, place it at the target path under",
+    "   `public/`, flip `status` in this pack's JSON, and run",
+    "   `npm run data:generate`.",
     "",
     `Progress: ${generated}/${entries.length} generated - ${core.length} core images first, then ${later.length} per-grade variants.`,
     "",
@@ -291,6 +296,7 @@ export function renderCraftArtDoc(catalog, theme) {
       `- Target: \`public${entry.target}\``,
       `- Owner: ${entry.owner}`,
       `- Status: ${entry.status}`,
+      ...(entry.bio ? [`- Bio: ${entry.bio}`] : []),
       "",
       "```",
       style,

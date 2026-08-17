@@ -4063,7 +4063,8 @@ button.role-loadout-slot {
   z-index: 70;
   display: grid;
   width: min(390px, calc(100vw - 32px));
-  max-height: min(480px, calc(100dvh - 32px));
+  /* max-height comes from getFloatingPanelPosition as an inline style, so the
+     placement math and the clip budget are the same number. */
   grid-template-columns: 92px minmax(0, 1fr);
   align-items: start;
   gap: 12px;
@@ -4131,6 +4132,22 @@ button.role-loadout-slot {
 
 .floating-card-panel .ability-guidance {
   grid-column: 1 / -1;
+}
+
+/* The card's character bio. Spans both columns because the panel is a
+   two-column grid with the art pinned to column 1 - a child without this
+   lands inside the 92px art column. Set apart from the mechanical copy by
+   a rule and italics: it is flavour, not instruction. */
+.floating-card-bio {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 8px;
+  border-top: 1px solid color-mix(in oklch, var(--brand-cyan) 22%, var(--border));
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .floating-card-panel .ability-guidance li {

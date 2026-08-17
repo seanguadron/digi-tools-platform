@@ -4,6 +4,11 @@
 > `src/data/prompt-builder/art-themes/sci-fi.json` by
 > `scripts/generate-craft-art-docs.mjs`. Do not edit by hand; run
 > `npm run data:generate` after changing the art pack or the catalog.
+>
+> The catalog decides WHICH images this pack owes and in what order; the
+> pack supplies every word below. Target paths are derived from the pack
+> id and the entry key, never stored, so a second pack lands beside this
+> one without moving a file.
 
 Target generator: **Higgsfield.ai - Seedream 5.0 Lite**. Set the aspect ratio to **1:1**
 in the generator's own controls - the prompts below carry no parameter
@@ -15,10 +20,12 @@ Per image:
 
 1. Copy the whole block and generate it square.
 2. Save the pick under its listed file name, e.g. `SCI-011-Synthesizer.png`.
-3. To put it in the app, convert it to webp and place it at the listed
-   target path under `public/` - the catalog only accepts `.webp`.
-4. Flip that entry's `status` to `"generated"` in its catalog JSON.
-5. Run `npm run data:generate` so this file re-renders.
+3. Paste it into the Card Studio (`/studio/cards`), crop it, and press
+   "Use this" - it writes the webp to the listed target path, flips this
+   pack's `status` to `"generated"`, and re-renders this file.
+4. By hand instead: convert to webp, place it at the target path under
+   `public/`, flip `status` in this pack's JSON, and run
+   `npm run data:generate`.
 
 Progress: 3/226 generated - 98 core images first, then 128 per-grade variants.
 
@@ -35,9 +42,10 @@ Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: pain
 #### 001. Context
 
 - File name: `SCI-001-Context.png`
-- Target: `public/card-art/sci-fi/craft/context.webp`
+- Target: `public/card-art/sci-fi/craft/letter-c.webp`
 - Owner: craftParts `C`
-- Status: not wired yet
+- Status: planned
+- Bio: Everything the answer is allowed to stand on, and the hard edge where that stops.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -48,9 +56,10 @@ Context. A vast dark situation table where a holographic terrain of the problem 
 #### 002. Role
 
 - File name: `SCI-002-Role.png`
-- Target: `public/card-art/sci-fi/craft/role.webp`
+- Target: `public/card-art/sci-fi/craft/letter-r.webp`
 - Owner: craftParts `R`
-- Status: not wired yet
+- Status: planned
+- Bio: One perspective stepped forward out of the rank, because the hardest decision in the work needs a specialist.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -61,9 +70,10 @@ Role. A rank of identical armored crew silhouettes standing in shadow while one 
 #### 003. Action
 
 - File name: `SCI-003-Action.png`
-- Target: `public/card-art/sci-fi/craft/action.webp`
+- Target: `public/card-art/sci-fi/craft/letter-a.webp`
 - Owner: craftParts `A`
-- Status: not wired yet
+- Status: planned
+- Bio: The verb. What the work actually does, chosen and driven forward instead of hedged.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -74,9 +84,10 @@ Action. The moment of commitment: a heavy mechanism driving forward along a rail
 #### 004. Format
 
 - File name: `SCI-004-Format.png`
-- Target: `public/card-art/sci-fi/craft/format.webp`
+- Target: `public/card-art/sci-fi/craft/letter-f.webp`
 - Owner: craftParts `F`
-- Status: not wired yet
+- Status: planned
+- Bio: The mold. The same findings pressed into the shape the reader can actually use.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -87,9 +98,10 @@ Format. A precision mold closing around molten luminous material and pressing it
 #### 005. Target audience
 
 - File name: `SCI-005-Target-audience.png`
-- Target: `public/card-art/sci-fi/craft/target-audience.webp`
+- Target: `public/card-art/sci-fi/craft/letter-t.webp`
 - Owner: craftParts `T`
-- Status: not wired yet
+- Status: planned
+- Bio: Whoever is at the other end of the transmission. Everything upstream is aimed at them.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -105,6 +117,7 @@ Target audience. A single figure seen from behind at a wide viewport, lit from t
 - Target: `public/card-art/sci-fi/roles/researcher.webp`
 - Owner: Role `researcher`
 - Status: generated
+- Bio: Xenoarchivist. She will not cite a source she has not held in her own hands, and she files the ones that contradict her as carefully as the ones that agree.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -118,6 +131,7 @@ A xenoarchivist in a modular field rig, half-lit by the cracked data-core she is
 - Target: `public/card-art/sci-fi/roles/analyst.webp`
 - Owner: Role `analyst`
 - Status: generated
+- Bio: Reads two conflicting instruments and refuses to average them. Pulls a claim apart at the seam until the assumption holding it together is visible.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -131,6 +145,7 @@ An analyst standing inside a suspended lattice of readings, pulling two conflict
 - Target: `public/card-art/sci-fi/roles/strategist.webp`
 - Owner: Role `strategist`
 - Status: planned
+- Bio: Runs three approaches over the war table and kills two of them on purpose. What she hands you is the one that survived its own worst case.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -144,6 +159,7 @@ A campaign strategist over a darkened war table, three glowing approach vectors 
 - Target: `public/card-art/sci-fi/roles/historian.webp`
 - Owner: Role `historian`
 - Status: planned
+- Bio: Keeper of the memory spindle. Will not tell you what happened until the order is right, because the order is usually the reason.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -157,6 +173,7 @@ A chronicler at a towering memory spindle, drawing a single luminous timeline th
 - Target: `public/card-art/sci-fi/roles/fact-checker.webp`
 - Owner: Role `fact-checker`
 - Status: planned
+- Bio: Puts a claim in the authentication clamp and traces its provenance back to something solid. If nothing lights up, the claim leaves the room.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -170,6 +187,7 @@ A verification officer holding a claim slab in an authentication clamp, provenan
 - Target: `public/card-art/sci-fi/roles/synthesizer.webp`
 - Owner: Role `synthesizer`
 - Status: generated
+- Bio: Braids many signals into one cable without hiding the strands that fight. Disagreement stays in the weave, visible and load-bearing.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -183,6 +201,7 @@ A signal weaver at a braiding loom, gathering many separate glowing data strands
 - Target: `public/card-art/sci-fi/roles/explainer-educator.webp`
 - Owner: Role `explainer-educator`
 - Status: planned
+- Bio: Unfolds a mechanism in mid-air and holds it there while you look. Never explains a part before you can see where it sits.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -196,6 +215,7 @@ An instructor unfolding a complex mechanism into a floating exploded diagram, th
 - Target: `public/card-art/sci-fi/roles/comparative-reviewer.webp`
 - Owner: Role `comparative-reviewer`
 - Status: planned
+- Bio: Runs both prototypes to failure in the same bay under the same load, and finds the hairline crack neither builder wanted found.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -211,6 +231,7 @@ A critical reviewer between two suspended prototypes in an inspection bay, stres
 - Target: `public/card-art/sci-fi/roles/developer.webp`
 - Owner: Role `developer`
 - Status: planned
+- Bio: Seats a new part into a running lattice without stopping the machine, matching the existing fittings even when he would have chosen different ones.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -224,6 +245,7 @@ An engineer wrist-deep in a modular lattice of interlocking components, seating 
 - Target: `public/card-art/sci-fi/roles/technical-troubleshooter.webp`
 - Owner: Role `technical-troubleshooter`
 - Status: planned
+- Bio: Traces the fault arc to the one break instead of replacing the whole run, and will not close the panel until the fix survives the same load twice.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -237,6 +259,7 @@ A diagnostics technician tracing a fault arc through a machine's exposed guts, o
 - Target: `public/card-art/sci-fi/roles/systems-designer.webp`
 - Owner: Role `systems-designer`
 - Status: planned
+- Bio: Moves whole subsystems into relation with each other before anything is built. Cares more about how it fails than how it runs.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -250,6 +273,7 @@ A systems architect inside a hovering orbital schematic, moving whole subsystems
 - Target: `public/card-art/sci-fi/roles/workflow-architect.webp`
 - Owner: Role `workflow-architect`
 - Status: planned
+- Bio: Reroutes a stalled line so the flow runs clean and leaves the necessary checks standing. The bottleneck goes; the safeguards do not.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -263,6 +287,7 @@ A pipeline designer above a conveyor of light, rerouting a stalled segment so th
 - Target: `public/card-art/sci-fi/roles/ux-ui-advisor.webp`
 - Owner: Role `ux-ui-advisor`
 - Status: planned
+- Bio: Tests a control surface with a gloved hand and watches for heat-bloom where the reach goes wrong. Trusts the hand over the drawing.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -276,6 +301,7 @@ An interface ergonomist testing a control surface with a gloved hand, heat-bloom
 - Target: `public/card-art/sci-fi/roles/data-analyst.webp`
 - Owner: Role `data-analyst`
 - Status: planned
+- Bio: Suspended in the particle field, cupping the cluster where the signal actually concentrates. Names the caveat in the same breath as the finding.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -289,6 +315,7 @@ A data diver suspended in a dense particle field of measurements, cupping a clus
 - Target: `public/card-art/sci-fi/roles/qa-test-engineer.webp`
 - Owner: Role `qa-test-engineer`
 - Status: planned
+- Bio: Drives a prototype past its limits on purpose, inside a reinforced bay, and writes down the exact load where it let go.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -302,6 +329,7 @@ A stress-test operator deliberately driving a prototype past its limits inside a
 - Target: `public/card-art/sci-fi/roles/security-reviewer.webp`
 - Owner: Role `security-reviewer`
 - Status: planned
+- Bio: Probes the shield lattice from outside, where an attacker would stand. Reports the seam that matters, not every seam there is.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -317,6 +345,7 @@ A breach analyst probing a shield lattice from outside, one hairline seam in the
 - Target: `public/card-art/sci-fi/roles/writer.webp`
 - Owner: Role `writer`
 - Status: planned
+- Bio: Draws one clean line out of formless material at the text-loom. The first sentence is chosen, never merely started.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -330,6 +359,7 @@ A composer at a text-loom, drawing a single clean line of luminous thread out of
 - Target: `public/card-art/sci-fi/roles/editor.webp`
 - Owner: Role `editor`
 - Status: planned
+- Bio: Lifts excess away in clean slivers, structure before polish, and leaves the author's voice in the material.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -343,6 +373,7 @@ An editor over a manuscript slab with a precision cutting tool, lifting away exc
 - Target: `public/card-art/sci-fi/roles/copywriter.webp`
 - Owner: Role `copywriter`
 - Status: planned
+- Bio: Collapses a wide scattered transmission into one sharp beam aimed at a single action. Anything that does not carry the ask is cut.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -356,6 +387,7 @@ A signal-caster tuning a broadcast pod down to one sharp focused beam, the wide 
 - Target: `public/card-art/sci-fi/roles/rewriter.webp`
 - Owner: Role `rewriter`
 - Status: planned
+- Bio: Melts a bent component and recasts it in a cleaner mold, keeping the original ghosted alongside so nothing quietly changes meaning.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -369,6 +401,7 @@ A reforge specialist melting a bent component and recasting it in a cleaner mold
 - Target: `public/card-art/sci-fi/roles/pitch-strategist.webp`
 - Owner: Role `pitch-strategist`
 - Status: planned
+- Bio: Commands a rising arc from problem to proof in a dark hall, and meets the hardest objection before it is raised.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -382,6 +415,7 @@ A presenter at the head of a dark hall commanding a rising arc of light from pro
 - Target: `public/card-art/sci-fi/roles/presentation-slide-structurer.webp`
 - Owner: Role `presentation-slide-structurer`
 - Status: planned
+- Bio: Sequences floating stage panels into one ordered run. One clear shape per panel; whatever else there is goes to the next panel or nowhere.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -397,6 +431,7 @@ A deck builder sequencing floating stage panels into a single ordered run, each 
 - Target: `public/card-art/sci-fi/roles/creative-director.webp`
 - Owner: Role `creative-director`
 - Status: planned
+- Bio: Projects several genuinely different directions at once, each a distinct silhouette, then judges them on originality and fit rather than comfort.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -410,6 +445,7 @@ A creative director at a rig projecting several genuinely different directions a
 - Target: `public/card-art/sci-fi/roles/concept-developer.webp`
 - Owner: Role `concept-developer`
 - Status: planned
+- Bio: Grows a raw seed into a structured form inside a shaping chamber, and will not release it until the hook holds under its own weight.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -423,6 +459,7 @@ A concept smith growing a raw luminous seed into a structured form inside a shap
 - Target: `public/card-art/sci-fi/roles/brainstorming-partner.webp`
 - Owner: Role `brainstorming-partner`
 - Status: planned
+- Bio: Opens the case and lets the spark-drones scatter, no two alike, then walks the field and marks the ones worth chasing.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -436,6 +473,7 @@ An idea generator releasing a swarm of divergent spark-drones from an open case,
 - Target: `public/card-art/sci-fi/roles/prompt-engineer.webp`
 - Owner: Role `prompt-engineer`
 - Status: planned
+- Bio: Tunes an instruction core on the calibration bench until the ambiguity has vented off and what remains can be tested.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -451,6 +489,7 @@ A prompt-smith tuning a glowing instruction core on a calibration bench, ambigui
 - Target: `public/card-art/sci-fi/roles/tutor.webp`
 - Owner: Role `tutor`
 - Status: planned
+- Bio: Guides a hand to the next rung, never two rungs up. Every rung below is already climbed and holding.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -464,6 +503,7 @@ A patient tutor guiding a learner's hand onto the next rung of a rising ladder o
 - Target: `public/card-art/sci-fi/roles/curriculum-designer.webp`
 - Owner: Role `curriculum-designer`
 - Status: planned
+- Bio: Lays a sequenced path of platforms across a dark gap, each one locking into the last and each one able to be tested before the next is stepped onto.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -477,6 +517,7 @@ A curriculum designer laying a sequenced path of platforms across a dark gap, ea
 - Target: `public/card-art/sci-fi/roles/mentor.webp`
 - Owner: Role `mentor`
 - Status: planned
+- Bio: Stands at the overlook and points out one specific route through the terrain, having walked it. Gives you the next step, not the whole map.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -492,6 +533,7 @@ A veteran mentor beside a younger figure at a high overlook, pointing out one sp
 - Target: `public/card-art/sci-fi/roles/consultant.webp`
 - Owner: Role `consultant`
 - Status: planned
+- Bio: Sweeps a client's table clear until one lit path remains, and can say what the discarded options would have cost.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -505,6 +547,7 @@ A consultant at a client's situation table, sweeping away clutter to leave one c
 - Target: `public/card-art/sci-fi/roles/product-strategist.webp`
 - Owner: Role `product-strategist`
 - Status: planned
+- Bio: Weighs opportunity masses on a suspended scale. The heavier pan earns the build, not the loudest one.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -518,6 +561,7 @@ A product strategist weighing glowing opportunity masses on a suspended scale, o
 - Target: `public/card-art/sci-fi/roles/market-positioning-advisor.webp`
 - Owner: Role `market-positioning-advisor`
 - Status: planned
+- Bio: Plots a claim-marker into open unoccupied ground on the category map, leaving the rival markers lit so the distance is checkable.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -531,6 +575,7 @@ A positioning strategist plotting a claim-marker into open unoccupied space on a
 - Target: `public/card-art/sci-fi/roles/product-manager.webp`
 - Owner: Role `product-manager`
 - Status: planned
+- Bio: Triages the incoming queue, pulls three slabs into the lit build lane, and holds the rest back where everyone can see them waiting.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -546,6 +591,7 @@ A product manager triaging a queue of incoming work slabs, pulling three forward
 - Target: `public/card-art/sci-fi/roles/summarizer.webp`
 - Owner: Role `summarizer`
 - Status: planned
+- Bio: Feeds a tower of material into the press and draws out one dense wafer. What comes out weighs less and says the same thing.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -559,6 +605,7 @@ A compression operator feeding a towering volume of material into a distillation
 - Target: `public/card-art/sci-fi/roles/organizer.webp`
 - Owner: Role `organizer`
 - Status: planned
+- Bio: Snaps drifting debris into a filing lattice and leaves the empty slots showing, so what is still missing stays obvious.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -574,6 +621,7 @@ An organizer standing in drifting unsorted debris, snapping the pieces into a cl
 - Target: `public/card-art/sci-fi/cards/context-scope/lineage.webp`
 - Owner: Card `context-scope`
 - Status: planned
+- Bio: Survey drone. Its pool of light has a hard edge on purpose: inside is the world this answer may use, outside is not today's problem.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -587,6 +635,7 @@ A survey drone projecting a bounded pool of light onto dark ground, its clean ed
 - Target: `public/card-art/sci-fi/cards/context-evidence/lineage.webp`
 - Owner: Card `context-evidence`
 - Status: planned
+- Bio: The evidence spindle. A provenance filament runs from every source core up to the claim it holds; a claim with no filament hangs on its own.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -600,6 +649,7 @@ An evidence spindle: a rack of glowing source cores with provenance filaments ru
 - Target: `public/card-art/sci-fi/cards/context-constraints/lineage.webp`
 - Owner: Card `context-constraints`
 - Status: planned
+- Bio: Limiter clamps. Hard jaws hold what cannot move, soft jaws hold what merely should not, and telling them apart is the whole instrument.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -613,6 +663,7 @@ A set of heavy limiter clamps closed around a working volume, hard immovable jaw
 - Target: `public/card-art/sci-fi/cards/context-assumptions/lineage.webp`
 - Owner: Card `context-assumptions`
 - Status: planned
+- Bio: Placeholder scaffold. Every translucent block is something nobody has checked, and the ones pulsing amber are holding up the roof.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -626,6 +677,7 @@ A scaffold of translucent placeholder blocks holding up a structure, the load-be
 - Target: `public/card-art/sci-fi/cards/context-success/lineage.webp`
 - Owner: Card `context-success`
 - Status: planned
+- Bio: Acceptance gauge. It locks green only inside the tolerance ring, which is how done stops being an opinion.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -639,6 +691,7 @@ A calibration target with an acceptance gauge locking into the green, the exact 
 - Target: `public/card-art/sci-fi/cards/context-exclusions/lineage.webp`
 - Owner: Card `context-exclusions`
 - Status: planned
+- Bio: The diverter gate. Good ideas heading the wrong way get sent cleanly into the sealed channel before they cost anything.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -654,6 +707,7 @@ A diverter gate splitting an incoming stream, sending one branch cleanly away in
 - Target: `public/card-art/sci-fi/cards/action-inspect/lineage.webp`
 - Owner: Card `action-inspect`
 - Status: planned
+- Bio: Magnifier probe. Sweeps an opened assembly and catches the loose part before anyone reaches for a tool.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -667,6 +721,7 @@ A magnifier probe hovering over an opened assembly, sweeping its beam across the
 - Target: `public/card-art/sci-fi/cards/action-analyze/lineage.webp`
 - Owner: Card `action-analyze`
 - Status: planned
+- Bio: Separation column. One mixed signal goes in and causes settle into readable layers, evidence banded apart from assumption.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -680,6 +735,7 @@ A separation column pulling a single mixed signal apart into distinct luminous s
 - Target: `public/card-art/sci-fi/cards/action-compare/lineage.webp`
 - Owner: Card `action-compare`
 - Status: planned
+- Bio: Twin-pan balance. Both artifacts hang under the same measuring beam, so the tilt is an argument rather than a preference.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -693,6 +749,7 @@ A twin-pan balance suspended in the dark holding two artifacts against the same 
 - Target: `public/card-art/sci-fi/cards/action-create/lineage.webp`
 - Owner: Card `action-create`
 - Status: planned
+- Bio: Fabricator arm. Pulls drifting components into a finished form, and inspects the artifact before letting go of it.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -706,6 +763,7 @@ A fabricator arm assembling a finished form out of drifting component parts, the
 - Target: `public/card-art/sci-fi/cards/action-recommend/lineage.webp`
 - Owner: Card `action-recommend`
 - Status: planned
+- Bio: Selector mechanism. It commits to one rail and lights it hot, leaving the unchosen tracks visible so the commitment can be argued with.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -719,6 +777,7 @@ A selector mechanism committing to one of several branching rails, the chosen tr
 - Target: `public/card-art/sci-fi/cards/action-verify/lineage.webp`
 - Owner: Card `action-verify`
 - Status: planned
+- Bio: Test gauntlet. Every gate has to go green in order, and the edge cases get their own gate near the end.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -732,6 +791,7 @@ A test rig running a finished component through a gauntlet of measuring gates, e
 - Target: `public/card-art/sci-fi/cards/action-summarize/lineage.webp`
 - Owner: Card `action-summarize`
 - Status: planned
+- Bio: Compression press. Reduces a tall stack to one bright wafer with the original volume ghosted behind it, so nothing goes quietly missing.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -745,6 +805,7 @@ A compression press reducing a tall stack of material into one dense bright wafe
 - Target: `public/card-art/sci-fi/cards/action-research/lineage.webp`
 - Owner: Card `action-research`
 - Status: planned
+- Bio: Deep-scan array. Fans beams into the dark and locks onto returns by strength, keeping what is known apart from what is only assumed.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -758,6 +819,7 @@ A deep-scan array fanning search beams into surrounding darkness, one distant re
 - Target: `public/card-art/sci-fi/cards/action-plan/lineage.webp`
 - Owner: Card `action-plan`
 - Status: planned
+- Bio: The sequencer. Ordered nodes, dependency lines drawn between them, and exactly one node lit as executable right now.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -771,6 +833,7 @@ A sequencer laying ordered nodes along a track, dependency lines drawn between t
 - Target: `public/card-art/sci-fi/cards/action-ideate/lineage.webp`
 - Owner: Card `action-ideate`
 - Status: planned
+- Bio: Spark chamber. Throws off forms that are genuinely unlike each other, then marks the few strong enough to survive being tested.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -784,6 +847,7 @@ A spark chamber throwing off many genuinely different forms at once, no two alik
 - Target: `public/card-art/sci-fi/cards/action-explain/lineage.webp`
 - Owner: Card `action-explain`
 - Status: planned
+- Bio: Exploded-view projector. Holds a mechanism apart along clean guide-lines until the reason for each part is obvious.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -797,6 +861,7 @@ An exploded-view projector unfolding a mechanism in mid-air, the parts separatin
 - Target: `public/card-art/sci-fi/cards/action-clarify/lineage.webp`
 - Owner: Card `action-clarify`
 - Status: planned
+- Bio: Query beacon. Pulses into the gap and outlines the exact shape of the missing piece instead of guessing at it.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -812,6 +877,7 @@ A query beacon pulsing into a dark gap in a structure, its light outlining the e
 - Target: `public/card-art/sci-fi/cards/format-info-card/lineage.webp`
 - Owner: Card `format-info-card`
 - Status: planned
+- Bio: One answer slab, flat-faced and legible, standing alone in the dark with nothing stacked on top of it.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -825,6 +891,7 @@ A single clean answer slab standing alone in the dark, its face flat and legible
 - Target: `public/card-art/sci-fi/cards/format-key-points/lineage.webp`
 - Owner: Card `format-key-points`
 - Status: planned
+- Bio: A rack of point-shards, evenly lit, with real dark gaps between them so the eye has somewhere to land.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -838,6 +905,7 @@ A rack of separated point-shards standing in a row, each one distinct and evenly
 - Target: `public/card-art/sci-fi/cards/format-summary/lineage.webp`
 - Owner: Card `format-summary`
 - Status: planned
+- Bio: Distillation vessel. The conclusion settles bright at the top and the supporting sediment layers beneath it in order.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -851,6 +919,7 @@ A distillation vessel with the heaviest conclusion settled bright at the top and
 - Target: `public/card-art/sci-fi/cards/format-sections/lineage.webp`
 - Owner: Card `format-sections`
 - Status: planned
+- Bio: Segmented column. Each chamber is sealed and does one job, and the stacking order is the reading order.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -864,6 +933,7 @@ A segmented column of stacked chambers, each chamber a distinct sealed volume wi
 - Target: `public/card-art/sci-fi/cards/format-evidence/lineage.webp`
 - Owner: Card `format-evidence`
 - Status: planned
+- Bio: Anchor lines running from a floating claim down to solid cores. The one unanchored line is the entire point of the instrument.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -877,6 +947,7 @@ Anchor lines running from a floating claim down to solid source cores below, eac
 - Target: `public/card-art/sci-fi/cards/format-comparison/lineage.webp`
 - Owner: Card `format-comparison`
 - Status: planned
+- Bio: Grid lattice. Aligns every item on the same axes and flares at the intersections where they actually diverge.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -890,6 +961,7 @@ A grid lattice aligning several items along the same measuring axes, the interse
 - Target: `public/card-art/sci-fi/cards/format-next/lineage.webp`
 - Owner: Card `format-next`
 - Status: planned
+- Bio: Launch rail. Ready-markers lit in priority order, the first one primed and hot.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -903,6 +975,7 @@ A launch rail with ordered ready-markers lit in sequence, the first one primed a
 - Target: `public/card-art/sci-fi/cards/format-length/lineage.webp`
 - Owner: Card `format-length`
 - Status: planned
+- Bio: Precision caliper. Clamps a body of material to an exact marked width and treats padding as material to remove.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -916,6 +989,7 @@ A precision caliper clamped around a body of luminous material, compressing it t
 - Target: `public/card-art/sci-fi/cards/format-tiers/lineage.webp`
 - Owner: Card `format-tiers`
 - Status: planned
+- Bio: Stepped platform. The top step is small and brilliant; each one below is wider and dimmer, for readers who want to keep going.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -931,6 +1005,7 @@ A stepped platform descending into the dark, the top step small and brilliantly 
 - Target: `public/card-art/sci-fi/cards/target-language/lineage.webp`
 - Owner: Card `target-language`
 - Status: planned
+- Bio: Translator prism. Steps a dense beam down through graded facets until it emerges at the reader's level, and no further.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -944,6 +1019,7 @@ A translator prism stepping a dense beam down through graded facets, the light e
 - Target: `public/card-art/sci-fi/cards/target-voice/lineage.webp`
 - Owner: Card `target-voice`
 - Status: planned
+- Bio: Tone modulator. One register band rings bright and holds from the first line to the last.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -957,6 +1033,7 @@ A tone modulator with a resonating fork held in a field of register bands, the s
 - Target: `public/card-art/sci-fi/cards/target-examples/lineage.webp`
 - Owner: Card `target-examples`
 - Status: planned
+- Bio: A projector casting concrete miniatures beneath an abstract form, chosen so the detail that matters is the part you can see.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -970,6 +1047,7 @@ A projector casting small concrete miniature scenes into the air beneath a large
 - Target: `public/card-art/sci-fi/cards/target-decisions/lineage.webp`
 - Owner: Card `target-decisions`
 - Status: planned
+- Bio: Decision console. Every lever runs a taut line to the consequence it triggers further down the board.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -983,6 +1061,7 @@ A decision console of weighted levers, each one linked by a taut line to the con
 - Target: `public/card-art/sci-fi/cards/target-stance/lineage.webp`
 - Owner: Card `target-stance`
 - Status: planned
+- Bio: Stance dial, warm amber at one pole and hard cold at the other, needle locked at a chosen point and left there.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -998,6 +1077,7 @@ A stance dial set between a warm amber pole and a hard cold pole, the needle loc
 - Target: `public/card-art/sci-fi/archetypes/executive-summary.webp`
 - Owner: Archetype `executive-summary`
 - Status: planned
+- Bio: A mountain of raw material distilled to one decision slab at eye level. What survives the distillation is what somebody actually has to decide.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1011,6 +1091,7 @@ A command table where a mountain of raw material has been distilled to one decis
 - Target: `public/card-art/sci-fi/archetypes/creative-concept.webp`
 - Owner: Archetype `creative-concept`
 - Status: planned
+- Bio: The concept forge: an idea held in the shaping field until it grows structure and a hook hard enough to strike against.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1024,6 +1105,7 @@ A concept forge with a luminous idea suspended in the shaping field, growing str
 - Target: `public/card-art/sci-fi/archetypes/note-taker.webp`
 - Owner: Archetype `note-taker`
 - Status: planned
+- Bio: Capture array. Chaotic fragments go in, ordered tablets stack themselves out, in the order they arrived and with nothing added.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1037,6 +1119,7 @@ A capture array turning a chaotic incoming stream of fragments into neat ordered
 - Target: `public/card-art/sci-fi/archetypes/message-email.webp`
 - Owner: Archetype `message-email`
 - Status: planned
+- Bio: Comms relay. One sealed capsule, its tone ring set to the register the recipient actually reads in.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1050,6 +1133,7 @@ A comms relay composing one sealed transmission capsule, its tone-tuning ring gl
 - Target: `public/card-art/sci-fi/archetypes/prompt-improver.webp`
 - Owner: Archetype `prompt-improver`
 - Status: planned
+- Bio: A stripped instruction core rebuilt sharper, with the discarded ambiguous parts left on the bench where you can see what went.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1063,6 +1147,7 @@ A workbench where an old instruction core has been stripped down and rebuilt sha
 - Target: `public/card-art/sci-fi/archetypes/learning-guide.webp`
 - Owner: Archetype `learning-guide`
 - Status: planned
+- Bio: Teaching orrery. One idea at the centre and a guided path of waypoints circling it, the worked example always within reach.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1076,6 +1161,7 @@ A teaching orrery with a central idea at its heart and a guided path of illumina
 - Target: `public/card-art/sci-fi/archetypes/app-build-handoff.webp`
 - Owner: Archetype `app-build-handoff`
 - Status: planned
+- Bio: A sealed blueprint capsule, every layer visible through the shell, complete enough that whoever docks it never has to come back and ask.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1089,6 +1175,7 @@ A sealed blueprint capsule holding a complete self-contained plan, every layer v
 - Target: `public/card-art/sci-fi/archetypes/agent-skill.webp`
 - Owner: Archetype `agent-skill`
 - Status: planned
+- Bio: Skill cartridge on its mounting rail: trigger face lit, procedure rails seated, guardrail clamps closed before it is allowed to run.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1102,6 +1189,7 @@ A modular skill cartridge on a mounting rail, its trigger face lit, procedure ra
 - Target: `public/card-art/sci-fi/archetypes/agent-gate.webp`
 - Owner: Archetype `agent-gate`
 - Status: planned
+- Bio: The judgment arch. Everything passing beneath is swept by a hard scanning plane, and the verdict is recorded whether or not anyone likes it.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1115,6 +1203,7 @@ A judgment gate arch scanning an artifact passing beneath it, a hard scanning pl
 - Target: `public/card-art/sci-fi/archetypes/social-post.webp`
 - Owner: Archetype `social-post`
 - Status: planned
+- Bio: Broadcast pod with interchangeable heads. One is selected and extended, and the signal is shaped for that platform and no other.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1128,6 +1217,7 @@ A broadcast pod fitted with several interchangeable antenna heads, one selected 
 - Target: `public/card-art/sci-fi/archetypes/quick-explanation.webp`
 - Owner: Archetype `quick-explanation`
 - Status: planned
+- Bio: A compact answer beacon. One steady light, nothing around it, nothing between it and the reader.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1141,6 +1231,7 @@ A compact answer beacon standing alone, one clear steady light, nothing around i
 - Target: `public/card-art/sci-fi/archetypes/research-brief.webp`
 - Owner: Archetype `research-brief`
 - Status: planned
+- Bio: A dossier balanced between two source pillars, confidence rendered as visible width so the thin claims look thin.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1154,6 +1245,7 @@ A balanced dossier suspended between two source pillars, confidence bands render
 - Target: `public/card-art/sci-fi/archetypes/decision-advisor.webp`
 - Owner: Archetype `decision-advisor`
 - Status: planned
+- Bio: Weighing console. Options on measured arms, one settling low and lighting bright, the rest still hanging where they can be checked.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1167,6 +1259,7 @@ A weighing console with several options mounted on measured arms, one arm settli
 - Target: `public/card-art/sci-fi/archetypes/data-analysis.webp`
 - Owner: Archetype `data-analysis`
 - Status: planned
+- Bio: A data core read open, its contents fanned into layered strata with one segment isolated and lit for the finding it carries.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1180,6 +1273,7 @@ A data core being read open, its contents fanning out into layered insight strat
 - Target: `public/card-art/sci-fi/archetypes/risk-premortem.webp`
 - Owner: Archetype `risk-premortem`
 - Status: planned
+- Bio: A wreckage diorama read in reverse: failure lines running backward from the broken result to the decision that started it.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1193,6 +1287,7 @@ A wreckage diorama being read in reverse, luminous failure lines running backwar
 - Target: `public/card-art/sci-fi/archetypes/writing-draft.webp`
 - Owner: Archetype `writing-draft`
 - Status: planned
+- Bio: The text loom mid-run. A continuous first draft, clean but still on the frame with its edges unfinished.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1206,6 +1301,7 @@ A text loom weaving a first continuous draft out of raw fiber, the fabric clean 
 - Target: `public/card-art/sci-fi/archetypes/rewrite-polish.webp`
 - Owner: Archetype `rewrite-polish`
 - Status: planned
+- Bio: A polishing lathe. The dull surface lifts away to reveal the same shape underneath, sharper and the same size.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1219,6 +1315,7 @@ A polishing lathe refining an existing form, dull surface lifting away under the
 - Target: `public/card-art/sci-fi/archetypes/critique-review.webp`
 - Owner: Archetype `critique-review`
 - Status: planned
+- Bio: Inspection bay. The artifact is held in restraints with flag-markers planted along it, the most serious one nearest the front.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1232,6 +1329,7 @@ An inspection bay with an artifact held in restraints, prioritized flag-markers 
 - Target: `public/card-art/sci-fi/archetypes/presentation-outline.webp`
 - Owner: Archetype `presentation-outline`
 - Status: planned
+- Bio: Stage panels receding in sequence, one clear shape each, with a bright throughline running from the first to the last.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1245,6 +1343,7 @@ A run of floating stage panels receding in sequence, each holding one clear shap
 - Target: `public/card-art/sci-fi/archetypes/build-plan.webp`
 - Owner: Archetype `build-plan`
 - Status: planned
+- Bio: A scaffold rising in ordered stages, milestone nodes locked at each level and dependency struts drawn where they actually take load.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1258,6 +1357,7 @@ A project scaffold rising in ordered stages with milestone nodes locked at each 
 - Target: `public/card-art/sci-fi/archetypes/spec-prd.webp`
 - Owner: Archetype `spec-prd`
 - Status: planned
+- Bio: Spec capsule with requirement plates seated and sealed around the core, tolerances etched where a builder will look for them.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1271,6 +1371,7 @@ A spec capsule with requirement plates locked around its core, each plate seated
 - Target: `public/card-art/sci-fi/archetypes/coding.webp`
 - Owner: Archetype `coding`
 - Status: planned
+- Bio: Code fabricator. Structure knits itself into place under the emitter, to the spec that was handed in rather than the one it would have preferred.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1284,6 +1385,7 @@ A code fabricator writing a working component into being, structure knitting its
 - Target: `public/card-art/sci-fi/archetypes/technical-troubleshoot.webp`
 - Owner: Archetype `technical-troubleshoot`
 - Status: planned
+- Bio: Diagnostic bay: the machine opened up, one traced fault line glowing along its length, and the repair clamp already moving.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1297,6 +1399,7 @@ A diagnostic bay with a machine opened up and one traced fault line glowing alon
 - Target: `public/card-art/sci-fi/archetypes/explain-code.webp`
 - Owner: Archetype `explain-code`
 - Status: planned
+- Bio: Walkthrough projector, stepping a mechanism one stage at a time, the active stage lit while the rest waits its turn.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1310,6 +1413,7 @@ A walkthrough projector stepping through a mechanism one stage at a time, the ac
 - Target: `public/card-art/sci-fi/archetypes/extract-data.webp`
 - Owner: Archetype `extract-data`
 - Status: planned
+- Bio: Extractor drawing clean uniform shards out of unsorted ore and racking them, identical and ready to be counted.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1322,9 +1426,10 @@ An extractor drawing clean uniform structured shards out of raw unsorted ore, th
 #### 098. Custom preset swatch
 
 - File name: `SCI-098-Custom-preset-swatch.png`
-- Target: `public/card-art/sci-fi/archetypes/custom-preset.webp`
+- Target: `public/card-art/sci-fi/shared/custom-preset.webp`
 - Owner: prompt-custom-archetypes.ts
 - Status: planned
+- Bio: An empty forge cradle, rails cut and slots open: the shape of a preset you have not made yet.
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -1343,7 +1448,7 @@ without these. Generate a grade here to override its card face.
 #### 099. SCP 1. Situation Snapshot
 
 - File name: `SCI-099-SCP-1-Situation-Snapshot.png`
-- Target: `public/card-art/sci-fi/cards/context-scope/01-situation-snapshot.webp`
+- Target: `public/card-art/sci-fi/cards/context-scope/grade-01.webp`
 - Owner: Card `context-scope` grade `Situation Snapshot`
 - Status: planned
 
@@ -1356,7 +1461,7 @@ A survey drone holding a small tight pool of light around a single object, only 
 #### 100. SCP 2. Working Brief
 
 - File name: `SCI-100-SCP-2-Working-Brief.png`
-- Target: `public/card-art/sci-fi/cards/context-scope/02-working-brief.webp`
+- Target: `public/card-art/sci-fi/cards/context-scope/grade-02.webp`
 - Owner: Card `context-scope` grade `Working Brief`
 - Status: planned
 
@@ -1369,7 +1474,7 @@ A survey drone with its pool widened to take in the nearby inputs it may use, a 
 #### 101. SCP 3. Decision Context
 
 - File name: `SCI-101-SCP-3-Decision-Context.png`
-- Target: `public/card-art/sci-fi/cards/context-scope/03-decision-context.webp`
+- Target: `public/card-art/sci-fi/cards/context-scope/grade-03.webp`
 - Owner: Card `context-scope` grade `Decision Context`
 - Status: planned
 
@@ -1382,7 +1487,7 @@ A survey drone lighting a broad field with stakeholder markers standing inside i
 #### 102. SCP 4. Complete Operating Picture
 
 - File name: `SCI-102-SCP-4-Complete-Operating-Picture.png`
-- Target: `public/card-art/sci-fi/cards/context-scope/04-complete-operating-picture.webp`
+- Target: `public/card-art/sci-fi/cards/context-scope/grade-04.webp`
 - Owner: Card `context-scope` grade `Complete Operating Picture`
 - Status: planned
 
@@ -1395,7 +1500,7 @@ A survey drone fully deployed, its light thrown to the horizon so the entire ter
 #### 103. SRC 1. Given As True
 
 - File name: `SCI-103-SRC-1-Given-As-True.png`
-- Target: `public/card-art/sci-fi/cards/context-evidence/01-given-as-true.webp`
+- Target: `public/card-art/sci-fi/cards/context-evidence/grade-01.webp`
 - Owner: Card `context-evidence` grade `Given As True`
 - Status: planned
 
@@ -1408,7 +1513,7 @@ An evidence spindle with claim cores mounted and accepted as given, the provenan
 #### 104. SRC 2. Source Support
 
 - File name: `SCI-104-SRC-2-Source-Support.png`
-- Target: `public/card-art/sci-fi/cards/context-evidence/02-source-support.webp`
+- Target: `public/card-art/sci-fi/cards/context-evidence/grade-02.webp`
 - Owner: Card `context-evidence` grade `Source Support`
 - Status: planned
 
@@ -1421,7 +1526,7 @@ An evidence spindle with filaments run from the load-bearing claims down to a fe
 #### 105. SRC 3. Corroborated Sources
 
 - File name: `SCI-105-SRC-3-Corroborated-Sources.png`
-- Target: `public/card-art/sci-fi/cards/context-evidence/03-corroborated-sources.webp`
+- Target: `public/card-art/sci-fi/cards/context-evidence/grade-03.webp`
 - Owner: Card `context-evidence` grade `Corroborated Sources`
 - Status: planned
 
@@ -1434,7 +1539,7 @@ An evidence spindle where each key claim is cross-braced by several converging f
 #### 106. SRC 4. Audit Trail
 
 - File name: `SCI-106-SRC-4-Audit-Trail.png`
-- Target: `public/card-art/sci-fi/cards/context-evidence/04-audit-trail.webp`
+- Target: `public/card-art/sci-fi/cards/context-evidence/grade-04.webp`
 - Owner: Card `context-evidence` grade `Audit Trail`
 - Status: planned
 
@@ -1447,7 +1552,7 @@ An evidence spindle threaded end to end, conflicting filaments held deliberately
 #### 107. LIM 1. Basic Limits
 
 - File name: `SCI-107-LIM-1-Basic-Limits.png`
-- Target: `public/card-art/sci-fi/cards/context-constraints/01-basic-limits.webp`
+- Target: `public/card-art/sci-fi/cards/context-constraints/grade-01.webp`
 - Owner: Card `context-constraints` grade `Basic Limits`
 - Status: planned
 
@@ -1460,7 +1565,7 @@ A pair of limiter clamps resting lightly at the edges of a working volume, barel
 #### 108. LIM 2. Operating Limits
 
 - File name: `SCI-108-LIM-2-Operating-Limits.png`
-- Target: `public/card-art/sci-fi/cards/context-constraints/02-operating-limits.webp`
+- Target: `public/card-art/sci-fi/cards/context-constraints/grade-02.webp`
 - Owner: Card `context-constraints` grade `Operating Limits`
 - Status: planned
 
@@ -1473,7 +1578,7 @@ Four limiter clamps closed on a working volume, compressing it to a smaller prac
 #### 109. LIM 3. Constraint Map
 
 - File name: `SCI-109-LIM-3-Constraint-Map.png`
-- Target: `public/card-art/sci-fi/cards/context-constraints/03-constraint-map.webp`
+- Target: `public/card-art/sci-fi/cards/context-constraints/grade-03.webp`
 - Owner: Card `context-constraints` grade `Constraint Map`
 - Status: planned
 
@@ -1486,7 +1591,7 @@ Hard steel limiter clamps locked tight while softer preference-markers sit visib
 #### 110. LIM 4. Boundary Conditions
 
 - File name: `SCI-110-LIM-4-Boundary-Conditions.png`
-- Target: `public/card-art/sci-fi/cards/context-constraints/04-boundary-conditions.webp`
+- Target: `public/card-art/sci-fi/cards/context-constraints/grade-04.webp`
 - Owner: Card `context-constraints` grade `Boundary Conditions`
 - Status: planned
 
@@ -1499,7 +1604,7 @@ A full cage of limiter clamps around a volume with stress readouts glowing at ev
 #### 111. ASM 1. Working Assumptions
 
 - File name: `SCI-111-ASM-1-Working-Assumptions.png`
-- Target: `public/card-art/sci-fi/cards/context-assumptions/01-working-assumptions.webp`
+- Target: `public/card-art/sci-fi/cards/context-assumptions/grade-01.webp`
 - Owner: Card `context-assumptions` grade `Working Assumptions`
 - Status: planned
 
@@ -1512,7 +1617,7 @@ A scaffold with a few translucent placeholder blocks plainly visible among the s
 #### 112. ASM 2. Assumption Check
 
 - File name: `SCI-112-ASM-2-Assumption-Check.png`
-- Target: `public/card-art/sci-fi/cards/context-assumptions/02-assumption-check.webp`
+- Target: `public/card-art/sci-fi/cards/context-assumptions/grade-02.webp`
 - Owner: Card `context-assumptions` grade `Assumption Check`
 - Status: planned
 
@@ -1525,7 +1630,7 @@ A scaffold where the load-bearing translucent blocks pulse with warning light, m
 #### 113. ASM 3. Assumption Register
 
 - File name: `SCI-113-ASM-3-Assumption-Register.png`
-- Target: `public/card-art/sci-fi/cards/context-assumptions/03-assumption-register.webp`
+- Target: `public/card-art/sci-fi/cards/context-assumptions/grade-03.webp`
 - Owner: Card `context-assumptions` grade `Assumption Register`
 - Status: planned
 
@@ -1538,7 +1643,7 @@ A scaffold where every translucent block carries its own base-plate and a conseq
 #### 114. ASM 4. Uncertainty Model
 
 - File name: `SCI-114-ASM-4-Uncertainty-Model.png`
-- Target: `public/card-art/sci-fi/cards/context-assumptions/04-uncertainty-model.webp`
+- Target: `public/card-art/sci-fi/cards/context-assumptions/grade-04.webp`
 - Owner: Card `context-assumptions` grade `Uncertainty Model`
 - Status: planned
 
@@ -1551,7 +1656,7 @@ A scaffold of translucent blocks ranked by height and brightness, tilt lines pro
 #### 115. WIN 1. Done Means
 
 - File name: `SCI-115-WIN-1-Done-Means.png`
-- Target: `public/card-art/sci-fi/cards/context-success/01-done-means.webp`
+- Target: `public/card-art/sci-fi/cards/context-success/grade-01.webp`
 - Owner: Card `context-success` grade `Done Means`
 - Status: planned
 
@@ -1564,7 +1669,7 @@ A simple calibration target ring with the needle resting quietly on it, one clea
 #### 116. WIN 2. Success Check
 
 - File name: `SCI-116-WIN-2-Success-Check.png`
-- Target: `public/card-art/sci-fi/cards/context-success/02-success-check.webp`
+- Target: `public/card-art/sci-fi/cards/context-success/grade-02.webp`
 - Owner: Card `context-success` grade `Success Check`
 - Status: planned
 
@@ -1577,7 +1682,7 @@ An acceptance gauge locked into the green with the pass threshold scored sharply
 #### 117. WIN 3. Success Criteria
 
 - File name: `SCI-117-WIN-3-Success-Criteria.png`
-- Target: `public/card-art/sci-fi/cards/context-success/03-success-criteria.webp`
+- Target: `public/card-art/sci-fi/cards/context-success/grade-03.webp`
 - Owner: Card `context-success` grade `Success Criteria`
 - Status: planned
 
@@ -1590,7 +1695,7 @@ A bank of acceptance gauges mounted together, pass zones lit green and failure z
 #### 118. WIN 4. Evaluation Framework
 
 - File name: `SCI-118-WIN-4-Evaluation-Framework.png`
-- Target: `public/card-art/sci-fi/cards/context-success/04-evaluation-framework.webp`
+- Target: `public/card-art/sci-fi/cards/context-success/grade-04.webp`
 - Owner: Card `context-success` grade `Evaluation Framework`
 - Status: planned
 
@@ -1603,7 +1708,7 @@ A full instrument wall of graded measures, thresholds etched into each dial and 
 #### 119. OUT 1. No-Go List
 
 - File name: `SCI-119-OUT-1-No-Go-List.png`
-- Target: `public/card-art/sci-fi/cards/context-exclusions/01-no-go-list.webp`
+- Target: `public/card-art/sci-fi/cards/context-exclusions/grade-01.webp`
 - Owner: Card `context-exclusions` grade `No-Go List`
 - Status: planned
 
@@ -1616,7 +1721,7 @@ A diverter gate shunting a few marked items aside into a small dark holding bin 
 #### 120. OUT 2. Scope Fence
 
 - File name: `SCI-120-OUT-2-Scope-Fence.png`
-- Target: `public/card-art/sci-fi/cards/context-exclusions/02-scope-fence.webp`
+- Target: `public/card-art/sci-fi/cards/context-exclusions/grade-02.webp`
 - Owner: Card `context-exclusions` grade `Scope Fence`
 - Status: planned
 
@@ -1629,7 +1734,7 @@ A diverter gate holding a clean lit line across the channel, the flow kept firml
 #### 121. OUT 3. Anti-Goals
 
 - File name: `SCI-121-OUT-3-Anti-Goals.png`
-- Target: `public/card-art/sci-fi/cards/context-exclusions/03-anti-goals.webp`
+- Target: `public/card-art/sci-fi/cards/context-exclusions/grade-03.webp`
 - Owner: Card `context-exclusions` grade `Anti-Goals`
 - Status: planned
 
@@ -1642,7 +1747,7 @@ A diverter gate as a hard sealed barrier with rejected forms visibly pressed up 
 #### 122. OUT 4. Drift Alarm
 
 - File name: `SCI-122-OUT-4-Drift-Alarm.png`
-- Target: `public/card-art/sci-fi/cards/context-exclusions/04-drift-alarm.webp`
+- Target: `public/card-art/sci-fi/cards/context-exclusions/grade-04.webp`
 - Owner: Card `context-exclusions` grade `Drift Alarm`
 - Status: planned
 
@@ -1657,7 +1762,7 @@ A diverter gate firing actively, alarm light sweeping the channel, an escaping b
 #### 123. INS 1. Guided Review
 
 - File name: `SCI-123-INS-1-Guided-Review.png`
-- Target: `public/card-art/sci-fi/cards/action-inspect/01-guided-review.webp`
+- Target: `public/card-art/sci-fi/cards/action-inspect/grade-01.webp`
 - Owner: Card `action-inspect` grade `Guided Review`
 - Status: planned
 
@@ -1670,7 +1775,7 @@ A magnifier probe following a single pointed line across an opened assembly, one
 #### 124. INS 2. Checklist Inspection
 
 - File name: `SCI-124-INS-2-Checklist-Inspection.png`
-- Target: `public/card-art/sci-fi/cards/action-inspect/02-checklist-inspection.webp`
+- Target: `public/card-art/sci-fi/cards/action-inspect/grade-02.webp`
 - Owner: Card `action-inspect` grade `Checklist Inspection`
 - Status: planned
 
@@ -1683,7 +1788,7 @@ A magnifier probe stepping across marked checkpoints in sequence along an opened
 #### 125. INS 3. Independent Inspection
 
 - File name: `SCI-125-INS-3-Independent-Inspection.png`
-- Target: `public/card-art/sci-fi/cards/action-inspect/03-independent-inspection.webp`
+- Target: `public/card-art/sci-fi/cards/action-inspect/grade-03.webp`
 - Owner: Card `action-inspect` grade `Independent Inspection`
 - Status: planned
 
@@ -1696,7 +1801,7 @@ A magnifier probe roaming an opened assembly under its own control, several gaps
 #### 126. INS 4. Full Audit
 
 - File name: `SCI-126-INS-4-Full-Audit.png`
-- Target: `public/card-art/sci-fi/cards/action-inspect/04-full-audit.webp`
+- Target: `public/card-art/sci-fi/cards/action-inspect/grade-04.webp`
 - Owner: Card `action-inspect` grade `Full Audit`
 - Status: planned
 
@@ -1709,7 +1814,7 @@ An opened assembly fully disassembled under a bank of magnifier probes, every pa
 #### 127. ANL 1. Pattern Read
 
 - File name: `SCI-127-ANL-1-Pattern-Read.png`
-- Target: `public/card-art/sci-fi/cards/action-analyze/01-pattern-read.webp`
+- Target: `public/card-art/sci-fi/cards/action-analyze/grade-01.webp`
 - Owner: Card `action-analyze` grade `Pattern Read`
 - Status: planned
 
@@ -1722,7 +1827,7 @@ A separation column resolving a mixed signal into two or three clean luminous ba
 #### 128. ANL 2. Rival Explanations
 
 - File name: `SCI-128-ANL-2-Rival-Explanations.png`
-- Target: `public/card-art/sci-fi/cards/action-analyze/02-rival-explanations.webp`
+- Target: `public/card-art/sci-fi/cards/action-analyze/grade-02.webp`
 - Owner: Card `action-analyze` grade `Rival Explanations`
 - Status: planned
 
@@ -1735,7 +1840,7 @@ Two separation columns held side by side, a candidate band-pattern in each, the 
 #### 129. ANL 3. Critical Analysis
 
 - File name: `SCI-129-ANL-3-Critical-Analysis.png`
-- Target: `public/card-art/sci-fi/cards/action-analyze/03-critical-analysis.webp`
+- Target: `public/card-art/sci-fi/cards/action-analyze/grade-03.webp`
 - Owner: Card `action-analyze` grade `Critical Analysis`
 - Status: planned
 
@@ -1748,7 +1853,7 @@ A separation column driven harder until the assumptions inside crack apart into 
 #### 130. ANL 4. Adversarial Analysis
 
 - File name: `SCI-130-ANL-4-Adversarial-Analysis.png`
-- Target: `public/card-art/sci-fi/cards/action-analyze/04-adversarial-analysis.webp`
+- Target: `public/card-art/sci-fi/cards/action-analyze/grade-04.webp`
 - Owner: Card `action-analyze` grade `Adversarial Analysis`
 - Status: planned
 
@@ -1761,7 +1866,7 @@ A separation column run to its extremes, hunting through the residue for the one
 #### 131. CMP 1. Options on the Table
 
 - File name: `SCI-131-CMP-1-Options-on-the-Table.png`
-- Target: `public/card-art/sci-fi/cards/action-compare/01-options-on-the-table.webp`
+- Target: `public/card-art/sci-fi/cards/action-compare/grade-01.webp`
 - Owner: Card `action-compare` grade `Options on the Table`
 - Status: planned
 
@@ -1774,7 +1879,7 @@ A twin-pan balance with two artifacts simply laid out on its pans, the beam stil
 #### 132. CMP 2. Framed Comparison
 
 - File name: `SCI-132-CMP-2-Framed-Comparison.png`
-- Target: `public/card-art/sci-fi/cards/action-compare/02-framed-comparison.webp`
+- Target: `public/card-art/sci-fi/cards/action-compare/grade-02.webp`
 - Owner: Card `action-compare` grade `Framed Comparison`
 - Status: planned
 
@@ -1787,7 +1892,7 @@ A twin-pan balance with a measuring beam sighted across both artifacts against m
 #### 133. CMP 3. Weighted Comparison
 
 - File name: `SCI-133-CMP-3-Weighted-Comparison.png`
-- Target: `public/card-art/sci-fi/cards/action-compare/03-weighted-comparison.webp`
+- Target: `public/card-art/sci-fi/cards/action-compare/grade-03.webp`
 - Owner: Card `action-compare` grade `Weighted Comparison`
 - Status: planned
 
@@ -1800,7 +1905,7 @@ A twin-pan balance with calibrated weights added along its arms, the tilt now de
 #### 134. CMP 4. Decision Matrix
 
 - File name: `SCI-134-CMP-4-Decision-Matrix.png`
-- Target: `public/card-art/sci-fi/cards/action-compare/04-decision-matrix.webp`
+- Target: `public/card-art/sci-fi/cards/action-compare/grade-04.webp`
 - Owner: Card `action-compare` grade `Decision Matrix`
 - Status: planned
 
@@ -1813,7 +1918,7 @@ A full array of balance pans on scored arms, every artifact measured against eve
 #### 135. BLD 1. Draft Together
 
 - File name: `SCI-135-BLD-1-Draft-Together.png`
-- Target: `public/card-art/sci-fi/cards/action-create/01-draft-together.webp`
+- Target: `public/card-art/sci-fi/cards/action-create/grade-01.webp`
 - Owner: Card `action-create` grade `Draft Together`
 - Status: planned
 
@@ -1826,7 +1931,7 @@ A fabricator arm holding a rough unfinished armature, open questions sparking at
 #### 136. BLD 2. Build to Plan
 
 - File name: `SCI-136-BLD-2-Build-to-Plan.png`
-- Target: `public/card-art/sci-fi/cards/action-create/02-build-to-plan.webp`
+- Target: `public/card-art/sci-fi/cards/action-create/grade-02.webp`
 - Owner: Card `action-create` grade `Build to Plan`
 - Status: planned
 
@@ -1839,7 +1944,7 @@ A fabricator arm building precisely along a projected plan, following its guide-
 #### 137. BLD 3. Independent Build
 
 - File name: `SCI-137-BLD-3-Independent-Build.png`
-- Target: `public/card-art/sci-fi/cards/action-create/03-independent-build.webp`
+- Target: `public/card-art/sci-fi/cards/action-create/grade-03.webp`
 - Owner: Card `action-create` grade `Independent Build`
 - Status: planned
 
@@ -1852,7 +1957,7 @@ A fabricator arm working with no plan projected, filling the silent gaps with it
 #### 138. BLD 4. End-to-End Delivery
 
 - File name: `SCI-138-BLD-4-End-to-End-Delivery.png`
-- Target: `public/card-art/sci-fi/cards/action-create/04-end-to-end-delivery.webp`
+- Target: `public/card-art/sci-fi/cards/action-create/grade-04.webp`
 - Owner: Card `action-create` grade `End-to-End Delivery`
 - Status: planned
 
@@ -1865,7 +1970,7 @@ A finished artifact released from the fabricator cradle, verified and lit, the a
 #### 139. REC 1. Directions
 
 - File name: `SCI-139-REC-1-Directions.png`
-- Target: `public/card-art/sci-fi/cards/action-recommend/01-directions.webp`
+- Target: `public/card-art/sci-fi/cards/action-recommend/grade-01.webp`
 - Owner: Card `action-recommend` grade `Directions`
 - Status: planned
 
@@ -1878,7 +1983,7 @@ A selector mechanism with several branching rails all lit equally, none chosen, 
 #### 140. REC 2. Practical Pick
 
 - File name: `SCI-140-REC-2-Practical-Pick.png`
-- Target: `public/card-art/sci-fi/cards/action-recommend/02-practical-pick.webp`
+- Target: `public/card-art/sci-fi/cards/action-recommend/grade-02.webp`
 - Owner: Card `action-recommend` grade `Practical Pick`
 - Status: planned
 
@@ -1891,7 +1996,7 @@ A selector mechanism with one rail selected and the constraint gates it fits sta
 #### 141. REC 3. Backed Recommendation
 
 - File name: `SCI-141-REC-3-Backed-Recommendation.png`
-- Target: `public/card-art/sci-fi/cards/action-recommend/03-backed-recommendation.webp`
+- Target: `public/card-art/sci-fi/cards/action-recommend/grade-03.webp`
 - Owner: Card `action-recommend` grade `Backed Recommendation`
 - Status: planned
 
@@ -1904,7 +2009,7 @@ A selector mechanism with the chosen rail blazing, the runner-up dimmed but stil
 #### 142. REC 4. Full Conviction
 
 - File name: `SCI-142-REC-4-Full-Conviction.png`
-- Target: `public/card-art/sci-fi/cards/action-recommend/04-full-conviction.webp`
+- Target: `public/card-art/sci-fi/cards/action-recommend/grade-04.webp`
 - Owner: Card `action-recommend` grade `Full Conviction`
 - Status: planned
 
@@ -1917,7 +2022,7 @@ A selector mechanism with the switch thrown hard, a single rail blazing full len
 #### 143. TST 1. Sanity Pass
 
 - File name: `SCI-143-TST-1-Sanity-Pass.png`
-- Target: `public/card-art/sci-fi/cards/action-verify/01-sanity-pass.webp`
+- Target: `public/card-art/sci-fi/cards/action-verify/grade-01.webp`
 - Owner: Card `action-verify` grade `Sanity Pass`
 - Status: planned
 
@@ -1930,7 +2035,7 @@ A test rig running a component through one quick gate, an obvious flaw catching 
 #### 144. TST 2. Criteria Check
 
 - File name: `SCI-144-TST-2-Criteria-Check.png`
-- Target: `public/card-art/sci-fi/cards/action-verify/02-criteria-check.webp`
+- Target: `public/card-art/sci-fi/cards/action-verify/grade-02.webp`
 - Owner: Card `action-verify` grade `Criteria Check`
 - Status: planned
 
@@ -1943,7 +2048,7 @@ A test rig with each gate lighting pass or fail in turn as the component travels
 #### 145. TST 3. Stress Test
 
 - File name: `SCI-145-TST-3-Stress-Test.png`
-- Target: `public/card-art/sci-fi/cards/action-verify/03-stress-test.webp`
+- Target: `public/card-art/sci-fi/cards/action-verify/grade-03.webp`
 - Owner: Card `action-verify` grade `Stress Test`
 - Status: planned
 
@@ -1956,7 +2061,7 @@ A test rig pushing a component past its normal load, the edges and joints glowin
 #### 146. TST 4. Red Team
 
 - File name: `SCI-146-TST-4-Red-Team.png`
-- Target: `public/card-art/sci-fi/cards/action-verify/04-red-team.webp`
+- Target: `public/card-art/sci-fi/cards/action-verify/grade-04.webp`
 - Owner: Card `action-verify` grade `Red Team`
 - Status: planned
 
@@ -1969,7 +2074,7 @@ A test rig turned hostile, attacking the component from every side at once like 
 #### 147. SMR 1. Key Points Pull
 
 - File name: `SCI-147-SMR-1-Key-Points-Pull.png`
-- Target: `public/card-art/sci-fi/cards/action-summarize/01-key-points-pull.webp`
+- Target: `public/card-art/sci-fi/cards/action-summarize/grade-01.webp`
 - Owner: Card `action-summarize` grade `Key Points Pull`
 - Status: planned
 
@@ -1982,7 +2087,7 @@ A compression press lifting a few key points cleanly out of a tall stack of mate
 #### 148. SMR 2. Faithful Summary
 
 - File name: `SCI-148-SMR-2-Faithful-Summary.png`
-- Target: `public/card-art/sci-fi/cards/action-summarize/02-faithful-summary.webp`
+- Target: `public/card-art/sci-fi/cards/action-summarize/grade-02.webp`
 - Owner: Card `action-summarize` grade `Faithful Summary`
 - Status: planned
 
@@ -1995,7 +2100,7 @@ A compression press reducing a stack evenly, the original proportions still read
 #### 149. SMR 3. Decision Summary
 
 - File name: `SCI-149-SMR-3-Decision-Summary.png`
-- Target: `public/card-art/sci-fi/cards/action-summarize/03-decision-summary.webp`
+- Target: `public/card-art/sci-fi/cards/action-summarize/grade-03.webp`
 - Owner: Card `action-summarize` grade `Decision Summary`
 - Status: planned
 
@@ -2008,7 +2113,7 @@ A compression press with the decision-critical layer pulled bright to the top an
 #### 150. SMR 4. Executive Distillation
 
 - File name: `SCI-150-SMR-4-Executive-Distillation.png`
-- Target: `public/card-art/sci-fi/cards/action-summarize/04-executive-distillation.webp`
+- Target: `public/card-art/sci-fi/cards/action-summarize/grade-04.webp`
 - Owner: Card `action-summarize` grade `Executive Distillation`
 - Status: planned
 
@@ -2021,7 +2126,7 @@ A compression press yielding one brilliant dense wafer, the enormous source volu
 #### 151. RES 1. Supplied Sources
 
 - File name: `SCI-151-RES-1-Supplied-Sources.png`
-- Target: `public/card-art/sci-fi/cards/action-research/01-supplied-sources.webp`
+- Target: `public/card-art/sci-fi/cards/action-research/grade-01.webp`
 - Owner: Card `action-research` grade `Supplied Sources`
 - Status: planned
 
@@ -2034,7 +2139,7 @@ A deep-scan array pointed at a few supplied cores, the dark gaps between them pl
 #### 152. RES 2. Targeted Lookup
 
 - File name: `SCI-152-RES-2-Targeted-Lookup.png`
-- Target: `public/card-art/sci-fi/cards/action-research/02-targeted-lookup.webp`
+- Target: `public/card-art/sci-fi/cards/action-research/grade-02.webp`
 - Owner: Card `action-research` grade `Targeted Lookup`
 - Status: planned
 
@@ -2047,7 +2152,7 @@ A deep-scan array firing narrow targeted beams into specific gaps, each return t
 #### 153. RES 3. Open Research
 
 - File name: `SCI-153-RES-3-Open-Research.png`
-- Target: `public/card-art/sci-fi/cards/action-research/03-open-research.webp`
+- Target: `public/card-art/sci-fi/cards/action-research/grade-03.webp`
 - Owner: Card `action-research` grade `Open Research`
 - Status: planned
 
@@ -2060,7 +2165,7 @@ A deep-scan array sweeping wide across open darkness on its own initiative, weig
 #### 154. RES 4. Deep Investigation
 
 - File name: `SCI-154-RES-4-Deep-Investigation.png`
-- Target: `public/card-art/sci-fi/cards/action-research/04-deep-investigation.webp`
+- Target: `public/card-art/sci-fi/cards/action-research/grade-04.webp`
 - Owner: Card `action-research` grade `Deep Investigation`
 - Status: planned
 
@@ -2073,7 +2178,7 @@ A deep-scan array with several beams converging to corroborate one distant retur
 #### 155. PLN 1. Rough Outline
 
 - File name: `SCI-155-PLN-1-Rough-Outline.png`
-- Target: `public/card-art/sci-fi/cards/action-plan/01-rough-outline.webp`
+- Target: `public/card-art/sci-fi/cards/action-plan/grade-01.webp`
 - Owner: Card `action-plan` grade `Rough Outline`
 - Status: planned
 
@@ -2086,7 +2191,7 @@ A sequencer track with a few nodes set loosely along it in a sensible order.
 #### 156. PLN 2. Sequenced Plan
 
 - File name: `SCI-156-PLN-2-Sequenced-Plan.png`
-- Target: `public/card-art/sci-fi/cards/action-plan/02-sequenced-plan.webp`
+- Target: `public/card-art/sci-fi/cards/action-plan/grade-02.webp`
 - Owner: Card `action-plan` grade `Sequenced Plan`
 - Status: planned
 
@@ -2099,7 +2204,7 @@ A sequencer track with ordered nodes, dependency lines drawn taut between them a
 #### 157. PLN 3. Delivery Plan
 
 - File name: `SCI-157-PLN-3-Delivery-Plan.png`
-- Target: `public/card-art/sci-fi/cards/action-plan/03-delivery-plan.webp`
+- Target: `public/card-art/sci-fi/cards/action-plan/grade-03.webp`
 - Owner: Card `action-plan` grade `Delivery Plan`
 - Status: planned
 
@@ -2112,7 +2217,7 @@ A sequencer track phased into grouped stages with milestone gates and verificati
 #### 158. PLN 4. Executable Program
 
 - File name: `SCI-158-PLN-4-Executable-Program.png`
-- Target: `public/card-art/sci-fi/cards/action-plan/04-executable-program.webp`
+- Target: `public/card-art/sci-fi/cards/action-plan/grade-04.webp`
 - Owner: Card `action-plan` grade `Executable Program`
 - Status: planned
 
@@ -2125,7 +2230,7 @@ A sequencer track fully built out and running itself, every node firing in order
 #### 159. IDE 1. Quick Options
 
 - File name: `SCI-159-IDE-1-Quick-Options.png`
-- Target: `public/card-art/sci-fi/cards/action-ideate/01-quick-options.webp`
+- Target: `public/card-art/sci-fi/cards/action-ideate/grade-01.webp`
 - Owner: Card `action-ideate` grade `Quick Options`
 - Status: planned
 
@@ -2138,7 +2243,7 @@ A spark chamber throwing off a small handful of distinct starting forms.
 #### 160. IDE 2. Divergent Set
 
 - File name: `SCI-160-IDE-2-Divergent-Set.png`
-- Target: `public/card-art/sci-fi/cards/action-ideate/02-divergent-set.webp`
+- Target: `public/card-art/sci-fi/cards/action-ideate/grade-02.webp`
 - Owner: Card `action-ideate` grade `Divergent Set`
 - Status: planned
 
@@ -2151,7 +2256,7 @@ A spark chamber flinging many genuinely different shapes wide, no two alike anyw
 #### 161. IDE 3. Explore and Converge
 
 - File name: `SCI-161-IDE-3-Explore-and-Converge.png`
-- Target: `public/card-art/sci-fi/cards/action-ideate/03-explore-and-converge.webp`
+- Target: `public/card-art/sci-fi/cards/action-ideate/grade-03.webp`
 - Owner: Card `action-ideate` grade `Explore and Converge`
 - Status: planned
 
@@ -2164,7 +2269,7 @@ A spark chamber mid-burst with the strongest few forms already pulled together i
 #### 162. IDE 4. Creative Sweep
 
 - File name: `SCI-162-IDE-4-Creative-Sweep.png`
-- Target: `public/card-art/sci-fi/cards/action-ideate/04-creative-sweep.webp`
+- Target: `public/card-art/sci-fi/cards/action-ideate/grade-04.webp`
 - Owner: Card `action-ideate` grade `Creative Sweep`
 - Status: planned
 
@@ -2177,7 +2282,7 @@ A spark chamber showing its full spectrum from safe compact forms to wild irregu
 #### 163. EXP 1. Direct Answer
 
 - File name: `SCI-163-EXP-1-Direct-Answer.png`
-- Target: `public/card-art/sci-fi/cards/action-explain/01-direct-answer.webp`
+- Target: `public/card-art/sci-fi/cards/action-explain/grade-01.webp`
 - Owner: Card `action-explain` grade `Direct Answer`
 - Status: planned
 
@@ -2190,7 +2295,7 @@ An exploded-view projector showing a single part in isolation, the rest of the m
 #### 164. EXP 2. Guided Walkthrough
 
 - File name: `SCI-164-EXP-2-Guided-Walkthrough.png`
-- Target: `public/card-art/sci-fi/cards/action-explain/02-guided-walkthrough.webp`
+- Target: `public/card-art/sci-fi/cards/action-explain/grade-02.webp`
 - Owner: Card `action-explain` grade `Guided Walkthrough`
 - Status: planned
 
@@ -2203,7 +2308,7 @@ An exploded-view projector unfolding parts one at a time along a lit path, each 
 #### 165. EXP 3. Deep Explanation
 
 - File name: `SCI-165-EXP-3-Deep-Explanation.png`
-- Target: `public/card-art/sci-fi/cards/action-explain/03-deep-explanation.webp`
+- Target: `public/card-art/sci-fi/cards/action-explain/grade-03.webp`
 - Owner: Card `action-explain` grade `Deep Explanation`
 - Status: planned
 
@@ -2216,7 +2321,7 @@ An exploded-view projector with the mechanism fully open, the hidden linkage exp
 #### 166. EXP 4. Full Teaching Pass
 
 - File name: `SCI-166-EXP-4-Full-Teaching-Pass.png`
-- Target: `public/card-art/sci-fi/cards/action-explain/04-full-teaching-pass.webp`
+- Target: `public/card-art/sci-fi/cards/action-explain/grade-04.webp`
 - Owner: Card `action-explain` grade `Full Teaching Pass`
 - Status: planned
 
@@ -2229,7 +2334,7 @@ An exploded-view projector with everything unfolded and further branches still o
 #### 167. ASK 1. Full Interview
 
 - File name: `SCI-167-ASK-1-Full-Interview.png`
-- Target: `public/card-art/sci-fi/cards/action-clarify/01-full-interview.webp`
+- Target: `public/card-art/sci-fi/cards/action-clarify/grade-01.webp`
 - Owner: Card `action-clarify` grade `Full Interview`
 - Status: planned
 
@@ -2242,7 +2347,7 @@ A query beacon firing many pulses in patient batches into a dark gap, its outlin
 #### 168. ASK 2. 95% Confidence Check
 
 - File name: `SCI-168-ASK-2-95-Confidence-Check.png`
-- Target: `public/card-art/sci-fi/cards/action-clarify/02-confidence-check.webp`
+- Target: `public/card-art/sci-fi/cards/action-clarify/grade-02.webp`
 - Owner: Card `action-clarify` grade `95% Confidence Check`
 - Status: planned
 
@@ -2255,7 +2360,7 @@ A query beacon still pulsing into a gap that is nearly closed, only a thin slive
 #### 169. ASK 3. Blocking Questions Only
 
 - File name: `SCI-169-ASK-3-Blocking-Questions-Only.png`
-- Target: `public/card-art/sci-fi/cards/action-clarify/03-blocking-questions-only.webp`
+- Target: `public/card-art/sci-fi/cards/action-clarify/grade-03.webp`
 - Owner: Card `action-clarify` grade `Blocking Questions Only`
 - Status: planned
 
@@ -2268,7 +2373,7 @@ A query beacon sending one single hard pulse into the one gap that actually bloc
 #### 170. ASK 4. Assume & Log
 
 - File name: `SCI-170-ASK-4-Assume-Log.png`
-- Target: `public/card-art/sci-fi/cards/action-clarify/04-assume-and-log.webp`
+- Target: `public/card-art/sci-fi/cards/action-clarify/grade-04.webp`
 - Owner: Card `action-clarify` grade `Assume & Log`
 - Status: planned
 
@@ -2283,7 +2388,7 @@ A query beacon gone dark, the gap bridged instead by a placed assumption block w
 #### 171. INF 1. Plain Answer
 
 - File name: `SCI-171-INF-1-Plain-Answer.png`
-- Target: `public/card-art/sci-fi/cards/format-info-card/01-plain-answer.webp`
+- Target: `public/card-art/sci-fi/cards/format-info-card/grade-01.webp`
 - Owner: Card `format-info-card` grade `Plain Answer`
 - Status: planned
 
@@ -2296,7 +2401,7 @@ A single answer slab standing bare in the dark, its face plain and unornamented.
 #### 172. INF 2. Answer Card
 
 - File name: `SCI-172-INF-2-Answer-Card.png`
-- Target: `public/card-art/sci-fi/cards/format-info-card/02-answer-card.webp`
+- Target: `public/card-art/sci-fi/cards/format-info-card/grade-02.webp`
 - Owner: Card `format-info-card` grade `Answer Card`
 - Status: planned
 
@@ -2309,7 +2414,7 @@ A single answer slab tightened down, its essentials arranged in one clean scanna
 #### 173. INF 3. Information Brief
 
 - File name: `SCI-173-INF-3-Information-Brief.png`
-- Target: `public/card-art/sci-fi/cards/format-info-card/03-information-brief.webp`
+- Target: `public/card-art/sci-fi/cards/format-info-card/grade-03.webp`
 - Owner: Card `format-info-card` grade `Information Brief`
 - Status: planned
 
@@ -2322,7 +2427,7 @@ A thicker answer slab with context strata visible in its cut edge, layered benea
 #### 174. INF 4. Reference Piece
 
 - File name: `SCI-174-INF-4-Reference-Piece.png`
-- Target: `public/card-art/sci-fi/cards/format-info-card/04-reference-piece.webp`
+- Target: `public/card-art/sci-fi/cards/format-info-card/grade-04.webp`
 - Owner: Card `format-info-card` grade `Reference Piece`
 - Status: planned
 
@@ -2335,7 +2440,7 @@ A substantial reference monolith with caveat notches cut into its margin and wor
 #### 175. KEY 1. Loose Bullets
 
 - File name: `SCI-175-KEY-1-Loose-Bullets.png`
-- Target: `public/card-art/sci-fi/cards/format-key-points/01-loose-bullets.webp`
+- Target: `public/card-art/sci-fi/cards/format-key-points/grade-01.webp`
 - Owner: Card `format-key-points` grade `Loose Bullets`
 - Status: planned
 
@@ -2348,7 +2453,7 @@ A rack holding a few point-shards leaning loosely, unaligned but separate.
 #### 176. KEY 2. Grouped Points
 
 - File name: `SCI-176-KEY-2-Grouped-Points.png`
-- Target: `public/card-art/sci-fi/cards/format-key-points/02-grouped-points.webp`
+- Target: `public/card-art/sci-fi/cards/format-key-points/grade-02.webp`
 - Owner: Card `format-key-points` grade `Grouped Points`
 - Status: planned
 
@@ -2361,7 +2466,7 @@ A rack of point-shards clustered into labeled groups, related shards standing to
 #### 177. KEY 3. Sectioned Points
 
 - File name: `SCI-177-KEY-3-Sectioned-Points.png`
-- Target: `public/card-art/sci-fi/cards/format-key-points/03-sectioned-points.webp`
+- Target: `public/card-art/sci-fi/cards/format-key-points/grade-03.webp`
 - Owner: Card `format-key-points` grade `Sectioned Points`
 - Status: planned
 
@@ -2374,7 +2479,7 @@ A full rack of point-shards arranged into clearly divided labeled sections.
 #### 178. KEY 4. Checklist Discipline
 
 - File name: `SCI-178-KEY-4-Checklist-Discipline.png`
-- Target: `public/card-art/sci-fi/cards/format-key-points/04-checklist-discipline.webp`
+- Target: `public/card-art/sci-fi/cards/format-key-points/grade-04.webp`
 - Owner: Card `format-key-points` grade `Checklist Discipline`
 - Status: planned
 
@@ -2387,7 +2492,7 @@ A rack of uniform atomic point-shards, each identical in size with a tick-notch 
 #### 179. SUM 1. One-Liner
 
 - File name: `SCI-179-SUM-1-One-Liner.png`
-- Target: `public/card-art/sci-fi/cards/format-summary/01-one-liner.webp`
+- Target: `public/card-art/sci-fi/cards/format-summary/grade-01.webp`
 - Owner: Card `format-summary` grade `One-Liner`
 - Status: planned
 
@@ -2400,7 +2505,7 @@ A distillation vessel holding one bright drop suspended at the very top.
 #### 180. SUM 2. Quick Summary
 
 - File name: `SCI-180-SUM-2-Quick-Summary.png`
-- Target: `public/card-art/sci-fi/cards/format-summary/02-quick-summary.webp`
+- Target: `public/card-art/sci-fi/cards/format-summary/grade-02.webp`
 - Owner: Card `format-summary` grade `Quick Summary`
 - Status: planned
 
@@ -2413,7 +2518,7 @@ A distillation vessel with a small clear band of summary floating above the sett
 #### 181. SUM 3. Executive Summary
 
 - File name: `SCI-181-SUM-3-Executive-Summary.png`
-- Target: `public/card-art/sci-fi/cards/format-summary/03-executive-summary.webp`
+- Target: `public/card-art/sci-fi/cards/format-summary/grade-03.webp`
 - Owner: Card `format-summary` grade `Executive Summary`
 - Status: planned
 
@@ -2426,7 +2531,7 @@ A distillation vessel with a thick lit layer of findings and an implication chan
 #### 182. SUM 4. Standalone Abstract
 
 - File name: `SCI-182-SUM-4-Standalone-Abstract.png`
-- Target: `public/card-art/sci-fi/cards/format-summary/04-standalone-abstract.webp`
+- Target: `public/card-art/sci-fi/cards/format-summary/grade-04.webp`
 - Owner: Card `format-summary` grade `Standalone Abstract`
 - Status: planned
 
@@ -2439,7 +2544,7 @@ A sealed self-contained distillation vessel, complete on its own, needing nothin
 #### 183. SEC 1. Natural Flow
 
 - File name: `SCI-183-SEC-1-Natural-Flow.png`
-- Target: `public/card-art/sci-fi/cards/format-sections/01-natural-flow.webp`
+- Target: `public/card-art/sci-fi/cards/format-sections/grade-01.webp`
 - Owner: Card `format-sections` grade `Natural Flow`
 - Status: planned
 
@@ -2452,7 +2557,7 @@ A mostly continuous column with only one or two divisions cut where they genuine
 #### 184. SEC 2. Clear Sections
 
 - File name: `SCI-184-SEC-2-Clear-Sections.png`
-- Target: `public/card-art/sci-fi/cards/format-sections/02-clear-sections.webp`
+- Target: `public/card-art/sci-fi/cards/format-sections/grade-02.webp`
 - Owner: Card `format-sections` grade `Clear Sections`
 - Status: planned
 
@@ -2465,7 +2570,7 @@ A column divided into evenly spaced chambers, each one distinct and separately l
 #### 185. SEC 3. Set Sequence
 
 - File name: `SCI-185-SEC-3-Set-Sequence.png`
-- Target: `public/card-art/sci-fi/cards/format-sections/03-set-sequence.webp`
+- Target: `public/card-art/sci-fi/cards/format-sections/grade-03.webp`
 - Owner: Card `format-sections` grade `Set Sequence`
 - Status: planned
 
@@ -2478,7 +2583,7 @@ A column of chambers in a fixed ordered stack, every chamber present and none sk
 #### 186. SEC 4. Locked Template
 
 - File name: `SCI-186-SEC-4-Locked-Template.png`
-- Target: `public/card-art/sci-fi/cards/format-sections/04-locked-template.webp`
+- Target: `public/card-art/sci-fi/cards/format-sections/grade-04.webp`
 - Owner: Card `format-sections` grade `Locked Template`
 - Status: planned
 
@@ -2491,7 +2596,7 @@ A column machined to an exact template, chamber seams flush and sealed, nothing 
 #### 187. CIT 1. Source Notes
 
 - File name: `SCI-187-CIT-1-Source-Notes.png`
-- Target: `public/card-art/sci-fi/cards/format-evidence/01-source-notes.webp`
+- Target: `public/card-art/sci-fi/cards/format-evidence/grade-01.webp`
 - Owner: Card `format-evidence` grade `Source Notes`
 - Status: planned
 
@@ -2504,7 +2609,7 @@ A floating claim with a couple of anchor lines dropped to the strongest source c
 #### 188. CIT 2. Linked Sources
 
 - File name: `SCI-188-CIT-2-Linked-Sources.png`
-- Target: `public/card-art/sci-fi/cards/format-evidence/02-linked-sources.webp`
+- Target: `public/card-art/sci-fi/cards/format-evidence/grade-02.webp`
 - Owner: Card `format-evidence` grade `Linked Sources`
 - Status: planned
 
@@ -2517,7 +2622,7 @@ Several floating claims each tethered inline to its own source core, lines short
 #### 189. CIT 3. Evidence Notes
 
 - File name: `SCI-189-CIT-3-Evidence-Notes.png`
-- Target: `public/card-art/sci-fi/cards/format-evidence/03-evidence-notes.webp`
+- Target: `public/card-art/sci-fi/cards/format-evidence/grade-03.webp`
 - Owner: Card `format-evidence` grade `Evidence Notes`
 - Status: planned
 
@@ -2530,7 +2635,7 @@ Anchor lines rendered at visible thicknesses, each strand's width showing the we
 #### 190. CIT 4. Citation Record
 
 - File name: `SCI-190-CIT-4-Citation-Record.png`
-- Target: `public/card-art/sci-fi/cards/format-evidence/04-citation-record.webp`
+- Target: `public/card-art/sci-fi/cards/format-evidence/grade-04.webp`
 - Owner: Card `format-evidence` grade `Citation Record`
 - Status: planned
 
@@ -2543,7 +2648,7 @@ Every claim anchored to a core, with inference lines rendered distinctly as dash
 #### 191. TAB 1. Option Notes
 
 - File name: `SCI-191-TAB-1-Option-Notes.png`
-- Target: `public/card-art/sci-fi/cards/format-comparison/01-option-notes.webp`
+- Target: `public/card-art/sci-fi/cards/format-comparison/grade-01.webp`
 - Owner: Card `format-comparison` grade `Option Notes`
 - Status: planned
 
@@ -2556,7 +2661,7 @@ Several alternatives standing separated in the dark, clearly apart from each oth
 #### 192. TAB 2. Comparison Table
 
 - File name: `SCI-192-TAB-2-Comparison-Table.png`
-- Target: `public/card-art/sci-fi/cards/format-comparison/02-comparison-table.webp`
+- Target: `public/card-art/sci-fi/cards/format-comparison/grade-02.webp`
 - Owner: Card `format-comparison` grade `Comparison Table`
 - Status: planned
 
@@ -2569,7 +2674,7 @@ A compact grid lattice with the alternatives placed on it and the key measuring 
 #### 193. TAB 3. Decision Table
 
 - File name: `SCI-193-TAB-3-Decision-Table.png`
-- Target: `public/card-art/sci-fi/cards/format-comparison/03-decision-table.webp`
+- Target: `public/card-art/sci-fi/cards/format-comparison/grade-03.webp`
 - Owner: Card `format-comparison` grade `Decision Table`
 - Status: planned
 
@@ -2582,7 +2687,7 @@ A grid lattice with criteria explicit along its edges and the winning row glowin
 #### 194. TAB 4. Evaluation Matrix
 
 - File name: `SCI-194-TAB-4-Evaluation-Matrix.png`
-- Target: `public/card-art/sci-fi/cards/format-comparison/04-evaluation-matrix.webp`
+- Target: `public/card-art/sci-fi/cards/format-comparison/grade-04.webp`
 - Owner: Card `format-comparison` grade `Evaluation Matrix`
 - Status: planned
 
@@ -2595,7 +2700,7 @@ A dense grid lattice of weighted cells with scored intersections and a ranked ve
 #### 195. NXT 1. Next Move
 
 - File name: `SCI-195-NXT-1-Next-Move.png`
-- Target: `public/card-art/sci-fi/cards/format-next/01-next-move.webp`
+- Target: `public/card-art/sci-fi/cards/format-next/grade-01.webp`
 - Owner: Card `format-next` grade `Next Move`
 - Status: planned
 
@@ -2608,7 +2713,7 @@ A launch rail with a single marker primed and glowing hot at its head.
 #### 196. NXT 2. Next Steps
 
 - File name: `SCI-196-NXT-2-Next-Steps.png`
-- Target: `public/card-art/sci-fi/cards/format-next/02-next-steps.webp`
+- Target: `public/card-art/sci-fi/cards/format-next/grade-02.webp`
 - Owner: Card `format-next` grade `Next Steps`
 - Status: planned
 
@@ -2621,7 +2726,7 @@ A launch rail with a short ordered run of markers lit in sequence down its lengt
 #### 197. NXT 3. Prioritized Actions
 
 - File name: `SCI-197-NXT-3-Prioritized-Actions.png`
-- Target: `public/card-art/sci-fi/cards/format-next/03-prioritized-actions.webp`
+- Target: `public/card-art/sci-fi/cards/format-next/grade-03.webp`
 - Owner: Card `format-next` grade `Prioritized Actions`
 - Status: planned
 
@@ -2634,7 +2739,7 @@ A launch rail with markers ranked by heat, owner tags clipped to the hottest one
 #### 198. NXT 4. Execution Handoff
 
 - File name: `SCI-198-NXT-4-Execution-Handoff.png`
-- Target: `public/card-art/sci-fi/cards/format-next/04-execution-handoff.webp`
+- Target: `public/card-art/sci-fi/cards/format-next/grade-04.webp`
 - Owner: Card `format-next` grade `Execution Handoff`
 - Status: planned
 
@@ -2647,7 +2752,7 @@ A launch rail fully loaded and released, running its whole sequence with no oper
 #### 199. LEN 1. Tight Budget
 
 - File name: `SCI-199-LEN-1-Tight-Budget.png`
-- Target: `public/card-art/sci-fi/cards/format-length/01-tight-budget.webp`
+- Target: `public/card-art/sci-fi/cards/format-length/grade-01.webp`
 - Owner: Card `format-length` grade `Tight Budget`
 - Status: planned
 
@@ -2660,7 +2765,7 @@ A precision caliper clamped hard on a body of luminous material, a heavy offcut 
 #### 200. LEN 2. One Screen
 
 - File name: `SCI-200-LEN-2-One-Screen.png`
-- Target: `public/card-art/sci-fi/cards/format-length/02-one-screen.webp`
+- Target: `public/card-art/sci-fi/cards/format-length/grade-02.webp`
 - Owner: Card `format-length` grade `One Screen`
 - Status: planned
 
@@ -2673,7 +2778,7 @@ A precision caliper holding material to a single dense measure, compact and full
 #### 201. LEN 3. Room to Explain
 
 - File name: `SCI-201-LEN-3-Room-to-Explain.png`
-- Target: `public/card-art/sci-fi/cards/format-length/03-room-to-explain.webp`
+- Target: `public/card-art/sci-fi/cards/format-length/grade-03.webp`
 - Owner: Card `format-length` grade `Room to Explain`
 - Status: planned
 
@@ -2686,7 +2791,7 @@ A precision caliper opened to the material's natural width, the space spent on s
 #### 202. LEN 4. Complete Treatment
 
 - File name: `SCI-202-LEN-4-Complete-Treatment.png`
-- Target: `public/card-art/sci-fi/cards/format-length/04-complete-treatment.webp`
+- Target: `public/card-art/sci-fi/cards/format-length/grade-04.webp`
 - Owner: Card `format-length` grade `Complete Treatment`
 - Status: planned
 
@@ -2699,7 +2804,7 @@ A precision caliper opened wide but stopping exactly at the material's true edge
 #### 203. TIER 1. Essentials First
 
 - File name: `SCI-203-TIER-1-Essentials-First.png`
-- Target: `public/card-art/sci-fi/cards/format-tiers/01-essentials-first.webp`
+- Target: `public/card-art/sci-fi/cards/format-tiers/grade-01.webp`
 - Owner: Card `format-tiers` grade `Essentials First`
 - Status: planned
 
@@ -2712,7 +2817,7 @@ A stepped platform with one small brilliantly lit top step and the depth below i
 #### 204. TIER 2. Three Tiers
 
 - File name: `SCI-204-TIER-2-Three-Tiers.png`
-- Target: `public/card-art/sci-fi/cards/format-tiers/02-three-tiers.webp`
+- Target: `public/card-art/sci-fi/cards/format-tiers/grade-02.webp`
 - Owner: Card `format-tiers` grade `Three Tiers`
 - Status: planned
 
@@ -2725,7 +2830,7 @@ A stepped platform of three clean descending steps, each one clearly separated f
 #### 205. TIER 3. Tiered Sections
 
 - File name: `SCI-205-TIER-3-Tiered-Sections.png`
-- Target: `public/card-art/sci-fi/cards/format-tiers/03-tiered-sections.webp`
+- Target: `public/card-art/sci-fi/cards/format-tiers/grade-03.webp`
 - Owner: Card `format-tiers` grade `Tiered Sections`
 - Status: planned
 
@@ -2738,7 +2843,7 @@ A stepped platform of three labeled steps with every item visibly assigned to on
 #### 206. TIER 4. Locked Tier Hierarchy
 
 - File name: `SCI-206-TIER-4-Locked-Tier-Hierarchy.png`
-- Target: `public/card-art/sci-fi/cards/format-tiers/04-locked-tier-hierarchy.webp`
+- Target: `public/card-art/sci-fi/cards/format-tiers/grade-04.webp`
 - Owner: Card `format-tiers` grade `Locked Tier Hierarchy`
 - Status: planned
 
@@ -2753,7 +2858,7 @@ A strictly machined terrace of tiers with hard edges, nothing resting anywhere o
 #### 207. LVL 1. First Contact
 
 - File name: `SCI-207-LVL-1-First-Contact.png`
-- Target: `public/card-art/sci-fi/cards/target-language/01-first-contact.webp`
+- Target: `public/card-art/sci-fi/cards/target-language/grade-01.webp`
 - Owner: Card `target-language` grade `First Contact`
 - Status: planned
 
@@ -2766,7 +2871,7 @@ A translator prism stepping its beam all the way down to the simplest broadest f
 #### 208. LVL 2. Plain Language
 
 - File name: `SCI-208-LVL-2-Plain-Language.png`
-- Target: `public/card-art/sci-fi/cards/target-language/02-plain-language.webp`
+- Target: `public/card-art/sci-fi/cards/target-language/grade-02.webp`
 - Owner: Card `target-language` grade `Plain Language`
 - Status: planned
 
@@ -2779,7 +2884,7 @@ A translator prism holding a clear middle facet, unfamiliar terms visibly unpack
 #### 209. LVL 3. Working Vocabulary
 
 - File name: `SCI-209-LVL-3-Working-Vocabulary.png`
-- Target: `public/card-art/sci-fi/cards/target-language/03-working-vocabulary.webp`
+- Target: `public/card-art/sci-fi/cards/target-language/grade-03.webp`
 - Owner: Card `target-language` grade `Working Vocabulary`
 - Status: planned
 
@@ -2792,7 +2897,7 @@ A translator prism running at standard density, only the most obscure facets cla
 #### 210. LVL 4. Expert Shorthand
 
 - File name: `SCI-210-LVL-4-Expert-Shorthand.png`
-- Target: `public/card-art/sci-fi/cards/target-language/04-expert-shorthand.webp`
+- Target: `public/card-art/sci-fi/cards/target-language/grade-04.webp`
 - Owner: Card `target-language` grade `Expert Shorthand`
 - Status: planned
 
@@ -2805,7 +2910,7 @@ A translator prism passed straight through undiluted, the beam leaving at full t
 #### 211. VOC 1. Straight Talk
 
 - File name: `SCI-211-VOC-1-Straight-Talk.png`
-- Target: `public/card-art/sci-fi/cards/target-voice/01-straight-talk.webp`
+- Target: `public/card-art/sci-fi/cards/target-voice/grade-01.webp`
 - Owner: Card `target-voice` grade `Straight Talk`
 - Status: planned
 
@@ -2818,7 +2923,7 @@ A tone modulator with its fork ringing loose and natural, the band warm and conv
 #### 212. VOC 2. Clear Neutral
 
 - File name: `SCI-212-VOC-2-Clear-Neutral.png`
-- Target: `public/card-art/sci-fi/cards/target-voice/02-clear-neutral.webp`
+- Target: `public/card-art/sci-fi/cards/target-voice/grade-02.webp`
 - Owner: Card `target-voice` grade `Clear Neutral`
 - Status: planned
 
@@ -2831,7 +2936,7 @@ A tone modulator holding a calm even band without ornament or flourish.
 #### 213. VOC 3. Professional Voice
 
 - File name: `SCI-213-VOC-3-Professional-Voice.png`
-- Target: `public/card-art/sci-fi/cards/target-voice/03-professional-voice.webp`
+- Target: `public/card-art/sci-fi/cards/target-voice/grade-03.webp`
 - Owner: Card `target-voice` grade `Professional Voice`
 - Status: planned
 
@@ -2844,7 +2949,7 @@ A tone modulator holding a polished precise band, its edges clean and deliberate
 #### 214. VOC 4. Formal Register
 
 - File name: `SCI-214-VOC-4-Formal-Register.png`
-- Target: `public/card-art/sci-fi/cards/target-voice/04-formal-register.webp`
+- Target: `public/card-art/sci-fi/cards/target-voice/grade-04.webp`
 - Owner: Card `target-voice` grade `Formal Register`
 - Status: planned
 
@@ -2857,7 +2962,7 @@ A tone modulator holding a rigid disciplined band exactly on its mark, formal an
 #### 215. EX 1. Everyday Analogy
 
 - File name: `SCI-215-EX-1-Everyday-Analogy.png`
-- Target: `public/card-art/sci-fi/cards/target-examples/01-everyday-analogy.webp`
+- Target: `public/card-art/sci-fi/cards/target-examples/grade-01.webp`
 - Owner: Card `target-examples` grade `Everyday Analogy`
 - Status: planned
 
@@ -2870,7 +2975,7 @@ A projector casting one familiar homely miniature scene beneath a large abstract
 #### 216. EX 2. Worked Example
 
 - File name: `SCI-216-EX-2-Worked-Example.png`
-- Target: `public/card-art/sci-fi/cards/target-examples/02-worked-example.webp`
+- Target: `public/card-art/sci-fi/cards/target-examples/grade-02.webp`
 - Owner: Card `target-examples` grade `Worked Example`
 - Status: planned
 
@@ -2883,7 +2988,7 @@ A projector carrying a single miniature scene all the way through from start to 
 #### 217. EX 3. Domain Example
 
 - File name: `SCI-217-EX-3-Domain-Example.png`
-- Target: `public/card-art/sci-fi/cards/target-examples/03-domain-example.webp`
+- Target: `public/card-art/sci-fi/cards/target-examples/grade-03.webp`
 - Owner: Card `target-examples` grade `Domain Example`
 - Status: planned
 
@@ -2896,7 +3001,7 @@ A projector casting realistic miniature scenes with their messy irregular detail
 #### 218. EX 4. Edge Case
 
 - File name: `SCI-218-EX-4-Edge-Case.png`
-- Target: `public/card-art/sci-fi/cards/target-examples/04-edge-case.webp`
+- Target: `public/card-art/sci-fi/cards/target-examples/grade-04.webp`
 - Owner: Card `target-examples` grade `Edge Case`
 - Status: planned
 
@@ -2909,7 +3014,7 @@ A projector placing miniature scenes right at the boundary where the larger rule
 #### 219. DCN 1. Next Decision
 
 - File name: `SCI-219-DCN-1-Next-Decision.png`
-- Target: `public/card-art/sci-fi/cards/target-decisions/01-next-decision.webp`
+- Target: `public/card-art/sci-fi/cards/target-decisions/grade-01.webp`
 - Owner: Card `target-decisions` grade `Next Decision`
 - Status: planned
 
@@ -2922,7 +3027,7 @@ A decision console with one lever highlighted and the input it still needs lit b
 #### 220. DCN 2. Actionable Framing
 
 - File name: `SCI-220-DCN-2-Actionable-Framing.png`
-- Target: `public/card-art/sci-fi/cards/target-decisions/02-actionable-framing.webp`
+- Target: `public/card-art/sci-fi/cards/target-decisions/grade-02.webp`
 - Owner: Card `target-decisions` grade `Actionable Framing`
 - Status: planned
 
@@ -2935,7 +3040,7 @@ A decision console with its levers labeled by the action each one enables furthe
 #### 221. DCN 3. Tradeoff Brief
 
 - File name: `SCI-221-DCN-3-Tradeoff-Brief.png`
-- Target: `public/card-art/sci-fi/cards/target-decisions/03-tradeoff-brief.webp`
+- Target: `public/card-art/sci-fi/cards/target-decisions/grade-03.webp`
 - Owner: Card `target-decisions` grade `Tradeoff Brief`
 - Status: planned
 
@@ -2948,7 +3053,7 @@ A decision console of paired levers, each pair showing what is gained against wh
 #### 222. DCN 4. Decision Record
 
 - File name: `SCI-222-DCN-4-Decision-Record.png`
-- Target: `public/card-art/sci-fi/cards/target-decisions/04-decision-record.webp`
+- Target: `public/card-art/sci-fi/cards/target-decisions/grade-04.webp`
 - Owner: Card `target-decisions` grade `Decision Record`
 - Status: planned
 
@@ -2961,7 +3066,7 @@ A decision console with the chosen lever locked in place and its accepted conseq
 #### 223. STN 1. Warm & Encouraging
 
 - File name: `SCI-223-STN-1-Warm-Encouraging.png`
-- Target: `public/card-art/sci-fi/cards/target-stance/01-warm-and-encouraging.webp`
+- Target: `public/card-art/sci-fi/cards/target-stance/grade-01.webp`
 - Owner: Card `target-stance` grade `Warm & Encouraging`
 - Status: planned
 
@@ -2974,7 +3079,7 @@ A stance dial with the needle at the warm amber pole, the scene washed in soft e
 #### 224. STN 2. Even & Matter-of-Fact
 
 - File name: `SCI-224-STN-2-Even-Matter-of-Fact.png`
-- Target: `public/card-art/sci-fi/cards/target-stance/02-even-and-matter-of-fact.webp`
+- Target: `public/card-art/sci-fi/cards/target-stance/grade-02.webp`
 - Owner: Card `target-stance` grade `Even & Matter-of-Fact`
 - Status: planned
 
@@ -2987,7 +3092,7 @@ A stance dial with the needle centered, the light even and matter-of-fact with n
 #### 225. STN 3. Candid & Direct
 
 - File name: `SCI-225-STN-3-Candid-Direct.png`
-- Target: `public/card-art/sci-fi/cards/target-stance/03-candid-and-direct.webp`
+- Target: `public/card-art/sci-fi/cards/target-stance/grade-03.webp`
 - Owner: Card `target-stance` grade `Candid & Direct`
 - Status: planned
 
@@ -3000,7 +3105,7 @@ A stance dial with the needle pushed toward the cold pole, the light hard, clear
 #### 226. STN 4. Authoritative & Decisive
 
 - File name: `SCI-226-STN-4-Authoritative-Decisive.png`
-- Target: `public/card-art/sci-fi/cards/target-stance/04-authoritative-and-decisive.webp`
+- Target: `public/card-art/sci-fi/cards/target-stance/grade-04.webp`
 - Owner: Card `target-stance` grade `Authoritative & Decisive`
 - Status: planned
 

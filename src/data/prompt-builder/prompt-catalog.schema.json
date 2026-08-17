@@ -210,25 +210,6 @@
       "type": "string",
       "pattern": "^[a-z][a-z0-9-]*$"
     },
-    "illustrationStatus": {
-      "type": "string",
-      "enum": ["planned", "generated"]
-    },
-    "illustration": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["src", "alt", "motif", "prompt", "status"],
-      "properties": {
-        "src": {
-          "type": "string",
-          "pattern": "^/card-art/.+\\.webp$"
-        },
-        "alt": { "$ref": "#/$defs/nonEmptyString" },
-        "motif": { "$ref": "#/$defs/nonEmptyString" },
-        "prompt": { "$ref": "#/$defs/nonEmptyString" },
-        "status": { "$ref": "#/$defs/illustrationStatus" }
-      }
-    },
     "roleAbility": {
       "type": "object",
       "additionalProperties": false,
@@ -246,23 +227,14 @@
     "role": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "name",
-        "category",
-        "description",
-        "core",
-        "ability",
-        "illustration"
-      ],
+      "required": ["id", "name", "category", "description", "core", "ability"],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "name": { "$ref": "#/$defs/nonEmptyString" },
         "category": { "$ref": "#/$defs/nonEmptyString" },
         "description": { "$ref": "#/$defs/nonEmptyString" },
         "core": { "type": "boolean" },
-        "ability": { "$ref": "#/$defs/roleAbility" },
-        "illustration": { "$ref": "#/$defs/illustration" }
+        "ability": { "$ref": "#/$defs/roleAbility" }
       }
     },
     "section": {
@@ -385,12 +357,11 @@
     "cardGrade": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "description", "instruction", "illustration"],
+      "required": ["name", "description", "instruction"],
       "properties": {
         "name": { "$ref": "#/$defs/nonEmptyString" },
         "description": { "$ref": "#/$defs/nonEmptyString" },
-        "instruction": { "$ref": "#/$defs/nonEmptyString" },
-        "illustration": { "$ref": "#/$defs/illustration" }
+        "instruction": { "$ref": "#/$defs/nonEmptyString" }
       }
     },
     "affinityRange": {
@@ -406,15 +377,7 @@
     "card": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "id",
-        "code",
-        "section",
-        "driver",
-        "goals",
-        "grades",
-        "illustration"
-      ],
+      "required": ["id", "code", "section", "driver", "goals", "grades"],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
         "code": {
@@ -435,7 +398,6 @@
           "maxItems": 5,
           "items": { "$ref": "#/$defs/cardGrade" }
         },
-        "illustration": { "$ref": "#/$defs/illustration" },
         "affinity": {
           "type": "object",
           "propertyNames": { "$ref": "#/$defs/trackId" },
@@ -456,8 +418,7 @@
         "roleIds",
         "tracks",
         "equipped",
-        "effects",
-        "illustration"
+        "effects"
       ],
       "properties": {
         "id": { "$ref": "#/$defs/id" },
@@ -487,7 +448,6 @@
           "maxItems": 6,
           "items": { "$ref": "#/$defs/nonEmptyString" }
         },
-        "illustration": { "$ref": "#/$defs/illustration" },
         "action": { "type": "string" },
         "formatNotes": { "type": "string" }
       }

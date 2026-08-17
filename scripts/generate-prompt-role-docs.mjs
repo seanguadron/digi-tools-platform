@@ -23,6 +23,10 @@ export function renderRoleMarkdown(roles) {
     "This reference groups the CRAFT Deck roles by category. Entries marked",
     "as core represent the strongest general-purpose roles in the library.",
     "",
+    "A role's artwork and character bio belong to an art pack rather than to",
+    "the role itself, so they live in that pack's own generated doc, e.g.",
+    "`docs/CRAFT_ART_SCIFI.md`.",
+    "",
   ];
 
   for (const [category, categoryRoles] of categories) {
@@ -40,8 +44,6 @@ export function renderRoleMarkdown(roles) {
         role.ability.summary,
         "",
         ...role.ability.bullets.map((bullet) => `- ${bullet}`),
-        "",
-        `**Illustration:** ${role.illustration.src} (${role.illustration.status})`,
         "",
       );
     }

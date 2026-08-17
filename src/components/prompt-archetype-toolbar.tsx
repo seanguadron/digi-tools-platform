@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
+import { CardBio, CardIllustrationFrame } from "@/components/prompt-builder-ui";
+import { archetypeArt, archetypeArtWithFallback } from "@/lib/art-pack";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
 import { usePortalTarget } from "@/hooks/use-portal-target";
 import { isCustomArchetype } from "@/lib/prompt-custom-archetypes";
@@ -212,7 +213,7 @@ export function PromptArchetypeToolbar({
             >
               <CardIllustrationFrame
                 className="floating-card-art"
-                illustration={previewArchetype.illustration}
+                illustration={archetypeArtWithFallback(previewArchetype.id)}
                 fallback={previewArchetype.code.slice(0, 1)}
               />
               <div className="floating-card-panel-identity">
@@ -220,6 +221,7 @@ export function PromptArchetypeToolbar({
                 <strong>{previewArchetype.name}</strong>
                 <p>{previewArchetype.description}</p>
               </div>
+              <CardBio text={archetypeArt(previewArchetype.id)?.bio} />
               <div className="ability-guidance">
                 <span>What this preset changes</span>
                 <ul>

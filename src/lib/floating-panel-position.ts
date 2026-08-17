@@ -6,7 +6,13 @@
 export const FLOATING_PANEL_WIDTH = 390;
 export const FLOATING_PANEL_GAP = 12;
 export const FLOATING_PANEL_MARGIN = 16;
-export const FLOATING_PANEL_MAX_HEIGHT = 480;
+
+// The panel clips rather than scrolls (it is pointer-events: none, so nobody
+// could scroll it anyway), which makes this budget load-bearing: content past
+// it disappears with no visible symptom. It is returned as an inline style
+// rather than written in CSS so the number the placement math uses and the
+// number the panel actually honours cannot drift apart.
+export const FLOATING_PANEL_MAX_HEIGHT = 560;
 
 export function getFloatingPanelPosition(element: HTMLElement) {
   const rect = element.getBoundingClientRect();
@@ -26,5 +32,12 @@ export function getFloatingPanelPosition(element: HTMLElement) {
     ),
   );
 
-  return { left, top };
+  return {
+    left,
+    top,
+    maxHeight: Math.min(
+      FLOATING_PANEL_MAX_HEIGHT,
+      window.innerHeight - FLOATING_PANEL_MARGIN * 2,
+    ),
+  };
 }

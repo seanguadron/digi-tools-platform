@@ -5,6 +5,7 @@
 import cardsData from "@/data/prompt-builder/cards.json";
 import formatsData from "@/data/prompt-builder/formats.json";
 import tracksData from "@/data/prompt-builder/tracks.json";
+import { cardArt, lineageArt } from "@/lib/art-pack";
 import { createCardEngine } from "@/lib/card-engine";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
 import type {
@@ -64,6 +65,10 @@ export const craftCardEngine = createCardEngine<
   defaultTrackValues: tracksCatalog.defaultValues,
   vocabulary: tracksCatalog.vocabulary,
   cardFamily: getCardFamily,
+  // This deck's pictures and bios come from the active art pack rather than
+  // from the catalog, so a second world can be dropped in beside the first.
+  cardArt: (lineage, gradeIndex) => cardArt(lineage.id, gradeIndex),
+  cardBio: (lineage) => lineageArt(lineage.id)?.bio,
 });
 
 export const SECTION_TRACKS = tracksCatalog.sectionTracks;

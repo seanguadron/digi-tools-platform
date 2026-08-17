@@ -2,27 +2,11 @@
 // the node test runner can load it directly; this declaration lets app-side
 // code (the studio page, the card-art route) import it under allowJs: false.
 
+import type { ArtPackFile } from "./art-pack.d.mts";
+
 export declare const ART_THEME_IDS: readonly string[];
 
-export type ArtThemeFile = {
-  schemaVersion: number;
-  theme: {
-    id: string;
-    name: string;
-    pathSegment: string;
-    filePrefix: string;
-    fileExtension: string;
-    generator: string;
-    aspectRatio: string;
-    style: string;
-  };
-  craft: Record<string, string>;
-  roles: Record<string, string>;
-  lineages: Record<string, string>;
-  grades: Record<string, string[]>;
-  archetypes: Record<string, string>;
-  shared: Record<string, string>;
-};
+export type ArtThemeFile = ArtPackFile;
 
 export type CraftArtEntry = {
   group: string;
@@ -31,6 +15,7 @@ export type CraftArtEntry = {
   target: string;
   status: string;
   unique: string;
+  bio?: string;
   key: string;
   later?: boolean;
 };

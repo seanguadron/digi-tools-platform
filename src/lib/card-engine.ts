@@ -31,7 +31,9 @@ export type CardLineageOf<S extends string, T extends string> = {
   driver: T;
   goals: readonly string[];
   grades: readonly CardGradeOf[];
-  illustration: CardIllustration;
+  // Optional because a deck can keep its art in an art pack instead (the
+  // CRAFT deck does; the PICTURE deck still carries its own inline).
+  illustration?: CardIllustration;
   affinity?: Partial<Record<T, readonly [number, number]>>;
 };
 
@@ -56,17 +58,18 @@ export type CardSystemStateOf<S extends string, T extends string> = {
 };
 
 // Which artwork a card face shows. A grade's own art wins ONLY once it has
-// actually been generated: every CRAFT grade already carries a placeholder
-// illustration record, so a plain `grade.illustration ?? lineage.illustration`
-// would make lineage art unreachable and leave the whole deck on letter
-// placeholders until all 128 grade images existed. Falling back on status
-// instead lets one lineage image cover its grades today, and each grade
-// upgrades itself the moment its own art lands. (PICTURE grades carry no
-// illustration at all, so this returns the lineage art for them as before.)
-export function resolveCardIllustration(
-  grade: CardIllustration | undefined,
-  lineage: CardIllustration,
-): CardIllustration {
+// actually been generated: a deck ships a placeholder record per grade, so a
+// plain `grade ?? lineage` would make lineage art unreachable and leave the
+// whole deck on letter placeholders until all 128 grade images existed.
+// Falling back on status instead lets one lineage image cover its grades
+// today, and each grade upgrades itself the moment its own art lands.
+// (PICTURE grades carry no illustration at all, so this returns lineage art
+// for them; the CRAFT deck applies the same rule over its art pack in
+// `src/lib/art-pack.ts`.)
+export function resolveCardIllustration<A extends { status: string }>(
+  grade: A | undefined,
+  lineage: A | undefined,
+): A | undefined {
   return grade?.status === "generated" ? grade : lineage;
 }
 
@@ -86,6 +89,22 @@ export type CardEngineConfig<
   // this by format code. Absent keys fall back to the base definition.
   vocabulary?: Record<string, Partial<Record<T, readonly string[]>>>;
   cardFamily: (section: S) => string;
+  // Where a card's picture comes from. The seam exists because the two decks
+  // answer it differently: CRAFT looks the card up in the active art pack,
+  // PICTURE still carries illustrations inline on its catalog. Omitted, a deck
+  // falls back to whatever its lineage/grade records carry.
+  cardArt?: (lineage: L, gradeIndex: number) => CardArtRef | undefined;
+  // The card's short character blurb, also a per-world fact and so also the
+  // art pack's. Absent for a deck that has not been given one.
+  cardBio?: (lineage: L) => string | undefined;
+};
+
+// The little a card face needs to know about its picture. Both a pack entry
+// and an inline `illustration` satisfy it, which is what lets one card face
+// serve both decks.
+export type CardArtRef = {
+  src: string;
+  status: "planned" | "generated";
 };
 
 // Private twin of src/lib/slot-order.ts insertIntoSlots (see header comment).
@@ -122,6 +141,8 @@ export function createCardEngine<
     defaultTrackValues,
     vocabulary,
     cardFamily,
+    cardArt,
+    cardBio,
   } = config;
   const trackDefinitions = new Map<T, TrackDefinitionOf<T>>(
     config.trackDefinitions.map((definition) => [definition.id, definition]),
@@ -164,13 +185,31 @@ export function createCardEngine<
     );
   }
 
-  function getCardGrade(lineage: L, values: TrackValuesOf<T>) {
-    const gradeIndex = Math.min(
-      values[lineage.driver],
-      lineage.grades.length - 1,
-    );
+  function getCardGradeIndex(lineage: L, values: TrackValuesOf<T>) {
+    return Math.min(values[lineage.driver], lineage.grades.length - 1);
+  }
 
-    return lineage.grades[gradeIndex] as L["grades"][number];
+  function getCardGrade(lineage: L, values: TrackValuesOf<T>) {
+    return lineage.grades[
+      getCardGradeIndex(lineage, values)
+    ] as L["grades"][number];
+  }
+
+  // The art a card face should show at these track values, resolved through
+  // whichever source the deck configured.
+  function getCardArt(lineage: L, values: TrackValuesOf<T>) {
+    const gradeIndex = getCardGradeIndex(lineage, values);
+    if (cardArt) {
+      return cardArt(lineage, gradeIndex);
+    }
+    return resolveCardIllustration(
+      lineage.grades[gradeIndex]?.illustration,
+      lineage.illustration,
+    );
+  }
+
+  function getCardBio(lineage: L) {
+    return cardBio?.(lineage);
   }
 
   function getLineage(lineageId: string) {
@@ -489,6 +528,9 @@ export function createCardEngine<
     isLineageCompatible,
     getSectionDeck,
     getCardGrade,
+    getCardGradeIndex,
+    getCardArt,
+    getCardBio,
     getLineage,
     getEquippedInstructions,
     sanitizeCardSystemShape,

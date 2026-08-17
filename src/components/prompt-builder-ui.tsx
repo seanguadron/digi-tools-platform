@@ -7,7 +7,9 @@ import type {
   DictationField,
   DictationPhase,
 } from "@/hooks/use-prompt-dictation";
-import type { CardIllustration, PromptRole } from "@/lib/prompt-types";
+import { roleArt } from "@/lib/art-pack";
+import type { CardArtRef } from "@/lib/card-engine";
+import type { PromptRole } from "@/lib/prompt-types";
 
 const FIELD_GUIDANCE = {
   context: {
@@ -63,13 +65,25 @@ export function roleCategoryCode(category: string) {
     .toUpperCase();
 }
 
+/**
+ * A card's character bio, when its art pack has written one. Rendered as its
+ * own element so the panel's grid can span it and so a deck with no bios
+ * (PICTURE today) renders nothing at all rather than an empty rule.
+ */
+export function CardBio({ text }: { text?: string }) {
+  if (!text) {
+    return null;
+  }
+  return <p className="floating-card-bio">{text}</p>;
+}
+
 export function CardIllustrationFrame({
   illustration,
   fallback,
   className,
   badge,
 }: {
-  illustration?: CardIllustration;
+  illustration?: CardArtRef;
   fallback: string;
   className: string;
   badge?: string;
@@ -127,7 +141,7 @@ export function RoleAvatar({
   return (
     <CardIllustrationFrame
       className={`role-card-portrait role-avatar-tone-${(index % 4) + 1}`}
-      illustration={role.illustration}
+      illustration={roleArt(role.id)}
       fallback={initials}
       badge={roleCategoryCode(role.category)}
     />
