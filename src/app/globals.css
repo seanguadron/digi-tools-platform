@@ -8319,6 +8319,403 @@ body:has(.page-stage.is-fluid) {
   }
 }
 
+/* ===== Card Art Studio (development-only authoring surface) ===== */
+/* Not a tool: no registry entry, no nav. A dense worklist over the art pack,
+   modeled on the image editor's layer rows. */
+
+.card-art-studio {
+  display: grid;
+  gap: 16px;
+  padding: 24px 20px 64px;
+}
+
+.card-art-studio-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.card-art-studio-head h1 {
+  margin: 4px 0 6px;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-art-studio-head p {
+  max-width: 68ch;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+.card-art-kicker {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-cyan-text);
+}
+
+.card-art-progress {
+  display: grid;
+  justify-items: end;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--card);
+}
+
+.card-art-progress strong {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 1.15rem;
+}
+
+.card-art-progress small {
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+}
+
+.card-art-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.card-art-controls .field {
+  gap: 4px;
+}
+
+.card-art-controls .field > span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.card-art-controls select,
+.card-art-controls input[type="search"] {
+  min-height: 36px;
+  padding: 0 10px;
+  border: 1px solid var(--input);
+  border-radius: 9px;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.card-art-search {
+  min-width: 220px;
+}
+
+.card-art-toggle {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.card-art-paste-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px dashed color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+  border-radius: 12px;
+  background: color-mix(in oklch, var(--brand-cyan) 6%, var(--card));
+  font-size: 0.85rem;
+}
+
+.card-art-paste-bar span {
+  color: var(--muted-foreground);
+}
+
+.card-art-paste-bar em {
+  margin-left: auto;
+  color: var(--brand-cyan-text);
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.card-art-rows {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card-art-row {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.card-art-row.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 5%, var(--card));
+}
+
+.card-art-row-main {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 40px 72px;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 12px;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.card-art-seq {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.card-art-identity {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.card-art-identity strong {
+  font-size: 0.9rem;
+}
+
+.card-art-identity small {
+  overflow: hidden;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-art-count {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.card-art-status {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.68rem;
+  text-align: center;
+  color: var(--muted-foreground);
+}
+
+.card-art-status.is-done {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
+}
+
+.card-art-detail {
+  display: grid;
+  gap: 14px;
+  padding: 4px 14px 16px;
+}
+
+.card-art-detail-prompt p {
+  max-width: 78ch;
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.card-art-detail-prompt code {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+}
+
+.card-art-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-art-empty,
+.card-art-empty-row {
+  padding: 10px 0;
+  color: var(--muted-foreground);
+  font-size: 0.82rem;
+}
+
+.card-art-variants {
+  display: grid;
+  gap: 12px;
+}
+
+.card-art-variant-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card-art-chip {
+  display: grid;
+  gap: 3px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.card-art-chip img {
+  width: 72px;
+  height: 72px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.card-art-chip span {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.65rem;
+  text-align: center;
+}
+
+.card-art-chip.is-chosen {
+  border-color: var(--brand-cyan);
+  color: var(--brand-cyan-text);
+}
+
+.card-art-chosen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.card-art-card-preview {
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  width: 152px;
+}
+
+.card-art-card-preview small {
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+}
+
+.card-art-chosen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Cropper */
+
+.card-art-crop-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: color-mix(in oklch, var(--background) 82%, transparent);
+}
+
+.card-art-cropper {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+}
+
+.card-art-cropper-head {
+  display: grid;
+  gap: 2px;
+}
+
+.card-art-cropper-head small {
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+}
+
+.card-art-crop-window {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--brand-cyan);
+  border-radius: 10px;
+  background: var(--muted);
+  cursor: grab;
+  touch-action: none;
+}
+
+.card-art-crop-window:active {
+  cursor: grabbing;
+}
+
+.card-art-crop-window img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: none;
+  user-select: none;
+}
+
+.card-art-crop-loading {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+}
+
+.card-art-crop-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.card-art-zoom {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-art-zoom button {
+  min-width: 30px;
+  min-height: 30px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.card-art-zoom span {
+  min-width: 48px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+.card-art-crop-buttons {
+  display: flex;
+  gap: 8px;
+}
+
 /* ============================================================
    Mobile tool gate (shell-level, registry-driven)
    Registry entries with mobileSupport: "gated" swap their stage

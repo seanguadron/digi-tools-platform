@@ -1,7 +1,11 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-export const projectRoot = path.resolve(import.meta.dirname, "..");
+// See prompt-data-files.mjs: dirname is undefined under a bundler, and the
+// dev server always runs from the repo root.
+export const projectRoot = import.meta.dirname
+  ? path.resolve(import.meta.dirname, "..")
+  : process.cwd();
 export const pictureDataDir = path.join(
   projectRoot,
   "src",

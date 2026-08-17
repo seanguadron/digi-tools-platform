@@ -10,9 +10,9 @@ language for everything named here is `docs/DESIGN_DIRECTION.md`.
 
 ## 1. System shape
 
-Next.js App Router, fully client-side: no backend, no accounts, no cloud
-sync. State lives in `localStorage`; files enter and leave via the browser
-(`src/lib/browser-download.ts`, file inputs). Every tool is:
+Next.js App Router. Every shipped tool is client-side: no accounts, no cloud
+sync, no server. State lives in `localStorage`; files enter and leave via the
+browser (`src/lib/browser-download.ts`, file inputs). Every tool is:
 
 - a **registry entry** in `src/lib/tool-registry.ts` (`ToolDescriptor`:
   `id`, `name`, `shortName`, `tagline`, `href`, `fullBleed?`,
@@ -25,6 +25,36 @@ sync. State lives in `localStorage`; files enter and leave via the browser
 The registry drives the shell's top-bar tabs and the home page's titles,
 taglines, and CTAs automatically. The home page's per-tool marketing
 sections (`src/app/page.tsx`) are hand-written — a new tool adds one.
+
+### The one server surface: the Card Art Studio
+
+There is exactly one exception to "no server", and it is an authoring
+surface, not a tool. `/studio/card-art` and its route handler
+`src/app/api/card-art/route.ts` write generated card art to disk so the owner
+does not rename, convert, and move 226 files by hand. It is **not** in the
+tool registry: no nav tab, no home card, nothing links to it.
+
+What keeps it safe, and what a reviewer should check:
+
+- **Development only.** Both the page and the handler bail on
+  `process.env.NODE_ENV === "production"` (the page 404s via `notFound()`).
+  `check:security` **S4** fails the build if any route handler under
+  `src/app` loses that guard, so it cannot rot into a shipped endpoint.
+- **Keys, never paths.** A caller names a catalog entry (`roles.researcher`).
+  Every directory and filename is derived server-side from the catalog by
+  `scripts/card-art-store.mjs`, which also asserts each resolved path sits
+  inside its own root. There is no client-supplied path anywhere.
+- **It makes `src/data` runtime-mutable**, which the trust model otherwise
+  forbids: selecting an image flips one `illustration.status` to
+  `"generated"` and re-runs the art-pack generator so the committed doc
+  cannot drift. That write is narrow (one enum field, located by the entry's
+  own `src`) and is the reason this surface is called out here.
+
+The logic lives in `scripts/card-art-store.mjs` rather than the route so the
+node runner can test it directly (`scripts/card-art-store.test.mjs`); the
+route is a thin HTTP shell. Two working trees: `card-art-source/` holds the
+committed candidates and crops and is never built, while `public/card-art/`
+holds only the one live webp per card that the catalog points at.
 
 ## 2. The shell contract
 

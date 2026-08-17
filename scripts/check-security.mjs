@@ -1,17 +1,20 @@
 #!/usr/bin/env node
 /**
  * check-security.mjs — the deterministic half of the Security gate, scoped to
- * this app's REAL surface: a fully client-side toolbox (no auth, no API, no
- * server data writes). What can actually go wrong here is script injection
- * through rendered prompt content, secrets accidentally committed, and env
- * files leaking into git. Exit 0 = pass, 1 = fail (blocks the build via
- * `prebuild`, the pre-commit hook, and CI).
+ * this app's REAL surface: a client-side toolbox with no auth, no accounts,
+ * and no cloud — plus ONE development-only write endpoint (the Card Art
+ * Studio, src/app/api/card-art). What can actually go wrong here is script
+ * injection through rendered prompt content, secrets accidentally committed,
+ * env files leaking into git, and that endpoint reaching production. Exit
+ * 0 = pass, 1 = fail (blocks the build via `prebuild`, the pre-commit hook,
+ * and CI).
  *
  * Checks (STANDARDS §2.4 + hygiene):
  *   S1  no script-injection primitives — eval / new Function /
  *       dangerouslySetInnerHTML outside the allowlist (empty today).
  *   S2  no secret-looking strings committed under src/.
  *   S3  .gitignore covers .env*.
+ *   S4  every route handler carries the production guard.
  *
  * The browser trust boundary (imported session JSON, localStorage reads —
  * STANDARDS §2.3) is a JUDGMENT rule: the Security gate agent audits it;
@@ -78,6 +81,28 @@ const srcFiles = existsSync(join(ROOT, "src"))
   const text = existsSync(gi) ? readFileSync(gi, "utf8") : "";
   if (!/^\.env\*/m.test(text) && !text.includes(".env*")) {
     fail("S3", ".gitignore must cover .env*");
+  }
+}
+
+// ── S4 route handlers are development-only ───────────────────────────────────
+{
+  // This app ships no server surface to users. The Card Art Studio's endpoint
+  // is an authoring convenience that must never answer in a production build,
+  // so the guard is enforced here rather than left to reviewer memory: every
+  // exported handler in a route file has to bail on NODE_ENV === production.
+  const GUARD = /process\.env\.NODE_ENV\s*===\s*["']production["']/;
+  const HANDLER = /export\s+async\s+function\s+(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b/;
+  const routeFiles = srcFiles.filter((p) => /\/app\/.*\/route\.(ts|js|mjs)$/.test(rel(p)));
+  for (const p of routeFiles) {
+    const text = readFileSync(p, "utf8");
+    if (!HANDLER.test(text)) continue;
+    if (!GUARD.test(text)) {
+      fail(
+        "S4",
+        `${rel(p)} route handler is missing the production guard ` +
+          `(process.env.NODE_ENV === "production")`,
+      );
+    }
   }
 }
 
