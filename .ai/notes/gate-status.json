@@ -1,8 +1,13 @@
 {
-  "lastSweep": "2026-08-03",
+  "lastSweep": "2026-08-17",
   "standards": "pass",
   "security": "pass",
   "stateFresh": true,
-  "owed": [],
+  "owed": [
+    {
+      "gate": "sessions",
+      "reason": "7 commit(s) since the last entry (2026-08-02)"
+    }
+  ],
   "notes": "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector."
 }

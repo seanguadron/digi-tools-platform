@@ -30,7 +30,7 @@ moment a second world existed.
    id, entry key). 98 character **bios** authored and rendered in the card
    inspection panels. `createCardEngine` gained `cardArt`/`cardBio` callbacks
    so one card face serves both decks.
-3. `8e6dbf5` **the Card Studio.** `/studio/card-art` → `/studio/cards`, one
+3. `b5318c5` **the Card Studio.** `/studio/card-art` → `/studio/cards`, one
    tab per facet of a card (Card · Sci-Fi · Fantasy · Animal), with an
    editable Card tab gated by the real build validator.
 

@@ -5,6 +5,75 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-08-17: Art packs and the Card Studio — per-pack art/bio, universal mechanics
+
+**Context.** Three commits took the CRAFT/PICTURE card system a step toward
+the owner's stated long-term vision — swappable worlds where "the images and
+description will change too" between "sci fi, fantasy, and Pokemon or Pal
+Worlds" — after he pushed back on the standing swatch pipeline ("this art
+needs to be connected to the card and the card's data"), asked for "cool
+little bios," and said flatly "you need to unify the system." `7e5b436`
+shipped studio thumbnails, hover previews, and thirds-guide overlays plus
+carryover fixes from the prior gate run; `32e0a04` built the art-pack system
+and wrote 98 bios; `b5318c5` shipped the Card Studio itself, prompted by the
+owner's own framing of where the card-art tab needed to go: "this card art
+tab really needs to turn into a card studio editor."
+
+**Decisions.**
+- Per-pack scope is ART + BIO ONLY. Name, description, and mechanics stay
+  universal across every pack — "Strategist is Strategist in every world" —
+  so swapping packs can never change what a card DOES, only how it looks
+  and reads.
+- The Card tab in the new studio is FULLY EDITABLE text, the owner's own
+  call against the agent's recommendation of read-only reference;
+  structural/mechanical fields stay visible in the studio but locked
+  read-only, so hand-editing there is scoped to narrative content only.
+- Bios render in the app's existing card-inspection panel, beside the
+  ability text — not a separate tab, not a hover-only tooltip.
+- Content pipeline: the agent drafted all 98 bios up front across the
+  catalog; the owner rewrites whatever doesn't land afterward, inside the
+  studio, rather than reviewing bio-by-bio during generation.
+- The owner sketched the studio's longer-term shape as a per-facet tab set
+  — info / technical / sci-fi / (future) fantasy / (future) animal —
+  explicitly naming the last two as undefined for now: "that stuff could
+  be undefined at the moment, I'm just trying to give you a future
+  roadmap." Recorded here as direction, not as scope shipped this session.
+
+**Learnings.**
+- A derived path must never contain editable text. The migration moved all
+  128 grade-level art paths off the grade NAME onto its index, precisely
+  so a studio rename can't orphan its own art; a new test rewrites every
+  editable catalog field and asserts all 226 art targets stay unchanged.
+- Keeping `validateCatalog` a PURE function of its argument is what lets
+  the studio run the real build validator against an unsaved candidate
+  before anything is committed. Pack validation was deliberately pulled
+  OUT of `validateCatalog` into `validatePromptData` to preserve that
+  purity — don't let a shared validator grow environment-shaped inputs.
+- The dev server served stale CSS repeatedly this session, and separately
+  kept a deleted route alive in Turbopack's graph after a rename. Reading
+  the applied rule straight out of `document.styleSheets` is the reliable
+  way to tell a stale cache from a genuinely broken fix — twice this
+  session that check stopped a chase after a fix that was already correct.
+- Sizing a new length ceiling by guessing (600) instead of measuring cost a
+  near-miss: the longest shipped value was 608, one command away from
+  making an existing archetype unsaveable the moment the ceiling shipped.
+  Measure the actual data before picking a number.
+
+**Preferences / proposed amendments (need owner consent).** The two
+amendment flags below were both raised by this session's gates, run over
+the new Card Studio surface.
+- STANDARDS §1.1 is written around "a tool"; an authoring surface that
+  nothing else links to should be explicitly exempted, rather than judged
+  against a rule written for end-user-facing tools. (proposed amendment,
+  needs the owner's consent)
+- DESIGN_DIRECTION has no vocabulary yet for the Card Bio: italic, muted,
+  ruled off, spans both grid columns, a 240-char cap, authored per art
+  pack, and deliberately excluded from the generated prompt. (proposed
+  amendment, needs the owner's consent)
+
+The free-text length-ceiling flag is a third occurrence, reinforced in the
+2026-08-02 entry rather than repeated here.
+
 ## 2026-08-02: The PICTURE Deck — second card deck, CRAFT rename, shared card engine
 
 **Context.** The owner's dictated brief for a sibling deck to the Prompt
@@ -95,8 +164,13 @@ folded into Learnings above rather than restated.
   above) past PICTURE/CRAFT specifically. (proposed amendment, needs the
   owner's consent)
 - A shared length ceiling for free-text draft fields, applied across both
-  decks (and future ones) rather than per-field. (proposed amendment,
-  needs the owner's consent)
+  decks (and future ones) rather than per-field. **Reinforced 2026-08-17:**
+  a third independent discovery, this time sizing a new Card Studio
+  ceiling — guessed at 600 against a longest shipped value of 608, which
+  would have made an existing archetype unsaveable the moment it shipped.
+  The concrete ask is now a shared checker (`scripts/card-record.mjs`)
+  covering both session drafts and catalog fields, not drafts alone.
+  (proposed amendment, needs the owner's consent)
 - Generalize STANDARDS §2.2's generated-doc drift rule beyond
   `PROMPT_ROLES.md` so `PICTURE_ART_MANIFEST.md`'s drift check (already
   living inside `data:validate`, not yet named by the rule text) is
