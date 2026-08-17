@@ -16,16 +16,21 @@ content and configuration.
 - `builder.json` - C.R.A.F.T. labels, defaults, and example draft
 - `proof-scenarios.json` - Proof Lab configurations
 
-## Illustration metadata
+## Art packs
 
-Roles, card lineages, card grades, and archetypes may include an
-`illustration` object. These entries reserve future image paths while the app
-continues to render all titles, labels, definitions, bullets, codes, numbers,
-and card chrome as text and CSS.
+Card art and bios are NOT in these files. They live per world in
+`art-themes/<pack>.json`, keyed by entry (`roles.researcher`,
+`grades.context-scope[0]`), and carry a prompt, alt text, an optional bio,
+and a status. A pack stores no path: `scripts/art-pack.mjs` derives every
+path from the pack id plus the key. See `docs/ARCHITECTURE.md` §1.
 
-Generated images are only the artwork inside a card image frame. Every image
-prompt must include: `no text, no letters, no numbers, no logos, no readable
-symbols, no UI labels, no card frame`.
+The catalog decides WHICH images a pack owes and in what order; the pack
+supplies every word. A pack that falls behind the catalog fails
+`npm run data:validate`.
+
+Generated images are only the artwork inside a card image frame. A pack's
+shared style paragraph must include: `no text, no letters, no numbers, no
+logos, no readable symbols, no UI labels, no card frame`.
 
 ## Editing
 

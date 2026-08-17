@@ -6,6 +6,7 @@ import path from "node:path";
 import test from "node:test";
 import { CardArtError, createCardArtStore } from "./card-art-store.mjs";
 import { projectRoot } from "./prompt-data-files.mjs";
+import { artPackShapeErrors } from "./validate-prompt-data.mjs";
 
 // A 1x1 png and webp, enough to prove bytes land where they should.
 const PNG =
@@ -40,6 +41,10 @@ async function makeStore() {
 
 async function readPack(root) {
   return JSON.parse(await readFile(path.join(root, PACK_RELATIVE), "utf8"));
+}
+
+function catalogPath(root, file) {
+  return path.join(root, "src", "data", "prompt-builder", file);
 }
 
 function generatedKeys(pack) {
@@ -150,7 +155,7 @@ test("selecting writes the live webp and flips the pack status", async () => {
   }
 });
 
-test("the studio never writes a catalog file", async () => {
+test("the art workflow never touches a catalog file", async () => {
   const { root, store, cleanup } = await makeStore();
   try {
     await store.addVariant("sci-fi", ROLE_KEY, PNG);
@@ -159,12 +164,9 @@ test("the studio never writes a catalog file", async () => {
 
     // The fixture seeds ONLY the pack. If any of the above reached for a
     // catalog it would have had to create one, so absence is the proof.
+    // (saveCard writes one BY DESIGN — covered separately below.)
     for (const file of ["roles.json", "cards.json", "archetypes.json"]) {
-      assert.equal(
-        existsSync(path.join(root, "src", "data", "prompt-builder", file)),
-        false,
-        `the store wrote ${file}`,
-      );
+      assert.equal(existsSync(catalogPath(root, file)), false, `wrote ${file}`);
     }
   } finally {
     await cleanup();
@@ -202,7 +204,9 @@ test("the live image must be webp, whatever the variant was", async () => {
 test("unknown themes, keys, and variants are refused", async () => {
   const { store, cleanup } = await makeStore();
   try {
-    await assert.rejects(() => store.listEntries("fantasy"), /Unknown art theme/);
+    // A name no pack will ever have, so this stays true when the roadmap
+    // packs are scaffolded for real.
+    await assert.rejects(() => store.listEntries("no-such-world"), /Unknown art theme/);
     await assert.rejects(
       () => store.addVariant("sci-fi", "roles.does-not-exist", PNG),
       /Unknown card art entry/,
@@ -282,6 +286,148 @@ test("a pack whose entry is missing fails loudly instead of writing", async () =
       () => store.selectVariant("sci-fi", ROLE_KEY, "a", WEBP),
       /Could not find roles\.researcher/,
     );
+  } finally {
+    await cleanup();
+  }
+});
+
+// --- the Card tab: catalog edits through the store -------------------------
+
+test("saveCard writes only its own catalog file, and only what changed", async () => {
+  const { root, store, cleanup } = await makeStore();
+  try {
+    const saved = await store.saveCard(ROLE_KEY, { name: "Researcher II" });
+    assert.equal(saved.fields.find((f) => f.id === "name").value, "Researcher II");
+
+    const roles = JSON.parse(await readFile(catalogPath(root, "roles.json"), "utf8"));
+    assert.equal(roles.roles.find((r) => r.id === "researcher").name, "Researcher II");
+    // Untouched siblings are never written, so a save is a one-file diff.
+    for (const file of ["cards.json", "archetypes.json", "builder.json"]) {
+      assert.equal(existsSync(catalogPath(root, file)), false, `also wrote ${file}`);
+    }
+  } finally {
+    await cleanup();
+  }
+});
+
+// The safety keystone, exercised through the writer rather than the pure
+// helper: a rejected edit must leave the disk exactly as it was.
+test("a save the build validator rejects writes nothing at all", async () => {
+  const { root, store, cleanup } = await makeStore();
+  try {
+    await assert.rejects(
+      () => store.saveCard(ROLE_KEY, { "ability.bullets": ["a", "b", "c", "d", "e", "f", "g"] }),
+      /must NOT have more than 6 items/,
+    );
+    assert.equal(existsSync(catalogPath(root, "roles.json")), false);
+
+    // Same for a field outside the writable table, and for one over the
+    // length ceiling.
+    await assert.rejects(() => store.saveCard(ROLE_KEY, { id: "hacked" }), /no editable field/);
+    await assert.rejects(
+      () => store.saveCard(ROLE_KEY, { name: "x".repeat(5000) }),
+      /characters or fewer/,
+    );
+    assert.equal(existsSync(catalogPath(root, "roles.json")), false);
+  } finally {
+    await cleanup();
+  }
+});
+
+test("a card with no catalog record is refused rather than guessed at", async () => {
+  const { store, cleanup } = await makeStore();
+  try {
+    await assert.rejects(
+      () => store.saveCard("shared.custom-preset", { name: "x" }),
+      /no catalog record/,
+    );
+    const record = await store.readCard("shared.custom-preset");
+    assert.equal(record.hasRecord, false);
+  } finally {
+    await cleanup();
+  }
+});
+
+// --- bios ------------------------------------------------------------------
+
+test("setBio round-trips through the pack and enforces the panel's ceiling", async () => {
+  const { root, store, cleanup } = await makeStore();
+  try {
+    await store.setBio("sci-fi", ROLE_KEY, "  A short bio.  ");
+    assert.equal((await readPack(root)).roles.researcher.bio, "A short bio.");
+
+    // Emptying it removes the key rather than storing "".
+    await store.setBio("sci-fi", ROLE_KEY, "   ");
+    assert.equal("bio" in (await readPack(root)).roles.researcher, false);
+
+    await assert.rejects(
+      () => store.setBio("sci-fi", ROLE_KEY, "x".repeat(241)),
+      /241|characters or fewer/,
+    );
+    await assert.rejects(
+      () => store.setBio("sci-fi", "roles.not-a-role", "hi"),
+      /Could not find/,
+    );
+  } finally {
+    await cleanup();
+  }
+});
+
+// --- worlds ----------------------------------------------------------------
+
+test("listPacks reports what exists and how far along it is", async () => {
+  const { store, cleanup } = await makeStore();
+  try {
+    const packs = await store.listPacks();
+    const sciFi = packs.find((pack) => pack.id === "sci-fi");
+    assert.equal(sciFi.installed, true);
+    assert.equal(sciFi.total, 226);
+    // The fixture normalizes every status to planned.
+    assert.equal(sciFi.generated, 0);
+    // The roadmap packs are listed even though they do not exist yet.
+    assert.ok(packs.some((pack) => pack.id === "fantasy" && !pack.installed));
+  } finally {
+    await cleanup();
+  }
+});
+
+test("scaffolding a world produces a pack that itself validates", async () => {
+  const { root, store, cleanup } = await makeStore();
+  try {
+    const result = await store.scaffoldPack("fantasy");
+    assert.equal(result.entries, 226);
+
+    const file = path.join(root, "src", "data", "prompt-builder", "art-themes", "fantasy.json");
+    const pack = JSON.parse(await readFile(file, "utf8"));
+    assert.equal(pack.theme.draft, true, "a new world must land as a draft");
+    assert.equal(Object.keys(pack.roles).length, 35);
+    assert.equal(Object.keys(pack.grades).length, 32);
+    // scaffoldPack runs the pack schema over what it built before writing, so
+    // reaching here at all is the shape assertion.
+    assert.deepEqual(await artPackShapeErrors(pack), []);
+
+    const packs = await store.listPacks();
+    assert.ok(packs.find((entry) => entry.id === "fantasy").draft);
+  } finally {
+    await cleanup();
+  }
+});
+
+// Two clicks racing to create the same brand-new world: the check and the
+// write are one queued step, so exactly one can win.
+test("scaffolding the same world twice cannot clobber the first", async () => {
+  const { store, cleanup } = await makeStore();
+  try {
+    const results = await Promise.allSettled([
+      store.scaffoldPack("fantasy"),
+      store.scaffoldPack("fantasy"),
+    ]);
+    const ok = results.filter((r) => r.status === "fulfilled");
+    const failed = results.filter((r) => r.status === "rejected");
+    assert.equal(ok.length, 1, "both scaffolds succeeded — the check raced the write");
+    assert.match(failed[0].reason.message, /already exists/);
+
+    await assert.rejects(() => store.scaffoldPack("no-such-world"), /Unknown art pack/);
   } finally {
     await cleanup();
   }

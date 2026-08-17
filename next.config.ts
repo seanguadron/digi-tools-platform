@@ -9,7 +9,7 @@ import type { NextConfig } from "next";
 //
 // This is NOT a security boundary: it only unblocks /_next assets, and never gates
 // application routes. `next dev` binds every interface, so anything on the network
-// can reach the app's routes while it runs. The Card Art Studio's write endpoint
+// can reach the app's routes while it runs. The Card Studio's write endpoint
 // therefore does its own loopback-Host check (src/app/api/card-art/route.ts).
 const localNetworkOrigins = Object.values(os.networkInterfaces())
   .flat()

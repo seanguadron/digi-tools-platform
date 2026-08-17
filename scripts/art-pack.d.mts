@@ -40,6 +40,8 @@ export type ArtPackFile = {
     generator: string;
     aspectRatio: string;
     style: string;
+    /** A world still being written: skipped by the generator and coverage. */
+    draft?: boolean;
   };
   craft: Record<string, ArtPackEntry>;
   roles: Record<string, ArtPackEntry>;
@@ -49,6 +51,8 @@ export type ArtPackFile = {
   shared: Record<string, ArtPackEntry>;
 };
 
+export declare const MAX_BIO_LENGTH: number;
+export declare const ART_PACKS: readonly { id: string; name: string }[];
 export declare const ART_PACK_GROUPS: readonly ArtPackGroup[];
 
 export declare class ArtPackKeyError extends Error {}

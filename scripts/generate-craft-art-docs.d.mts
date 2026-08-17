@@ -4,7 +4,7 @@
 
 import type { ArtPackFile } from "./art-pack.d.mts";
 
-export declare const ART_THEME_IDS: readonly string[];
+export declare function installedArtPackIds(): string[];
 
 export type ArtThemeFile = ArtPackFile;
 

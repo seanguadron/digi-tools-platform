@@ -63,6 +63,19 @@ An unequipped card promoted because it aligns with the current Snap Points or
 Role Loadout. Recommendations never change the equipped cards automatically.
 _Avoid_: Auto-selected card, required card
 
+**Art Pack**:
+One world's look for the whole deck: an image brief, alt text, a Card Bio, and
+a generated status per card. A card's mechanics are the same in every pack;
+only how it looks and who it is change. Sci-Fi ships today; Fantasy and Animal
+are planned.
+_Avoid_: Theme, skin, art theme
+
+**Card Bio**:
+A card's short character blurb, written per Art Pack and shown in the card's
+inspection panel beside its ability. Flavour, never instruction: a Card Bio is
+never sent in the assembled prompt.
+_Avoid_: Lore, flavour text, description
+
 ## Card Families
 
 **Role Card**:

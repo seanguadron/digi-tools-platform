@@ -12,16 +12,34 @@
 // The only data file this writes is the art pack: catalogs are untouched, so
 // the studio cannot change what a card DOES, only how it looks.
 
+import { existsSync } from "node:fs";
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { artPathFor, artRelativePath, parseArtKey } from "./art-pack.mjs";
 import {
-  ART_THEME_IDS,
+  ART_PACKS,
+  ART_PACK_GROUPS,
+  MAX_BIO_LENGTH,
+  artPathFor,
+  artRelativePath,
+  parseArtKey,
+} from "./art-pack.mjs";
+import {
+  applyCardEdits,
+  catalogKeyForEntry,
+  readCardRecord,
+} from "./card-record.mjs";
+import {
   collectCraftArtEntries,
   artFileName,
   generateCraftArtDocs,
 } from "./generate-craft-art-docs.mjs";
-import { loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
+import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
+import {
+  catalogFiles,
+  loadPromptCatalog,
+  projectRoot,
+} from "./prompt-data-files.mjs";
+import { artPackShapeErrors, validateCatalog } from "./validate-prompt-data.mjs";
 
 export const VARIANT_ROOT = "card-art-source";
 const CROP_SUFFIX = "_cropped";
@@ -44,7 +62,8 @@ export function createCardArtStore({
 } = {}) {
   const variantRoot = path.join(root, VARIANT_ROOT);
   const publicRoot = path.join(root, "public");
-  const packRoot = path.join(root, "src", "data", "prompt-builder", "art-themes");
+  const catalogRoot = path.join(root, "src", "data", "prompt-builder");
+  const packRoot = path.join(catalogRoot, "art-themes");
 
   function assertInside(candidate, base, label) {
     const resolved = path.resolve(candidate);
@@ -55,8 +74,18 @@ export function createCardArtStore({
     return resolved;
   }
 
+  // Which packs exist, relative to THIS store's root. The generator's own
+  // `installedArtPackIds` always answers for the repo root; here the check
+  // and the write have to agree about the same directory, or scaffolding
+  // asks one place whether a file exists and creates it in another.
+  function installedPackIds() {
+    return ART_PACKS.map((pack) => pack.id).filter((id) =>
+      existsSync(path.join(packRoot, `${id}.json`)),
+    );
+  }
+
   function requireTheme(themeId) {
-    if (!ART_THEME_IDS.includes(themeId)) {
+    if (!installedPackIds().includes(themeId)) {
       throw new CardArtError(`Unknown art theme: ${themeId}`, 404);
     }
     return themeId;
@@ -331,16 +360,33 @@ export function createCardArtStore({
     return { removed: variant.id };
   }
 
-  // Pack writes run one at a time. Two requests landing together would
-  // otherwise each read the pre-edit file and the second would silently
-  // revert the first's flip.
-  let packQueue = Promise.resolve();
+  // ONE queue for every write, not one per file. Two requests landing together
+  // would otherwise each read the pre-edit file and the second would silently
+  // revert the first — and separate per-file queues would still let two
+  // writers reach the generated docs at once, which both a pack write and a
+  // catalog write do. This is a single-author local tool, so full
+  // serialization costs nothing and removes the whole class of race.
+  let writeQueue = Promise.resolve();
+
+  // Run `body` with the write lock held, keeping the chain alive on failure.
+  function serialize(body) {
+    const run = writeQueue.then(body);
+    writeQueue = run.then(
+      () => undefined,
+      () => undefined,
+    );
+    return run;
+  }
 
   // Flip one entry's status in its art pack. The pack is machine-formatted
   // JSON that only this store and `npm run data:generate` write, so a plain
   // round-trip is safe here where it would not have been on the catalogs.
+  //
+  // The doc re-render happens INSIDE the lock: it is the one file every write
+  // path touches, so letting it run after the lock released would let two
+  // renders overlap on it.
   function setStatus(themeId, entry, status) {
-    const run = packQueue.then(async () => {
+    return serialize(async () => {
       const pack = await loadPack(themeId);
       const { group, id, index } = parseArtKey(entry.key);
       const record =
@@ -368,15 +414,9 @@ export function createCardArtStore({
         `${JSON.stringify(pack, null, 2)}\n`,
         "utf8",
       );
+      await refreshGeneratedDocs();
       return true;
     });
-
-    // Keep the chain alive even when this write fails.
-    packQueue = run.then(
-      () => undefined,
-      () => undefined,
-    );
-    return run;
   }
 
   // The pack's generated doc prints a status line per entry, and
@@ -406,9 +446,6 @@ export function createCardArtStore({
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, bytes);
     const flipped = await setStatus(themeId, entry, "generated");
-    if (flipped) {
-      await refreshGeneratedDocs();
-    }
 
     return { target: entry.target, selected: variantId, statusChanged: flipped };
   }
@@ -418,20 +455,228 @@ export function createCardArtStore({
     const entry = findEntry(entries, key);
     await rm(livePath(themeId, entry), { force: true });
     const flipped = await setStatus(themeId, entry, "planned");
-    if (flipped) {
-      await refreshGeneratedDocs();
-    }
     return { target: entry.target, statusChanged: flipped };
+  }
+
+  // --- the Card tab -------------------------------------------------------
+
+  async function readCard(key) {
+    const catalog = await loadPromptCatalog();
+    try {
+      return readCardRecord(catalog, key);
+    } catch (error) {
+      throw new CardArtError(error.message, 404);
+    }
+  }
+
+  // The safety keystone. A save builds a CANDIDATE catalog, runs the real
+  // build validator over it, and only then writes. The studio therefore
+  // cannot land an edit that would break the build, because the check that
+  // guards the build is the check that guards the save - not a second,
+  // weaker copy of those rules.
+  function saveCard(key, edits) {
+    return serialize(async () => {
+      const catalogKey = catalogKeyForEntry(key);
+      if (!catalogKey) {
+        throw new CardArtError(`${key} has no catalog record to edit`, 400);
+      }
+
+      const catalog = await loadPromptCatalog();
+      let candidate;
+      try {
+        candidate = applyCardEdits(catalog, key, edits);
+      } catch (error) {
+        throw new CardArtError(error.message, 400);
+      }
+
+      try {
+        await validateCatalog(candidate);
+      } catch (error) {
+        throw new CardArtError(error.message, 422);
+      }
+
+      // `catalogKey` comes from a fixed table, never from the request - but
+      // asserted anyway, so the module's "every write is contained" invariant
+      // stays true by construction rather than by that table's good behaviour.
+      const file = assertInside(
+        path.join(catalogRoot, catalogFiles[catalogKey]),
+        catalogRoot,
+        "catalog file",
+      );
+      await writeFile(
+        file,
+        `${JSON.stringify(candidate[catalogKey], null, 2)}\n`,
+        "utf8",
+      );
+      if (regenerateDocs && catalogKey === "roles") {
+        await generateRoleDocs();
+      }
+      await refreshGeneratedDocs();
+      return readCardRecord(candidate, key);
+    });
+  }
+
+  // --- the pack's own words ------------------------------------------------
+
+  function setBio(themeId, key, bio) {
+    return serialize(async () => {
+      const pack = await loadPack(themeId);
+      const { group, id, index } = parseArtKey(key);
+      const record =
+        group === "grades" ? pack.grades?.[id]?.[index] : pack[group]?.[id];
+      if (!record) {
+        throw new CardArtError(
+          `Could not find ${key} in the ${themeId} art pack`,
+          404,
+        );
+      }
+
+      const trimmed = String(bio ?? "").trim();
+      // The bio renders in a panel that clips silently, so the ceiling is the
+      // schema's and it is enforced here rather than discovered later.
+      if (trimmed.length > MAX_BIO_LENGTH) {
+        throw new CardArtError(
+          `A bio has to fit the card panel: ${MAX_BIO_LENGTH} characters or fewer`,
+          400,
+        );
+      }
+
+      if (trimmed) {
+        record.bio = trimmed;
+      } else {
+        delete record.bio;
+      }
+      await writeFile(packPath(themeId), `${JSON.stringify(pack, null, 2)}\n`, "utf8");
+      await refreshGeneratedDocs();
+      return { bio: trimmed };
+    });
+  }
+
+  // --- a new world ---------------------------------------------------------
+
+  async function listPacks() {
+    const installed = installedPackIds();
+    return Promise.all(
+      ART_PACKS.map(async (pack) => {
+        if (!installed.includes(pack.id)) {
+          return { ...pack, installed: false, draft: false, generated: 0, total: 0 };
+        }
+        const file = await loadPack(pack.id);
+        let generated = 0;
+        let total = 0;
+        for (const group of ART_PACK_GROUPS) {
+          for (const value of Object.values(file[group] ?? {})) {
+            for (const entry of Array.isArray(value) ? value : [value]) {
+              total += 1;
+              if (entry.status === "generated") generated += 1;
+            }
+          }
+        }
+        return {
+          ...pack,
+          name: file.theme.name,
+          installed: true,
+          draft: Boolean(file.theme.draft),
+          generated,
+          total,
+        };
+      }),
+    );
+  }
+
+  // Writes an empty world: every key the catalog owes, with a placeholder
+  // brief and nothing generated. It lands marked `draft`, so the build stays
+  // green while it is being written.
+  //
+  // Serialized like every other write: the "does it already exist" check and
+  // the write have to be atomic, or two requests for the same brand-new pack
+  // both see "no" and the second silently clobbers the first.
+  function scaffoldPack(themeId) {
+    return serialize(async () => {
+    const target = ART_PACKS.find((pack) => pack.id === themeId);
+    if (!target) {
+      throw new CardArtError(`Unknown art pack: ${themeId}`, 404);
+    }
+    if (installedPackIds().includes(themeId)) {
+      throw new CardArtError(`The ${themeId} pack already exists`, 409);
+    }
+
+    const catalog = await loadPromptCatalog();
+    const source = await loadPack(installedPackIds()[0]);
+    const blank = (alt) => ({
+      prompt: `TODO: write the ${target.name} brief for this card.`,
+      alt,
+      status: "planned",
+    });
+
+    const pack = {
+      schemaVersion: 2,
+      theme: {
+        id: themeId,
+        name: target.name,
+        filePrefix: target.name.replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase(),
+        fileExtension: "png",
+        generator: source.theme.generator,
+        aspectRatio: source.theme.aspectRatio,
+        style: `TODO: write the shared ${target.name} art direction.`,
+        draft: true,
+      },
+      craft: {},
+      roles: {},
+      lineages: {},
+      archetypes: {},
+      grades: {},
+      shared: {},
+    };
+
+    for (const entry of collectCraftArtEntries(catalog, source)) {
+      const { group, id, index } = parseArtKey(entry.key);
+      const alt = `Illustration for ${entry.name}.`;
+      if (group === "grades") {
+        pack.grades[id] ??= [];
+        pack.grades[id][index] = blank(alt);
+      } else {
+        pack[group][id] = blank(alt);
+      }
+    }
+
+    // Validate the world we just built before writing it, for the same reason
+    // saveCard validates a catalog edit: the check that guards the build is
+    // the check that guards the write. A future change to the scaffold shape
+    // fails here rather than landing a malformed draft.
+    const errors = await artPackShapeErrors(pack);
+    if (errors.length > 0) {
+      throw new CardArtError(
+        `Scaffolded pack is not valid:\n- ${errors.join("\n- ")}`,
+        500,
+      );
+    }
+
+    // themeId came from the fixed ART_PACKS table, never from the request -
+    // asserted anyway so containment is a property of this module, not of
+    // that table staying well-behaved.
+    await writeFile(
+      assertInside(path.join(packRoot, `${themeId}.json`), packRoot, "art pack"),
+      `${JSON.stringify(pack, null, 2)}\n`,
+      "utf8",
+    );
+    return { theme: themeId, entries: collectCraftArtEntries(catalog, source).length };
+    });
   }
 
   return {
     listEntries,
+    listPacks,
     readVariantFile,
     addVariant,
     saveCrop,
     deleteVariant,
     selectVariant,
     clearLive,
+    readCard,
+    saveCard,
+    setBio,
+    scaffoldPack,
     // exposed for tests
     variantDir,
     livePath,

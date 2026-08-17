@@ -2,7 +2,7 @@ import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
 import {
-  ART_THEME_IDS,
+  installedArtPackIds,
   generateCraftArtDocs,
   loadArtTheme,
 } from "./generate-craft-art-docs.mjs";
@@ -235,11 +235,19 @@ function validateCards(catalog, indexes) {
 // what fails when a pack falls behind that list. This validates the pack's own
 // shape, so a hand-edited pack fails the build the way a hand-edited catalog
 // does rather than surfacing as a missing image at runtime.
+// One pack, in memory, against the pack schema. Exported so the Card Studio
+// can check a pack it has just built BEFORE writing it — the same
+// validate-then-write discipline `saveCard` applies to the catalog.
+export async function artPackShapeErrors(pack) {
+  const validatePack = await getArtPackValidator();
+  return validatePack(pack) ? [] : schemaErrors(validatePack.errors);
+}
+
 async function validateArtPacks() {
   const validatePack = await getArtPackValidator();
   const errors = [];
 
-  for (const themeId of ART_THEME_IDS) {
+  for (const themeId of installedArtPackIds()) {
     const pack = await loadArtTheme(themeId);
     if (!validatePack(pack)) {
       errors.push(
@@ -255,8 +263,11 @@ async function validateArtPacks() {
       );
     }
     // The pack's shared paragraph opens every prompt in it, so this one check
-    // covers all 226 briefs at once.
-    if (!pack.theme.style.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)) {
+    // covers all 226 briefs at once. A draft pack has not written one yet.
+    if (
+      !pack.theme.draft &&
+      !pack.theme.style.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)
+    ) {
       errors.push(
         `art-themes/${themeId}.json style paragraph is missing the image-only no-text rule`,
       );

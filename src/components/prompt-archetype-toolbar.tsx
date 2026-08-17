@@ -32,10 +32,9 @@ export function PromptArchetypeToolbar({
   onDeleteCustom: (id: string) => void;
 }) {
   const [previewId, setPreviewId] = useState<string | null>(null);
-  const [previewAnchor, setPreviewAnchor] = useState<{
-    left: number;
-    top: number;
-  } | null>(null);
+  const [previewAnchor, setPreviewAnchor] = useState<ReturnType<
+    typeof getFloatingPanelPosition
+  > | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [saving, setSaving] = useState(false);
   const [presetName, setPresetName] = useState("");

@@ -8243,7 +8243,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .picture-deck-ar-tab span {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.85rem;
   font-weight: 600;
 }
@@ -8287,7 +8287,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .picture-deck-range-row label small {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
   color: var(--muted-foreground);
 }
@@ -8298,7 +8298,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .picture-deck-range-row output {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   text-align: right;
 }
@@ -8320,7 +8320,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .picture-deck-negative > span small {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
   color: var(--muted-foreground);
 }
@@ -8384,7 +8384,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .card-art-progress strong {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 1.15rem;
 }
 
@@ -8541,14 +8541,14 @@ body:has(.page-stage.is-fluid) {
 }
 
 .card-art-peek small {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
   color: var(--muted-foreground);
   text-align: center;
 }
 
 .card-art-seq {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.8rem;
   color: var(--muted-foreground);
 }
@@ -8565,7 +8565,7 @@ body:has(.page-stage.is-fluid) {
 
 .card-art-identity small {
   overflow: hidden;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.68rem;
   color: var(--muted-foreground);
   text-overflow: ellipsis;
@@ -8573,7 +8573,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .card-art-count {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.78rem;
   color: var(--muted-foreground);
   text-align: center;
@@ -8599,6 +8599,174 @@ body:has(.page-stage.is-fluid) {
   padding: 4px 14px 16px;
 }
 
+/* One tab per facet of a card: what it IS, then one world per art pack.
+   Worlds that do not exist yet still get a tab, so the plan is visible. */
+.card-facet-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.card-facet-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted-foreground);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.card-facet-tab:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+  color: var(--foreground);
+}
+
+.card-facet-tab.is-selected {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--background));
+  color: var(--brand-cyan-text);
+}
+
+/* Size, weight and case carry the de-emphasis. NOT opacity: dimming a token
+   already tuned to the contrast floor drops it under AA, and the dashed tab
+   border already signals "not started" without relying on this text. */
+.card-facet-tab small {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.card-facet-tab.is-planned {
+  border-style: dashed;
+}
+
+.card-facet-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 18px;
+  align-items: start;
+}
+
+.card-facet-fields {
+  display: grid;
+  gap: 12px;
+}
+
+.card-facet-fields .field small,
+.card-bio-editor .field small {
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+}
+
+.card-facet-fields textarea,
+.card-bio-editor textarea {
+  min-height: 62px;
+  resize: vertical;
+}
+
+.card-facet-side h2 {
+  margin: 0 0 8px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-cyan-text);
+}
+
+.card-facet-structural {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 10px;
+}
+
+.card-facet-structural div {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.72rem;
+}
+
+.card-facet-structural dt {
+  color: var(--muted-foreground);
+}
+
+.card-facet-structural dd {
+  margin: 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+
+.card-facet-note,
+.card-facet-actions small {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.68rem;
+  line-height: 1.5;
+}
+
+.card-facet-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-facet-planned {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  max-width: 62ch;
+}
+
+.card-facet-planned h2 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.card-facet-planned p {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+
+.card-bio-editor {
+  display: grid;
+  gap: 8px;
+  max-width: 62ch;
+}
+
+.card-bio-editor-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-bio-editor-actions small {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 820px) {
+  .card-facet-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .card-art-detail-prompt p {
   max-width: 78ch;
   margin: 0 0 10px;
@@ -8609,7 +8777,7 @@ body:has(.page-stage.is-fluid) {
 .card-art-detail-prompt code {
   display: inline-block;
   margin-top: 8px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.7rem;
   color: var(--muted-foreground);
 }
@@ -8657,7 +8825,7 @@ body:has(.page-stage.is-fluid) {
 }
 
 .card-art-chip span {
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.65rem;
   text-align: center;
 }
@@ -8756,43 +8924,41 @@ body:has(.page-stage.is-fluid) {
 
 /* Rule-of-thirds guides: two hairlines each way, drawn over the window and
    never over the saved pixels. */
+/* Rule-of-thirds guides over the crop window.
+   Paired hairlines rather than a difference blend: 62% white under difference
+   computes to 0.62 - 0.24B, which equals the backdrop at mid grey and so goes
+   invisible exactly where this art lives. A dark line with a light companion
+   beside it keeps one of the two readable against any image. */
 .card-art-crop-guides {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(
-      to right,
-      transparent calc(33.333% - 1px),
-      color-mix(in oklch, white 62%, transparent) calc(33.333% - 1px),
-      color-mix(in oklch, white 62%, transparent) 33.333%,
-      transparent 33.333%,
-      transparent calc(66.666% - 1px),
-      color-mix(in oklch, white 62%, transparent) calc(66.666% - 1px),
-      color-mix(in oklch, white 62%, transparent) 66.666%,
-      transparent 66.666%
-    ),
-    linear-gradient(
-      to bottom,
-      transparent calc(33.333% - 1px),
-      color-mix(in oklch, white 62%, transparent) calc(33.333% - 1px),
-      color-mix(in oklch, white 62%, transparent) 33.333%,
-      transparent 33.333%,
-      transparent calc(66.666% - 1px),
-      color-mix(in oklch, white 62%, transparent) calc(66.666% - 1px),
-      color-mix(in oklch, white 62%, transparent) 66.666%,
-      transparent 66.666%
-    );
-  mix-blend-mode: difference;
+}
+
+/* The centre third: its border IS all four thirds lines. */
+.card-art-crop-guides::before {
+  content: "";
+  position: absolute;
+  inset: 33.333%;
+  border: 1px solid oklch(0 0 0 / 0.55);
+  box-shadow:
+    inset 0 0 0 1px oklch(1 0 0 / 0.8),
+    0 0 0 1px oklch(1 0 0 / 0.45);
 }
 
 .card-art-guide-toggle {
   display: flex;
   align-items: center;
   gap: 6px;
+  min-height: 24px;
   margin-left: 10px;
   font-size: 0.75rem;
   color: var(--muted-foreground);
+}
+
+.card-art-guide-toggle input,
+.card-art-toggle input {
+  accent-color: var(--brand-cyan);
 }
 
 .card-art-crop-actions {
@@ -8820,7 +8986,7 @@ body:has(.page-stage.is-fluid) {
 
 .card-art-zoom span {
   min-width: 48px;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono), monospace;
   font-size: 0.78rem;
   text-align: center;
 }

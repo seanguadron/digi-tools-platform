@@ -19,6 +19,21 @@
 // scripts, by the Next.js server in the studio's write endpoint, and by the
 // browser through `src/lib/art-pack.ts`. Keep it pure.
 
+// The worlds this deck is planned to have. A pack is only INSTALLED once its
+// JSON exists; the ones that do not yet exist still appear in the Card Studio
+// as their own tab, so the roadmap is visible rather than remembered.
+export const ART_PACKS = [
+  { id: "sci-fi", name: "Sci-Fi" },
+  { id: "fantasy", name: "Fantasy" },
+  { id: "animal", name: "Animal" },
+];
+
+// A bio renders in a panel that clips silently, so its ceiling is load-bearing
+// rather than cosmetic. Declared once here for the write endpoint and the
+// studio's counter; art-pack.schema.json states the same number, because JSON
+// Schema cannot import one.
+export const MAX_BIO_LENGTH = 240;
+
 // Every group a pack can carry, in the order a reader meets them.
 export const ART_PACK_GROUPS = [
   "craft",

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
-  ART_THEME_IDS,
+  installedArtPackIds,
   artFileName,
   collectCraftArtEntries,
   craftArtCoverageErrors,
@@ -20,7 +20,7 @@ function clone(value) {
 test("every shipped art pack covers the catalog with no orphans", async () => {
   const catalog = await catalogPromise;
 
-  for (const themeId of ART_THEME_IDS) {
+  for (const themeId of installedArtPackIds()) {
     const theme = await loadArtTheme(themeId);
     assert.deepEqual(craftArtCoverageErrors(catalog, theme), []);
   }
@@ -120,4 +120,25 @@ test("a style paragraph without the no-text rule fails coverage", async () => {
   assert.deepEqual(craftArtCoverageErrors(await catalogPromise, theme), [
     "sci-fi art pack style paragraph is missing the image-only no-text rule",
   ]);
+});
+
+// The promise the Card Studio's scaffold button makes: starting a world
+// cannot break the build. A freshly scaffolded pack is missing everything,
+// so this only holds because `draft` exempts it.
+test("a draft pack is exempt from coverage until the flag is cleared", async () => {
+  const catalog = await catalogPromise;
+  const theme = clone(await themePromise);
+  theme.theme.draft = true;
+  theme.theme.style = "TODO: write the art direction.";
+  theme.roles = {};
+  theme.lineages = {};
+  theme.archetypes = {};
+  theme.grades = {};
+  theme.craft = {};
+  theme.shared = {};
+
+  assert.deepEqual(craftArtCoverageErrors(catalog, theme), []);
+
+  delete theme.theme.draft;
+  assert.ok(craftArtCoverageErrors(catalog, theme).length > 0);
 });

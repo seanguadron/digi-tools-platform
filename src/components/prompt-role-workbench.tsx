@@ -38,10 +38,9 @@ export function PromptRoleWorkbench({
 }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [previewRoleId, setPreviewRoleId] = useState<string | null>(null);
-  const [previewAnchor, setPreviewAnchor] = useState<{
-    left: number;
-    top: number;
-  } | null>(null);
+  const [previewAnchor, setPreviewAnchor] = useState<ReturnType<
+    typeof getFloatingPanelPosition
+  > | null>(null);
   const [draggingSource, setDraggingSource] = useState<string | null>(null);
   const [settlingSlot, setSettlingSlot] = useState({
     index: -1,

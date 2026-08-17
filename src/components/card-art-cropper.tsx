@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 
 const VIEWPORT = 420;
 const OUTPUT = 1024;
 const MAX_ZOOM = 6;
+const NUDGE = 12;
 
 type Frame = { zoom: number; offsetX: number; offsetY: number };
 
@@ -43,6 +44,67 @@ export function CardArtCropper({
   const [showGuides, setShowGuides] = useState(true);
   const dragRef = useRef<{ x: number; y: number; frame: Frame } | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const titleId = useId();
+
+  // A modal dialog owes the keyboard three things: Escape closes it, Tab stays
+  // inside it, and focus goes back where it came from on the way out.
+  useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        onCancel();
+        return;
+      }
+      if (event.key !== "Tab") {
+        return;
+      }
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable || focusable.length === 0) {
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    }
+
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      opener?.focus?.();
+    };
+  }, [onCancel]);
+
+  const pan = useCallback(
+    (dx: number, dy: number) => {
+      if (!image) {
+        return;
+      }
+      setFrame((current) =>
+        clampFrame(
+          {
+            zoom: current.zoom,
+            offsetX: current.offsetX + dx,
+            offsetY: current.offsetY + dy,
+          },
+          image.naturalWidth,
+          image.naturalHeight,
+        ),
+      );
+    },
+    [image],
+  );
 
   useEffect(() => {
     let cancelled = false;
@@ -172,20 +234,47 @@ export function CardArtCropper({
     : 0;
 
   return (
-    <div className="card-art-cropper">
+    <div className="card-art-crop-layer">
+      <div
+        className="card-art-cropper"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        ref={dialogRef}
+        tabIndex={-1}
+      >
       <div className="card-art-cropper-head">
-        <strong>Crop {fileName}</strong>
-        <small>Scroll to zoom, drag to position. The original is kept.</small>
+        <strong id={titleId}>Crop {fileName}</strong>
+        <small>
+          Scroll to zoom, drag to position, arrow keys to nudge. The original
+          is kept.
+        </small>
       </div>
 
       <div
         className="card-art-crop-window"
         ref={viewportRef}
+        role="application"
+        aria-label={`Crop window for ${fileName}. Arrow keys move the image.`}
+        tabIndex={0}
         onWheel={handleWheel}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={endDrag}
         onPointerCancel={endDrag}
+        onKeyDown={(event) => {
+          const moves: Record<string, [number, number]> = {
+            ArrowLeft: [NUDGE, 0],
+            ArrowRight: [-NUDGE, 0],
+            ArrowUp: [0, NUDGE],
+            ArrowDown: [0, -NUDGE],
+          };
+          const move = moves[event.key];
+          if (move) {
+            event.preventDefault();
+            pan(move[0], move[1]);
+          }
+        }}
         style={{ width: VIEWPORT, height: VIEWPORT }}
       >
         {image ? (
@@ -238,6 +327,7 @@ export function CardArtCropper({
             Save crop
           </button>
         </div>
+      </div>
       </div>
     </div>
   );

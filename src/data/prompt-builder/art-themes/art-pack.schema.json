@@ -71,7 +71,11 @@
         },
         "generator": { "$ref": "#/$defs/nonEmptyString" },
         "aspectRatio": { "$ref": "#/$defs/nonEmptyString" },
-        "style": { "$ref": "#/$defs/nonEmptyString" }
+        "style": { "$ref": "#/$defs/nonEmptyString" },
+        "draft": {
+          "type": "boolean",
+          "description": "A world still being written. Draft packs are skipped by the generator and the coverage check, so scaffolding one cannot fail the build. Clearing the flag is the moment the pack has to be complete."
+        }
       }
     },
     "entry": {

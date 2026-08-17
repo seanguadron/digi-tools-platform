@@ -392,10 +392,9 @@ export function PromptCardWorkbench<
     useSensor(PointerSensor, { activationConstraint: { distance: 6 } }),
     useSensor(KeyboardSensor),
   );
-  const [previewAnchor, setPreviewAnchor] = useState<{
-    left: number;
-    top: number;
-  } | null>(null);
+  const [previewAnchor, setPreviewAnchor] = useState<ReturnType<
+    typeof getFloatingPanelPosition
+  > | null>(null);
   const portalTarget = usePortalTarget();
   const visibleDeck = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();

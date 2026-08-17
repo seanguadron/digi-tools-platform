@@ -86,7 +86,7 @@ const srcFiles = existsSync(join(ROOT, "src"))
 
 // ── S4 route handlers are development-only ───────────────────────────────────
 {
-  // This app ships no server surface to users. The Card Art Studio's endpoint
+  // This app ships no server surface to users. The Card Studio's endpoint
   // is an authoring convenience that must never answer in a production build,
   // so the guard is enforced here rather than left to reviewer memory: every
   // exported handler in a route file has to bail on NODE_ENV === production.

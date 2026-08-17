@@ -1,15 +1,28 @@
+import { existsSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { ART_PACK_GROUPS, artPackEntry, artPathFor } from "./art-pack.mjs";
+import { ART_PACKS, ART_PACK_GROUPS, artPackEntry, artPathFor } from "./art-pack.mjs";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
 import { loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
 
 // Art packs for the CRAFT deck. Each pack file holds one shared style
 // paragraph plus a per-image entry (brief, alt text, optional bio, status);
-// this generator joins them into paste-ready prompts. Add a pack by dropping
-// in its JSON and listing its id here.
-export const ART_THEME_IDS = ["sci-fi"];
+// this generator joins them into paste-ready prompts.
+//
+// Installed means "the file is there": scaffolding a pack in the Card Studio
+// makes it real with no code change. Read on every call rather than cached at
+// module load, because the studio scaffolds packs inside a running dev server
+// and a snapshot would not show the world it had just created.
+//
+// A pack marked `draft` is skipped by the generator and the validator so a
+// half-authored world cannot fail the build - clearing that flag is the moment
+// it has to be complete.
+export function installedArtPackIds() {
+  return ART_PACKS.map((pack) => pack.id).filter((id) =>
+    existsSync(artThemePath(id)),
+  );
+}
 
 const SECTION_ORDER = ["context", "action", "format", "target"];
 const SECTION_LABELS = {
@@ -162,6 +175,12 @@ export function collectCraftArtEntries(catalog, theme) {
 // catalog owes needs an authored brief, and the pack may not carry entries for
 // things that no longer exist.
 export function craftArtCoverageErrors(catalog, theme) {
+  // A draft world is allowed to be unfinished. Clearing `draft` is the moment
+  // it has to be complete, and that is what this function then enforces.
+  if (theme.theme.draft) {
+    return [];
+  }
+
   const errors = [];
   const entries = collectCraftArtEntries(catalog, theme);
 
@@ -313,8 +332,13 @@ export function renderCraftArtDoc(catalog, theme) {
 export async function generateCraftArtDocs({ check = false } = {}) {
   const catalog = await loadPromptCatalog();
 
-  for (const themeId of ART_THEME_IDS) {
+  for (const themeId of installedArtPackIds()) {
     const theme = await loadArtTheme(themeId);
+    // A draft pack is a world in progress: no doc is rendered for it, and
+    // coverage lets it through, so scaffolding one cannot break the build.
+    if (theme.theme.draft) {
+      continue;
+    }
     const errors = craftArtCoverageErrors(catalog, theme);
     if (errors.length > 0) {
       throw new Error(

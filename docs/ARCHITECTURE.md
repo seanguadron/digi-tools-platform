@@ -26,13 +26,19 @@ The registry drives the shell's top-bar tabs and the home page's titles,
 taglines, and CTAs automatically. The home page's per-tool marketing
 sections (`src/app/page.tsx`) are hand-written — a new tool adds one.
 
-### The one server surface: the Card Art Studio
+### The one server surface: the Card Studio
 
 There is exactly one exception to "no server", and it is an authoring
-surface, not a tool. `/studio/card-art` and its route handler
-`src/app/api/card-art/route.ts` write generated card art to disk so the owner
-does not rename, convert, and move 226 files by hand. It is **not** in the
-tool registry: no nav tab, no home card, nothing links to it.
+surface, not a tool. `/studio/cards` and its route handler
+`src/app/api/card-art/route.ts` edit the card catalogs and write generated
+card art to disk, so the owner does not rename, convert, and move 226 files
+by hand or hand-edit JSON to fix a typo. It is **not** in the tool registry:
+no nav tab, no home card, nothing links to it.
+
+Each card opens with one tab per facet: **Card** (what the card is —
+universal, the same in every world) and one per art pack (**Sci-Fi** today;
+**Fantasy** and **Animal** appear as "not started" with a button that
+scaffolds them).
 
 What keeps it safe, and what a reviewer should check:
 
@@ -45,27 +51,59 @@ What keeps it safe, and what a reviewer should check:
   `check:security` **S4** fails the build if any route handler under
   `src/app` loses the production guard — checked per handler, and accepting a
   call to a local helper that carries the check.
-- **Keys, never paths.** A caller names a catalog entry (`roles.researcher`).
-  Every directory and filename is derived server-side from the catalog by
-  `scripts/card-art-store.mjs`, which also asserts each resolved path sits
-  lexically inside its own root. There is no client-supplied path anywhere.
-  (Lexical, not `realpath` — a symlink planted inside the working tree would
-  still be followed, which presupposes an attacker who can already write to
-  the repo.)
+- **Keys, never paths.** A caller names an entry (`roles.researcher`). Every
+  directory and filename is derived server-side by `scripts/art-pack.mjs`
+  from the pack id plus that key, and `scripts/card-art-store.mjs` asserts
+  each resolved path sits lexically inside its own root. There is no
+  client-supplied path anywhere. (Lexical, not `realpath` — a symlink planted
+  inside the working tree would still be followed, which presupposes an
+  attacker who can already write to the repo.)
 - **It makes `src/data` runtime-mutable**, which the trust model otherwise
-  forbids: selecting an image flips one `illustration.status` to
-  `"generated"` (and back to `"planned"` on "Remove from card"), then re-runs
-  every generated doc that quotes that status — the art pack always, plus
-  `PROMPT_ROLES.md` when a role moved — so a committed doc cannot drift.
-  That write is narrow (one enum field, located by the entry's own `src`,
-  refused outright if that `src` is not unique) and is the reason this
-  surface is called out here.
+  forbids. Three writes, each narrow:
+  - **status**, in the art pack: selecting an image flips one entry to
+    `"generated"` (and back to `"planned"` on "Remove from card"), then
+    re-renders the pack's generated doc so a committed doc cannot drift.
+  - **bio**, in the art pack: one string, length-capped to the schema's own
+    ceiling.
+  - **card text**, in a catalog: only the fields in `scripts/card-record.mjs`'s
+    closed table are writable — names, descriptions, abilities, goals, grade
+    lines, effects, audience. Ids, codes, sections, drivers, affinities,
+    track values and equipped cards are readable and never writable, because
+    other records reference them.
+- **A card edit cannot break the build.** A save builds a *candidate* catalog
+  and runs `validateCatalog` — the same function `npm run build` runs — over
+  it, writing only if it passes. A rejected save returns the validator's own
+  message. That check is deliberately the real one rather than a second,
+  weaker copy, and `validateCatalog` is kept a pure function of the catalog
+  it is handed so it can be used this way.
 
 The logic lives in `scripts/card-art-store.mjs` rather than the route so the
 node runner can test it directly (`scripts/card-art-store.test.mjs`); the
 route is a thin HTTP shell. Two working trees: `card-art-source/` holds the
 committed candidates and crops and is never built, while `public/card-art/`
-holds only the one live webp per card that the catalog points at.
+holds only the one live webp per card that the app renders.
+
+### Art packs: what a card looks like, per world
+
+A card is two things, kept in two files:
+
+- **the card** — universal, in `src/data/prompt-builder/*.json`: id, name,
+  description, mechanics. Strategist is Strategist in every world.
+- **the pack** — per world, in `src/data/prompt-builder/art-themes/<id>.json`:
+  the image brief, its alt text, the character **bio**, and whether that
+  image exists yet.
+
+A pack stores **no path**. `scripts/art-pack.mjs` derives every path from the
+pack id plus the entry key, which is what makes a second world a drop-in:
+no file moves, no collisions, an honest per-pack `status`, and no way for
+renaming a card in the studio to orphan its art. `src/lib/art-pack.ts` is the
+app's typed door onto the active pack; the deck engine takes optional
+`cardArt`/`cardBio` callbacks so the CRAFT deck resolves through its pack
+while the PICTURE deck keeps its inline illustrations.
+
+A pack whose `theme.draft` is true is skipped by the generator and the
+coverage check, so scaffolding a world cannot fail the build. Clearing that
+flag is the moment it has to be complete.
 
 ## 2. The shell contract
 

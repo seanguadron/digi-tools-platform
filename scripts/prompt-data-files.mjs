@@ -4,7 +4,7 @@ import path from "node:path";
 
 // import.meta.dirname is set when node runs these scripts directly, but it is
 // undefined once a bundler inlines the module — which happens now that the
-// Card Art Studio's route handler imports this file. npm always chdirs to the
+// Card Studio's route handler imports this file. npm always chdirs to the
 // package root, so cwd is the right fallback — but it is VERIFIED rather than
 // assumed, because a wrong root would send the studio's writes into whatever
 // project happens to sit there.

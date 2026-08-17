@@ -1,5 +1,7 @@
 "use client";
 
+import type { ReactNode } from "react";
+
 // A small, accessible tab strip for editor docks (Layers / Channels / Properties
 // / Adjust / History). Renders only the tablist; the parent renders the active
 // panel and spreads `tabPanelProps(idBase, active)` onto it so the ARIA wiring
@@ -8,7 +10,10 @@
 
 export interface EditorTabDef {
   id: string;
-  label: string;
+  /** ReactNode so a tab can carry a status line under its name. */
+  label: ReactNode;
+  /** Extra class for a per-tab variant, e.g. a world that does not exist yet. */
+  className?: string;
 }
 
 interface EditorTabsProps {
@@ -19,6 +24,8 @@ interface EditorTabsProps {
   idBase: string;
   /** Accessible name for the tablist. */
   label: string;
+  /** Container class, when a caller wants its own strip styling. */
+  className?: string;
 }
 
 export function EditorTabs({
@@ -27,9 +34,10 @@ export function EditorTabs({
   onChange,
   idBase,
   label,
+  className = "editor-tabs",
 }: EditorTabsProps) {
   return (
-    <div className="editor-tabs" role="tablist" aria-label={label}>
+    <div className={className} role="tablist" aria-label={label}>
       {tabs.map((tab, index) => {
         const isActive = tab.id === active;
         return (
@@ -41,7 +49,12 @@ export function EditorTabs({
             aria-controls={`${idBase}-panel-${tab.id}`}
             aria-selected={isActive}
             tabIndex={isActive ? 0 : -1}
-            className={isActive ? "editor-tab is-active" : "editor-tab"}
+            className={[
+              tab.className ?? "editor-tab",
+              isActive ? "is-active" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
             onClick={() => onChange(tab.id)}
             onKeyDown={(event) => {
               if (

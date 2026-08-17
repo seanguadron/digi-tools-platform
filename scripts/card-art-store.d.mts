@@ -3,6 +3,10 @@
 // this declaration is the typed door the app-side route handler comes through
 // (tsconfig sets allowJs: false, so the .mjs is not otherwise importable).
 
+import type { CardRecord } from "./card-record.d.mts";
+
+export type { CardRecord };
+
 export declare const VARIANT_ROOT: string;
 
 export declare class CardArtError extends Error {
@@ -39,8 +43,25 @@ export type CardArtManifest = {
   progress: { generated: number; total: number };
 };
 
+export type ArtPackSummary = {
+  id: string;
+  name: string;
+  installed: boolean;
+  draft: boolean;
+  generated: number;
+  total: number;
+};
+
 export type CardArtStore = {
   listEntries(themeId: string): Promise<CardArtManifest>;
+  listPacks(): Promise<ArtPackSummary[]>;
+  readCard(key: string): Promise<CardRecord>;
+  saveCard(
+    key: string,
+    edits: Record<string, string | string[]>,
+  ): Promise<CardRecord>;
+  setBio(themeId: string, key: string, bio: string): Promise<{ bio: string }>;
+  scaffoldPack(themeId: string): Promise<{ theme: string; entries: number }>;
   readVariantFile(
     themeId: string,
     key: string,

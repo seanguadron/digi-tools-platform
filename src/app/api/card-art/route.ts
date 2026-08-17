@@ -66,9 +66,21 @@ export async function GET(request: Request) {
 
   try {
     const params = new URL(request.url).searchParams;
+    const view = params.get("view");
+
+    // The worlds this deck has and which of them exist yet.
+    if (view === "packs") {
+      return Response.json({ packs: await store.listPacks() });
+    }
+
     const theme = requiredParam(params.get("theme"), "theme");
     const key = params.get("key");
     const variant = params.get("variant");
+
+    // The Card tab: what this card IS, independent of any pack.
+    if (view === "card") {
+      return Response.json(await store.readCard(requiredParam(key, "key")));
+    }
 
     // Variants live outside public/, so the studio reads them back here.
     if (key || variant) {
@@ -119,11 +131,32 @@ export async function POST(request: Request) {
     const variantId = typeof body.variantId === "string" ? body.variantId : "";
     const dataUrl = typeof body.dataUrl === "string" ? body.dataUrl : "";
 
+    // Scaffolding a world names a pack but no card.
+    if (op === "scaffold-pack") {
+      if (!theme) {
+        throw new CardArtError("theme is required", 400);
+      }
+      return Response.json(await store.scaffoldPack(theme));
+    }
+
     if (!theme || !key) {
       throw new CardArtError("theme and key are required", 400);
     }
 
     switch (op) {
+      case "save-card": {
+        const edits = body.edits;
+        if (typeof edits !== "object" || edits === null || Array.isArray(edits)) {
+          throw new CardArtError("edits must be an object", 400);
+        }
+        return Response.json(
+          await store.saveCard(key, edits as Record<string, string | string[]>),
+        );
+      }
+      case "set-bio":
+        return Response.json(
+          await store.setBio(theme, key, typeof body.bio === "string" ? body.bio : ""),
+        );
       case "add-variant":
         return Response.json(await store.addVariant(theme, key, dataUrl));
       case "crop":
