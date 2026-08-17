@@ -20,7 +20,7 @@ Per image:
 4. Flip that entry's `status` to `"generated"` in its catalog JSON.
 5. Run `npm run data:generate` so this file re-renders.
 
-Progress: 0/226 generated - 98 core images first, then 128 per-grade variants.
+Progress: 3/226 generated - 98 core images first, then 128 per-grade variants.
 
 ## Shared art direction
 
@@ -104,7 +104,7 @@ Target audience. A single figure seen from behind at a wide viewport, lit from t
 - File name: `SCI-006-Researcher.png`
 - Target: `public/card-art/sci-fi/roles/researcher.webp`
 - Owner: Role `researcher`
-- Status: planned
+- Status: generated
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -117,7 +117,7 @@ A xenoarchivist in a modular field rig, half-lit by the cracked data-core she is
 - File name: `SCI-007-Analyst.png`
 - Target: `public/card-art/sci-fi/roles/analyst.webp`
 - Owner: Role `analyst`
-- Status: planned
+- Status: generated
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.
@@ -169,7 +169,7 @@ A verification officer holding a claim slab in an authentication clamp, provenan
 - File name: `SCI-011-Synthesizer.png`
 - Target: `public/card-art/sci-fi/roles/synthesizer.webp`
 - Owner: Role `synthesizer`
-- Status: planned
+- Status: generated
 
 ```
 Modern sci-fi collectible-card key art in a CG and comic-book hybrid style: painterly volumetric rendering carried by clean comic ink weight on the silhouette, cinematic and high-craft, the way a premium video game paints its collectible cards. Cyan and teal key light rakes the subject from one side, a hard cyan rim light separates it from a deep blue-black background, and soft atmospheric haze falls away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.

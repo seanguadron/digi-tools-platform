@@ -36,19 +36,30 @@ tool registry: no nav tab, no home card, nothing links to it.
 
 What keeps it safe, and what a reviewer should check:
 
-- **Development only.** Both the page and the handler bail on
-  `process.env.NODE_ENV === "production"` (the page 404s via `notFound()`).
+- **Development only, and local only.** Both the page and the handlers bail on
+  `process.env.NODE_ENV === "production"`, and the handlers additionally
+  require a loopback `Host` — `next dev` binds every interface and
+  `allowedDevOrigins` does not gate application routes, so the tools staying
+  LAN-previewable must not drag the writer along with them. A raw client can
+  forge a Host header, so treat that as narrowing, not sealing.
   `check:security` **S4** fails the build if any route handler under
-  `src/app` loses that guard, so it cannot rot into a shipped endpoint.
+  `src/app` loses the production guard — checked per handler, and accepting a
+  call to a local helper that carries the check.
 - **Keys, never paths.** A caller names a catalog entry (`roles.researcher`).
   Every directory and filename is derived server-side from the catalog by
   `scripts/card-art-store.mjs`, which also asserts each resolved path sits
-  inside its own root. There is no client-supplied path anywhere.
+  lexically inside its own root. There is no client-supplied path anywhere.
+  (Lexical, not `realpath` — a symlink planted inside the working tree would
+  still be followed, which presupposes an attacker who can already write to
+  the repo.)
 - **It makes `src/data` runtime-mutable**, which the trust model otherwise
   forbids: selecting an image flips one `illustration.status` to
-  `"generated"` and re-runs the art-pack generator so the committed doc
-  cannot drift. That write is narrow (one enum field, located by the entry's
-  own `src`) and is the reason this surface is called out here.
+  `"generated"` (and back to `"planned"` on "Remove from card"), then re-runs
+  every generated doc that quotes that status — the art pack always, plus
+  `PROMPT_ROLES.md` when a role moved — so a committed doc cannot drift.
+  That write is narrow (one enum field, located by the entry's own `src`,
+  refused outright if that `src` is not unique) and is the reason this
+  surface is called out here.
 
 The logic lives in `scripts/card-art-store.mjs` rather than the route so the
 node runner can test it directly (`scripts/card-art-store.test.mjs`); the

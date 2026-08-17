@@ -8462,7 +8462,7 @@ body:has(.page-stage.is-fluid) {
 
 .card-art-row-main {
   display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 40px 72px;
+  grid-template-columns: 40px 44px minmax(0, 1fr) 40px 72px;
   align-items: center;
   gap: 10px;
   width: 100%;
@@ -8472,6 +8472,62 @@ body:has(.page-stage.is-fluid) {
   color: inherit;
   text-align: left;
   cursor: pointer;
+}
+
+/* Row thumbnail: the image on the card once one is live, otherwise the first
+   candidate. Hovering it opens the peek panel below. */
+.card-art-thumb {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--muted);
+}
+
+.card-art-thumb.has-image {
+  border-color: color-mix(in oklch, var(--brand-cyan) 40%, var(--border));
+}
+
+.card-art-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-art-peek {
+  position: fixed;
+  z-index: 70;
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--brand-cyan);
+  border-radius: 12px;
+  background: var(--card);
+  box-shadow: var(--shadow-card);
+  pointer-events: none;
+}
+
+.card-art-peek > img {
+  width: 320px;
+  height: 320px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Card mode: the real card chrome at a readable size, so the crop is judged
+   in the frame it will actually live in. */
+.card-art-peek-card {
+  width: 250px;
+}
+
+.card-art-peek small {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.68rem;
+  color: var(--muted-foreground);
+  text-align: center;
 }
 
 .card-art-seq {
@@ -8679,6 +8735,47 @@ body:has(.page-stage.is-fluid) {
   height: 100%;
   color: var(--muted-foreground);
   font-size: 0.8rem;
+}
+
+/* Rule-of-thirds guides: two hairlines each way, drawn over the window and
+   never over the saved pixels. */
+.card-art-crop-guides {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent calc(33.333% - 1px),
+      color-mix(in oklch, white 62%, transparent) calc(33.333% - 1px),
+      color-mix(in oklch, white 62%, transparent) 33.333%,
+      transparent 33.333%,
+      transparent calc(66.666% - 1px),
+      color-mix(in oklch, white 62%, transparent) calc(66.666% - 1px),
+      color-mix(in oklch, white 62%, transparent) 66.666%,
+      transparent 66.666%
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(33.333% - 1px),
+      color-mix(in oklch, white 62%, transparent) calc(33.333% - 1px),
+      color-mix(in oklch, white 62%, transparent) 33.333%,
+      transparent 33.333%,
+      transparent calc(66.666% - 1px),
+      color-mix(in oklch, white 62%, transparent) calc(66.666% - 1px),
+      color-mix(in oklch, white 62%, transparent) 66.666%,
+      transparent 66.666%
+    );
+  mix-blend-mode: difference;
+}
+
+.card-art-guide-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 10px;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
 }
 
 .card-art-crop-actions {

@@ -2,10 +2,9 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 // See prompt-data-files.mjs: dirname is undefined under a bundler, and the
-// dev server always runs from the repo root.
-export const projectRoot = import.meta.dirname
-  ? path.resolve(import.meta.dirname, "..")
-  : process.cwd();
+// cwd fallback is verified there rather than assumed.
+export { projectRoot } from "./prompt-data-files.mjs";
+import { projectRoot } from "./prompt-data-files.mjs";
 export const pictureDataDir = path.join(
   projectRoot,
   "src",

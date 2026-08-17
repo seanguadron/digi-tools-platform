@@ -20,7 +20,7 @@ Researcher frames the question and grounds each claim in credible, well-compared
 - Find credible primary and secondary sources for each major claim.
 - Compare the strongest sources and document disagreements or gaps.
 
-**Illustration:** /card-art/sci-fi/roles/researcher.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/researcher.webp (generated)
 
 ### Analyst
 **Core:** Yes
@@ -35,7 +35,7 @@ Analyst breaks information into patterns and tests the assumptions behind a deci
 - Break the available information into patterns, causes, and outliers.
 - Test the main assumptions and explain important tradeoffs.
 
-**Illustration:** /card-art/sci-fi/roles/analyst.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/analyst.webp (generated)
 
 ### Strategist
 **Core:** Yes
@@ -95,7 +95,7 @@ Synthesizer reconciles many sources into one model without hiding disagreement.
 - Identify agreements, contradictions, and important distinctions.
 - Reconcile compatible findings without hiding meaningful disagreement.
 
-**Illustration:** /card-art/sci-fi/roles/synthesizer.webp (planned)
+**Illustration:** /card-art/sci-fi/roles/synthesizer.webp (generated)
 
 ### Explainer / Educator
 **Core:** Yes

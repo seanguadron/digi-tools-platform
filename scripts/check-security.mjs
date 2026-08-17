@@ -91,17 +91,41 @@ const srcFiles = existsSync(join(ROOT, "src"))
   // so the guard is enforced here rather than left to reviewer memory: every
   // exported handler in a route file has to bail on NODE_ENV === production.
   const GUARD = /process\.env\.NODE_ENV\s*===\s*["']production["']/;
-  const HANDLER = /export\s+async\s+function\s+(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b/;
+  // Both export styles, so `export const GET = async () => {}` cannot slip
+  // past by simply not being a function declaration.
+  const HANDLER =
+    /export\s+(?:async\s+function|const)\s+(GET|POST|PUT|PATCH|DELETE|HEAD|OPTIONS)\b/g;
+  const HELPER = /function\s+([A-Za-z_$][\w$]*)\s*\([^)]*\)\s*\{([\s\S]*?)\n\}/g;
   const routeFiles = srcFiles.filter((p) => /\/app\/.*\/route\.(ts|js|mjs)$/.test(rel(p)));
+
   for (const p of routeFiles) {
     const text = readFileSync(p, "utf8");
-    if (!HANDLER.test(text)) continue;
-    if (!GUARD.test(text)) {
-      fail(
-        "S4",
-        `${rel(p)} route handler is missing the production guard ` +
-          `(process.env.NODE_ENV === "production")`,
-      );
+    const handlers = [...text.matchAll(HANDLER)];
+    if (handlers.length === 0) continue;
+
+    // A handler may call a local helper instead of inlining the check, so
+    // collect the helpers that do carry it and accept a call to one.
+    const guards = [];
+    for (const helper of text.matchAll(HELPER)) {
+      if (GUARD.test(helper[2])) guards.push(helper[1]);
+    }
+
+    // Check EACH handler's own body, not the file as a whole: one guarded
+    // handler must not vouch for an unguarded sibling.
+    for (const [index, handler] of handlers.entries()) {
+      const start = handler.index ?? 0;
+      const end = handlers[index + 1]?.index ?? text.length;
+      const body = text.slice(start, end);
+      const guarded =
+        GUARD.test(body) ||
+        guards.some((name) => new RegExp(`\\b${name}\\s*\\(`).test(body));
+      if (!guarded) {
+        fail(
+          "S4",
+          `${rel(p)} ${handler[1]} handler is missing the production guard ` +
+            `(process.env.NODE_ENV === "production")`,
+        );
+      }
     }
   }
 }

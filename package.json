@@ -8,7 +8,7 @@
     "prebuild": "npm run data:validate && npm run check:standards && npm run check:security",
     "build": "next build",
     "start": "next start -p 5100",
-    "lint": "eslint src next.config.ts",
+    "lint": "eslint src scripts next.config.ts",
     "typecheck": "tsc --noEmit",
     "data:generate": "node scripts/generate-prompt-role-docs.mjs && node scripts/generate-craft-art-docs.mjs && node scripts/generate-picture-art-manifest.mjs",
     "data:validate": "node scripts/validate-prompt-data.mjs && node scripts/validate-picture-data.mjs",

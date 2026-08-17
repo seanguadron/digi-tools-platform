@@ -40,6 +40,7 @@ export function CardArtCropper({
 }) {
   const [image, setImage] = useState<HTMLImageElement | null>(null);
   const [frame, setFrame] = useState<Frame>({ zoom: 1, offsetX: 0, offsetY: 0 });
+  const [showGuides, setShowGuides] = useState(true);
   const dragRef = useRef<{ x: number; y: number; frame: Frame } | null>(null);
   const viewportRef = useRef<HTMLDivElement | null>(null);
 
@@ -201,6 +202,9 @@ export function CardArtCropper({
         ) : (
           <span className="card-art-crop-loading">Loading…</span>
         )}
+        {showGuides ? (
+          <span className="card-art-crop-guides" aria-hidden="true" />
+        ) : null}
       </div>
 
       <div className="card-art-crop-actions">
@@ -212,6 +216,14 @@ export function CardArtCropper({
           <button type="button" onClick={() => nudgeZoom(1.2)} aria-label="Zoom in">
             +
           </button>
+          <label className="card-art-guide-toggle">
+            <input
+              type="checkbox"
+              checked={showGuides}
+              onChange={(event) => setShowGuides(event.target.checked)}
+            />
+            <span>Thirds</span>
+          </label>
         </div>
         <div className="card-art-crop-buttons">
           <button className="button button-secondary" type="button" onClick={onCancel}>

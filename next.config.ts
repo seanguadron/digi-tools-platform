@@ -6,6 +6,11 @@ import type { NextConfig } from "next";
 // opened over the network, e.g. http://192.168.x.x:5100. Whitelist this machine's
 // current LAN IPv4 addresses so the dev server stays interactive there too. This is
 // detected at startup, so it keeps working if the router assigns a different IP.
+//
+// This is NOT a security boundary: it only unblocks /_next assets, and never gates
+// application routes. `next dev` binds every interface, so anything on the network
+// can reach the app's routes while it runs. The Card Art Studio's write endpoint
+// therefore does its own loopback-Host check (src/app/api/card-art/route.ts).
 const localNetworkOrigins = Object.values(os.networkInterfaces())
   .flat()
   .flatMap((iface) =>

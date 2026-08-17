@@ -1,13 +1,34 @@
+import { readFileSync } from "node:fs";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 // import.meta.dirname is set when node runs these scripts directly, but it is
 // undefined once a bundler inlines the module — which happens now that the
-// Card Art Studio's route handler imports this file. The dev server is always
-// started from the repo root, so cwd is the correct fallback there.
+// Card Art Studio's route handler imports this file. npm always chdirs to the
+// package root, so cwd is the right fallback — but it is VERIFIED rather than
+// assumed, because a wrong root would send the studio's writes into whatever
+// project happens to sit there.
+function verifiedCwd() {
+  const cwd = process.cwd();
+  try {
+    const pkg = JSON.parse(
+      readFileSync(path.join(cwd, "package.json"), "utf8"),
+    );
+    if (pkg.name === "digi-tools") {
+      return cwd;
+    }
+  } catch {
+    // fall through to the throw below
+  }
+  throw new Error(
+    `Cannot locate the DigiTools repo root: ${cwd} is not the digi-tools package. ` +
+      "Start the dev server from the repo root (npm run dev).",
+  );
+}
+
 export const projectRoot = import.meta.dirname
   ? path.resolve(import.meta.dirname, "..")
-  : process.cwd();
+  : verifiedCwd();
 export const promptDataDir = path.join(
   projectRoot,
   "src",

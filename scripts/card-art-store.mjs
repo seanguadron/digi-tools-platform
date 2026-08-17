@@ -18,6 +18,7 @@ import {
   generateCraftArtDocs,
   loadArtTheme,
 } from "./generate-craft-art-docs.mjs";
+import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
 import { catalogFiles, loadPromptCatalog, projectRoot } from "./prompt-data-files.mjs";
 
 export const VARIANT_ROOT = "card-art-source";
@@ -112,6 +113,26 @@ export function createCardArtStore({
     return entry.fileName.replace(/\.[a-z0-9]+$/i, "");
   }
 
+  // Magic numbers, so a payload cannot claim to be a png while carrying
+  // something else: the bytes are written to disk under that extension and
+  // served back with that content type.
+  function sniff(bytes) {
+    if (bytes.length >= 8 && bytes.readUInt32BE(0) === 0x89504e47) {
+      return "png";
+    }
+    if (bytes.length >= 3 && bytes[0] === 0xff && bytes[1] === 0xd8 && bytes[2] === 0xff) {
+      return "jpeg";
+    }
+    if (
+      bytes.length >= 12 &&
+      bytes.toString("ascii", 0, 4) === "RIFF" &&
+      bytes.toString("ascii", 8, 12) === "WEBP"
+    ) {
+      return "webp";
+    }
+    return null;
+  }
+
   function decodeDataUrl(dataUrl) {
     if (typeof dataUrl !== "string") {
       throw new CardArtError("Image payload must be a data URL");
@@ -120,6 +141,11 @@ export function createCardArtStore({
     if (!match) {
       throw new CardArtError("Only png, jpeg, or webp data URLs are accepted");
     }
+    // Reject on the ENCODED length first: decoding to find out it was too big
+    // is the allocation an oversized payload was trying to provoke.
+    if (match[2].length > Math.ceil((MAX_IMAGE_BYTES * 4) / 3) + 4) {
+      throw new CardArtError("Image payload is too large", 413);
+    }
     const bytes = Buffer.from(match[2], "base64");
     if (bytes.byteLength === 0) {
       throw new CardArtError("Image payload is empty");
@@ -127,7 +153,11 @@ export function createCardArtStore({
     if (bytes.byteLength > MAX_IMAGE_BYTES) {
       throw new CardArtError("Image payload is too large", 413);
     }
-    return { bytes, extension: match[1] === "jpeg" ? "jpg" : match[1] };
+    const claimed = match[1];
+    if (sniff(bytes) !== claimed) {
+      throw new CardArtError(`Payload is not really ${claimed} data`);
+    }
+    return { bytes, extension: claimed === "jpeg" ? "jpg" : claimed };
   }
 
   async function listVariantFiles(dir) {
@@ -228,14 +258,28 @@ export function createCardArtStore({
     const entry = findEntry(entries, key);
     const { bytes, extension } = decodeDataUrl(dataUrl);
     const dir = variantDir(themeId, entry);
-    const existing = await readVariants(themeId, entry);
-    const letter = nextLetter(existing);
-    const file = `${variantBaseName(entry)}-${letter}.${extension}`;
-
     await mkdir(dir, { recursive: true });
-    await writeFile(assertInside(path.join(dir, file), variantRoot, "variant file"), bytes);
 
-    return { id: letter, letter, cropped: false, file };
+    // Exclusive create, retried: two quick pastes can both pick the same free
+    // letter, and the loser must not silently overwrite the winner's image.
+    for (let attempt = 0; attempt < 26; attempt += 1) {
+      const letter = nextLetter(await readVariants(themeId, entry));
+      const file = `${variantBaseName(entry)}-${letter}.${extension}`;
+      try {
+        await writeFile(
+          assertInside(path.join(dir, file), variantRoot, "variant file"),
+          bytes,
+          { flag: "wx" },
+        );
+        return { id: letter, letter, cropped: false, file };
+      } catch (error) {
+        if (error?.code !== "EEXIST") {
+          throw error;
+        }
+      }
+    }
+
+    throw new CardArtError("Could not find a free variant letter", 409);
   }
 
   // A crop is always a COPY: the source variant stays byte-identical on disk
@@ -277,41 +321,78 @@ export function createCardArtStore({
     return { removed: variant.id };
   }
 
+  // Catalog writes run one at a time. Two requests landing together would
+  // otherwise each read the pre-edit file and the second would silently
+  // revert the first's flip.
+  let catalogQueue = Promise.resolve();
+
   // Flip one entry's status in its catalog JSON. Targeted string surgery on
   // the illustration block that owns this src, so the rest of the file keeps
   // its exact formatting (a JSON round-trip would reformat 3k lines).
-  async function setStatus(entry, status) {
-    const group = entry.key.split(".")[0];
-    const catalogKey = CATALOG_FOR_GROUP[group];
-    if (!catalogKey) {
-      // craft letters and the shared swatch have no catalog record yet.
-      return false;
-    }
+  function setStatus(entry, status) {
+    const run = catalogQueue.then(async () => {
+      const group = entry.key.split(".")[0];
+      const catalogKey = CATALOG_FOR_GROUP[group];
+      if (!catalogKey) {
+        // craft letters and the shared swatch have no catalog record yet.
+        return false;
+      }
 
-    const file = path.join(root, "src", "data", "prompt-builder", catalogFiles[catalogKey]);
-    const source = await readFile(file, "utf8");
-    const marker = `"src": "${entry.target}"`;
-    const at = source.indexOf(marker);
-    if (at === -1) {
-      throw new CardArtError(`Could not find ${entry.target} in ${catalogFiles[catalogKey]}`, 500);
-    }
-    const statusAt = source.indexOf('"status": "', at);
-    if (statusAt === -1) {
-      throw new CardArtError(`Could not find a status field for ${entry.target}`, 500);
-    }
-    const valueStart = statusAt + '"status": "'.length;
-    const valueEnd = source.indexOf('"', valueStart);
-    const current = source.slice(valueStart, valueEnd);
-    if (current === status) {
-      return false;
-    }
+      const name = catalogFiles[catalogKey];
+      const file = path.join(root, "src", "data", "prompt-builder", name);
+      const source = await readFile(file, "utf8");
+      const marker = `"src": "${entry.target}"`;
+      const at = source.indexOf(marker);
+      if (at === -1) {
+        throw new CardArtError(`Could not find ${entry.target} in ${name}`, 500);
+      }
+      // Illustration src values are globally unique (validate-prompt-data
+      // enforces it). If that ever stops being true, editing the first match
+      // would silently flip the wrong card — refuse instead of guessing.
+      if (source.indexOf(marker, at + marker.length) !== -1) {
+        throw new CardArtError(`${entry.target} appears more than once in ${name}`, 500);
+      }
+      const statusAt = source.indexOf('"status": "', at);
+      if (statusAt === -1) {
+        throw new CardArtError(`Could not find a status field for ${entry.target}`, 500);
+      }
+      const valueStart = statusAt + '"status": "'.length;
+      const valueEnd = source.indexOf('"', valueStart);
+      const current = source.slice(valueStart, valueEnd);
+      if (current !== "planned" && current !== "generated") {
+        throw new CardArtError(`Unexpected status "${current}" for ${entry.target}`, 500);
+      }
+      if (current === status) {
+        return false;
+      }
 
-    await writeFile(
-      file,
-      source.slice(0, valueStart) + status + source.slice(valueEnd),
-      "utf8",
+      await writeFile(
+        file,
+        source.slice(0, valueStart) + status + source.slice(valueEnd),
+        "utf8",
+      );
+      return true;
+    });
+
+    // Keep the chain alive even when this write fails.
+    catalogQueue = run.then(
+      () => undefined,
+      () => undefined,
     );
-    return true;
+    return run;
+  }
+
+  // Both generated docs embed illustration status, so a flip has to refresh
+  // whichever ones quote the entry that moved — PROMPT_ROLES.md prints a
+  // status line per role, and check:standards fails the build on its drift.
+  async function refreshGeneratedDocs(entry) {
+    if (!regenerateDocs) {
+      return;
+    }
+    await generateCraftArtDocs();
+    if (entry.key.startsWith("roles.")) {
+      await generateRoleDocs();
+    }
   }
 
   async function selectVariant(themeId, key, variantId, webpDataUrl) {
@@ -331,8 +412,8 @@ export function createCardArtStore({
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, bytes);
     const flipped = await setStatus(entry, "generated");
-    if (flipped && regenerateDocs) {
-      await generateCraftArtDocs();
+    if (flipped) {
+      await refreshGeneratedDocs(entry);
     }
 
     return { target: entry.target, selected: variantId, statusChanged: flipped };
@@ -343,8 +424,8 @@ export function createCardArtStore({
     const entry = findEntry(entries, key);
     await rm(livePath(entry), { force: true });
     const flipped = await setStatus(entry, "planned");
-    if (flipped && regenerateDocs) {
-      await generateCraftArtDocs();
+    if (flipped) {
+      await refreshGeneratedDocs(entry);
     }
     return { target: entry.target, statusChanged: flipped };
   }

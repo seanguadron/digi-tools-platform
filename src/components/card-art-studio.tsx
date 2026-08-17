@@ -1,7 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { createPortal } from "react-dom";
 import { CardArtCropper } from "@/components/card-art-cropper";
+import { usePortalTarget } from "@/hooks/use-portal-target";
+import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
 
 const LIVE_SIZE = 1024;
 const WEBP_QUALITY = 0.92;
@@ -28,6 +31,44 @@ type Manifest = {
   entries: Entry[];
   progress: { generated: number; total: number };
 };
+
+function isVariant(value: unknown): value is Variant {
+  const candidate = value as Partial<Variant> | null;
+  return (
+    typeof candidate === "object" &&
+    candidate !== null &&
+    typeof candidate.id === "string" &&
+    typeof candidate.file === "string"
+  );
+}
+
+function isEntry(value: unknown): value is Entry {
+  const candidate = value as Partial<Entry> | null;
+  return (
+    typeof candidate === "object" &&
+    candidate !== null &&
+    typeof candidate.key === "string" &&
+    typeof candidate.name === "string" &&
+    typeof candidate.fileName === "string" &&
+    typeof candidate.target === "string" &&
+    typeof candidate.status === "string" &&
+    typeof candidate.sequence === "number" &&
+    Array.isArray(candidate.variants) &&
+    candidate.variants.every(isVariant)
+  );
+}
+
+function isManifest(value: unknown): value is Manifest {
+  const candidate = value as Partial<Manifest> | null;
+  return (
+    typeof candidate === "object" &&
+    candidate !== null &&
+    typeof candidate.style === "string" &&
+    Array.isArray(candidate.entries) &&
+    candidate.entries.every(isEntry) &&
+    typeof candidate.progress?.total === "number"
+  );
+}
 
 function variantUrl(theme: string, key: string, variantId: string) {
   const params = new URLSearchParams({ theme, key, variant: variantId });
@@ -95,6 +136,18 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
   // Bumped after every write so <img> tags refetch instead of showing a stale
   // cached variant at the same URL.
   const [revision, setRevision] = useState(0);
+  // Hovering a thumbnail or a variant chip opens a preview. The toggle picks
+  // its shape: the whole card as it will look, or just the image blown up.
+  const [peekAsCard, setPeekAsCard] = useState(true);
+  const [zoomPeek, setZoomPeek] = useState<{
+    url: string;
+    label: string;
+    name: string;
+    code: string;
+    left: number;
+    top: number;
+  } | null>(null);
+  const portalTarget = usePortalTarget();
 
   const refresh = useCallback(
     async (nextTheme: string) => {
@@ -103,7 +156,13 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
         const body = (await response.json().catch(() => null)) as { error?: string } | null;
         throw new Error(body?.error ?? `Could not load the ${nextTheme} pack`);
       }
-      setManifest((await response.json()) as Manifest);
+      // Shape-check before use rather than casting: this crosses the
+      // browser boundary like any other external payload (STANDARDS §2.3).
+      const payload: unknown = await response.json();
+      if (!isManifest(payload)) {
+        throw new Error("The card art service returned something unreadable");
+      }
+      setManifest(payload);
       setRevision((current) => current + 1);
     },
     [],
@@ -252,6 +311,16 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
 
   const progress = manifest?.progress;
 
+  // What the row's thumbnail shows: the image actually on the card once one
+  // is live, otherwise the first candidate so progress reads at a glance.
+  function thumbnailFor(entry: Entry) {
+    if (entry.status === "generated") {
+      return `${entry.target}?v=${revision}`;
+    }
+    const first = entry.variants[0];
+    return first ? `${variantUrl(theme, entry.key, first.id)}&v=${revision}` : null;
+  }
+
   return (
     <div className="card-art-studio">
       <header className="card-art-studio-head">
@@ -318,6 +387,14 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
           />
           <span>Include grade variants</span>
         </label>
+        <label className="card-art-toggle">
+          <input
+            type="checkbox"
+            checked={peekAsCard}
+            onChange={(event) => setPeekAsCard(event.target.checked)}
+          />
+          <span>Hover shows the card</span>
+        </label>
       </div>
 
       <div className="card-art-paste-bar" aria-live="polite">
@@ -336,6 +413,7 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
         {visible.map((entry) => {
           const isActive = entry.key === activeKey;
           const chosen = preview[entry.key] ?? entry.variants[0]?.id ?? null;
+          const thumb = thumbnailFor(entry);
 
           return (
             <li
@@ -356,6 +434,29 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
               >
                 <span className="card-art-seq">
                   {String(entry.sequence).padStart(3, "0")}
+                </span>
+                <span
+                  className={
+                    thumb ? "card-art-thumb has-image" : "card-art-thumb"
+                  }
+                  onMouseEnter={(event) => {
+                    if (!thumb) {
+                      return;
+                    }
+                    setZoomPeek({
+                      url: thumb,
+                      label: entry.fileName,
+                      name: entry.name,
+                      code: String(entry.sequence).padStart(3, "0"),
+                      ...getFloatingPanelPosition(event.currentTarget),
+                    });
+                  }}
+                  onMouseLeave={() => setZoomPeek(null)}
+                >
+                  {thumb ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img alt="" src={thumb} />
+                  ) : null}
                 </span>
                 <span className="card-art-identity">
                   <strong>{entry.name}</strong>
@@ -428,6 +529,16 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
                                 [entry.key]: variant.id,
                               }))
                             }
+                            onMouseEnter={(event) =>
+                              setZoomPeek({
+                                url: `${variantUrl(theme, entry.key, variant.id)}&v=${revision}`,
+                                label: `${entry.fileName.replace(/\.[a-z0-9]+$/i, "")}-${variant.id}`,
+                                name: entry.name,
+                                code: String(entry.sequence).padStart(3, "0"),
+                                ...getFloatingPanelPosition(event.currentTarget),
+                              })
+                            }
+                            onMouseLeave={() => setZoomPeek(null)}
                           >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
@@ -512,6 +623,39 @@ export function CardArtStudio({ themes }: { themes: string[] }) {
           <li className="card-art-empty-row">Nothing matches those filters.</li>
         ) : null}
       </ol>
+
+      {portalTarget && zoomPeek
+        ? createPortal(
+            <aside
+              className={
+                peekAsCard ? "card-art-peek is-card" : "card-art-peek"
+              }
+              style={{ left: zoomPeek.left, top: zoomPeek.top }}
+              aria-hidden="true"
+            >
+              {peekAsCard ? (
+                <div className="lineage-card is-selected card-art-peek-card">
+                  <span className="lineage-card-topline">
+                    <span>Card</span>
+                    <span>{zoomPeek.code}</span>
+                  </span>
+                  <span className="lineage-card-art card-illustration-frame has-generated-image">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="card-illustration-image" alt="" src={zoomPeek.url} />
+                  </span>
+                  <span className="lineage-card-copy">
+                    <strong>{zoomPeek.name}</strong>
+                  </span>
+                </div>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img alt="" src={zoomPeek.url} />
+              )}
+              <small>{zoomPeek.label}</small>
+            </aside>,
+            portalTarget,
+          )
+        : null}
 
       {cropping ? (
         <div className="card-art-crop-layer" role="dialog" aria-modal="true">

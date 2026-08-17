@@ -21,6 +21,23 @@ function isProduction() {
   return process.env.NODE_ENV === "production";
 }
 
+// `next dev` binds every interface and next.config's allowedDevOrigins does
+// NOT gate application routes (it only unblocks /_next assets), so the tools
+// being reachable from a phone on the LAN would otherwise expose this writer
+// too. Requiring a loopback Host keeps the tools LAN-previewable while
+// keeping the authoring endpoint on this machine. A raw client can forge a
+// Host header, so this narrows the surface rather than sealing it — the real
+// boundary is still "do not run the dev server on a network you distrust".
+const LOOPBACK = new Set(["localhost", "127.0.0.1", "::1", "[::1]"]);
+
+function isLocalRequest(request: Request) {
+  const host = request.headers.get("host") ?? "";
+  const name = host.startsWith("[")
+    ? host.slice(0, host.indexOf("]") + 1)
+    : host.split(":")[0];
+  return LOOPBACK.has(name);
+}
+
 function notFound() {
   return new Response("Not found", { status: 404 });
 }
@@ -29,8 +46,10 @@ function failure(error: unknown) {
   if (error instanceof CardArtError) {
     return Response.json({ error: error.message }, { status: error.status });
   }
-  const message = error instanceof Error ? error.message : "Card art request failed";
-  return Response.json({ error: message }, { status: 500 });
+  // Anything else can carry absolute paths from fs errors; log it here and
+  // give the caller nothing to map the filesystem with.
+  console.error("[card-art]", error);
+  return Response.json({ error: "Card art request failed" }, { status: 500 });
 }
 
 function requiredParam(value: string | null, name: string) {
@@ -41,7 +60,7 @@ function requiredParam(value: string | null, name: string) {
 }
 
 export async function GET(request: Request) {
-  if (isProduction()) {
+  if (isProduction() || !isLocalRequest(request)) {
     return notFound();
   }
 
@@ -64,7 +83,11 @@ export async function GET(request: Request) {
           ? "image/jpeg"
           : "image/png";
       return new Response(new Uint8Array(file.bytes), {
-        headers: { "content-type": type, "cache-control": "no-store" },
+        headers: {
+          "content-type": type,
+          "cache-control": "no-store",
+          "x-content-type-options": "nosniff",
+        },
       });
     }
 
@@ -74,12 +97,21 @@ export async function GET(request: Request) {
   }
 }
 
+// Generous enough for a 4K paste, small enough that an oversized body is
+// refused before it is buffered and base64-decoded.
+const MAX_BODY_BYTES = 48 * 1024 * 1024;
+
 export async function POST(request: Request) {
-  if (isProduction()) {
+  if (isProduction() || !isLocalRequest(request)) {
     return notFound();
   }
 
   try {
+    const declared = Number(request.headers.get("content-length") ?? "0");
+    if (Number.isFinite(declared) && declared > MAX_BODY_BYTES) {
+      return Response.json({ error: "Request body is too large" }, { status: 413 });
+    }
+
     const body = (await request.json()) as Record<string, unknown>;
     const theme = typeof body.theme === "string" ? body.theme : "";
     const key = typeof body.key === "string" ? body.key : "";

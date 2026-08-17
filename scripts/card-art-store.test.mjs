@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { cp, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
@@ -20,7 +20,17 @@ async function makeStore() {
   const dataDir = path.join(root, "src", "data", "prompt-builder");
   await mkdir(dataDir, { recursive: true });
   for (const file of ["roles.json", "cards.json", "archetypes.json"]) {
-    await cp(path.join(projectRoot, "src", "data", "prompt-builder", file), path.join(dataDir, file));
+    const source = await readFile(
+      path.join(projectRoot, "src", "data", "prompt-builder", file),
+      "utf8",
+    );
+    // Normalize to "planned" so these tests describe the store's behavior
+    // rather than however much art has actually been generated so far.
+    await writeFile(
+      path.join(dataDir, file),
+      source.replaceAll('"status": "generated"', '"status": "planned"'),
+      "utf8",
+    );
   }
   const store = createCardArtStore({ root, regenerateDocs: false });
   return { root, store, cleanup: () => rm(root, { recursive: true, force: true }) };
