@@ -37,8 +37,8 @@ no nav tab, no home card, nothing links to it.
 
 Each card opens with one tab per facet: **Card** (what the card is —
 universal, the same in every world) and one per art pack (**Sci-Fi** today;
-**Fantasy** and **Animal** appear as "not started" with a button that
-scaffolds them).
+**Fantasy** and **Superhero** as scaffolded drafts still writing their
+briefs).
 
 What keeps it safe, and what a reviewer should check:
 

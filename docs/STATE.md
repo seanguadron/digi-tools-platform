@@ -7,8 +7,8 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-08-17 (end of the "art packs and the Card Studio"
-session).
+Last rewritten: 2026-08-17, late (the "generation run and relationships"
+continuation).
 
 ## Now
 
@@ -31,7 +31,7 @@ moment a second world existed.
    inspection panels. `createCardEngine` gained `cardArt`/`cardBio` callbacks
    so one card face serves both decks.
 3. `b5318c5` **the Card Studio.** `/studio/card-art` → `/studio/cards`, one
-   tab per facet of a card (Card · Sci-Fi · Fantasy · Animal), with an
+   tab per facet of a card (Card · Sci-Fi · Fantasy · Superhero), with an
    editable Card tab gated by the real build validator.
 
 **GATES: ALL THREE RUN AND DISCHARGED SAME-DAY** (ledger:
@@ -46,14 +46,30 @@ queue with the render inside it); catalog free text had no length ceiling
 where bios had one; and a tab strip announced `role="tablist"` without the
 keyboard contract (now the shared `EditorTabs` primitive).
 
-Health: `typecheck` · `lint` · `test` (147) · `data:validate` ·
-`check:standards` · `check:security` · **`npm run build`** all green.
+Then the same day, three more things landed on top:
+
+4. `9a63b31` **card relationships.** Every studio row opens with a relations
+   strip: a lineage lists its four morphs (thumbnails + live dots, click to
+   jump), a grade names its position and links back, roles and archetypes
+   cross-reference. Computed in the store from the catalog; tested.
+5. **The whole sci-fi deck was generated.** 217 images through the Higgsfield
+   MCP (seedream_v5_lite, 1 credit each), downloaded and registered as
+   studio variants via the store — 226/226 entries now have art (6 live, the
+   rest candidates awaiting curation). Resume ledger in the session
+   scratchpad; the run survived rate limits with zero losses.
+6. **Fantasy and Superhero scaffolded** (Superhero is the owner's pivot from
+   the Pokemon idea). Both packs exist as drafts with real art-direction
+   style paragraphs; their 226 briefs each are the next authoring job.
+
+Health: `typecheck` · `lint` · `test` (148) · `data:validate` ·
+`check:standards` · `check:security` all green.
 
 **Owed from Sean:**
-- **Generate the card swatches.** 3 of 226 exist (Researcher, Analyst,
-  Synthesizer). Work through `docs/CRAFT_ART_SCIFI.md`: copy a block →
-  generate in Higgsfield → paste into `/studio/cards` → crop → "Use this".
-  The studio writes the webp, flips the status, and re-renders the doc.
+- **Curate the deck.** Every card has a candidate now: open `/studio/cards`,
+  pick/crop/"Use this" (or ask Claude to regenerate any card, 1 credit).
+- **Decide on committing `card-art-source/` (771MB).** The candidates sit on
+  disk, uncommitted: `git add card-art-source && git commit` bakes them into
+  history permanently; a `.gitignore` entry keeps the repo light instead.
 - Real-mic dictation spot-check on both decks (headless browsers cannot
   grant a mic).
 
@@ -107,13 +123,17 @@ bio, status. Packs store no path; `scripts/art-pack.mjs` derives them, which
 is what makes a second world a drop-in and why renaming a card cannot orphan
 its art. A pack marked `draft` is skipped by the generator and the coverage
 check, so scaffolding a world cannot fail the build. Sci-Fi is written;
-Fantasy and Animal are planned and scaffoldable from the studio.
+Fantasy and Superhero are scaffolded drafts (art directions written, briefs pending).
 
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **Sean's queue:** swatch generation; real-mic dictation check.
-- **Next:** the PICTURE deck onto packs (same model, additive); a pack picker
+- **Sean's queue:** deck curation; the 771MB commit decision; real-mic
+  dictation check.
+- **Next:** author Fantasy + Superhero briefs (226 each; scaffolds + style
+  paragraphs are in, `draft:true` keeps the build green) then generate them
+  through the same MCP pipeline; the PICTURE deck onto packs (same model,
+  additive); a pack picker
   in the app (the active pack is a constant in `src/lib/art-pack.ts` today);
   a per-model output formatter; a Pip-Decks-style restyle; the idea-making
   deck.

@@ -1,0 +1,1219 @@
+{
+  "schemaVersion": 2,
+  "theme": {
+    "id": "superhero",
+    "name": "Superhero",
+    "filePrefix": "SUP",
+    "fileExtension": "png",
+    "generator": "Higgsfield.ai - Seedream 5.0 Lite",
+    "aspectRatio": "1:1",
+    "style": "Modern superhero comic-book collectible-card key art in a bold CG and comic hybrid style: dynamic inked linework with halftone-shaded painterly color, punchy and heroic, the way a premium superhero trading card paints its chase cards. Hot magenta-red key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and dramatic speedline energy and haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame.",
+    "draft": true
+  },
+  "craft": {
+    "C": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Context.",
+      "status": "planned"
+    },
+    "R": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Role.",
+      "status": "planned"
+    },
+    "A": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Action.",
+      "status": "planned"
+    },
+    "F": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Format.",
+      "status": "planned"
+    },
+    "T": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Target audience.",
+      "status": "planned"
+    }
+  },
+  "roles": {
+    "researcher": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Researcher.",
+      "status": "planned"
+    },
+    "analyst": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Analyst.",
+      "status": "planned"
+    },
+    "strategist": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Strategist.",
+      "status": "planned"
+    },
+    "historian": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Historian.",
+      "status": "planned"
+    },
+    "fact-checker": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Fact-checker.",
+      "status": "planned"
+    },
+    "synthesizer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Synthesizer.",
+      "status": "planned"
+    },
+    "explainer-educator": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Explainer / Educator.",
+      "status": "planned"
+    },
+    "comparative-reviewer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Critical Reviewer.",
+      "status": "planned"
+    },
+    "developer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Developer.",
+      "status": "planned"
+    },
+    "technical-troubleshooter": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Technical Troubleshooter.",
+      "status": "planned"
+    },
+    "systems-designer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Systems Designer.",
+      "status": "planned"
+    },
+    "workflow-architect": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Workflow Architect.",
+      "status": "planned"
+    },
+    "ux-ui-advisor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for UX / UI Advisor.",
+      "status": "planned"
+    },
+    "data-analyst": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Data Analyst.",
+      "status": "planned"
+    },
+    "qa-test-engineer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for QA / Test Engineer.",
+      "status": "planned"
+    },
+    "security-reviewer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Security Reviewer.",
+      "status": "planned"
+    },
+    "writer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Writer.",
+      "status": "planned"
+    },
+    "editor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Editor.",
+      "status": "planned"
+    },
+    "copywriter": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Copywriter.",
+      "status": "planned"
+    },
+    "rewriter": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Rewriter.",
+      "status": "planned"
+    },
+    "pitch-strategist": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Pitch Strategist.",
+      "status": "planned"
+    },
+    "presentation-slide-structurer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Presentation Designer.",
+      "status": "planned"
+    },
+    "creative-director": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Creative Director.",
+      "status": "planned"
+    },
+    "concept-developer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Concept Developer.",
+      "status": "planned"
+    },
+    "brainstorming-partner": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Brainstorming Partner.",
+      "status": "planned"
+    },
+    "prompt-engineer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Prompt Engineer.",
+      "status": "planned"
+    },
+    "tutor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Tutor.",
+      "status": "planned"
+    },
+    "curriculum-designer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Curriculum Designer.",
+      "status": "planned"
+    },
+    "mentor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Mentor.",
+      "status": "planned"
+    },
+    "consultant": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Consultant.",
+      "status": "planned"
+    },
+    "product-strategist": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Product Strategist.",
+      "status": "planned"
+    },
+    "market-positioning-advisor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Positioning Strategist.",
+      "status": "planned"
+    },
+    "product-manager": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Product Manager.",
+      "status": "planned"
+    },
+    "summarizer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Summarizer.",
+      "status": "planned"
+    },
+    "organizer": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Organizer.",
+      "status": "planned"
+    }
+  },
+  "lineages": {
+    "context-scope": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for SCP lineage.",
+      "status": "planned"
+    },
+    "context-evidence": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for SRC lineage.",
+      "status": "planned"
+    },
+    "context-constraints": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for LIM lineage.",
+      "status": "planned"
+    },
+    "context-assumptions": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for ASM lineage.",
+      "status": "planned"
+    },
+    "context-success": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for WIN lineage.",
+      "status": "planned"
+    },
+    "context-exclusions": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for OUT lineage.",
+      "status": "planned"
+    },
+    "action-inspect": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for INS lineage.",
+      "status": "planned"
+    },
+    "action-analyze": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for ANL lineage.",
+      "status": "planned"
+    },
+    "action-compare": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for CMP lineage.",
+      "status": "planned"
+    },
+    "action-create": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for BLD lineage.",
+      "status": "planned"
+    },
+    "action-recommend": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for REC lineage.",
+      "status": "planned"
+    },
+    "action-verify": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for TST lineage.",
+      "status": "planned"
+    },
+    "action-summarize": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for SMR lineage.",
+      "status": "planned"
+    },
+    "action-research": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for RES lineage.",
+      "status": "planned"
+    },
+    "action-plan": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for PLN lineage.",
+      "status": "planned"
+    },
+    "action-ideate": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for IDE lineage.",
+      "status": "planned"
+    },
+    "action-explain": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for EXP lineage.",
+      "status": "planned"
+    },
+    "action-clarify": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for ASK lineage.",
+      "status": "planned"
+    },
+    "format-info-card": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for INF lineage.",
+      "status": "planned"
+    },
+    "format-key-points": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for KEY lineage.",
+      "status": "planned"
+    },
+    "format-summary": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for SUM lineage.",
+      "status": "planned"
+    },
+    "format-sections": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for SEC lineage.",
+      "status": "planned"
+    },
+    "format-evidence": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for CIT lineage.",
+      "status": "planned"
+    },
+    "format-comparison": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for TAB lineage.",
+      "status": "planned"
+    },
+    "format-next": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for NXT lineage.",
+      "status": "planned"
+    },
+    "format-length": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for LEN lineage.",
+      "status": "planned"
+    },
+    "format-tiers": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for TIER lineage.",
+      "status": "planned"
+    },
+    "target-language": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for LVL lineage.",
+      "status": "planned"
+    },
+    "target-voice": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for VOC lineage.",
+      "status": "planned"
+    },
+    "target-examples": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for EX lineage.",
+      "status": "planned"
+    },
+    "target-decisions": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for DCN lineage.",
+      "status": "planned"
+    },
+    "target-stance": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for STN lineage.",
+      "status": "planned"
+    }
+  },
+  "archetypes": {
+    "executive-summary": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Executive summary.",
+      "status": "planned"
+    },
+    "creative-concept": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Creative concept.",
+      "status": "planned"
+    },
+    "note-taker": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Note taker.",
+      "status": "planned"
+    },
+    "message-email": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Message & email.",
+      "status": "planned"
+    },
+    "prompt-improver": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Prompt improver.",
+      "status": "planned"
+    },
+    "learning-guide": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Learning guide.",
+      "status": "planned"
+    },
+    "app-build-handoff": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for App build handoff.",
+      "status": "planned"
+    },
+    "agent-skill": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Agent skill.",
+      "status": "planned"
+    },
+    "agent-gate": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Agent gate.",
+      "status": "planned"
+    },
+    "social-post": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Social post.",
+      "status": "planned"
+    },
+    "quick-explanation": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Quick explanation.",
+      "status": "planned"
+    },
+    "research-brief": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Research brief.",
+      "status": "planned"
+    },
+    "decision-advisor": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Decision advisor.",
+      "status": "planned"
+    },
+    "data-analysis": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Data analysis.",
+      "status": "planned"
+    },
+    "risk-premortem": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Risk premortem.",
+      "status": "planned"
+    },
+    "writing-draft": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Writing draft.",
+      "status": "planned"
+    },
+    "rewrite-polish": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Rewrite & polish.",
+      "status": "planned"
+    },
+    "critique-review": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Critique & review.",
+      "status": "planned"
+    },
+    "presentation-outline": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Presentation outline.",
+      "status": "planned"
+    },
+    "build-plan": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Project plan.",
+      "status": "planned"
+    },
+    "spec-prd": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Spec / PRD.",
+      "status": "planned"
+    },
+    "coding": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Code implementation.",
+      "status": "planned"
+    },
+    "technical-troubleshoot": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Debug & fix.",
+      "status": "planned"
+    },
+    "explain-code": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Explain code.",
+      "status": "planned"
+    },
+    "extract-data": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Extract to data.",
+      "status": "planned"
+    }
+  },
+  "grades": {
+    "context-scope": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SCP 1. Situation Snapshot.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SCP 2. Working Brief.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SCP 3. Decision Context.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SCP 4. Complete Operating Picture.",
+        "status": "planned"
+      }
+    ],
+    "context-evidence": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SRC 1. Given As True.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SRC 2. Source Support.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SRC 3. Corroborated Sources.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SRC 4. Audit Trail.",
+        "status": "planned"
+      }
+    ],
+    "context-constraints": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LIM 1. Basic Limits.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LIM 2. Operating Limits.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LIM 3. Constraint Map.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LIM 4. Boundary Conditions.",
+        "status": "planned"
+      }
+    ],
+    "context-assumptions": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASM 1. Working Assumptions.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASM 2. Assumption Check.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASM 3. Assumption Register.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASM 4. Uncertainty Model.",
+        "status": "planned"
+      }
+    ],
+    "context-success": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for WIN 1. Done Means.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for WIN 2. Success Check.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for WIN 3. Success Criteria.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for WIN 4. Evaluation Framework.",
+        "status": "planned"
+      }
+    ],
+    "context-exclusions": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for OUT 1. No-Go List.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for OUT 2. Scope Fence.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for OUT 3. Anti-Goals.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for OUT 4. Drift Alarm.",
+        "status": "planned"
+      }
+    ],
+    "action-inspect": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INS 1. Guided Review.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INS 2. Checklist Inspection.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INS 3. Independent Inspection.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INS 4. Full Audit.",
+        "status": "planned"
+      }
+    ],
+    "action-analyze": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ANL 1. Pattern Read.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ANL 2. Rival Explanations.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ANL 3. Critical Analysis.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ANL 4. Adversarial Analysis.",
+        "status": "planned"
+      }
+    ],
+    "action-compare": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CMP 1. Options on the Table.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CMP 2. Framed Comparison.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CMP 3. Weighted Comparison.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CMP 4. Decision Matrix.",
+        "status": "planned"
+      }
+    ],
+    "action-create": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for BLD 1. Draft Together.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for BLD 2. Build to Plan.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for BLD 3. Independent Build.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for BLD 4. End-to-End Delivery.",
+        "status": "planned"
+      }
+    ],
+    "action-recommend": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for REC 1. Directions.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for REC 2. Practical Pick.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for REC 3. Backed Recommendation.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for REC 4. Full Conviction.",
+        "status": "planned"
+      }
+    ],
+    "action-verify": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TST 1. Sanity Pass.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TST 2. Criteria Check.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TST 3. Stress Test.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TST 4. Red Team.",
+        "status": "planned"
+      }
+    ],
+    "action-summarize": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SMR 1. Key Points Pull.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SMR 2. Faithful Summary.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SMR 3. Decision Summary.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SMR 4. Executive Distillation.",
+        "status": "planned"
+      }
+    ],
+    "action-research": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for RES 1. Supplied Sources.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for RES 2. Targeted Lookup.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for RES 3. Open Research.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for RES 4. Deep Investigation.",
+        "status": "planned"
+      }
+    ],
+    "action-plan": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for PLN 1. Rough Outline.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for PLN 2. Sequenced Plan.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for PLN 3. Delivery Plan.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for PLN 4. Executable Program.",
+        "status": "planned"
+      }
+    ],
+    "action-ideate": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for IDE 1. Quick Options.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for IDE 2. Divergent Set.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for IDE 3. Explore and Converge.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for IDE 4. Creative Sweep.",
+        "status": "planned"
+      }
+    ],
+    "action-explain": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EXP 1. Direct Answer.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EXP 2. Guided Walkthrough.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EXP 3. Deep Explanation.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EXP 4. Full Teaching Pass.",
+        "status": "planned"
+      }
+    ],
+    "action-clarify": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASK 1. Full Interview.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASK 2. 95% Confidence Check.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASK 3. Blocking Questions Only.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for ASK 4. Assume & Log.",
+        "status": "planned"
+      }
+    ],
+    "format-info-card": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INF 1. Plain Answer.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INF 2. Answer Card.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INF 3. Information Brief.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for INF 4. Reference Piece.",
+        "status": "planned"
+      }
+    ],
+    "format-key-points": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for KEY 1. Loose Bullets.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for KEY 2. Grouped Points.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for KEY 3. Sectioned Points.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for KEY 4. Checklist Discipline.",
+        "status": "planned"
+      }
+    ],
+    "format-summary": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SUM 1. One-Liner.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SUM 2. Quick Summary.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SUM 3. Executive Summary.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SUM 4. Standalone Abstract.",
+        "status": "planned"
+      }
+    ],
+    "format-sections": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SEC 1. Natural Flow.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SEC 2. Clear Sections.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SEC 3. Set Sequence.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for SEC 4. Locked Template.",
+        "status": "planned"
+      }
+    ],
+    "format-evidence": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CIT 1. Source Notes.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CIT 2. Linked Sources.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CIT 3. Evidence Notes.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for CIT 4. Citation Record.",
+        "status": "planned"
+      }
+    ],
+    "format-comparison": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TAB 1. Option Notes.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TAB 2. Comparison Table.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TAB 3. Decision Table.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TAB 4. Evaluation Matrix.",
+        "status": "planned"
+      }
+    ],
+    "format-next": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for NXT 1. Next Move.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for NXT 2. Next Steps.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for NXT 3. Prioritized Actions.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for NXT 4. Execution Handoff.",
+        "status": "planned"
+      }
+    ],
+    "format-length": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LEN 1. Tight Budget.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LEN 2. One Screen.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LEN 3. Room to Explain.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LEN 4. Complete Treatment.",
+        "status": "planned"
+      }
+    ],
+    "format-tiers": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TIER 1. Essentials First.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TIER 2. Three Tiers.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TIER 3. Tiered Sections.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for TIER 4. Locked Tier Hierarchy.",
+        "status": "planned"
+      }
+    ],
+    "target-language": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LVL 1. First Contact.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LVL 2. Plain Language.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LVL 3. Working Vocabulary.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for LVL 4. Expert Shorthand.",
+        "status": "planned"
+      }
+    ],
+    "target-voice": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for VOC 1. Straight Talk.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for VOC 2. Clear Neutral.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for VOC 3. Professional Voice.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for VOC 4. Formal Register.",
+        "status": "planned"
+      }
+    ],
+    "target-examples": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EX 1. Everyday Analogy.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EX 2. Worked Example.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EX 3. Domain Example.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for EX 4. Edge Case.",
+        "status": "planned"
+      }
+    ],
+    "target-decisions": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for DCN 1. Next Decision.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for DCN 2. Actionable Framing.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for DCN 3. Tradeoff Brief.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for DCN 4. Decision Record.",
+        "status": "planned"
+      }
+    ],
+    "target-stance": [
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for STN 1. Warm & Encouraging.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for STN 2. Even & Matter-of-Fact.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for STN 3. Candid & Direct.",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the Superhero brief for this card.",
+        "alt": "Illustration for STN 4. Authoritative & Decisive.",
+        "status": "planned"
+      }
+    ]
+  },
+  "shared": {
+    "custom-preset": {
+      "prompt": "TODO: write the Superhero brief for this card.",
+      "alt": "Illustration for Custom preset swatch.",
+      "status": "planned"
+    }
+  }
+}
