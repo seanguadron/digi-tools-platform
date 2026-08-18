@@ -5,6 +5,84 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-08-18: Fantasy and Superhero decks generated — 452 images live, plus the CRAFT world picker
+
+**Context.** Night session, following the same day's Nano Banana Pro sci-fi
+pass and Fantasy/Superhero authoring entries above (not restated). The
+owner's two-part request: (1) a world picker in the CRAFT deck's middle
+subbar slot to switch Sci-Fi/Fantasy/Superhero instantly, and (2) generate
+one Nano Banana Pro 2K (2048×2048) image for every Fantasy and Superhero
+card and set each as that card's live image. Both shipped — one commit
+generating and applying 452 images (`feat(art)`, both packs 226/226) and
+one shipping the picker (`feat(deck)`) — gates run and findings filed.
+
+**Decisions.**
+- Generated and applied all 452 images (226 Fantasy + 226 Superhero) at
+  Nano Banana Pro 2K 2048×2048, bringing every world to the same
+  fully-generated state sci-fi reached this morning — three packs, 678
+  cards, zero still `planned`.
+- The world picker sits in the CRAFT deck's middle subbar slot, the
+  owner's explicit placement, for an instant Sci-Fi/Fantasy/Superhero
+  switch rather than a settings-panel toggle.
+- Accepted non-blocking rather than fixed tonight: a first-paint flash for
+  returning non-default-pack users (the saved pack applies post-mount,
+  mirroring the saved-prompts deferred-restore pattern), and the
+  module-level active-pack singleton (revisit with `useSyncExternalStore`
+  only if Suspense ever wraps the deck).
+
+**Learnings.**
+- The comic-book idiom fights the card format three ways at once.
+  Superhero needed 31 re-rolls against fantasy's 7, in three distinct
+  failure families the sci-fi and fantasy runs never showed together:
+  cream printed-page borders, readable text baked into the scene itself
+  (gauges spelling PASS, a STORY SLAB caption, CHIRP/BUZZ sound effects),
+  and literal trademarked characters (a bat-signal, Batman ×2, Superman
+  ×3, The Flash, an Iron Man pastiche). An idiom primes its furniture —
+  the more culturally loaded the style, the more the prompt must displace
+  defaults with concrete positive description.
+- Displacement beats prohibition, confirmed again and generalized. The
+  re-roll recipe that cured all three families: describe what surfaces
+  ARE (blank faces, tick-marks only), what heroes ARE (original
+  inventions, plain geometric emblems), or remove figures entirely ("no
+  people, machinery only"). All 31 re-rolls came back clean on the first
+  try — extends the morning's sci-fi lesson ("telling the model what the
+  frame IS beats telling it what to avoid") from composition to content.
+- "Photographic" backfired once, in fantasy: the hard clause "a
+  photographic crop of a larger scene" made one card render as a
+  photograph OF a painting hanging on a wall. Fixed to "the image IS the
+  painted scene itself, seen from inside it" — the framing metaphor has
+  to name the medium, not borrow another one.
+- QA thresholds don't transfer across worlds. The bright-ring frame scan
+  (min-side mean luma > 110 at 256px) that worked on fantasy's dark edges
+  false-positived on ~19 of 25 hits against superhero's neon palette. The
+  magenta contact sheet plus eyeballing stays the definitive check; if
+  `art-qa.mjs` gets promoted out of the scratchpad (queued since the
+  morning entry), its thresholds must be set per-world, not shared.
+- The design gate caught an invented segmented-control idiom for a
+  second time. The picker's first draft was a 999px pill at 24px height;
+  the app's one segmented-button idiom is `.editor-dialog-seg` (8px
+  radius, 28px, pressed transform, 150ms transition). Fixed same
+  session, browser-verified at 900px/768px/phone widths.
+- Turbopack staleness has a new wrinkle worth keeping: an
+  identical-content rewrite does NOT jolt a stale stylesheet
+  (content-hash dedupe) — appending a real comment, letting it
+  recompile, removing the comment, then hard-reloading does, without
+  restarting the owner's dev server.
+- Random NSFW false positives from the generation endpoint, roughly 1
+  per 2 batches, on entirely innocuous briefs (e.g. "translucent
+  holographic girders"); a light reword always passed on resubmission —
+  not worth engineering around beyond that.
+
+**Preferences / proposed amendments (need owner consent).**
+- Segmented single-select controls follow the `.editor-dialog-seg`
+  shape — the design gate has now caught an invented variant twice, so
+  this should become a rule rather than a per-review catch. (proposed
+  amendment, needs the owner's consent)
+- `docs/DESIGN_DIRECTION.md` should document the world-switch control in
+  its CRAFT Deck section — the design gate had no concrete line to check
+  the picker against and said so directly. (proposed amendment, needs
+  the owner's consent)
+
 ## 2026-08-18: Nano Banana Pro pass over the sci-fi deck — 226 cards regenerated and applied live
 
 **Context.** The 226 sci-fi cards carried Seedream candidates from

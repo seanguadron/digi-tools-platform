@@ -41,3 +41,7 @@ Per-rule verdicts, all PASS or N/A:
    remains the single source of the default inside the module).
 4. **§2.2 rule under-names the CRAFT_ART_* doc family** — pre-existing
    pending amendment, already in the consent queue.
+
+Covers commits `8c39625` (the art pass — pack JSONs, generated docs, public
+art all audited per the "diff is larger than the four files" note above) and
+`d0fd854` (the picker), which landed after this report was first saved.

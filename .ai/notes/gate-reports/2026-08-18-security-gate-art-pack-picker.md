@@ -44,3 +44,7 @@ pack strings (names, bios) in the deck UI.
 
 Battery at audit time: `check:security` · `check:standards` · `data:validate`
 all green.
+
+Covers commits `8c39625` (the art pass — the pack JSONs whose content flows
+to the DOM were in scope, per "pack content reaching the DOM" above) and
+`d0fd854` (the picker), which landed after this report was first saved.
