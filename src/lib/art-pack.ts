@@ -1,13 +1,18 @@
-import packData from "@/data/prompt-builder/art-themes/sci-fi.json";
+import sciFiData from "@/data/prompt-builder/art-themes/sci-fi.json";
+import fantasyData from "@/data/prompt-builder/art-themes/fantasy.json";
+import superheroData from "@/data/prompt-builder/art-themes/superhero.json";
 import { artPackEntry } from "../../scripts/art-pack.mjs";
 import type { ArtPackFile, ResolvedArt } from "../../scripts/art-pack.mjs";
 
 // The app's door onto the active art pack.
 //
 // A card's mechanics live in the catalog and are the same in every world; its
-// picture and its character bio live in a pack and change with the world. This
-// module is the only place the app decides WHICH pack is showing, so adding a
-// picker later means changing one constant rather than hunting imports.
+// picture and its character bio live in a pack and change with the world.
+// This module is still the only place the app decides WHICH pack is showing —
+// it just holds all three worlds now and lets the deck's picker flip between
+// them. Every resolver reads the active pack at CALL time, and art/bio flow
+// through render-time callbacks everywhere, so a switch needs nothing but a
+// re-render: no reload, no refetch, no per-component wiring.
 //
 // Path derivation and the entry shape live in scripts/art-pack.mjs so plain
 // `node` (the data scripts) and the browser share one implementation.
@@ -24,15 +29,49 @@ export type CardArtRef = {
   status: "planned" | "generated";
 };
 
-const pack = packData as ArtPackFile;
+const PACKS = [
+  sciFiData as ArtPackFile,
+  fantasyData as ArtPackFile,
+  superheroData as ArtPackFile,
+];
 
-export const ACTIVE_ART_PACK = {
-  id: pack.theme.id,
-  name: pack.theme.name,
-} as const;
+/** The worlds the picker offers, in display order. */
+export const ART_PACK_OPTIONS = PACKS.map((candidate) => ({
+  id: candidate.theme.id,
+  name: candidate.theme.name,
+}));
+
+let activePack = PACKS[0];
+
+/** True only for the id of a pack this build actually ships. localStorage is
+ *  user-editable, so a restored value must pass this before it is trusted. */
+export function isArtPackId(value: unknown): value is string {
+  return (
+    typeof value === "string" &&
+    PACKS.some((candidate) => candidate.theme.id === value)
+  );
+}
+
+export function getActiveArtPackId() {
+  return activePack.theme.id;
+}
+
+/**
+ * Point every resolver at another world. Returns whether anything changed;
+ * the caller owns triggering the re-render (the deck keeps the active id in
+ * state for exactly that reason).
+ */
+export function setActiveArtPack(id: string): boolean {
+  const next = PACKS.find((candidate) => candidate.theme.id === id);
+  if (!next || next === activePack) {
+    return false;
+  }
+  activePack = next;
+  return true;
+}
 
 export function artFor(key: string): ResolvedArt | undefined {
-  return artPackEntry(pack, key);
+  return artPackEntry(activePack, key);
 }
 
 export function roleArt(roleId: string) {

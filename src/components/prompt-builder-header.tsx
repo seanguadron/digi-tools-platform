@@ -8,6 +8,7 @@ import {
   ToolSubbarActions,
   ToolSubbarTitle,
 } from "@/components/tool-subbar";
+import { ART_PACK_OPTIONS } from "@/lib/art-pack";
 import type { SaveStatus } from "@/lib/save-status";
 
 export function PromptBuilderHeader({
@@ -18,6 +19,8 @@ export function PromptBuilderHeader({
   completedStepCount,
   continueLabel,
   proofLabOpen,
+  artPackId,
+  onSwitchArtPack,
   onUndo,
   onRedo,
   onContinue,
@@ -36,6 +39,8 @@ export function PromptBuilderHeader({
   completedStepCount: number;
   continueLabel: string;
   proofLabOpen: boolean;
+  artPackId: string;
+  onSwitchArtPack: (id: string) => void;
   onUndo: () => void;
   onRedo: () => void;
   onContinue: () => void;
@@ -62,6 +67,26 @@ export function PromptBuilderHeader({
       <ToolSubbarTitle kicker="C.R.A.F.T. Prompt Deck" heading="Build a prompt.">
         <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
       </ToolSubbarTitle>
+      {/* The world switch. Same cards, same prompt - only the art and the
+          bios change, so it lives with the other whole-deck controls rather
+          than inside any one C.R.A.F.T. section. */}
+      <div className="art-pack-switch" role="group" aria-label="Card art world">
+        {ART_PACK_OPTIONS.map((option) => (
+          <button
+            key={option.id}
+            type="button"
+            className={
+              option.id === artPackId
+                ? "art-pack-switch-option is-active"
+                : "art-pack-switch-option"
+            }
+            aria-pressed={option.id === artPackId}
+            onClick={() => onSwitchArtPack(option.id)}
+          >
+            {option.name}
+          </button>
+        ))}
+      </div>
       <ToolSubbarActions>
         <div className="history-actions" aria-label="Edit history">
           <button

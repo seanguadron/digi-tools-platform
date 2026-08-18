@@ -19,6 +19,12 @@ import { usePromptDictation } from "@/hooks/use-prompt-dictation";
 import { useCraftFlowNavigation } from "@/hooks/use-craft-flow-navigation";
 import { usePromptBuilderHistory } from "@/hooks/use-prompt-builder-history";
 import { usePromptBuilderPersistence } from "@/hooks/use-prompt-builder-persistence";
+import {
+  getActiveArtPackId,
+  isArtPackId,
+  setActiveArtPack,
+} from "@/lib/art-pack";
+import { readStored, writeStored } from "@/lib/prompt-storage";
 import { downloadTextFile, slugifyFilename } from "@/lib/browser-download";
 import {
   PROMPT_ARCHETYPES,
@@ -91,6 +97,8 @@ import { insertIntoSlots } from "@/lib/slot-order";
 import type { PromptRole } from "@/lib/prompt-types";
 import { PHONE_MEDIA_QUERY } from "@/lib/tool-registry";
 
+const ART_PACK_STORAGE_KEY = "digitools.prompt-builder.art-pack-v1";
+
 export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [draft, setDraft] = useState<PromptDraft>(EMPTY_DRAFT);
   const [cardSystem, setCardSystem] =
@@ -122,6 +130,10 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [proofLabOpen, setProofLabOpen] = useState(false);
   const [activeProofId, setActiveProofId] = useState<string | null>(null);
   const [libraryOpen, setLibraryOpen] = useState(false);
+  // Which world dresses the cards. The pack module owns the actual switch;
+  // this state exists to re-render the deck (every face and bio resolves at
+  // render time) and to remember the choice across visits.
+  const [artPackId, setArtPackId] = useState(getActiveArtPackId());
   const [savedPrompts, setSavedPrompts] = useState<SavedPrompt[]>([]);
   const [customArchetypes, setCustomArchetypes] = useState<PromptArchetype[]>(
     [],
@@ -285,9 +297,22 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     const timer = window.setTimeout(() => {
       setSavedPrompts(listSavedPrompts());
       setCustomArchetypes(listCustomArchetypes());
+      // Restore the chosen world. localStorage is user-editable, so the value
+      // only counts if it names a pack this build actually ships.
+      const storedPack = readStored<unknown>(ART_PACK_STORAGE_KEY, null);
+      if (isArtPackId(storedPack) && setActiveArtPack(storedPack)) {
+        setArtPackId(storedPack);
+      }
     }, 0);
     return () => window.clearTimeout(timer);
   }, []);
+
+  function switchArtPack(id: string) {
+    if (setActiveArtPack(id)) {
+      setArtPackId(id);
+      writeStored(ART_PACK_STORAGE_KEY, id);
+    }
+  }
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -855,6 +880,8 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
             : "Review output"
         }
         proofLabOpen={proofLabOpen}
+        artPackId={artPackId}
+        onSwitchArtPack={switchArtPack}
         onUndo={undoLastChange}
         onRedo={redoLastChange}
         onContinue={continueBuilding}

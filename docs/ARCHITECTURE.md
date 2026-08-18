@@ -101,6 +101,14 @@ app's typed door onto the active pack; the deck engine takes optional
 `cardArt`/`cardBio` callbacks so the CRAFT deck resolves through its pack
 while the PICTURE deck keeps its inline illustrations.
 
+All three packs (sci-fi, fantasy, superhero) ship in the bundle, and the
+CRAFT deck's subbar carries the **world picker**: `setActiveArtPack(id)`
+points every resolver at another pack, the deck re-renders, and because art
+and bios resolve at render time nothing else needs wiring. The choice
+persists in localStorage (`digitools.prompt-builder.art-pack-v1`), restored
+through the `isArtPackId` guard — an unknown or tampered value degrades to
+the default pack (`PACKS[0]`, sci-fi) rather than throwing.
+
 A pack whose `theme.draft` is true is skipped by the generator and the
 coverage check, so scaffolding a world cannot fail the build. Clearing that
 flag is the moment it has to be complete.

@@ -2572,6 +2572,49 @@ button.role-loadout-slot {
   min-width: 0;
 }
 
+/* The deck's world switch: one segmented control, three packs. The active
+   option is carried by aria-pressed plus a full-strength cyan border and a
+   weight step - never colour alone - and the labels are the pack names, so
+   the control reads without decoding. */
+/* Same segmented-button idiom as .editor-dialog-seg: bare group, shared
+   8px/28px button shape, cyan marker on the active choice. */
+.art-pack-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.art-pack-switch-option {
+  min-height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    color 150ms ease-out,
+    background-color 150ms ease-out,
+    border-color 150ms ease-out;
+}
+
+.art-pack-switch-option:hover {
+  color: var(--foreground);
+}
+
+.art-pack-switch-option:active:not(.is-active) {
+  transform: scale(0.97);
+}
+
+.art-pack-switch-option.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  color: var(--brand-cyan-text);
+}
+
 .history-actions {
   display: flex;
   gap: 4px;
