@@ -6,6 +6,7 @@ import { CardArtCropper } from "@/components/card-art-cropper";
 import { EditorTabs, tabPanelProps } from "@/components/editor-tabs";
 import { usePortalTarget } from "@/hooks/use-portal-target";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
+import { revealElement } from "@/lib/reveal-element";
 import { MAX_BIO_LENGTH } from "../../scripts/art-pack.mjs";
 
 const LIVE_SIZE = 1024;
@@ -125,7 +126,8 @@ function isManifest(value: unknown): value is Manifest {
     typeof candidate.style === "string" &&
     Array.isArray(candidate.entries) &&
     candidate.entries.every(isEntry) &&
-    typeof candidate.progress?.total === "number"
+    typeof candidate.progress?.total === "number" &&
+    typeof candidate.progress?.generated === "number"
   );
 }
 
@@ -151,9 +153,17 @@ function isCardRecord(value: unknown): value is CardRecord {
     typeof candidate.key === "string" &&
     typeof candidate.kind === "string" &&
     typeof candidate.note === "string" &&
+    typeof candidate.hasRecord === "boolean" &&
     Array.isArray(candidate.fields) &&
     candidate.fields.every(isCardField) &&
-    Array.isArray(candidate.structural)
+    Array.isArray(candidate.structural) &&
+    candidate.structural.every(
+      (item) =>
+        typeof item === "object" &&
+        item !== null &&
+        typeof (item as { label?: unknown }).label === "string" &&
+        typeof (item as { value?: unknown }).value === "string",
+    )
   );
 }
 
@@ -167,10 +177,22 @@ function isPackSummaryList(value: unknown): value is PackSummary[] {
         candidate !== null &&
         typeof candidate.id === "string" &&
         typeof candidate.name === "string" &&
-        typeof candidate.installed === "boolean"
+        typeof candidate.installed === "boolean" &&
+        typeof candidate.draft === "boolean" &&
+        typeof candidate.generated === "number" &&
+        typeof candidate.total === "number"
       );
     })
   );
+}
+
+// A relations group is a labelled set of chips ("Morphs into", "Equips"). The
+// label is only next to the chips visually; role="group" + aria-labelledby is
+// what carries that grouping to someone browsing by control, who would
+// otherwise hear a bare list of card names with no idea what relates them.
+function relationsLabelId(entryKey: string, label: string) {
+  const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return `rel-${entryKey.replace(/[^a-zA-Z0-9]+/g, "-")}-${slug}`;
 }
 
 function variantUrl(theme: string, key: string, variantId: string) {
@@ -538,10 +560,14 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
       setSearch("");
       setOnlyMissing(false);
       setActiveKey(key);
+      // Opening the destination row unmounts the chip that was just clicked,
+      // which drops focus to <body>. Move focus to the row we arrived at, or a
+      // keyboard user loses their place and tabs from the top of the page.
       window.setTimeout(() => {
-        document
-          .getElementById(`card-row-${key}`)
-          ?.scrollIntoView({ block: "center", behavior: "smooth" });
+        const row = document.getElementById(`card-row-${key}`);
+        revealElement(
+          row?.querySelector<HTMLButtonElement>(".card-art-row-main") ?? row,
+        );
       }, 60);
     },
     [entryByKey],
@@ -695,8 +721,18 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                   {entry.related.length > 0 ? (
                     <div className="card-relations">
                       {entry.related.map((relGroup) => (
-                        <div className="card-relations-group" key={relGroup.label}>
-                          <span className="card-relations-label">{relGroup.label}</span>
+                        <div
+                          className="card-relations-group"
+                          key={relGroup.label}
+                          role="group"
+                          aria-labelledby={relationsLabelId(entry.key, relGroup.label)}
+                        >
+                          <span
+                            className="card-relations-label"
+                            id={relationsLabelId(entry.key, relGroup.label)}
+                          >
+                            {relGroup.label}
+                          </span>
                           <span className="card-relations-chips">
                             {relGroup.items.map((link, linkIndex) => {
                               const relEntry = link.key ? entryByKey.get(link.key) : null;
@@ -711,7 +747,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                                   ) : null}
                                   <span>{link.label}</span>
                                   {relEntry?.status === "generated" ? (
-                                    <span className="card-relations-live" aria-label="live on the card" />
+                                    <small className="card-relations-live">live</small>
                                   ) : null}
                                 </>
                               );

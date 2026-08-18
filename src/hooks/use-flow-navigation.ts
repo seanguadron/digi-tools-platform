@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { revealElement } from "@/lib/reveal-element";
+
 /**
  * Owns a horizontal panel slider: which panel is active, the refs used to
  * focus a panel heading or a specific control after navigation, and the
@@ -44,14 +46,7 @@ export function useFlowNavigation({ panelCount }: { panelCount: number }) {
 
   function focusControl(controlId: string) {
     window.setTimeout(() => {
-      const target = document.getElementById(controlId);
-
-      target?.scrollIntoView({
-        block: "center",
-        inline: "nearest",
-        behavior: "smooth",
-      });
-      target?.focus({ preventScroll: true });
+      revealElement(document.getElementById(controlId));
       setAttentionTargetId(controlId);
       window.setTimeout(() => {
         setAttentionTargetId((current) =>

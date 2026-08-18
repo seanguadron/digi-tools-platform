@@ -5,6 +5,128 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-08-18: Nano Banana Pro pass over the sci-fi deck — 226 cards regenerated and applied live
+
+**Context.** The 226 sci-fi cards carried Seedream candidates from
+2026-08-17 with only 6 actually applied; the rest sat awaiting curation.
+This session ran a second, whole-deck pass through Nano Banana Pro and
+applied it live across all 226 cards, converting PNG → WebP locally on the
+owner's machine. Commit `62f2e52`.
+
+**Decisions.**
+- Frames get fixed, not accepted. The model kept drawing card-strip/panel
+  borders despite the brief forbidding them; the owner offered to accept
+  the defect ("I think you should ignore it... let's see if you have a
+  better suggestion") — an invitation to counter-propose, not an
+  instruction to comply — and there was a better fix (see Learnings).
+- `card-art-source/` was again deliberately left OUT of this commit. It is
+  now 2.2GB (488 PNGs, up from 771MB last session). The commit-vs-gitignore
+  call remains the owner's, open two sessions running.
+- The art commit itself owed no judgment gate — nothing changed but a pack
+  field (`status`, 223 entries `planned` → `generated`), no code, component,
+  page, or catalog mechanics. But `gate:sweep` then surfaced a real debt
+  carried over from 2026-08-17: those gate reports were saved at 01:44, and
+  both `b5318c5` (the Card Studio) and `9a63b31` (the relations strip)
+  landed after them, so the relations strip had never been gated at all. All
+  three gates were run against that surface and every finding applied — see
+  the 2026-08-18 ledger entries. The lesson is about the ledger, not the
+  code: a gate report written from a working tree goes stale the moment the
+  next commit lands, so "gates ran this session" is not the same claim as
+  "the shipped surface is gated."
+
+**Learnings.**
+- A gate report is only as current as the commit it was written against.
+  The 2026-08-17 reports were saved two minutes before the commit they
+  describe, which is fine, but two later commits then shipped un-audited
+  and nothing noticed until `gate:sweep` compared report mtimes against the
+  git log. Trust the sweep over the recollection that the gates were run.
+- Type guards drifting narrower than the type they name has now been caught
+  twice in `card-studio.tsx`. Three `is*` functions checked a subset of
+  their declared fields, including one (`progress.generated`) that renders
+  directly, so a short payload would have printed a broken counter instead
+  of failing loudly.
+- When a gate finding contradicts an existing test, widen the test rather
+  than relax it. Making `setBio` cross-reference the catalog broke an
+  assertion pinned to one path's exact wording; the fix was to assert both
+  refusal modes plus the malformed-key case, which covers more than before.
+- Headless focus gotcha, new: `.focus()` on a `tabindex="-1"` element does
+  not move `document.activeElement` while the browser window itself is
+  unfocused, so a body-focus reading on a non-native focusable proves
+  nothing. Native `<button>` targets still focus correctly and can be
+  trusted -- which is why the relations-strip fix verified and the panel
+  headings could not.
+- THE BIG ONE, directly applicable to the Fantasy and Superhero briefs
+  still to be written: telling an image model what the frame IS beats
+  telling it what to avoid. A prohibition list ("no border, no margin, no
+  frame, no matting, not a sticker, no rounded corners") kept producing
+  borders; describing the shot instead — a tight close crop of a much
+  larger scene, the subject cut off by the picture edge, the background
+  running off all four edges, "nothing in this image is a card, a panel, a
+  poster, or a screen" — fixed 11 of 12 cards on the first retry and the
+  last one on the next. (The owner's own hypothesis for the original
+  trigger: a "comic book strip" phrase in the brief.)
+- Frame-detector gate on the MINIMUM across the four edges, never the
+  maximum — learned the expensive way. The first detector flagged any
+  single flat edge as a frame, but this art direction ASKS for flat dark
+  edges ("deep blue-black background", "generous breathing room"), so open
+  sky above a subject read as a border; four good cards were cropped and
+  applied before the mistake was caught, then repaired from the source
+  PNGs at zero credit cost. The same min-not-max error would have recurred
+  in the brightness detector had it not been caught here first.
+  Generalization: when a heuristic fires on "any side," check whether the
+  thing being detected is symmetric by definition.
+- Four increasingly careful automated frame detectors — flat run at any
+  edge; flat run on all four sides (a bevelled white border isn't flat);
+  bright ring on all four sides (a thin cyan keyline vanishes in the mean);
+  luminance ridge on all four sides (closest, still missed two) — all
+  missed real cases. What worked: composite all 226 cards onto a magenta
+  ground and look; a drawn edge reads instantly against a colour the art
+  direction never uses. A contact sheet beat four rounds of detector
+  engineering, and cost less time.
+- Headless verification gotchas, new this session: card images are
+  `loading="lazy"`, so a viewport-height DOM check reports every
+  below-fold image as never-loaded until scrolled or forced `eager` —
+  indistinguishable from genuinely broken images without that context.
+  `computer {action:"screenshot"}` fails outright unless the Browser pane
+  is displayed; proof has to come from DOM evals plus composited sheets
+  instead.
+- A dev server started outside the preview tooling makes `preview_start
+  {name}` refuse the port; open a tab with `preview_start {url}` instead
+  of starting a second server.
+- Higgsfield MCP mechanics, for the next large batch: `generate_image_batch`
+  caps at 12 requests, `jobs_wait` caps at 12 jobs and 15 seconds, so the
+  loop is submit 12 → poll → land the finished ones → submit the next 12.
+  Result URLs are `hf_<YYYYMMDD>_<HHMMSS>_<job_id>.png` with the timestamp
+  shared across a batch, so a whole batch's URLs reconstruct from one
+  prefix. Jobs report model `"nano_banana_2"` while billing shows Nano
+  Banana Pro at 2 credits — verified against the transaction ledger, it's
+  an internal label, not a discrepancy.
+
+**Disclosure.** Duplicate spend carried in from a previous turn: index 47
+(`lineages.action-inspect`) was submitted twice (jobs `a41aa68f` and
+`e3204fdb`) because the first never completed within polling — 2 extra
+credits.
+
+**Preferences / proposed amendments (need owner consent).**
+- This owner asks costing questions BEFORE authorizing spend and expects a
+  quoted number, not an estimate hedge. Two explicit refusals this session
+  — "Do not run the batch. I just wanna understand if I paid for all those
+  image generations." and "Just asking, do not run." — were honored in
+  full; a later, separate message ("do it for all and apply the Nano
+  Banana Pro one to the card.") explicitly superseded them once the
+  226 × 2 = 452-credit cost had been quoted. The later instruction
+  governs, not the earlier ones.
+- The owner chose the conversion locus explicitly ("I would like you to
+  grab the PNG and do the conversion on my computer"), ruling out browser
+  round-trips. The local pipeline mirrors the studio's client-side
+  `toLiveWebp` exactly — 1024px centred cover, quality 92 — using `sharp`
+  (present transitively via Next.js, not in `package.json`).
+- The frame-detector and contact-sheet builders from this session live
+  only in the session scratchpad, but will be needed identically for the
+  Fantasy and Superhero packs. Promote them to `scripts/art-qa.mjs` with a
+  `--sheets` flag, so "did this pack come out clean?" is a command instead
+  of a rebuild from memory. (proposed amendment, needs the owner's consent)
+
 ## 2026-08-17: Art packs and the Card Studio — per-pack art/bio, universal mechanics
 
 **Context.** Three commits took the CRAFT/PICTURE card system a step toward

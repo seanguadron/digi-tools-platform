@@ -8672,11 +8672,19 @@ body:has(.page-stage.is-fluid) {
   object-fit: cover;
 }
 
+/* "live" reads as a word, not just a coloured dot: colour reinforces the
+   status, it never carries it alone. Same idiom as .card-art-status on the
+   row above, one tier smaller because it sits inside a chip. */
 .card-relations-live {
-  width: 6px;
-  height: 6px;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--brand-cyan-text);
+  border: 1px solid color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
   border-radius: 999px;
-  background: var(--brand-cyan);
+  padding: 0 0.32rem;
+  line-height: 1.5;
 }
 
 /* One tab per facet of a card: what it IS, then one world per art pack.

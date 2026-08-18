@@ -1,12 +1,24 @@
 {
-  "lastSweep": "2026-08-17",
+  "lastSweep": "2026-08-18",
   "standards": "pass",
   "security": "pass",
   "stateFresh": true,
   "owed": [
     {
+      "gate": "integration",
+      "reason": "9 file(s) committed since its last report (2026-08-17)"
+    },
+    {
+      "gate": "design",
+      "reason": "2 file(s) committed since its last report (2026-08-17)"
+    },
+    {
+      "gate": "security",
+      "reason": "3 file(s) committed since its last report (2026-08-17)"
+    },
+    {
       "gate": "sessions",
-      "reason": "7 commit(s) since the last entry (2026-08-02)"
+      "reason": "3 commit(s) since the last entry (2026-08-17)"
     }
   ],
   "notes": "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector."

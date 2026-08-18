@@ -83,8 +83,18 @@
       "additionalProperties": false,
       "required": ["prompt", "alt", "status"],
       "properties": {
-        "prompt": { "$ref": "#/$defs/nonEmptyString" },
-        "alt": { "$ref": "#/$defs/nonEmptyString" },
+        "prompt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The image brief for this card in this world. Capped for the same reason every other free-text field is: a ceiling declared once here beats discovering one later, when something finally edits this field through the studio.",
+          "maxLength": 2000
+        },
+        "alt": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Alt text for the card image.",
+          "maxLength": 300
+        },
         "bio": {
           "type": "string",
           "minLength": 1,

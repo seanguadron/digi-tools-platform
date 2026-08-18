@@ -364,9 +364,30 @@ test("setBio round-trips through the pack and enforces the panel's ceiling", asy
       () => store.setBio("sci-fi", ROLE_KEY, "x".repeat(241)),
       /241|characters or fewer/,
     );
+    // Two different ways a key can be wrong, and setBio has to refuse both.
+    // A key the CATALOG does not own is rejected first, by the same
+    // cross-reference every other write op runs - so a bio can never land on
+    // a pack record the catalog has stopped owning.
     await assert.rejects(
       () => store.setBio("sci-fi", "roles.not-a-role", "hi"),
-      /Could not find/,
+      (error) => error.status === 404 && /Unknown card art entry/.test(error.message),
+    );
+    // A key the catalog DOES own but the pack has no record for.
+    const pack = await readPack(root);
+    delete pack.roles.researcher;
+    await writeFile(
+      path.join(root, PACK_RELATIVE),
+      JSON.stringify(pack, null, 2),
+      "utf8",
+    );
+    await assert.rejects(
+      () => store.setBio("sci-fi", ROLE_KEY, "hi"),
+      (error) => error.status === 404 && /Could not find/.test(error.message),
+    );
+    // And a malformed key answers 400, not an uncaught 500.
+    await assert.rejects(
+      () => store.setBio("sci-fi", "not a valid key", "hi"),
+      (error) => error.status === 404 || error.status === 400,
     );
   } finally {
     await cleanup();

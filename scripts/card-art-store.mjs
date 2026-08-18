@@ -561,7 +561,15 @@ export function createCardArtStore({
   // weaker copy of those rules.
   function saveCard(key, edits) {
     return serialize(async () => {
-      const catalogKey = catalogKeyForEntry(key);
+      let catalogKey;
+      try {
+        catalogKey = catalogKeyForEntry(key);
+      } catch (error) {
+        // A malformed key throws ArtPackKeyError, which the route would
+        // otherwise surface as a generic 500. Every other bad input here
+        // answers 400; this one should too.
+        throw new CardArtError(error.message, 400);
+      }
       if (!catalogKey) {
         throw new CardArtError(`${key} has no catalog record to edit`, 400);
       }
@@ -605,8 +613,22 @@ export function createCardArtStore({
 
   function setBio(themeId, key, bio) {
     return serialize(async () => {
+      // Cross-reference the catalog before touching the pack, exactly as
+      // addVariant/selectVariant/deleteVariant do. Without it a bio could
+      // land on a pack record the catalog no longer owns - an orphaned
+      // grade slot left behind by a lineage that shrank - which every other
+      // write op would correctly refuse.
+      const { entries } = await loadContext(themeId);
+      findEntry(entries, key);
+
       const pack = await loadPack(themeId);
-      const { group, id, index } = parseArtKey(key);
+      let parsed;
+      try {
+        parsed = parseArtKey(key);
+      } catch (error) {
+        throw new CardArtError(error.message, 400);
+      }
+      const { group, id, index } = parsed;
       const record =
         group === "grades" ? pack.grades?.[id]?.[index] : pack[group]?.[id];
       if (!record) {
