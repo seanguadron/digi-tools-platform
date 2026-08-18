@@ -7,99 +7,84 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-08-18, early (the "Nano Banana Pro pass" continuation).
+Last rewritten: 2026-08-18, late (the "three worlds" session).
 
 ## Now
 
-Branch **`main`**, one commit ahead of the last session, working tree clean
-except for `card-art-source/` (see Owed). This session did one thing: **the
-CRAFT deck stopped looking like placeholders.**
+Branch **`main`**, working tree clean except for `card-art-source/` (see
+Owed). Two things happened today, in order: **the sci-fi deck got its real
+face**, and then **the other two worlds got their words.**
 
-`62f2e52` **226 Nano Banana Pro images, applied live.** The previous session
-generated 226 Seedream candidates and left them all awaiting curation. This
-one replaced every card with a Nano Banana Pro 2K render and *selected* it,
-so 226/226 entries are now `generated` and the deck ships with a face. 223
-pack entries flipped `planned` → `generated`; **no prompt, alt, bio, or
-mechanic changed** — the only field touched was `status`.
+`62f2e52` **226 Nano Banana Pro images, applied live.** Every sci-fi card
+was regenerated at 2K and *selected*, so 226/226 entries are `generated` and
+the deck ships with a face. The pipeline ran entirely on this machine
+(download PNG → the store's own `addVariant` → local `sharp` webp at 1024px
+centred cover q92 → `selectVariant`); the full-resolution originals stay on
+disk as variants, so every card can still be re-cropped in the studio. The
+borders were the real work: four automated frame detectors each missed real
+cases, and what settled it was compositing all 226 onto a magenta ground and
+looking. Five framed cards came back clean once the brief described a
+*photographic crop with the subject cut off by the picture edge* —
+**telling the model what the frame IS beats telling it what to avoid.**
 
-The pipeline ran entirely on this machine, which is how the owner asked for
-it: download the PNG → register it through the store's own `addVariant` →
-convert with `sharp` locally (1024px centred cover, q92 — the same transform
-the studio's client-side `toLiveWebp` performs) → `selectVariant`. No browser
-round-trips; the full-resolution original stays on disk as the variant, so
-every card can still be re-cropped in the studio.
+`94ac22a` discharged a gate debt `gate:sweep` surfaced: the relations strip
+(`9a63b31`, previous session) had shipped after the 2026-08-17 gate reports
+and was never audited. All three gates ran; every finding applied (High:
+morph-chain jumps threw keyboard focus to `<body>` — both jump sites now
+share `src/lib/reveal-element.ts`, which scrolls, focuses, and honours
+reduced motion).
 
-**The borders were the real work, and the lesson generalizes.** The art
-direction forbids a card frame, but "comic-book" primes panels and panels
-have edges, so the model kept drawing mattes. Four automated detectors were
-built and each failed for a reason worth remembering:
+`a9fe6f3` **Fantasy and Superhero became authored worlds** (the owner's
+direction: Fantasy = Warcraft-card style, Superhero = comic book). All 226
+briefs per pack, bios on the 98 non-grade cards, draft flags OFF, so both
+packs sit under the full coverage check and generate their own docs
+(`docs/CRAFT_ART_FANTASY.md`, `docs/CRAFT_ART_SUPERHERO.md`). No images were
+generated — every entry is `planned` — per the owner's instruction. The
+craft that matters:
 
-1. *flat run at any edge* — the direction **asks** for flat dark edges
-   ("deep blue-black background", "generous breathing room"), so open sky
-   above a subject tripped it and four good cards were cropped. Repaired
-   from the PNGs already on disk, at no credit cost.
-2. *flat run on all four sides* — a white border with a bevel is not flat.
-3. *bright ring on all four sides* — a thin cyan keyline vanishes in the mean.
-4. *luminance ridge on all four sides* — closest, still missed two.
+- **Fantasy** is fully hand-painted Warcraft-TCG style: amber-gold lantern
+  light, forest-green/umber darkness, chunky heroic proportions. Roles are
+  fantasy specialists (Researcher = loremaster; QA = siege proof-master).
+- **Superhero** is bold inked comic: halftone over four-color flats,
+  crimson/electric-yellow on indigo night city, framed as a full-bleed
+  splash page, with comic-specific exclusions appended after the validator's
+  no-text rule (no speech bubbles, caption boxes, sound-effect lettering,
+  panel gutters) because the idiom primes exactly that furniture.
+- **One object per lineage per world across its whole morph chain** (sci-fi
+  survey drone → fantasy scrying orb → superhero searchlight), so morphing
+  reads as one card growing in every world. The full-bleed lesson is baked
+  into both style paragraphs. All 678 prompts across three worlds are unique
+  — a sweep caught 21 superhero prompts echoed from sci-fi and re-dressed
+  them.
 
-What settled it was **looking**: all 226 cards composited onto a magenta
-ground, where any drawn edge reads instantly. Five were framed. All five came
-back clean once the brief described a *photographic crop with the subject cut
-off by the picture edge*, instead of merely listing what not to draw.
-**Telling the model what the frame IS beats telling it what to avoid** — the
-single most reusable finding of the session, and it applies directly to the
-Fantasy and Superhero briefs still to be written.
+**Gates on the pack commit** (ledger:
+`2026-08-18-{integration,security}-gate-fantasy-superhero-packs`):
+Integration PASS (one Low doc-wording fix applied). Security PASS with a
+real Medium caught and fixed pre-commit: this session's own read-side fix
+(`loadedTheme`) had left writes on the ambient selected theme, so a click in
+the tab-switch window could write one pack's bio or bytes into another pack.
+`send()` now targets the pack the on-screen entries belong to and
+`refresh()` gained a monotonic stale-response guard; browser-verified that
+the studio's Save button writes only the pack on screen. Also fixed: the
+tab-switch 404 race (image URLs now derive from the manifest's own theme),
+and a validator guard refusing backticks in pack free text (they would break
+the generated docs' code fences) — proven by injection.
 
 Health: `typecheck` · `lint` · `test` (148) · `data:validate` ·
-`check:standards` · `check:security` all green. Browser-verified in the
-already-running dev server: all 39 card images on `/tools/prompt-builder`
-load, zero broken, 320×320 natural.
-
-**Gates.** The art commit owed none — no code, component, page, or catalog
-mechanics changed, only asset content and a status field. But
-`npm run gate:sweep` surfaced a real debt carried over from the *previous*
-session: the 2026-08-17 reports were saved at 01:44, and both `b5318c5`
-(the Card Studio) and `9a63b31` (the relations strip) landed after them, so
-the relations strip had never been gated at all. All three gates were run
-against that surface and **every finding is applied** (ledger:
-`2026-08-18-{integration,design,security}-gate-card-relations`):
-
-- **Design, High** — jumping along a morph chain unmounted the chip you had
-  just activated, so focus fell to `<body>` and a keyboard user lost their
-  place. Both this and the flow navigator now share
-  `src/lib/reveal-element.ts`, which scrolls, focuses, and honours
-  `prefers-reduced-motion` (that last one fixed a pre-existing gap too).
-- **Design, Medium** — the relations "live" marker was a wordless dot, so
-  colour alone carried the status. It reads "live" now, matching the row
-  badge above it.
-- **Design, Low** — relation groups are `role="group"` +
-  `aria-labelledby`, so "Morphs into" reaches someone browsing by control.
-- **Integration, Medium** — three `is*` guards checked fewer fields than the
-  type they name, including `progress.generated`, which renders directly.
-  All three now check every field.
-- **Security** — PASS with three Low findings, all fixed: `setBio` now
-  cross-references the catalog like every sibling write op; a malformed key
-  answers 400 instead of escaping as a 500; and the pack schema caps
-  `prompt`/`alt` (2000/300, measured against shipped maxima of 222/65).
-  The gate specifically confirmed the local image pipeline bypassing the
-  HTTP route skipped no check that matters — sniffing, the size cap and
-  `assertInside` all live in the store, not the route.
-
-One test changed as a result, widened rather than relaxed: `setBio`'s
-refusal test now asserts both failure modes and the malformed-key case.
+`check:standards` · `check:security` all green.
 
 **Owed from Sean:**
-- **Decide on `card-art-source/` — it is now 2.2GB** (488 PNGs, up from
-  771MB). Still uncommitted and deliberately left out of `62f2e52`.
-  `git add card-art-source && git commit` bakes it into history forever; a
-  `.gitignore` entry keeps the repo light and loses the candidates on any
-  fresh clone. This decision has been open two sessions and is getting more
-  expensive to defer.
-- **Review the deck.** It is no longer a curation chore — every card is
-  applied and coherent. Sheets for eyeballing the whole set at once are in
-  the session scratchpad (`sci-fi-contact-sheet.webp`, `sheet-1..4.webp`);
-  regenerate with `contact-sheet.mjs` / `chunk-sheets.mjs`. Anything that
-  does not land is a 2-credit re-roll in `/studio/cards`.
+- **Decide on `card-art-source/` — 2.2GB** (488 PNGs). Uncommitted three
+  sessions running. `git add card-art-source && git commit` bakes it into
+  history forever; a `.gitignore` entry keeps the repo light and loses the
+  candidates on any fresh clone.
+- **Review the sci-fi deck** (contact sheets in the session scratchpad:
+  `sci-fi-contact-sheet.webp`, `sheet-1..4.webp`; regenerate with
+  `contact-sheet.mjs` / `chunk-sheets.mjs`). Any miss is a 2-credit re-roll.
+- **Review the Fantasy/Superhero briefs** — in `/studio/cards` (Fantasy /
+  Superhero tabs) or by reading `docs/CRAFT_ART_FANTASY.md` and
+  `docs/CRAFT_ART_SUPERHERO.md` top to bottom. Generation is 452 × 2 = 904
+  credits at Nano Banana Pro 2K if run the same way as sci-fi.
 - Real-mic dictation spot-check on both decks (headless browsers cannot
   grant a mic).
 
@@ -112,34 +97,29 @@ refusal test now asserts both failure modes and the malformed-key case.
   Never `npm run build` while a dev server may be live (shared `.next/`).
 - **If CSS edits stop taking effect**, or a renamed route 404s with a stale
   module error: `npm run dev:clean`. Turbopack keeps serving the old
-  stylesheet and keeps deleted routes in its graph. Check by reading the rule
-  out of `document.styleSheets` before believing a CSS fix did not work.
+  stylesheet and keeps deleted routes in its graph.
 - **Framework:** read `docs/ARCHITECTURE.md` first. §1 covers the art-pack
   model and the one server surface; §2 the shell contract.
 - **Checks:** `npm run typecheck` · `lint` · `test` · `data:validate` ·
   `check:standards && check:security`.
 - **Authoring:** `/studio/cards` — development-only, 404s in production,
-  requires a loopback Host.
+  requires a loopback Host. One tab per world; the studio writes whichever
+  pack's rows are on screen, never blindly the selected tab.
 - **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex,
   `.claude/skills/` Claude Code; never cross-install.
 - **Headless preview gotchas** (2026-07-28 list in SESSIONS.md, all still
-  true), plus three learned this session: card images are `loading="lazy"`,
-  so a viewport-height check reports every below-the-fold image as
-  never-loaded until you scroll or force `loading="eager"`; screenshots fail
-  outright unless the Browser pane is actually displayed, so verify through
-  DOM evals and composite proof sheets instead; and `.focus()` on a
-  `tabindex="-1"` element does NOT move `document.activeElement` while the
-  window itself is unfocused — so a body-focus reading on a non-native
-  focusable proves nothing, while a real `<button>` target still focuses and
-  can be trusted.
+  true), plus this session's: card images are `loading="lazy"`, so force
+  `loading="eager"` or scroll before reading load state; screenshots fail
+  unless the Browser pane is displayed — verify through DOM evals and
+  composite proof sheets; `.focus()` on `tabindex="-1"` proves nothing while
+  the window is unfocused, but a real `<button>` target can be trusted.
 - **Editing JSON catalogs programmatically:** node with `utf8`; PowerShell
   Get/Set-Content mangles non-ASCII.
-- **Batch image generation** (Higgsfield MCP): `generate_image_batch` takes
-  at most 12 requests and `jobs_wait` at most 12 jobs with a 15s cap, so the
-  loop is submit 12 → poll → land the finished ones → submit the next 12.
-  Result URLs are `hf_<YYYYMMDD>_<HHMMSS>_<job_id>.png` with the timestamp
-  shared across a batch. Jobs report `model: nano_banana_2`; the billing
-  ledger confirms that is Nano Banana Pro at 2 credits.
+- **Batch image generation** (Higgsfield MCP): `generate_image_batch` max 12
+  requests, `jobs_wait` max 12 jobs / 15s cap; loop is submit 12 → poll →
+  land → next 12. Result URLs are `hf_<YYYYMMDD>_<HHMMSS>_<job_id>.png`,
+  timestamp shared per batch. Jobs report `model: nano_banana_2`; billing
+  confirms Nano Banana Pro at 2 credits.
 
 ## Built
 
@@ -148,56 +128,56 @@ surface.
 
 - **CRAFT Deck** (`prompt-builder`): C.R.A.F.T. language-model prompts from
   card choices — 35 roles, 32 lineages ×4 grades, 25 archetypes,
-  library/share/sessions/dictation/proof lab. **All 226 cards carry final
-  sci-fi art and a bio**, both from the art pack.
+  library/share/sessions/dictation/proof lab. All 226 cards carry final
+  sci-fi art and a bio from the art pack.
 - **PICTURE Deck** (`picture-deck`): P.I.C.T.U.R.E. image-model prompts —
   100 lineages ×3 grades, 18 archetypes, Midjourney tail. Still carries its
   illustrations inline; moving it to packs is additive and deferred.
 - **Architect Wizard**, **Image Editor**, **Vector Editor**, **Skills Wiki**:
   unchanged this session.
 - **Card Studio** (`/studio/cards`): not a tool, not registered, nothing
-  links to it. Per-card facet tabs; a relations strip showing the morph
-  chain; the Card tab edits catalog text through a validator gate; each pack
-  tab holds that world's art workflow and bio.
+  links to it. Per-card facet tabs (Card · Sci-Fi · Fantasy · Superhero); a
+  relations strip showing the morph chain; the Card tab edits catalog text
+  through a validator gate; each pack tab holds that world's art workflow
+  and bio editor.
 
 **The art-pack model** (`docs/ARCHITECTURE.md` §1): a card is two things.
 The catalog owns the universal half — id, name, description, mechanics. A
 pack (`art-themes/<id>.json`) owns the per-world half — image brief, alt,
-bio, status. Packs store no path; `scripts/art-pack.mjs` derives them, which
-is what makes a second world a drop-in and why renaming a card cannot orphan
-its art. A pack marked `draft` is skipped by the generator and the coverage
-check, so scaffolding a world cannot fail the build. **Sci-Fi is complete**;
-Fantasy and Superhero are scaffolded drafts (art directions written, 226
-briefs each still to write).
+bio, status. Packs store no path; `scripts/art-pack.mjs` derives them.
+**Sci-Fi is complete (226/226 generated). Fantasy and Superhero are fully
+authored (226 briefs each, 98 with bios), 0/226 generated.** The app itself
+still renders only the active pack, a constant in `src/lib/art-pack.ts`
+(sci-fi); the other worlds are reachable through the studio until a pack
+picker exists.
 
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **Sean's queue:** the 2.2GB `card-art-source/` decision; deck review;
-  real-mic dictation check.
-- **Next:** author Fantasy + Superhero briefs (226 each; scaffolds + style
-  paragraphs are in, `draft:true` keeps the build green), then generate them
-  through the same pipeline — **carry the full-bleed lesson into those
-  briefs from the start** rather than re-deriving it; the PICTURE deck onto
-  packs (same model, additive); a pack picker in the app (the active pack is
-  a constant in `src/lib/art-pack.ts` today); a per-model output formatter;
-  a Pip-Decks-style restyle; the idea-making deck.
-- **Worth promoting out of the scratchpad:** the frame detector and the
-  contact-sheet builders are throwaway scripts today, but the next two packs
-  need exactly the same QA. `scripts/art-qa.mjs` with a `--sheets` flag
-  would make "did this pack come out clean?" a command rather than a
-  rebuild-from-memory.
-- **Pending amendments** (`npm run amendments`, 19 flagged, owner consent):
-  the standing queue, including (a) §1.1 should say authoring surfaces are
-  exempt when nothing links to them; (b) the free-text length ceiling in
-  `card-record.mjs` should become a rule covering both session drafts and
-  catalog fields; (c) DESIGN_DIRECTION has no vocabulary for the Card Bio
-  (italic, muted, ruled, 240 chars, per-pack, never in the prompt).
-- **Non-blocking suggestion from the integration gate:** `src/lib/art-pack.ts`
-  imports `scripts/art-pack.mjs`, so a `scripts/` module ships in the client
-  bundle. Accepted (the module is pure and has no node built-ins), but the
-  repo's own precedent puts shared browser+node logic in `src/lib/`, reached
-  FROM `scripts/`. Worth inverting one day.
+- **Sean's queue:** the 2.2GB `card-art-source/` decision; sci-fi deck
+  review; Fantasy/Superhero brief review; real-mic dictation check.
+- **Next:** generate Fantasy + Superhero through the proven pipeline (904
+  credits total at NB Pro 2K; the frame QA from the sci-fi run applies
+  as-is); a pack picker in the app (the active pack is a constant today);
+  the PICTURE deck onto packs (same model, additive); a per-model output
+  formatter; a Pip-Decks-style restyle; the idea-making deck.
+- **Worth promoting out of the scratchpad:** the frame detector and
+  contact-sheet builders (`frame-check.mjs`, `contact-sheet.mjs`,
+  `chunk-sheets.mjs`) — the next two generation runs need exactly the same
+  QA. `scripts/art-qa.mjs --sheets` would make "did this pack come out
+  clean?" a command.
+- **Pending amendments** (`npm run amendments`, owner consent): the standing
+  queue, plus new from today's gates: (a) §2.2 should name both
+  doc-generation families, not just PROMPT_ROLES; (b) an `is*` guard must
+  check every field of the type it names (caught twice in one file now);
+  (c) a status indicator always pairs colour with a short visible text
+  label; (d) a client action that reads pack-scoped data via one
+  server-echoed identifier must reuse that identifier for any write it
+  triggers; (e) the free-text ceiling rule should name art-pack
+  `prompt`/`alt` explicitly.
+- **Non-blocking, accepted:** `src/lib/art-pack.ts` imports
+  `scripts/art-pack.mjs` (pure, no node built-ins) — the repo's precedent
+  would invert it one day.
 - **Pre-existing, still open:** Filters/"Adjust" dialog onto EditorDialog;
   `.image-editor-title-input` focus pattern; image-editor statusbar portal
   idiom chip; agent-eval fixtures vs the gates; prompt-builder proofDraft
@@ -208,9 +188,10 @@ briefs each still to write).
 ## Pointers
 
 - Framework contract: `docs/ARCHITECTURE.md`. Art briefs:
-  `docs/CRAFT_ART_SCIFI.md` (226 entries) and `docs/PICTURE_ART_MANIFEST.md`
-  (118). History: `.ai/notes/SESSIONS.md` (newest-first). Rules:
-  `docs/STANDARDS.md`. Gate ledger: `.ai/notes/gate-reports/`. Domain
-  language: `CONTEXT.md`.
+  `docs/CRAFT_ART_SCIFI.md` / `docs/CRAFT_ART_FANTASY.md` /
+  `docs/CRAFT_ART_SUPERHERO.md` (226 each) and
+  `docs/PICTURE_ART_MANIFEST.md` (118). History: `.ai/notes/SESSIONS.md`
+  (newest-first). Rules: `docs/STANDARDS.md`. Gate ledger:
+  `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
 - `npm run amendments` shows the consent queue; `npm run gate:sweep` stamps
   `.ai/notes/gate-status.json` and warns when this page goes stale.
