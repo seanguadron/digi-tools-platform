@@ -36,9 +36,9 @@ by hand or hand-edit JSON to fix a typo. It is **not** in the tool registry:
 no nav tab, no home card, nothing links to it.
 
 Each card opens with one tab per facet: **Card** (what the card is —
-universal, the same in every world) and one per art pack (**Sci-Fi** today;
-**Fantasy** and **Superhero** as scaffolded drafts still writing their
-briefs).
+universal, the same in every world) and one per art pack (**Sci-Fi** with
+generated art; **Fantasy** and **Superhero** fully authored — 226 briefs
+each, 98 with bios — awaiting generation).
 
 What keeps it safe, and what a reviewer should check:
 

@@ -66,8 +66,9 @@ _Avoid_: Auto-selected card, required card
 **Art Pack**:
 One world's look for the whole deck: an image brief, alt text, a Card Bio, and
 a generated status per card. A card's mechanics are the same in every pack;
-only how it looks and who it is change. Sci-Fi ships today; Fantasy and
-Superhero are scaffolded drafts.
+only how it looks and who it is change. Sci-Fi ships today with generated
+art; Fantasy (hand-painted Warcraft-style) and Superhero (bold comic-book)
+are fully authored and awaiting generation.
 _Avoid_: Theme, skin, art theme
 
 **Card Bio**:

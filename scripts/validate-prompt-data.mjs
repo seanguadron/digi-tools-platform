@@ -262,6 +262,34 @@ async function validateArtPacks() {
         `art-themes/${themeId}.json declares theme id "${pack.theme.id}"`,
       );
     }
+    // Pack free text ends up between ``` fences in the generated art docs,
+    // so a backtick anywhere in it could close a fence early. No string has
+    // a legitimate use for one; refuse them all rather than count runs.
+    const withBackticks = [];
+    const scanText = (label, value) => {
+      if (typeof value === "string" && value.includes("\u0060")) {
+        withBackticks.push(label);
+      }
+    };
+    scanText("theme.style", pack.theme.style);
+    for (const group of ["craft", "roles", "lineages", "archetypes", "shared"]) {
+      for (const [id, entry] of Object.entries(pack[group] ?? {})) {
+        scanText(`${group}.${id}.prompt`, entry.prompt);
+        scanText(`${group}.${id}.alt`, entry.alt);
+        scanText(`${group}.${id}.bio`, entry.bio);
+      }
+    }
+    for (const [lineageId, slots] of Object.entries(pack.grades ?? {})) {
+      slots.forEach((slot, index) => {
+        scanText(`grades.${lineageId}[${index}].prompt`, slot.prompt);
+        scanText(`grades.${lineageId}[${index}].alt`, slot.alt);
+      });
+    }
+    if (withBackticks.length > 0) {
+      errors.push(
+        `art-themes/${themeId}.json has backticks in free text (breaks the generated doc's fences): ${withBackticks.join(", ")}`,
+      );
+    }
     // The pack's shared paragraph opens every prompt in it, so this one check
     // covers all 226 briefs at once. A draft pack has not written one yet.
     if (

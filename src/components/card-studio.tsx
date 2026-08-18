@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CardArtCropper } from "@/components/card-art-cropper";
 import { EditorTabs, tabPanelProps } from "@/components/editor-tabs";
@@ -123,6 +123,7 @@ function isManifest(value: unknown): value is Manifest {
   return (
     typeof candidate === "object" &&
     candidate !== null &&
+    typeof candidate.theme === "string" &&
     typeof candidate.style === "string" &&
     Array.isArray(candidate.entries) &&
     candidate.entries.every(isEntry) &&
@@ -286,7 +287,12 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
   const [bioDrafts, setBioDrafts] = useState<Record<string, string>>({});
   const portalTarget = usePortalTarget();
 
+  // Monotonic guard: only the newest load may set the manifest, so a slow
+  // response from a pack the user has already left cannot land late and
+  // pin the rows to the wrong world.
+  const refreshSeq = useRef(0);
   const refresh = useCallback(async (nextTheme: string) => {
+    const seq = ++refreshSeq.current;
     const response = await fetch(`/api/card-art?theme=${encodeURIComponent(nextTheme)}`);
     if (!response.ok) {
       const body = (await response.json().catch(() => null)) as { error?: string } | null;
@@ -297,6 +303,9 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     const payload: unknown = await response.json();
     if (!isManifest(payload)) {
       throw new Error("The card art service returned something unreadable");
+    }
+    if (seq !== refreshSeq.current) {
+      return;
     }
     setManifest(payload);
     setRevision((current) => current + 1);
@@ -345,7 +354,12 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
         const response = await fetch("/api/card-art", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ theme, ...body }),
+          // Entry-scoped ops target the pack the on-screen rows belong
+          // to (the manifest's own theme), never the tab selection - the
+          // two can differ for a moment mid-switch, and a write must
+          // follow the entries it was clicked on. scaffold-pack passes
+          // its own theme explicitly and overrides this default.
+          body: JSON.stringify({ theme: manifest?.theme ?? theme, ...body }),
         });
         const payload = (await response.json().catch(() => null)) as
           | { error?: string }
@@ -363,10 +377,14 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
         setBusy(false);
       }
     },
-    [refresh, theme],
+    [refresh, theme, manifest],
   );
 
   const entries = useMemo(() => manifest?.entries ?? [], [manifest]);
+  // The pack the on-screen rows belong to. For one render after a tab
+  // switch this trails `theme`; deriving image URLs from it keeps the
+  // entries and their URLs changing in the same frame instead of 404ing.
+  const loadedTheme = manifest?.theme ?? theme;
   const activeEntry = entries.find((entry) => entry.key === activeKey) ?? null;
   const installedPacks = useMemo(
     () => new Set(packState.filter((pack) => pack.installed).map((pack) => pack.id)),
@@ -480,7 +498,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     try {
       setBusy(true);
       const dataUrl = await toLiveWebp(
-        `${variantUrl(theme, entry.key, variantId)}&v=${revision}`,
+        `${variantUrl(loadedTheme, entry.key, variantId)}&v=${revision}`,
       );
       setBusy(false);
       await send(
@@ -528,7 +546,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
       return `${entry.target}?v=${revision}`;
     }
     const first = entry.variants[0];
-    return first ? `${variantUrl(theme, entry.key, first.id)}&v=${revision}` : null;
+    return first ? `${variantUrl(loadedTheme, entry.key, first.id)}&v=${revision}` : null;
   }
 
   function selectFacet(next: string) {
@@ -914,7 +932,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                                 }
                                 onMouseEnter={(event) =>
                                   setZoomPeek({
-                                    url: `${variantUrl(theme, entry.key, variant.id)}&v=${revision}`,
+                                    url: `${variantUrl(loadedTheme, entry.key, variant.id)}&v=${revision}`,
                                     label: `${entry.fileName.replace(/\.[a-z0-9]+$/i, "")}-${variant.id}`,
                                     name: entry.name,
                                     code: String(entry.sequence).padStart(3, "0"),
@@ -926,7 +944,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                   alt=""
-                                  src={`${variantUrl(theme, entry.key, variant.id)}&v=${revision}`}
+                                  src={`${variantUrl(loadedTheme, entry.key, variant.id)}&v=${revision}`}
                                 />
                                 <span>{variant.id}</span>
                               </button>
@@ -948,7 +966,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                                     <img
                                       className="card-illustration-image"
                                       alt=""
-                                      src={`${variantUrl(theme, entry.key, chosen)}&v=${revision}`}
+                                      src={`${variantUrl(loadedTheme, entry.key, chosen)}&v=${revision}`}
                                     />
                                   </span>
                                   <span className="lineage-card-copy">
@@ -1056,7 +1074,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
 
       {cropping ? (
         <CardArtCropper
-          src={`${variantUrl(theme, cropping.key, cropping.variantId)}&v=${revision}`}
+          src={`${variantUrl(loadedTheme, cropping.key, cropping.variantId)}&v=${revision}`}
           fileName={entries.find((entry) => entry.key === cropping.key)?.fileName ?? ""}
           busy={busy}
           onCancel={() => setCropping(null)}
