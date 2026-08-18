@@ -27,7 +27,7 @@ Per image:
    `public/`, flip `status` in this pack's JSON, and run
    `npm run data:generate`.
 
-Progress: 0/226 generated - 98 core images first, then 128 per-grade variants.
+Progress: 226/226 generated - 98 core images first, then 128 per-grade variants.
 
 ## Shared art direction
 
@@ -44,7 +44,7 @@ Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash
 - File name: `SUP-001-Context.png`
 - Target: `public/card-art/superhero/craft/letter-c.webp`
 - Owner: craftParts `C`
-- Status: planned
+- Status: generated
 - Bio: The case as it actually stands: what is pinned inside the lamplight, and the dark past its edge.
 
 ```
@@ -58,7 +58,7 @@ Context. A rooftop crime-board under a single work lamp, the case pinned and thr
 - File name: `SUP-002-Role.png`
 - Target: `public/card-art/superhero/craft/letter-r.webp`
 - Owner: craftParts `R`
-- Status: planned
+- Status: generated
 - Bio: One hero called down from the ledge, because this job needs exactly their powers.
 
 ```
@@ -72,7 +72,7 @@ Role. A line of silhouetted heroes on a rooftop ledge at night, one stepping for
 - File name: `SUP-003-Action.png`
 - Target: `public/card-art/superhero/craft/letter-a.webp`
 - Owner: craftParts `A`
-- Status: planned
+- Status: generated
 - Bio: The leap is taken. Everything after this is momentum.
 
 ```
@@ -86,7 +86,7 @@ Action. The moment of commitment: a hero mid-leap between rooftops, launch debri
 - File name: `SUP-004-Format.png`
 - Target: `public/card-art/superhero/craft/letter-f.webp`
 - Owner: craftParts `F`
-- Status: planned
+- Status: generated
 - Bio: The answer arrives shaped for the hand that has to use it.
 
 ```
@@ -100,7 +100,7 @@ Format. A gadget press stamping raw glowing alloy into one exact tool, the die l
 - File name: `SUP-005-Target-audience.png`
 - Target: `public/card-art/superhero/craft/letter-t.webp`
 - Owner: craftParts `T`
-- Status: planned
+- Status: generated
 - Bio: The beacon is not for the city. It is for the one window that understands it.
 
 ```
@@ -116,7 +116,7 @@ Target audience. A single citizen at an apartment window at night, lit from the 
 - File name: `SUP-006-Researcher.png`
 - Target: `public/card-art/superhero/roles/researcher.webp`
 - Owner: Role `researcher`
-- Status: planned
+- Status: generated
 - Bio: The cape is for rooftops. The real superpower is the filing system.
 
 ```
@@ -130,7 +130,7 @@ A masked investigator in the records vault beneath the precinct, reconstructing 
 - File name: `SUP-007-Analyst.png`
 - Target: `public/card-art/superhero/roles/analyst.webp`
 - Owner: Role `analyst`
-- Status: planned
+- Status: generated
 - Bio: He sees the crime wave as a shape. Then he names the shape.
 
 ```
@@ -144,7 +144,7 @@ A mission-control tactician standing inside a suspended lattice of case data, pu
 - File name: `SUP-008-Strategist.png`
 - Target: `public/card-art/superhero/roles/strategist.webp`
 - Owner: Role `strategist`
-- Status: planned
+- Status: generated
 - Bio: Every plan survives until the first explosion. Hers survive the second.
 
 ```
@@ -158,7 +158,7 @@ A team leader over a glowing tactical map of the city, three strike routes arcin
 - File name: `SUP-009-Historian.png`
 - Target: `public/card-art/superhero/roles/historian.webp`
 - Owner: Role `historian`
-- Status: planned
+- Status: generated
 - Bio: Every mask that came before hangs in his hall, and he knows why each one fell.
 
 ```
@@ -172,7 +172,7 @@ A veteran keeper in a hall of retired suits and trophies, drawing one luminous t
 - File name: `SUP-010-Fact-checker.png`
 - Target: `public/card-art/superhero/roles/fact-checker.webp`
 - Owner: Role `fact-checker`
-- Status: planned
+- Status: generated
 - Bio: Rumors do not testify in her precinct. Receipts do.
 
 ```
@@ -186,7 +186,7 @@ A sharp-eyed detective holding a suspect claim under a signal lamp, verification
 - File name: `SUP-011-Synthesizer.png`
 - Target: `public/card-art/superhero/roles/synthesizer.webp`
 - Owner: Role `synthesizer`
-- Status: planned
+- Status: generated
 - Bio: Twelve sirens, one story. He finds it.
 
 ```
@@ -200,7 +200,7 @@ A comms hero at a rooftop dispatch rig, braiding many scattered radio threads in
 - File name: `SUP-012-Explainer-Educator.png`
 - Target: `public/card-art/superhero/roles/explainer-educator.webp`
 - Owner: Role `explainer-educator`
-- Status: planned
+- Status: generated
 - Bio: Powers are easy. She teaches the part where you understand them.
 
 ```
@@ -214,7 +214,7 @@ An academy instructor unfolding a hero gadget into a floating exploded diagram a
 - File name: `SUP-013-Critical-Reviewer.png`
 - Target: `public/card-art/superhero/roles/comparative-reviewer.webp`
 - Owner: Role `comparative-reviewer`
-- Status: planned
+- Status: generated
 - Bio: Both suits are marvelous. He will tell you which one gets you killed.
 
 ```
@@ -230,7 +230,7 @@ A grizzled gear-master between two suspended prototype suits in the armory, stre
 - File name: `SUP-014-Developer.png`
 - Target: `public/card-art/superhero/roles/developer.webp`
 - Owner: Role `developer`
-- Status: planned
+- Status: generated
 - Bio: The suit is never finished. That is the point of the suit.
 
 ```
@@ -244,7 +244,7 @@ A gadgeteer elbow-deep in an open utility rig, seating one new module into the h
 - File name: `SUP-015-Technical-Troubleshooter.png`
 - Target: `public/card-art/superhero/roles/technical-troubleshooter.webp`
 - Owner: Role `technical-troubleshooter`
-- Status: planned
+- Status: generated
 - Bio: When the tech dies at midnight, she is the one it confesses to.
 
 ```
@@ -258,7 +258,7 @@ A field engineer tracing a fault arc through a downed mech's exposed spine by to
 - File name: `SUP-016-Systems-Designer.png`
 - Target: `public/card-art/superhero/roles/systems-designer.webp`
 - Owner: Role `systems-designer`
-- Status: planned
+- Status: generated
 - Bio: He designs the base, the backup base, and the argument for both.
 
 ```
@@ -272,7 +272,7 @@ An architect hero inside a hovering model of the team headquarters, moving whole
 - File name: `SUP-017-Workflow-Architect.png`
 - Target: `public/card-art/superhero/roles/workflow-architect.webp`
 - Owner: Role `workflow-architect`
-- Status: planned
+- Status: generated
 - Bio: Heroes save the day. She makes sure the day arrives on schedule.
 
 ```
@@ -286,7 +286,7 @@ A logistics chief above a glowing conveyor of mission crates, rerouting a stalle
 - File name: `SUP-018-UX-UI-Advisor.png`
 - Target: `public/card-art/superhero/roles/ux-ui-advisor.webp`
 - Owner: Role `ux-ui-advisor`
-- Status: planned
+- Status: generated
 - Bio: If you fumble the trigger at three in the morning, that is his failure, not yours.
 
 ```
@@ -300,7 +300,7 @@ A suit engineer testing a gauntlet's controls on a hero's fist, heat-bloom showi
 - File name: `SUP-019-Data-Analyst.png`
 - Target: `public/card-art/superhero/roles/data-analyst.webp`
 - Owner: Role `data-analyst`
-- Status: planned
+- Status: generated
 - Bio: The city talks in numbers. She is fluent.
 
 ```
@@ -314,7 +314,7 @@ A data-hero suspended in a drifting particle field of incident reports, cupping 
 - File name: `SUP-020-QA-Test-Engineer.png`
 - Target: `public/card-art/superhero/roles/qa-test-engineer.webp`
 - Owner: Role `qa-test-engineer`
-- Status: planned
+- Status: generated
 - Bio: He breaks it on Tuesday so it holds on Saturday.
 
 ```
@@ -328,7 +328,7 @@ A trials operator deliberately driving a new suit past its limits in a reinforce
 - File name: `SUP-021-Security-Reviewer.png`
 - Target: `public/card-art/superhero/roles/security-reviewer.webp`
 - Owner: Role `security-reviewer`
-- Status: planned
+- Status: generated
 - Bio: She breaks into the base every week. That is why nobody else ever has.
 
 ```
@@ -344,7 +344,7 @@ A shadow-tester probing the headquarters shield grid from outside, one hairline 
 - File name: `SUP-022-Writer.png`
 - Target: `public/card-art/superhero/roles/writer.webp`
 - Owner: Role `writer`
-- Status: planned
+- Status: generated
 - Bio: The city happens all at once. He writes it down one true line at a time.
 
 ```
@@ -358,7 +358,7 @@ A rooftop chronicler at a small desk above the city, drawing one clean line of l
 - File name: `SUP-023-Editor.png`
 - Target: `public/card-art/superhero/roles/editor.webp`
 - Owner: Role `editor`
-- Status: planned
+- Status: generated
 - Bio: Kills darlings faster than any villain. The story thanks her.
 
 ```
@@ -372,7 +372,7 @@ A copy chief over a story slab with a precision blade, lifting away excess in cl
 - File name: `SUP-024-Copywriter.png`
 - Target: `public/card-art/superhero/roles/copywriter.webp`
 - Owner: Role `copywriter`
-- Status: planned
+- Status: generated
 - Bio: One message, one target, no collateral.
 
 ```
@@ -386,7 +386,7 @@ A signal-hero tuning a rooftop broadcast dish down to one sharp focused beam, th
 - File name: `SUP-025-Rewriter.png`
 - Target: `public/card-art/superhero/roles/rewriter.webp`
 - Owner: Role `rewriter`
-- Status: planned
+- Status: generated
 - Bio: Same metal, cleaner lines, nothing lost but the dents.
 
 ```
@@ -400,7 +400,7 @@ A forge-hero melting a dented piece of armor and recasting it in a cleaner die, 
 - File name: `SUP-026-Pitch-Strategist.png`
 - Target: `public/card-art/superhero/roles/pitch-strategist.webp`
 - Owner: Role `pitch-strategist`
-- Status: planned
+- Status: generated
 - Bio: Funding for the team, one bulletproof argument at a time.
 
 ```
@@ -414,7 +414,7 @@ An advocate at the front of a darkened council chamber, raising a rising arc of 
 - File name: `SUP-027-Presentation-Designer.png`
 - Target: `public/card-art/superhero/roles/presentation-slide-structurer.webp`
 - Owner: Role `presentation-slide-structurer`
-- Status: planned
+- Status: generated
 - Bio: Nobody leaves her briefings confused. Some leave inspired.
 
 ```
@@ -430,7 +430,7 @@ A briefing officer sequencing floating mission panels into one ordered run above
 - File name: `SUP-028-Creative-Director.png`
 - Target: `public/card-art/superhero/roles/creative-director.webp`
 - Owner: Role `creative-director`
-- Status: planned
+- Status: generated
 - Bio: Capes, colors, silhouettes: she decides what hope looks like from a rooftop.
 
 ```
@@ -444,7 +444,7 @@ A visions director at a projection rig casting several genuinely different hero 
 - File name: `SUP-029-Concept-Developer.png`
 - Target: `public/card-art/superhero/roles/concept-developer.webp`
 - Owner: Role `concept-developer`
-- Status: planned
+- Status: generated
 - Bio: Every legend starts as a loose spark. He teaches it to hold a shape.
 
 ```
@@ -458,7 +458,7 @@ A concept-smith growing a raw spark of an idea into a structured core inside a c
 - File name: `SUP-030-Brainstorming-Partner.png`
 - Target: `public/card-art/superhero/roles/brainstorming-partner.webp`
 - Owner: Role `brainstorming-partner`
-- Status: planned
+- Status: generated
 - Bio: A hundred ideas before breakfast. Three survive lunch. That is the job.
 
 ```
@@ -472,7 +472,7 @@ A speedster mid-blur around a workshop table, leaving a trail of dozens of disti
 - File name: `SUP-031-Prompt-Engineer.png`
 - Target: `public/card-art/superhero/roles/prompt-engineer.webp`
 - Owner: Role `prompt-engineer`
-- Status: planned
+- Status: generated
 - Bio: Vague orders get sidekicks hurt. His never are.
 
 ```
@@ -488,7 +488,7 @@ A mission-scripter tuning a glowing directive core at a control bench, ambiguity
 - File name: `SUP-032-Tutor.png`
 - Target: `public/card-art/superhero/roles/tutor.webp`
 - Owner: Role `tutor`
-- Status: planned
+- Status: generated
 - Bio: She never lifts you. She makes the next rung obvious.
 
 ```
@@ -502,7 +502,7 @@ A patient trainer guiding a young hero's hand to the next rung of a ladder of li
 - File name: `SUP-033-Curriculum-Designer.png`
 - Target: `public/card-art/superhero/roles/curriculum-designer.webp`
 - Owner: Role `curriculum-designer`
-- Status: planned
+- Status: generated
 - Bio: From first push-up to first rescue, in the only order that works.
 
 ```
@@ -516,7 +516,7 @@ An academy dean laying a sequenced path of training platforms across a dark hang
 - File name: `SUP-034-Mentor.png`
 - Target: `public/card-art/superhero/roles/mentor.webp`
 - Owner: Role `mentor`
-- Status: planned
+- Status: generated
 - Bio: Hung up the cape. Kept the map.
 
 ```
@@ -532,7 +532,7 @@ A retired legend beside a rookie on a high rooftop ledge, pointing out one speci
 - File name: `SUP-035-Consultant.png`
 - Target: `public/card-art/superhero/roles/consultant.webp`
 - Owner: Role `consultant`
-- Status: planned
+- Status: generated
 - Bio: Says the one sentence the whole team was avoiding. Worth every penny.
 
 ```
@@ -546,7 +546,7 @@ A fixer at a crowded case table, sweeping the clutter aside to leave one clearly
 - File name: `SUP-036-Product-Strategist.png`
 - Target: `public/card-art/superhero/roles/product-strategist.webp`
 - Owner: Role `product-strategist`
-- Status: planned
+- Status: generated
 - Bio: The team cannot save every block tonight. She decides which one, and owns it.
 
 ```
@@ -560,7 +560,7 @@ An operations strategist weighing glowing mission-opportunities on a suspended b
 - File name: `SUP-037-Positioning-Strategist.png`
 - Target: `public/card-art/superhero/roles/market-positioning-advisor.webp`
 - Owner: Role `market-positioning-advisor`
-- Status: planned
+- Status: generated
 - Bio: Every hero guards downtown. He found the neighborhood nobody watches.
 
 ```
@@ -574,7 +574,7 @@ A territory analyst planting a beacon-marker into open unclaimed ground on a glo
 - File name: `SUP-038-Product-Manager.png`
 - Target: `public/card-art/superhero/roles/product-manager.webp`
 - Owner: Role `product-manager`
-- Status: planned
+- Status: generated
 - Bio: Three sirens get answered now. The rest get answered right.
 
 ```
@@ -590,7 +590,7 @@ A mission coordinator triaging a queue of incoming alerts, pulling three forward
 - File name: `SUP-039-Summarizer.png`
 - Target: `public/card-art/superhero/roles/summarizer.webp`
 - Owner: Role `summarizer`
-- Status: planned
+- Status: generated
 - Bio: Six hours of chaos, one line that tells command what mattered.
 
 ```
@@ -604,7 +604,7 @@ A debrief officer feeding a tower of mission footage into a compression rig and 
 - File name: `SUP-040-Organizer.png`
 - Target: `public/card-art/superhero/roles/organizer.webp`
 - Owner: Role `organizer`
-- Status: planned
+- Status: generated
 - Bio: Every gadget in its slot, and the missing grapple loudly obvious.
 
 ```
@@ -620,7 +620,7 @@ An armory keeper standing amid drifting unsorted gear, snapping each piece into 
 - File name: `SUP-041-SCP-lineage.png`
 - Target: `public/card-art/superhero/cards/context-scope/lineage.webp`
 - Owner: Card `context-scope`
-- Status: planned
+- Status: generated
 - Bio: The beam decides how much city this job is. Outside the pool is somebody else's shift.
 
 ```
@@ -634,7 +634,7 @@ A rooftop searchlight throwing a bounded pool of light onto the dark streets bel
 - File name: `SUP-042-SRC-lineage.png`
 - Target: `public/card-art/superhero/cards/context-evidence/lineage.webp`
 - Owner: Card `context-evidence`
-- Status: planned
+- Status: generated
 - Bio: The board does not care what feels true. It cares what the thread holds.
 
 ```
@@ -648,7 +648,7 @@ An evidence board of pinned exhibits with taut threads running up to the claim t
 - File name: `SUP-043-LIM-lineage.png`
 - Target: `public/card-art/superhero/cards/context-constraints/lineage.webp`
 - Owner: Card `context-constraints`
-- Status: planned
+- Status: generated
 - Bio: The clamps are not the enemy of the power. They are why the block is still standing.
 
 ```
@@ -662,7 +662,7 @@ Heavy containment clamps closed around a glowing energy core, hard immovable jaw
 - File name: `SUP-044-ASM-lineage.png`
 - Target: `public/card-art/superhero/cards/context-assumptions/lineage.webp`
 - Owner: Card `context-assumptions`
-- Status: planned
+- Status: generated
 - Bio: Some of these girders are guesses wearing hard hats. The pulsing ones carry the roof.
 
 ```
@@ -676,7 +676,7 @@ A building frame propped by translucent holographic girders among the real steel
 - File name: `SUP-045-WIN-lineage.png`
 - Target: `public/card-art/superhero/cards/context-success/lineage.webp`
 - Owner: Card `context-success`
-- Status: planned
+- Status: generated
 - Bio: Done means the gauge says done. Heroics that miss the ring are just property damage.
 
 ```
@@ -690,7 +690,7 @@ A training-range target with its acceptance gauge locking into the green, the ex
 - File name: `SUP-046-OUT-lineage.png`
 - Target: `public/card-art/superhero/cards/context-exclusions/lineage.webp`
 - Owner: Card `context-exclusions`
-- Status: planned
+- Status: generated
 - Bio: What gets waved through matters less than what gets turned around. The checkpoint remembers both.
 
 ```
@@ -706,7 +706,7 @@ A barricade checkpoint splitting incoming traffic, diverting one lane cleanly aw
 - File name: `SUP-047-INS-lineage.png`
 - Target: `public/card-art/superhero/cards/action-inspect/lineage.webp`
 - Owner: Card `action-inspect`
-- Status: planned
+- Status: generated
 - Bio: The lens has ended more schemes than any punch. It simply will not look away.
 
 ```
@@ -720,7 +720,7 @@ A detective's magnifying lens hovering over a disassembled device, sweeping its 
 - File name: `SUP-048-ANL-lineage.png`
 - Target: `public/card-art/superhero/cards/action-analyze/lineage.webp`
 - Owner: Card `action-analyze`
-- Status: planned
+- Status: generated
 - Bio: Mix lies together long enough and they layer. The bright band is where the truth floats.
 
 ```
@@ -734,7 +734,7 @@ A forensics column pulling a single mixed sample apart into distinct luminous st
 - File name: `SUP-049-CMP-lineage.png`
 - Target: `public/card-art/superhero/cards/action-compare/lineage.webp`
 - Owner: Card `action-compare`
-- Status: planned
+- Status: generated
 - Bio: Two contenders, one beam, no applause. The tilt is the verdict.
 
 ```
@@ -748,7 +748,7 @@ A steel lab balance suspended in the dark holding two devices against the same m
 - File name: `SUP-050-BLD-lineage.png`
 - Target: `public/card-art/superhero/cards/action-create/lineage.webp`
 - Owner: Card `action-create`
-- Status: planned
+- Status: generated
 - Bio: Somewhere between the parts bin and the bloom of light, it becomes a thing with a purpose.
 
 ```
@@ -762,7 +762,7 @@ A workshop gantry arm assembling a finished gadget out of drifting component par
 - File name: `SUP-051-REC-lineage.png`
 - Target: `public/card-art/superhero/cards/action-recommend/lineage.webp`
 - Owner: Card `action-recommend`
-- Status: planned
+- Status: generated
 - Bio: The switch does not hedge. Trains cannot ride two tracks.
 
 ```
@@ -776,7 +776,7 @@ A rail-yard switch committing to one of several branching tracks, the chosen lin
 - File name: `SUP-052-TST-lineage.png`
 - Target: `public/card-art/superhero/cards/action-verify/lineage.webp`
 - Owner: Card `action-verify`
-- Status: planned
+- Status: generated
 - Bio: Every gate it clears is a promise kept. The one still glowing is a promise pending.
 
 ```
@@ -790,7 +790,7 @@ A gauntlet of scanner gates running a finished gadget down the line, each gate l
 - File name: `SUP-053-SMR-lineage.png`
 - Target: `public/card-art/superhero/cards/action-summarize/lineage.webp`
 - Owner: Card `action-summarize`
-- Status: planned
+- Status: generated
 - Bio: The tower goes in. The chip comes out. Command reads the chip.
 
 ```
@@ -804,7 +804,7 @@ An industrial compactor reducing a tall stack of case material into one dense br
 - File name: `SUP-054-RES-lineage.png`
 - Target: `public/card-art/superhero/cards/action-research/lineage.webp`
 - Owner: Card `action-research`
-- Status: planned
+- Status: generated
 - Bio: The city always answers. The dish is for hearing which answer is load-bearing.
 
 ```
@@ -818,7 +818,7 @@ A rooftop sweep dish fanning search beams over the dark city, one distant return
 - File name: `SUP-055-PLN-lineage.png`
 - Target: `public/card-art/superhero/cards/action-plan/lineage.webp`
 - Owner: Card `action-plan`
-- Status: planned
+- Status: generated
 - Bio: Every great save looks improvised. The board knows better.
 
 ```
@@ -832,7 +832,7 @@ A heist-board timeline of mission markers laid in ordered sequence, dependency l
 - File name: `SUP-056-IDE-lineage.png`
 - Target: `public/card-art/superhero/cards/action-ideate/lineage.webp`
 - Owner: Card `action-ideate`
-- Status: planned
+- Status: generated
 - Bio: The coil's only rule: no duplicates. Volume first, judgment later.
 
 ```
@@ -846,7 +846,7 @@ An idea reactor coil throwing off many genuinely different energy forms at once,
 - File name: `SUP-057-EXP-lineage.png`
 - Target: `public/card-art/superhero/cards/action-explain/lineage.webp`
 - Owner: Card `action-explain`
-- Status: planned
+- Status: generated
 - Bio: It looks like magic until the table opens it up. Then it looks like a Tuesday.
 
 ```
@@ -860,7 +860,7 @@ A holo-table exploding a gadget into floating parts along clean yellow guide-lin
 - File name: `SUP-058-ASK-lineage.png`
 - Target: `public/card-art/superhero/cards/action-clarify/lineage.webp`
 - Owner: Card `action-clarify`
-- Status: planned
+- Status: generated
 - Bio: The flare marks what the team does not know yet. Answering it is cheaper than guessing.
 
 ```
@@ -876,7 +876,7 @@ A signal flare hovering at a gap in the case-board, its light outlining the exac
 - File name: `SUP-059-INF-lineage.png`
 - Target: `public/card-art/superhero/cards/format-info-card/lineage.webp`
 - Owner: Card `format-info-card`
-- Status: planned
+- Status: generated
 - Bio: One panel, one answer, zero ceremony.
 
 ```
@@ -890,7 +890,7 @@ A single clean steel slab standing alone in the dark, its face flat and plainly 
 - File name: `SUP-060-KEY-lineage.png`
 - Target: `public/card-art/superhero/cards/format-key-points/lineage.webp`
 - Owner: Card `format-key-points`
-- Status: planned
+- Status: generated
 - Bio: Grab any one and it works alone. That is what makes it a key point.
 
 ```
@@ -904,7 +904,7 @@ A rack of distinct batons and throwing tools standing in a row, each one separat
 - File name: `SUP-061-SUM-lineage.png`
 - Target: `public/card-art/superhero/cards/format-summary/lineage.webp`
 - Owner: Card `format-summary`
-- Status: planned
+- Status: generated
 - Bio: The top line is the mission. The sediment is the proof it happened.
 
 ```
@@ -918,7 +918,7 @@ A lab flask with the glowing concentrate settled at the very top and the support
 - File name: `SUP-062-SEC-lineage.png`
 - Target: `public/card-art/superhero/cards/format-sections/lineage.webp`
 - Owner: Card `format-sections`
-- Status: planned
+- Status: generated
 - Bio: Every floor has one purpose. The elevator is for readers in a hurry.
 
 ```
@@ -932,7 +932,7 @@ A cutaway skyscraper of stacked floors, each floor a distinct sealed volume with
 - File name: `SUP-063-CIT-lineage.png`
 - Target: `public/card-art/superhero/cards/format-evidence/lineage.webp`
 - Owner: Card `format-evidence`
-- Status: planned
+- Status: generated
 - Bio: If it is not cabled to a vault, it is a rumor with good posture.
 
 ```
@@ -946,7 +946,7 @@ A floating claim slab held by taut cables to sealed evidence vaults below, each 
 - File name: `SUP-064-TAB-lineage.png`
 - Target: `public/card-art/superhero/cards/format-comparison/lineage.webp`
 - Owner: Card `format-comparison`
-- Status: planned
+- Status: generated
 - Bio: Put them on the same struts and the arguing stops on its own.
 
 ```
@@ -960,7 +960,7 @@ Several prototype devices mounted along shared measuring struts on a compact lab
 - File name: `SUP-065-NXT-lineage.png`
 - Target: `public/card-art/superhero/cards/format-next/lineage.webp`
 - Owner: Card `format-next`
-- Status: planned
+- Status: generated
 - Bio: Bay one launches now. The rest hold their heat until called.
 
 ```
@@ -974,7 +974,7 @@ A row of launch bays with ready-markers lit in sequence, the first primed and gl
 - File name: `SUP-066-LEN-lineage.png`
 - Target: `public/card-art/superhero/cards/format-length/lineage.webp`
 - Owner: Card `format-length`
-- Status: planned
+- Status: generated
 - Bio: Exactly to spec, not a millimeter of padding. The vents carry off the rest.
 
 ```
@@ -988,7 +988,7 @@ A hydraulic caliper clamped around a bar of luminous alloy, compressing it to an
 - File name: `SUP-067-TIER-lineage.png`
 - Target: `public/card-art/superhero/cards/format-tiers/lineage.webp`
 - Owner: Card `format-tiers`
-- Status: planned
+- Status: generated
 - Bio: Headline on top, footnotes at the bottom, and every level knows its floor.
 
 ```
@@ -1004,7 +1004,7 @@ A hangar podium of descending platforms, the top platform small and brilliantly 
 - File name: `SUP-068-LVL-lineage.png`
 - Target: `public/card-art/superhero/cards/target-language/lineage.webp`
 - Owner: Card `target-language`
-- Status: planned
+- Status: generated
 - Bio: The tower does not water the message down. It gets it through the walls.
 
 ```
@@ -1018,7 +1018,7 @@ A decoder tower stepping a dense scrambled transmission down through cleaner and
 - File name: `SUP-069-VOC-lineage.png`
 - Target: `public/card-art/superhero/cards/target-voice/lineage.webp`
 - Owner: Card `target-voice`
-- Status: planned
+- Status: generated
 - Bio: Same words, different frequency, different city. The rig picks one and holds it.
 
 ```
@@ -1032,7 +1032,7 @@ A voice modulator rig held in a field of register bands, the selected band ringi
 - File name: `SUP-070-EX-lineage.png`
 - Target: `public/card-art/superhero/cards/target-examples/lineage.webp`
 - Owner: Card `target-examples`
-- Status: planned
+- Status: generated
 - Bio: The big picture is fog until the projector shows one block of it at street level.
 
 ```
@@ -1046,7 +1046,7 @@ A projector rig casting small vivid street-level scenes into the air beneath a l
 - File name: `SUP-071-DCN-lineage.png`
 - Target: `public/card-art/superhero/cards/target-decisions/lineage.webp`
 - Owner: Card `target-decisions`
-- Status: planned
+- Status: generated
 - Bio: Every switch does something downstream. The console exists so someone throws one.
 
 ```
@@ -1060,7 +1060,7 @@ A control console of heavy switches, each one linked by a taut cable to the mach
 - File name: `SUP-072-STN-lineage.png`
 - Target: `public/card-art/superhero/cards/target-stance/lineage.webp`
 - Owner: Card `target-stance`
-- Status: planned
+- Status: generated
 - Bio: Encouraging or unflinching is a setting, not a mood. The dial is set on purpose.
 
 ```
@@ -1076,7 +1076,7 @@ A stance dial set between a hot crimson pole and a cold blue pole, the needle lo
 - File name: `SUP-073-Executive-summary.png`
 - Target: `public/card-art/superhero/archetypes/executive-summary.webp`
 - Owner: Archetype `executive-summary`
-- Status: planned
+- Status: generated
 - Bio: Command reads one slab before the sirens stop. It had better be the right slab.
 
 ```
@@ -1090,7 +1090,7 @@ A command table where a mountain of case files has been distilled to one decisio
 - File name: `SUP-074-Creative-concept.png`
 - Target: `public/card-art/superhero/archetypes/creative-concept.webp`
 - Owner: Archetype `creative-concept`
-- Status: planned
+- Status: generated
 - Bio: Every big idea starts as loose energy. This is where it gets a silhouette.
 
 ```
@@ -1104,7 +1104,7 @@ A concept chamber with a luminous idea suspended in the shaping field, growing s
 - File name: `SUP-075-Note-taker.png`
 - Target: `public/card-art/superhero/archetypes/note-taker.webp`
 - Owner: Archetype `note-taker`
-- Status: planned
+- Status: generated
 - Bio: While everyone watches the fight, something has to watch the facts.
 
 ```
@@ -1118,7 +1118,7 @@ A capture rig turning a chaotic incoming stream of fragments into neat ordered p
 - File name: `SUP-076-Message-email.png`
 - Target: `public/card-art/superhero/archetypes/message-email.webp`
 - Owner: Archetype `message-email`
-- Status: planned
+- Status: generated
 - Bio: The message is short, the tone is chosen, and it lands before the news does.
 
 ```
@@ -1132,7 +1132,7 @@ A comms relay composing one sealed transmission capsule, its tone-tuning ring gl
 - File name: `SUP-077-Prompt-improver.png`
 - Target: `public/card-art/superhero/archetypes/prompt-improver.webp`
 - Owner: Archetype `prompt-improver`
-- Status: planned
+- Status: generated
 - Bio: Same mission, cleaner orders. The parts that got sidekicks confused are on the bench.
 
 ```
@@ -1146,7 +1146,7 @@ A workbench where an old directive core has been stripped down and rebuilt sharp
 - File name: `SUP-078-Learning-guide.png`
 - Target: `public/card-art/superhero/archetypes/learning-guide.webp`
 - Owner: Archetype `learning-guide`
-- Status: planned
+- Status: generated
 - Bio: Every cadet orbits the same idea until it clicks. The path is the syllabus.
 
 ```
@@ -1160,7 +1160,7 @@ A training hologram with a central idea at its heart and a guided path of illumi
 - File name: `SUP-079-App-build-handoff.png`
 - Target: `public/card-art/superhero/archetypes/app-build-handoff.webp`
 - Owner: Archetype `app-build-handoff`
-- Status: planned
+- Status: generated
 - Bio: The builder never phones home. Everything it needs is in the capsule or it fails.
 
 ```
@@ -1174,7 +1174,7 @@ A sealed mission capsule holding a complete self-contained plan, every layer vis
 - File name: `SUP-080-Agent-skill.png`
 - Target: `public/card-art/superhero/archetypes/agent-skill.webp`
 - Owner: Archetype `agent-skill`
-- Status: planned
+- Status: generated
 - Bio: Snap it into any suit: it knows its trigger, its steps, and its hard limits.
 
 ```
@@ -1188,7 +1188,7 @@ A utility-belt cartridge snapped onto a bandolier rail, its trigger face lit, pr
 - File name: `SUP-081-Agent-gate.png`
 - Target: `public/card-art/superhero/archetypes/agent-gate.webp`
 - Owner: Archetype `agent-gate`
-- Status: planned
+- Status: generated
 - Bio: The gate has no friends. That is exactly why the team trusts what it clears.
 
 ```
@@ -1202,7 +1202,7 @@ A judgment gate arch scanning a device passing beneath it, a hard scanning plane
 - File name: `SUP-082-Social-post.png`
 - Target: `public/card-art/superhero/archetypes/social-post.webp`
 - Owner: Archetype `social-post`
-- Status: planned
+- Status: generated
 - Bio: One story, five frequencies. The pod shapes the signal for whoever is listening.
 
 ```
@@ -1216,7 +1216,7 @@ A rooftop signal rig fitted with several interchangeable beacon heads, one selec
 - File name: `SUP-083-Quick-explanation.png`
 - Target: `public/card-art/superhero/archetypes/quick-explanation.webp`
 - Owner: Archetype `quick-explanation`
-- Status: planned
+- Status: generated
 - Bio: No origin story, no montage. Just the answer, lit.
 
 ```
@@ -1230,7 +1230,7 @@ A compact signal watch held up alone, one clear steady beam, nothing around it a
 - File name: `SUP-084-Research-brief.png`
 - Target: `public/card-art/superhero/archetypes/research-brief.webp`
 - Owner: Archetype `research-brief`
-- Status: planned
+- Status: generated
 - Bio: The brief tells command what it knows and exactly how hard it knows it.
 
 ```
@@ -1244,7 +1244,7 @@ A balanced dossier suspended between two evidence pillars, confidence bands rend
 - File name: `SUP-085-Decision-advisor.png`
 - Target: `public/card-art/superhero/archetypes/decision-advisor.webp`
 - Owner: Archetype `decision-advisor`
-- Status: planned
+- Status: generated
 - Bio: Options in, verdict out, trade-offs on the record. The cape is optional.
 
 ```
@@ -1258,7 +1258,7 @@ A war-room weighing console with several mission options mounted on measured arm
 - File name: `SUP-086-Data-analysis.png`
 - Target: `public/card-art/superhero/archetypes/data-analysis.webp`
 - Owner: Archetype `data-analysis`
-- Status: planned
+- Status: generated
 - Bio: The core remembers everything. The analysis remembers what mattered.
 
 ```
@@ -1272,7 +1272,7 @@ A black-box flight recorder cracked open, its contents fanning out into layered 
 - File name: `SUP-087-Risk-premortem.png`
 - Target: `public/card-art/superhero/archetypes/risk-premortem.webp`
 - Owner: Archetype `risk-premortem`
-- Status: planned
+- Status: generated
 - Bio: Run the disaster before it runs you. The tiny cause is always embarrassing.
 
 ```
@@ -1286,7 +1286,7 @@ A collapsed-bridge diorama on the planning table being read in reverse, luminous
 - File name: `SUP-088-Writing-draft.png`
 - Target: `public/card-art/superhero/archetypes/writing-draft.webp`
 - Owner: Archetype `writing-draft`
-- Status: planned
+- Status: generated
 - Bio: First drafts are supposed to have loose threads. Finished is a different issue.
 
 ```
@@ -1300,7 +1300,7 @@ A story loom weaving a first continuous draft out of raw fiber, the fabric clean
 - File name: `SUP-089-Rewrite-polish.png`
 - Target: `public/card-art/superhero/archetypes/rewrite-polish.webp`
 - Owner: Archetype `rewrite-polish`
-- Status: planned
+- Status: generated
 - Bio: Same story, same spine, all shine. The lathe removes; it never invents.
 
 ```
@@ -1314,7 +1314,7 @@ A suit-finishing wheel refining an existing armor piece, dull surface lifting aw
 - File name: `SUP-090-Critique-review.png`
 - Target: `public/card-art/superhero/archetypes/critique-review.webp`
 - Owner: Archetype `critique-review`
-- Status: planned
+- Status: generated
 - Bio: Every flaw gets a flag. Only one gets the hot flag. Start there.
 
 ```
@@ -1328,7 +1328,7 @@ An inspection bay with a device held in restraints, prioritized flag-markers pla
 - File name: `SUP-091-Presentation-outline.png`
 - Target: `public/card-art/superhero/archetypes/presentation-outline.webp`
 - Owner: Archetype `presentation-outline`
-- Status: planned
+- Status: generated
 - Bio: The pitch lands panel by panel, and the line through them never breaks.
 
 ```
@@ -1342,7 +1342,7 @@ A run of floating briefing screens receding in sequence across the war room, eac
 - File name: `SUP-092-Project-plan.png`
 - Target: `public/card-art/superhero/archetypes/build-plan.webp`
 - Owner: Archetype `build-plan`
-- Status: planned
+- Status: generated
 - Bio: The tower goes up in stages, and every stage knows exactly whose signal it waits on.
 
 ```
@@ -1356,7 +1356,7 @@ A headquarters tower rising in ordered construction stages with milestone beacon
 - File name: `SUP-093-Spec-PRD.png`
 - Target: `public/card-art/superhero/archetypes/spec-prd.webp`
 - Owner: Archetype `spec-prd`
-- Status: planned
+- Status: generated
 - Bio: The build argues with nobody. It argues with the plates, and the plates win.
 
 ```
@@ -1370,7 +1370,7 @@ A contract vault with requirement plates bolted around its core, each plate seat
 - File name: `SUP-094-Code-implementation.png`
 - Target: `public/card-art/superhero/archetypes/coding.webp`
 - Owner: Archetype `coding`
-- Status: planned
+- Status: generated
 - Bio: Built and tested in the same breath. The probes never wait for a demo.
 
 ```
@@ -1384,7 +1384,7 @@ An auto-forge in the hero's lab assembling a working gadget piece by piece, stru
 - File name: `SUP-095-Debug-fix.png`
 - Target: `public/card-art/superhero/archetypes/technical-troubleshoot.webp`
 - Owner: Archetype `technical-troubleshoot`
-- Status: planned
+- Status: generated
 - Bio: Find the break, fix the break, prove the fix. Drama is for the villains.
 
 ```
@@ -1398,7 +1398,7 @@ A hangar bay with the team's jet opened up and one traced fault line glowing alo
 - File name: `SUP-096-Explain-code.png`
 - Target: `public/card-art/superhero/archetypes/explain-code.webp`
 - Owner: Archetype `explain-code`
-- Status: planned
+- Status: generated
 - Bio: Any machine confesses if you walk it slowly enough. This one walks in order.
 
 ```
@@ -1412,7 +1412,7 @@ A training-room projector stepping through a captured villain device one stage a
 - File name: `SUP-097-Extract-to-data.png`
 - Target: `public/card-art/superhero/archetypes/extract-data.webp`
 - Owner: Archetype `extract-data`
-- Status: planned
+- Status: generated
 - Bio: Chaos in, columns out. The rack does not accept almost-matching shapes.
 
 ```
@@ -1428,7 +1428,7 @@ An extractor drawing clean uniform structured shards out of raw unsorted wreckag
 - File name: `SUP-098-Custom-preset-swatch.png`
 - Target: `public/card-art/superhero/shared/custom-preset.webp`
 - Owner: prompt-custom-archetypes.ts
-- Status: planned
+- Status: generated
 - Bio: A blank loadout waiting for your fingerprints. Fill the slots and it deploys like you.
 
 ```
@@ -1450,7 +1450,7 @@ without these. Generate a grade here to override its card face.
 - File name: `SUP-099-SCP-1-Situation-Snapshot.png`
 - Target: `public/card-art/superhero/cards/context-scope/grade-01.webp`
 - Owner: Card `context-scope` grade `Situation Snapshot`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1463,7 +1463,7 @@ A searchlight holding a small tight pool around a single doorway, only the pavem
 - File name: `SUP-100-SCP-2-Working-Brief.png`
 - Target: `public/card-art/superhero/cards/context-scope/grade-02.webp`
 - Owner: Card `context-scope` grade `Working Brief`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1476,7 +1476,7 @@ A searchlight with its pool widened to take in the nearby block it may draw on, 
 - File name: `SUP-101-SCP-3-Decision-Context.png`
 - Target: `public/card-art/superhero/cards/context-scope/grade-03.webp`
 - Owner: Card `context-scope` grade `Decision Context`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1489,7 +1489,7 @@ A searchlight lighting a broad stretch of streets with bystander markers standin
 - File name: `SUP-102-SCP-4-Complete-Operating-Picture.png`
 - Target: `public/card-art/superhero/cards/context-scope/grade-04.webp`
 - Owner: Card `context-scope` grade `Complete Operating Picture`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1502,7 +1502,7 @@ A searchlight bank fully powered, its beams thrown to the skyline so the whole d
 - File name: `SUP-103-SRC-1-Given-As-True.png`
 - Target: `public/card-art/superhero/cards/context-evidence/grade-01.webp`
 - Owner: Card `context-evidence` grade `Given As True`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1515,7 +1515,7 @@ An evidence board with claims pinned and accepted as given, the connecting threa
 - File name: `SUP-104-SRC-2-Source-Support.png`
 - Target: `public/card-art/superhero/cards/context-evidence/grade-02.webp`
 - Owner: Card `context-evidence` grade `Source Support`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1528,7 +1528,7 @@ An evidence board with threads run from the load-bearing claims down to a few so
 - File name: `SUP-105-SRC-3-Corroborated-Sources.png`
 - Target: `public/card-art/superhero/cards/context-evidence/grade-03.webp`
 - Owner: Card `context-evidence` grade `Corroborated Sources`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1541,7 +1541,7 @@ An evidence board where each key claim is cross-braced by several converging thr
 - File name: `SUP-106-SRC-4-Audit-Trail.png`
 - Target: `public/card-art/superhero/cards/context-evidence/grade-04.webp`
 - Owner: Card `context-evidence` grade `Audit Trail`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1554,7 +1554,7 @@ An evidence board threaded end to end, conflicting threads held deliberately apa
 - File name: `SUP-107-LIM-1-Basic-Limits.png`
 - Target: `public/card-art/superhero/cards/context-constraints/grade-01.webp`
 - Owner: Card `context-constraints` grade `Basic Limits`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1567,7 +1567,7 @@ A pair of containment clamps resting lightly at the edges of an energy core, bar
 - File name: `SUP-108-LIM-2-Operating-Limits.png`
 - Target: `public/card-art/superhero/cards/context-constraints/grade-02.webp`
 - Owner: Card `context-constraints` grade `Operating Limits`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1580,7 +1580,7 @@ Four containment clamps closed on an energy core, compressing it to a smaller pr
 - File name: `SUP-109-LIM-3-Constraint-Map.png`
 - Target: `public/card-art/superhero/cards/context-constraints/grade-03.webp`
 - Owner: Card `context-constraints` grade `Constraint Map`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1593,7 +1593,7 @@ Hard steel clamps locked tight while softer preference-markers sit visibly separ
 - File name: `SUP-110-LIM-4-Boundary-Conditions.png`
 - Target: `public/card-art/superhero/cards/context-constraints/grade-04.webp`
 - Owner: Card `context-constraints` grade `Boundary Conditions`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1606,7 +1606,7 @@ A full cage of containment clamps around a core with stress readouts glowing at 
 - File name: `SUP-111-ASM-1-Working-Assumptions.png`
 - Target: `public/card-art/superhero/cards/context-assumptions/grade-01.webp`
 - Owner: Card `context-assumptions` grade `Working Assumptions`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1619,7 +1619,7 @@ A frame with a few translucent holographic girders plainly visible among the sol
 - File name: `SUP-112-ASM-2-Assumption-Check.png`
 - Target: `public/card-art/superhero/cards/context-assumptions/grade-02.webp`
 - Owner: Card `context-assumptions` grade `Assumption Check`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1632,7 +1632,7 @@ A frame where the load-bearing holographic girders pulse with warning light, mar
 - File name: `SUP-113-ASM-3-Assumption-Register.png`
 - Target: `public/card-art/superhero/cards/context-assumptions/grade-03.webp`
 - Owner: Card `context-assumptions` grade `Assumption Register`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1645,7 +1645,7 @@ A frame where every holographic girder carries its own base-plate and a conseque
 - File name: `SUP-114-ASM-4-Uncertainty-Model.png`
 - Target: `public/card-art/superhero/cards/context-assumptions/grade-04.webp`
 - Owner: Card `context-assumptions` grade `Uncertainty Model`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1658,7 +1658,7 @@ A frame of holographic girders ranked by size and brightness, tilt-lines project
 - File name: `SUP-115-WIN-1-Done-Means.png`
 - Target: `public/card-art/superhero/cards/context-success/grade-01.webp`
 - Owner: Card `context-success` grade `Done Means`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1671,7 +1671,7 @@ A simple range target with the needle resting quietly on its ring, one clear mar
 - File name: `SUP-116-WIN-2-Success-Check.png`
 - Target: `public/card-art/superhero/cards/context-success/grade-02.webp`
 - Owner: Card `context-success` grade `Success Check`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1684,7 +1684,7 @@ A range gauge locked into the green with the pass threshold scored sharply on it
 - File name: `SUP-117-WIN-3-Success-Criteria.png`
 - Target: `public/card-art/superhero/cards/context-success/grade-03.webp`
 - Owner: Card `context-success` grade `Success Criteria`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1697,7 +1697,7 @@ A bank of range gauges mounted together, pass zones lit green and failure zones 
 - File name: `SUP-118-WIN-4-Evaluation-Framework.png`
 - Target: `public/card-art/superhero/cards/context-success/grade-04.webp`
 - Owner: Card `context-success` grade `Evaluation Framework`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1710,7 +1710,7 @@ A full wall of range gauges and graded measures, thresholds etched into each dia
 - File name: `SUP-119-OUT-1-No-Go-List.png`
 - Target: `public/card-art/superhero/cards/context-exclusions/grade-01.webp`
 - Owner: Card `context-exclusions` grade `No-Go List`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1723,7 +1723,7 @@ A checkpoint barricade shunting a few marked vehicles aside into a small dark ho
 - File name: `SUP-120-OUT-2-Scope-Fence.png`
 - Target: `public/card-art/superhero/cards/context-exclusions/grade-02.webp`
 - Owner: Card `context-exclusions` grade `Scope Fence`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1736,7 +1736,7 @@ A checkpoint holding a clean lit line across the road, the traffic kept firmly o
 - File name: `SUP-121-OUT-3-Anti-Goals.png`
 - Target: `public/card-art/superhero/cards/context-exclusions/grade-03.webp`
 - Owner: Card `context-exclusions` grade `Anti-Goals`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1749,7 +1749,7 @@ A checkpoint as a hard sealed barrier with turned-away shapes visibly pressed up
 - File name: `SUP-122-OUT-4-Drift-Alarm.png`
 - Target: `public/card-art/superhero/cards/context-exclusions/grade-04.webp`
 - Owner: Card `context-exclusions` grade `Drift Alarm`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1764,7 +1764,7 @@ A checkpoint firing actively, alarm light sweeping the road, an escaping runner 
 - File name: `SUP-123-INS-1-Guided-Review.png`
 - Target: `public/card-art/superhero/cards/action-inspect/grade-01.webp`
 - Owner: Card `action-inspect` grade `Guided Review`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1777,7 +1777,7 @@ A detective's lens following a single pointed line across a disassembled device,
 - File name: `SUP-124-INS-2-Checklist-Inspection.png`
 - Target: `public/card-art/superhero/cards/action-inspect/grade-02.webp`
 - Owner: Card `action-inspect` grade `Checklist Inspection`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1790,7 +1790,7 @@ A detective's lens stepping across marked checkpoints in sequence along a disass
 - File name: `SUP-125-INS-3-Independent-Inspection.png`
 - Target: `public/card-art/superhero/cards/action-inspect/grade-03.webp`
 - Owner: Card `action-inspect` grade `Independent Inspection`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1803,7 +1803,7 @@ A detective's lens roaming a disassembled device on its own arm, several gaps an
 - File name: `SUP-126-INS-4-Full-Audit.png`
 - Target: `public/card-art/superhero/cards/action-inspect/grade-04.webp`
 - Owner: Card `action-inspect` grade `Full Audit`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1816,7 +1816,7 @@ A device fully laid out under a bank of lenses, every part lit and measured at o
 - File name: `SUP-127-ANL-1-Pattern-Read.png`
 - Target: `public/card-art/superhero/cards/action-analyze/grade-01.webp`
 - Owner: Card `action-analyze` grade `Pattern Read`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1829,7 +1829,7 @@ A forensics column resolving a mixed sample into two or three clean luminous ban
 - File name: `SUP-128-ANL-2-Rival-Explanations.png`
 - Target: `public/card-art/superhero/cards/action-analyze/grade-02.webp`
 - Owner: Card `action-analyze` grade `Rival Explanations`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1842,7 +1842,7 @@ Two forensics columns held side by side, a candidate band-pattern in each, the r
 - File name: `SUP-129-ANL-3-Critical-Analysis.png`
 - Target: `public/card-art/superhero/cards/action-analyze/grade-03.webp`
 - Owner: Card `action-analyze` grade `Critical Analysis`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1855,7 +1855,7 @@ A forensics column driven harder until the assumptions inside crack apart into v
 - File name: `SUP-130-ANL-4-Adversarial-Analysis.png`
 - Target: `public/card-art/superhero/cards/action-analyze/grade-04.webp`
 - Owner: Card `action-analyze` grade `Adversarial Analysis`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1868,7 +1868,7 @@ A forensics column run to its extremes, the residue searched for the one disconf
 - File name: `SUP-131-CMP-1-Options-on-the-Table.png`
 - Target: `public/card-art/superhero/cards/action-compare/grade-01.webp`
 - Owner: Card `action-compare` grade `Options on the Table`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1881,7 +1881,7 @@ A lab balance with two devices simply laid on its pans, the beam still level, di
 - File name: `SUP-132-CMP-2-Framed-Comparison.png`
 - Target: `public/card-art/superhero/cards/action-compare/grade-02.webp`
 - Owner: Card `action-compare` grade `Framed Comparison`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1894,7 +1894,7 @@ A lab balance with a measuring beam sighted across both devices against criteria
 - File name: `SUP-133-CMP-3-Weighted-Comparison.png`
 - Target: `public/card-art/superhero/cards/action-compare/grade-03.webp`
 - Owner: Card `action-compare` grade `Weighted Comparison`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1907,7 +1907,7 @@ A lab balance with calibrated weights added along its arms, the tilt now decisiv
 - File name: `SUP-134-CMP-4-Decision-Matrix.png`
 - Target: `public/card-art/superhero/cards/action-compare/grade-04.webp`
 - Owner: Card `action-compare` grade `Decision Matrix`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1920,7 +1920,7 @@ A full array of balance pans on scored arms, every device measured against every
 - File name: `SUP-135-BLD-1-Draft-Together.png`
 - Target: `public/card-art/superhero/cards/action-create/grade-01.webp`
 - Owner: Card `action-create` grade `Draft Together`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1933,7 +1933,7 @@ A gantry arm holding a rough unfinished armature, open questions sparking at the
 - File name: `SUP-136-BLD-2-Build-to-Plan.png`
 - Target: `public/card-art/superhero/cards/action-create/grade-02.webp`
 - Owner: Card `action-create` grade `Build to Plan`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1946,7 +1946,7 @@ A gantry arm building precisely along a projected plan, following its guide-line
 - File name: `SUP-137-BLD-3-Independent-Build.png`
 - Target: `public/card-art/superhero/cards/action-create/grade-03.webp`
 - Owner: Card `action-create` grade `Independent Build`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1959,7 +1959,7 @@ A gantry arm working with no plan projected, filling the silent gaps with its ow
 - File name: `SUP-138-BLD-4-End-to-End-Delivery.png`
 - Target: `public/card-art/superhero/cards/action-create/grade-04.webp`
 - Owner: Card `action-create` grade `End-to-End Delivery`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1972,7 +1972,7 @@ A finished gadget released from the gantry cradle, verified and lit, the arm alr
 - File name: `SUP-139-REC-1-Directions.png`
 - Target: `public/card-art/superhero/cards/action-recommend/grade-01.webp`
 - Owner: Card `action-recommend` grade `Directions`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1985,7 +1985,7 @@ A rail-yard switch with several branching tracks all lit equally, none chosen, e
 - File name: `SUP-140-REC-2-Practical-Pick.png`
 - Target: `public/card-art/superhero/cards/action-recommend/grade-02.webp`
 - Owner: Card `action-recommend` grade `Practical Pick`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -1998,7 +1998,7 @@ A rail-yard with one track selected and the constraint gates it fits standing op
 - File name: `SUP-141-REC-3-Backed-Recommendation.png`
 - Target: `public/card-art/superhero/cards/action-recommend/grade-03.webp`
 - Owner: Card `action-recommend` grade `Backed Recommendation`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2011,7 +2011,7 @@ A rail-yard with the chosen track blazing, the runner-up dimmed but still visibl
 - File name: `SUP-142-REC-4-Full-Conviction.png`
 - Target: `public/card-art/superhero/cards/action-recommend/grade-04.webp`
 - Owner: Card `action-recommend` grade `Full Conviction`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2024,7 +2024,7 @@ A rail-yard with the switch thrown hard, a single track blazing full length and 
 - File name: `SUP-143-TST-1-Sanity-Pass.png`
 - Target: `public/card-art/superhero/cards/action-verify/grade-01.webp`
 - Owner: Card `action-verify` grade `Sanity Pass`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2037,7 +2037,7 @@ A scanner gate running a gadget through one quick pass, an obvious flaw catching
 - File name: `SUP-144-TST-2-Criteria-Check.png`
 - Target: `public/card-art/superhero/cards/action-verify/grade-02.webp`
 - Owner: Card `action-verify` grade `Criteria Check`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2050,7 +2050,7 @@ A line of scanner gates lighting pass or fail in turn as the gadget travels the 
 - File name: `SUP-145-TST-3-Stress-Test.png`
 - Target: `public/card-art/superhero/cards/action-verify/grade-03.webp`
 - Owner: Card `action-verify` grade `Stress Test`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2063,7 +2063,7 @@ A scanner course pushing a gadget past its normal load, the seams and joints glo
 - File name: `SUP-146-TST-4-Red-Team.png`
 - Target: `public/card-art/superhero/cards/action-verify/grade-04.webp`
 - Owner: Card `action-verify` grade `Red Team`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2076,7 +2076,7 @@ A scanner course turned hostile, attacking the gadget from every side at once li
 - File name: `SUP-147-SMR-1-Key-Points-Pull.png`
 - Target: `public/card-art/superhero/cards/action-summarize/grade-01.webp`
 - Owner: Card `action-summarize` grade `Key Points Pull`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2089,7 +2089,7 @@ A compactor lifting a few key items cleanly out of a tall stack of case material
 - File name: `SUP-148-SMR-2-Faithful-Summary.png`
 - Target: `public/card-art/superhero/cards/action-summarize/grade-02.webp`
 - Owner: Card `action-summarize` grade `Faithful Summary`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2102,7 +2102,7 @@ A compactor reducing a stack evenly, the original proportions still readable in 
 - File name: `SUP-149-SMR-3-Decision-Summary.png`
 - Target: `public/card-art/superhero/cards/action-summarize/grade-03.webp`
 - Owner: Card `action-summarize` grade `Decision Summary`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2115,7 +2115,7 @@ A compactor with the decision-critical layer pulled bright to the top and the re
 - File name: `SUP-150-SMR-4-Executive-Distillation.png`
 - Target: `public/card-art/superhero/cards/action-summarize/grade-04.webp`
 - Owner: Card `action-summarize` grade `Executive Distillation`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2128,7 +2128,7 @@ A compactor yielding one brilliant dense chip, the enormous source volume behind
 - File name: `SUP-151-RES-1-Supplied-Sources.png`
 - Target: `public/card-art/superhero/cards/action-research/grade-01.webp`
 - Owner: Card `action-research` grade `Supplied Sources`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2141,7 +2141,7 @@ A sweep dish pointed at a few supplied sources, the dark gaps between them plain
 - File name: `SUP-152-RES-2-Targeted-Lookup.png`
 - Target: `public/card-art/superhero/cards/action-research/grade-02.webp`
 - Owner: Card `action-research` grade `Targeted Lookup`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2154,7 +2154,7 @@ A sweep dish firing narrow targeted beams into specific gaps, each return tagged
 - File name: `SUP-153-RES-3-Open-Research.png`
 - Target: `public/card-art/superhero/cards/action-research/grade-03.webp`
 - Owner: Card `action-research` grade `Open Research`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2167,7 +2167,7 @@ A sweep dish scanning wide across the open dark on its own initiative, weighing 
 - File name: `SUP-154-RES-4-Deep-Investigation.png`
 - Target: `public/card-art/superhero/cards/action-research/grade-04.webp`
 - Owner: Card `action-research` grade `Deep Investigation`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2180,7 +2180,7 @@ A sweep dish with several beams converging to corroborate one distant return, co
 - File name: `SUP-155-PLN-1-Rough-Outline.png`
 - Target: `public/card-art/superhero/cards/action-plan/grade-01.webp`
 - Owner: Card `action-plan` grade `Rough Outline`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2193,7 +2193,7 @@ A heist-board with a few mission markers set loosely along its timeline in a sen
 - File name: `SUP-156-PLN-2-Sequenced-Plan.png`
 - Target: `public/card-art/superhero/cards/action-plan/grade-02.webp`
 - Owner: Card `action-plan` grade `Sequenced Plan`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2206,7 +2206,7 @@ A heist-board with ordered markers, dependency lines drawn taut between them and
 - File name: `SUP-157-PLN-3-Delivery-Plan.png`
 - Target: `public/card-art/superhero/cards/action-plan/grade-03.webp`
 - Owner: Card `action-plan` grade `Delivery Plan`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2219,7 +2219,7 @@ A heist-board phased into grouped stages with milestone gates and verification c
 - File name: `SUP-158-PLN-4-Executable-Program.png`
 - Target: `public/card-art/superhero/cards/action-plan/grade-04.webp`
 - Owner: Card `action-plan` grade `Executable Program`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2232,7 +2232,7 @@ A heist-board fully built out and running itself, every marker firing in order w
 - File name: `SUP-159-IDE-1-Quick-Options.png`
 - Target: `public/card-art/superhero/cards/action-ideate/grade-01.webp`
 - Owner: Card `action-ideate` grade `Quick Options`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2245,7 +2245,7 @@ An idea coil throwing off a small handful of distinct starting forms.
 - File name: `SUP-160-IDE-2-Divergent-Set.png`
 - Target: `public/card-art/superhero/cards/action-ideate/grade-02.webp`
 - Owner: Card `action-ideate` grade `Divergent Set`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2258,7 +2258,7 @@ An idea coil flinging many genuinely different shapes wide, no two alike anywher
 - File name: `SUP-161-IDE-3-Explore-and-Converge.png`
 - Target: `public/card-art/superhero/cards/action-ideate/grade-03.webp`
 - Owner: Card `action-ideate` grade `Explore and Converge`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2271,7 +2271,7 @@ An idea coil mid-burst with the strongest few forms already pulled together into
 - File name: `SUP-162-IDE-4-Creative-Sweep.png`
 - Target: `public/card-art/superhero/cards/action-ideate/grade-04.webp`
 - Owner: Card `action-ideate` grade `Creative Sweep`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2284,7 +2284,7 @@ An idea coil showing its full spectrum from safe compact forms to wild irregular
 - File name: `SUP-163-EXP-1-Direct-Answer.png`
 - Target: `public/card-art/superhero/cards/action-explain/grade-01.webp`
 - Owner: Card `action-explain` grade `Direct Answer`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2297,7 +2297,7 @@ A holo-table showing a single part in isolation, the rest of the gadget still fo
 - File name: `SUP-164-EXP-2-Guided-Walkthrough.png`
 - Target: `public/card-art/superhero/cards/action-explain/grade-02.webp`
 - Owner: Card `action-explain` grade `Guided Walkthrough`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2310,7 +2310,7 @@ A holo-table unfolding parts one at a time along a lit path, each step following
 - File name: `SUP-165-EXP-3-Deep-Explanation.png`
 - Target: `public/card-art/superhero/cards/action-explain/grade-03.webp`
 - Owner: Card `action-explain` grade `Deep Explanation`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2323,7 +2323,7 @@ A holo-table with the gadget fully open, the hidden linkage exposed and one trap
 - File name: `SUP-166-EXP-4-Full-Teaching-Pass.png`
 - Target: `public/card-art/superhero/cards/action-explain/grade-04.webp`
 - Owner: Card `action-explain` grade `Full Teaching Pass`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2336,7 +2336,7 @@ A holo-table with everything unfolded and further branches still opening outward
 - File name: `SUP-167-ASK-1-Full-Interview.png`
 - Target: `public/card-art/superhero/cards/action-clarify/grade-01.webp`
 - Owner: Card `action-clarify` grade `Full Interview`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2349,7 +2349,7 @@ A signal flare firing many pulses in patient batches into a dark gap, its outlin
 - File name: `SUP-168-ASK-2-95-Confidence-Check.png`
 - Target: `public/card-art/superhero/cards/action-clarify/grade-02.webp`
 - Owner: Card `action-clarify` grade `95% Confidence Check`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2362,7 +2362,7 @@ A signal flare still pulsing at a gap that is nearly closed, only a thin sliver 
 - File name: `SUP-169-ASK-3-Blocking-Questions-Only.png`
 - Target: `public/card-art/superhero/cards/action-clarify/grade-03.webp`
 - Owner: Card `action-clarify` grade `Blocking Questions Only`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2375,7 +2375,7 @@ A signal flare sending one single hard pulse into the one gap that actually bloc
 - File name: `SUP-170-ASK-4-Assume-Log.png`
 - Target: `public/card-art/superhero/cards/action-clarify/grade-04.webp`
 - Owner: Card `action-clarify` grade `Assume & Log`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2390,7 +2390,7 @@ A signal flare gone dark, the gap bridged instead by a placed assumption block w
 - File name: `SUP-171-INF-1-Plain-Answer.png`
 - Target: `public/card-art/superhero/cards/format-info-card/grade-01.webp`
 - Owner: Card `format-info-card` grade `Plain Answer`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2403,7 +2403,7 @@ A single answer placard standing bare in the dark, its steel face plain and unor
 - File name: `SUP-172-INF-2-Answer-Card.png`
 - Target: `public/card-art/superhero/cards/format-info-card/grade-02.webp`
 - Owner: Card `format-info-card` grade `Answer Card`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2416,7 +2416,7 @@ A single answer slab tightened down, its essentials arranged in one clean scanna
 - File name: `SUP-173-INF-3-Information-Brief.png`
 - Target: `public/card-art/superhero/cards/format-info-card/grade-03.webp`
 - Owner: Card `format-info-card` grade `Information Brief`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2429,7 +2429,7 @@ A thicker answer placard with context strata visible in its cut steel edge, laye
 - File name: `SUP-174-INF-4-Reference-Piece.png`
 - Target: `public/card-art/superhero/cards/format-info-card/grade-04.webp`
 - Owner: Card `format-info-card` grade `Reference Piece`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2442,7 +2442,7 @@ A substantial steel reference monolith with caveat notches cut into its margin a
 - File name: `SUP-175-KEY-1-Loose-Bullets.png`
 - Target: `public/card-art/superhero/cards/format-key-points/grade-01.webp`
 - Owner: Card `format-key-points` grade `Loose Bullets`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2455,7 +2455,7 @@ A rack holding a few batons leaning loosely, unaligned but separate.
 - File name: `SUP-176-KEY-2-Grouped-Points.png`
 - Target: `public/card-art/superhero/cards/format-key-points/grade-02.webp`
 - Owner: Card `format-key-points` grade `Grouped Points`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2468,7 +2468,7 @@ A rack of batons clustered into marked groups, related tools standing together.
 - File name: `SUP-177-KEY-3-Sectioned-Points.png`
 - Target: `public/card-art/superhero/cards/format-key-points/grade-03.webp`
 - Owner: Card `format-key-points` grade `Sectioned Points`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2481,7 +2481,7 @@ A full rack of batons arranged into clearly divided marked sections.
 - File name: `SUP-178-KEY-4-Checklist-Discipline.png`
 - Target: `public/card-art/superhero/cards/format-key-points/grade-04.webp`
 - Owner: Card `format-key-points` grade `Checklist Discipline`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2494,7 +2494,7 @@ A rack of uniform atomic batons, each identical in size with a tick-notch cut in
 - File name: `SUP-179-SUM-1-One-Liner.png`
 - Target: `public/card-art/superhero/cards/format-summary/grade-01.webp`
 - Owner: Card `format-summary` grade `One-Liner`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2507,7 +2507,7 @@ A lab flask holding one bright drop suspended at the very top.
 - File name: `SUP-180-SUM-2-Quick-Summary.png`
 - Target: `public/card-art/superhero/cards/format-summary/grade-02.webp`
 - Owner: Card `format-summary` grade `Quick Summary`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2520,7 +2520,7 @@ A lab flask with a small clear band of concentrate floating above the settled se
 - File name: `SUP-181-SUM-3-Executive-Summary.png`
 - Target: `public/card-art/superhero/cards/format-summary/grade-03.webp`
 - Owner: Card `format-summary` grade `Executive Summary`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2533,7 +2533,7 @@ A lab flask with a thick lit layer of findings and an implication channel runnin
 - File name: `SUP-182-SUM-4-Standalone-Abstract.png`
 - Target: `public/card-art/superhero/cards/format-summary/grade-04.webp`
 - Owner: Card `format-summary` grade `Standalone Abstract`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2546,7 +2546,7 @@ A sealed self-contained lab flask, complete on its own, needing nothing outside 
 - File name: `SUP-183-SEC-1-Natural-Flow.png`
 - Target: `public/card-art/superhero/cards/format-sections/grade-01.webp`
 - Owner: Card `format-sections` grade `Natural Flow`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2559,7 +2559,7 @@ A mostly continuous building with only one or two floors divided where they genu
 - File name: `SUP-184-SEC-2-Clear-Sections.png`
 - Target: `public/card-art/superhero/cards/format-sections/grade-02.webp`
 - Owner: Card `format-sections` grade `Clear Sections`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2572,7 +2572,7 @@ A building divided into evenly spaced floors, each one distinct and separately l
 - File name: `SUP-185-SEC-3-Set-Sequence.png`
 - Target: `public/card-art/superhero/cards/format-sections/grade-03.webp`
 - Owner: Card `format-sections` grade `Set Sequence`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2585,7 +2585,7 @@ A building of floors in a fixed ordered stack, every level present and none skip
 - File name: `SUP-186-SEC-4-Locked-Template.png`
 - Target: `public/card-art/superhero/cards/format-sections/grade-04.webp`
 - Owner: Card `format-sections` grade `Locked Template`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2598,7 +2598,7 @@ A building machined to an exact template, floor seams flush and sealed, nothing 
 - File name: `SUP-187-CIT-1-Source-Notes.png`
 - Target: `public/card-art/superhero/cards/format-evidence/grade-01.webp`
 - Owner: Card `format-evidence` grade `Source Notes`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2611,7 +2611,7 @@ A floating claim slab with a couple of cables dropped to the strongest evidence 
 - File name: `SUP-188-CIT-2-Linked-Sources.png`
 - Target: `public/card-art/superhero/cards/format-evidence/grade-02.webp`
 - Owner: Card `format-evidence` grade `Linked Sources`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2624,7 +2624,7 @@ Several floating claim slabs each cabled inline to its own vault, lines short an
 - File name: `SUP-189-CIT-3-Evidence-Notes.png`
 - Target: `public/card-art/superhero/cards/format-evidence/grade-03.webp`
 - Owner: Card `format-evidence` grade `Evidence Notes`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2637,7 +2637,7 @@ Anchor cables rendered at visible thicknesses, each line's width showing the wei
 - File name: `SUP-190-CIT-4-Citation-Record.png`
 - Target: `public/card-art/superhero/cards/format-evidence/grade-04.webp`
 - Owner: Card `format-evidence` grade `Citation Record`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2650,7 +2650,7 @@ Every claim cabled to a vault, with inference lines rendered distinctly as dashe
 - File name: `SUP-191-TAB-1-Option-Notes.png`
 - Target: `public/card-art/superhero/cards/format-comparison/grade-01.webp`
 - Owner: Card `format-comparison` grade `Option Notes`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2663,7 +2663,7 @@ Several prototypes standing separated in the dark, clearly apart from each other
 - File name: `SUP-192-TAB-2-Comparison-Table.png`
 - Target: `public/card-art/superhero/cards/format-comparison/grade-02.webp`
 - Owner: Card `format-comparison` grade `Comparison Table`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2676,7 +2676,7 @@ A compact strut rig with the prototypes mounted on it and the key measuring axes
 - File name: `SUP-193-TAB-3-Decision-Table.png`
 - Target: `public/card-art/superhero/cards/format-comparison/grade-03.webp`
 - Owner: Card `format-comparison` grade `Decision Table`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2689,7 +2689,7 @@ A strut rig with criteria markers along its edges and the winning row glowing ac
 - File name: `SUP-194-TAB-4-Evaluation-Matrix.png`
 - Target: `public/card-art/superhero/cards/format-comparison/grade-04.webp`
 - Owner: Card `format-comparison` grade `Evaluation Matrix`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2702,7 +2702,7 @@ A dense lattice of weighted cells with scored intersections and a ranked verdict
 - File name: `SUP-195-NXT-1-Next-Move.png`
 - Target: `public/card-art/superhero/cards/format-next/grade-01.webp`
 - Owner: Card `format-next` grade `Next Move`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2715,7 +2715,7 @@ A launch row with a single bay primed and glowing hot at its head.
 - File name: `SUP-196-NXT-2-Next-Steps.png`
 - Target: `public/card-art/superhero/cards/format-next/grade-02.webp`
 - Owner: Card `format-next` grade `Next Steps`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2728,7 +2728,7 @@ A launch row with a short ordered run of bays lit in sequence down its length.
 - File name: `SUP-197-NXT-3-Prioritized-Actions.png`
 - Target: `public/card-art/superhero/cards/format-next/grade-03.webp`
 - Owner: Card `format-next` grade `Prioritized Actions`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2741,7 +2741,7 @@ A launch row with bays ranked by heat, owner tags clipped to the hottest ones.
 - File name: `SUP-198-NXT-4-Execution-Handoff.png`
 - Target: `public/card-art/superhero/cards/format-next/grade-04.webp`
 - Owner: Card `format-next` grade `Execution Handoff`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2754,7 +2754,7 @@ A launch row fully loaded and released, running its whole sequence with no opera
 - File name: `SUP-199-LEN-1-Tight-Budget.png`
 - Target: `public/card-art/superhero/cards/format-length/grade-01.webp`
 - Owner: Card `format-length` grade `Tight Budget`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2767,7 +2767,7 @@ A hydraulic caliper clamped hard on a bar of luminous alloy, a heavy offcut vent
 - File name: `SUP-200-LEN-2-One-Screen.png`
 - Target: `public/card-art/superhero/cards/format-length/grade-02.webp`
 - Owner: Card `format-length` grade `One Screen`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2780,7 +2780,7 @@ A hydraulic caliper holding alloy to a single dense measure, compact and fully p
 - File name: `SUP-201-LEN-3-Room-to-Explain.png`
 - Target: `public/card-art/superhero/cards/format-length/grade-03.webp`
 - Owner: Card `format-length` grade `Room to Explain`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2793,7 +2793,7 @@ A hydraulic caliper opened to the alloy's natural width, the space spent on subs
 - File name: `SUP-202-LEN-4-Complete-Treatment.png`
 - Target: `public/card-art/superhero/cards/format-length/grade-04.webp`
 - Owner: Card `format-length` grade `Complete Treatment`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2806,7 +2806,7 @@ A hydraulic caliper opened wide but stopping exactly at the alloy's true edge, c
 - File name: `SUP-203-TIER-1-Essentials-First.png`
 - Target: `public/card-art/superhero/cards/format-tiers/grade-01.webp`
 - Owner: Card `format-tiers` grade `Essentials First`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2819,7 +2819,7 @@ A hangar podium with one small brilliantly lit top platform and the depth below 
 - File name: `SUP-204-TIER-2-Three-Tiers.png`
 - Target: `public/card-art/superhero/cards/format-tiers/grade-02.webp`
 - Owner: Card `format-tiers` grade `Three Tiers`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2832,7 +2832,7 @@ A hangar podium of three clean descending platforms, each one clearly separated 
 - File name: `SUP-205-TIER-3-Tiered-Sections.png`
 - Target: `public/card-art/superhero/cards/format-tiers/grade-03.webp`
 - Owner: Card `format-tiers` grade `Tiered Sections`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2845,7 +2845,7 @@ A hangar podium of three marked platforms with every item visibly assigned to on
 - File name: `SUP-206-TIER-4-Locked-Tier-Hierarchy.png`
 - Target: `public/card-art/superhero/cards/format-tiers/grade-04.webp`
 - Owner: Card `format-tiers` grade `Locked Tier Hierarchy`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2860,7 +2860,7 @@ A strictly machined terrace of platforms with hard edges, nothing resting anywhe
 - File name: `SUP-207-LVL-1-First-Contact.png`
 - Target: `public/card-art/superhero/cards/target-language/grade-01.webp`
 - Owner: Card `target-language` grade `First Contact`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2873,7 +2873,7 @@ A decoder tower stepping its signal all the way down to the simplest broadest st
 - File name: `SUP-208-LVL-2-Plain-Language.png`
 - Target: `public/card-art/superhero/cards/target-language/grade-02.webp`
 - Owner: Card `target-language` grade `Plain Language`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2886,7 +2886,7 @@ A decoder tower holding a clear middle stage, unfamiliar bursts visibly unpacked
 - File name: `SUP-209-LVL-3-Working-Vocabulary.png`
 - Target: `public/card-art/superhero/cards/target-language/grade-03.webp`
 - Owner: Card `target-language` grade `Working Vocabulary`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2899,7 +2899,7 @@ A decoder tower running at standard density, only the most obscure stages clarif
 - File name: `SUP-210-LVL-4-Expert-Shorthand.png`
 - Target: `public/card-art/superhero/cards/target-language/grade-04.webp`
 - Owner: Card `target-language` grade `Expert Shorthand`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2912,7 +2912,7 @@ A decoder tower passed straight through undiluted, the signal leaving at full te
 - File name: `SUP-211-VOC-1-Straight-Talk.png`
 - Target: `public/card-art/superhero/cards/target-voice/grade-01.webp`
 - Owner: Card `target-voice` grade `Straight Talk`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2925,7 +2925,7 @@ A voice modulator with its band ringing loose and natural, warm and conversation
 - File name: `SUP-212-VOC-2-Clear-Neutral.png`
 - Target: `public/card-art/superhero/cards/target-voice/grade-02.webp`
 - Owner: Card `target-voice` grade `Clear Neutral`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2938,7 +2938,7 @@ A voice modulator holding a calm even band without ornament or flourish.
 - File name: `SUP-213-VOC-3-Professional-Voice.png`
 - Target: `public/card-art/superhero/cards/target-voice/grade-03.webp`
 - Owner: Card `target-voice` grade `Professional Voice`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2951,7 +2951,7 @@ A voice modulator holding a polished precise band, its edges clean and deliberat
 - File name: `SUP-214-VOC-4-Formal-Register.png`
 - Target: `public/card-art/superhero/cards/target-voice/grade-04.webp`
 - Owner: Card `target-voice` grade `Formal Register`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2964,7 +2964,7 @@ A voice modulator holding a rigid disciplined band exactly on its mark, formal a
 - File name: `SUP-215-EX-1-Everyday-Analogy.png`
 - Target: `public/card-art/superhero/cards/target-examples/grade-01.webp`
 - Owner: Card `target-examples` grade `Everyday Analogy`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2977,7 +2977,7 @@ A projector casting one familiar street-corner scene beneath a large abstract sh
 - File name: `SUP-216-EX-2-Worked-Example.png`
 - Target: `public/card-art/superhero/cards/target-examples/grade-02.webp`
 - Owner: Card `target-examples` grade `Worked Example`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -2990,7 +2990,7 @@ A projector carrying a single street scene all the way through from start to fin
 - File name: `SUP-217-EX-3-Domain-Example.png`
 - Target: `public/card-art/superhero/cards/target-examples/grade-03.webp`
 - Owner: Card `target-examples` grade `Domain Example`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3003,7 +3003,7 @@ A projector casting realistic street scenes with their messy irregular detail de
 - File name: `SUP-218-EX-4-Edge-Case.png`
 - Target: `public/card-art/superhero/cards/target-examples/grade-04.webp`
 - Owner: Card `target-examples` grade `Edge Case`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3016,7 +3016,7 @@ A projector placing scenes right at the boundary where the larger rule visibly b
 - File name: `SUP-219-DCN-1-Next-Decision.png`
 - Target: `public/card-art/superhero/cards/target-decisions/grade-01.webp`
 - Owner: Card `target-decisions` grade `Next Decision`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3029,7 +3029,7 @@ A switch console with one switch highlighted and the input it still needs lit be
 - File name: `SUP-220-DCN-2-Actionable-Framing.png`
 - Target: `public/card-art/superhero/cards/target-decisions/grade-02.webp`
 - Owner: Card `target-decisions` grade `Actionable Framing`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3042,7 +3042,7 @@ A switch console with its switches marked by the action each one triggers furthe
 - File name: `SUP-221-DCN-3-Tradeoff-Brief.png`
 - Target: `public/card-art/superhero/cards/target-decisions/grade-03.webp`
 - Owner: Card `target-decisions` grade `Tradeoff Brief`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3055,7 +3055,7 @@ A switch console of paired switches, each pair showing what is gained against wh
 - File name: `SUP-222-DCN-4-Decision-Record.png`
 - Target: `public/card-art/superhero/cards/target-decisions/grade-04.webp`
 - Owner: Card `target-decisions` grade `Decision Record`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3068,7 +3068,7 @@ A switch console with the chosen switch locked in place and its accepted consequ
 - File name: `SUP-223-STN-1-Warm-Encouraging.png`
 - Target: `public/card-art/superhero/cards/target-stance/grade-01.webp`
 - Owner: Card `target-stance` grade `Warm & Encouraging`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3081,7 +3081,7 @@ A stance dial with the needle at the warm pole, the scene washed in soft encoura
 - File name: `SUP-224-STN-2-Even-Matter-of-Fact.png`
 - Target: `public/card-art/superhero/cards/target-stance/grade-02.webp`
 - Owner: Card `target-stance` grade `Even & Matter-of-Fact`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3094,7 +3094,7 @@ A stance dial on the console with the needle centered, the war room lit even and
 - File name: `SUP-225-STN-3-Candid-Direct.png`
 - Target: `public/card-art/superhero/cards/target-stance/grade-03.webp`
 - Owner: Card `target-stance` grade `Candid & Direct`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
@@ -3107,7 +3107,7 @@ A stance dial with the needle pushed toward the cold blue pole, the light hard, 
 - File name: `SUP-226-STN-4-Authoritative-Decisive.png`
 - Target: `public/card-art/superhero/cards/target-stance/grade-04.webp`
 - Owner: Card `target-stance` grade `Authoritative & Decisive`
-- Status: planned
+- Status: generated
 
 ```
 Bold superhero comic-book collectible-card key art, drawn as a full-bleed splash-page illustration: heavy confident ink outlines, dynamic foreshortened staging, halftone-dot shading over punchy four-color flats, the way a landmark issue paints its cover moment. Hot crimson key light rakes the subject from one side, a hard electric-yellow rim light separates it from a deep indigo night-city darkness, and speedline energy and rooftop haze fall away behind. One strong centered focal shape, isolated, uncluttered edges, nothing in the background competing with it, and it still reads at thumbnail size. Square composition with generous breathing room. The art is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no panel gutter, no drawn edge line, no vignette box, no rounded corners. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no UI labels, no card frame, no speech bubbles, no caption boxes, no sound-effect lettering.
