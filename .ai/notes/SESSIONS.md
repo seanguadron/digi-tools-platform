@@ -10,7 +10,9 @@ with the proposed-amendment flag are STANDARDS candidates;
 **Context.** Finished the PICTURE deck's 419-entry gallery pack (the art
 project) and, mid-generation-run, reshaped both decks' guide pages plus
 the role browser from the owner's voice-dictated feedback. Commit
-`e29d7a8`.
+`e29d7a8`. Integration and security gates then ran against that work and
+both returned FAIL; fixes plus both ledger reports landed in `ed07f8a`,
+alongside a `docs/STATE.md` follow-up.
 
 **Decisions.**
 - Guide acronym entries now render each pack's `craft.<letter>` art
@@ -74,10 +76,12 @@ the role browser from the owner's voice-dictated feedback. Commit
   guide.
 - The design gate hit the provider's monthly spend limit again — the
   same failure mode logged 2026-07-28/07-29, now landing on the design
-  gate specifically — this time on the draggable nav dock: the agent
-  launched and died before reporting. Recorded honestly as owed rather
-  than silently skipped; the dock's design-gate pass is open debt,
-  tracked in `docs/STATE.md`'s backlog.
+  gate specifically — this time on the draggable nav dock, whose agent
+  was launched twice and killed both times before reporting. Integration
+  and security later both covered the dock's code and storage; nobody
+  has judged how it looks and feels. Recorded honestly as owed rather
+  than silently skipped; the dock's design-gate pass is the one gate
+  still open, tracked in `docs/STATE.md`'s backlog.
 - Generation-loop mechanics, now proven across four packs and 1,104
   images: the result-URL prefix includes its trailing underscore —
   omitting it produced 12 silent 403s; timestamps drift ±1-2s within a
@@ -93,9 +97,63 @@ the role browser from the owner's voice-dictated feedback. Commit
   brief that rendered the wrong subject and lost its named camera angle).
   The structural style paragraph continues to earn its keep.
 
-No new proposed-amendment flags from this session. The 2026-08-18 entry's
-segmented-control flag (below) is refined with this session's
-owner-directed-exception nuance, not repeated here.
+**Gates.** Both gates ran after the entry above was written and both
+returned FAIL; findings and fixes below all landed in `ed07f8a`.
+- Integration: FAIL → PASS, 2 findings, both doc drift in
+  `docs/ARCHITECTURE.md`, now corrected. It still said PICTURE keeps its
+  illustrations inline (false since the pack migration three commits
+  earlier) and that the nav dock is pinned to `.flow-workspace`'s
+  bottom-right (false since it became movable this same night) — both
+  invisible to the deterministic half, since `check:standards` §3.3 only
+  checks that gov:node edges point at real files, never that the prose
+  stays true. Doc currency is a judgment-gate-only catch, which argues
+  for running the integration gate on any commit that changes a
+  documented mechanism, not only on new surfaces. Also fixed: two stale
+  comments in the art-doc generator (one claiming PICTURE never uses the
+  craft/shared groups when the same file populates both; one whose
+  "Later: per-grade variants" header now also covers the guide's new
+  acronym cards).
+- Security: FAIL → PASS, 0 High / 2 Medium / 2 Low — three fixed, one
+  queued. The real find: `setBio` was a markdown-injection path into
+  `docs/PICTURE_ART_MANIFEST.md` — bios were only length-checked, then
+  spliced verbatim into a generated markdown line by the same request's
+  doc refresh, so newlines and backticks in a bio could forge a fake
+  `#### 999.` entry with fake Status/Target lines and break out of a
+  fenced block. Worth remembering: `data:validate`'s doc-drift check
+  could never have caught this, because the doc re-renders from the same
+  corrupted source and stays internally consistent — "stale" detection
+  can't see corruption that agrees with itself. Fixed by rejecting `\r`,
+  `\n`, and backticks in `setBio`, mirroring the build-time backtick scan
+  that already covered hand edits but not this write path. Also fixed:
+  `parseArtKey`'s grade index accepted an unbounded digit run (parsed to
+  Infinity) — unreachable today, since every write op requires the key
+  to match a catalog-derived entry first, but bounded anyway against the
+  module's own stated philosophy of refusing suspect keys outright, with
+  a regression test (150 tests now); and `storeFor`'s bare bracket
+  lookup, where `?deck=__proto__` resolved to `Object.prototype` and
+  500'd instead of 400'ing, fixed with `Object.hasOwn` (landed during
+  the integration pass, ahead of the security report). Queued rather
+  than fixed: the S1/S2 sweep's `src/`-only reach — see the new
+  amendment below.
+- Also fixed in passing: a pre-existing `document.body` portal
+  resolution in `prompt-role-workbench.tsx`, swapped to
+  `usePortalTarget` — the exact pattern ARCHITECTURE.md §2 warns
+  against — caught because the file was already open from this same
+  session's rewrite.
+
+**Preferences / proposed amendments (need owner consent).**
+- `check:security`'s S1/S2 sweep walks only `src/`, so
+  `scripts/card-art-store.mjs`, `scripts/art-pack.mjs`, and
+  `scripts/generate-picture-art-docs.mjs` — what the store's own header
+  calls "the ONE server surface in this app" — sit outside the
+  deterministic gate's net entirely (grepped clean by hand this
+  session). Widening the walk needs STANDARDS §2.4 amended in the same
+  commit, since its check line names `src` explicitly and §3.3 forbids a
+  rulebook line that's no longer true. (proposed amendment, needs the
+  owner's consent)
+
+The 2026-08-18 entry's segmented-control flag (below) is refined with
+this session's owner-directed-exception nuance, not repeated here.
 
 ## 2026-08-18: Fantasy and Superhero decks generated — 452 images live, plus the CRAFT world picker
 
