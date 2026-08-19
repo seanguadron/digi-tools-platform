@@ -179,79 +179,34 @@ a {
   letter-spacing: -0.02em;
 }
 
+/* The mark is the favicon's crossed slashes drawn with theme tokens, so the
+   tab icon and the corner mark are the same object. */
 .brand-mark {
-  position: relative;
-  display: grid;
-  width: 24px;
-  height: 24px;
-  place-items: center;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 58%, var(--border));
-  border-radius: 7px;
-  background:
-    linear-gradient(
-      135deg,
-      color-mix(in oklch, var(--brand-cyan) 16%, transparent),
-      color-mix(in oklch, var(--brand-magenta) 9%, transparent)
-    ),
-    var(--card);
-  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--border) 55%, transparent);
+  display: block;
+  flex: 0 0 auto;
 }
 
-.brand-mark::before,
-.brand-mark::after,
-.brand-mark span {
-  position: absolute;
-  content: "";
+.brand-mark-plate {
+  fill: var(--card);
+  stroke: color-mix(in oklch, var(--brand-cyan) 45%, var(--border));
+  stroke-width: 3;
 }
 
-.brand-mark::before {
-  top: 5px;
-  right: 5px;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--brand-magenta);
-  box-shadow: 0 0 8px color-mix(in oklch, var(--brand-magenta) 58%, transparent);
+.brand-mark-slash-cyan {
+  stroke: var(--brand-cyan);
 }
 
-.brand-mark::after {
-  bottom: 5px;
-  left: 5px;
-  width: 4px;
-  height: 4px;
-  border-radius: 2px;
-  background: var(--brand-cyan);
+.brand-mark-slash-magenta {
+  stroke: var(--brand-magenta);
 }
 
-.brand-mark span {
-  left: 6px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--brand-cyan);
-  box-shadow: 0 0 8px color-mix(in oklch, var(--brand-cyan) 54%, transparent);
+.brand {
+  border-radius: 8px;
+  color: var(--foreground);
 }
 
-.brand-mark span:first-child {
-  top: 8px;
-  width: 9px;
-}
-
-.brand-mark span:first-child::after {
-  position: absolute;
-  right: -5px;
-  bottom: -5px;
-  width: 2px;
-  height: 7px;
-  border-radius: 999px;
-  background: var(--brand-cyan);
-  content: "";
-}
-
-.brand-mark span:last-child {
-  bottom: 8px;
-  width: 11px;
-  background: var(--brand-magenta);
-  box-shadow: none;
+.brand:hover .brand-mark-plate {
+  stroke: var(--brand-cyan);
 }
 
 .tool-tabs {
@@ -283,7 +238,31 @@ a {
 .tool-tab {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   padding: 0 11px;
+}
+
+.tool-tab-icon {
+  flex: 0 0 auto;
+  opacity: 0.72;
+}
+
+.tool-tab.is-active .tool-tab-icon,
+.tool-tab:hover .tool-tab-icon {
+  opacity: 1;
+}
+
+/* Early-stage flag on a tool's tab. Magenta = identity, matching .featured-tag. */
+.tool-tab-flag {
+  padding: 1px 5px;
+  border: 1px solid color-mix(in oklch, var(--brand-magenta) 45%, var(--border));
+  border-radius: 5px;
+  background: color-mix(in oklch, var(--brand-magenta) 12%, transparent);
+  color: var(--brand-magenta-text, var(--brand-magenta));
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
 }
 
 .tool-tab:hover,
@@ -2480,10 +2459,9 @@ button.role-loadout-slot {
   display: grid;
   height: calc(100dvh - var(--app-chrome-height));
   min-height: 590px;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 12px;
+  grid-template-rows: minmax(0, 1fr);
   overflow: hidden;
-  padding: 14px clamp(16px, 2.4vw, 34px) 12px;
+  padding: 12px clamp(16px, 2.4vw, 34px) 12px;
 }
 
 .page-stage.is-fluid .prompt-flow-page {
@@ -2572,17 +2550,15 @@ button.role-loadout-slot {
   min-width: 0;
 }
 
-/* The deck's world switch: one segmented control, three packs. The active
-   option is carried by aria-pressed plus a full-strength cyan border and a
-   weight step - never colour alone - and the labels are the pack names, so
-   the control reads without decoding. */
-/* Same segmented-button idiom as .editor-dialog-seg: bare group, shared
-   8px/28px button shape, cyan marker on the active choice. */
+/* The deck's world switch: one segmented control, three packs, stacked
+   vertically inside the corner nav dock. The active option is carried by
+   aria-pressed plus a full-strength cyan border - never colour alone - and
+   the labels are the pack names. Buttons keep the .editor-dialog-seg shape. */
 .art-pack-switch {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   gap: 4px;
-  flex-shrink: 0;
 }
 
 .art-pack-switch-option {
@@ -2697,121 +2673,79 @@ button.role-loadout-slot {
   outline: none;
 }
 
-.flow-stepper {
-  display: grid;
-  grid-template-columns: minmax(146px, auto) minmax(0, 1fr);
-  align-items: stretch;
-  gap: 8px;
-  padding: 7px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--card);
-}
-
-.flow-overview-button,
-.flow-step-button {
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background: transparent;
-  color: var(--muted-foreground);
-  cursor: pointer;
-  transition:
-    border-color 160ms ease-out,
-    background 160ms ease-out,
-    color 160ms ease-out,
-    transform 120ms ease-out;
-}
-
-.flow-overview-button:active,
-.flow-step-button:active,
-.flow-panel-actions .button:active,
 .output-dock-toggle:active {
   transform: scale(0.97);
 }
 
-.flow-overview-button {
-  min-height: 48px;
-  padding: 0 12px;
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-align: left;
-}
-
-.flow-step-list {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 5px;
-}
-
-.flow-step-button {
-  position: relative;
-  display: grid;
-  min-width: 0;
-  grid-template-columns: 30px minmax(0, 1fr);
+/* The step navigation, compacted into the subbar (the old full-width
+   .flow-stepper row is gone): a Guide button plus one letter tile per step,
+   all on the segmented-button idiom (.editor-dialog-seg shape). */
+.flow-step-strip {
+  display: inline-flex;
+  flex-shrink: 0;
   align-items: center;
-  gap: 8px;
-  padding: 5px 8px;
-  text-align: left;
+  gap: 4px;
 }
 
-.flow-step-button::after {
-  position: absolute;
-  right: 8px;
-  bottom: 4px;
-  left: 8px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--brand-cyan);
-  content: "";
-  opacity: 0;
-  transform: scaleX(0.35);
+.flow-strip-guide,
+.flow-strip-step {
+  min-height: 28px;
+  border: 1px solid var(--input);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-weight: 700;
   transition:
-    opacity 160ms ease-out,
-    transform 220ms cubic-bezier(0.23, 1, 0.32, 1);
+    color 150ms ease-out,
+    background-color 150ms ease-out,
+    border-color 150ms ease-out;
 }
 
-.flow-step-button > span {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 7px;
+.flow-strip-guide {
+  padding: 0 10px;
+  font-size: 0.72rem;
+}
+
+.flow-strip-step {
+  width: 28px;
+  padding: 0;
   color: var(--brand-cyan-text);
   font-family: var(--font-mono), "Cascadia Mono", monospace;
   font-size: 0.78rem;
   font-weight: 800;
 }
 
-.flow-step-button strong {
-  overflow: hidden;
-  font-size: 0.67rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.flow-overview-button:hover,
-.flow-step-button:hover {
-  border-color: color-mix(in oklch, var(--brand-cyan) 38%, var(--border));
+.flow-strip-guide:hover {
   color: var(--foreground);
 }
 
-.flow-overview-button.is-active,
-.flow-step-button.is-active {
+.flow-strip-step:hover {
+  border-color: color-mix(in oklch, var(--brand-cyan) 38%, var(--input));
+}
+
+.flow-strip-guide:active,
+.flow-strip-step:active {
+  transform: scale(0.97);
+}
+
+.flow-strip-guide.is-active,
+.flow-strip-step.is-active {
   border-color: var(--brand-cyan);
-  background: color-mix(in oklch, var(--brand-cyan) 8%, var(--background));
-  color: var(--foreground);
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--card));
+  color: var(--brand-cyan-text);
 }
 
-.flow-step-button.is-active::after {
-  opacity: 1;
-  transform: scaleX(1);
-}
-
-.flow-step-button.is-complete > span {
+.flow-strip-step.is-complete {
   border-color: var(--brand-cyan);
   background: var(--brand-cyan);
   color: var(--brand-cyan-foreground);
+}
+
+/* Complete AND active: the fill stays, a ring marks the position. */
+.flow-strip-step.is-complete.is-active {
+  box-shadow: 0 0 0 2px
+    color-mix(in oklch, var(--brand-cyan) 35%, transparent);
 }
 
 .flow-workspace,
@@ -2876,6 +2810,36 @@ button.role-loadout-slot {
   position: relative;
 }
 
+/* The corner nav dock: Back/Next (and the CRAFT world switch) pinned to the
+   workspace's bottom-right - the image-editor minimap idiom. It floats over
+   the panel, so it carries a real card surface and shadow. */
+.flow-nav-dock {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 6;
+  display: grid;
+  width: 192px;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 10px 26px
+    color-mix(in oklch, var(--background) 60%, transparent);
+}
+
+.flow-nav-dock-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px;
+}
+
+.flow-nav-dock-row .button {
+  min-width: 0;
+  justify-content: center;
+}
+
 .archetype-toolbar {
   grid-area: arch;
   display: grid;
@@ -2887,30 +2851,18 @@ button.role-loadout-slot {
   background: var(--card);
 }
 
+/* One word, one hairline - the old kicker/blurb/save-button stack gave ~115px
+   of chrome before the first chip; the chips are the point. */
 .archetype-toolbar-heading {
   display: grid;
-  gap: 3px;
-  padding: 12px 12px 10px;
+  gap: 6px;
+  padding: 9px 12px 8px;
   border-bottom: 1px solid var(--border);
-}
-
-.archetype-toolbar-heading > span {
-  color: var(--brand-cyan-text);
-  font-family: var(--font-mono), "Cascadia Mono", monospace;
-  font-size: 0.55rem;
-  font-weight: 800;
-  text-transform: uppercase;
 }
 
 .archetype-toolbar-heading strong {
   font-size: 0.82rem;
   letter-spacing: -0.01em;
-}
-
-.archetype-toolbar-heading small {
-  color: var(--muted-foreground);
-  font-size: 0.64rem;
-  line-height: 1.35;
 }
 
 .archetype-toolbar-list {
@@ -3016,68 +2968,13 @@ button.role-loadout-slot {
   scrollbar-gutter: stable;
 }
 
-.flow-panel-heading,
-.flow-panel-card,
-.flow-panel-actions {
+.flow-panel-card {
   width: min(100%, 1120px);
   margin-inline: auto;
 }
 
-.flow-panel-heading {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.flow-panel-heading > span {
-  display: grid;
-  width: 30px;
-  height: 30px;
-  flex: 0 0 auto;
-  place-items: center;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 48%, var(--border));
-  border-radius: 8px;
-  background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
-  color: var(--brand-cyan-text);
-  font-family: var(--font-mono), "Cascadia Mono", monospace;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.flow-panel-heading h2 {
-  margin: 0;
-  font-size: 1.35rem;
-  letter-spacing: -0.025em;
-  line-height: 1.15;
-}
-
 .flow-panel-card > .craft-card {
   box-shadow: none;
-}
-
-.flow-panel-actions {
-  position: sticky;
-  bottom: -1px;
-  z-index: 5;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: auto;
-  padding: 14px 0 2px;
-  border-top: 1px solid var(--border);
-  background: color-mix(in oklch, var(--card) 94%, var(--background));
-}
-
-.flow-panel-actions .button {
-  min-width: 104px;
-}
-
-.flow-panel-actions-end {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 8px;
 }
 
 .flow-intro-panel {
@@ -3095,11 +2992,6 @@ button.role-loadout-slot {
   padding: 0;
   border: 0;
   background: transparent;
-}
-
-.flow-intro-panel .flow-panel-actions {
-  grid-column: 1 / -1;
-  width: 100%;
 }
 
 .flow-intro-panel .craft-definition {
@@ -3804,10 +3696,10 @@ button.role-loadout-slot {
 
 .card-slot-grid {
   display: grid;
-  /* Pool cards are minmax(132px, 152px); slots add ~14px of horizontal padding,
-     so the slot track is the pool track + 14px — the slotted card then renders
-     at the exact same width as a pool card. */
-  grid-template-columns: repeat(auto-fit, minmax(146px, 166px));
+  /* Pool cards are a fixed 152px; the slot adds 7px padding per side, so a
+     fixed 166px track renders the slotted card at exactly 152px too - the
+     card never changes size, the socket is simply bigger than the card. */
+  grid-template-columns: repeat(auto-fit, 166px);
   justify-content: center;
   gap: 12px;
 }
@@ -3921,7 +3813,9 @@ button.role-loadout-slot {
 
 .lineage-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(132px, 152px));
+  /* Fixed tracks: a card is 152px everywhere, always - narrow layouts wrap
+     to fewer columns instead of shrinking the cards. */
+  grid-template-columns: repeat(auto-fill, 152px);
   justify-content: start;
   gap: 12px;
 }
@@ -3974,6 +3868,19 @@ button.role-loadout-slot {
   border: 1px solid color-mix(in oklch, var(--border) 72%, transparent);
   border-radius: 8px;
   content: "";
+  pointer-events: none;
+}
+
+/* Card stock: a faint SVG-noise grain over the whole face so cards read as
+   printed paper rather than flat panels. Grey noise at 5% works over both
+   themes; it sits above the art on purpose - printed cards grain over ink. */
+.lineage-card::after {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  content: "";
+  opacity: 0.05;
   pointer-events: none;
 }
 
@@ -4083,6 +3990,13 @@ button.role-loadout-slot {
 }
 
 .lineage-card-copy strong {
+  /* A fixed two-line box whatever the name: one-liners reserve the second
+     line, three-liners clamp. The art row above never changes height. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: calc(2 * 1.25 * 0.72rem);
   font-size: 0.72rem;
   line-height: 1.25;
 }
@@ -4101,6 +4015,9 @@ button.role-loadout-slot {
   animation: compatible-card-pulse 420ms cubic-bezier(0.22, 1, 0.36, 1) 3;
 }
 
+/* Art-first inspection panel: the artwork fills the panel's width as one big
+   square on top, identity and copy stack below it - the hover exists to
+   enjoy the art, the text supports it. */
 .floating-card-panel {
   position: fixed;
   z-index: 70;
@@ -4108,9 +4025,9 @@ button.role-loadout-slot {
   width: min(390px, calc(100vw - 32px));
   /* max-height comes from getFloatingPanelPosition as an inline style, so the
      placement math and the clip budget are the same number. */
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: 12px;
+  gap: 10px;
   overflow: hidden;
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 38%, var(--border));
   border-radius: 12px;
@@ -4124,10 +4041,8 @@ button.role-loadout-slot {
 }
 
 .floating-card-art {
-  grid-column: 1;
-  grid-row: 1;
   display: grid;
-  width: 92px;
+  width: 100%;
   aspect-ratio: 1;
   place-items: center;
   overflow: hidden;
@@ -4138,16 +4053,13 @@ button.role-loadout-slot {
 }
 
 .floating-card-art .card-illustration-placeholder {
-  font-size: 2rem;
+  font-size: 3.4rem;
 }
 
 .floating-card-panel-identity {
-  grid-column: 2;
-  grid-row: 1;
   display: grid;
-  gap: 6px;
+  gap: 4px;
   min-width: 0;
-  align-self: center;
 }
 
 .floating-card-panel-identity span {
@@ -4454,44 +4366,6 @@ button.role-loadout-slot {
     justify-content: center;
   }
 
-  .flow-stepper {
-    grid-template-columns: auto minmax(0, 1fr);
-    padding: 5px;
-  }
-
-  .flow-overview-button {
-    width: 42px;
-    min-height: 42px;
-    overflow: hidden;
-    padding: 0 8px;
-    color: transparent;
-    font-size: 0;
-    text-align: center;
-  }
-
-  .flow-overview-button::before {
-    color: var(--brand-cyan-text);
-    content: "?";
-    font-family: var(--font-mono), "Cascadia Mono", monospace;
-    font-size: 0.86rem;
-  }
-
-  .flow-step-button {
-    min-height: 42px;
-    grid-template-columns: 1fr;
-    place-items: center;
-    padding: 4px;
-  }
-
-  .flow-step-button > span {
-    width: 28px;
-    height: 28px;
-  }
-
-  .flow-step-button strong {
-    display: none;
-  }
-
   .flow-panel {
     gap: 14px;
     padding: 16px 12px;
@@ -4514,10 +4388,6 @@ button.role-loadout-slot {
     top: 8px;
     right: 8px;
     width: calc(100% - 16px);
-  }
-
-  .flow-panel-heading h2 {
-    font-size: 1.3rem;
   }
 
   .flow-intro-panel .craft-method {
@@ -4544,14 +4414,6 @@ button.role-loadout-slot {
 
   .flow-intro-panel .craft-definition-card:last-child {
     grid-column: 1 / -1;
-  }
-
-  .flow-panel-actions {
-    padding-top: 10px;
-  }
-
-  .flow-panel-actions-end {
-    flex-wrap: wrap;
   }
 
   .workbench-section-heading,
@@ -4708,24 +4570,6 @@ button.role-loadout-slot {
 .archetype-delete:hover {
   background: color-mix(in oklch, var(--danger) 16%, transparent);
   color: var(--danger);
-}
-
-.archetype-save-button {
-  margin-top: 6px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 8px;
-  background: var(--card);
-  color: var(--card-foreground);
-  cursor: pointer;
-  font-size: 0.66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-}
-
-.archetype-save-button:hover {
-  border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
 }
 
 .archetype-save-form {
@@ -5973,7 +5817,6 @@ body:has(.page-stage.is-fluid) {
   .flow-track,
   .prompt-output-dock,
   .output-dock-content,
-  .flow-step-button::after,
   .lineage-card,
   .lineage-card-copy,
   .role-perk-card,

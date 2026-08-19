@@ -6,7 +6,6 @@ import {
   CraftCard,
   CraftDictationField,
   FieldHeading,
-  FlowActions,
   type DictationApi,
   type FieldGuidance,
 } from "@/components/prompt-builder-ui";
@@ -163,7 +162,6 @@ export function PictureFlowPanels({
   stepComplete,
   attentionTargetId,
   dictation,
-  navigateToPanel,
   navigateToPictureStep,
   onUpdateDraft,
   onSetTailEnabled,
@@ -174,7 +172,6 @@ export function PictureFlowPanels({
   onDropCard,
   onRemoveCard,
   onClearCards,
-  onReviewOutput,
 }: {
   activePanel: number;
   registerPanelHeading: (
@@ -187,7 +184,6 @@ export function PictureFlowPanels({
   stepComplete: readonly boolean[];
   attentionTargetId: string | null;
   dictation: DictationApi<PictureDictationField>;
-  navigateToPanel: (panelIndex: number, focusTargetId?: string) => void;
   navigateToPictureStep: (stepIndex: number) => void;
   onUpdateDraft: (field: PictureDraftTextField, value: string) => void;
   onSetTailEnabled: (value: boolean) => void;
@@ -206,7 +202,6 @@ export function PictureFlowPanels({
   ) => void;
   onRemoveCard: (section: PictureSection, slotIndex: number) => void;
   onClearCards: (section: PictureSection) => void;
-  onReviewOutput: () => void;
 }) {
   const activeAspectIndex = PICTURE_ASPECT_RATIOS.findIndex(
     (option) => option.value === draft.aspectRatio,
@@ -249,7 +244,6 @@ export function PictureFlowPanels({
     const panelIndex = PICTURE_PANEL_INDEX[section];
     const stepIndex = panelIndex - 1;
     const part = PICTURE_PARTS[stepIndex];
-    const isLast = section === "execution";
 
     return (
       <section
@@ -258,17 +252,15 @@ export function PictureFlowPanels({
         inert={activePanel !== panelIndex}
         key={section}
       >
-        <div className="flow-panel-heading">
-          <span aria-hidden="true">{SECTION_LETTERS[section]}</span>
-          <h2
-            tabIndex={-1}
-            ref={(node) => {
-              registerPanelHeading(panelIndex, node);
-            }}
-          >
-            {part.label}
-          </h2>
-        </div>
+        <h2
+          className="sr-only"
+          tabIndex={-1}
+          ref={(node) => {
+            registerPanelHeading(panelIndex, node);
+          }}
+        >
+          {part.label}
+        </h2>
 
         <div className="flow-panel-card">
           <CraftCard
@@ -288,13 +280,6 @@ export function PictureFlowPanels({
           </CraftCard>
         </div>
 
-        <FlowActions
-          onBack={() => navigateToPanel(panelIndex - 1)}
-          onNext={
-            isLast ? onReviewOutput : () => navigateToPanel(panelIndex + 1)
-          }
-          nextLabel={isLast ? "Review output" : "Next"}
-        />
       </section>
     );
   }
@@ -344,10 +329,6 @@ export function PictureFlowPanels({
                 </button>
               ))}
             </div>
-            <FlowActions
-              onNext={() => navigateToPanel(PICTURE_PANEL_INDEX.protagonist)}
-              nextLabel="Start"
-            />
           </div>
         </section>
 

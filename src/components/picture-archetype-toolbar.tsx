@@ -33,6 +33,8 @@ export function PictureArchetypeToolbar({
   archetypes,
   customArchetypes,
   activeId,
+  saveFormOpen,
+  onSaveFormOpenChange,
   onApply,
   onSaveCustom,
   onDeleteCustom,
@@ -40,6 +42,10 @@ export function PictureArchetypeToolbar({
   archetypes: readonly PictureArchetype[];
   customArchetypes: readonly PictureArchetype[];
   activeId: string | null;
+  // The save-preset form is opened from the header's Tools menu, so the deck
+  // root owns the flag; the toolbar just renders the inline form.
+  saveFormOpen: boolean;
+  onSaveFormOpenChange: (open: boolean) => void;
   onApply: (archetype: PictureArchetype) => void;
   onSaveCustom: (name: string) => void;
   onDeleteCustom: (id: string) => void;
@@ -50,7 +56,6 @@ export function PictureArchetypeToolbar({
     top: number;
   } | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [saving, setSaving] = useState(false);
   const [presetName, setPresetName] = useState("");
   const portalTarget = usePortalTarget();
 
@@ -103,22 +108,26 @@ export function PictureArchetypeToolbar({
   function confirmSavePreset() {
     onSaveCustom(presetName);
     setPresetName("");
-    setSaving(false);
+    onSaveFormOpenChange(false);
+  }
+
+  function cancelSavePreset() {
+    onSaveFormOpenChange(false);
+    setPresetName("");
   }
 
   return (
     <aside className="archetype-toolbar" aria-labelledby="archetype-title">
       <div className="archetype-toolbar-heading">
-        <span>Auto P.I.C.T.U.R.E.</span>
         <strong id="archetype-title">Archetypes</strong>
-        <small>Presets stack the style cards. Your subject stays yours.</small>
-        {saving ? (
+        {saveFormOpen ? (
           <div className="archetype-save-form">
             <input
               type="text"
               value={presetName}
               placeholder="Preset name"
               aria-label="Preset name"
+              autoFocus
               onChange={(event) => setPresetName(event.target.value)}
               onKeyDown={(event) => {
                 if (event.key === "Enter") {
@@ -126,33 +135,18 @@ export function PictureArchetypeToolbar({
                   confirmSavePreset();
                 }
                 if (event.key === "Escape") {
-                  setSaving(false);
-                  setPresetName("");
+                  cancelSavePreset();
                 }
               }}
             />
             <button type="button" onClick={confirmSavePreset}>
               Save
             </button>
-            <button
-              type="button"
-              onClick={() => {
-                setSaving(false);
-                setPresetName("");
-              }}
-            >
+            <button type="button" onClick={cancelSavePreset}>
               Cancel
             </button>
           </div>
-        ) : (
-          <button
-            className="archetype-save-button"
-            type="button"
-            onClick={() => setSaving(true)}
-          >
-            Save current as preset
-          </button>
-        )}
+        ) : null}
       </div>
       <div className="archetype-toolbar-list">
         {orderedArchetypes.map((archetype) => {

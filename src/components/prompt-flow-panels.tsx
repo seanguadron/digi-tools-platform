@@ -7,7 +7,6 @@ import {
   CraftCard,
   CraftDictationField,
   FieldHeading,
-  FlowActions,
   type CraftDictationApi,
 } from "@/components/prompt-builder-ui";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
@@ -40,7 +39,6 @@ export function CraftFlowPanels({
   activeRoleCategory,
   roleSelectionMessage,
   dictation,
-  navigateToPanel,
   navigateToCraftStep,
   onSelectOutputType,
   onUpdateDraft,
@@ -55,8 +53,6 @@ export function CraftFlowPanels({
   onToggleRole,
   onDropRole,
   onClearRoles,
-  onReviewOutput,
-  onReset,
 }: {
   activePanel: number;
   registerPanelHeading: (
@@ -74,7 +70,6 @@ export function CraftFlowPanels({
   activeRoleCategory: string;
   roleSelectionMessage: string;
   dictation: CraftDictationApi;
-  navigateToPanel: (panelIndex: number, focusTargetId?: string) => void;
   navigateToCraftStep: (stepIndex: number) => void;
   onSelectOutputType: (value: string) => void;
   onUpdateDraft: (field: PromptDraftTextField, value: string) => void;
@@ -96,8 +91,6 @@ export function CraftFlowPanels({
   onToggleRole: (role: PromptRole) => void;
   onDropRole: (slotIndex: number, roleId: string) => void;
   onClearRoles: () => void;
-  onReviewOutput: () => void;
-  onReset: () => void;
 }) {
   // Both output-type radio rows share the same options + selection, so one
   // active index feeds two roving groups (guide panel + format panel).
@@ -197,10 +190,6 @@ export function CraftFlowPanels({
                 </button>
               ))}
             </div>
-            <FlowActions
-              onNext={() => navigateToPanel(FLOW_PANEL_INDEX.context)}
-              nextLabel="Start"
-            />
           </div>
         </section>
 
@@ -209,17 +198,15 @@ export function CraftFlowPanels({
           aria-hidden={activePanel !== FLOW_PANEL_INDEX.context}
           inert={activePanel !== FLOW_PANEL_INDEX.context}
         >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">C</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.context, node);
-              }}
-            >
-              Context
-            </h2>
-          </div>
+          <h2
+            className="sr-only"
+            tabIndex={-1}
+            ref={(node) => {
+              registerPanelHeading(FLOW_PANEL_INDEX.context, node);
+            }}
+          >
+            Context
+          </h2>
 
           <div className="flow-panel-card">
             <CraftCard letter="C" complete={isFieldComplete(draft, "context")}>
@@ -286,10 +273,6 @@ export function CraftFlowPanels({
               </div>
             </CraftCard>
           </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.guide)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.role)}
-          />
         </section>
 
         <section
@@ -297,17 +280,15 @@ export function CraftFlowPanels({
           aria-hidden={activePanel !== FLOW_PANEL_INDEX.role}
           inert={activePanel !== FLOW_PANEL_INDEX.role}
         >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">R</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.role, node);
-              }}
-            >
-              Roles
-            </h2>
-          </div>
+          <h2
+            className="sr-only"
+            tabIndex={-1}
+            ref={(node) => {
+              registerPanelHeading(FLOW_PANEL_INDEX.role, node);
+            }}
+          >
+            Roles
+          </h2>
 
           <div className="flow-panel-card">
             <CraftCard letter="R" complete={selectedRoles.length > 0}>
@@ -343,10 +324,6 @@ export function CraftFlowPanels({
               </div>
             </CraftCard>
           </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.context)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
-          />
         </section>
 
         <section
@@ -354,17 +331,15 @@ export function CraftFlowPanels({
           aria-hidden={activePanel !== FLOW_PANEL_INDEX.action}
           inert={activePanel !== FLOW_PANEL_INDEX.action}
         >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">A</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.action, node);
-              }}
-            >
-              Actions
-            </h2>
-          </div>
+          <h2
+            className="sr-only"
+            tabIndex={-1}
+            ref={(node) => {
+              registerPanelHeading(FLOW_PANEL_INDEX.action, node);
+            }}
+          >
+            Actions
+          </h2>
 
           <div className="flow-panel-card">
             <CraftCard
@@ -413,10 +388,6 @@ export function CraftFlowPanels({
               </div>
             </CraftCard>
           </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.role)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
-          />
         </section>
 
         <section
@@ -424,17 +395,15 @@ export function CraftFlowPanels({
           aria-hidden={activePanel !== FLOW_PANEL_INDEX.format}
           inert={activePanel !== FLOW_PANEL_INDEX.format}
         >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">F</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.format, node);
-              }}
-            >
-              Format
-            </h2>
-          </div>
+          <h2
+            className="sr-only"
+            tabIndex={-1}
+            ref={(node) => {
+              registerPanelHeading(FLOW_PANEL_INDEX.format, node);
+            }}
+          >
+            Format
+          </h2>
 
           <div className="flow-panel-card">
             <CraftCard letter="F" complete={isFieldComplete(draft, "format")}>
@@ -536,10 +505,6 @@ export function CraftFlowPanels({
               </div>
             </CraftCard>
           </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.action)}
-            onNext={() => navigateToPanel(FLOW_PANEL_INDEX.target)}
-          />
         </section>
 
         <section
@@ -547,17 +512,15 @@ export function CraftFlowPanels({
           aria-hidden={activePanel !== FLOW_PANEL_INDEX.target}
           inert={activePanel !== FLOW_PANEL_INDEX.target}
         >
-          <div className="flow-panel-heading">
-            <span aria-hidden="true">T</span>
-            <h2
-              tabIndex={-1}
-              ref={(node) => {
-                registerPanelHeading(FLOW_PANEL_INDEX.target, node);
-              }}
-            >
-              Target audience
-            </h2>
-          </div>
+          <h2
+            className="sr-only"
+            tabIndex={-1}
+            ref={(node) => {
+              registerPanelHeading(FLOW_PANEL_INDEX.target, node);
+            }}
+          >
+            Target audience
+          </h2>
 
           <div className="flow-panel-card">
             <CraftCard
@@ -627,13 +590,6 @@ export function CraftFlowPanels({
               </div>
             </CraftCard>
           </div>
-          <FlowActions
-            onBack={() => navigateToPanel(FLOW_PANEL_INDEX.format)}
-            onNext={onReviewOutput}
-            nextLabel="Review output"
-            onSecondary={onReset}
-            secondaryLabel="Clear all"
-          />
         </section>
       </div>
     </div>

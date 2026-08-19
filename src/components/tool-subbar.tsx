@@ -45,16 +45,20 @@ export function ToolSubbar({
 export function ToolSubbarTitle({
   kicker,
   heading,
+  headingHidden,
   children,
 }: {
   kicker: string;
   heading: ReactNode;
+  // Keeps the page's h1 for the accessibility tree while the bar shows only
+  // the kicker — the compact-subbar layouts have no room for a display title.
+  headingHidden?: boolean;
   children?: ReactNode;
 }) {
   return (
     <div className="prompt-flow-title">
       <span className="tool-kicker">{kicker}</span>
-      <h1>{heading}</h1>
+      <h1 className={headingHidden ? "sr-only" : undefined}>{heading}</h1>
       {children}
     </div>
   );

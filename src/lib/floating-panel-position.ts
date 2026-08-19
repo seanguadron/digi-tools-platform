@@ -12,7 +12,10 @@ export const FLOATING_PANEL_MARGIN = 16;
 // it disappears with no visible symptom. It is returned as an inline style
 // rather than written in CSS so the number the placement math uses and the
 // number the panel actually honours cannot drift apart.
-export const FLOATING_PANEL_MAX_HEIGHT = 560;
+// 660 fits the art-first layout: a ~362px square of art plus identity, bio,
+// ability bullets, and the code line. The viewport clamp below still wins on
+// short screens.
+export const FLOATING_PANEL_MAX_HEIGHT = 660;
 
 export function getFloatingPanelPosition(element: HTMLElement) {
   const rect = element.getBoundingClientRect();

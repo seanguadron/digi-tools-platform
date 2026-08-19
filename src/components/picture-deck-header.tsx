@@ -1,18 +1,15 @@
 "use client";
 
 import { useRef } from "react";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, ReactNode } from "react";
 import {
-  ToolSaveStateChip,
   ToolSubbar,
   ToolSubbarActions,
   ToolSubbarTitle,
 } from "@/components/tool-subbar";
-import type { SaveStatus } from "@/lib/save-status";
 
 export function PictureDeckHeader({
-  saveStatus,
-  lastSavedAt,
+  stepStrip,
   canUndo,
   canRedo,
   completedStepCount,
@@ -27,10 +24,11 @@ export function PictureDeckHeader({
   onOpenLibrary,
   onCopyShareLink,
   onOpenProofLab,
+  onSaveArchetypePreset,
   onReset,
 }: {
-  saveStatus: SaveStatus;
-  lastSavedAt: Date | null;
+  // The compact P.I.C.T.U.R.E. step navigation, composed by the deck root.
+  stepStrip: ReactNode;
   canUndo: boolean;
   canRedo: boolean;
   completedStepCount: number;
@@ -45,6 +43,7 @@ export function PictureDeckHeader({
   onOpenLibrary: () => void;
   onCopyShareLink: () => void;
   onOpenProofLab: () => void;
+  onSaveArchetypePreset: () => void;
   onReset: () => void;
 }) {
   const toolsMenuRef = useRef<HTMLDetailsElement | null>(null);
@@ -60,11 +59,11 @@ export function PictureDeckHeader({
   return (
     <ToolSubbar className="picture-deck-subbar">
       <ToolSubbarTitle
-        kicker="P.I.C.T.U.R.E. Image Deck"
+        kicker="PICTURE Deck"
         heading="Build an image prompt."
-      >
-        <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
-      </ToolSubbarTitle>
+        headingHidden
+      />
+      {stepStrip}
       <ToolSubbarActions>
         <div className="history-actions" aria-label="Edit history">
           <button
@@ -123,6 +122,12 @@ export function PictureDeckHeader({
             </button>
             <button type="button" onClick={() => runTool(onOpenLibrary)}>
               Saved prompts
+            </button>
+            <button
+              type="button"
+              onClick={() => runTool(onSaveArchetypePreset)}
+            >
+              Save archetype preset
             </button>
             <button type="button" onClick={() => runTool(onCopyShareLink)}>
               Copy share link

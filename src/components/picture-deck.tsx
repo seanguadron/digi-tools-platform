@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ChangeEvent } from "react";
+import { FlowNavDock } from "@/components/flow-nav-dock";
+import { FlowStepStrip } from "@/components/flow-step-strip";
 import { PictureArchetypeToolbar } from "@/components/picture-archetype-toolbar";
 import { PictureDeckHeader } from "@/components/picture-deck-header";
 import { PictureFlowPanels } from "@/components/picture-flow-panels";
@@ -105,6 +107,7 @@ export function PictureDeck() {
   const [libraryOpen, setLibraryOpen] = useState(false);
   const [savedPrompts, setSavedPrompts] = useState<SavedPicturePrompt[]>([]);
   const [proofLabOpen, setProofLabOpen] = useState(false);
+  const [archetypeSaveOpen, setArchetypeSaveOpen] = useState(false);
   const [activeProofId, setActiveProofId] = useState<string | null>(null);
   // The library name the current draft was loaded from or saved as; feeds the
   // download filename when no archetype is active.
@@ -666,8 +669,17 @@ export function PictureDeck() {
   return (
     <div className="tool-page prompt-flow-page">
       <PictureDeckHeader
-        saveStatus={persistence.status}
-        lastSavedAt={persistence.lastSavedAt}
+        stepStrip={
+          <FlowStepStrip
+            parts={PICTURE_PARTS}
+            activeIndex={activeStepIndex}
+            completion={flowStepComplete}
+            guideActive={nav.activePanel === PICTURE_PANEL_INDEX.guide}
+            onGuide={() => nav.navigateToPanel(PICTURE_PANEL_INDEX.guide)}
+            onSelect={navigateToPictureStep}
+            ariaLabel="P.I.C.T.U.R.E. builder steps"
+          />
+        }
         canUndo={history.canUndo}
         canRedo={history.canRedo}
         completedStepCount={completedStepCount}
@@ -689,6 +701,7 @@ export function PictureDeck() {
           setProofLabOpen(true);
           setOutputExpanded(false);
         }}
+        onSaveArchetypePreset={() => setArchetypeSaveOpen(true)}
         onReset={resetDeck}
       />
 
@@ -710,49 +723,6 @@ export function PictureDeck() {
         onDelete={removeSavedPrompt}
       />
 
-      <nav className="flow-stepper" aria-label="P.I.C.T.U.R.E. builder steps">
-        <button
-          className={
-            nav.activePanel === PICTURE_PANEL_INDEX.guide
-              ? "flow-overview-button is-active"
-              : "flow-overview-button"
-          }
-          type="button"
-          onClick={() => nav.navigateToPanel(PICTURE_PANEL_INDEX.guide)}
-          aria-current={
-            nav.activePanel === PICTURE_PANEL_INDEX.guide ? "step" : undefined
-          }
-        >
-          Guide
-        </button>
-        <div className="flow-step-list">
-          {PICTURE_PARTS.map(({ letter, label }, index) => {
-            const active = activeStepIndex === index;
-            const complete = flowStepComplete[index];
-
-            return (
-              <button
-                className={[
-                  "flow-step-button",
-                  active ? "is-active" : "",
-                  complete ? "is-complete" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                type="button"
-                onClick={() => navigateToPictureStep(index)}
-                aria-current={active ? "step" : undefined}
-                aria-label={`${label}${complete ? ", complete" : ""}`}
-                key={letter}
-              >
-                <span>{letter}</span>
-                <strong>{label}</strong>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
       <div
         className={
           outputExpanded
@@ -764,6 +734,8 @@ export function PictureDeck() {
           archetypes={PICTURE_ARCHETYPES}
           customArchetypes={customArchetypes}
           activeId={activeArchetypeId}
+          saveFormOpen={archetypeSaveOpen}
+          onSaveFormOpenChange={setArchetypeSaveOpen}
           onApply={applyPictureArchetype}
           onSaveCustom={saveCurrentAsPreset}
           onDeleteCustom={removeCustomPreset}
@@ -787,7 +759,6 @@ export function PictureDeck() {
               stepComplete={flowStepComplete}
               attentionTargetId={nav.attentionTargetId}
               dictation={dictationApi}
-              navigateToPanel={nav.navigateToPanel}
               navigateToPictureStep={navigateToPictureStep}
               onUpdateDraft={updateDraft}
               onSetTailEnabled={setTailEnabled}
@@ -798,7 +769,6 @@ export function PictureDeck() {
               onDropCard={dropWorkbenchCard}
               onRemoveCard={removeWorkbenchCard}
               onClearCards={clearWorkbenchCards}
-              onReviewOutput={() => setOutputExpanded(true)}
             />
 
             {speechMessage ? (
@@ -821,6 +791,26 @@ export function PictureDeck() {
                 portalTarget,
               )
             : null}
+
+          <FlowNavDock
+            onBack={
+              nav.activePanel > PICTURE_PANEL_INDEX.guide
+                ? () => nav.navigateToPanel(nav.activePanel - 1)
+                : undefined
+            }
+            onNext={
+              nav.activePanel === PICTURE_PANEL_INDEX.execution
+                ? () => setOutputExpanded(true)
+                : () => nav.navigateToPanel(nav.activePanel + 1)
+            }
+            nextLabel={
+              nav.activePanel === PICTURE_PANEL_INDEX.guide
+                ? "Start"
+                : nav.activePanel === PICTURE_PANEL_INDEX.execution
+                  ? "Review output"
+                  : "Next"
+            }
+          />
         </div>
 
         <PromptOutputDock

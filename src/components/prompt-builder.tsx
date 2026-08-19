@@ -3,6 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { createPortal } from "react-dom";
 import type { ChangeEvent } from "react";
+import { FlowNavDock } from "@/components/flow-nav-dock";
+import { FlowStepStrip } from "@/components/flow-step-strip";
 import { PromptArchetypeToolbar } from "@/components/prompt-archetype-toolbar";
 import { PromptBuilderHeader } from "@/components/prompt-builder-header";
 import { CraftFlowPanels } from "@/components/prompt-flow-panels";
@@ -20,6 +22,7 @@ import { useCraftFlowNavigation } from "@/hooks/use-craft-flow-navigation";
 import { usePromptBuilderHistory } from "@/hooks/use-prompt-builder-history";
 import { usePromptBuilderPersistence } from "@/hooks/use-prompt-builder-persistence";
 import {
+  ART_PACK_OPTIONS,
   getActiveArtPackId,
   isArtPackId,
   setActiveArtPack,
@@ -128,6 +131,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   );
   const outputExpanded = outputExpandedChoice ?? !phoneWidthDock;
   const [proofLabOpen, setProofLabOpen] = useState(false);
+  const [archetypeSaveOpen, setArchetypeSaveOpen] = useState(false);
   const [activeProofId, setActiveProofId] = useState<string | null>(null);
   const [libraryOpen, setLibraryOpen] = useState(false);
   // Which world dresses the cards. The pack module owns the actual switch;
@@ -869,8 +873,17 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   return (
     <div className="tool-page prompt-flow-page">
       <PromptBuilderHeader
-        saveStatus={persistence.status}
-        lastSavedAt={persistence.lastSavedAt}
+        stepStrip={
+          <FlowStepStrip
+            parts={CRAFT_PARTS}
+            activeIndex={activeCraftStepIndex}
+            completion={flowStepComplete}
+            guideActive={nav.activePanel === FLOW_PANEL_INDEX.guide}
+            onGuide={() => nav.navigateToPanel(FLOW_PANEL_INDEX.guide)}
+            onSelect={(index) => nav.navigateToCraftStep(index)}
+            ariaLabel="C.R.A.F.T. builder steps"
+          />
+        }
         canUndo={history.canUndo}
         canRedo={history.canRedo}
         completedStepCount={completedStepCount}
@@ -880,8 +893,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
             : "Review output"
         }
         proofLabOpen={proofLabOpen}
-        artPackId={artPackId}
-        onSwitchArtPack={switchArtPack}
         onUndo={undoLastChange}
         onRedo={redoLastChange}
         onContinue={continueBuilding}
@@ -894,6 +905,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           setProofLabOpen(true);
           setOutputExpanded(false);
         }}
+        onSaveArchetypePreset={() => setArchetypeSaveOpen(true)}
         onReset={resetDraft}
       />
 
@@ -914,49 +926,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         onDelete={removeSavedPrompt}
       />
 
-      <nav className="flow-stepper" aria-label="C.R.A.F.T. builder steps">
-        <button
-          className={
-            nav.activePanel === FLOW_PANEL_INDEX.guide
-              ? "flow-overview-button is-active"
-              : "flow-overview-button"
-          }
-          type="button"
-          onClick={() => nav.navigateToPanel(FLOW_PANEL_INDEX.guide)}
-          aria-current={
-            nav.activePanel === FLOW_PANEL_INDEX.guide ? "step" : undefined
-          }
-        >
-          Guide
-        </button>
-        <div className="flow-step-list">
-          {CRAFT_PARTS.map(({ letter, label }, index) => {
-            const active = activeCraftStepIndex === index;
-            const complete = flowStepComplete[index];
-
-            return (
-              <button
-                className={[
-                  "flow-step-button",
-                  active ? "is-active" : "",
-                  complete ? "is-complete" : "",
-                ]
-                  .filter(Boolean)
-                  .join(" ")}
-                type="button"
-                onClick={() => nav.navigateToCraftStep(index)}
-                aria-current={active ? "step" : undefined}
-                aria-label={`${label}${complete ? ", complete" : ""}`}
-                key={letter}
-              >
-                <span>{letter}</span>
-                <strong>{label}</strong>
-              </button>
-            );
-          })}
-        </div>
-      </nav>
-
       <div
         className={
           outputExpanded
@@ -969,6 +938,8 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           customArchetypes={customArchetypes}
           roles={roles}
           activeId={activeArchetypeId}
+          saveFormOpen={archetypeSaveOpen}
+          onSaveFormOpenChange={setArchetypeSaveOpen}
           onApply={applyArchetype}
           onSaveCustom={saveCurrentAsPreset}
           onDeleteCustom={removeCustomPreset}
@@ -997,7 +968,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
               activeRoleCategory={activeRoleCategory}
               roleSelectionMessage={roleSelectionMessage}
               dictation={dictationApi}
-              navigateToPanel={nav.navigateToPanel}
               navigateToCraftStep={nav.navigateToCraftStep}
               onSelectOutputType={selectOutputType}
               onUpdateDraft={updateDraft}
@@ -1012,8 +982,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
               onToggleRole={toggleRole}
               onDropRole={dropRoleIntoSlot}
               onClearRoles={clearRoleLoadout}
-              onReviewOutput={() => setOutputExpanded(true)}
-              onReset={resetDraft}
             />
 
             {speechMessage ? (
@@ -1036,6 +1004,50 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
                 portalTarget,
               )
             : null}
+
+          <FlowNavDock
+            onBack={
+              nav.activePanel > FLOW_PANEL_INDEX.guide
+                ? () => nav.navigateToPanel(nav.activePanel - 1)
+                : undefined
+            }
+            onNext={
+              nav.activePanel === FLOW_PANEL_INDEX.target
+                ? () => setOutputExpanded(true)
+                : () => nav.navigateToPanel(nav.activePanel + 1)
+            }
+            nextLabel={
+              nav.activePanel === FLOW_PANEL_INDEX.guide
+                ? "Start"
+                : nav.activePanel === FLOW_PANEL_INDEX.target
+                  ? "Review output"
+                  : "Next"
+            }
+          >
+            {/* The world switch. Same cards, same prompt - only art and bios
+                change, so it rides with whole-deck navigation, stacked. */}
+            <div
+              className="art-pack-switch"
+              role="group"
+              aria-label="Card art world"
+            >
+              {ART_PACK_OPTIONS.map((option) => (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={
+                    option.id === artPackId
+                      ? "art-pack-switch-option is-active"
+                      : "art-pack-switch-option"
+                  }
+                  aria-pressed={option.id === artPackId}
+                  onClick={() => switchArtPack(option.id)}
+                >
+                  {option.name}
+                </button>
+              ))}
+            </div>
+          </FlowNavDock>
         </div>
 
         <PromptOutputDock

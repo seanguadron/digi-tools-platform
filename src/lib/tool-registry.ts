@@ -27,8 +27,11 @@ export interface ToolDescriptor {
   // Gate-screen copy: 2-3 concrete lines on what the tool does and where the
   // data lives. Required when mobileSupport is "gated".
   mobileGateNotes?: string[];
+  // "alpha": the tool ships but is early — its top-bar tab carries a flag.
+  stage?: "alpha";
 }
 
+// Object-literal order IS the top-bar tab order.
 export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
   "prompt-builder": {
     id: "prompt-builder",
@@ -44,10 +47,25 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
       "Drafts autosave in this browser; sessions export and import as local JSON.",
     ],
   },
+  "picture-deck": {
+    id: "picture-deck",
+    name: "PICTURE Deck",
+    shortName: "PICTURE",
+    tagline:
+      "Compose image-generation prompts from P.I.C.T.U.R.E. cards — subject, light, medium, palette, world, references, finish.",
+    href: "/tools/picture-deck",
+    fullBleed: true,
+    mobileSupport: "gated",
+    mobileGateNotes: [
+      "Builds image-model prompts from P.I.C.T.U.R.E. card choices — lighting, medium, palette, world, references, and framing.",
+      "100 card lineages and 18 archetype presets; one Intensity dial tunes every card from subtle to extreme.",
+      "Optional Midjourney tail (--ar, --stylize, --no). Drafts autosave in this browser; prompts download as local files.",
+    ],
+  },
   "architect-wizard": {
     id: "architect-wizard",
     name: "Architect Wizard",
-    shortName: "Architect",
+    shortName: "Arc",
     tagline:
       "Sketch an application's architecture and data model, then export a build brief for an AI agent.",
     href: "/tools/architect-wizard",
@@ -59,6 +77,15 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
       "Diagrams save locally in this browser — nothing leaves your machine.",
     ],
   },
+  skills: {
+    id: "skills",
+    name: "Skills",
+    shortName: "Skills",
+    tagline:
+      "A curated library of AI skills — what each one does and how to install it.",
+    href: "/tools/skills",
+    fullBleed: false,
+  },
   "image-editor": {
     id: "image-editor",
     name: "Image Editor",
@@ -68,6 +95,7 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
     href: "/tools/image-editor",
     fullBleed: true,
     mobileSupport: "gated",
+    stage: "alpha",
     mobileGateNotes: [
       "Layer-based editing: paint, select, adjust, filter.",
       "Opens local images; exports PNG, JPG, or a layered .zip.",
@@ -83,34 +111,11 @@ export const TOOL_REGISTRY: Record<ToolId, ToolDescriptor> = {
     href: "/tools/vector-editor",
     fullBleed: true,
     mobileSupport: "gated",
+    stage: "alpha",
     mobileGateNotes: [
       "Draws vector artwork on an SVG artboard — pen paths with editable anchors, plus rectangles, ellipses, lines, polygons.",
       "Style fills and strokes, reorder and lock objects, then export clean SVG or PNG.",
       "Runs entirely in this browser — artwork never leaves your machine.",
-    ],
-  },
-  skills: {
-    id: "skills",
-    name: "Skills",
-    shortName: "Skills",
-    tagline:
-      "A curated library of AI skills — what each one does and how to install it.",
-    href: "/tools/skills",
-    fullBleed: false,
-  },
-  "picture-deck": {
-    id: "picture-deck",
-    name: "PICTURE Deck",
-    shortName: "PICTURE",
-    tagline:
-      "Compose image-generation prompts from P.I.C.T.U.R.E. cards — subject, light, medium, palette, world, references, finish.",
-    href: "/tools/picture-deck",
-    fullBleed: true,
-    mobileSupport: "gated",
-    mobileGateNotes: [
-      "Builds image-model prompts from P.I.C.T.U.R.E. card choices — lighting, medium, palette, world, references, and framing.",
-      "100 card lineages and 18 archetype presets; one Intensity dial tunes every card from subtle to extreme.",
-      "Optional Midjourney tail (--ar, --stylize, --no). Drafts autosave in this browser; prompts download as local files.",
     ],
   },
 };
