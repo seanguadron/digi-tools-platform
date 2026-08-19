@@ -251,7 +251,15 @@ function toLiveWebp(url: string) {
   });
 }
 
-export function CardStudio({ packs }: { packs: { id: string; name: string }[] }) {
+export function CardStudio({
+  packs,
+  deck = "craft",
+}: {
+  packs: { id: string; name: string }[];
+  // "picture" hides the Card tab (that deck's studio edits art only) and
+  // scopes every request to the picture stores on the server.
+  deck?: "craft" | "picture";
+}) {
   const [theme, setTheme] = useState(packs[0]?.id ?? "sci-fi");
   const [packState, setPackState] = useState<PackSummary[]>([]);
   const [manifest, setManifest] = useState<Manifest | null>(null);
@@ -293,7 +301,9 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
   const refreshSeq = useRef(0);
   const refresh = useCallback(async (nextTheme: string) => {
     const seq = ++refreshSeq.current;
-    const response = await fetch(`/api/card-art?theme=${encodeURIComponent(nextTheme)}`);
+    const response = await fetch(
+      `/api/card-art?theme=${encodeURIComponent(nextTheme)}&deck=${deck}`,
+    );
     if (!response.ok) {
       const body = (await response.json().catch(() => null)) as { error?: string } | null;
       throw new Error(body?.error ?? `Could not load the ${nextTheme} pack`);
@@ -309,10 +319,10 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     }
     setManifest(payload);
     setRevision((current) => current + 1);
-  }, []);
+  }, [deck]);
 
   const refreshPacks = useCallback(async () => {
-    const response = await fetch("/api/card-art?view=packs");
+    const response = await fetch(`/api/card-art?view=packs&deck=${deck}`);
     if (!response.ok) {
       return;
     }
@@ -322,7 +332,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     if (isPackSummaryList(payload?.packs)) {
       setPackState(payload.packs);
     }
-  }, []);
+  }, [deck]);
 
   useEffect(() => {
     let cancelled = false;
@@ -359,7 +369,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
           // two can differ for a moment mid-switch, and a write must
           // follow the entries it was clicked on. scaffold-pack passes
           // its own theme explicitly and overrides this default.
-          body: JSON.stringify({ theme: manifest?.theme ?? theme, ...body }),
+          body: JSON.stringify({ deck, theme: manifest?.theme ?? theme, ...body }),
         });
         const payload = (await response.json().catch(() => null)) as
           | { error?: string }
@@ -377,7 +387,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
         setBusy(false);
       }
     },
-    [refresh, theme, manifest],
+    [refresh, theme, manifest, deck],
   );
 
   const entries = useMemo(() => manifest?.entries ?? [], [manifest]);
@@ -397,7 +407,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
     setCard(null);
     setCardEdits({});
     const response = await fetch(
-      `/api/card-art?view=card&theme=x&key=${encodeURIComponent(key)}`,
+      `/api/card-art?view=card&theme=x&deck=${deck}&key=${encodeURIComponent(key)}`,
     );
     const payload: unknown = await response.json().catch(() => null);
     if (!response.ok) {
@@ -410,7 +420,7 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
       return;
     }
     setCard(payload);
-  }, []);
+  }, [deck]);
 
   useEffect(() => {
     if (!activeKey || facet !== CARD_FACET) {
@@ -802,7 +812,15 @@ export function CardStudio({ packs }: { packs: { id: string; name: string }[] })
                     active={facet}
                     onChange={selectFacet}
                     tabs={[
-                      { id: CARD_FACET, label: "Card", className: "card-facet-tab" },
+                      ...(deck === "craft"
+                        ? [
+                            {
+                              id: CARD_FACET,
+                              label: "Card",
+                              className: "card-facet-tab",
+                            },
+                          ]
+                        : []),
                       ...facetPacks.map((pack) => ({
                         id: pack.id,
                         className: pack.installed
