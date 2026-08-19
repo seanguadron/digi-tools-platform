@@ -7,61 +7,66 @@ in a Claude Code session), this page tells you where the project stands, how
 to run it, and what comes next. History and the why live in
 `.ai/notes/SESSIONS.md`; this page is only what is true now.
 
-Last rewritten: 2026-08-18, night (the "all three worlds live" session).
+Last rewritten: 2026-08-19, evening (the "PICTURE is fully illustrated"
+session).
 
 ## Now
 
 Branch **`main`**, working tree clean except for `card-art-source/` (see
-Owed). **Every world is finished and switchable in the app.** Two commits
-tonight on top of the morning's three:
+Owed). **Both decks are now fully illustrated.** Tonight's commit `e29d7a8`
+closes the PICTURE art project and reshapes the guide pages of both decks.
 
-**`feat(art)` — Fantasy and Superhero generated, 452 NB Pro 2K images
-live.** Both packs went 0/226 → 226/226 through the same local pipeline as
-sci-fi (download PNG → store `addVariant` → frame-check → sharp 1024
-centred-cover webp q92 → `selectVariant`; originals kept as studio
-variants). QA on magenta contact sheets per world. Fantasy needed 7
-re-rolls; superhero needed 31, and its failures came in three families the
-sci-fi run never showed: cream *page* borders (the model drawing a printed
-comic page), readable text (gauges that said PASS, a slab captioned STORY
-SLAB, sound-effects CHIRP/BUZZ), and literal DC/Marvel characters (a
-bat-signal, Batman twice, Superman three times, The Flash, an Iron Man
-pastiche). The re-roll recipe that cured all three: describe what surfaces
-ARE (blank faces, tick-marks only, original heroes with plain geometric
-emblems, or "no figures, machinery only") rather than only prohibiting.
-Land-time auto-crop healed 70+ thin comic borders without re-rolls — the
-detector earned its keep this run.
+**The gallery pack: 426/426 generated.** Every PICTURE card carries art that
+DEMONSTRATES the technique it teaches — a watercolor card IS watercolor, a
+knolling card IS knolled. 100 lineages + 300 per-grade intensity renders + 18
+archetypes + 1 shared swatch + **7 new P.I.C.T.U.R.E. acronym cards**. Same
+pipeline as the CRAFT worlds (Nano Banana Pro 2K → frame-check → sharp 1024
+centred-cover webp q92); 428 landings including two re-rolls. Quality held up
+well: 24 of 428 tripped the land-time auto-crop (all healed), and eyeball QA
+on the flag sheets found only two real defects — candlelight[2] had a gray
+band down one edge, and low-angle-hero[1] rendered a trench-coated figure
+instead of a firefighter and lost the low angle. Both re-rolled and verified.
 
-**`feat(deck)` — the world picker.** A three-way segmented control (Sci-Fi /
-Fantasy / Superhero) in the CRAFT deck subbar's middle slot. One click
-re-renders the whole deck onto another pack — art and bios resolve at render
-time, so there is no per-component wiring and no reload. Persists per
-browser (`digitools.prompt-builder.art-pack-v1`) behind the `isArtPackId`
-guard; tampered values degrade to the sci-fi default. All three judgment
-gates ran on it (ledger: `2026-08-18-{design,integration,security}-gate-
-art-pack-picker.md`): Security PASS (one accepted Low — the module-level
-active-pack singleton is race-free until Suspense ever wraps the deck),
-Integration PASS, Design FAIL→fixed (the first draft invented a 999px-pill
-segmented control; restyled onto the app's `.editor-dialog-seg` idiom and
-browser-verified at 900/768/phone). ARCHITECTURE.md §1 now documents the
-picker and the persistence contract.
+**Both guide pages were rebuilt** (owner's direction): title and copy on top,
+the acronym spelled out below as ONE row of cards, each with its own letter
+art above a word capsule — a solid brand-cyan tile holding the acronym letter
+with the rest of the word completing it inside one bordered unit, `[C]ontext`.
+The old layout hard-coded five columns and wrapped PICTURE's seven letters
+mid-acronym; the row is now deck-agnostic (`grid-auto-flow: column`, with
+`auto-fit` wrap tiers).
 
-Known accepted behavior: a returning Fantasy/Superhero user briefly sees
-sci-fi paint first (the saved pack applies after the mount effect, same
-deferred-restore pattern as saved prompts). A theme-script-style
-pre-hydration snippet is the fix if it ever grates.
+**CRAFT's guide gained a "Card style" tier** — three cards, Sci-Fi / Fantasy /
+Superhero, each showing the same **Researcher** in that world's art. Clicking
+one reskins the whole deck. This exists because the world switch was
+undiscoverable as a dock control; the cards make it a thing you can see. No
+new images were generated — these are existing role art.
 
-Health: `typecheck` · `lint` · `test` (148) · `data:validate` ·
+**The nav dock became a little window.** Grab the handle and push it toward
+any corner of the workspace; it snaps there (FLIP settle, 200ms), persists
+per browser (`digitools.flow-dock-corner-v1` behind an `isDockCorner` guard),
+and moves corner-to-corner on arrow keys. Both decks.
+
+**The role step shows everything.** All 35 roles render by default; the
+categories became equal-width filter chips with "All roles" leading. Every
+programmatic load path (archetype apply, import, library, share link, reset)
+sets "all" rather than jumping to the lead role's category, and picking a role
+no longer moves the filter.
+
+Health: `typecheck` · `lint` · `test` (149) · `data:validate` ·
 `check:standards` · `check:security` all green.
 
 **Owed from Sean:**
-- **Decide on `card-art-source/` — now ~3 sessions of originals** (sci-fi +
-  fantasy + superhero full-res PNGs). `git add card-art-source && git
+- **Decide on `card-art-source/` — now ~4 sessions of originals** (sci-fi,
+  fantasy, superhero, gallery full-res PNGs). `git add card-art-source && git
   commit` bakes it into history forever; a `.gitignore` entry keeps the repo
-  light and loses the re-crop candidates on any fresh clone.
-- **Review the two new decks** — fastest in the app itself now: open the
-  CRAFT deck, click Fantasy, click Superhero. Contact sheets also in the
-  session scratchpad (`fantasy-sheet.webp`, `sup-sheet-1..4.webp`,
-  `sup-rerolls-verify.webp`). Any miss is a 2-credit re-roll.
+  light and loses the re-crop candidates on any fresh clone. Deliberately NOT
+  staged in any commit so far.
+- **Feel the dock drag with a real mouse.** The snap math and keyboard path
+  were verified headless; the drag *feel* was not (the preview pane reports a
+  0×0 viewport, so pointer-drag can't be exercised there).
+- **Review the PICTURE deck's art** — open the PICTURE deck and page through;
+  the grade art escalates one scene family per card (subtle → committed →
+  total). Any miss is a 2-credit re-roll.
 - Real-mic dictation spot-check (headless browsers cannot grant a mic).
 
 ## Runbook
@@ -71,89 +76,98 @@ Health: `typecheck` · `lint` · `test` (148) · `data:validate` ·
   server started outside the preview tooling will make `preview_start
   {name}` refuse the port — open a tab with `preview_start {url}` instead.
   Never `npm run build` while a dev server may be live (shared `.next/`).
+  **Routes are `/tools/prompt-builder` and `/tools/picture-deck`** (not
+  `/craft` or `/picture`).
 - **If CSS edits stop taking effect** (Turbopack serving a stale
   stylesheet): an identical rewrite does NOT jolt it (content-hash dedupe);
   append a real change (a comment), let it recompile, remove the comment,
   then hard-reload the page — or `npm run dev:clean` when the server can be
   restarted.
 - **Framework:** read `docs/ARCHITECTURE.md` first. §1 covers the art-pack
-  model *including the world picker*; §2 the shell contract.
+  model including the world picker; §2 the shell contract.
 - **Checks:** `npm run typecheck` · `lint` · `test` · `data:validate` ·
   `check:standards && check:security`.
-- **Authoring:** `/studio/cards` — development-only, 404s in production,
-  requires a loopback Host. One tab per world; the studio writes whichever
-  pack's rows are on screen.
+- **Authoring:** `/studio/cards` (CRAFT) and `/studio/picture` (PICTURE) —
+  development-only, 404 in production, require a loopback Host. The picture
+  studio has no Card tab: that deck's catalog stays script-managed.
 - **Skills:** two homes (STANDARDS §3.4): `.agents/skills/` Codex,
   `.claude/skills/` Claude Code; never cross-install.
-- **Headless preview gotchas** (2026-07-28 list in SESSIONS.md still true):
-  card images are `loading="lazy"` — force eager or scroll before reading
-  load state; screenshots fail unless the Browser pane is displayed — verify
-  through DOM evals; Next image `src` is URL-encoded
-  (`/_next/image?url=%2Fcard-art%2F…`) — `decodeURIComponent` before
-  matching paths.
+- **Headless preview gotchas:** card images are `loading="lazy"` — force
+  eager or scroll before reading load state; screenshots fail unless the
+  Browser pane is displayed — verify through DOM evals; **the pane can report
+  a 0×0 viewport, so `getBoundingClientRect` is useless — assert on computed
+  styles and dispatch `.click()` instead**; Next image `src` is URL-encoded
+  (`/_next/image?url=%2Fcard-art%2F…`) — `decodeURIComponent` before matching.
 - **Editing JSON catalogs programmatically:** node with `utf8`; PowerShell
-  Get/Set-Content mangles non-ASCII.
+  Get/Set-Content mangles non-ASCII. Repo files are CRLF — patch scripts must
+  match `\r?\n`.
 - **Batch image generation** (Higgsfield MCP): `generate_image_batch` max 12
-  requests, `jobs_wait` max 12 jobs / 15s cap; loop is submit 12 → 3-min
+  requests, `jobs_wait` max 12 jobs / 15s cap; loop is submit 12 → 4-5 min
   background timer → poll → land → next 12. Result URLs
-  `hf_<YYYYMMDD>_<HHMMSS>_<job_id>.png`; timestamps can differ ±1s per job
-  within one batch — land per-prefix. `nsfw` rejections are random false
-  positives on innocuous briefs (~1 per 2 batches); resubmit with a light
-  rewording. Always end a theme with the pending check (worklist minus
-  done-ledger).
+  `hf_<YYYYMMDD>_<HHMMSS>_<job_id>.png` — **the trailing underscore belongs to
+  the prefix**; timestamps differ ±1-2s per job within one batch, so land
+  per-prefix. Queue depth varies: a batch that is still `queued` at 4 minutes
+  usually needs another 3. Always end a theme with the pending check
+  (worklist minus done-ledger).
 
 ## Built
 
-**Six tools** in `src/lib/tool-registry.ts`, plus one unregistered authoring
-surface.
+**Six tools** in `src/lib/tool-registry.ts`, plus two unregistered authoring
+surfaces.
 
 - **CRAFT Deck** (`prompt-builder`): C.R.A.F.T. language-model prompts from
   card choices — 35 roles, 32 lineages ×4 grades, 25 archetypes,
-  library/share/sessions/dictation/proof lab, **and the world picker**. All
-  226 cards carry final art and a bio in each of three worlds.
+  library/share/sessions/dictation/proof lab, the world picker (dock + the
+  new guide style tier). 226 cards with final art and a bio in each of three
+  worlds.
 - **PICTURE Deck** (`picture-deck`): P.I.C.T.U.R.E. image-model prompts —
-  100 lineages ×3 grades, 18 archetypes, Midjourney tail. Still carries its
-  illustrations inline; moving it to packs is additive and deferred.
+  100 lineages ×3 grades, 18 archetypes, Midjourney tail. **Fully
+  illustrated: 426/426 gallery images**, each demonstrating its own card's
+  technique, plus flavor lines on every card.
 - **Architect Wizard**, **Image Editor**, **Vector Editor**, **Skills Wiki**:
   unchanged this session.
-- **Card Studio** (`/studio/cards`): not a tool, not registered. Per-card
-  facet tabs (Card · Sci-Fi · Fantasy · Superhero); relations strip; the
-  Card tab edits catalog text through a validator gate; each pack tab holds
-  that world's art workflow and bio editor.
+- **Card Studio** (`/studio/cards`, `/studio/picture`): per-card facet tabs,
+  relations strip, art workflow + bio editor per pack.
 
 **The art-pack model** (`docs/ARCHITECTURE.md` §1): catalog owns the
 universal half (id, name, description, mechanics); a pack
 (`art-themes/<id>.json`) owns the per-world half (brief, alt, bio, status);
-paths derived by `scripts/art-pack.mjs`. **All three packs are complete:
-226/226 generated each — 678 images total.** The deck renders whichever pack
-the picker selects; `src/lib/art-pack.ts` owns the active-pack seam.
+paths derived by `scripts/art-pack.mjs`. **Four packs, all complete:**
+sci-fi, fantasy, superhero (226 each) and gallery (426) — **1,104 images.**
+`src/lib/art-pack.ts` owns CRAFT's active-pack seam (plus `packArtFor` for
+reading a named pack, which is how the guide's style cards show three worlds
+at once); `src/lib/picture-art-pack.ts` is the same minus switching.
 
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **Sean's queue:** the `card-art-source/` decision; Fantasy + Superhero
-  deck review (in-app via the picker); real-mic dictation check.
-- **Next:** the PICTURE deck onto packs (same model, additive); a per-model
-  output formatter; a Pip-Decks-style restyle; the idea-making deck.
+- **Owed gate:** the **draggable nav dock never got its design-gate pass** —
+  the agent was launched and died on a monthly spend limit before reporting.
+  Re-run it against `src/components/flow-nav-dock.tsx` + the
+  `.flow-nav-dock*` CSS zone (handle affordance and hit target, the 200ms
+  settle, top-corner overlap with panel headings, `role="button"` + arrow
+  keys as a drag-handle pattern, focus-visible, z-index 6 vs floating
+  panels).
+- **Sean's queue:** the `card-art-source/` decision; the dock drag by hand;
+  PICTURE deck art review; real-mic dictation check.
+- **Next:** a per-model output formatter; a Pip-Decks-style restyle; the
+  idea-making deck.
 - **Worth promoting out of the scratchpad:** `frame-check.mjs`,
-  `contact-theme.mjs` (theme-parameterized contact sheets), the bright-ring
-  scan, and the land pipeline (`make-batch.mjs`/`land-theme.mjs`) →
-  `scripts/art-qa.mjs --sheets`. Note the bright-ring threshold must be
-  per-world (110 worked for fantasy's dark edges; superhero's neon edges
-  false-positived ~19 of 25 hits — the magenta sheet + eyeballs stays the
-  definitive check).
-- **Pending amendments** (`npm run amendments`, owner consent): the standing
-  queue (§2.2 naming both doc families; `is*` guards checking every field;
-  colour+text status indicators; server-echoed identifier reuse for writes;
-  free-text ceilings naming pack `prompt`/`alt`), plus new from tonight:
-  (f) DESIGN_DIRECTION should document the world-switch control in its CRAFT
-  section; (g) segmented single-select controls follow one idiom
-  (`.editor-dialog-seg` shape) — the design gate has now caught an invented
-  variant twice.
+  `contact-theme.mjs`, and the land pipeline (`make-batch.mjs` /
+  `land-theme.mjs`) → `scripts/art-qa.mjs --sheets`. The magenta contact
+  sheet + eyeballs stays the definitive check; the bright-ring scan is
+  useless on the gallery pack (every card has a different palette by design).
+- **Pending amendments** (`npm run amendments`, owner consent): 23 flagged,
+  including tonight's — (h) DESIGN_DIRECTION should document the guide's
+  stacked acronym row, the word capsule, and the "All roles" browse default;
+  (i) the segmented-single-select rule now has a **named exception**: the
+  world switch appears twice on CRAFT by owner's direction (dock control +
+  illustrated guide tier), so the rule should name the sanctioned surfaces
+  rather than forbid duplication outright.
 - **Non-blocking, accepted:** `src/lib/art-pack.ts` imports
-  `scripts/art-pack.mjs`; the first-paint flash for returning non-default
-  pack users; the module-level active-pack singleton (revisit with
-  `useSyncExternalStore` only if Suspense ever wraps the deck).
+  `scripts/art-pack.mjs`; first-paint flash for returning non-default pack
+  users (and the same for a non-default dock corner); the module-level
+  active-pack singleton.
 - **Pre-existing, still open:** Filters/"Adjust" dialog onto EditorDialog;
   `.image-editor-title-input` focus pattern; image-editor statusbar portal
   idiom chip; agent-eval fixtures vs the gates; prompt-builder proofDraft
@@ -166,7 +180,7 @@ the picker selects; `src/lib/art-pack.ts` owns the active-pack seam.
 - Framework contract: `docs/ARCHITECTURE.md`. Art briefs:
   `docs/CRAFT_ART_SCIFI.md` / `docs/CRAFT_ART_FANTASY.md` /
   `docs/CRAFT_ART_SUPERHERO.md` (226 each) and
-  `docs/PICTURE_ART_MANIFEST.md` (118). History: `.ai/notes/SESSIONS.md`
+  `docs/PICTURE_ART_MANIFEST.md` (426). History: `.ai/notes/SESSIONS.md`
   (newest-first). Rules: `docs/STANDARDS.md`. Gate ledger:
   `.ai/notes/gate-reports/`. Domain language: `CONTEXT.md`.
 - `npm run amendments` shows the consent queue; `npm run gate:sweep` stamps
