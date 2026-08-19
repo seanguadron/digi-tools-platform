@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { ArtPackKeyError, parseArtKey } from "./art-pack.mjs";
 import {
   collectPictureArtEntries,
   loadPictureArtTheme,
@@ -134,6 +135,20 @@ test("a draft pack is exempt from coverage", async () => {
   pack.theme.draft = true;
   delete pack.lineages[catalog.cards.cards[0].id];
   assert.deepEqual(pictureArtCoverageErrors(catalog, pack), []);
+});
+
+// A grade index is bounded in the key parser itself, so an unbounded digit
+// run cannot reach a caller as Infinity (security gate, 2026-08-19).
+test("a grade key's index is bounded and canonical", () => {
+  assert.equal(parseArtKey("grades.watercolor[0]").index, 0);
+  assert.equal(parseArtKey("grades.watercolor[999]").index, 999);
+  for (const key of [
+    "grades.watercolor[1000]",
+    "grades.watercolor[00]",
+    "grades.watercolor[99999999999999999999]",
+  ]) {
+    assert.throws(() => parseArtKey(key), ArtPackKeyError, key);
+  }
 });
 
 test("a scenario equipping into the wrong section fails validation", async () => {

@@ -83,7 +83,10 @@ export function parseArtKey(key) {
   const rest = key.slice(dot + 1);
 
   if (group === "grades") {
-    const match = /^(.+)\[(\d+)\]$/.exec(rest);
+    // The index is bounded here rather than trusted to every caller's own
+    // gate: an unbounded digit run parses to Infinity, and this module's job
+    // is to refuse to build a suspect key in the first place.
+    const match = /^(.+)\[(0|[1-9]\d{0,2})\]$/.exec(rest);
     if (!match) {
       fail(key, "expected grades.<lineage>[<index>]");
     }

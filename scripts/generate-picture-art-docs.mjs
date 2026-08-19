@@ -22,8 +22,9 @@ import { projectRoot } from "./prompt-data-files.mjs";
 // generated doc keeps the historical PICTURE_ART_MANIFEST.md path.
 //
 // The key grammar is shared with CRAFT (lineages.<id>, grades.<id>[n],
-// archetypes.<id>); the picture deck simply never uses the craft/roles/shared
-// groups.
+// archetypes.<id>, craft.<letter> for the guide's acronym cards, and
+// shared.<key> for the custom-preset swatch). Only the `roles` group goes
+// unused here - this deck has no roles.
 
 export function installedPictureArtPackIds() {
   return PICTURE_ART_PACKS.map((pack) => pack.id).filter((id) =>
@@ -311,7 +312,7 @@ export function renderPictureArtDoc(catalog, theme) {
     '   press "Use this" - it writes the webp to the listed target path, flips',
     '   this pack\'s `status` to `"generated"`, and re-renders this file.',
     "",
-    `Progress: ${generated}/${entries.length} generated - ${core.length} core images first, then ${later.length} per-grade variants.`,
+    `Progress: ${generated}/${entries.length} generated - ${core.length} core images first, then ${later.length} later images (per-grade variants and the guide's acronym cards).`,
     "",
     "## Shared craft rules",
     "",
@@ -331,11 +332,12 @@ export function renderPictureArtDoc(catalog, theme) {
     if (entry.later && !laterOpened) {
       laterOpened = true;
       lines.push(
-        "## Later: per-grade variants",
+        "## Later images",
         "",
         "Until a grade's own art exists, every grade of a lineage shows that",
         "lineage's image. Generate a grade here to override its card face with",
-        "the technique at that grade's intensity.",
+        "the technique at that grade's intensity. The acronym cards at the end",
+        "of this section belong to the guide page rather than to any one card.",
         "",
       );
       currentGroup = null;

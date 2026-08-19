@@ -23,7 +23,7 @@ Per image:
    press "Use this" - it writes the webp to the listed target path, flips
    this pack's `status` to `"generated"`, and re-renders this file.
 
-Progress: 426/426 generated - 119 core images first, then 307 per-grade variants.
+Progress: 426/426 generated - 119 core images first, then 307 later images (per-grade variants and the guide's acronym cards).
 
 ## Shared craft rules
 
@@ -1717,11 +1717,12 @@ Collectible-card key art for a deck that teaches image-making. Each card demonst
 An empty artist's easel standing in a bright clean studio, a fresh stretched canvas catching soft window light, brushes and unmixed paints waiting on the side table - a picture about the picture you are about to make.
 ```
 
-## Later: per-grade variants
+## Later images
 
 Until a grade's own art exists, every grade of a lineage shows that
 lineage's image. Generate a grade here to override its card face with
-the technique at that grade's intensity.
+the technique at that grade's intensity. The acronym cards at the end
+of this section belong to the guide page rather than to any one card.
 
 ### Per-grade variants - Protagonist
 

@@ -97,22 +97,45 @@ A card is two things, kept in two files:
 A pack stores **no path**. `scripts/art-pack.mjs` derives every path from the
 pack id plus the entry key, which is what makes a second world a drop-in:
 no file moves, no collisions, an honest per-pack `status`, and no way for
-renaming a card in the studio to orphan its art. `src/lib/art-pack.ts` is the
-app's typed door onto the active pack; the deck engine takes optional
-`cardArt`/`cardBio` callbacks so the CRAFT deck resolves through its pack
-while the PICTURE deck keeps its inline illustrations.
+renaming a card in the studio to orphan its art. The deck engine takes
+optional `cardArt`/`cardBio` callbacks, so each deck resolves through its own
+typed door: `src/lib/art-pack.ts` for CRAFT (which world is active is a
+runtime choice) and `src/lib/picture-art-pack.ts` for PICTURE.
 
-All three packs (sci-fi, fantasy, superhero) ship in the bundle, and the
-CRAFT deck carries the **world picker** stacked inside the corner nav dock
-(`src/components/flow-nav-dock.tsx`, pinned to `.flow-workspace`'s
-bottom-right, above Back/Next): `setActiveArtPack(id)` points every resolver
-at another pack, the deck re-renders, and because art and bios resolve at
-render time nothing else needs wiring. The choice persists in localStorage
+**PICTURE has exactly one pack, by design**
+(`src/data/picture-deck/art-themes/gallery.json`). Its cards teach
+image-making techniques, so a card's art IS a demonstration of its own
+concept — a watercolor card must BE watercolor. There is no second world to
+reskin into, so `picture-art-pack.ts` is `art-pack.ts` minus the switching
+machinery: no picker, no mutable active-pack seam. The pack model still earns
+its place there for the derived paths, the per-entry `status`, and the studio
+workflow. The pack also carries the deck's seven **acronym letter** entries
+(`craft.P` … `craft.E`), which the guide page renders as cards.
+
+All three CRAFT packs (sci-fi, fantasy, superhero) ship in the bundle, and
+the deck offers the **world picker** in two places, deliberately (owner,
+2026-08-19): stacked inside the corner nav dock, and as an illustrated
+**card style tier** on the guide page — three cards showing the same
+Researcher in each world's art, so the reskin is discoverable rather than
+hidden in a control. `setActiveArtPack(id)` points every resolver at another
+pack, the deck re-renders, and because art and bios resolve at render time
+nothing else needs wiring. The guide's style cards read three packs at once
+through `packArtFor(packId, key)`, which resolves from a NAMED pack instead
+of the active one. The choice persists in localStorage
 (`digitools.prompt-builder.art-pack-v1`), restored through the `isArtPackId`
 guard — an unknown or tampered value degrades to the default pack
-(`PACKS[0]`, sci-fi) rather than throwing. The dock and the subbar's
-step strip (`src/components/flow-step-strip.tsx`) are shared by both decks —
-recycle them rather than reinventing per-deck navigation chrome.
+(`PACKS[0]`, sci-fi) rather than throwing.
+
+The nav dock (`src/components/flow-nav-dock.tsx`) and the subbar's step strip
+(`src/components/flow-step-strip.tsx`) are shared by both decks — recycle
+them rather than reinventing per-deck navigation chrome. The dock is a
+**movable little window**, not fixed furniture: a grab handle drags it, and
+on release it snaps to whichever quadrant of `.flow-workspace` its centre
+landed in (a FLIP settle keeps the motion continuous). Arrow keys move it
+corner to corner. The chosen corner persists per browser
+(`digitools.flow-dock-corner-v1`) behind the `isDockCorner` guard, with the
+same deferred restore as the art pack — a tampered value degrades to the
+bottom-right default.
 
 A pack whose `theme.draft` is true is skipped by the generator and the
 coverage check, so scaffolding a world cannot fail the build. Clearing that

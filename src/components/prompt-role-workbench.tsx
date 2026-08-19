@@ -10,6 +10,7 @@ import {
   roleCategoryCode,
 } from "@/components/prompt-builder-ui";
 import { useCardDeckMotion } from "@/hooks/use-card-deck-motion";
+import { usePortalTarget } from "@/hooks/use-portal-target";
 import { roleArt } from "@/lib/art-pack";
 import { attachCardDragPreview } from "@/lib/card-motion";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
@@ -49,8 +50,7 @@ export function PromptRoleWorkbench({
   const dragPreviewCleanupRef = useRef<null | (() => void)>(null);
   const deckMotion = useCardDeckMotion();
   const slotMotion = useCardDeckMotion();
-  const portalTarget =
-    typeof document === "undefined" ? null : document.body;
+  const portalTarget = usePortalTarget();
 
   // "all" leads: the full deck is the default view and the categories act as
   // filters over it, sized alike so no one chip stretches (owner, 2026-08-19).

@@ -700,6 +700,18 @@ export function createCardArtStore({
           400,
         );
       }
+      // A bio is spliced verbatim into a markdown line of the generated art
+      // doc by the refresh below, so a line break or a backtick here can forge
+      // doc entries and break out of a fenced block. The build-time scan in
+      // validate-*-data.mjs catches hand edits; this catches the write path,
+      // which re-renders the doc from the same source and would therefore
+      // never look stale. One line of plain text, by construction.
+      if (/[\r\n`]/.test(trimmed)) {
+        throw new CardArtError(
+          "A bio is one line of plain text: no line breaks or backticks",
+          400,
+        );
+      }
 
       if (trimmed) {
         record.bio = trimmed;

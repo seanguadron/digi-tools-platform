@@ -25,11 +25,14 @@ const stores = {
 };
 
 function storeFor(deck: string | null | undefined) {
-  const store = stores[(deck || "craft") as keyof typeof stores];
-  if (!store) {
+  const requested = deck || "craft";
+  // Own-property check, not a bare lookup: `deck=__proto__` would otherwise
+  // resolve to Object.prototype, pass a truthy guard, and fail as a 500 on
+  // the first method call instead of an honest 400.
+  if (!Object.hasOwn(stores, requested)) {
     throw new CardArtError(`Unknown deck: ${deck}`, 400);
   }
-  return store;
+  return stores[requested as keyof typeof stores];
 }
 
 function isProduction() {
