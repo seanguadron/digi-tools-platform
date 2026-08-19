@@ -52,7 +52,20 @@ programmatic load path (archetype apply, import, library, share link, reset)
 sets "all" rather than jumping to the lead role's category, and picking a role
 no longer moves the filter.
 
-Health: `typecheck` · `lint` · `test` (149) · `data:validate` ·
+**All three judgment gates ran on this work** (ledger:
+`2026-08-19-{design,integration,security}-gate-*.md`). Design FAIL→fixed
+(the word capsule's letter tile failed AA in light theme; the acronym row
+stranded PICTURE's 7th card mid-width). Integration FAIL→fixed
+(ARCHITECTURE.md had gone stale in two places — it still claimed PICTURE
+kept inline illustrations and that the dock was pinned bottom-right).
+Security FAIL→fixed, 0 High: `setBio` wrote pack bios after only a length
+check even though that text is spliced verbatim into a generated markdown
+doc, so a newline or backtick could forge a doc entry that the drift check
+could never notice; the grade-key index was unbounded; `?deck=__proto__`
+reached `Object.prototype` and 500'd instead of 400'ing. One security
+finding is **NOT** applied and needs Sean's consent (below).
+
+Health: `typecheck` · `lint` · `test` (150) · `data:validate` ·
 `check:standards` · `check:security` all green.
 
 **Owed from Sean:**
@@ -141,13 +154,15 @@ at once); `src/lib/picture-art-pack.ts` is the same minus switching.
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **Owed gate:** the **draggable nav dock never got its design-gate pass** —
-  the agent was launched and died on a monthly spend limit before reporting.
-  Re-run it against `src/components/flow-nav-dock.tsx` + the
-  `.flow-nav-dock*` CSS zone (handle affordance and hit target, the 200ms
-  settle, top-corner overlap with panel headings, `role="button"` + arrow
-  keys as a drag-handle pattern, focus-visible, z-index 6 vs floating
-  panels).
+- **Owed gate — the only one:** the **draggable nav dock never got its
+  design-gate pass**. The agent was launched and died on a provider spend
+  limit before reporting; integration and security both covered the dock's
+  code and storage, but nobody has judged how it *looks and feels*. Re-run
+  it against `src/components/flow-nav-dock.tsx` + the `.flow-nav-dock*` CSS
+  zone: handle affordance and hit target (the grip is a 4px pill in a 14px
+  strip), the 200ms settle, top-corner overlap with panel headings,
+  `role="button"` + arrow keys as a drag-handle pattern, focus-visible,
+  z-index 6 vs floating panels.
 - **Sean's queue:** the `card-art-source/` decision; the dock drag by hand;
   PICTURE deck art review; real-mic dictation check.
 - **Next:** a per-model output formatter; a Pip-Decks-style restyle; the
@@ -163,7 +178,13 @@ at once); `src/lib/picture-art-pack.ts` is the same minus switching.
   (i) the segmented-single-select rule now has a **named exception**: the
   world switch appears twice on CRAFT by owner's direction (dock control +
   illustrated guide tier), so the rule should name the sanctioned surfaces
-  rather than forbid duplication outright.
+  rather than forbid duplication outright; **(j) extend `check:security`'s
+  S1/S2 sweep to `scripts/`** — the security gate found that the sweep walks
+  only `src/`, so `card-art-store.mjs`, `art-pack.mjs`, and
+  `generate-picture-art-docs.mjs` (the whole implementation of the app's one
+  server surface) sit outside the automated net. Grepped clean by hand
+  today. Widening the walk means amending STANDARDS §2.4, whose check line
+  says the sweep greps `src` — hence consent, not a quiet fix.
 - **Non-blocking, accepted:** `src/lib/art-pack.ts` imports
   `scripts/art-pack.mjs`; first-paint flash for returning non-default pack
   users (and the same for a non-default dock corner); the module-level
