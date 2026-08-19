@@ -667,7 +667,7 @@ export function PictureDeck() {
   };
 
   return (
-    <div className="tool-page prompt-flow-page">
+    <div className={"tool-page prompt-flow-page is-picture-flow"}>
       <PictureDeckHeader
         stepStrip={
           <FlowStepStrip
@@ -680,14 +680,12 @@ export function PictureDeck() {
             ariaLabel="P.I.C.T.U.R.E. builder steps"
           />
         }
+        saveStatus={persistence.status}
+        lastSavedAt={persistence.lastSavedAt}
         canUndo={history.canUndo}
         canRedo={history.canRedo}
         completedStepCount={completedStepCount}
-        continueLabel={
-          nextIncompletePart
-            ? `Continue: ${nextIncompletePart.label}`
-            : "Review output"
-        }
+        continueLabel={nextIncompletePart ? "Continue" : "Review output"}
         onUndo={undoLastChange}
         onRedo={redoLastChange}
         onContinue={continueBuilding}
@@ -807,7 +805,7 @@ export function PictureDeck() {
               nav.activePanel === PICTURE_PANEL_INDEX.guide
                 ? "Start"
                 : nav.activePanel === PICTURE_PANEL_INDEX.execution
-                  ? "Review output"
+                  ? "Review"
                   : "Next"
             }
           />

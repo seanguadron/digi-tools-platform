@@ -209,6 +209,17 @@ a {
   stroke: var(--brand-cyan);
 }
 
+/* Home is a page like any tab, so the brand carries the same current-page
+   treatment the tabs get - not color alone: the plate stroke thickens too. */
+.brand.is-active {
+  color: var(--brand-cyan-text);
+}
+
+.brand.is-active .brand-mark-plate {
+  stroke: var(--brand-cyan);
+  stroke-width: 5;
+}
+
 .tool-tabs {
   display: flex;
   min-width: 0;
@@ -2687,6 +2698,36 @@ button.role-loadout-slot {
   gap: 4px;
 }
 
+/* Between the phone gate (768px) and comfortable width, the strip and the
+   action cluster must squeeze rather than clip: the strip may scroll inside
+   itself and the bar's gaps tighten. */
+@media (max-width: 1080px) {
+  .prompt-subbar {
+    gap: 8px;
+  }
+
+  .flow-step-strip {
+    min-width: 0;
+    flex-shrink: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .flow-step-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .prompt-flow-header-actions {
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .prompt-flow-header-actions::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 .flow-strip-guide,
 .flow-strip-step {
   min-height: 28px;
@@ -2808,6 +2849,22 @@ button.role-loadout-slot {
 .flow-workspace {
   grid-area: work;
   position: relative;
+}
+
+/* The corner nav dock floats over the panel, so the panel reserves clearance
+   for it: scrolling to a panel's end must clear the dock, or the bottom
+   textareas and their resize handles sit underneath it. Sized per deck -
+   CRAFT's dock carries the stacked world switch, PICTURE's is nav only. */
+.is-craft-flow {
+  --dock-clearance: 196px;
+}
+
+.is-picture-flow {
+  --dock-clearance: 92px;
+}
+
+.flow-panel {
+  padding-bottom: calc(clamp(20px, 3vw, 34px) + var(--dock-clearance, 0px));
 }
 
 /* The corner nav dock: Back/Next (and the CRAFT world switch) pinned to the

@@ -3,13 +3,17 @@
 import { useRef } from "react";
 import type { ChangeEvent, ReactNode } from "react";
 import {
+  ToolSaveStateChip,
   ToolSubbar,
   ToolSubbarActions,
   ToolSubbarTitle,
 } from "@/components/tool-subbar";
+import { isSaveStateUnavailable, type SaveStatus } from "@/lib/save-status";
 
 export function PictureDeckHeader({
   stepStrip,
+  saveStatus,
+  lastSavedAt,
   canUndo,
   canRedo,
   completedStepCount,
@@ -29,6 +33,9 @@ export function PictureDeckHeader({
 }: {
   // The compact P.I.C.T.U.R.E. step navigation, composed by the deck root.
   stepStrip: ReactNode;
+  // Save state surfaces ONLY on failure (owner call, 2026-08-19).
+  saveStatus: SaveStatus;
+  lastSavedAt: Date | null;
   canUndo: boolean;
   canRedo: boolean;
   completedStepCount: number;
@@ -62,7 +69,11 @@ export function PictureDeckHeader({
         kicker="PICTURE Deck"
         heading="Build an image prompt."
         headingHidden
-      />
+      >
+        {isSaveStateUnavailable(saveStatus) ? (
+          <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
+        ) : null}
+      </ToolSubbarTitle>
       {stepStrip}
       <ToolSubbarActions>
         <div className="history-actions" aria-label="Edit history">

@@ -871,7 +871,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   };
 
   return (
-    <div className="tool-page prompt-flow-page">
+    <div className={"tool-page prompt-flow-page is-craft-flow"}>
       <PromptBuilderHeader
         stepStrip={
           <FlowStepStrip
@@ -884,14 +884,12 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
             ariaLabel="C.R.A.F.T. builder steps"
           />
         }
+        saveStatus={persistence.status}
+        lastSavedAt={persistence.lastSavedAt}
         canUndo={history.canUndo}
         canRedo={history.canRedo}
         completedStepCount={completedStepCount}
-        continueLabel={
-          nextIncompletePart
-            ? `Continue: ${nextIncompletePart.label}`
-            : "Review output"
-        }
+        continueLabel={nextIncompletePart ? "Continue" : "Review output"}
         proofLabOpen={proofLabOpen}
         onUndo={undoLastChange}
         onRedo={redoLastChange}
@@ -1020,7 +1018,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
               nav.activePanel === FLOW_PANEL_INDEX.guide
                 ? "Start"
                 : nav.activePanel === FLOW_PANEL_INDEX.target
-                  ? "Review output"
+                  ? "Review"
                   : "Next"
             }
           >

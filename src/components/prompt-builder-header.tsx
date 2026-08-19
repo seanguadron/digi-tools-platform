@@ -3,13 +3,17 @@
 import { useRef } from "react";
 import type { ChangeEvent, ReactNode } from "react";
 import {
+  ToolSaveStateChip,
   ToolSubbar,
   ToolSubbarActions,
   ToolSubbarTitle,
 } from "@/components/tool-subbar";
+import { isSaveStateUnavailable, type SaveStatus } from "@/lib/save-status";
 
 export function PromptBuilderHeader({
   stepStrip,
+  saveStatus,
+  lastSavedAt,
   canUndo,
   canRedo,
   completedStepCount,
@@ -29,6 +33,10 @@ export function PromptBuilderHeader({
 }: {
   // The compact C.R.A.F.T. step navigation, composed by the deck root.
   stepStrip: ReactNode;
+  // Save state surfaces ONLY on failure (owner call, 2026-08-19): the happy
+  // path is silent, but "local save unavailable" still gets stated plainly.
+  saveStatus: SaveStatus;
+  lastSavedAt: Date | null;
   canUndo: boolean;
   canRedo: boolean;
   completedStepCount: number;
@@ -62,7 +70,11 @@ export function PromptBuilderHeader({
         kicker="CRAFT Deck"
         heading="Build a prompt."
         headingHidden
-      />
+      >
+        {isSaveStateUnavailable(saveStatus) ? (
+          <ToolSaveStateChip status={saveStatus} lastSavedAt={lastSavedAt} />
+        ) : null}
+      </ToolSubbarTitle>
       {stepStrip}
       <ToolSubbarActions>
         <div className="history-actions" aria-label="Edit history">

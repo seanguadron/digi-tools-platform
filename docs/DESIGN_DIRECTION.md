@@ -163,8 +163,10 @@ The builder uses progressive disclosure to control cognitive load:
   equipped loadout.
 - Undo and redo cover prompt text, roles, cards, tracks, resets, examples, and
   imported sessions. Keep the controls compact and support standard shortcuts.
-- Show a quiet local-save status beside the builder title. Storage failure is
-  stated plainly and never blocks prompt building.
+- Save state is silent on the happy path (owner, 2026-08-19: the persistent
+  "Saved 3:42 PM" chip was declutter). Storage FAILURE is still stated plainly
+  beside the builder title and never blocks prompt building - the chip
+  reappears only for the unavailable/too-large states.
 - One Continue action moves to the next unfinished C.R.A.F.T. section, wrapping
   when needed. Once complete, it opens the live output.
 - A compact Auto C.R.A.F.T. archetype rail may sit to the left of the guided
