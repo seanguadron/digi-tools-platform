@@ -130,7 +130,8 @@ test("an orphan pack entry and a missing no-text rule fail coverage", async () =
 test("a draft pack is exempt from coverage", async () => {
   const catalog = await catalogPromise;
   const pack = structuredClone(await galleryPromise);
-  assert.equal(pack.theme.draft, true);
+  pack.theme.draft = true;
+  delete pack.lineages[catalog.cards.cards[0].id];
   assert.deepEqual(pictureArtCoverageErrors(catalog, pack), []);
 });
 
