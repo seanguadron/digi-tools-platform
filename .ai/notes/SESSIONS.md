@@ -5,6 +5,98 @@ appended by the sessions agent (see AGENTS.md → Learning loop). Lines ending
 with the proposed-amendment flag are STANDARDS candidates;
 `npm run amendments` lists the ones not yet annotated "→ landed in §X.Y".
 
+## 2026-08-19: PICTURE gallery pack finishes — both guides, the role browser, and the nav dock reshaped from voice dictation
+
+**Context.** Finished the PICTURE deck's 419-entry gallery pack (the art
+project) and, mid-generation-run, reshaped both decks' guide pages plus
+the role browser from the owner's voice-dictated feedback. Commit
+`e29d7a8`.
+
+**Decisions.**
+- Guide acronym entries now render each pack's `craft.<letter>` art
+  instead of text-only letter tiles — the owner noticed CRAFT already had
+  it for CONTEXT/ROLE/ACTION/FORMAT/TARGET AUDIENCE ("there's already
+  images for them"). PICTURE had none, so seven new acronym images were
+  authored, generated, and landed at worklist seq 420-426, appended AFTER
+  the existing 419 so no prior sequence number moved.
+- Both guides restructured top-down — "Build with X" copy first, the
+  acronym spelled out below — with a deck-agnostic letter row
+  (`grid-auto-flow: column`, auto-fit wrap tiers) replacing a hard-coded
+  5-column grid that broke on PICTURE's 7 letters (wrapped mid-word).
+- New `.craft-definition-word`: a bordered capsule holding the existing
+  solid brand-cyan letter tile plus the rest of the word spelled out
+  inside one unit, per the owner's own image ("encapsulate... a white
+  border around the word") — keeps the tile he already liked rather than
+  replacing it.
+- The role browser now defaults to "all" roles with uniform filter-chip
+  grid tracks (`repeat(auto-fill, minmax(148px,1fr))`) replacing stretchy
+  flex ("utility stretched way too long... everything should be
+  standardized"); selecting a role no longer moves the category filter —
+  deleted roughly 8 call sites and a memo that existed only to jump the
+  filter to the lead role's category.
+- New CRAFT-guide "card style" tier: three illustrated cards (Sci-Fi /
+  Fantasy / Superhero), each showing the SAME Researcher in that world's
+  art, zero new images generated. Purpose is discoverability of the world
+  switch, not information ("just pick one that looks cool... shows the
+  different art styles, but is a person"). Needed a new
+  `packArtFor(packId, key)` resolver, since the guide reads three packs
+  at once where the deck's active-pack seam only ever shows one.
+- The nav dock becomes a movable window: drag handle, pointer-drag with
+  quadrant snap, FLIP settle, arrow-key corner moves, persisted per
+  browser behind an `isDockCorner` guard. The owner explicitly kept the
+  dock's existing contents ("of course we're keeping the interface — sci
+  fi, fantasy, superhero, back and start") — so CRAFT now surfaces the
+  world switch in TWO places by direction: the movable dock and the new
+  guide style tier.
+- A design-gate High was overridden by owner direction, not by the agent:
+  the gate flagged the style tier as a second visual+ARIA pattern for the
+  same world switch and asked for it to flatten onto `.editor-dialog-seg`.
+  Kept as illustrated cards because the illustration IS the point of the
+  request; recorded in the gate report as an owner-directed exception,
+  not a skipped fix.
+
+**Learnings.**
+- A shared component serving two decks of different arity must never
+  hard-code the count — the guide's letter-row grid is the second
+  occurrence of this defect class, after the art-pack picker.
+- The cyan-fill text-token trap recurred on a different token:
+  `.craft-definition-word b` set `color: var(--background)` on a
+  `--brand-cyan` fill — 3.48:1 in light theme (fails AA), masked in dark
+  theme only because the two tokens happen to be numerically equal there.
+  `--brand-cyan-foreground` is the only correct token on a cyan surface.
+  DESIGN_DIRECTION already documents this exact trap for
+  `--primary-foreground`; a second token fell into the same hole.
+- A full-span "rescue" for a stranded last card is wrong when the card
+  face is art, not text: the gate's suggested fix for the orphaned 7th
+  acronym card (`:last-child { grid-column: 1/-1 }`) would have rendered
+  one giant art tile. `auto-fit` fixed it properly, and the same
+  reasoning removed two pre-existing span-rescue rules elsewhere in the
+  guide.
+- The design gate hit the provider's monthly spend limit again — the
+  same failure mode logged 2026-07-28/07-29, now landing on the design
+  gate specifically — this time on the draggable nav dock: the agent
+  launched and died before reporting. Recorded honestly as owed rather
+  than silently skipped; the dock's design-gate pass is open debt,
+  tracked in `docs/STATE.md`'s backlog.
+- Generation-loop mechanics, now proven across four packs and 1,104
+  images: the result-URL prefix includes its trailing underscore —
+  omitting it produced 12 silent 403s; timestamps drift ±1-2s within a
+  batch, so land per-prefix; a batch still `queued` at 4 minutes needs
+  roughly 3 more.
+- The headless preview pane can report a 0×0 viewport, making
+  `getBoundingClientRect` useless for layout verification — assert on
+  computed styles and dispatch `.click()` instead. Adding to the standing
+  headless-gotcha list in `docs/STATE.md`'s runbook.
+- QA outcome: 24 of 428 landings this session tripped the land-time
+  auto-crop (all healed automatically); eyeball QA on the flagged contact
+  sheets found exactly 2 real defects (a residual gray edge band; a
+  brief that rendered the wrong subject and lost its named camera angle).
+  The structural style paragraph continues to earn its keep.
+
+No new proposed-amendment flags from this session. The 2026-08-18 entry's
+segmented-control flag (below) is refined with this session's
+owner-directed-exception nuance, not repeated here.
+
 ## 2026-08-18: Fantasy and Superhero decks generated — 452 images live, plus the CRAFT world picker
 
 **Context.** Night session, following the same day's Nano Banana Pro sci-fi
@@ -76,8 +168,13 @@ one shipping the picker (`feat(deck)`) — gates run and findings filed.
 **Preferences / proposed amendments (need owner consent).**
 - Segmented single-select controls follow the `.editor-dialog-seg`
   shape — the design gate has now caught an invented variant twice, so
-  this should become a rule rather than a per-review catch. (proposed
-  amendment, needs the owner's consent)
+  this should become a rule rather than a per-review catch. **Refined
+  2026-08-19:** a third gate finding on this same control was an
+  owner-directed EXCEPTION, not an invented variant — the CRAFT guide's
+  new style tier intentionally duplicates the dock's world switch as
+  illustrated cards, by explicit owner instruction. The rule needs to
+  name sanctioned duplicate-control surfaces, not forbid duplication
+  outright. (proposed amendment, needs the owner's consent)
 - `docs/DESIGN_DIRECTION.md` should document the world-switch control in
   its CRAFT Deck section — the design gate had no concrete line to check
   the picker against and said so directly. (proposed amendment, needs
