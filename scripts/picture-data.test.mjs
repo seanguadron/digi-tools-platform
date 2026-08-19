@@ -1,8 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import {
+  collectPictureArtEntries,
+  loadPictureArtTheme,
+  pictureArtCoverageErrors,
+} from "./generate-picture-art-docs.mjs";
 import { loadCatalog, validateCatalog } from "./validate-picture-data.mjs";
 
 const catalogPromise = loadCatalog();
+const galleryPromise = loadPictureArtTheme("gallery");
 
 test("the current picture catalog is valid", async () => {
   await validateCatalog(await catalogPromise);
@@ -77,26 +83,55 @@ test("intensity beyond the last snap fails validation", async () => {
   await assert.rejects(validateCatalog(catalog), /must be <= 2/);
 });
 
-test("a wrong illustration prefix fails validation", async () => {
-  const catalog = structuredClone(await catalogPromise);
-  catalog.cards.cards[0].illustration.src = "/card-art/cards/wrong-home.webp";
+// Art moved out of the catalog into the gallery pack; coverage is the pure
+// function the validator calls once the pack's draft flag clears.
+test("the gallery pack covers every card, grade, and archetype", async () => {
+  const catalog = await catalogPromise;
+  const pack = structuredClone(await galleryPromise);
+  const entries = collectPictureArtEntries(catalog, pack);
 
-  await assert.rejects(validateCatalog(catalog), /pattern|\/card-art\/picture\//);
+  // 100 lineages + 18 archetypes + 1 shared swatch + 300 grade variants.
+  assert.equal(entries.length, 419);
+  // Every derived target is unique.
+  assert.equal(new Set(entries.map((entry) => entry.target)).size, 419);
 });
 
-test("a duplicate illustration path fails validation", async () => {
-  const catalog = structuredClone(await catalogPromise);
-  catalog.cards.cards[1].illustration.src =
-    catalog.cards.cards[0].illustration.src;
+test("a pack entry going missing fails coverage once draft clears", async () => {
+  const catalog = await catalogPromise;
+  const pack = structuredClone(await galleryPromise);
+  pack.theme.draft = false;
+  pack.theme.style =
+    "no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame";
+  delete pack.lineages[catalog.cards.cards[0].id];
 
-  await assert.rejects(validateCatalog(catalog), /Duplicate illustration path/);
+  const errors = pictureArtCoverageErrors(catalog, pack);
+  assert.ok(
+    errors.some((error) => error.includes("is missing lineages.")),
+    errors.join("\n"),
+  );
 });
 
-test("an illustration prompt without the no-text rule fails validation", async () => {
-  const catalog = structuredClone(await catalogPromise);
-  catalog.cards.cards[0].illustration.prompt = "a pretty picture";
+test("an orphan pack entry and a missing no-text rule fail coverage", async () => {
+  const catalog = await catalogPromise;
+  const pack = structuredClone(await galleryPromise);
+  pack.theme.draft = false;
+  pack.theme.style = "a pretty style with no rules";
+  pack.lineages["not-a-real-card"] = {
+    prompt: "orphan",
+    alt: "orphan",
+    status: "planned",
+  };
 
-  await assert.rejects(validateCatalog(catalog), /no-text rule/);
+  const errors = pictureArtCoverageErrors(catalog, pack);
+  assert.ok(errors.some((error) => error.includes("orphan entry")));
+  assert.ok(errors.some((error) => error.includes("no-text rule")));
+});
+
+test("a draft pack is exempt from coverage", async () => {
+  const catalog = await catalogPromise;
+  const pack = structuredClone(await galleryPromise);
+  assert.equal(pack.theme.draft, true);
+  assert.deepEqual(pictureArtCoverageErrors(catalog, pack), []);
 });
 
 test("a scenario equipping into the wrong section fails validation", async () => {

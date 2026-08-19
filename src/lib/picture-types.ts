@@ -1,5 +1,4 @@
 import type {
-  CardIllustration,
   CardLineageOf,
   CardSystemStateOf,
   EquippedCardsOf,
@@ -50,7 +49,6 @@ export type PictureArchetype = {
   equipped: Partial<Record<PictureSection, readonly string[]>>;
   mjTail?: PictureMjTailPreset;
   effects: readonly string[];
-  illustration: CardIllustration;
 };
 
 export type PictureProofScenario = {

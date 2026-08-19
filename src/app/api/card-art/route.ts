@@ -15,7 +15,22 @@ import { CardArtError, createCardArtStore } from "../../../../scripts/card-art-s
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const store = createCardArtStore();
+// One store per deck; the same file mechanics address different catalogs and
+// pack directories. The deck is chosen by an explicit request param so a
+// caller can never make a craft key land in the picture tree or vice versa -
+// theme ids are validated inside each store against its own deck's pack list.
+const stores = {
+  craft: createCardArtStore(),
+  picture: createCardArtStore({ deck: "picture" }),
+};
+
+function storeFor(deck: string | null | undefined) {
+  const store = stores[(deck || "craft") as keyof typeof stores];
+  if (!store) {
+    throw new CardArtError(`Unknown deck: ${deck}`, 400);
+  }
+  return store;
+}
 
 function isProduction() {
   return process.env.NODE_ENV === "production";
@@ -67,6 +82,7 @@ export async function GET(request: Request) {
   try {
     const params = new URL(request.url).searchParams;
     const view = params.get("view");
+    const store = storeFor(params.get("deck"));
 
     // The worlds this deck has and which of them exist yet.
     if (view === "packs") {
@@ -125,6 +141,7 @@ export async function POST(request: Request) {
     }
 
     const body = (await request.json()) as Record<string, unknown>;
+    const store = storeFor(typeof body.deck === "string" ? body.deck : "craft");
     const theme = typeof body.theme === "string" ? body.theme : "";
     const key = typeof body.key === "string" ? body.key : "";
     const op = typeof body.op === "string" ? body.op : "";

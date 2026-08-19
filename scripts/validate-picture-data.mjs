@@ -1,12 +1,19 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import Ajv from "ajv";
-import { generatePictureArtManifest } from "./generate-picture-art-manifest.mjs";
+import { readFile } from "node:fs/promises";
 import { ILLUSTRATION_PROMPT_RULE } from "./illustration-rule.mjs";
+import {
+  generatePictureArtDocs,
+  installedPictureArtPackIds,
+  loadPictureArtTheme,
+  pictureArtCoverageErrors,
+} from "./generate-picture-art-docs.mjs";
 import {
   loadPictureCatalog,
   readPictureDataJson,
 } from "./picture-data-files.mjs";
+import { projectRoot } from "./prompt-data-files.mjs";
 
 const SECTIONS = [
   "protagonist",
@@ -158,40 +165,85 @@ function validateCards(catalog, indexes) {
   return errors;
 }
 
-function validateIllustration(errors, illustration, ownerLabel, paths) {
-  if (paths.has(illustration.src)) {
-    errors.push(`Duplicate illustration path: ${illustration.src}`);
-  }
-  paths.add(illustration.src);
-
-  if (!illustration.src.startsWith("/card-art/picture/")) {
-    errors.push(
-      `${ownerLabel} illustration must use /card-art/picture/: ${illustration.src}`,
-    );
-  }
-
-  if (!illustration.prompt.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)) {
-    errors.push(
-      `${ownerLabel} illustration prompt is missing the image-only no-text rule`,
-    );
-  }
+// Art moved out of the catalog and into the gallery pack
+// (src/data/picture-deck/art-themes/gallery.json). The pack is validated
+// against the deck-agnostic art-pack schema that lives with the CRAFT packs -
+// one schema, two decks - plus the same backtick and no-text-rule checks the
+// CRAFT validator applies, plus coverage against this catalog.
+let packValidatorPromise;
+function getPackValidator() {
+  packValidatorPromise ??= readFile(
+    path.join(
+      projectRoot,
+      "src",
+      "data",
+      "prompt-builder",
+      "art-themes",
+      "art-pack.schema.json",
+    ),
+    "utf8",
+  ).then((raw) =>
+    new Ajv({ allErrors: true, strict: true }).compile(JSON.parse(raw)),
+  );
+  return packValidatorPromise;
 }
 
-function validateIllustrations(catalog) {
+async function validatePictureArtPacks(catalog) {
+  const validatePack = await getPackValidator();
   const errors = [];
-  const paths = new Set();
 
-  for (const card of catalog.cards.cards) {
-    validateIllustration(errors, card.illustration, `Card ${card.id}`, paths);
-  }
+  for (const themeId of installedPictureArtPackIds()) {
+    const pack = await loadPictureArtTheme(themeId);
+    if (!validatePack(pack)) {
+      errors.push(
+        ...schemaErrors(validatePack.errors).map(
+          (message) => `picture art-themes/${themeId}.json: ${message}`,
+        ),
+      );
+      continue;
+    }
+    if (pack.theme.id !== themeId) {
+      errors.push(
+        `picture art-themes/${themeId}.json declares theme id "${pack.theme.id}"`,
+      );
+    }
 
-  for (const archetype of catalog.archetypes.archetypes) {
-    validateIllustration(
-      errors,
-      archetype.illustration,
-      `Archetype ${archetype.id}`,
-      paths,
-    );
+    const withBackticks = [];
+    const scanText = (label, value) => {
+      if (typeof value === "string" && value.includes("\u0060")) {
+        withBackticks.push(label);
+      }
+    };
+    scanText("theme.style", pack.theme.style);
+    for (const group of ["craft", "roles", "lineages", "archetypes", "shared"]) {
+      for (const [id, entry] of Object.entries(pack[group] ?? {})) {
+        scanText(`${group}.${id}.prompt`, entry.prompt);
+        scanText(`${group}.${id}.alt`, entry.alt);
+        scanText(`${group}.${id}.bio`, entry.bio);
+      }
+    }
+    for (const [lineageId, slots] of Object.entries(pack.grades ?? {})) {
+      slots.forEach((slot, index) => {
+        scanText(`grades.${lineageId}[${index}].prompt`, slot.prompt);
+        scanText(`grades.${lineageId}[${index}].alt`, slot.alt);
+      });
+    }
+    if (withBackticks.length > 0) {
+      errors.push(
+        `picture art-themes/${themeId}.json has backticks in free text (breaks the generated doc fences): ${withBackticks.join(", ")}`,
+      );
+    }
+
+    if (
+      !pack.theme.draft &&
+      !pack.theme.style.toLowerCase().includes(ILLUSTRATION_PROMPT_RULE)
+    ) {
+      errors.push(
+        `picture art-themes/${themeId}.json style paragraph is missing the image-only no-text rule`,
+      );
+    }
+
+    errors.push(...pictureArtCoverageErrors(catalog, pack));
   }
 
   return errors;
@@ -383,7 +435,7 @@ export async function validateCatalog(catalog, { checkDocs = false } = {}) {
     ...validateUniqueIds(catalog),
     ...validateTracks(catalog, indexes),
     ...validateCards(catalog, indexes),
-    ...validateIllustrations(catalog),
+    ...(await validatePictureArtPacks(catalog)),
     ...validateArchetypes(catalog, indexes),
     ...validateBuilder(catalog, indexes),
     ...validateScenarios(catalog, indexes),
@@ -396,7 +448,7 @@ export async function validateCatalog(catalog, { checkDocs = false } = {}) {
   }
 
   if (checkDocs) {
-    await generatePictureArtManifest({ check: true });
+    await generatePictureArtDocs({ check: true });
   }
 }
 

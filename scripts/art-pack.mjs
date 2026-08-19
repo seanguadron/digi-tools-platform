@@ -19,15 +19,22 @@
 // scripts, by the Next.js server in the studio's write endpoint, and by the
 // browser through `src/lib/art-pack.ts`. Keep it pure.
 
-// The worlds this deck is planned to have. A pack is only INSTALLED once its
-// JSON exists; the ones that do not yet exist still appear in the Card Studio
-// as their own tab, so the roadmap is visible rather than remembered.
+// The worlds the CRAFT deck is planned to have. A pack is only INSTALLED once
+// its JSON exists; the ones that do not yet exist still appear in the Card
+// Studio as their own tab, so the roadmap is visible rather than remembered.
 export const ART_PACKS = [
   { id: "sci-fi", name: "Sci-Fi" },
   { id: "fantasy", name: "Fantasy" },
   // Pivoted from the Pokemon/creature-collector idea (owner, 2026-08-17).
   { id: "superhero", name: "Superhero" },
 ];
+
+// The PICTURE deck's packs. One, by design (owner, 2026-08-19): PICTURE cards
+// teach image-making techniques, so a card's art IS a demonstration of its own
+// concept - there is no second world to reskin into. The pack machinery is
+// still worth it for the derived paths, per-entry status, and the studio
+// workflow.
+export const PICTURE_ART_PACKS = [{ id: "gallery", name: "Gallery" }];
 
 // A bio renders in a panel that clips silently, so its ceiling is load-bearing
 // rather than cosmetic. Declared once here for the write endpoint and the

@@ -91,7 +91,7 @@ export type CardEngineConfig<
   cardFamily: (section: S) => string;
   // Where a card's picture comes from. The seam exists because the two decks
   // answer it differently: CRAFT looks the card up in the active art pack,
-  // PICTURE still carries illustrations inline on its catalog. Omitted, a deck
+  // a deck without them falls back to inline catalog art. Omitted, a deck
   // falls back to whatever its lineage/grade records carry.
   cardArt?: (lineage: L, gradeIndex: number) => CardArtRef | undefined;
   // The card's short character blurb, also a per-world fact and so also the

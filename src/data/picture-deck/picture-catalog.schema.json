@@ -2,7 +2,13 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "PICTURE Deck catalog",
   "type": "object",
-  "required": ["tracks", "cards", "archetypes", "builder", "proofScenarios"],
+  "required": [
+    "tracks",
+    "cards",
+    "archetypes",
+    "builder",
+    "proofScenarios"
+  ],
   "additionalProperties": false,
   "definitions": {
     "section": {
@@ -19,37 +25,43 @@
     },
     "trackId": {
       "type": "string",
-      "enum": ["intensity"]
+      "enum": [
+        "intensity"
+      ]
     },
     "sectionTrackList": {
       "type": "array",
       "minItems": 1,
-      "items": { "$ref": "#/definitions/trackId" }
-    },
-    "slotBudget": { "type": "integer", "minimum": 1, "maximum": 6 },
-    "illustration": {
-      "type": "object",
-      "required": ["src", "alt", "motif", "prompt", "status"],
-      "additionalProperties": false,
-      "properties": {
-        "src": {
-          "type": "string",
-          "pattern": "^/card-art/picture/[a-z0-9/-]+\\.webp$"
-        },
-        "alt": { "type": "string", "minLength": 1 },
-        "motif": { "type": "string", "minLength": 1 },
-        "prompt": { "type": "string", "minLength": 1 },
-        "status": { "type": "string", "enum": ["planned", "generated"] }
+      "items": {
+        "$ref": "#/definitions/trackId"
       }
+    },
+    "slotBudget": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
     },
     "grade": {
       "type": "object",
-      "required": ["name", "description", "instruction"],
+      "required": [
+        "name",
+        "description",
+        "instruction"
+      ],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": "string", "minLength": 1 },
-        "instruction": { "type": "string", "minLength": 1 }
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "instruction": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "card": {
@@ -60,28 +72,41 @@
         "section",
         "driver",
         "goals",
-        "grades",
-        "illustration"
+        "grades"
       ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-        "code": { "type": "string", "pattern": "^[A-Z0-9]{2,5}$" },
-        "section": { "$ref": "#/definitions/section" },
-        "driver": { "$ref": "#/definitions/trackId" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{2,5}$"
+        },
+        "section": {
+          "$ref": "#/definitions/section"
+        },
+        "driver": {
+          "$ref": "#/definitions/trackId"
+        },
         "goals": {
           "type": "array",
           "minItems": 1,
           "maxItems": 6,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         },
         "grades": {
           "type": "array",
           "minItems": 3,
           "maxItems": 3,
-          "items": { "$ref": "#/definitions/grade" }
+          "items": {
+            "$ref": "#/definitions/grade"
+          }
         },
-        "illustration": { "$ref": "#/definitions/illustration" },
         "affinity": {
           "type": "object",
           "additionalProperties": false,
@@ -90,7 +115,11 @@
               "type": "array",
               "minItems": 2,
               "maxItems": 2,
-              "items": { "type": "integer", "minimum": 0, "maximum": 2 }
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 2
+              }
             }
           }
         }
@@ -98,35 +127,62 @@
     },
     "trackValues": {
       "type": "object",
-      "required": ["intensity"],
+      "required": [
+        "intensity"
+      ],
       "additionalProperties": false,
       "properties": {
-        "intensity": { "type": "integer", "minimum": 0, "maximum": 2 }
+        "intensity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        }
       }
     },
     "partialTrackValues": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "intensity": { "type": "integer", "minimum": 0, "maximum": 2 }
+        "intensity": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        }
       }
     },
     "equippedMap": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "protagonist": { "$ref": "#/definitions/equippedList" },
-        "illumination": { "$ref": "#/definitions/equippedList" },
-        "canvas": { "$ref": "#/definitions/equippedList" },
-        "tone": { "$ref": "#/definitions/equippedList" },
-        "universe": { "$ref": "#/definitions/equippedList" },
-        "references": { "$ref": "#/definitions/equippedList" },
-        "execution": { "$ref": "#/definitions/equippedList" }
+        "protagonist": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "illumination": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "canvas": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "tone": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "universe": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "references": {
+          "$ref": "#/definitions/equippedList"
+        },
+        "execution": {
+          "$ref": "#/definitions/equippedList"
+        }
       }
     },
     "equippedList": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "aspectRatioValue": {
       "type": "string",
@@ -136,11 +192,33 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "aspectRatio": { "$ref": "#/definitions/aspectRatioValue" },
-        "stylize": { "type": ["integer", "null"], "minimum": 0 },
-        "chaos": { "type": ["integer", "null"], "minimum": 0 },
-        "weird": { "type": ["integer", "null"], "minimum": 0 },
-        "negative": { "type": "string" }
+        "aspectRatio": {
+          "$ref": "#/definitions/aspectRatioValue"
+        },
+        "stylize": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "chaos": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "weird": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "negative": {
+          "type": "string"
+        }
       }
     },
     "archetype": {
@@ -152,24 +230,43 @@
         "description",
         "tracks",
         "equipped",
-        "effects",
-        "illustration"
+        "effects"
       ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-        "code": { "type": "string", "pattern": "^[A-Z0-9]{2,5}$" },
-        "name": { "type": "string", "minLength": 1 },
-        "description": { "type": "string", "minLength": 1 },
-        "tracks": { "$ref": "#/definitions/trackValues" },
-        "equipped": { "$ref": "#/definitions/equippedMap" },
-        "mjTail": { "$ref": "#/definitions/mjTail" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]{2,5}$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tracks": {
+          "$ref": "#/definitions/trackValues"
+        },
+        "equipped": {
+          "$ref": "#/definitions/equippedMap"
+        },
+        "mjTail": {
+          "$ref": "#/definitions/mjTail"
+        },
         "effects": {
           "type": "array",
           "minItems": 1,
-          "items": { "type": "string", "minLength": 1 }
-        },
-        "illustration": { "$ref": "#/definitions/illustration" }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     },
     "draft": {
@@ -185,55 +282,152 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "subject": { "type": "string" },
-        "negative": { "type": "string" },
-        "mjTailEnabled": { "type": "boolean" },
-        "aspectRatio": { "$ref": "#/definitions/aspectRatioValue" },
-        "stylize": { "type": ["integer", "null"], "minimum": 0 },
-        "chaos": { "type": ["integer", "null"], "minimum": 0 },
-        "weird": { "type": ["integer", "null"], "minimum": 0 }
+        "subject": {
+          "type": "string"
+        },
+        "negative": {
+          "type": "string"
+        },
+        "mjTailEnabled": {
+          "type": "boolean"
+        },
+        "aspectRatio": {
+          "$ref": "#/definitions/aspectRatioValue"
+        },
+        "stylize": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "chaos": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "weird": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
       }
     },
     "partialDraft": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "subject": { "type": "string" },
-        "negative": { "type": "string" },
-        "mjTailEnabled": { "type": "boolean" },
-        "aspectRatio": { "$ref": "#/definitions/aspectRatioValue" },
-        "stylize": { "type": ["integer", "null"], "minimum": 0 },
-        "chaos": { "type": ["integer", "null"], "minimum": 0 },
-        "weird": { "type": ["integer", "null"], "minimum": 0 }
+        "subject": {
+          "type": "string"
+        },
+        "negative": {
+          "type": "string"
+        },
+        "mjTailEnabled": {
+          "type": "boolean"
+        },
+        "aspectRatio": {
+          "$ref": "#/definitions/aspectRatioValue"
+        },
+        "stylize": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "chaos": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "weird": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
       }
     },
     "range": {
       "type": "object",
-      "required": ["min", "max", "step", "fallback"],
+      "required": [
+        "min",
+        "max",
+        "step",
+        "fallback"
+      ],
       "additionalProperties": false,
       "properties": {
-        "min": { "type": "integer", "minimum": 0 },
-        "max": { "type": "integer", "minimum": 0 },
-        "step": { "type": "integer", "minimum": 1 },
-        "fallback": { "type": "integer", "minimum": 0 }
+        "min": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "step": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "fallback": {
+          "type": "integer",
+          "minimum": 0
+        }
       }
     },
     "scenario": {
       "type": "object",
-      "required": ["id", "name", "proves", "panel", "checks"],
+      "required": [
+        "id",
+        "name",
+        "proves",
+        "panel",
+        "checks"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-        "name": { "type": "string", "minLength": 1 },
-        "proves": { "type": "string", "minLength": 1 },
-        "panel": { "type": "integer", "minimum": 0, "maximum": 7 },
-        "tracks": { "$ref": "#/definitions/partialTrackValues" },
-        "equipped": { "$ref": "#/definitions/equippedMap" },
-        "draft": { "$ref": "#/definitions/partialDraft" },
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proves": {
+          "type": "string",
+          "minLength": 1
+        },
+        "panel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7
+        },
+        "tracks": {
+          "$ref": "#/definitions/partialTrackValues"
+        },
+        "equipped": {
+          "$ref": "#/definitions/equippedMap"
+        },
+        "draft": {
+          "$ref": "#/definitions/partialDraft"
+        },
         "checks": {
           "type": "array",
           "minItems": 1,
-          "items": { "type": "string", "minLength": 1 }
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
         }
       }
     }
@@ -250,7 +444,9 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "schemaVersion": { "const": 1 },
+        "schemaVersion": {
+          "const": 1
+        },
         "sectionTracks": {
           "type": "object",
           "required": [
@@ -264,13 +460,27 @@
           ],
           "additionalProperties": false,
           "properties": {
-            "protagonist": { "$ref": "#/definitions/sectionTrackList" },
-            "illumination": { "$ref": "#/definitions/sectionTrackList" },
-            "canvas": { "$ref": "#/definitions/sectionTrackList" },
-            "tone": { "$ref": "#/definitions/sectionTrackList" },
-            "universe": { "$ref": "#/definitions/sectionTrackList" },
-            "references": { "$ref": "#/definitions/sectionTrackList" },
-            "execution": { "$ref": "#/definitions/sectionTrackList" }
+            "protagonist": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "illumination": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "canvas": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "tone": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "universe": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "references": {
+              "$ref": "#/definitions/sectionTrackList"
+            },
+            "execution": {
+              "$ref": "#/definitions/sectionTrackList"
+            }
           }
         },
         "slotBudgets": {
@@ -286,13 +496,27 @@
           ],
           "additionalProperties": false,
           "properties": {
-            "protagonist": { "$ref": "#/definitions/slotBudget" },
-            "illumination": { "$ref": "#/definitions/slotBudget" },
-            "canvas": { "$ref": "#/definitions/slotBudget" },
-            "tone": { "$ref": "#/definitions/slotBudget" },
-            "universe": { "$ref": "#/definitions/slotBudget" },
-            "references": { "$ref": "#/definitions/slotBudget" },
-            "execution": { "$ref": "#/definitions/slotBudget" }
+            "protagonist": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "illumination": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "canvas": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "tone": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "universe": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "references": {
+              "$ref": "#/definitions/slotBudget"
+            },
+            "execution": {
+              "$ref": "#/definitions/slotBudget"
+            }
           }
         },
         "definitions": {
@@ -300,46 +524,78 @@
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "label", "description", "points"],
+            "required": [
+              "id",
+              "label",
+              "description",
+              "points"
+            ],
             "additionalProperties": false,
             "properties": {
-              "id": { "$ref": "#/definitions/trackId" },
-              "label": { "type": "string", "minLength": 1 },
-              "description": { "type": "string", "minLength": 1 },
+              "id": {
+                "$ref": "#/definitions/trackId"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
               "points": {
                 "type": "array",
                 "minItems": 2,
-                "items": { "type": "string", "minLength": 1 }
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
               }
             }
           }
         },
-        "defaultValues": { "$ref": "#/definitions/trackValues" }
+        "defaultValues": {
+          "$ref": "#/definitions/trackValues"
+        }
       }
     },
     "cards": {
       "type": "object",
-      "required": ["schemaVersion", "cards"],
+      "required": [
+        "schemaVersion",
+        "cards"
+      ],
       "additionalProperties": false,
       "properties": {
-        "schemaVersion": { "const": 1 },
+        "schemaVersion": {
+          "const": 1
+        },
         "cards": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/definitions/card" }
+          "items": {
+            "$ref": "#/definitions/card"
+          }
         }
       }
     },
     "archetypes": {
       "type": "object",
-      "required": ["schemaVersion", "archetypes"],
+      "required": [
+        "schemaVersion",
+        "archetypes"
+      ],
       "additionalProperties": false,
       "properties": {
-        "schemaVersion": { "const": 1 },
+        "schemaVersion": {
+          "const": 1
+        },
         "archetypes": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/definitions/archetype" }
+          "items": {
+            "$ref": "#/definitions/archetype"
+          }
         }
       }
     },
@@ -358,21 +614,41 @@
       ],
       "additionalProperties": false,
       "properties": {
-        "schemaVersion": { "const": 1 },
-        "emptyDraft": { "$ref": "#/definitions/draft" },
-        "exampleDraft": { "$ref": "#/definitions/draft" },
+        "schemaVersion": {
+          "const": 1
+        },
+        "emptyDraft": {
+          "$ref": "#/definitions/draft"
+        },
+        "exampleDraft": {
+          "$ref": "#/definitions/draft"
+        },
         "pictureParts": {
           "type": "array",
           "minItems": 7,
           "maxItems": 7,
           "items": {
             "type": "object",
-            "required": ["letter", "label", "summary"],
+            "required": [
+              "letter",
+              "label",
+              "summary"
+            ],
             "additionalProperties": false,
             "properties": {
-              "letter": { "type": "string", "minLength": 1, "maxLength": 1 },
-              "label": { "type": "string", "minLength": 1 },
-              "summary": { "type": "string", "minLength": 1 }
+              "letter": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "summary": {
+                "type": "string",
+                "minLength": 1
+              }
             }
           }
         },
@@ -381,11 +657,22 @@
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["label", "field"],
+            "required": [
+              "label",
+              "field"
+            ],
             "additionalProperties": false,
             "properties": {
-              "label": { "type": "string", "minLength": 1 },
-              "field": { "type": "string", "enum": ["subject"] }
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "field": {
+                "type": "string",
+                "enum": [
+                  "subject"
+                ]
+              }
             }
           }
         },
@@ -394,31 +681,59 @@
           "minItems": 1,
           "items": {
             "type": "object",
-            "required": ["id", "label", "value"],
+            "required": [
+              "id",
+              "label",
+              "value"
+            ],
             "additionalProperties": false,
             "properties": {
-              "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-              "label": { "type": "string", "minLength": 1 },
-              "value": { "$ref": "#/definitions/aspectRatioValue" }
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "$ref": "#/definitions/aspectRatioValue"
+              }
             }
           }
         },
-        "stylizeRange": { "$ref": "#/definitions/range" },
-        "chaosRange": { "$ref": "#/definitions/range" },
-        "weirdRange": { "$ref": "#/definitions/range" }
+        "stylizeRange": {
+          "$ref": "#/definitions/range"
+        },
+        "chaosRange": {
+          "$ref": "#/definitions/range"
+        },
+        "weirdRange": {
+          "$ref": "#/definitions/range"
+        }
       }
     },
     "proofScenarios": {
       "type": "object",
-      "required": ["schemaVersion", "baseDraft", "scenarios"],
+      "required": [
+        "schemaVersion",
+        "baseDraft",
+        "scenarios"
+      ],
       "additionalProperties": false,
       "properties": {
-        "schemaVersion": { "const": 1 },
-        "baseDraft": { "$ref": "#/definitions/partialDraft" },
+        "schemaVersion": {
+          "const": 1
+        },
+        "baseDraft": {
+          "$ref": "#/definitions/partialDraft"
+        },
         "scenarios": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/definitions/scenario" }
+          "items": {
+            "$ref": "#/definitions/scenario"
+          }
         }
       }
     }

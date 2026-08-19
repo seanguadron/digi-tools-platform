@@ -19,6 +19,7 @@ import {
   ART_PACKS,
   ART_PACK_GROUPS,
   MAX_BIO_LENGTH,
+  PICTURE_ART_PACKS,
   artKeyFor,
   artPathFor,
   artRelativePath,
@@ -34,7 +35,13 @@ import {
   artFileName,
   generateCraftArtDocs,
 } from "./generate-craft-art-docs.mjs";
+import {
+  buildPictureRelations,
+  collectPictureArtEntries,
+  generatePictureArtDocs,
+} from "./generate-picture-art-docs.mjs";
 import { generateRoleDocs } from "./generate-prompt-role-docs.mjs";
+import { loadPictureCatalog } from "./picture-data-files.mjs";
 import {
   catalogFiles,
   loadPromptCatalog,
@@ -55,15 +62,53 @@ export class CardArtError extends Error {
   }
 }
 
+// Everything deck-specific the store touches, in one table: which packs can
+// exist, where the catalog and packs live, how entries are enumerated, and
+// which generated docs a write has to re-render. The file mechanics -
+// variants, crops, containment, the write queue - are identical for both.
+const DECKS = {
+  craft: {
+    packs: ART_PACKS,
+    catalogDir: ["src", "data", "prompt-builder"],
+    loadCatalog: loadPromptCatalog,
+    collectEntries: collectCraftArtEntries,
+    relations: null, // built locally; needs role/archetype cross-links
+    regenerate: async () => {
+      await generateCraftArtDocs();
+    },
+    // Only the CRAFT studio edits catalog text through the validator gate.
+    supportsCardEdits: true,
+  },
+  picture: {
+    packs: PICTURE_ART_PACKS,
+    catalogDir: ["src", "data", "picture-deck"],
+    loadCatalog: loadPictureCatalog,
+    collectEntries: collectPictureArtEntries,
+    relations: buildPictureRelations,
+    regenerate: async () => {
+      await generatePictureArtDocs();
+    },
+    supportsCardEdits: false,
+  },
+};
+
 export function createCardArtStore({
   root = projectRoot,
   // Tests point `root` at a temp dir and turn this off; doc rendering is
   // covered on its own in craft-art-docs.test.mjs.
   regenerateDocs = true,
+  deck = "craft",
 } = {}) {
+  const deckConfig = DECKS[deck];
+  if (!deckConfig) {
+    throw new CardArtError(`Unknown deck: ${deck}`, 400);
+  }
+  const DECK_PACKS = deckConfig.packs;
+  const loadCatalog = deckConfig.loadCatalog;
+  const collectEntries = deckConfig.collectEntries;
   const variantRoot = path.join(root, VARIANT_ROOT);
   const publicRoot = path.join(root, "public");
-  const catalogRoot = path.join(root, "src", "data", "prompt-builder");
+  const catalogRoot = path.join(root, ...deckConfig.catalogDir);
   const packRoot = path.join(catalogRoot, "art-themes");
 
   function assertInside(candidate, base, label) {
@@ -80,7 +125,7 @@ export function createCardArtStore({
   // and the write have to agree about the same directory, or scaffolding
   // asks one place whether a file exists and creates it in another.
   function installedPackIds() {
-    return ART_PACKS.map((pack) => pack.id).filter((id) =>
+    return DECK_PACKS.map((pack) => pack.id).filter((id) =>
       existsSync(path.join(packRoot, `${id}.json`)),
     );
   }
@@ -110,10 +155,10 @@ export function createCardArtStore({
   async function loadContext(themeId) {
     requireTheme(themeId);
     const [catalog, theme] = await Promise.all([
-      loadPromptCatalog(),
+      loadCatalog(),
       loadPack(themeId),
     ]);
-    const entries = collectCraftArtEntries(catalog, theme).map((entry, index) => ({
+    const entries = collectEntries(catalog, theme).map((entry, index) => ({
       ...entry,
       sequence: index + 1,
       fileName: artFileName(theme, index + 1, entry.name),
@@ -331,7 +376,9 @@ export function createCardArtStore({
 
   async function listEntries(themeId) {
     const { catalog, entries } = await loadContext(themeId);
-    const relations = buildRelations(catalog);
+    const relations = deckConfig.relations
+      ? deckConfig.relations(catalog)
+      : buildRelations(catalog);
     const withVariants = await Promise.all(
       entries.map(async (entry) => ({
         key: entry.key,
@@ -511,7 +558,7 @@ export function createCardArtStore({
     if (!regenerateDocs) {
       return;
     }
-    await generateCraftArtDocs();
+    await deckConfig.regenerate();
   }
 
   async function selectVariant(themeId, key, variantId, webpDataUrl) {
@@ -546,6 +593,9 @@ export function createCardArtStore({
   // --- the Card tab -------------------------------------------------------
 
   async function readCard(key) {
+    if (!deckConfig.supportsCardEdits) {
+      throw new CardArtError("This deck's studio does not edit catalog text", 400);
+    }
     const catalog = await loadPromptCatalog();
     try {
       return readCardRecord(catalog, key);
@@ -561,6 +611,9 @@ export function createCardArtStore({
   // weaker copy of those rules.
   function saveCard(key, edits) {
     return serialize(async () => {
+      if (!deckConfig.supportsCardEdits) {
+        throw new CardArtError("This deck's studio does not edit catalog text", 400);
+      }
       let catalogKey;
       try {
         catalogKey = catalogKeyForEntry(key);
@@ -664,7 +717,7 @@ export function createCardArtStore({
   async function listPacks() {
     const installed = installedPackIds();
     return Promise.all(
-      ART_PACKS.map(async (pack) => {
+      DECK_PACKS.map(async (pack) => {
         if (!installed.includes(pack.id)) {
           return { ...pack, installed: false, draft: false, generated: 0, total: 0 };
         }
@@ -700,7 +753,7 @@ export function createCardArtStore({
   // both see "no" and the second silently clobbers the first.
   function scaffoldPack(themeId) {
     return serialize(async () => {
-    const target = ART_PACKS.find((pack) => pack.id === themeId);
+    const target = DECK_PACKS.find((pack) => pack.id === themeId);
     if (!target) {
       throw new CardArtError(`Unknown art pack: ${themeId}`, 404);
     }
@@ -708,7 +761,7 @@ export function createCardArtStore({
       throw new CardArtError(`The ${themeId} pack already exists`, 409);
     }
 
-    const catalog = await loadPromptCatalog();
+    const catalog = await loadCatalog();
     const source = await loadPack(installedPackIds()[0]);
     const blank = (alt) => ({
       prompt: `TODO: write the ${target.name} brief for this card.`,
@@ -736,7 +789,7 @@ export function createCardArtStore({
       shared: {},
     };
 
-    for (const entry of collectCraftArtEntries(catalog, source)) {
+    for (const entry of collectEntries(catalog, source)) {
       const { group, id, index } = parseArtKey(entry.key);
       const alt = `Illustration for ${entry.name}.`;
       if (group === "grades") {
@@ -767,7 +820,7 @@ export function createCardArtStore({
       `${JSON.stringify(pack, null, 2)}\n`,
       "utf8",
     );
-    return { theme: themeId, entries: collectCraftArtEntries(catalog, source).length };
+    return { theme: themeId, entries: collectEntries(catalog, source).length };
     });
   }
 

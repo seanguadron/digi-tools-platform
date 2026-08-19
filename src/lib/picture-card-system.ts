@@ -5,6 +5,7 @@
 import cardsData from "@/data/picture-deck/cards.json";
 import tracksData from "@/data/picture-deck/tracks.json";
 import { createCardEngine } from "@/lib/card-engine";
+import { pictureCardArt, pictureLineageArt } from "@/lib/picture-art-pack";
 import { PICTURE_SECTIONS } from "@/lib/picture-prompt";
 import type { PictureSection } from "@/lib/picture-prompt";
 import type {
@@ -47,6 +48,10 @@ export const pictureCardEngine = createCardEngine<
   trackDefinitions: tracksCatalog.definitions,
   defaultTrackValues: tracksCatalog.defaultValues,
   cardFamily: getPictureCardFamily,
+  // Art and flavor live in the gallery pack, resolved at render time - the
+  // same seam the CRAFT deck uses, minus the world switch.
+  cardArt: (lineage, gradeIndex) => pictureCardArt(lineage.id, gradeIndex),
+  cardBio: (lineage) => pictureLineageArt(lineage.id)?.bio,
 });
 
 export const PICTURE_SLOT_BUDGETS = tracksCatalog.slotBudgets;

@@ -53,6 +53,7 @@ export type ArtPackFile = {
 
 export declare const MAX_BIO_LENGTH: number;
 export declare const ART_PACKS: readonly { id: string; name: string }[];
+export declare const PICTURE_ART_PACKS: readonly { id: string; name: string }[];
 export declare const ART_PACK_GROUPS: readonly ArtPackGroup[];
 
 export declare class ArtPackKeyError extends Error {}

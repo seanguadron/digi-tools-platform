@@ -102,4 +102,5 @@ export type CardArtStore = {
 export declare function createCardArtStore(options?: {
   root?: string;
   regenerateDocs?: boolean;
+  deck?: "craft" | "picture";
 }): CardArtStore;

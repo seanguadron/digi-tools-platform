@@ -1,0 +1,2318 @@
+{
+  "schemaVersion": 2,
+  "theme": {
+    "id": "gallery",
+    "name": "Gallery",
+    "filePrefix": "PIC",
+    "fileExtension": "png",
+    "generator": "Nano Banana Pro (2K)",
+    "aspectRatio": "1:1",
+    "style": "TODO: the shared craft rules paragraph (must contain: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame).",
+    "draft": true
+  },
+  "craft": {},
+  "roles": {},
+  "lineages": {
+    "lone-wanderer": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A lone cloaked wanderer on an empty road",
+      "status": "planned"
+    },
+    "gentle-giant": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A huge gentle creature towering over a small figure",
+      "status": "planned"
+    },
+    "golden-hour": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A lone tree on a hillside in golden-hour light",
+      "status": "planned"
+    },
+    "bioluminescence": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A dark forest pool lit by glowing blue organisms",
+      "status": "planned"
+    },
+    "candlelight": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A writing desk lit by a single candle",
+      "status": "planned"
+    },
+    "moonlight": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A field bathed in cold blue moonlight",
+      "status": "planned"
+    },
+    "neon-glow": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A rainy alley lit by neon signs",
+      "status": "planned"
+    },
+    "harsh-noon": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A white courtyard under harsh noon sun",
+      "status": "planned"
+    },
+    "overcast-soft": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A coastal path under a flat gray sky",
+      "status": "planned"
+    },
+    "dramatic-rim": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A profile edged in bright rim light against darkness",
+      "status": "planned"
+    },
+    "volumetric-rays": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Shafts of light crossing a dark forest",
+      "status": "planned"
+    },
+    "firelight": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Faces around a campfire in dancing orange light",
+      "status": "planned"
+    },
+    "storm-light": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A plain lit by a fork of lightning",
+      "status": "planned"
+    },
+    "studio-softbox": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A studio portrait in crisp softbox light",
+      "status": "planned"
+    },
+    "oil-painting": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship on rough seas as a textured oil painting",
+      "status": "planned"
+    },
+    "watercolor": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship on rough seas as a loose watercolor",
+      "status": "planned"
+    },
+    "pencil-sketch": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a graphite pencil sketch",
+      "status": "planned"
+    },
+    "ink-illustration": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a crosshatched ink illustration",
+      "status": "planned"
+    },
+    "charcoal-drawing": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a smudged charcoal drawing",
+      "status": "planned"
+    },
+    "gouache-poster": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a mid-century gouache poster",
+      "status": "planned"
+    },
+    "pixel-art": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as detailed pixel art",
+      "status": "planned"
+    },
+    "low-poly-3d": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a faceted low-poly render",
+      "status": "planned"
+    },
+    "clay-render": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a playful claymation render",
+      "status": "planned"
+    },
+    "film-photograph": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a grainy 35mm photograph",
+      "status": "planned"
+    },
+    "papercut-collage": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a layered papercut collage",
+      "status": "planned"
+    },
+    "stained-glass": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a leaded stained-glass window",
+      "status": "planned"
+    },
+    "embroidered-textile": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship embroidered in thread on linen",
+      "status": "planned"
+    },
+    "comic-ink-flats": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sailing ship as a bold inked comic panel",
+      "status": "planned"
+    },
+    "muted-palette": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market rendered in muted desaturated colors",
+      "status": "planned"
+    },
+    "neon-saturation": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market glowing with saturated neon color",
+      "status": "planned"
+    },
+    "pastel-dream": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market in soft dreamy pastels",
+      "status": "planned"
+    },
+    "monochrome-noir": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market in stark black and white",
+      "status": "planned"
+    },
+    "earthy-naturals": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market in ochre, moss, and umber tones",
+      "status": "planned"
+    },
+    "jewel-tones": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market in emerald, sapphire, and ruby tones",
+      "status": "planned"
+    },
+    "sepia-vintage": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street market in aged sepia tones",
+      "status": "planned"
+    },
+    "iridescent-shift": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Surfaces shifting with oil-slick iridescent color",
+      "status": "planned"
+    },
+    "high-contrast": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A market scene in hard highlights and deep shadow",
+      "status": "planned"
+    },
+    "candy-pop": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A market stall in glossy candy colors",
+      "status": "planned"
+    },
+    "cold-steel": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "An industrial scene in slate blues and gunmetal",
+      "status": "planned"
+    },
+    "sun-bleached": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A seaside shopfront with sun-bleached paint",
+      "status": "planned"
+    },
+    "rainswept-city": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A night city street under rain with mirror reflections",
+      "status": "planned"
+    },
+    "ancient-forest": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Colossal mossy trees with light shafts",
+      "status": "planned"
+    },
+    "desert-expanse": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Rolling dunes stretching to the horizon",
+      "status": "planned"
+    },
+    "frozen-tundra": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A figure crossing deep snow and ice fields",
+      "status": "planned"
+    },
+    "underwater-depths": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A diver in deep blue water with drifting particles",
+      "status": "planned"
+    },
+    "mountain-heights": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Jagged peaks above a sea of clouds",
+      "status": "planned"
+    },
+    "cozy-interior": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A cozy cluttered reading nook",
+      "status": "planned"
+    },
+    "grand-library": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A vaulted library with ladders and galleries",
+      "status": "planned"
+    },
+    "floating-islands": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Grassy islands floating in open sky",
+      "status": "planned"
+    },
+    "cyberpunk-megacity": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Layered cyberpunk towers with holograms",
+      "status": "planned"
+    },
+    "medieval-village": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A thatched medieval village square",
+      "status": "planned"
+    },
+    "space-frontier": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A station and starships against deep space",
+      "status": "planned"
+    },
+    "victorian-streets": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A foggy gaslit Victorian street",
+      "status": "planned"
+    },
+    "tropical-shore": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Turquoise water and leaning palms",
+      "status": "planned"
+    },
+    "art-nouveau": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A woman's portrait with flowing art nouveau linework",
+      "status": "planned"
+    },
+    "ukiyo-e": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A mountain and wave in ukiyo-e woodblock style",
+      "status": "planned"
+    },
+    "impressionist-brush": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A garden portrait in broken impressionist color",
+      "status": "planned"
+    },
+    "baroque-drama": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A dramatic candlelit baroque portrait",
+      "status": "planned"
+    },
+    "surrealist-dream": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A dreamscape of floating doors and melting clocks",
+      "status": "planned"
+    },
+    "gothic-romance": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A figure in lace before a ruined abbey",
+      "status": "planned"
+    },
+    "art-deco-geometry": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A gilded art deco cityscape with fanned motifs",
+      "status": "planned"
+    },
+    "renaissance-fresco": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Figures in drapery on an aged fresco wall",
+      "status": "planned"
+    },
+    "van-gogh-swirl": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A churning swirled night sky over a village",
+      "status": "planned"
+    },
+    "anime-cel": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A cel-shaded character against a painted sky",
+      "status": "planned"
+    },
+    "cinematic-still": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A moody film still with anamorphic framing",
+      "status": "planned"
+    },
+    "concept-art-sheet": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A polished production concept art scene",
+      "status": "planned"
+    },
+    "vaporwave-grid": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A marble bust and palms over a wireframe grid",
+      "status": "planned"
+    },
+    "cottagecore-idyll": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A cottage garden with wildflowers and linen",
+      "status": "planned"
+    },
+    "dark-fantasy-grim": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A torchlit dark fantasy gate of iron and bone",
+      "status": "planned"
+    },
+    "synthwave-sunset": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A chrome car driving into a striped synthwave sunset",
+      "status": "planned"
+    },
+    "childrens-book-charm": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A round friendly storybook animal scene",
+      "status": "planned"
+    },
+    "tarot-card-mystic": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A centered mystic figure with celestial ornament",
+      "status": "planned"
+    },
+    "vintage-travel-poster": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A coastal town as a vintage travel poster",
+      "status": "planned"
+    },
+    "botanical-plate": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A precise botanical illustration on cream paper",
+      "status": "planned"
+    },
+    "close-portrait": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "An intimate close-up portrait with shallow depth of field",
+      "status": "planned"
+    },
+    "wide-establishing": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sweeping wide vista of a mountain village",
+      "status": "planned"
+    },
+    "low-angle-hero": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A figure shot heroically from near the ground",
+      "status": "planned"
+    },
+    "birds-eye-view": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A plaza seen straight down from above",
+      "status": "planned"
+    },
+    "dutch-tilt": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A street scene on a strong diagonal tilt",
+      "status": "planned"
+    },
+    "symmetric-center": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A perfectly centered symmetrical corridor",
+      "status": "planned"
+    },
+    "rule-of-thirds": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A small boat placed on a thirds line in open water",
+      "status": "planned"
+    },
+    "shallow-bokeh": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A portrait isolated by creamy background bokeh",
+      "status": "planned"
+    },
+    "long-exposure": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Silked waterfall and light trails at dusk",
+      "status": "planned"
+    },
+    "double-exposure": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A profile silhouette filled with a forest",
+      "status": "planned"
+    },
+    "silhouette-shot": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A clean black silhouette against a bright sky",
+      "status": "planned"
+    },
+    "motion-blur-action": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sprinting figure with a streaked background",
+      "status": "planned"
+    },
+    "isometric-view": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A small isometric building diorama",
+      "status": "planned"
+    },
+    "knolling-flatlay": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Expedition gear knolled at right angles",
+      "status": "planned"
+    },
+    "hyper-detailed": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "An ornate pocket watch in obsessive close detail",
+      "status": "planned"
+    },
+    "minimalist-negative-space": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A tiny figure in a vast empty field of color",
+      "status": "planned"
+    },
+    "faithful-companion": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A traveler with a loyal dog companion",
+      "status": "planned"
+    },
+    "clockwork-automaton": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A brass clockwork automaton with exposed gears",
+      "status": "planned"
+    },
+    "armored-sentinel": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A sentinel in weathered plate armor holding a spear",
+      "status": "planned"
+    },
+    "wise-elder": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "An elder with deep lines and knowing eyes",
+      "status": "planned"
+    },
+    "spirited-child": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "An adventurous child in a cape on a hilltop",
+      "status": "planned"
+    },
+    "winged-beast": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A great winged beast with outstretched wings",
+      "status": "planned"
+    },
+    "ghostly-presence": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A translucent spectral figure in a dark hallway",
+      "status": "planned"
+    },
+    "crowd-of-many": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A lone figure in a bustling crowd",
+      "status": "planned"
+    },
+    "regal-figure": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A crowned figure in ceremonial robes",
+      "status": "planned"
+    },
+    "weathered-explorer": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A weathered explorer with pack and rope",
+      "status": "planned"
+    }
+  },
+  "archetypes": {
+    "storybook-cover": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A watercolor forest scene in warm golden light",
+      "status": "planned"
+    },
+    "neon-noir": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A rain-soaked neon street reflected in wet pavement",
+      "status": "planned"
+    },
+    "epic-fantasy-cover": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A storm-lit fortress in jewel tones from a low angle",
+      "status": "planned"
+    },
+    "cozy-storybook": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A pastel watercolor reading nook scene",
+      "status": "planned"
+    },
+    "cyber-portrait": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A close portrait lit by neon signs in a megacity",
+      "status": "planned"
+    },
+    "studio-product": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A single object centered in clean studio light",
+      "status": "planned"
+    },
+    "ghost-story": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A spectral figure on a foggy gaslit street",
+      "status": "planned"
+    },
+    "plein-air": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A golden field in broken impressionist color",
+      "status": "planned"
+    },
+    "retro-sprite": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A pixel-art hero against a candy-colored nebula",
+      "status": "planned"
+    },
+    "wildlife-lens": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A mountain animal isolated by telephoto bokeh",
+      "status": "planned"
+    },
+    "dream-drift": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Floating islands refracting opal light in a dream",
+      "status": "planned"
+    },
+    "gilded-arcana": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A centered mystic figure in stained glass and gold",
+      "status": "planned"
+    },
+    "deco-metropolis": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A gilded deco skyline seen from above",
+      "status": "planned"
+    },
+    "clay-mascot": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A cute clay character centered in studio light",
+      "status": "planned"
+    },
+    "cinema-frame": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A rim-lit figure in a steel-toned film still",
+      "status": "planned"
+    },
+    "woodblock-journey": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A traveler in mountains as a woodblock print",
+      "status": "planned"
+    },
+    "field-journal": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "Specimens inked on a sun-faded journal page",
+      "status": "planned"
+    },
+    "anime-quest": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A cel-shaded child hero before floating islands",
+      "status": "planned"
+    }
+  },
+  "grades": {
+    "lone-wanderer": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone cloaked wanderer on an empty road (Distant Traveler)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone cloaked wanderer on an empty road (Lone Wanderer)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone cloaked wanderer on an empty road (Speck in the Vast)",
+        "status": "planned"
+      }
+    ],
+    "gentle-giant": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A huge gentle creature towering over a small figure (Resting Colossus)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A huge gentle creature towering over a small figure (Gentle Giant)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A huge gentle creature towering over a small figure (Sky-Filling Titan)",
+        "status": "planned"
+      }
+    ],
+    "golden-hour": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone tree on a hillside in golden-hour light (Golden Wash)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone tree on a hillside in golden-hour light (Golden Hour)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone tree on a hillside in golden-hour light (Blazing Sundown)",
+        "status": "planned"
+      }
+    ],
+    "bioluminescence": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dark forest pool lit by glowing blue organisms (Faint Glow)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dark forest pool lit by glowing blue organisms (Living Light)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dark forest pool lit by glowing blue organisms (Abyssal Radiance)",
+        "status": "planned"
+      }
+    ],
+    "candlelight": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A writing desk lit by a single candle (Candle Warmth)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A writing desk lit by a single candle (Candlelight)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A writing desk lit by a single candle (Single Flame)",
+        "status": "planned"
+      }
+    ],
+    "moonlight": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A field bathed in cold blue moonlight (Pale Moon)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A field bathed in cold blue moonlight (Moonlight)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A field bathed in cold blue moonlight (Harvest Moon)",
+        "status": "planned"
+      }
+    ],
+    "neon-glow": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A rainy alley lit by neon signs (Sign Wash)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A rainy alley lit by neon signs (Neon Glow)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A rainy alley lit by neon signs (Neon Flood)",
+        "status": "planned"
+      }
+    ],
+    "harsh-noon": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A white courtyard under harsh noon sun (Bright Day)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A white courtyard under harsh noon sun (Harsh Noon)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A white courtyard under harsh noon sun (Merciless Sun)",
+        "status": "planned"
+      }
+    ],
+    "overcast-soft": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal path under a flat gray sky (Soft Sky)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal path under a flat gray sky (Overcast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal path under a flat gray sky (Luminous Fog)",
+        "status": "planned"
+      }
+    ],
+    "dramatic-rim": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile edged in bright rim light against darkness (Soft Edge)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile edged in bright rim light against darkness (Dramatic Rim)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile edged in bright rim light against darkness (Burning Edge)",
+        "status": "planned"
+      }
+    ],
+    "volumetric-rays": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Shafts of light crossing a dark forest (Faint Rays)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Shafts of light crossing a dark forest (God Rays)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Shafts of light crossing a dark forest (Cathedral Shafts)",
+        "status": "planned"
+      }
+    ],
+    "firelight": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Faces around a campfire in dancing orange light (Ember Glow)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Faces around a campfire in dancing orange light (Firelight)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Faces around a campfire in dancing orange light (Roaring Blaze)",
+        "status": "planned"
+      }
+    ],
+    "storm-light": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plain lit by a fork of lightning (Brooding Sky)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plain lit by a fork of lightning (Lightning Flash)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plain lit by a fork of lightning (White Strike)",
+        "status": "planned"
+      }
+    ],
+    "studio-softbox": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A studio portrait in crisp softbox light (Clean Light)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A studio portrait in crisp softbox light (Softbox Studio)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A studio portrait in crisp softbox light (High-Key White)",
+        "status": "planned"
+      }
+    ],
+    "oil-painting": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a textured oil painting (Oiled Surface)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a textured oil painting (Oil Painting)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a textured oil painting (Impasto Storm)",
+        "status": "planned"
+      }
+    ],
+    "watercolor": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a loose watercolor (Light Wash)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a loose watercolor (Watercolor)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship on rough seas as a loose watercolor (Runaway Water)",
+        "status": "planned"
+      }
+    ],
+    "pencil-sketch": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a graphite pencil sketch (Light Graphite)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a graphite pencil sketch (Pencil Sketch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a graphite pencil sketch (Furious Scribble)",
+        "status": "planned"
+      }
+    ],
+    "ink-illustration": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a crosshatched ink illustration (Fine Line)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a crosshatched ink illustration (Pen and Ink)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a crosshatched ink illustration (Ink Flood)",
+        "status": "planned"
+      }
+    ],
+    "charcoal-drawing": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a smudged charcoal drawing (Soft Charcoal)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a smudged charcoal drawing (Charcoal Drawing)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a smudged charcoal drawing (Charcoal Storm)",
+        "status": "planned"
+      }
+    ],
+    "gouache-poster": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a mid-century gouache poster (Matte Color)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a mid-century gouache poster (Gouache Poster)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a mid-century gouache poster (Chunky Poster)",
+        "status": "planned"
+      }
+    ],
+    "pixel-art": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as detailed pixel art (Pixel Touches)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as detailed pixel art (16-Bit Scene)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as detailed pixel art (8-Bit Chunk)",
+        "status": "planned"
+      }
+    ],
+    "low-poly-3d": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a faceted low-poly render (Poly Accents)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a faceted low-poly render (Low-Poly Render)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a faceted low-poly render (Triangle Minimal)",
+        "status": "planned"
+      }
+    ],
+    "clay-render": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a playful claymation render (Clay Feel)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a playful claymation render (Claymation)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a playful claymation render (Plasticine Squash)",
+        "status": "planned"
+      }
+    ],
+    "film-photograph": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a grainy 35mm photograph (Filmic Look)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a grainy 35mm photograph (35mm Film)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a grainy 35mm photograph (Expired Roll)",
+        "status": "planned"
+      }
+    ],
+    "papercut-collage": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a layered papercut collage (Paper Accents)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a layered papercut collage (Papercut Collage)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a layered papercut collage (Paper Diorama)",
+        "status": "planned"
+      }
+    ],
+    "stained-glass": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a leaded stained-glass window (Glass Panes)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a leaded stained-glass window (Stained Glass)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a leaded stained-glass window (Cathedral Panel)",
+        "status": "planned"
+      }
+    ],
+    "embroidered-textile": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship embroidered in thread on linen (Stitch Texture)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship embroidered in thread on linen (Embroidery)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship embroidered in thread on linen (Dense Tapestry)",
+        "status": "planned"
+      }
+    ],
+    "comic-ink-flats": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a bold inked comic panel (Comic Inks)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a bold inked comic panel (Comic Panel)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sailing ship as a bold inked comic panel (Graphic Novel)",
+        "status": "planned"
+      }
+    ],
+    "muted-palette": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market rendered in muted desaturated colors (Softened Color)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market rendered in muted desaturated colors (Muted Palette)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market rendered in muted desaturated colors (Ash and Ember)",
+        "status": "planned"
+      }
+    ],
+    "neon-saturation": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market glowing with saturated neon color (Neon Hints)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market glowing with saturated neon color (Neon Saturation)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market glowing with saturated neon color (Signal Overload)",
+        "status": "planned"
+      }
+    ],
+    "pastel-dream": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in soft dreamy pastels (Pastel Hints)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in soft dreamy pastels (Pastel Dream)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in soft dreamy pastels (Cotton Candy)",
+        "status": "planned"
+      }
+    ],
+    "monochrome-noir": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in stark black and white (Drained Color)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in stark black and white (Monochrome Noir)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in stark black and white (Ink Black)",
+        "status": "planned"
+      }
+    ],
+    "earthy-naturals": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in ochre, moss, and umber tones (Natural Cast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in ochre, moss, and umber tones (Earthy Naturals)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in ochre, moss, and umber tones (Deep Loam)",
+        "status": "planned"
+      }
+    ],
+    "jewel-tones": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in emerald, sapphire, and ruby tones (Gem Accents)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in emerald, sapphire, and ruby tones (Jewel Tones)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in emerald, sapphire, and ruby tones (Treasure Hoard)",
+        "status": "planned"
+      }
+    ],
+    "sepia-vintage": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in aged sepia tones (Warm Fade)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in aged sepia tones (Sepia Vintage)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street market in aged sepia tones (Daguerreotype)",
+        "status": "planned"
+      }
+    ],
+    "iridescent-shift": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Surfaces shifting with oil-slick iridescent color (Pearl Sheen)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Surfaces shifting with oil-slick iridescent color (Iridescent Shift)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Surfaces shifting with oil-slick iridescent color (Opal Storm)",
+        "status": "planned"
+      }
+    ],
+    "high-contrast": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market scene in hard highlights and deep shadow (Punchy Values)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market scene in hard highlights and deep shadow (High Contrast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market scene in hard highlights and deep shadow (Split Black)",
+        "status": "planned"
+      }
+    ],
+    "candy-pop": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market stall in glossy candy colors (Sweet Accents)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market stall in glossy candy colors (Candy Pop)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A market stall in glossy candy colors (Sugar Rush)",
+        "status": "planned"
+      }
+    ],
+    "cold-steel": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An industrial scene in slate blues and gunmetal (Cool Cast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An industrial scene in slate blues and gunmetal (Cold Steel)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An industrial scene in slate blues and gunmetal (Deep Freeze)",
+        "status": "planned"
+      }
+    ],
+    "sun-bleached": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A seaside shopfront with sun-bleached paint (Light Fade)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A seaside shopfront with sun-bleached paint (Sun-Bleached)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A seaside shopfront with sun-bleached paint (Ghost Paint)",
+        "status": "planned"
+      }
+    ],
+    "rainswept-city": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A night city street under rain with mirror reflections (After the Rain)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A night city street under rain with mirror reflections (Rain-Swept City)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A night city street under rain with mirror reflections (Drowned Metropolis)",
+        "status": "planned"
+      }
+    ],
+    "ancient-forest": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Colossal mossy trees with light shafts (Forest Edge)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Colossal mossy trees with light shafts (Ancient Forest)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Colossal mossy trees with light shafts (Primeval Depths)",
+        "status": "planned"
+      }
+    ],
+    "desert-expanse": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Rolling dunes stretching to the horizon (Dry Country)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Rolling dunes stretching to the horizon (Desert Expanse)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Rolling dunes stretching to the horizon (Endless Erg)",
+        "status": "planned"
+      }
+    ],
+    "frozen-tundra": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure crossing deep snow and ice fields (First Frost)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure crossing deep snow and ice fields (Frozen Tundra)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure crossing deep snow and ice fields (White Death)",
+        "status": "planned"
+      }
+    ],
+    "underwater-depths": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A diver in deep blue water with drifting particles (Shallows)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A diver in deep blue water with drifting particles (Underwater Depths)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A diver in deep blue water with drifting particles (Abyssal Trench)",
+        "status": "planned"
+      }
+    ],
+    "mountain-heights": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Jagged peaks above a sea of clouds (Foothills)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Jagged peaks above a sea of clouds (Mountain Heights)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Jagged peaks above a sea of clouds (Knife Ridge)",
+        "status": "planned"
+      }
+    ],
+    "cozy-interior": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cozy cluttered reading nook (Warm Room)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cozy cluttered reading nook (Cozy Interior)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cozy cluttered reading nook (Nested Deep)",
+        "status": "planned"
+      }
+    ],
+    "grand-library": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A vaulted library with ladders and galleries (Book Room)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A vaulted library with ladders and galleries (Grand Library)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A vaulted library with ladders and galleries (Infinite Stacks)",
+        "status": "planned"
+      }
+    ],
+    "floating-islands": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Grassy islands floating in open sky (Drifting Rocks)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Grassy islands floating in open sky (Floating Islands)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Grassy islands floating in open sky (Shattered World)",
+        "status": "planned"
+      }
+    ],
+    "cyberpunk-megacity": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Layered cyberpunk towers with holograms (City Lights)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Layered cyberpunk towers with holograms (Cyberpunk Megacity)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Layered cyberpunk towers with holograms (Vertical Sprawl)",
+        "status": "planned"
+      }
+    ],
+    "medieval-village": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A thatched medieval village square (Old Lanes)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A thatched medieval village square (Medieval Village)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A thatched medieval village square (Living History)",
+        "status": "planned"
+      }
+    ],
+    "space-frontier": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A station and starships against deep space (High Orbit)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A station and starships against deep space (Space Frontier)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A station and starships against deep space (Deep Cosmos)",
+        "status": "planned"
+      }
+    ],
+    "victorian-streets": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A foggy gaslit Victorian street (Gas Lamps)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A foggy gaslit Victorian street (Victorian Streets)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A foggy gaslit Victorian street (Smoke and Soot)",
+        "status": "planned"
+      }
+    ],
+    "tropical-shore": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Turquoise water and leaning palms (Beach Day)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Turquoise water and leaning palms (Tropical Shore)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Turquoise water and leaning palms (Lost Lagoon)",
+        "status": "planned"
+      }
+    ],
+    "art-nouveau": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A woman's portrait with flowing art nouveau linework (Nouveau Touch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A woman's portrait with flowing art nouveau linework (Art Nouveau)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A woman's portrait with flowing art nouveau linework (Full Mucha)",
+        "status": "planned"
+      }
+    ],
+    "ukiyo-e": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A mountain and wave in ukiyo-e woodblock style (Ukiyo-e Accents)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A mountain and wave in ukiyo-e woodblock style (Ukiyo-e)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A mountain and wave in ukiyo-e woodblock style (Great Wave)",
+        "status": "planned"
+      }
+    ],
+    "impressionist-brush": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A garden portrait in broken impressionist color (Loose Touch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A garden portrait in broken impressionist color (Impressionist)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A garden portrait in broken impressionist color (Pure Light Study)",
+        "status": "planned"
+      }
+    ],
+    "baroque-drama": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dramatic candlelit baroque portrait (Old Master Touch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dramatic candlelit baroque portrait (Baroque Drama)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dramatic candlelit baroque portrait (Full Caravaggio)",
+        "status": "planned"
+      }
+    ],
+    "surrealist-dream": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dreamscape of floating doors and melting clocks (Dream Logic)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dreamscape of floating doors and melting clocks (Surrealist Dream)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A dreamscape of floating doors and melting clocks (Deep Unreality)",
+        "status": "planned"
+      }
+    ],
+    "gothic-romance": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure in lace before a ruined abbey (Dark Undertone)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure in lace before a ruined abbey (Gothic Romance)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure in lace before a ruined abbey (Full Midnight)",
+        "status": "planned"
+      }
+    ],
+    "art-deco-geometry": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A gilded art deco cityscape with fanned motifs (Deco Lines)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A gilded art deco cityscape with fanned motifs (Art Deco)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A gilded art deco cityscape with fanned motifs (Deco Monument)",
+        "status": "planned"
+      }
+    ],
+    "renaissance-fresco": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Figures in drapery on an aged fresco wall (Classical Poise)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Figures in drapery on an aged fresco wall (Renaissance Fresco)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Figures in drapery on an aged fresco wall (Ceiling Vision)",
+        "status": "planned"
+      }
+    ],
+    "van-gogh-swirl": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A churning swirled night sky over a village (Living Strokes)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A churning swirled night sky over a village (Van Gogh Swirl)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A churning swirled night sky over a village (Starry Turbulence)",
+        "status": "planned"
+      }
+    ],
+    "anime-cel": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cel-shaded character against a painted sky (Anime Touch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cel-shaded character against a painted sky (Anime Cel)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cel-shaded character against a painted sky (Key Visual)",
+        "status": "planned"
+      }
+    ],
+    "cinematic-still": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A moody film still with anamorphic framing (Filmic Grade)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A moody film still with anamorphic framing (Cinematic Still)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A moody film still with anamorphic framing (Epic Frame)",
+        "status": "planned"
+      }
+    ],
+    "concept-art-sheet": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A polished production concept art scene (Concept Polish)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A polished production concept art scene (Concept Art)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A polished production concept art scene (Splash Key Art)",
+        "status": "planned"
+      }
+    ],
+    "vaporwave-grid": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A marble bust and palms over a wireframe grid (Vapor Tint)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A marble bust and palms over a wireframe grid (Vaporwave)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A marble bust and palms over a wireframe grid (Mall of Memory)",
+        "status": "planned"
+      }
+    ],
+    "cottagecore-idyll": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cottage garden with wildflowers and linen (Pastoral Touch)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cottage garden with wildflowers and linen (Cottagecore)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A cottage garden with wildflowers and linen (Storybook Meadow)",
+        "status": "planned"
+      }
+    ],
+    "dark-fantasy-grim": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A torchlit dark fantasy gate of iron and bone (Grim Cast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A torchlit dark fantasy gate of iron and bone (Dark Fantasy)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A torchlit dark fantasy gate of iron and bone (Grimdark Abyss)",
+        "status": "planned"
+      }
+    ],
+    "synthwave-sunset": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A chrome car driving into a striped synthwave sunset (Retro Glow)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A chrome car driving into a striped synthwave sunset (Synthwave)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A chrome car driving into a striped synthwave sunset (Outrun Forever)",
+        "status": "planned"
+      }
+    ],
+    "childrens-book-charm": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A round friendly storybook animal scene (Friendly Lines)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A round friendly storybook animal scene (Storybook Page)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A round friendly storybook animal scene (Bedtime Classic)",
+        "status": "planned"
+      }
+    ],
+    "tarot-card-mystic": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A centered mystic figure with celestial ornament (Mystic Symbols)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A centered mystic figure with celestial ornament (Tarot Arcana)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A centered mystic figure with celestial ornament (Gilded Arcana)",
+        "status": "planned"
+      }
+    ],
+    "vintage-travel-poster": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal town as a vintage travel poster (Poster Tint)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal town as a vintage travel poster (Travel Poster)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A coastal town as a vintage travel poster (Grand Tour)",
+        "status": "planned"
+      }
+    ],
+    "botanical-plate": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A precise botanical illustration on cream paper (Naturalist Eye)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A precise botanical illustration on cream paper (Botanical Plate)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A precise botanical illustration on cream paper (Field Folio)",
+        "status": "planned"
+      }
+    ],
+    "close-portrait": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An intimate close-up portrait with shallow depth of field (Portrait Frame)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An intimate close-up portrait with shallow depth of field (Close Portrait)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An intimate close-up portrait with shallow depth of field (Macro Gaze)",
+        "status": "planned"
+      }
+    ],
+    "wide-establishing": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sweeping wide vista of a mountain village (Wide Frame)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sweeping wide vista of a mountain village (Establishing Shot)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sweeping wide vista of a mountain village (God's Eye)",
+        "status": "planned"
+      }
+    ],
+    "low-angle-hero": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure shot heroically from near the ground (Slight Look-Up)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure shot heroically from near the ground (Low-Angle Hero)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A figure shot heroically from near the ground (Monument View)",
+        "status": "planned"
+      }
+    ],
+    "birds-eye-view": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plaza seen straight down from above (High Vantage)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plaza seen straight down from above (Bird's-Eye View)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A plaza seen straight down from above (Satellite Map)",
+        "status": "planned"
+      }
+    ],
+    "dutch-tilt": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street scene on a strong diagonal tilt (Slight Cant)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street scene on a strong diagonal tilt (Dutch Tilt)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A street scene on a strong diagonal tilt (Vertigo Frame)",
+        "status": "planned"
+      }
+    ],
+    "symmetric-center": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A perfectly centered symmetrical corridor (Centered Subject)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A perfectly centered symmetrical corridor (Formal Symmetry)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A perfectly centered symmetrical corridor (Temple Symmetry)",
+        "status": "planned"
+      }
+    ],
+    "rule-of-thirds": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small boat placed on a thirds line in open water (Off-Center)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small boat placed on a thirds line in open water (Rule of Thirds)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small boat placed on a thirds line in open water (Far Corner)",
+        "status": "planned"
+      }
+    ],
+    "shallow-bokeh": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A portrait isolated by creamy background bokeh (Soft Background)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A portrait isolated by creamy background bokeh (Shallow Bokeh)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A portrait isolated by creamy background bokeh (Razor Focus)",
+        "status": "planned"
+      }
+    ],
+    "long-exposure": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Silked waterfall and light trails at dusk (Slow Shutter)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Silked waterfall and light trails at dusk (Long Exposure)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Silked waterfall and light trails at dusk (Hours Open)",
+        "status": "planned"
+      }
+    ],
+    "double-exposure": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile silhouette filled with a forest (Faint Overlay)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile silhouette filled with a forest (Double Exposure)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A profile silhouette filled with a forest (Layered Ghosts)",
+        "status": "planned"
+      }
+    ],
+    "silhouette-shot": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A clean black silhouette against a bright sky (Half Shadow)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A clean black silhouette against a bright sky (Silhouette)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A clean black silhouette against a bright sky (Pure Shape)",
+        "status": "planned"
+      }
+    ],
+    "motion-blur-action": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sprinting figure with a streaked background (Hint of Motion)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sprinting figure with a streaked background (Action Pan)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sprinting figure with a streaked background (Full Velocity)",
+        "status": "planned"
+      }
+    ],
+    "isometric-view": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small isometric building diorama (Angled Overview)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small isometric building diorama (Isometric View)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A small isometric building diorama (Diorama Cutaway)",
+        "status": "planned"
+      }
+    ],
+    "knolling-flatlay": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Expedition gear knolled at right angles (Tidy Layout)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Expedition gear knolled at right angles (Knolling)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "Expedition gear knolled at right angles (Museum Inventory)",
+        "status": "planned"
+      }
+    ],
+    "hyper-detailed": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An ornate pocket watch in obsessive close detail (Fine Detail)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An ornate pocket watch in obsessive close detail (Hyper-Detailed)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An ornate pocket watch in obsessive close detail (Infinite Engraving)",
+        "status": "planned"
+      }
+    ],
+    "minimalist-negative-space": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A tiny figure in a vast empty field of color (Breathing Room)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A tiny figure in a vast empty field of color (Minimalist Frame)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A tiny figure in a vast empty field of color (Almost Nothing)",
+        "status": "planned"
+      }
+    ],
+    "faithful-companion": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A traveler with a loyal dog companion (Small Companion)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A traveler with a loyal dog companion (Faithful Companion)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A traveler with a loyal dog companion (Beast and Bond)",
+        "status": "planned"
+      }
+    ],
+    "clockwork-automaton": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A brass clockwork automaton with exposed gears (Clockwork Details)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A brass clockwork automaton with exposed gears (Clockwork Automaton)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A brass clockwork automaton with exposed gears (Living Machinery)",
+        "status": "planned"
+      }
+    ],
+    "armored-sentinel": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sentinel in weathered plate armor holding a spear (Light Armor)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sentinel in weathered plate armor holding a spear (Armored Sentinel)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A sentinel in weathered plate armor holding a spear (Colossus of War)",
+        "status": "planned"
+      }
+    ],
+    "wise-elder": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An elder with deep lines and knowing eyes (Graying Years)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An elder with deep lines and knowing eyes (Wise Elder)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An elder with deep lines and knowing eyes (Ancient One)",
+        "status": "planned"
+      }
+    ],
+    "spirited-child": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An adventurous child in a cape on a hilltop (Young Onlooker)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An adventurous child in a cape on a hilltop (Spirited Child)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "An adventurous child in a cape on a hilltop (Fearless Wonder)",
+        "status": "planned"
+      }
+    ],
+    "winged-beast": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A great winged beast with outstretched wings (Passing Wings)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A great winged beast with outstretched wings (Winged Beast)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A great winged beast with outstretched wings (Sky Sovereign)",
+        "status": "planned"
+      }
+    ],
+    "ghostly-presence": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A translucent spectral figure in a dark hallway (Faint Apparition)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A translucent spectral figure in a dark hallway (Ghostly Presence)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A translucent spectral figure in a dark hallway (Haunting Host)",
+        "status": "planned"
+      }
+    ],
+    "crowd-of-many": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone figure in a bustling crowd (Passersby)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone figure in a bustling crowd (Busy Crowd)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A lone figure in a bustling crowd (Sea of Faces)",
+        "status": "planned"
+      }
+    ],
+    "regal-figure": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A crowned figure in ceremonial robes (Fine Bearing)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A crowned figure in ceremonial robes (Regal Figure)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A crowned figure in ceremonial robes (Living Throne)",
+        "status": "planned"
+      }
+    ],
+    "weathered-explorer": [
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A weathered explorer with pack and rope (Field Gear)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A weathered explorer with pack and rope (Weathered Explorer)",
+        "status": "planned"
+      },
+      {
+        "prompt": "TODO: write the demonstration brief for this card.",
+        "alt": "A weathered explorer with pack and rope (End of the Map)",
+        "status": "planned"
+      }
+    ]
+  },
+  "shared": {
+    "custom-preset": {
+      "prompt": "TODO: write the demonstration brief for this card.",
+      "alt": "A blank preset frame awaiting its custom recipe.",
+      "status": "planned"
+    }
+  }
+}

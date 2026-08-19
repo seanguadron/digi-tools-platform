@@ -26,14 +26,7 @@
           "description": "A tiny figure dwarfed by an overwhelming emptiness.",
           "instruction": "a tiny lone figure dwarfed by a vast empty landscape"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/lone-wanderer.webp",
-        "alt": "A lone cloaked wanderer on an empty road",
-        "motif": "solitary figure",
-        "prompt": "a lone cloaked wanderer seen from behind on an empty winding road, painterly concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "gentle-giant",
@@ -60,14 +53,7 @@
           "description": "A colossal titan fills the sky and bends the horizon.",
           "instruction": "a colossal benevolent titan filling the sky above"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/gentle-giant.webp",
-        "alt": "A huge gentle creature towering over a small figure",
-        "motif": "benevolent colossus",
-        "prompt": "a moss-covered gentle giant creature towering over a tiny human figure, warm fantasy concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "golden-hour",
@@ -94,14 +80,7 @@
           "description": "The sun flares straight into the lens and ignites the frame.",
           "instruction": "blazing golden-hour backlight, sun flaring across the frame"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/golden-hour.webp",
-        "alt": "A lone tree on a hillside in golden-hour light",
-        "motif": "low warm sun",
-        "prompt": "a lone tree on a grassy hillside bathed in warm golden-hour light with long shadows, cinematic landscape photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "bioluminescence",
@@ -128,206 +107,289 @@
           "description": "Bioluminescence is the only light in the world.",
           "instruction": "the entire scene lit only by intense blue-green bioluminescence"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/bioluminescence.webp",
-        "alt": "A dark forest pool lit by glowing blue organisms",
-        "motif": "living glow",
-        "prompt": "a dark forest pool lit by glowing blue bioluminescent mushrooms and drifting spores, fantasy illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "candlelight",
       "code": "CNDL",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Light the scene from small flames", "Add intimacy and deep shadow"],
-      "grades": [
-        { "name": "Candle Warmth", "description": "Soft candle warmth touches the scene.", "instruction": "lit softly by candlelight" },
-        { "name": "Candlelight", "description": "Flickering candlelight carries the frame.", "instruction": "warm flickering candlelight, deep shadows" },
-        { "name": "Single Flame", "description": "One flame carves the subject out of darkness.", "instruction": "a single candle flame carving the figure out of darkness" }
+      "goals": [
+        "Light the scene from small flames",
+        "Add intimacy and deep shadow"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/candlelight.webp",
-        "alt": "A writing desk lit by a single candle",
-        "motif": "small flame",
-        "prompt": "an old writing desk lit by a single candle in a dark room, chiaroscuro still life painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Candle Warmth",
+          "description": "Soft candle warmth touches the scene.",
+          "instruction": "lit softly by candlelight"
+        },
+        {
+          "name": "Candlelight",
+          "description": "Flickering candlelight carries the frame.",
+          "instruction": "warm flickering candlelight, deep shadows"
+        },
+        {
+          "name": "Single Flame",
+          "description": "One flame carves the subject out of darkness.",
+          "instruction": "a single candle flame carving the figure out of darkness"
+        }
+      ]
     },
     {
       "id": "moonlight",
       "code": "MOON",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Cool the scene into night", "Add silver-blue quiet"],
-      "grades": [
-        { "name": "Pale Moon", "description": "Pale moonlight settles over the scene.", "instruction": "under pale moonlight" },
-        { "name": "Moonlight", "description": "Cold blue moonlight defines the night.", "instruction": "bathed in cold blue moonlight" },
-        { "name": "Harvest Moon", "description": "A huge moon floods the world silver.", "instruction": "under a huge full moon, silver light flooding the scene" }
+      "goals": [
+        "Cool the scene into night",
+        "Add silver-blue quiet"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/moonlight.webp",
-        "alt": "A field bathed in cold blue moonlight",
-        "motif": "silver night",
-        "prompt": "a quiet field and lone barn bathed in cold blue moonlight, atmospheric nocturne painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Pale Moon",
+          "description": "Pale moonlight settles over the scene.",
+          "instruction": "under pale moonlight"
+        },
+        {
+          "name": "Moonlight",
+          "description": "Cold blue moonlight defines the night.",
+          "instruction": "bathed in cold blue moonlight"
+        },
+        {
+          "name": "Harvest Moon",
+          "description": "A huge moon floods the world silver.",
+          "instruction": "under a huge full moon, silver light flooding the scene"
+        }
+      ]
     },
     {
       "id": "neon-glow",
       "code": "NGLOW",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Light the scene with electric signage", "Add urban color cast"],
-      "grades": [
-        { "name": "Sign Wash", "description": "Colored neon wash tints the scene.", "instruction": "washed in colored neon glow" },
-        { "name": "Neon Glow", "description": "Buzzing signs become the light source.", "instruction": "lit by buzzing neon signs, magenta and cyan reflections" },
-        { "name": "Neon Flood", "description": "Blinding neon hits from every direction.", "instruction": "drowned in blinding neon light from every direction" }
+      "goals": [
+        "Light the scene with electric signage",
+        "Add urban color cast"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/neon-glow.webp",
-        "alt": "A rainy alley lit by neon signs",
-        "motif": "electric signage",
-        "prompt": "a narrow rainy alley lit by glowing neon signage reflected in puddles, cinematic night photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Sign Wash",
+          "description": "Colored neon wash tints the scene.",
+          "instruction": "washed in colored neon glow"
+        },
+        {
+          "name": "Neon Glow",
+          "description": "Buzzing signs become the light source.",
+          "instruction": "lit by buzzing neon signs, magenta and cyan reflections"
+        },
+        {
+          "name": "Neon Flood",
+          "description": "Blinding neon hits from every direction.",
+          "instruction": "drowned in blinding neon light from every direction"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "harsh-noon",
       "code": "NOON",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Push light overhead and hard", "Add stark honest shadows"],
-      "grades": [
-        { "name": "Bright Day", "description": "Bright midday light fills the scene.", "instruction": "in bright midday light" },
-        { "name": "Harsh Noon", "description": "Hard overhead sun cuts black shadows.", "instruction": "under harsh noon sun, hard black shadows" },
-        { "name": "Merciless Sun", "description": "Bleaching sun turns shadows into knife cuts.", "instruction": "bleached by merciless overhead sun, shadows like knife cuts" }
+      "goals": [
+        "Push light overhead and hard",
+        "Add stark honest shadows"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/harsh-noon.webp",
-        "alt": "A white courtyard under harsh noon sun",
-        "motif": "hard shadow",
-        "prompt": "a white-washed courtyard under harsh noon sun with hard black shadows, minimalist photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Bright Day",
+          "description": "Bright midday light fills the scene.",
+          "instruction": "in bright midday light"
+        },
+        {
+          "name": "Harsh Noon",
+          "description": "Hard overhead sun cuts black shadows.",
+          "instruction": "under harsh noon sun, hard black shadows"
+        },
+        {
+          "name": "Merciless Sun",
+          "description": "Bleaching sun turns shadows into knife cuts.",
+          "instruction": "bleached by merciless overhead sun, shadows like knife cuts"
+        }
+      ]
     },
     {
       "id": "overcast-soft",
       "code": "OVER",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Flatten light into softness", "Remove harsh shadows entirely"],
-      "grades": [
-        { "name": "Soft Sky", "description": "Soft overcast light evens the scene.", "instruction": "in soft overcast light" },
-        { "name": "Overcast", "description": "A flat gray sky makes shadowless light.", "instruction": "under a flat gray sky, shadowless diffuse light" },
-        { "name": "Luminous Fog", "description": "Fog-thick overcast swallows the world.", "instruction": "swallowed by luminous fog-thick overcast" }
+      "goals": [
+        "Flatten light into softness",
+        "Remove harsh shadows entirely"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/overcast-soft.webp",
-        "alt": "A coastal path under a flat gray sky",
-        "motif": "diffuse gray",
-        "prompt": "a coastal path and dunes under a flat luminous overcast sky, quiet landscape photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Soft Sky",
+          "description": "Soft overcast light evens the scene.",
+          "instruction": "in soft overcast light"
+        },
+        {
+          "name": "Overcast",
+          "description": "A flat gray sky makes shadowless light.",
+          "instruction": "under a flat gray sky, shadowless diffuse light"
+        },
+        {
+          "name": "Luminous Fog",
+          "description": "Fog-thick overcast swallows the world.",
+          "instruction": "swallowed by luminous fog-thick overcast"
+        }
+      ]
     },
     {
       "id": "dramatic-rim",
       "code": "RIM",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Edge the subject in light", "Separate figure from ground"],
-      "grades": [
-        { "name": "Soft Edge", "description": "A soft rim light lifts the subject.", "instruction": "with a soft rim light" },
-        { "name": "Dramatic Rim", "description": "A strong rim light draws the outline.", "instruction": "edged in dramatic rim lighting" },
-        { "name": "Burning Edge", "description": "A blazing rim burns the silhouette's border.", "instruction": "a blazing rim light burning the silhouette's edge" }
+      "goals": [
+        "Edge the subject in light",
+        "Separate figure from ground"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/dramatic-rim.webp",
-        "alt": "A profile edged in bright rim light against darkness",
-        "motif": "lit outline",
-        "prompt": "a profile portrait edged in bright rim lighting against deep darkness, dramatic studio photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Soft Edge",
+          "description": "A soft rim light lifts the subject.",
+          "instruction": "with a soft rim light"
+        },
+        {
+          "name": "Dramatic Rim",
+          "description": "A strong rim light draws the outline.",
+          "instruction": "edged in dramatic rim lighting"
+        },
+        {
+          "name": "Burning Edge",
+          "description": "A blazing rim burns the silhouette's border.",
+          "instruction": "a blazing rim light burning the silhouette's edge"
+        }
+      ]
     },
     {
       "id": "volumetric-rays",
       "code": "RAYS",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Make light physically visible", "Add atmosphere and dust"],
-      "grades": [
-        { "name": "Faint Rays", "description": "Faint rays streak the air.", "instruction": "with faint light rays in the air" },
-        { "name": "God Rays", "description": "Volumetric rays cross the scene.", "instruction": "crossed by volumetric god rays" },
-        { "name": "Cathedral Shafts", "description": "Massive dust-filled shafts carve the space.", "instruction": "carved by cathedral shafts of dust-filled light" }
+      "goals": [
+        "Make light physically visible",
+        "Add atmosphere and dust"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/volumetric-rays.webp",
-        "alt": "Shafts of light crossing a dark forest",
-        "motif": "visible light",
-        "prompt": "volumetric shafts of light crossing a dark misty forest interior, atmospheric fantasy painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Faint Rays",
+          "description": "Faint rays streak the air.",
+          "instruction": "with faint light rays in the air"
+        },
+        {
+          "name": "God Rays",
+          "description": "Volumetric rays cross the scene.",
+          "instruction": "crossed by volumetric god rays"
+        },
+        {
+          "name": "Cathedral Shafts",
+          "description": "Massive dust-filled shafts carve the space.",
+          "instruction": "carved by cathedral shafts of dust-filled light"
+        }
+      ]
     },
     {
       "id": "firelight",
       "code": "FIRE",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Warm the scene with open flame", "Add motion to the light itself"],
-      "grades": [
-        { "name": "Ember Glow", "description": "Distant firelight warms the edges.", "instruction": "warmed by distant firelight" },
-        { "name": "Firelight", "description": "Dancing orange flames light the scene.", "instruction": "lit by dancing orange firelight" },
-        { "name": "Roaring Blaze", "description": "Wild flames throw chaos across everything.", "instruction": "roaring flames throwing wild shadows across everything" }
+      "goals": [
+        "Warm the scene with open flame",
+        "Add motion to the light itself"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/firelight.webp",
-        "alt": "Faces around a campfire in dancing orange light",
-        "motif": "open flame",
-        "prompt": "travelers gathered around a campfire in dancing orange firelight, warm painterly night scene, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Ember Glow",
+          "description": "Distant firelight warms the edges.",
+          "instruction": "warmed by distant firelight"
+        },
+        {
+          "name": "Firelight",
+          "description": "Dancing orange flames light the scene.",
+          "instruction": "lit by dancing orange firelight"
+        },
+        {
+          "name": "Roaring Blaze",
+          "description": "Wild flames throw chaos across everything.",
+          "instruction": "roaring flames throwing wild shadows across everything"
+        }
+      ]
     },
     {
       "id": "storm-light",
       "code": "STORM",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Charge the sky with weather", "Add flash-frozen drama"],
-      "grades": [
-        { "name": "Brooding Sky", "description": "Storm light broods over the scene.", "instruction": "under brooding storm light" },
-        { "name": "Lightning Flash", "description": "A lightning flash glitters the rain.", "instruction": "lit by a lightning flash, rain glittering" },
-        { "name": "White Strike", "description": "A violent strike burns the world white.", "instruction": "frozen in a violent lightning strike, world burned white" }
+      "goals": [
+        "Charge the sky with weather",
+        "Add flash-frozen drama"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/storm-light.webp",
-        "alt": "A plain lit by a fork of lightning",
-        "motif": "storm flash",
-        "prompt": "a wide plain and lone tree lit by a fork of lightning under storm clouds, dramatic weather photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Brooding Sky",
+          "description": "Storm light broods over the scene.",
+          "instruction": "under brooding storm light"
+        },
+        {
+          "name": "Lightning Flash",
+          "description": "A lightning flash glitters the rain.",
+          "instruction": "lit by a lightning flash, rain glittering"
+        },
+        {
+          "name": "White Strike",
+          "description": "A violent strike burns the world white.",
+          "instruction": "frozen in a violent lightning strike, world burned white"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "studio-softbox",
       "code": "SOFT",
       "section": "illumination",
       "driver": "intensity",
-      "goals": ["Control the light completely", "Flatter the subject cleanly"],
-      "grades": [
-        { "name": "Clean Light", "description": "Clean studio light frames the subject.", "instruction": "in clean studio lighting" },
-        { "name": "Softbox Studio", "description": "Crisp softbox light on a seamless backdrop.", "instruction": "in crisp softbox studio light, seamless backdrop" },
-        { "name": "High-Key White", "description": "Clinical high-key white lights every detail.", "instruction": "in clinical high-key studio white, every detail lit" }
+      "goals": [
+        "Control the light completely",
+        "Flatter the subject cleanly"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/studio-softbox.webp",
-        "alt": "A studio portrait in crisp softbox light",
-        "motif": "controlled studio",
-        "prompt": "a clean studio portrait in crisp softbox light on a seamless gray backdrop, professional photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Clean Light",
+          "description": "Clean studio light frames the subject.",
+          "instruction": "in clean studio lighting"
+        },
+        {
+          "name": "Softbox Studio",
+          "description": "Crisp softbox light on a seamless backdrop.",
+          "instruction": "in crisp softbox studio light, seamless backdrop"
+        },
+        {
+          "name": "High-Key White",
+          "description": "Clinical high-key white lights every detail.",
+          "instruction": "in clinical high-key studio white, every detail lit"
+        }
+      ]
     },
     {
       "id": "oil-painting",
@@ -354,14 +416,7 @@
           "description": "Thick sculptural paint ridges catch real light.",
           "instruction": "thick impasto oil painting, sculptural ridges of paint"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/oil-painting.webp",
-        "alt": "A sailing ship on rough seas as a textured oil painting",
-        "motif": "brushstroke texture",
-        "prompt": "a sailing ship on rough seas painted as an expressive oil painting with thick visible brushstrokes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "watercolor",
@@ -388,242 +443,331 @@
           "description": "Drips, blooms, and raw paper take over the frame.",
           "instruction": "wild watercolor, running drips and patches of untouched paper"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/watercolor.webp",
-        "alt": "A sailing ship on rough seas as a loose watercolor",
-        "motif": "translucent washes",
-        "prompt": "a sailing ship on rough seas painted as a loose watercolor with blooming pigment and visible paper texture, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "pencil-sketch",
       "code": "PNCL",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Strip the image to graphite", "Show the drawing hand"],
-      "grades": [
-        { "name": "Light Graphite", "description": "Light pencil linework underlies the image.", "instruction": "with light pencil-sketch linework" },
-        { "name": "Pencil Sketch", "description": "A graphite sketch with construction lines.", "instruction": "as a graphite pencil sketch, visible construction lines" },
-        { "name": "Furious Scribble", "description": "Raw scribbled graphite, unfinished on purpose.", "instruction": "a furious scribbled pencil drawing, raw and unfinished" }
+      "goals": [
+        "Strip the image to graphite",
+        "Show the drawing hand"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/pencil-sketch.webp",
-        "alt": "A sailing ship as a graphite pencil sketch",
-        "motif": "graphite line",
-        "prompt": "a sailing ship on rough seas drawn as a graphite pencil sketch with visible construction lines, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Light Graphite",
+          "description": "Light pencil linework underlies the image.",
+          "instruction": "with light pencil-sketch linework"
+        },
+        {
+          "name": "Pencil Sketch",
+          "description": "A graphite sketch with construction lines.",
+          "instruction": "as a graphite pencil sketch, visible construction lines"
+        },
+        {
+          "name": "Furious Scribble",
+          "description": "Raw scribbled graphite, unfinished on purpose.",
+          "instruction": "a furious scribbled pencil drawing, raw and unfinished"
+        }
+      ]
     },
     {
       "id": "ink-illustration",
       "code": "INK",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Commit to line over tone", "Add crosshatched craft"],
-      "grades": [
-        { "name": "Fine Line", "description": "Fine ink linework traces the forms.", "instruction": "with fine ink linework" },
-        { "name": "Pen and Ink", "description": "A crosshatched pen-and-ink illustration.", "instruction": "as a pen-and-ink illustration, crosshatched shading" },
-        { "name": "Ink Flood", "description": "Heavy blacks against stark white paper.", "instruction": "drowning in heavy black ink, stark white paper" }
+      "goals": [
+        "Commit to line over tone",
+        "Add crosshatched craft"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/ink-illustration.webp",
-        "alt": "A sailing ship as a crosshatched ink illustration",
-        "motif": "crosshatched line",
-        "prompt": "a sailing ship on rough seas drawn as a crosshatched pen-and-ink illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Fine Line",
+          "description": "Fine ink linework traces the forms.",
+          "instruction": "with fine ink linework"
+        },
+        {
+          "name": "Pen and Ink",
+          "description": "A crosshatched pen-and-ink illustration.",
+          "instruction": "as a pen-and-ink illustration, crosshatched shading"
+        },
+        {
+          "name": "Ink Flood",
+          "description": "Heavy blacks against stark white paper.",
+          "instruction": "drowning in heavy black ink, stark white paper"
+        }
+      ]
     },
     {
       "id": "charcoal-drawing",
       "code": "CHRCL",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Smudge tone into drama", "Keep the medium's dust visible"],
-      "grades": [
-        { "name": "Soft Charcoal", "description": "Soft charcoal shading rounds the forms.", "instruction": "with soft charcoal shading" },
-        { "name": "Charcoal Drawing", "description": "A smudged charcoal drawing carries the image.", "instruction": "as a smudged charcoal drawing" },
-        { "name": "Charcoal Storm", "description": "Violent blacks and torn highlights.", "instruction": "a violent charcoal study, deep blacks and torn highlights" }
+      "goals": [
+        "Smudge tone into drama",
+        "Keep the medium's dust visible"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/charcoal-drawing.webp",
-        "alt": "A sailing ship as a smudged charcoal drawing",
-        "motif": "smudged tone",
-        "prompt": "a sailing ship on rough seas rendered as a smudged charcoal drawing with deep blacks, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Soft Charcoal",
+          "description": "Soft charcoal shading rounds the forms.",
+          "instruction": "with soft charcoal shading"
+        },
+        {
+          "name": "Charcoal Drawing",
+          "description": "A smudged charcoal drawing carries the image.",
+          "instruction": "as a smudged charcoal drawing"
+        },
+        {
+          "name": "Charcoal Storm",
+          "description": "Violent blacks and torn highlights.",
+          "instruction": "a violent charcoal study, deep blacks and torn highlights"
+        }
+      ]
     },
     {
       "id": "gouache-poster",
       "code": "GOUA",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Flatten into matte shapes", "Borrow mid-century poster craft"],
-      "grades": [
-        { "name": "Matte Color", "description": "Flat gouache color simplifies the forms.", "instruction": "with flat gouache color" },
-        { "name": "Gouache Poster", "description": "A mid-century poster in matte flat shapes.", "instruction": "as a mid-century gouache poster, matte flat shapes" },
-        { "name": "Chunky Poster", "description": "Bold chunky shapes and honest paper grain.", "instruction": "bold gouache poster art, chunky shapes and paper grain" }
+      "goals": [
+        "Flatten into matte shapes",
+        "Borrow mid-century poster craft"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/gouache-poster.webp",
-        "alt": "A sailing ship as a mid-century gouache poster",
-        "motif": "matte flat shapes",
-        "prompt": "a sailing ship on stylized waves painted as a mid-century gouache travel poster with matte flat shapes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Matte Color",
+          "description": "Flat gouache color simplifies the forms.",
+          "instruction": "with flat gouache color"
+        },
+        {
+          "name": "Gouache Poster",
+          "description": "A mid-century poster in matte flat shapes.",
+          "instruction": "as a mid-century gouache poster, matte flat shapes"
+        },
+        {
+          "name": "Chunky Poster",
+          "description": "Bold chunky shapes and honest paper grain.",
+          "instruction": "bold gouache poster art, chunky shapes and paper grain"
+        }
+      ]
     },
     {
       "id": "pixel-art",
       "code": "PIXEL",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Quantize the image into pixels", "Invoke game-art nostalgia"],
-      "grades": [
-        { "name": "Pixel Touches", "description": "Pixel-art accents sneak in.", "instruction": "with pixel-art touches" },
-        { "name": "16-Bit Scene", "description": "Detailed 16-bit pixel art carries the image.", "instruction": "as detailed 16-bit pixel art" },
-        { "name": "8-Bit Chunk", "description": "Chunky 8-bit pixels and dithered gradients.", "instruction": "as chunky 8-bit pixel art, dithered gradients" }
+      "goals": [
+        "Quantize the image into pixels",
+        "Invoke game-art nostalgia"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/pixel-art.webp",
-        "alt": "A sailing ship as detailed pixel art",
-        "motif": "quantized pixels",
-        "prompt": "a sailing ship on blocky waves rendered as detailed 16-bit pixel art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Pixel Touches",
+          "description": "Pixel-art accents sneak in.",
+          "instruction": "with pixel-art touches"
+        },
+        {
+          "name": "16-Bit Scene",
+          "description": "Detailed 16-bit pixel art carries the image.",
+          "instruction": "as detailed 16-bit pixel art"
+        },
+        {
+          "name": "8-Bit Chunk",
+          "description": "Chunky 8-bit pixels and dithered gradients.",
+          "instruction": "as chunky 8-bit pixel art, dithered gradients"
+        }
+      ]
     },
     {
       "id": "low-poly-3d",
       "code": "POLY",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Facet the world into triangles", "Trade detail for geometry"],
-      "grades": [
-        { "name": "Poly Accents", "description": "Low-poly accents facet the forms.", "instruction": "with low-poly 3d accents" },
-        { "name": "Low-Poly Render", "description": "A faceted low-poly 3d render.", "instruction": "as a low-poly 3d render, faceted surfaces" },
-        { "name": "Triangle Minimal", "description": "Brutalist geometry at minimal triangle count.", "instruction": "as brutalist low-poly geometry, triangle-count minimal" }
+      "goals": [
+        "Facet the world into triangles",
+        "Trade detail for geometry"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/low-poly-3d.webp",
-        "alt": "A sailing ship as a faceted low-poly render",
-        "motif": "faceted geometry",
-        "prompt": "a sailing ship on faceted geometric waves as a low-poly 3d render, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Poly Accents",
+          "description": "Low-poly accents facet the forms.",
+          "instruction": "with low-poly 3d accents"
+        },
+        {
+          "name": "Low-Poly Render",
+          "description": "A faceted low-poly 3d render.",
+          "instruction": "as a low-poly 3d render, faceted surfaces"
+        },
+        {
+          "name": "Triangle Minimal",
+          "description": "Brutalist geometry at minimal triangle count.",
+          "instruction": "as brutalist low-poly geometry, triangle-count minimal"
+        }
+      ]
     },
     {
       "id": "clay-render",
       "code": "CLAY",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Sculpt the scene in clay", "Keep it playful and tactile"],
-      "grades": [
-        { "name": "Clay Feel", "description": "A soft clay-render feel rounds everything.", "instruction": "with a soft clay-render feel" },
-        { "name": "Claymation", "description": "A playful claymation-style render.", "instruction": "as a playful claymation-style render" },
-        { "name": "Plasticine Squash", "description": "Squashed plasticine, thumbprints and all.", "instruction": "as squashed plasticine clay, thumbprints and all" }
+      "goals": [
+        "Sculpt the scene in clay",
+        "Keep it playful and tactile"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/clay-render.webp",
-        "alt": "A sailing ship as a playful claymation render",
-        "motif": "tactile clay",
-        "prompt": "a sailing ship on rolling clay waves as a playful claymation-style render, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Clay Feel",
+          "description": "A soft clay-render feel rounds everything.",
+          "instruction": "with a soft clay-render feel"
+        },
+        {
+          "name": "Claymation",
+          "description": "A playful claymation-style render.",
+          "instruction": "as a playful claymation-style render"
+        },
+        {
+          "name": "Plasticine Squash",
+          "description": "Squashed plasticine, thumbprints and all.",
+          "instruction": "as squashed plasticine clay, thumbprints and all"
+        }
+      ]
     },
     {
       "id": "film-photograph",
       "code": "FILM",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Ground the image in photography", "Add honest grain and optics"],
-      "grades": [
-        { "name": "Filmic Look", "description": "A filmic photographic look settles in.", "instruction": "with a filmic photographic look" },
-        { "name": "35mm Film", "description": "A 35mm photograph with natural grain.", "instruction": "as a 35mm film photograph, natural grain" },
-        { "name": "Expired Roll", "description": "Expired film: heavy grain and light leaks.", "instruction": "as expired-film photography, heavy grain and light leaks" }
+      "goals": [
+        "Ground the image in photography",
+        "Add honest grain and optics"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/film-photograph.webp",
-        "alt": "A sailing ship as a grainy 35mm photograph",
-        "motif": "film grain",
-        "prompt": "a sailing ship at sea shot as a grainy 35mm film photograph, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Filmic Look",
+          "description": "A filmic photographic look settles in.",
+          "instruction": "with a filmic photographic look"
+        },
+        {
+          "name": "35mm Film",
+          "description": "A 35mm photograph with natural grain.",
+          "instruction": "as a 35mm film photograph, natural grain"
+        },
+        {
+          "name": "Expired Roll",
+          "description": "Expired film: heavy grain and light leaks.",
+          "instruction": "as expired-film photography, heavy grain and light leaks"
+        }
+      ]
     },
     {
       "id": "papercut-collage",
       "code": "PAPER",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Layer the scene from cut paper", "Earn real drop shadows"],
-      "grades": [
-        { "name": "Paper Accents", "description": "Layered papercut accents trim the scene.", "instruction": "with layered papercut accents" },
-        { "name": "Papercut Collage", "description": "A layered papercut collage with crisp shadows.", "instruction": "as a layered papercut collage, crisp shadows" },
-        { "name": "Paper Diorama", "description": "A deep 3d diorama of dozens of cut layers.", "instruction": "as a deep 3d paper diorama, dozens of cut layers" }
+      "goals": [
+        "Layer the scene from cut paper",
+        "Earn real drop shadows"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/papercut-collage.webp",
-        "alt": "A sailing ship as a layered papercut collage",
-        "motif": "cut layers",
-        "prompt": "a sailing ship on layered papercut waves as a paper collage diorama with crisp shadows, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Paper Accents",
+          "description": "Layered papercut accents trim the scene.",
+          "instruction": "with layered papercut accents"
+        },
+        {
+          "name": "Papercut Collage",
+          "description": "A layered papercut collage with crisp shadows.",
+          "instruction": "as a layered papercut collage, crisp shadows"
+        },
+        {
+          "name": "Paper Diorama",
+          "description": "A deep 3d diorama of dozens of cut layers.",
+          "instruction": "as a deep 3d paper diorama, dozens of cut layers"
+        }
+      ]
     },
     {
       "id": "stained-glass",
       "code": "GLASS",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Lead the image into glass panes", "Let light do the coloring"],
-      "grades": [
-        { "name": "Glass Panes", "description": "Stained-glass color panes tint the scene.", "instruction": "with stained-glass color panes" },
-        { "name": "Stained Glass", "description": "A leaded stained-glass window.", "instruction": "as a stained-glass window, leaded outlines" },
-        { "name": "Cathedral Panel", "description": "A towering panel of jewel-toned light.", "instruction": "as a towering cathedral stained-glass panel, jewel light" }
+      "goals": [
+        "Lead the image into glass panes",
+        "Let light do the coloring"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/stained-glass.webp",
-        "alt": "A sailing ship as a leaded stained-glass window",
-        "motif": "leaded glass",
-        "prompt": "a sailing ship rendered as a leaded stained-glass window with jewel-toned panes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Glass Panes",
+          "description": "Stained-glass color panes tint the scene.",
+          "instruction": "with stained-glass color panes"
+        },
+        {
+          "name": "Stained Glass",
+          "description": "A leaded stained-glass window.",
+          "instruction": "as a stained-glass window, leaded outlines"
+        },
+        {
+          "name": "Cathedral Panel",
+          "description": "A towering panel of jewel-toned light.",
+          "instruction": "as a towering cathedral stained-glass panel, jewel light"
+        }
+      ]
     },
     {
       "id": "embroidered-textile",
       "code": "EMBR",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Stitch the image in thread", "Add handcraft warmth"],
-      "grades": [
-        { "name": "Stitch Texture", "description": "Embroidered texture warms the surface.", "instruction": "with embroidered texture" },
-        { "name": "Embroidery", "description": "Textile art with visible stitches.", "instruction": "as embroidered textile art, visible stitches" },
-        { "name": "Dense Tapestry", "description": "Hand-stitched tapestry in thread relief.", "instruction": "as dense hand-stitched tapestry, thread relief" }
+      "goals": [
+        "Stitch the image in thread",
+        "Add handcraft warmth"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/embroidered-textile.webp",
-        "alt": "A sailing ship embroidered in thread on linen",
-        "motif": "visible stitches",
-        "prompt": "a sailing ship embroidered in colored thread on linen with visible stitches, folk textile art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Stitch Texture",
+          "description": "Embroidered texture warms the surface.",
+          "instruction": "with embroidered texture"
+        },
+        {
+          "name": "Embroidery",
+          "description": "Textile art with visible stitches.",
+          "instruction": "as embroidered textile art, visible stitches"
+        },
+        {
+          "name": "Dense Tapestry",
+          "description": "Hand-stitched tapestry in thread relief.",
+          "instruction": "as dense hand-stitched tapestry, thread relief"
+        }
+      ]
     },
     {
       "id": "comic-ink-flats",
       "code": "COMIC",
       "section": "canvas",
       "driver": "intensity",
-      "goals": ["Ink the scene like a panel", "Flatten color for punch"],
-      "grades": [
-        { "name": "Comic Inks", "description": "Comic-book inking outlines the forms.", "instruction": "with comic-book inking" },
-        { "name": "Comic Panel", "description": "Bold inks and flat colors, one panel.", "instruction": "as a comic panel, bold inks and flat colors" },
-        { "name": "Graphic Novel", "description": "High-contrast art with screentone and speed lines.", "instruction": "as high-contrast graphic novel art, screentone and speed lines" }
+      "goals": [
+        "Ink the scene like a panel",
+        "Flatten color for punch"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/comic-ink-flats.webp",
-        "alt": "A sailing ship as a bold inked comic panel",
-        "motif": "bold inks",
-        "prompt": "a sailing ship cutting through waves as a bold inked comic panel with flat colors, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Comic Inks",
+          "description": "Comic-book inking outlines the forms.",
+          "instruction": "with comic-book inking"
+        },
+        {
+          "name": "Comic Panel",
+          "description": "Bold inks and flat colors, one panel.",
+          "instruction": "as a comic panel, bold inks and flat colors"
+        },
+        {
+          "name": "Graphic Novel",
+          "description": "High-contrast art with screentone and speed lines.",
+          "instruction": "as high-contrast graphic novel art, screentone and speed lines"
+        }
+      ]
     },
     {
       "id": "muted-palette",
@@ -650,14 +794,7 @@
           "description": "Near-monochrome grays with one surviving accent color.",
           "instruction": "almost monochrome palette with a single accent color"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/muted-palette.webp",
-        "alt": "A street market rendered in muted desaturated colors",
-        "motif": "quiet palette",
-        "prompt": "a quiet street market scene in a muted desaturated palette with soft gray light, atmospheric illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "neon-saturation",
@@ -685,15 +822,11 @@
           "instruction": "electric neon color overload, every surface glowing"
         }
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/neon-saturation.webp",
-        "alt": "A street market glowing with saturated neon color",
-        "motif": "electric color",
-        "prompt": "a night street market glowing with saturated neon magenta and cyan light, vivid digital illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
       "affinity": {
-        "intensity": [1, 2]
+        "intensity": [
+          1,
+          2
+        ]
       }
     },
     {
@@ -701,192 +834,282 @@
       "code": "PSTL",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Soften color into sugar", "Keep everything gentle"],
-      "grades": [
-        { "name": "Pastel Hints", "description": "Gentle pastel hints soften the palette.", "instruction": "with gentle pastel hints" },
-        { "name": "Pastel Dream", "description": "A soft pastel palette carries the mood.", "instruction": "soft dreamy pastel palette" },
-        { "name": "Cotton Candy", "description": "Sugared pinks and mints take over completely.", "instruction": "an all-over cotton-candy palette of sugared pinks and mints" }
+      "goals": [
+        "Soften color into sugar",
+        "Keep everything gentle"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/pastel-dream.webp",
-        "alt": "A street market in soft dreamy pastels",
-        "motif": "sugared softness",
-        "prompt": "a quiet street market scene in soft dreamy pastel pinks and mints, gentle illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Pastel Hints",
+          "description": "Gentle pastel hints soften the palette.",
+          "instruction": "with gentle pastel hints"
+        },
+        {
+          "name": "Pastel Dream",
+          "description": "A soft pastel palette carries the mood.",
+          "instruction": "soft dreamy pastel palette"
+        },
+        {
+          "name": "Cotton Candy",
+          "description": "Sugared pinks and mints take over completely.",
+          "instruction": "an all-over cotton-candy palette of sugared pinks and mints"
+        }
+      ]
     },
     {
       "id": "monochrome-noir",
       "code": "MONO",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Drop color for value", "Let shadow carry mood"],
-      "grades": [
-        { "name": "Drained Color", "description": "Color drains toward gray.", "instruction": "nearly monochrome, drained color" },
-        { "name": "Monochrome Noir", "description": "True black-and-white with noir contrast.", "instruction": "black-and-white noir palette, deep contrast" },
-        { "name": "Ink Black", "description": "Crushed blacks and one blade of white.", "instruction": "crushed ink-black monochrome, a single blade of white light" }
+      "goals": [
+        "Drop color for value",
+        "Let shadow carry mood"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/monochrome-noir.webp",
-        "alt": "A street market in stark black and white",
-        "motif": "noir values",
-        "prompt": "a night street market in stark black-and-white noir with deep contrast, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Drained Color",
+          "description": "Color drains toward gray.",
+          "instruction": "nearly monochrome, drained color"
+        },
+        {
+          "name": "Monochrome Noir",
+          "description": "True black-and-white with noir contrast.",
+          "instruction": "black-and-white noir palette, deep contrast"
+        },
+        {
+          "name": "Ink Black",
+          "description": "Crushed blacks and one blade of white.",
+          "instruction": "crushed ink-black monochrome, a single blade of white light"
+        }
+      ]
     },
     {
       "id": "earthy-naturals",
       "code": "EARTH",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Ground the palette in soil and moss", "Keep color honest"],
-      "grades": [
-        { "name": "Natural Cast", "description": "Natural earth tones settle in.", "instruction": "with natural earthy tones" },
-        { "name": "Earthy Naturals", "description": "Ochre, moss, and umber lead the palette.", "instruction": "earthy palette of ochre, moss, and umber" },
-        { "name": "Deep Loam", "description": "The whole image reads as soil, bark, and stone.", "instruction": "a deep loam palette, everything soil, bark, and stone" }
+      "goals": [
+        "Ground the palette in soil and moss",
+        "Keep color honest"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/earthy-naturals.webp",
-        "alt": "A street market in ochre, moss, and umber tones",
-        "motif": "soil and moss",
-        "prompt": "a village market scene in earthy ochre moss and umber tones, warm naturalistic painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Natural Cast",
+          "description": "Natural earth tones settle in.",
+          "instruction": "with natural earthy tones"
+        },
+        {
+          "name": "Earthy Naturals",
+          "description": "Ochre, moss, and umber lead the palette.",
+          "instruction": "earthy palette of ochre, moss, and umber"
+        },
+        {
+          "name": "Deep Loam",
+          "description": "The whole image reads as soil, bark, and stone.",
+          "instruction": "a deep loam palette, everything soil, bark, and stone"
+        }
+      ]
     },
     {
       "id": "jewel-tones",
       "code": "JEWEL",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Deepen color into gems", "Add richness without neon"],
-      "grades": [
-        { "name": "Gem Accents", "description": "Jewel-tone accents enrich the scene.", "instruction": "with jewel-tone accents" },
-        { "name": "Jewel Tones", "description": "Emerald, sapphire, and ruby lead the palette.", "instruction": "rich jewel tones of emerald, sapphire, and ruby" },
-        { "name": "Treasure Hoard", "description": "Every surface saturates into gemstone depth.", "instruction": "a treasure-hoard palette, every surface saturated gemstone color" }
+      "goals": [
+        "Deepen color into gems",
+        "Add richness without neon"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/jewel-tones.webp",
-        "alt": "A street market in emerald, sapphire, and ruby tones",
-        "motif": "gemstone depth",
-        "prompt": "a bazaar of silks and lanterns in rich emerald sapphire and ruby jewel tones, opulent painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Gem Accents",
+          "description": "Jewel-tone accents enrich the scene.",
+          "instruction": "with jewel-tone accents"
+        },
+        {
+          "name": "Jewel Tones",
+          "description": "Emerald, sapphire, and ruby lead the palette.",
+          "instruction": "rich jewel tones of emerald, sapphire, and ruby"
+        },
+        {
+          "name": "Treasure Hoard",
+          "description": "Every surface saturates into gemstone depth.",
+          "instruction": "a treasure-hoard palette, every surface saturated gemstone color"
+        }
+      ]
     },
     {
       "id": "sepia-vintage",
       "code": "SEPIA",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Age the image into memory", "Warm the past"],
-      "grades": [
-        { "name": "Warm Fade", "description": "A warm vintage fade tints the scene.", "instruction": "with a warm vintage fade" },
-        { "name": "Sepia Vintage", "description": "Sepia tones age the whole image.", "instruction": "aged sepia tones, vintage photograph feel" },
-        { "name": "Daguerreotype", "description": "Deep antique chemistry stains the frame.", "instruction": "antique daguerreotype tones, chemical stains and vignette" }
+      "goals": [
+        "Age the image into memory",
+        "Warm the past"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/sepia-vintage.webp",
-        "alt": "A street market in aged sepia tones",
-        "motif": "aged warmth",
-        "prompt": "an old street market scene in aged sepia tones like a vintage photograph, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Warm Fade",
+          "description": "A warm vintage fade tints the scene.",
+          "instruction": "with a warm vintage fade"
+        },
+        {
+          "name": "Sepia Vintage",
+          "description": "Sepia tones age the whole image.",
+          "instruction": "aged sepia tones, vintage photograph feel"
+        },
+        {
+          "name": "Daguerreotype",
+          "description": "Deep antique chemistry stains the frame.",
+          "instruction": "antique daguerreotype tones, chemical stains and vignette"
+        }
+      ]
     },
     {
       "id": "iridescent-shift",
       "code": "IRID",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Let color change with angle", "Add oil-slick magic"],
-      "grades": [
-        { "name": "Pearl Sheen", "description": "A pearly sheen glances off surfaces.", "instruction": "with a pearly iridescent sheen" },
-        { "name": "Iridescent Shift", "description": "Oil-slick color shifts across the scene.", "instruction": "iridescent oil-slick color shifting across surfaces" },
-        { "name": "Opal Storm", "description": "The whole world refracts like opal.", "instruction": "an opal storm of refracting iridescent color everywhere" }
+      "goals": [
+        "Let color change with angle",
+        "Add oil-slick magic"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/iridescent-shift.webp",
-        "alt": "Surfaces shifting with oil-slick iridescent color",
-        "motif": "angle-shift color",
-        "prompt": "a beetle shell and soap bubbles shifting with oil-slick iridescent color, macro fantasy illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Pearl Sheen",
+          "description": "A pearly sheen glances off surfaces.",
+          "instruction": "with a pearly iridescent sheen"
+        },
+        {
+          "name": "Iridescent Shift",
+          "description": "Oil-slick color shifts across the scene.",
+          "instruction": "iridescent oil-slick color shifting across surfaces"
+        },
+        {
+          "name": "Opal Storm",
+          "description": "The whole world refracts like opal.",
+          "instruction": "an opal storm of refracting iridescent color everywhere"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "high-contrast",
       "code": "HICON",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Split light from dark hard", "Make the image punch"],
-      "grades": [
-        { "name": "Punchy Values", "description": "Contrast tightens a step.", "instruction": "with punchy contrast" },
-        { "name": "High Contrast", "description": "Hard highlights against deep shadows.", "instruction": "high-contrast palette, hard highlights and deep shadows" },
-        { "name": "Split Black", "description": "The frame splits into blown white and pit black.", "instruction": "extreme split contrast, blown whites against pit black" }
+      "goals": [
+        "Split light from dark hard",
+        "Make the image punch"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/high-contrast.webp",
-        "alt": "A market scene in hard highlights and deep shadow",
-        "motif": "hard split",
-        "prompt": "a market alley in extreme high contrast with hard highlights and deep shadows, dramatic photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Punchy Values",
+          "description": "Contrast tightens a step.",
+          "instruction": "with punchy contrast"
+        },
+        {
+          "name": "High Contrast",
+          "description": "Hard highlights against deep shadows.",
+          "instruction": "high-contrast palette, hard highlights and deep shadows"
+        },
+        {
+          "name": "Split Black",
+          "description": "The frame splits into blown white and pit black.",
+          "instruction": "extreme split contrast, blown whites against pit black"
+        }
+      ]
     },
     {
       "id": "candy-pop",
       "code": "CANDY",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Sweeten color to maximum", "Go playful and loud"],
-      "grades": [
-        { "name": "Sweet Accents", "description": "Candy-bright accents pop in.", "instruction": "with candy-bright accents" },
-        { "name": "Candy Pop", "description": "A glossy candy palette takes the lead.", "instruction": "glossy candy-pop palette, bubblegum and lemon" },
-        { "name": "Sugar Rush", "description": "Every color turned to eleven, glossy and loud.", "instruction": "a full sugar-rush palette, every color glossy and loud" }
+      "goals": [
+        "Sweeten color to maximum",
+        "Go playful and loud"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/candy-pop.webp",
-        "alt": "A market stall in glossy candy colors",
-        "motif": "glossy sweets",
-        "prompt": "a toy shop window in glossy candy-pop bubblegum and lemon colors, playful 3d illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Sweet Accents",
+          "description": "Candy-bright accents pop in.",
+          "instruction": "with candy-bright accents"
+        },
+        {
+          "name": "Candy Pop",
+          "description": "A glossy candy palette takes the lead.",
+          "instruction": "glossy candy-pop palette, bubblegum and lemon"
+        },
+        {
+          "name": "Sugar Rush",
+          "description": "Every color turned to eleven, glossy and loud.",
+          "instruction": "a full sugar-rush palette, every color glossy and loud"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "cold-steel",
       "code": "STEEL",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Chill the palette to metal", "Add industrial distance"],
-      "grades": [
-        { "name": "Cool Cast", "description": "A cool blue-gray cast settles in.", "instruction": "with a cool blue-gray cast" },
-        { "name": "Cold Steel", "description": "Steel blues and gunmetal grays lead.", "instruction": "cold steel palette of slate blues and gunmetal gray" },
-        { "name": "Deep Freeze", "description": "The image freezes into blue-black metal.", "instruction": "a deep-freeze palette, everything blue-black chilled metal" }
+      "goals": [
+        "Chill the palette to metal",
+        "Add industrial distance"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/cold-steel.webp",
-        "alt": "An industrial scene in slate blues and gunmetal",
-        "motif": "chilled metal",
-        "prompt": "an industrial dockyard at dusk in cold slate blues and gunmetal grays, moody cinematic painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Cool Cast",
+          "description": "A cool blue-gray cast settles in.",
+          "instruction": "with a cool blue-gray cast"
+        },
+        {
+          "name": "Cold Steel",
+          "description": "Steel blues and gunmetal grays lead.",
+          "instruction": "cold steel palette of slate blues and gunmetal gray"
+        },
+        {
+          "name": "Deep Freeze",
+          "description": "The image freezes into blue-black metal.",
+          "instruction": "a deep-freeze palette, everything blue-black chilled metal"
+        }
+      ]
     },
     {
       "id": "sun-bleached",
       "code": "FADE",
       "section": "tone",
       "driver": "intensity",
-      "goals": ["Fade color like old paint", "Add sun-worn history"],
-      "grades": [
-        { "name": "Light Fade", "description": "Colors ease back like worn paint.", "instruction": "with lightly sun-faded color" },
-        { "name": "Sun-Bleached", "description": "A washed, sun-bleached palette.", "instruction": "sun-bleached washed-out palette" },
-        { "name": "Ghost Paint", "description": "Color survives only in ghost traces.", "instruction": "a ghost-paint palette, color surviving only in faded traces" }
+      "goals": [
+        "Fade color like old paint",
+        "Add sun-worn history"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/sun-bleached.webp",
-        "alt": "A seaside shopfront with sun-bleached paint",
-        "motif": "worn fade",
-        "prompt": "a seaside shopfront with sun-bleached peeling paint under bright haze, nostalgic photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Light Fade",
+          "description": "Colors ease back like worn paint.",
+          "instruction": "with lightly sun-faded color"
+        },
+        {
+          "name": "Sun-Bleached",
+          "description": "A washed, sun-bleached palette.",
+          "instruction": "sun-bleached washed-out palette"
+        },
+        {
+          "name": "Ghost Paint",
+          "description": "Color survives only in ghost traces.",
+          "instruction": "a ghost-paint palette, color surviving only in faded traces"
+        }
+      ]
     },
     {
       "id": "rainswept-city",
@@ -913,14 +1136,7 @@
           "description": "Torrential rain floods a glowing metropolis.",
           "instruction": "in a torrential downpour over a flooded glowing metropolis"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/rainswept-city.webp",
-        "alt": "A night city street under rain with mirror reflections",
-        "motif": "wet night streets",
-        "prompt": "a night city street under heavy rain with mirror-like reflections on the pavement, moody cinematic illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "ancient-forest",
@@ -947,242 +1163,331 @@
           "description": "Colossal primeval trees swallow the whole frame.",
           "instruction": "swallowed by a primeval forest of colossal ancient trees"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/ancient-forest.webp",
-        "alt": "Colossal mossy trees with light shafts",
-        "motif": "old-growth green",
-        "prompt": "colossal mossy ancient trees with shafts of light breaking through the canopy, lush fantasy environment art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "desert-expanse",
       "code": "DUNE",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Empty the world into sand", "Add heat and distance"],
-      "grades": [
-        { "name": "Dry Country", "description": "Dry scrubland surrounds the subject.", "instruction": "in dry open scrubland" },
-        { "name": "Desert Expanse", "description": "Rolling dunes stretch to the horizon.", "instruction": "in a vast desert of rolling dunes" },
-        { "name": "Endless Erg", "description": "An ocean of sand under heat shimmer.", "instruction": "lost in an endless ocean of dunes under heat shimmer" }
+      "goals": [
+        "Empty the world into sand",
+        "Add heat and distance"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/desert-expanse.webp",
-        "alt": "Rolling dunes stretching to the horizon",
-        "motif": "sand and heat",
-        "prompt": "vast rolling desert dunes with a tiny caravan under heat shimmer, epic landscape painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Dry Country",
+          "description": "Dry scrubland surrounds the subject.",
+          "instruction": "in dry open scrubland"
+        },
+        {
+          "name": "Desert Expanse",
+          "description": "Rolling dunes stretch to the horizon.",
+          "instruction": "in a vast desert of rolling dunes"
+        },
+        {
+          "name": "Endless Erg",
+          "description": "An ocean of sand under heat shimmer.",
+          "instruction": "lost in an endless ocean of dunes under heat shimmer"
+        }
+      ]
     },
     {
       "id": "frozen-tundra",
       "code": "TUNDR",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Freeze the setting", "Add survival stakes"],
-      "grades": [
-        { "name": "First Frost", "description": "Frost and thin snow dust the scene.", "instruction": "in frost-dusted country, thin snow" },
-        { "name": "Frozen Tundra", "description": "Deep snow and ice fields all around.", "instruction": "on a frozen tundra of deep snow and ice" },
-        { "name": "White Death", "description": "A howling whiteout erases the horizon.", "instruction": "inside a howling arctic whiteout, horizon erased" }
+      "goals": [
+        "Freeze the setting",
+        "Add survival stakes"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/frozen-tundra.webp",
-        "alt": "A figure crossing deep snow and ice fields",
-        "motif": "ice fields",
-        "prompt": "a lone figure crossing a frozen tundra of deep snow and blue ice, stark winter painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "First Frost",
+          "description": "Frost and thin snow dust the scene.",
+          "instruction": "in frost-dusted country, thin snow"
+        },
+        {
+          "name": "Frozen Tundra",
+          "description": "Deep snow and ice fields all around.",
+          "instruction": "on a frozen tundra of deep snow and ice"
+        },
+        {
+          "name": "White Death",
+          "description": "A howling whiteout erases the horizon.",
+          "instruction": "inside a howling arctic whiteout, horizon erased"
+        }
+      ]
     },
     {
       "id": "underwater-depths",
       "code": "DEEP",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Sink the scene beneath water", "Add drift and pressure"],
-      "grades": [
-        { "name": "Shallows", "description": "Sunlit shallows ripple overhead.", "instruction": "in sunlit shallows, ripples overhead" },
-        { "name": "Underwater Depths", "description": "Open blue water swallows the scene.", "instruction": "deep underwater, blue light and drifting particles" },
-        { "name": "Abyssal Trench", "description": "Crushing black depths, pressure made visible.", "instruction": "in a crushing abyssal trench, darkness pressing in" }
+      "goals": [
+        "Sink the scene beneath water",
+        "Add drift and pressure"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/underwater-depths.webp",
-        "alt": "A diver in deep blue water with drifting particles",
-        "motif": "blue depth",
-        "prompt": "a diver suspended in deep blue underwater light with drifting particles, serene ocean painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Shallows",
+          "description": "Sunlit shallows ripple overhead.",
+          "instruction": "in sunlit shallows, ripples overhead"
+        },
+        {
+          "name": "Underwater Depths",
+          "description": "Open blue water swallows the scene.",
+          "instruction": "deep underwater, blue light and drifting particles"
+        },
+        {
+          "name": "Abyssal Trench",
+          "description": "Crushing black depths, pressure made visible.",
+          "instruction": "in a crushing abyssal trench, darkness pressing in"
+        }
+      ]
     },
     {
       "id": "mountain-heights",
       "code": "PEAK",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Raise the setting into thin air", "Add vertical drama"],
-      "grades": [
-        { "name": "Foothills", "description": "Foothills rise behind the subject.", "instruction": "in rising foothill country" },
-        { "name": "Mountain Heights", "description": "Serious peaks and thin air.", "instruction": "high in jagged mountain heights" },
-        { "name": "Knife Ridge", "description": "A knife-edge ridge above a sea of clouds.", "instruction": "on a knife-edge summit ridge above a sea of clouds" }
+      "goals": [
+        "Raise the setting into thin air",
+        "Add vertical drama"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/mountain-heights.webp",
-        "alt": "Jagged peaks above a sea of clouds",
-        "motif": "thin air",
-        "prompt": "jagged mountain peaks rising above a sea of clouds at dawn, majestic landscape painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Foothills",
+          "description": "Foothills rise behind the subject.",
+          "instruction": "in rising foothill country"
+        },
+        {
+          "name": "Mountain Heights",
+          "description": "Serious peaks and thin air.",
+          "instruction": "high in jagged mountain heights"
+        },
+        {
+          "name": "Knife Ridge",
+          "description": "A knife-edge ridge above a sea of clouds.",
+          "instruction": "on a knife-edge summit ridge above a sea of clouds"
+        }
+      ]
     },
     {
       "id": "cozy-interior",
       "code": "HOME",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Bring the scene indoors", "Add lived-in warmth"],
-      "grades": [
-        { "name": "Warm Room", "description": "A warm interior wraps the subject.", "instruction": "in a warm lived-in room" },
-        { "name": "Cozy Interior", "description": "Blankets, plants, and clutter that loves you.", "instruction": "in a cozy cluttered interior, blankets and plants" },
-        { "name": "Nested Deep", "description": "An impossibly snug nest of books and lamplight.", "instruction": "nested deep in an impossibly snug den of books and lamplight" }
+      "goals": [
+        "Bring the scene indoors",
+        "Add lived-in warmth"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/cozy-interior.webp",
-        "alt": "A cozy cluttered reading nook",
-        "motif": "lived-in warmth",
-        "prompt": "a cozy cluttered reading nook with blankets plants and warm lamplight, inviting interior illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Warm Room",
+          "description": "A warm interior wraps the subject.",
+          "instruction": "in a warm lived-in room"
+        },
+        {
+          "name": "Cozy Interior",
+          "description": "Blankets, plants, and clutter that loves you.",
+          "instruction": "in a cozy cluttered interior, blankets and plants"
+        },
+        {
+          "name": "Nested Deep",
+          "description": "An impossibly snug nest of books and lamplight.",
+          "instruction": "nested deep in an impossibly snug den of books and lamplight"
+        }
+      ]
     },
     {
       "id": "grand-library",
       "code": "LIBR",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Surround the subject with knowledge", "Add vertical architecture"],
-      "grades": [
-        { "name": "Book Room", "description": "Shelves of books frame the scene.", "instruction": "in a room lined with old books" },
-        { "name": "Grand Library", "description": "A vaulted library of ladders and galleries.", "instruction": "in a grand vaulted library, ladders and galleries" },
-        { "name": "Infinite Stacks", "description": "Shelves rise past sight in every direction.", "instruction": "within infinite library stacks rising out of sight" }
+      "goals": [
+        "Surround the subject with knowledge",
+        "Add vertical architecture"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/grand-library.webp",
-        "alt": "A vaulted library with ladders and galleries",
-        "motif": "vaulted stacks",
-        "prompt": "a grand vaulted library with rolling ladders and galleried shelves, atmospheric architectural painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Book Room",
+          "description": "Shelves of books frame the scene.",
+          "instruction": "in a room lined with old books"
+        },
+        {
+          "name": "Grand Library",
+          "description": "A vaulted library of ladders and galleries.",
+          "instruction": "in a grand vaulted library, ladders and galleries"
+        },
+        {
+          "name": "Infinite Stacks",
+          "description": "Shelves rise past sight in every direction.",
+          "instruction": "within infinite library stacks rising out of sight"
+        }
+      ]
     },
     {
       "id": "floating-islands",
       "code": "ISLES",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Break the ground into the sky", "Commit to open fantasy"],
-      "grades": [
-        { "name": "Drifting Rocks", "description": "A few rocks drift weightless nearby.", "instruction": "with a few rocks drifting weightless nearby" },
-        { "name": "Floating Islands", "description": "Grassy islands hang in open sky.", "instruction": "among floating islands hanging in open sky" },
-        { "name": "Shattered World", "description": "A whole shattered world hangs in the air.", "instruction": "in a shattered world of islands and waterfalls hanging in the air" }
+      "goals": [
+        "Break the ground into the sky",
+        "Commit to open fantasy"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/floating-islands.webp",
-        "alt": "Grassy islands floating in open sky",
-        "motif": "weightless land",
-        "prompt": "grassy floating islands with waterfalls hanging in a bright open sky, wondrous fantasy environment art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Drifting Rocks",
+          "description": "A few rocks drift weightless nearby.",
+          "instruction": "with a few rocks drifting weightless nearby"
+        },
+        {
+          "name": "Floating Islands",
+          "description": "Grassy islands hang in open sky.",
+          "instruction": "among floating islands hanging in open sky"
+        },
+        {
+          "name": "Shattered World",
+          "description": "A whole shattered world hangs in the air.",
+          "instruction": "in a shattered world of islands and waterfalls hanging in the air"
+        }
+      ]
     },
     {
       "id": "cyberpunk-megacity",
       "code": "MEGA",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Stack the city to the sky", "Add dense future noise"],
-      "grades": [
-        { "name": "City Lights", "description": "A dense modern city glows behind.", "instruction": "in a dense glowing night city" },
-        { "name": "Cyberpunk Megacity", "description": "Layered towers, holograms, and wet streets.", "instruction": "in a cyberpunk megacity of layered towers and holograms" },
-        { "name": "Vertical Sprawl", "description": "An endless vertical sprawl with no ground.", "instruction": "inside an endless vertical megacity sprawl, no ground in sight" }
+      "goals": [
+        "Stack the city to the sky",
+        "Add dense future noise"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/cyberpunk-megacity.webp",
-        "alt": "Layered cyberpunk towers with holograms",
-        "motif": "vertical future",
-        "prompt": "a cyberpunk megacity of layered towers walkways and glowing holograms at night, dense sci-fi concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "City Lights",
+          "description": "A dense modern city glows behind.",
+          "instruction": "in a dense glowing night city"
+        },
+        {
+          "name": "Cyberpunk Megacity",
+          "description": "Layered towers, holograms, and wet streets.",
+          "instruction": "in a cyberpunk megacity of layered towers and holograms"
+        },
+        {
+          "name": "Vertical Sprawl",
+          "description": "An endless vertical sprawl with no ground.",
+          "instruction": "inside an endless vertical megacity sprawl, no ground in sight"
+        }
+      ]
     },
     {
       "id": "medieval-village",
       "code": "VILLG",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Set the clock back centuries", "Add timber-and-thatch texture"],
-      "grades": [
-        { "name": "Old Lanes", "description": "Old cobbled lanes and timber frames.", "instruction": "in old cobbled lanes with timber-framed houses" },
-        { "name": "Medieval Village", "description": "A full thatched village with market square.", "instruction": "in a medieval village of thatch and timber, market square" },
-        { "name": "Living History", "description": "A sprawling walled medieval town, banners and smoke.", "instruction": "in a sprawling walled medieval town, banners and chimney smoke" }
+      "goals": [
+        "Set the clock back centuries",
+        "Add timber-and-thatch texture"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/medieval-village.webp",
-        "alt": "A thatched medieval village square",
-        "motif": "thatch and timber",
-        "prompt": "a medieval village square of thatched roofs and timber-framed houses, warm historical painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Old Lanes",
+          "description": "Old cobbled lanes and timber frames.",
+          "instruction": "in old cobbled lanes with timber-framed houses"
+        },
+        {
+          "name": "Medieval Village",
+          "description": "A full thatched village with market square.",
+          "instruction": "in a medieval village of thatch and timber, market square"
+        },
+        {
+          "name": "Living History",
+          "description": "A sprawling walled medieval town, banners and smoke.",
+          "instruction": "in a sprawling walled medieval town, banners and chimney smoke"
+        }
+      ]
     },
     {
       "id": "space-frontier",
       "code": "SPACE",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Leave the planet behind", "Add cosmic scale"],
-      "grades": [
-        { "name": "High Orbit", "description": "The planet curves away below.", "instruction": "in high orbit, the planet curving below" },
-        { "name": "Space Frontier", "description": "Stations and starships against deep space.", "instruction": "on the space frontier, stations and starships against the void" },
-        { "name": "Deep Cosmos", "description": "Nebulae and galaxies swallow the frame.", "instruction": "adrift in deep cosmos, nebulae and galaxies swallowing the frame" }
+      "goals": [
+        "Leave the planet behind",
+        "Add cosmic scale"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/space-frontier.webp",
-        "alt": "A station and starships against deep space",
-        "motif": "cosmic scale",
-        "prompt": "a space station and small starships against a deep nebula field, grand sci-fi concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "High Orbit",
+          "description": "The planet curves away below.",
+          "instruction": "in high orbit, the planet curving below"
+        },
+        {
+          "name": "Space Frontier",
+          "description": "Stations and starships against deep space.",
+          "instruction": "on the space frontier, stations and starships against the void"
+        },
+        {
+          "name": "Deep Cosmos",
+          "description": "Nebulae and galaxies swallow the frame.",
+          "instruction": "adrift in deep cosmos, nebulae and galaxies swallowing the frame"
+        }
+      ]
     },
     {
       "id": "victorian-streets",
       "code": "VICT",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Gaslight the setting", "Add fog and iron"],
-      "grades": [
-        { "name": "Gas Lamps", "description": "Gas lamps and brick line the street.", "instruction": "on a gaslit brick street" },
-        { "name": "Victorian Streets", "description": "Fog, iron rails, and carriage clatter.", "instruction": "in foggy victorian streets of iron and brick" },
-        { "name": "Smoke and Soot", "description": "A soot-dark industrial labyrinth of chimneys.", "instruction": "deep in a soot-dark victorian labyrinth of chimneys and fog" }
+      "goals": [
+        "Gaslight the setting",
+        "Add fog and iron"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/victorian-streets.webp",
-        "alt": "A foggy gaslit Victorian street",
-        "motif": "gaslit fog",
-        "prompt": "a foggy gaslit victorian street of brick and iron railings at dusk, atmospheric historical painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Gas Lamps",
+          "description": "Gas lamps and brick line the street.",
+          "instruction": "on a gaslit brick street"
+        },
+        {
+          "name": "Victorian Streets",
+          "description": "Fog, iron rails, and carriage clatter.",
+          "instruction": "in foggy victorian streets of iron and brick"
+        },
+        {
+          "name": "Smoke and Soot",
+          "description": "A soot-dark industrial labyrinth of chimneys.",
+          "instruction": "deep in a soot-dark victorian labyrinth of chimneys and fog"
+        }
+      ]
     },
     {
       "id": "tropical-shore",
       "code": "SHORE",
       "section": "universe",
       "driver": "intensity",
-      "goals": ["Warm the setting to paradise", "Add water and palms"],
-      "grades": [
-        { "name": "Beach Day", "description": "A bright shoreline frames the scene.", "instruction": "on a bright sandy shoreline" },
-        { "name": "Tropical Shore", "description": "Turquoise water and leaning palms.", "instruction": "on a tropical shore of turquoise water and leaning palms" },
-        { "name": "Lost Lagoon", "description": "A hidden lagoon of impossible clarity.", "instruction": "in a hidden tropical lagoon of impossible turquoise clarity" }
+      "goals": [
+        "Warm the setting to paradise",
+        "Add water and palms"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/tropical-shore.webp",
-        "alt": "Turquoise water and leaning palms",
-        "motif": "turquoise paradise",
-        "prompt": "a tropical shore of turquoise water leaning palms and white sand, luminous travel painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Beach Day",
+          "description": "A bright shoreline frames the scene.",
+          "instruction": "on a bright sandy shoreline"
+        },
+        {
+          "name": "Tropical Shore",
+          "description": "Turquoise water and leaning palms.",
+          "instruction": "on a tropical shore of turquoise water and leaning palms"
+        },
+        {
+          "name": "Lost Lagoon",
+          "description": "A hidden lagoon of impossible clarity.",
+          "instruction": "in a hidden tropical lagoon of impossible turquoise clarity"
+        }
+      ]
     },
     {
       "id": "art-nouveau",
@@ -1209,14 +1514,7 @@
           "description": "Ornamental poster framing and decorative halos take over.",
           "instruction": "full art nouveau poster style, ornamental decorative framing"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/art-nouveau.webp",
-        "alt": "A woman's portrait with flowing art nouveau linework",
-        "motif": "organic linework",
-        "prompt": "a portrait of a woman with flowing hair in art nouveau style with organic decorative linework, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "ukiyo-e",
@@ -1243,357 +1541,499 @@
           "description": "Bold woodblock stylization with dramatic wave motifs.",
           "instruction": "bold ukiyo-e woodblock stylization, dramatic wave motifs"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/ukiyo-e.webp",
-        "alt": "A mountain and wave in ukiyo-e woodblock style",
-        "motif": "woodblock planes",
-        "prompt": "a mountain and cresting wave in ukiyo-e woodblock print style with flat color planes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "impressionist-brush",
       "code": "IMPR",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Channel loose plein-air brushwork", "Chase light over line"],
-      "grades": [
-        { "name": "Loose Touch", "description": "Impressionist looseness softens the edges.", "instruction": "with loose impressionist touches" },
-        { "name": "Impressionist", "description": "Broken color and visible daubs of paint.", "instruction": "in impressionist style, broken color and visible daubs" },
-        { "name": "Pure Light Study", "description": "Form dissolves entirely into light and color.", "instruction": "a pure impressionist light study, form dissolving into color" }
+      "goals": [
+        "Channel loose plein-air brushwork",
+        "Chase light over line"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/impressionist-brush.webp",
-        "alt": "A garden portrait in broken impressionist color",
-        "motif": "broken color",
-        "prompt": "a figure with a parasol in a sunlit garden painted in impressionist broken color with visible daubs, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Loose Touch",
+          "description": "Impressionist looseness softens the edges.",
+          "instruction": "with loose impressionist touches"
+        },
+        {
+          "name": "Impressionist",
+          "description": "Broken color and visible daubs of paint.",
+          "instruction": "in impressionist style, broken color and visible daubs"
+        },
+        {
+          "name": "Pure Light Study",
+          "description": "Form dissolves entirely into light and color.",
+          "instruction": "a pure impressionist light study, form dissolving into color"
+        }
+      ]
     },
     {
       "id": "baroque-drama",
       "code": "BARQ",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Borrow old-master theatricality", "Add candlelit gravity"],
-      "grades": [
-        { "name": "Old Master Touch", "description": "Old-master warmth deepens the rendering.", "instruction": "with old-master warmth" },
-        { "name": "Baroque Drama", "description": "Chiaroscuro theatricality takes the stage.", "instruction": "in dramatic baroque style, deep chiaroscuro" },
-        { "name": "Full Caravaggio", "description": "Total darkness pierced by theatrical light.", "instruction": "full baroque theatricality, figures blazing out of black" }
+      "goals": [
+        "Borrow old-master theatricality",
+        "Add candlelit gravity"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/baroque-drama.webp",
-        "alt": "A dramatic candlelit baroque portrait",
-        "motif": "chiaroscuro stage",
-        "prompt": "a dramatic baroque portrait blazing out of darkness in deep chiaroscuro, old master oil style, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Old Master Touch",
+          "description": "Old-master warmth deepens the rendering.",
+          "instruction": "with old-master warmth"
+        },
+        {
+          "name": "Baroque Drama",
+          "description": "Chiaroscuro theatricality takes the stage.",
+          "instruction": "in dramatic baroque style, deep chiaroscuro"
+        },
+        {
+          "name": "Full Caravaggio",
+          "description": "Total darkness pierced by theatrical light.",
+          "instruction": "full baroque theatricality, figures blazing out of black"
+        }
+      ]
     },
     {
       "id": "surrealist-dream",
       "code": "SURR",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Bend the logic of the scene", "Invite dream imagery"],
-      "grades": [
-        { "name": "Dream Logic", "description": "Something quietly impossible slips in.", "instruction": "with quiet surrealist touches" },
-        { "name": "Surrealist Dream", "description": "Melting logic and symbolic objects.", "instruction": "in surrealist style, dream logic and symbolic objects" },
-        { "name": "Deep Unreality", "description": "The scene fully commits to the impossible.", "instruction": "deep surrealist unreality, melting forms and impossible space" }
+      "goals": [
+        "Bend the logic of the scene",
+        "Invite dream imagery"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/surrealist-dream.webp",
-        "alt": "A dreamscape of floating doors and melting clocks",
-        "motif": "dream logic",
-        "prompt": "a surreal dreamscape of floating doorways and melting forms over a still sea, symbolic painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Dream Logic",
+          "description": "Something quietly impossible slips in.",
+          "instruction": "with quiet surrealist touches"
+        },
+        {
+          "name": "Surrealist Dream",
+          "description": "Melting logic and symbolic objects.",
+          "instruction": "in surrealist style, dream logic and symbolic objects"
+        },
+        {
+          "name": "Deep Unreality",
+          "description": "The scene fully commits to the impossible.",
+          "instruction": "deep surrealist unreality, melting forms and impossible space"
+        }
+      ]
     },
     {
       "id": "gothic-romance",
       "code": "GOTH",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Darken the mood romantically", "Add ruin and lace"],
-      "grades": [
-        { "name": "Dark Undertone", "description": "A gothic undertone shades the scene.", "instruction": "with a dark gothic undertone" },
-        { "name": "Gothic Romance", "description": "Ruins, lace, and beautiful melancholy.", "instruction": "in gothic romance style, ruins, lace, and melancholy" },
-        { "name": "Full Midnight", "description": "Cathedral gloom and stormy rapture take over.", "instruction": "full gothic excess, cathedral gloom and stormy rapture" }
+      "goals": [
+        "Darken the mood romantically",
+        "Add ruin and lace"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/gothic-romance.webp",
-        "alt": "A figure in lace before a ruined abbey",
-        "motif": "beautiful gloom",
-        "prompt": "a figure in dark lace before a ruined moonlit abbey, gothic romance painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Dark Undertone",
+          "description": "A gothic undertone shades the scene.",
+          "instruction": "with a dark gothic undertone"
+        },
+        {
+          "name": "Gothic Romance",
+          "description": "Ruins, lace, and beautiful melancholy.",
+          "instruction": "in gothic romance style, ruins, lace, and melancholy"
+        },
+        {
+          "name": "Full Midnight",
+          "description": "Cathedral gloom and stormy rapture take over.",
+          "instruction": "full gothic excess, cathedral gloom and stormy rapture"
+        }
+      ]
     },
     {
       "id": "art-deco-geometry",
       "code": "DECO",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Streamline into deco elegance", "Add gilded geometry"],
-      "grades": [
-        { "name": "Deco Lines", "description": "Streamlined deco lines structure the scene.", "instruction": "with streamlined art deco lines" },
-        { "name": "Art Deco", "description": "Gilded geometry and fanned motifs lead.", "instruction": "in art deco style, gilded geometry and fanned motifs" },
-        { "name": "Deco Monument", "description": "The frame becomes a gilded deco monument.", "instruction": "monumental art deco stylization, gold and black geometry" }
+      "goals": [
+        "Streamline into deco elegance",
+        "Add gilded geometry"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/art-deco-geometry.webp",
-        "alt": "A gilded art deco cityscape with fanned motifs",
-        "motif": "gilded geometry",
-        "prompt": "a gilded art deco cityscape with fanned sunburst motifs in gold and black, elegant poster style, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Deco Lines",
+          "description": "Streamlined deco lines structure the scene.",
+          "instruction": "with streamlined art deco lines"
+        },
+        {
+          "name": "Art Deco",
+          "description": "Gilded geometry and fanned motifs lead.",
+          "instruction": "in art deco style, gilded geometry and fanned motifs"
+        },
+        {
+          "name": "Deco Monument",
+          "description": "The frame becomes a gilded deco monument.",
+          "instruction": "monumental art deco stylization, gold and black geometry"
+        }
+      ]
     },
     {
       "id": "renaissance-fresco",
       "code": "RNSC",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Borrow renaissance craft", "Add classical composition"],
-      "grades": [
-        { "name": "Classical Poise", "description": "Renaissance poise steadies the composition.", "instruction": "with classical renaissance poise" },
-        { "name": "Renaissance Fresco", "description": "Fresco color and drapery on aged plaster.", "instruction": "as a renaissance fresco, drapery and aged plaster" },
-        { "name": "Ceiling Vision", "description": "A soaring ceiling vision of figures and clouds.", "instruction": "a soaring renaissance ceiling fresco of figures among clouds" }
+      "goals": [
+        "Borrow renaissance craft",
+        "Add classical composition"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/renaissance-fresco.webp",
-        "alt": "Figures in drapery on an aged fresco wall",
-        "motif": "aged plaster",
-        "prompt": "classical figures in flowing drapery painted as a renaissance fresco on aged plaster, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Classical Poise",
+          "description": "Renaissance poise steadies the composition.",
+          "instruction": "with classical renaissance poise"
+        },
+        {
+          "name": "Renaissance Fresco",
+          "description": "Fresco color and drapery on aged plaster.",
+          "instruction": "as a renaissance fresco, drapery and aged plaster"
+        },
+        {
+          "name": "Ceiling Vision",
+          "description": "A soaring ceiling vision of figures and clouds.",
+          "instruction": "a soaring renaissance ceiling fresco of figures among clouds"
+        }
+      ]
     },
     {
       "id": "van-gogh-swirl",
       "code": "VGOGH",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Channel expressive swirling strokes", "Let the paint move"],
-      "grades": [
-        { "name": "Living Strokes", "description": "Expressive strokes begin to move.", "instruction": "with expressive swirling brushstrokes" },
-        { "name": "Van Gogh Swirl", "description": "Thick swirling impasto in the van gogh manner.", "instruction": "in the style of van gogh, thick swirling impasto strokes" },
-        { "name": "Starry Turbulence", "description": "The whole sky churns with painted turbulence.", "instruction": "churning van gogh turbulence, sky and ground alive with swirls" }
+      "goals": [
+        "Channel expressive swirling strokes",
+        "Let the paint move"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/van-gogh-swirl.webp",
-        "alt": "A churning swirled night sky over a village",
-        "motif": "swirled impasto",
-        "prompt": "a churning night sky of thick swirling impasto strokes over a small village, post-impressionist painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Living Strokes",
+          "description": "Expressive strokes begin to move.",
+          "instruction": "with expressive swirling brushstrokes"
+        },
+        {
+          "name": "Van Gogh Swirl",
+          "description": "Thick swirling impasto in the van gogh manner.",
+          "instruction": "in the style of van gogh, thick swirling impasto strokes"
+        },
+        {
+          "name": "Starry Turbulence",
+          "description": "The whole sky churns with painted turbulence.",
+          "instruction": "churning van gogh turbulence, sky and ground alive with swirls"
+        }
+      ]
     },
     {
       "id": "anime-cel",
       "code": "ANIME",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Shade the scene like a cel", "Borrow anime clarity"],
-      "grades": [
-        { "name": "Anime Touch", "description": "Clean anime linework sharpens the faces.", "instruction": "with clean anime linework" },
-        { "name": "Anime Cel", "description": "Flat cel shading and expressive eyes.", "instruction": "in anime cel style, flat shading and expressive eyes" },
-        { "name": "Key Visual", "description": "A full theatrical key visual with painted sky.", "instruction": "as a theatrical anime key visual, painted sky and dramatic wind" }
+      "goals": [
+        "Shade the scene like a cel",
+        "Borrow anime clarity"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/anime-cel.webp",
-        "alt": "A cel-shaded character against a painted sky",
-        "motif": "cel shading",
-        "prompt": "a cel-shaded anime character with wind-blown hair against a painted summer sky, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Anime Touch",
+          "description": "Clean anime linework sharpens the faces.",
+          "instruction": "with clean anime linework"
+        },
+        {
+          "name": "Anime Cel",
+          "description": "Flat cel shading and expressive eyes.",
+          "instruction": "in anime cel style, flat shading and expressive eyes"
+        },
+        {
+          "name": "Key Visual",
+          "description": "A full theatrical key visual with painted sky.",
+          "instruction": "as a theatrical anime key visual, painted sky and dramatic wind"
+        }
+      ]
     },
     {
       "id": "cinematic-still",
       "code": "CINE",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Grade the image like a film frame", "Add narrative tension"],
-      "grades": [
-        { "name": "Filmic Grade", "description": "A cinematic color grade settles in.", "instruction": "with a cinematic color grade" },
-        { "name": "Cinematic Still", "description": "A film still with anamorphic feel.", "instruction": "as a cinematic film still, anamorphic framing" },
-        { "name": "Epic Frame", "description": "A blockbuster hero frame, teal and amber.", "instruction": "as an epic blockbuster film frame, teal and amber grade" }
+      "goals": [
+        "Grade the image like a film frame",
+        "Add narrative tension"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/cinematic-still.webp",
-        "alt": "A moody film still with anamorphic framing",
-        "motif": "film frame",
-        "prompt": "a moody cinematic film still of a figure at a rain-streaked window with anamorphic framing, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Filmic Grade",
+          "description": "A cinematic color grade settles in.",
+          "instruction": "with a cinematic color grade"
+        },
+        {
+          "name": "Cinematic Still",
+          "description": "A film still with anamorphic feel.",
+          "instruction": "as a cinematic film still, anamorphic framing"
+        },
+        {
+          "name": "Epic Frame",
+          "description": "A blockbuster hero frame, teal and amber.",
+          "instruction": "as an epic blockbuster film frame, teal and amber grade"
+        }
+      ]
     },
     {
       "id": "concept-art-sheet",
       "code": "CNCPT",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Render like production concept art", "Add design confidence"],
-      "grades": [
-        { "name": "Concept Polish", "description": "Concept-art polish tightens the render.", "instruction": "with polished concept-art rendering" },
-        { "name": "Concept Art", "description": "Confident production concept art.", "instruction": "as polished production concept art" },
-        { "name": "Splash Key Art", "description": "A full splash key-art rendering with effects.", "instruction": "as dramatic splash key art, painterly effects and depth" }
+      "goals": [
+        "Render like production concept art",
+        "Add design confidence"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/concept-art-sheet.webp",
-        "alt": "A polished production concept art scene",
-        "motif": "production render",
-        "prompt": "a polished production concept art scene of an outpost on a cliff, confident digital painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Concept Polish",
+          "description": "Concept-art polish tightens the render.",
+          "instruction": "with polished concept-art rendering"
+        },
+        {
+          "name": "Concept Art",
+          "description": "Confident production concept art.",
+          "instruction": "as polished production concept art"
+        },
+        {
+          "name": "Splash Key Art",
+          "description": "A full splash key-art rendering with effects.",
+          "instruction": "as dramatic splash key art, painterly effects and depth"
+        }
+      ]
     },
     {
       "id": "vaporwave-grid",
       "code": "VAPOR",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Bathe the scene in retro-web haze", "Add marble and grids"],
-      "grades": [
-        { "name": "Vapor Tint", "description": "A pink-teal vapor tint drifts in.", "instruction": "with a pink and teal vaporwave tint" },
-        { "name": "Vaporwave", "description": "Marble busts, palms, and wireframe grids.", "instruction": "in vaporwave style, marble statues and wireframe grids" },
-        { "name": "Mall of Memory", "description": "A fully dissolved retro-digital dreamscape.", "instruction": "a dissolved vaporwave dreamscape, checkerboards and endless sunset" }
+      "goals": [
+        "Bathe the scene in retro-web haze",
+        "Add marble and grids"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/vaporwave-grid.webp",
-        "alt": "A marble bust and palms over a wireframe grid",
-        "motif": "retro-web haze",
-        "prompt": "a marble bust and palm trees over a glowing wireframe grid at sunset, vaporwave aesthetic, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Vapor Tint",
+          "description": "A pink-teal vapor tint drifts in.",
+          "instruction": "with a pink and teal vaporwave tint"
+        },
+        {
+          "name": "Vaporwave",
+          "description": "Marble busts, palms, and wireframe grids.",
+          "instruction": "in vaporwave style, marble statues and wireframe grids"
+        },
+        {
+          "name": "Mall of Memory",
+          "description": "A fully dissolved retro-digital dreamscape.",
+          "instruction": "a dissolved vaporwave dreamscape, checkerboards and endless sunset"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "cottagecore-idyll",
       "code": "COTTG",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Sweeten the scene into pastoral idyll", "Add gingham and gardens"],
-      "grades": [
-        { "name": "Pastoral Touch", "description": "A gentle pastoral warmth settles in.", "instruction": "with gentle pastoral warmth" },
-        { "name": "Cottagecore", "description": "Gardens, gingham, and golden bread.", "instruction": "in cottagecore style, gardens, gingham, and warm bread" },
-        { "name": "Storybook Meadow", "description": "An impossibly idyllic wildflower world.", "instruction": "an impossibly idyllic cottage meadow, wildflowers everywhere" }
+      "goals": [
+        "Sweeten the scene into pastoral idyll",
+        "Add gingham and gardens"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/cottagecore-idyll.webp",
-        "alt": "A cottage garden with wildflowers and linen",
-        "motif": "pastoral idyll",
-        "prompt": "a stone cottage garden of wildflowers herbs and drying linen in morning sun, gentle pastoral illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Pastoral Touch",
+          "description": "A gentle pastoral warmth settles in.",
+          "instruction": "with gentle pastoral warmth"
+        },
+        {
+          "name": "Cottagecore",
+          "description": "Gardens, gingham, and golden bread.",
+          "instruction": "in cottagecore style, gardens, gingham, and warm bread"
+        },
+        {
+          "name": "Storybook Meadow",
+          "description": "An impossibly idyllic wildflower world.",
+          "instruction": "an impossibly idyllic cottage meadow, wildflowers everywhere"
+        }
+      ]
     },
     {
       "id": "dark-fantasy-grim",
       "code": "GRIM",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Harden the fantasy", "Add iron, bone, and dread"],
-      "grades": [
-        { "name": "Grim Cast", "description": "A grim shadow settles over the fantasy.", "instruction": "with a grim dark-fantasy cast" },
-        { "name": "Dark Fantasy", "description": "Iron, bone, and low torchlight lead.", "instruction": "in dark fantasy style, iron, bone, and torchlight" },
-        { "name": "Grimdark Abyss", "description": "Oppressive dread swallows every corner.", "instruction": "full grimdark oppression, dread in every corner" }
+      "goals": [
+        "Harden the fantasy",
+        "Add iron, bone, and dread"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/dark-fantasy-grim.webp",
-        "alt": "A torchlit dark fantasy gate of iron and bone",
-        "motif": "iron and dread",
-        "prompt": "a torchlit gate of black iron and bone in a dark fantasy ruin, oppressive concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Grim Cast",
+          "description": "A grim shadow settles over the fantasy.",
+          "instruction": "with a grim dark-fantasy cast"
+        },
+        {
+          "name": "Dark Fantasy",
+          "description": "Iron, bone, and low torchlight lead.",
+          "instruction": "in dark fantasy style, iron, bone, and torchlight"
+        },
+        {
+          "name": "Grimdark Abyss",
+          "description": "Oppressive dread swallows every corner.",
+          "instruction": "full grimdark oppression, dread in every corner"
+        }
+      ]
     },
     {
       "id": "synthwave-sunset",
       "code": "SYNTH",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Drive into the retro-future", "Add chrome and sunset stripes"],
-      "grades": [
-        { "name": "Retro Glow", "description": "A retro-future glow warms the horizon.", "instruction": "with a retro-future synthwave glow" },
-        { "name": "Synthwave", "description": "Striped sunset, chrome, and grid horizon.", "instruction": "in synthwave style, striped sunset and chrome grid horizon" },
-        { "name": "Outrun Forever", "description": "Full outrun: lasers, palms, endless highway.", "instruction": "full outrun synthwave, laser palms and endless neon highway" }
+      "goals": [
+        "Drive into the retro-future",
+        "Add chrome and sunset stripes"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/synthwave-sunset.webp",
-        "alt": "A chrome car driving into a striped synthwave sunset",
-        "motif": "retro-future stripes",
-        "prompt": "a chrome sports car driving toward a striped synthwave sunset over a neon grid, retro-future illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Retro Glow",
+          "description": "A retro-future glow warms the horizon.",
+          "instruction": "with a retro-future synthwave glow"
+        },
+        {
+          "name": "Synthwave",
+          "description": "Striped sunset, chrome, and grid horizon.",
+          "instruction": "in synthwave style, striped sunset and chrome grid horizon"
+        },
+        {
+          "name": "Outrun Forever",
+          "description": "Full outrun: lasers, palms, endless highway.",
+          "instruction": "full outrun synthwave, laser palms and endless neon highway"
+        }
+      ]
     },
     {
       "id": "childrens-book-charm",
       "code": "CHARM",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Soften everything for a bedtime page", "Add friendly wobble"],
-      "grades": [
-        { "name": "Friendly Lines", "description": "Friendly wobbe-lined charm sneaks in.", "instruction": "with friendly children's-book linework" },
-        { "name": "Storybook Page", "description": "A warm illustrated storybook page.", "instruction": "as a warm children's storybook illustration" },
-        { "name": "Bedtime Classic", "description": "Full picture-book charm, soft and round.", "instruction": "as a classic bedtime picture-book spread, soft and round" }
+      "goals": [
+        "Soften everything for a bedtime page",
+        "Add friendly wobble"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/childrens-book-charm.webp",
-        "alt": "A round friendly storybook animal scene",
-        "motif": "bedtime charm",
-        "prompt": "a round friendly bear sharing tea with a bird as a warm children's storybook illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Friendly Lines",
+          "description": "Friendly wobbe-lined charm sneaks in.",
+          "instruction": "with friendly children's-book linework"
+        },
+        {
+          "name": "Storybook Page",
+          "description": "A warm illustrated storybook page.",
+          "instruction": "as a warm children's storybook illustration"
+        },
+        {
+          "name": "Bedtime Classic",
+          "description": "Full picture-book charm, soft and round.",
+          "instruction": "as a classic bedtime picture-book spread, soft and round"
+        }
+      ]
     },
     {
       "id": "tarot-card-mystic",
       "code": "TAROT",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Arrange the scene like an arcana", "Add symbolic ornament"],
-      "grades": [
-        { "name": "Mystic Symbols", "description": "Mystic symbols gather at the edges.", "instruction": "with mystic tarot symbolism" },
-        { "name": "Tarot Arcana", "description": "A centered symbolic arcana composition.", "instruction": "composed like a tarot arcana, centered symbolic figures" },
-        { "name": "Gilded Arcana", "description": "Full gilded arcana with celestial ornament.", "instruction": "a fully gilded tarot arcana, celestial ornament and stars" }
+      "goals": [
+        "Arrange the scene like an arcana",
+        "Add symbolic ornament"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/tarot-card-mystic.webp",
-        "alt": "A centered mystic figure with celestial ornament",
-        "motif": "symbolic arcana",
-        "prompt": "a centered robed figure holding a lantern among stars and celestial ornament, mystic tarot-style illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Mystic Symbols",
+          "description": "Mystic symbols gather at the edges.",
+          "instruction": "with mystic tarot symbolism"
+        },
+        {
+          "name": "Tarot Arcana",
+          "description": "A centered symbolic arcana composition.",
+          "instruction": "composed like a tarot arcana, centered symbolic figures"
+        },
+        {
+          "name": "Gilded Arcana",
+          "description": "Full gilded arcana with celestial ornament.",
+          "instruction": "a fully gilded tarot arcana, celestial ornament and stars"
+        }
+      ]
     },
     {
       "id": "vintage-travel-poster",
       "code": "TRAVL",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Sell the destination", "Add optimistic flat color"],
-      "grades": [
-        { "name": "Poster Tint", "description": "Optimistic poster color tints the scene.", "instruction": "with vintage travel-poster color" },
-        { "name": "Travel Poster", "description": "Flat optimistic shapes sell the view.", "instruction": "as a vintage travel poster, flat optimistic shapes" },
-        { "name": "Grand Tour", "description": "A full golden-age tourism poster of the scene.", "instruction": "a golden-age travel poster, simplified grandeur and clean skies" }
+      "goals": [
+        "Sell the destination",
+        "Add optimistic flat color"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/vintage-travel-poster.webp",
-        "alt": "A coastal town as a vintage travel poster",
-        "motif": "optimistic flats",
-        "prompt": "a coastal cliff town rendered as a vintage travel poster with flat optimistic shapes, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Poster Tint",
+          "description": "Optimistic poster color tints the scene.",
+          "instruction": "with vintage travel-poster color"
+        },
+        {
+          "name": "Travel Poster",
+          "description": "Flat optimistic shapes sell the view.",
+          "instruction": "as a vintage travel poster, flat optimistic shapes"
+        },
+        {
+          "name": "Grand Tour",
+          "description": "A full golden-age tourism poster of the scene.",
+          "instruction": "a golden-age travel poster, simplified grandeur and clean skies"
+        }
+      ]
     },
     {
       "id": "botanical-plate",
       "code": "BOTAN",
       "section": "references",
       "driver": "intensity",
-      "goals": ["Study the subject scientifically", "Add naturalist precision"],
-      "grades": [
-        { "name": "Naturalist Eye", "description": "Naturalist precision sharpens the details.", "instruction": "with naturalist botanical precision" },
-        { "name": "Botanical Plate", "description": "A scientific illustration plate on cream paper.", "instruction": "as a botanical scientific illustration on cream paper" },
-        { "name": "Field Folio", "description": "A dense antique folio study with specimens.", "instruction": "as a dense antique naturalist folio study, specimens arranged" }
+      "goals": [
+        "Study the subject scientifically",
+        "Add naturalist precision"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/botanical-plate.webp",
-        "alt": "A precise botanical illustration on cream paper",
-        "motif": "naturalist plate",
-        "prompt": "a precise botanical illustration of a flowering branch and seed pods on cream paper, antique scientific plate, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Naturalist Eye",
+          "description": "Naturalist precision sharpens the details.",
+          "instruction": "with naturalist botanical precision"
+        },
+        {
+          "name": "Botanical Plate",
+          "description": "A scientific illustration plate on cream paper.",
+          "instruction": "as a botanical scientific illustration on cream paper"
+        },
+        {
+          "name": "Field Folio",
+          "description": "A dense antique folio study with specimens.",
+          "instruction": "as a dense antique naturalist folio study, specimens arranged"
+        }
+      ]
     },
     {
       "id": "close-portrait",
@@ -1620,14 +2060,7 @@
           "description": "An extreme close-up that fills the frame with the face.",
           "instruction": "extreme macro close-up filling the frame with the face"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/close-portrait.webp",
-        "alt": "An intimate close-up portrait with shallow depth of field",
-        "motif": "tight framing",
-        "prompt": "an intimate close-up portrait of a weathered face with shallow depth of field, cinematic photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "wide-establishing",
@@ -1654,473 +2087,673 @@
           "description": "An ultra-wide aerial panorama swallows the scene.",
           "instruction": "ultra-wide aerial panorama"
         }
-      ],
-      "illustration": {
-        "src": "/card-art/picture/cards/wide-establishing.webp",
-        "alt": "A sweeping wide vista of a mountain village",
-        "motif": "sweeping vista",
-        "prompt": "a sweeping wide establishing shot of a mountain village at dawn, epic landscape concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "low-angle-hero",
       "code": "LOWA",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Shoot up at the subject", "Add monumental presence"],
-      "grades": [
-        { "name": "Slight Look-Up", "description": "The camera looks slightly up.", "instruction": "from a slightly low angle" },
-        { "name": "Low-Angle Hero", "description": "A hero shot from near the ground.", "instruction": "low-angle hero shot from near the ground" },
-        { "name": "Monument View", "description": "A worm's-eye view makes the subject monumental.", "instruction": "extreme worm's-eye view, the subject monumental against the sky" }
+      "goals": [
+        "Shoot up at the subject",
+        "Add monumental presence"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/low-angle-hero.webp",
-        "alt": "A figure shot heroically from near the ground",
-        "motif": "look-up drama",
-        "prompt": "a caped figure photographed from near the ground rising against a bright sky, heroic low-angle shot, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Slight Look-Up",
+          "description": "The camera looks slightly up.",
+          "instruction": "from a slightly low angle"
+        },
+        {
+          "name": "Low-Angle Hero",
+          "description": "A hero shot from near the ground.",
+          "instruction": "low-angle hero shot from near the ground"
+        },
+        {
+          "name": "Monument View",
+          "description": "A worm's-eye view makes the subject monumental.",
+          "instruction": "extreme worm's-eye view, the subject monumental against the sky"
+        }
+      ]
     },
     {
       "id": "birds-eye-view",
       "code": "BIRD",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Look straight down", "Turn the scene into a map"],
-      "grades": [
-        { "name": "High Vantage", "description": "A high vantage tilts the world down.", "instruction": "from a high vantage point" },
-        { "name": "Bird's-Eye View", "description": "A straight-down aerial composition.", "instruction": "bird's-eye view straight down" },
-        { "name": "Satellite Map", "description": "So high the scene becomes cartography.", "instruction": "extreme top-down view, the scene flattened into a living map" }
+      "goals": [
+        "Look straight down",
+        "Turn the scene into a map"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/birds-eye-view.webp",
-        "alt": "A plaza seen straight down from above",
-        "motif": "straight down",
-        "prompt": "a busy plaza and fountain seen straight down from above, bird's-eye photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "High Vantage",
+          "description": "A high vantage tilts the world down.",
+          "instruction": "from a high vantage point"
+        },
+        {
+          "name": "Bird's-Eye View",
+          "description": "A straight-down aerial composition.",
+          "instruction": "bird's-eye view straight down"
+        },
+        {
+          "name": "Satellite Map",
+          "description": "So high the scene becomes cartography.",
+          "instruction": "extreme top-down view, the scene flattened into a living map"
+        }
+      ]
     },
     {
       "id": "dutch-tilt",
       "code": "TILT",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Tip the horizon", "Add unease and energy"],
-      "grades": [
-        { "name": "Slight Cant", "description": "The horizon cants a few degrees.", "instruction": "with a slight dutch tilt" },
-        { "name": "Dutch Tilt", "description": "A committed diagonal horizon.", "instruction": "strong dutch tilt, diagonal horizon" },
-        { "name": "Vertigo Frame", "description": "The frame lurches into vertigo.", "instruction": "extreme dutch tilt, the whole frame lurching into vertigo" }
+      "goals": [
+        "Tip the horizon",
+        "Add unease and energy"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/dutch-tilt.webp",
-        "alt": "A street scene on a strong diagonal tilt",
-        "motif": "canted frame",
-        "prompt": "a narrow street chase scene framed on a strong diagonal dutch tilt, tense cinematic shot, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Slight Cant",
+          "description": "The horizon cants a few degrees.",
+          "instruction": "with a slight dutch tilt"
+        },
+        {
+          "name": "Dutch Tilt",
+          "description": "A committed diagonal horizon.",
+          "instruction": "strong dutch tilt, diagonal horizon"
+        },
+        {
+          "name": "Vertigo Frame",
+          "description": "The frame lurches into vertigo.",
+          "instruction": "extreme dutch tilt, the whole frame lurching into vertigo"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "symmetric-center",
       "code": "SYMM",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Center and balance the frame", "Add formal calm"],
-      "grades": [
-        { "name": "Centered Subject", "description": "The subject sits dead center.", "instruction": "centered composition" },
-        { "name": "Formal Symmetry", "description": "Mirror-balanced formal framing.", "instruction": "perfectly symmetrical centered composition" },
-        { "name": "Temple Symmetry", "description": "Obsessive symmetry down to the reflections.", "instruction": "obsessive temple symmetry, mirrored down to the reflections" }
+      "goals": [
+        "Center and balance the frame",
+        "Add formal calm"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/symmetric-center.webp",
-        "alt": "A perfectly centered symmetrical corridor",
-        "motif": "mirror balance",
-        "prompt": "a perfectly symmetrical centered corridor with repeating arches and a lone figure, formal architectural photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Centered Subject",
+          "description": "The subject sits dead center.",
+          "instruction": "centered composition"
+        },
+        {
+          "name": "Formal Symmetry",
+          "description": "Mirror-balanced formal framing.",
+          "instruction": "perfectly symmetrical centered composition"
+        },
+        {
+          "name": "Temple Symmetry",
+          "description": "Obsessive symmetry down to the reflections.",
+          "instruction": "obsessive temple symmetry, mirrored down to the reflections"
+        }
+      ]
     },
     {
       "id": "rule-of-thirds",
       "code": "THIRD",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Place the subject off-center", "Give the scene breathing room"],
-      "grades": [
-        { "name": "Off-Center", "description": "The subject steps off center.", "instruction": "subject placed off-center" },
-        { "name": "Rule of Thirds", "description": "Classic thirds placement with open space.", "instruction": "rule-of-thirds composition, open negative space" },
-        { "name": "Far Corner", "description": "The subject holds one far corner of a vast frame.", "instruction": "subject tucked in a far corner of a vast open frame" }
+      "goals": [
+        "Place the subject off-center",
+        "Give the scene breathing room"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/rule-of-thirds.webp",
-        "alt": "A small boat placed on a thirds line in open water",
-        "motif": "thirds balance",
-        "prompt": "a small red boat placed on a lower thirds line in vast calm water, minimal seascape photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Off-Center",
+          "description": "The subject steps off center.",
+          "instruction": "subject placed off-center"
+        },
+        {
+          "name": "Rule of Thirds",
+          "description": "Classic thirds placement with open space.",
+          "instruction": "rule-of-thirds composition, open negative space"
+        },
+        {
+          "name": "Far Corner",
+          "description": "The subject holds one far corner of a vast frame.",
+          "instruction": "subject tucked in a far corner of a vast open frame"
+        }
+      ]
     },
     {
       "id": "shallow-bokeh",
       "code": "BOKEH",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Melt the background away", "Isolate the subject optically"],
-      "grades": [
-        { "name": "Soft Background", "description": "The background softens gently.", "instruction": "with a softly blurred background" },
-        { "name": "Shallow Bokeh", "description": "Creamy bokeh isolates the subject.", "instruction": "shallow depth of field, creamy bokeh" },
-        { "name": "Razor Focus", "description": "A razor-thin focal plane, everything else light-orbs.", "instruction": "razor-thin focus plane, background dissolved into bokeh orbs" }
+      "goals": [
+        "Melt the background away",
+        "Isolate the subject optically"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/shallow-bokeh.webp",
-        "alt": "A portrait isolated by creamy background bokeh",
-        "motif": "melted background",
-        "prompt": "a portrait in sharp focus against a background melted into creamy bokeh orbs, fast-lens photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Soft Background",
+          "description": "The background softens gently.",
+          "instruction": "with a softly blurred background"
+        },
+        {
+          "name": "Shallow Bokeh",
+          "description": "Creamy bokeh isolates the subject.",
+          "instruction": "shallow depth of field, creamy bokeh"
+        },
+        {
+          "name": "Razor Focus",
+          "description": "A razor-thin focal plane, everything else light-orbs.",
+          "instruction": "razor-thin focus plane, background dissolved into bokeh orbs"
+        }
+      ]
     },
     {
       "id": "long-exposure",
       "code": "EXPO",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Let time smear through the frame", "Smooth motion into silk"],
-      "grades": [
-        { "name": "Slow Shutter", "description": "Motion softens with a slow shutter.", "instruction": "with slow-shutter motion softness" },
-        { "name": "Long Exposure", "description": "Water silks and lights draw trails.", "instruction": "long exposure, silked water and light trails" },
-        { "name": "Hours Open", "description": "Star trails and ghost crowds, hours in one frame.", "instruction": "hours-long exposure, star trails and ghosted motion" }
+      "goals": [
+        "Let time smear through the frame",
+        "Smooth motion into silk"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/long-exposure.webp",
-        "alt": "Silked waterfall and light trails at dusk",
-        "motif": "time smear",
-        "prompt": "a waterfall silked by long exposure under dusk light trails, tripod landscape photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Slow Shutter",
+          "description": "Motion softens with a slow shutter.",
+          "instruction": "with slow-shutter motion softness"
+        },
+        {
+          "name": "Long Exposure",
+          "description": "Water silks and lights draw trails.",
+          "instruction": "long exposure, silked water and light trails"
+        },
+        {
+          "name": "Hours Open",
+          "description": "Star trails and ghost crowds, hours in one frame.",
+          "instruction": "hours-long exposure, star trails and ghosted motion"
+        }
+      ]
     },
     {
       "id": "double-exposure",
       "code": "DBLX",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Blend two images into one", "Let subject and world overlap"],
-      "grades": [
-        { "name": "Faint Overlay", "description": "A second image faintly overlays the first.", "instruction": "with a faint double-exposure overlay" },
-        { "name": "Double Exposure", "description": "Subject and landscape share one silhouette.", "instruction": "double exposure, landscape blended inside the silhouette" },
-        { "name": "Layered Ghosts", "description": "Many exposures stack into layered ghosts.", "instruction": "multiple stacked exposures, layered translucent ghosts" }
+      "goals": [
+        "Blend two images into one",
+        "Let subject and world overlap"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/double-exposure.webp",
-        "alt": "A profile silhouette filled with a forest",
-        "motif": "blended frames",
-        "prompt": "a profile silhouette filled with a misty pine forest as a double exposure, artistic photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Faint Overlay",
+          "description": "A second image faintly overlays the first.",
+          "instruction": "with a faint double-exposure overlay"
+        },
+        {
+          "name": "Double Exposure",
+          "description": "Subject and landscape share one silhouette.",
+          "instruction": "double exposure, landscape blended inside the silhouette"
+        },
+        {
+          "name": "Layered Ghosts",
+          "description": "Many exposures stack into layered ghosts.",
+          "instruction": "multiple stacked exposures, layered translucent ghosts"
+        }
+      ]
     },
     {
       "id": "silhouette-shot",
       "code": "SILH",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Reduce the subject to shape", "Let the background carry color"],
-      "grades": [
-        { "name": "Half Shadow", "description": "The subject falls half into shadow.", "instruction": "subject half in shadow" },
-        { "name": "Silhouette", "description": "A clean black silhouette against light.", "instruction": "clean silhouette against bright light" },
-        { "name": "Pure Shape", "description": "Nothing but cut-paper shape against blazing sky.", "instruction": "pure black silhouette, all detail surrendered to shape" }
+      "goals": [
+        "Reduce the subject to shape",
+        "Let the background carry color"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/silhouette-shot.webp",
-        "alt": "A clean black silhouette against a bright sky",
-        "motif": "shape against light",
-        "prompt": "a figure with an umbrella as a clean black silhouette against a blazing sunset sky, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Half Shadow",
+          "description": "The subject falls half into shadow.",
+          "instruction": "subject half in shadow"
+        },
+        {
+          "name": "Silhouette",
+          "description": "A clean black silhouette against light.",
+          "instruction": "clean silhouette against bright light"
+        },
+        {
+          "name": "Pure Shape",
+          "description": "Nothing but cut-paper shape against blazing sky.",
+          "instruction": "pure black silhouette, all detail surrendered to shape"
+        }
+      ]
     },
     {
       "id": "motion-blur-action",
       "code": "BLUR",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Put speed in the frame", "Streak the world past the subject"],
-      "grades": [
-        { "name": "Hint of Motion", "description": "Edges streak with a hint of motion.", "instruction": "with a hint of motion blur" },
-        { "name": "Action Pan", "description": "A panned action shot, background streaking.", "instruction": "panning action shot, background streaked with motion blur" },
-        { "name": "Full Velocity", "description": "The whole frame tears with speed lines.", "instruction": "full velocity blur, the world tearing past in streaks" }
+      "goals": [
+        "Put speed in the frame",
+        "Streak the world past the subject"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/motion-blur-action.webp",
-        "alt": "A sprinting figure with a streaked background",
-        "motif": "speed streaks",
-        "prompt": "a sprinting cyclist panned sharp against a background streaked with motion blur, action photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Hint of Motion",
+          "description": "Edges streak with a hint of motion.",
+          "instruction": "with a hint of motion blur"
+        },
+        {
+          "name": "Action Pan",
+          "description": "A panned action shot, background streaking.",
+          "instruction": "panning action shot, background streaked with motion blur"
+        },
+        {
+          "name": "Full Velocity",
+          "description": "The whole frame tears with speed lines.",
+          "instruction": "full velocity blur, the world tearing past in streaks"
+        }
+      ]
     },
     {
       "id": "isometric-view",
       "code": "ISO",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Flatten perspective into a game view", "Miniaturize the world"],
-      "grades": [
-        { "name": "Angled Overview", "description": "A tidy angled overview of the scene.", "instruction": "from a tidy angled overview" },
-        { "name": "Isometric View", "description": "True isometric projection, no vanishing point.", "instruction": "isometric view, parallel projection" },
-        { "name": "Diorama Cutaway", "description": "An isometric cutaway diorama with open rooms.", "instruction": "isometric cutaway diorama, walls opened to show the rooms" }
+      "goals": [
+        "Flatten perspective into a game view",
+        "Miniaturize the world"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/isometric-view.webp",
-        "alt": "A small isometric building diorama",
-        "motif": "parallel projection",
-        "prompt": "a small cafe building rendered as an isometric diorama with tiny furniture, clean game-art style, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Angled Overview",
+          "description": "A tidy angled overview of the scene.",
+          "instruction": "from a tidy angled overview"
+        },
+        {
+          "name": "Isometric View",
+          "description": "True isometric projection, no vanishing point.",
+          "instruction": "isometric view, parallel projection"
+        },
+        {
+          "name": "Diorama Cutaway",
+          "description": "An isometric cutaway diorama with open rooms.",
+          "instruction": "isometric cutaway diorama, walls opened to show the rooms"
+        }
+      ]
     },
     {
       "id": "knolling-flatlay",
       "code": "FLAT",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Arrange everything at right angles", "Turn objects into inventory"],
-      "grades": [
-        { "name": "Tidy Layout", "description": "Objects settle into a tidy layout.", "instruction": "objects arranged in a tidy flat lay" },
-        { "name": "Knolling", "description": "A knolled top-down grid of the subject's things.", "instruction": "knolling flat lay, objects aligned at right angles from above" },
-        { "name": "Museum Inventory", "description": "An obsessive museum-grade inventory grid.", "instruction": "obsessive knolling inventory, every piece disassembled and aligned" }
+      "goals": [
+        "Arrange everything at right angles",
+        "Turn objects into inventory"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/knolling-flatlay.webp",
-        "alt": "Expedition gear knolled at right angles",
-        "motif": "right-angle grid",
-        "prompt": "expedition gear knolled at perfect right angles on a workshop table from above, clean flat-lay photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Tidy Layout",
+          "description": "Objects settle into a tidy layout.",
+          "instruction": "objects arranged in a tidy flat lay"
+        },
+        {
+          "name": "Knolling",
+          "description": "A knolled top-down grid of the subject's things.",
+          "instruction": "knolling flat lay, objects aligned at right angles from above"
+        },
+        {
+          "name": "Museum Inventory",
+          "description": "An obsessive museum-grade inventory grid.",
+          "instruction": "obsessive knolling inventory, every piece disassembled and aligned"
+        }
+      ]
     },
     {
       "id": "hyper-detailed",
       "code": "HYPER",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Push rendering density up", "Reward a long close look"],
-      "grades": [
-        { "name": "Fine Detail", "description": "Fine detail sharpens across the frame.", "instruction": "finely detailed" },
-        { "name": "Hyper-Detailed", "description": "Intricate detail rewards close inspection.", "instruction": "hyper-detailed, intricate textures throughout" },
-        { "name": "Infinite Engraving", "description": "Obsessive density in every square inch.", "instruction": "obsessively detailed, every surface engraved with miniature texture" }
+      "goals": [
+        "Push rendering density up",
+        "Reward a long close look"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/hyper-detailed.webp",
-        "alt": "An ornate pocket watch in obsessive close detail",
-        "motif": "dense texture",
-        "prompt": "an ornate open pocket watch rendered in obsessive hyper detail with engraved miniature texture, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [1, 2] }
+      "grades": [
+        {
+          "name": "Fine Detail",
+          "description": "Fine detail sharpens across the frame.",
+          "instruction": "finely detailed"
+        },
+        {
+          "name": "Hyper-Detailed",
+          "description": "Intricate detail rewards close inspection.",
+          "instruction": "hyper-detailed, intricate textures throughout"
+        },
+        {
+          "name": "Infinite Engraving",
+          "description": "Obsessive density in every square inch.",
+          "instruction": "obsessively detailed, every surface engraved with miniature texture"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          1,
+          2
+        ]
+      }
     },
     {
       "id": "minimalist-negative-space",
       "code": "MINML",
       "section": "execution",
       "driver": "intensity",
-      "goals": ["Take almost everything away", "Let emptiness do the framing"],
-      "grades": [
-        { "name": "Breathing Room", "description": "Generous negative space opens up.", "instruction": "with generous negative space" },
-        { "name": "Minimalist Frame", "description": "A tiny subject in a vast clean field.", "instruction": "minimalist composition, small subject in vast negative space" },
-        { "name": "Almost Nothing", "description": "The image approaches pure emptiness.", "instruction": "near-empty minimalism, a single small mark of subject in the void" }
+      "goals": [
+        "Take almost everything away",
+        "Let emptiness do the framing"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/minimalist-negative-space.webp",
-        "alt": "A tiny figure in a vast empty field of color",
-        "motif": "vast emptiness",
-        "prompt": "a tiny lone figure crossing a vast empty field of soft color, minimalist composition photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      },
-      "affinity": { "intensity": [0, 1] }
+      "grades": [
+        {
+          "name": "Breathing Room",
+          "description": "Generous negative space opens up.",
+          "instruction": "with generous negative space"
+        },
+        {
+          "name": "Minimalist Frame",
+          "description": "A tiny subject in a vast clean field.",
+          "instruction": "minimalist composition, small subject in vast negative space"
+        },
+        {
+          "name": "Almost Nothing",
+          "description": "The image approaches pure emptiness.",
+          "instruction": "near-empty minimalism, a single small mark of subject in the void"
+        }
+      ],
+      "affinity": {
+        "intensity": [
+          0,
+          1
+        ]
+      }
     },
     {
       "id": "faithful-companion",
       "code": "CMPN",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Give the subject an animal companion", "Add warmth and scale"],
-      "grades": [
-        { "name": "Small Companion", "description": "A small animal keeps the subject company.", "instruction": "accompanied by a small animal companion" },
-        { "name": "Faithful Companion", "description": "A loyal animal companion shares the frame.", "instruction": "with a loyal animal companion at their side" },
-        { "name": "Beast and Bond", "description": "A great beast companion dominates the pairing.", "instruction": "bonded to a great beast companion looming beside them" }
+      "goals": [
+        "Give the subject an animal companion",
+        "Add warmth and scale"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/faithful-companion.webp",
-        "alt": "A traveler with a loyal dog companion",
-        "motif": "companion pair",
-        "prompt": "a traveler kneeling beside a loyal dog companion on a country path, warm storybook illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Small Companion",
+          "description": "A small animal keeps the subject company.",
+          "instruction": "accompanied by a small animal companion"
+        },
+        {
+          "name": "Faithful Companion",
+          "description": "A loyal animal companion shares the frame.",
+          "instruction": "with a loyal animal companion at their side"
+        },
+        {
+          "name": "Beast and Bond",
+          "description": "A great beast companion dominates the pairing.",
+          "instruction": "bonded to a great beast companion looming beside them"
+        }
+      ]
     },
     {
       "id": "clockwork-automaton",
       "code": "CLOCK",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Introduce a brass machine figure", "Trade flesh for mechanism"],
-      "grades": [
-        { "name": "Clockwork Details", "description": "Mechanical touches show on the subject.", "instruction": "with visible clockwork and brass mechanical details" },
-        { "name": "Clockwork Automaton", "description": "The subject is a brass automaton.", "instruction": "as an intricate brass clockwork automaton" },
-        { "name": "Living Machinery", "description": "The whole figure is exposed gears and pistons.", "instruction": "as living machinery of exposed gears, pistons, and ticking brass" }
+      "goals": [
+        "Introduce a brass machine figure",
+        "Trade flesh for mechanism"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/clockwork-automaton.webp",
-        "alt": "A brass clockwork automaton with exposed gears",
-        "motif": "brass mechanism",
-        "prompt": "an intricate brass clockwork automaton with exposed gears polishing a pocket watch, steampunk illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Clockwork Details",
+          "description": "Mechanical touches show on the subject.",
+          "instruction": "with visible clockwork and brass mechanical details"
+        },
+        {
+          "name": "Clockwork Automaton",
+          "description": "The subject is a brass automaton.",
+          "instruction": "as an intricate brass clockwork automaton"
+        },
+        {
+          "name": "Living Machinery",
+          "description": "The whole figure is exposed gears and pistons.",
+          "instruction": "as living machinery of exposed gears, pistons, and ticking brass"
+        }
+      ]
     },
     {
       "id": "armored-sentinel",
       "code": "SENT",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Armor the subject", "Add guardian presence"],
-      "grades": [
-        { "name": "Light Armor", "description": "Practical armor pieces dress the subject.", "instruction": "wearing practical weathered armor" },
-        { "name": "Armored Sentinel", "description": "Full plate armor makes the subject a guardian.", "instruction": "as an armored sentinel in full battered plate" },
-        { "name": "Colossus of War", "description": "Monumental ornate armor overwhelms the figure.", "instruction": "as a towering colossus in monumental ornate armor" }
+      "goals": [
+        "Armor the subject",
+        "Add guardian presence"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/armored-sentinel.webp",
-        "alt": "A sentinel in weathered plate armor holding a spear",
-        "motif": "guardian plate",
-        "prompt": "an armored sentinel in weathered plate standing guard at a stone gate, dramatic fantasy concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Light Armor",
+          "description": "Practical armor pieces dress the subject.",
+          "instruction": "wearing practical weathered armor"
+        },
+        {
+          "name": "Armored Sentinel",
+          "description": "Full plate armor makes the subject a guardian.",
+          "instruction": "as an armored sentinel in full battered plate"
+        },
+        {
+          "name": "Colossus of War",
+          "description": "Monumental ornate armor overwhelms the figure.",
+          "instruction": "as a towering colossus in monumental ornate armor"
+        }
+      ]
     },
     {
       "id": "wise-elder",
       "code": "ELDER",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Age the subject into wisdom", "Add lived-in character"],
-      "grades": [
-        { "name": "Graying Years", "description": "Age softens the subject's features.", "instruction": "an aging figure with kind weathered features" },
-        { "name": "Wise Elder", "description": "A deeply lined elder carries quiet authority.", "instruction": "a wise elder with deep lines and knowing eyes" },
-        { "name": "Ancient One", "description": "Impossible age turns the figure mythic.", "instruction": "an impossibly ancient figure, mythic and timeworn" }
+      "goals": [
+        "Age the subject into wisdom",
+        "Add lived-in character"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/wise-elder.webp",
-        "alt": "An elder with deep lines and knowing eyes",
-        "motif": "weathered wisdom",
-        "prompt": "a wise elder with deep facial lines lit by a window, intimate painted portrait, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Graying Years",
+          "description": "Age softens the subject's features.",
+          "instruction": "an aging figure with kind weathered features"
+        },
+        {
+          "name": "Wise Elder",
+          "description": "A deeply lined elder carries quiet authority.",
+          "instruction": "a wise elder with deep lines and knowing eyes"
+        },
+        {
+          "name": "Ancient One",
+          "description": "Impossible age turns the figure mythic.",
+          "instruction": "an impossibly ancient figure, mythic and timeworn"
+        }
+      ]
     },
     {
       "id": "spirited-child",
       "code": "CHILD",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Make the subject young and curious", "Invite storybook energy"],
-      "grades": [
-        { "name": "Young Onlooker", "description": "A curious child watches from the scene.", "instruction": "a curious child watching wide-eyed" },
-        { "name": "Spirited Child", "description": "An adventurous child leads the frame.", "instruction": "a spirited adventurous child leading the way" },
-        { "name": "Fearless Wonder", "description": "A tiny fearless hero takes on the impossible.", "instruction": "a tiny fearless child facing something impossibly large" }
+      "goals": [
+        "Make the subject young and curious",
+        "Invite storybook energy"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/spirited-child.webp",
-        "alt": "An adventurous child in a cape on a hilltop",
-        "motif": "small adventurer",
-        "prompt": "a spirited child in a homemade cape standing on a hilltop at dusk, warm storybook illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Young Onlooker",
+          "description": "A curious child watches from the scene.",
+          "instruction": "a curious child watching wide-eyed"
+        },
+        {
+          "name": "Spirited Child",
+          "description": "An adventurous child leads the frame.",
+          "instruction": "a spirited adventurous child leading the way"
+        },
+        {
+          "name": "Fearless Wonder",
+          "description": "A tiny fearless hero takes on the impossible.",
+          "instruction": "a tiny fearless child facing something impossibly large"
+        }
+      ]
     },
     {
       "id": "winged-beast",
       "code": "WING",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Add a flying creature", "Bring fantasy fauna in"],
-      "grades": [
-        { "name": "Passing Wings", "description": "A winged creature crosses the sky.", "instruction": "a winged creature passing overhead" },
-        { "name": "Winged Beast", "description": "A great winged beast anchors the scene.", "instruction": "a great winged beast with outstretched wings" },
-        { "name": "Sky Sovereign", "description": "An enormous dragon-like sovereign owns the sky.", "instruction": "an enormous dragon-like beast dominating the sky" }
+      "goals": [
+        "Add a flying creature",
+        "Bring fantasy fauna in"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/winged-beast.webp",
-        "alt": "A great winged beast with outstretched wings",
-        "motif": "outstretched wings",
-        "prompt": "a great winged beast spreading its wings against storm clouds, epic fantasy concept art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Passing Wings",
+          "description": "A winged creature crosses the sky.",
+          "instruction": "a winged creature passing overhead"
+        },
+        {
+          "name": "Winged Beast",
+          "description": "A great winged beast anchors the scene.",
+          "instruction": "a great winged beast with outstretched wings"
+        },
+        {
+          "name": "Sky Sovereign",
+          "description": "An enormous dragon-like sovereign owns the sky.",
+          "instruction": "an enormous dragon-like beast dominating the sky"
+        }
+      ]
     },
     {
       "id": "ghostly-presence",
       "code": "GHOST",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Add a spectral figure", "Blur the line between there and gone"],
-      "grades": [
-        { "name": "Faint Apparition", "description": "A translucent presence hovers at the edge.", "instruction": "a faint translucent apparition at the edge of the scene" },
-        { "name": "Ghostly Presence", "description": "A clear spectral figure shares the frame.", "instruction": "a ghostly spectral figure drifting through the scene" },
-        { "name": "Haunting Host", "description": "Many spirits crowd the living world.", "instruction": "a haunting host of translucent spirits filling the air" }
+      "goals": [
+        "Add a spectral figure",
+        "Blur the line between there and gone"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/ghostly-presence.webp",
-        "alt": "A translucent spectral figure in a dark hallway",
-        "motif": "spectral drift",
-        "prompt": "a translucent ghostly figure drifting through a moonlit hallway, atmospheric gothic illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Faint Apparition",
+          "description": "A translucent presence hovers at the edge.",
+          "instruction": "a faint translucent apparition at the edge of the scene"
+        },
+        {
+          "name": "Ghostly Presence",
+          "description": "A clear spectral figure shares the frame.",
+          "instruction": "a ghostly spectral figure drifting through the scene"
+        },
+        {
+          "name": "Haunting Host",
+          "description": "Many spirits crowd the living world.",
+          "instruction": "a haunting host of translucent spirits filling the air"
+        }
+      ]
     },
     {
       "id": "crowd-of-many",
       "code": "CROWD",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Surround the subject with people", "Add bustle and scale"],
-      "grades": [
-        { "name": "Passersby", "description": "A few figures move through the background.", "instruction": "with a few passersby in the background" },
-        { "name": "Busy Crowd", "description": "A bustling crowd surrounds the subject.", "instruction": "surrounded by a bustling crowd" },
-        { "name": "Sea of Faces", "description": "An immense crowd swallows the scene.", "instruction": "lost in an immense sea of people stretching away" }
+      "goals": [
+        "Surround the subject with people",
+        "Add bustle and scale"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/crowd-of-many.webp",
-        "alt": "A lone figure in a bustling crowd",
-        "motif": "one among many",
-        "prompt": "a lone still figure in a bustling blurred crowd crossing a plaza, cinematic street scene, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Passersby",
+          "description": "A few figures move through the background.",
+          "instruction": "with a few passersby in the background"
+        },
+        {
+          "name": "Busy Crowd",
+          "description": "A bustling crowd surrounds the subject.",
+          "instruction": "surrounded by a bustling crowd"
+        },
+        {
+          "name": "Sea of Faces",
+          "description": "An immense crowd swallows the scene.",
+          "instruction": "lost in an immense sea of people stretching away"
+        }
+      ]
     },
     {
       "id": "regal-figure",
       "code": "ROYAL",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Crown the subject", "Add ceremony and rank"],
-      "grades": [
-        { "name": "Fine Bearing", "description": "Fine dress and posture suggest rank.", "instruction": "with regal bearing and fine dress" },
-        { "name": "Regal Figure", "description": "Crown and robes make the subject royalty.", "instruction": "a regal crowned figure in ceremonial robes" },
-        { "name": "Living Throne", "description": "Overwhelming regalia turns the figure into an institution.", "instruction": "an imperious sovereign engulfed in towering ceremonial regalia" }
+      "goals": [
+        "Crown the subject",
+        "Add ceremony and rank"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/regal-figure.webp",
-        "alt": "A crowned figure in ceremonial robes",
-        "motif": "crown and robes",
-        "prompt": "a regal crowned figure in deep ceremonial robes on a dark throne, dramatic painted portrait, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Fine Bearing",
+          "description": "Fine dress and posture suggest rank.",
+          "instruction": "with regal bearing and fine dress"
+        },
+        {
+          "name": "Regal Figure",
+          "description": "Crown and robes make the subject royalty.",
+          "instruction": "a regal crowned figure in ceremonial robes"
+        },
+        {
+          "name": "Living Throne",
+          "description": "Overwhelming regalia turns the figure into an institution.",
+          "instruction": "an imperious sovereign engulfed in towering ceremonial regalia"
+        }
+      ]
     },
     {
       "id": "weathered-explorer",
       "code": "EXPLR",
       "section": "protagonist",
       "driver": "intensity",
-      "goals": ["Equip the subject for expedition", "Add journey-worn texture"],
-      "grades": [
-        { "name": "Field Gear", "description": "Practical expedition gear dresses the subject.", "instruction": "carrying practical well-used expedition gear" },
-        { "name": "Weathered Explorer", "description": "A journey-worn explorer mid-expedition.", "instruction": "a weathered explorer worn by a long journey" },
-        { "name": "End of the Map", "description": "The figure looks broken-in by years past the map's edge.", "instruction": "a gaunt storied explorer years past the edge of any map" }
+      "goals": [
+        "Equip the subject for expedition",
+        "Add journey-worn texture"
       ],
-      "illustration": {
-        "src": "/card-art/picture/cards/weathered-explorer.webp",
-        "alt": "A weathered explorer with pack and rope",
-        "motif": "expedition worn",
-        "prompt": "a weathered explorer with a heavy pack pausing on a ridge, painterly adventure illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      "grades": [
+        {
+          "name": "Field Gear",
+          "description": "Practical expedition gear dresses the subject.",
+          "instruction": "carrying practical well-used expedition gear"
+        },
+        {
+          "name": "Weathered Explorer",
+          "description": "A journey-worn explorer mid-expedition.",
+          "instruction": "a weathered explorer worn by a long journey"
+        },
+        {
+          "name": "End of the Map",
+          "description": "The figure looks broken-in by years past the map's edge.",
+          "instruction": "a gaunt storied explorer years past the edge of any map"
+        }
+      ]
     }
   ]
 }

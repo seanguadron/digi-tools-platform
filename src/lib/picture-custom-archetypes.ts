@@ -40,8 +40,6 @@ function isStoredArchetypeShape(entry: unknown): entry is PictureArchetype {
         candidate.equipped !== null)) &&
     Array.isArray(candidate.effects) &&
     candidate.effects.every((effect) => typeof effect === "string") &&
-    typeof candidate.illustration === "object" &&
-    candidate.illustration !== null &&
     (candidate.mjTail === undefined ||
       (typeof candidate.mjTail === "object" && candidate.mjTail !== null))
   );
@@ -99,13 +97,6 @@ export function buildCustomPictureArchetype(
         : "Leaves the Midjourney tail off.",
       "Preserves your subject line.",
     ],
-    illustration: {
-      src: "/card-art/picture/archetypes/custom-preset.webp",
-      alt: `Illustration asset for the ${cleanName} preset.`,
-      motif: "Custom preset artifact",
-      prompt: "Custom user preset.",
-      status: "planned",
-    },
   };
 }
 

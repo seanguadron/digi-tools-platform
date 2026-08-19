@@ -16,7 +16,8 @@ browser (`src/lib/browser-download.ts`, file inputs). Every tool is:
 
 - a **registry entry** in `src/lib/tool-registry.ts` (`ToolDescriptor`:
   `id`, `name`, `shortName`, `tagline`, `href`, `fullBleed?`,
-  `mobileSupport?` + `mobileGateNotes?` — see the mobile gate, §2),
+  `mobileSupport?` + `mobileGateNotes?` — see the mobile gate, §2 — and
+  `stage?: "alpha"`, which puts an Alpha flag on the tool's top-bar tab),
 - a **route** at `src/app/tools/<id>/page.tsx` — a thin server component
   rendering one `"use client"` component from `src/components/`,
 - an optional **catalog** under `src/data/<tool>/` validated by a script +
@@ -102,12 +103,16 @@ app's typed door onto the active pack; the deck engine takes optional
 while the PICTURE deck keeps its inline illustrations.
 
 All three packs (sci-fi, fantasy, superhero) ship in the bundle, and the
-CRAFT deck's subbar carries the **world picker**: `setActiveArtPack(id)`
-points every resolver at another pack, the deck re-renders, and because art
-and bios resolve at render time nothing else needs wiring. The choice
-persists in localStorage (`digitools.prompt-builder.art-pack-v1`), restored
-through the `isArtPackId` guard — an unknown or tampered value degrades to
-the default pack (`PACKS[0]`, sci-fi) rather than throwing.
+CRAFT deck carries the **world picker** stacked inside the corner nav dock
+(`src/components/flow-nav-dock.tsx`, pinned to `.flow-workspace`'s
+bottom-right, above Back/Next): `setActiveArtPack(id)` points every resolver
+at another pack, the deck re-renders, and because art and bios resolve at
+render time nothing else needs wiring. The choice persists in localStorage
+(`digitools.prompt-builder.art-pack-v1`), restored through the `isArtPackId`
+guard — an unknown or tampered value degrades to the default pack
+(`PACKS[0]`, sci-fi) rather than throwing. The dock and the subbar's
+step strip (`src/components/flow-step-strip.tsx`) are shared by both decks —
+recycle them rather than reinventing per-deck navigation chrome.
 
 A pack whose `theme.draft` is true is skipped by the generator and the
 coverage check, so scaffolding a world cannot fail the build. Clearing that

@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 import { CardIllustrationFrame } from "@/components/prompt-builder-ui";
 import { usePortalTarget } from "@/hooks/use-portal-target";
 import { getFloatingPanelPosition } from "@/lib/floating-panel-position";
+import { pictureArchetypeArtWithFallback } from "@/lib/picture-art-pack";
 import { isCustomPictureArchetype } from "@/lib/picture-custom-archetypes";
 import { readStoredStringArray, writeStored } from "@/lib/prompt-storage";
 import type { PictureArchetype } from "@/lib/picture-types";
@@ -215,7 +216,7 @@ export function PictureArchetypeToolbar({
             >
               <CardIllustrationFrame
                 className="floating-card-art"
-                illustration={previewArchetype.illustration}
+                illustration={pictureArchetypeArtWithFallback(previewArchetype.id)}
                 fallback={previewArchetype.code.slice(0, 1)}
               />
               <div className="floating-card-panel-identity">

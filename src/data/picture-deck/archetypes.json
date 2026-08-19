@@ -6,13 +6,25 @@
       "code": "STORY",
       "name": "Storybook Cover",
       "description": "A wistful children's-book cover: watercolor washes, golden light, and a deep old forest behind your subject.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "canvas": ["watercolor"],
-        "illumination": ["golden-hour"],
-        "universe": ["ancient-forest"],
-        "references": ["art-nouveau"],
-        "execution": ["wide-establishing"]
+        "canvas": [
+          "watercolor"
+        ],
+        "illumination": [
+          "golden-hour"
+        ],
+        "universe": [
+          "ancient-forest"
+        ],
+        "references": [
+          "art-nouveau"
+        ],
+        "execution": [
+          "wide-establishing"
+        ]
       },
       "mjTail": {
         "aspectRatio": "2:3",
@@ -22,26 +34,29 @@
         "Equips five style cards across Canvas, Illumination, Universe, References, and Execution",
         "Sets the tail preset to portrait 2:3 at stylize 250",
         "Leaves your subject line untouched"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/storybook-cover.webp",
-        "alt": "A watercolor forest scene in warm golden light",
-        "motif": "wistful storybook",
-        "prompt": "a watercolor storybook scene of a small figure walking into a golden ancient forest, gentle art nouveau linework, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "neon-noir",
       "code": "NOIR",
       "name": "Neon Noir",
       "description": "A rain-soaked electric night: neon saturation, living glow, and a tight cinematic portrait crop.",
-      "tracks": { "intensity": 2 },
+      "tracks": {
+        "intensity": 2
+      },
       "equipped": {
-        "tone": ["neon-saturation"],
-        "universe": ["rainswept-city"],
-        "illumination": ["bioluminescence"],
-        "execution": ["close-portrait"]
+        "tone": [
+          "neon-saturation"
+        ],
+        "universe": [
+          "rainswept-city"
+        ],
+        "illumination": [
+          "bioluminescence"
+        ],
+        "execution": [
+          "close-portrait"
+        ]
       },
       "mjTail": {
         "aspectRatio": "16:9",
@@ -52,26 +67,31 @@
         "Equips four cards across Tone, Universe, Illumination, and Execution",
         "Pushes Intensity to Extreme so every card goes loud",
         "Sets the tail preset to wide 16:9, stylize 400, chaos 10"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/neon-noir.webp",
-        "alt": "A rain-soaked neon street reflected in wet pavement",
-        "motif": "electric noir",
-        "prompt": "a rain-soaked night street glowing with neon magenta and cyan reflections, moody cinematic noir illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "epic-fantasy-cover",
       "code": "EPIC",
       "name": "Epic Fantasy Cover",
       "description": "A storm-lit book cover in iron and jewel tones: grimdark drama shot from the ground looking up.",
-      "tracks": { "intensity": 2 },
+      "tracks": {
+        "intensity": 2
+      },
       "equipped": {
-        "references": ["dark-fantasy-grim", "baroque-drama"],
-        "illumination": ["storm-light"],
-        "tone": ["jewel-tones"],
-        "execution": ["wide-establishing", "low-angle-hero"]
+        "references": [
+          "dark-fantasy-grim",
+          "baroque-drama"
+        ],
+        "illumination": [
+          "storm-light"
+        ],
+        "tone": [
+          "jewel-tones"
+        ],
+        "execution": [
+          "wide-establishing",
+          "low-angle-hero"
+        ]
       },
       "mjTail": {
         "aspectRatio": "2:3",
@@ -81,27 +101,32 @@
         "Stacks two References with storm light, jewel tones, and two framing cards",
         "Runs at Extreme intensity for full theatrical drama",
         "Sets the tail preset to portrait 2:3 at stylize 500"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/epic-fantasy-cover.webp",
-        "alt": "A storm-lit fortress in jewel tones from a low angle",
-        "motif": "grim grandeur",
-        "prompt": "a black fortress under a lightning storm in deep jewel tones seen from a heroic low angle, epic dark fantasy cover art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "cozy-storybook",
       "code": "COZY",
       "name": "Cozy Storybook",
       "description": "A soft pastel picture-book page: watercolor, gray-day light, and a warm cluttered room around your subject.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["childrens-book-charm"],
-        "canvas": ["watercolor"],
-        "tone": ["pastel-dream"],
-        "universe": ["cozy-interior"],
-        "illumination": ["overcast-soft"]
+        "references": [
+          "childrens-book-charm"
+        ],
+        "canvas": [
+          "watercolor"
+        ],
+        "tone": [
+          "pastel-dream"
+        ],
+        "universe": [
+          "cozy-interior"
+        ],
+        "illumination": [
+          "overcast-soft"
+        ]
       },
       "mjTail": {
         "aspectRatio": "4:5",
@@ -111,27 +136,32 @@
         "Equips five gentle cards across every softness lever the deck has",
         "Keeps Intensity at Bold so the charm stays legible",
         "Sets the tail preset to social 4:5 at stylize 250"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/cozy-storybook.webp",
-        "alt": "A pastel watercolor reading nook scene",
-        "motif": "gentle page",
-        "prompt": "a pastel watercolor storybook scene of a cat asleep in a cluttered cozy reading nook, gentle children's illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "cyber-portrait",
       "code": "CYBER",
       "name": "Cyber Portrait",
       "description": "A tight face-first frame in a neon megacity: sign-glow lighting, film grade, and hard contrast.",
-      "tracks": { "intensity": 2 },
+      "tracks": {
+        "intensity": 2
+      },
       "equipped": {
-        "illumination": ["neon-glow"],
-        "universe": ["cyberpunk-megacity"],
-        "execution": ["close-portrait"],
-        "references": ["cinematic-still"],
-        "tone": ["high-contrast"]
+        "illumination": [
+          "neon-glow"
+        ],
+        "universe": [
+          "cyberpunk-megacity"
+        ],
+        "execution": [
+          "close-portrait"
+        ],
+        "references": [
+          "cinematic-still"
+        ],
+        "tone": [
+          "high-contrast"
+        ]
       },
       "mjTail": {
         "aspectRatio": "2:3",
@@ -142,25 +172,27 @@
         "Builds the classic cyberpunk close-up from five cards",
         "Runs at Extreme so the neon floods and the contrast splits",
         "Sets the tail preset to portrait 2:3, stylize 400, chaos 15"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/cyber-portrait.webp",
-        "alt": "A close portrait lit by neon signs in a megacity",
-        "motif": "neon face",
-        "prompt": "a tight portrait lit by magenta and cyan neon signs in a rainy megacity, cinematic cyberpunk photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "studio-product",
       "code": "SHOT",
       "name": "Studio Product",
       "description": "A clean commercial setup: softbox light, centered symmetry, generous emptiness, honest film texture.",
-      "tracks": { "intensity": 0 },
+      "tracks": {
+        "intensity": 0
+      },
       "equipped": {
-        "illumination": ["studio-softbox"],
-        "execution": ["symmetric-center", "minimalist-negative-space"],
-        "canvas": ["film-photograph"]
+        "illumination": [
+          "studio-softbox"
+        ],
+        "execution": [
+          "symmetric-center",
+          "minimalist-negative-space"
+        ],
+        "canvas": [
+          "film-photograph"
+        ]
       },
       "mjTail": {
         "aspectRatio": "1:1",
@@ -170,27 +202,32 @@
         "Equips the four cards of a controlled studio catalog shot",
         "Runs at Subtle so nothing upstages the subject",
         "Sets the tail preset to square 1:1 at stylize 100"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/studio-product.webp",
-        "alt": "A single object centered in clean studio light",
-        "motif": "clean catalog",
-        "prompt": "a single ceramic vase centered in clean softbox studio light with generous negative space, commercial product photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "ghost-story",
       "code": "EERIE",
       "name": "Ghost Story",
       "description": "A Victorian haunting in silver and black: a spectral figure, moonlight, and gaslit fog.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "protagonist": ["ghostly-presence"],
-        "illumination": ["moonlight"],
-        "tone": ["monochrome-noir"],
-        "references": ["gothic-romance"],
-        "universe": ["victorian-streets"]
+        "protagonist": [
+          "ghostly-presence"
+        ],
+        "illumination": [
+          "moonlight"
+        ],
+        "tone": [
+          "monochrome-noir"
+        ],
+        "references": [
+          "gothic-romance"
+        ],
+        "universe": [
+          "victorian-streets"
+        ]
       },
       "mjTail": {
         "aspectRatio": "4:5"
@@ -199,26 +236,29 @@
         "Adds a spectral co-star beside your subject",
         "Builds the haunting from moonlight, noir values, and gothic fog",
         "Sets the tail preset to social 4:5"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/ghost-story.webp",
-        "alt": "A spectral figure on a foggy gaslit street",
-        "motif": "silver haunting",
-        "prompt": "a translucent spectral figure on a foggy gaslit victorian street in silver monochrome, gothic illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "plein-air",
       "code": "PLEIN",
       "name": "Plein Air",
       "description": "An easel in a field at golden hour: broken impressionist color over honest earth tones.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["impressionist-brush"],
-        "illumination": ["golden-hour"],
-        "tone": ["earthy-naturals"],
-        "execution": ["wide-establishing"]
+        "references": [
+          "impressionist-brush"
+        ],
+        "illumination": [
+          "golden-hour"
+        ],
+        "tone": [
+          "earthy-naturals"
+        ],
+        "execution": [
+          "wide-establishing"
+        ]
       },
       "mjTail": {
         "aspectRatio": "3:2"
@@ -227,26 +267,29 @@
         "Equips the four cards of an outdoor light study",
         "Keeps Intensity at Bold for confident daubs without dissolving form",
         "Sets the tail preset to photo 3:2"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/plein-air.webp",
-        "alt": "A golden field in broken impressionist color",
-        "motif": "outdoor light study",
-        "prompt": "a golden-hour wheat field painted in broken impressionist color with visible daubs, plein-air painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "retro-sprite",
       "code": "PXL",
       "name": "Retro Sprite",
       "description": "A candy-colored pixel hero shot: 16-bit rendering, loud palette, and a look-up frame in deep space.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "canvas": ["pixel-art"],
-        "tone": ["candy-pop"],
-        "execution": ["low-angle-hero"],
-        "universe": ["space-frontier"]
+        "canvas": [
+          "pixel-art"
+        ],
+        "tone": [
+          "candy-pop"
+        ],
+        "execution": [
+          "low-angle-hero"
+        ],
+        "universe": [
+          "space-frontier"
+        ]
       },
       "mjTail": {
         "aspectRatio": "1:1"
@@ -255,27 +298,32 @@
         "Builds a game-splash pixel scene from four cards",
         "Runs at Bold so the pixels stay detailed, not chunky",
         "Sets the tail preset to square 1:1"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/retro-sprite.webp",
-        "alt": "A pixel-art hero against a candy-colored nebula",
-        "motif": "16-bit hero",
-        "prompt": "a small pixel-art astronaut hero posed against a candy-colored nebula, detailed 16-bit game art, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "wildlife-lens",
       "code": "WILD",
       "name": "Wildlife Lens",
       "description": "A patient telephoto hide: film grain, creamy bokeh, gray-sky light, and thin mountain air.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "canvas": ["film-photograph"],
-        "execution": ["shallow-bokeh"],
-        "tone": ["earthy-naturals"],
-        "universe": ["mountain-heights"],
-        "illumination": ["overcast-soft"]
+        "canvas": [
+          "film-photograph"
+        ],
+        "execution": [
+          "shallow-bokeh"
+        ],
+        "tone": [
+          "earthy-naturals"
+        ],
+        "universe": [
+          "mountain-heights"
+        ],
+        "illumination": [
+          "overcast-soft"
+        ]
       },
       "mjTail": {
         "aspectRatio": "16:9"
@@ -284,27 +332,32 @@
         "Equips the five cards of a field-photography kit",
         "Keeps color honest and the background melted",
         "Sets the tail preset to wide 16:9"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/wildlife-lens.webp",
-        "alt": "A mountain animal isolated by telephoto bokeh",
-        "motif": "patient telephoto",
-        "prompt": "a mountain fox in sharp focus against melted bokeh slopes under soft overcast light, telephoto wildlife photography, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "dream-drift",
       "code": "DREAM",
       "name": "Dream Drift",
       "description": "A lucid dream at full volume: surreal logic, opal color, floating islands, and doubled exposures.",
-      "tracks": { "intensity": 2 },
+      "tracks": {
+        "intensity": 2
+      },
       "equipped": {
-        "references": ["surrealist-dream"],
-        "tone": ["iridescent-shift"],
-        "universe": ["floating-islands"],
-        "execution": ["double-exposure"],
-        "illumination": ["volumetric-rays"]
+        "references": [
+          "surrealist-dream"
+        ],
+        "tone": [
+          "iridescent-shift"
+        ],
+        "universe": [
+          "floating-islands"
+        ],
+        "execution": [
+          "double-exposure"
+        ],
+        "illumination": [
+          "volumetric-rays"
+        ]
       },
       "mjTail": {
         "aspectRatio": "16:9",
@@ -314,26 +367,30 @@
         "Stacks five reality-bending cards at Extreme intensity",
         "Adds weird 1000 to let the model wander",
         "Sets the tail preset to wide 16:9"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/dream-drift.webp",
-        "alt": "Floating islands refracting opal light in a dream",
-        "motif": "lucid drift",
-        "prompt": "floating islands and doorways refracting opal iridescent light in a surreal dreamscape, visionary painting, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "gilded-arcana",
       "code": "ARCAN",
       "name": "Gilded Arcana",
       "description": "A tarot plate in leaded glass: centered symbolism, flowing nouveau line, and jewel-toned light.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["tarot-card-mystic", "art-nouveau"],
-        "canvas": ["stained-glass"],
-        "execution": ["symmetric-center"],
-        "tone": ["jewel-tones"]
+        "references": [
+          "tarot-card-mystic",
+          "art-nouveau"
+        ],
+        "canvas": [
+          "stained-glass"
+        ],
+        "execution": [
+          "symmetric-center"
+        ],
+        "tone": [
+          "jewel-tones"
+        ]
       },
       "mjTail": {
         "aspectRatio": "2:3",
@@ -343,25 +400,27 @@
         "Stacks tarot symbolism with art nouveau line in stained glass",
         "Centers the composition like a true arcana plate",
         "Sets the tail preset to portrait 2:3 at stylize 600"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/gilded-arcana.webp",
-        "alt": "A centered mystic figure in stained glass and gold",
-        "motif": "gilded plate",
-        "prompt": "a centered robed figure in a stained-glass arcana panel with gold ornament and jewel light, mystic illustration, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "deco-metropolis",
       "code": "METRO",
       "name": "Deco Metropolis",
       "description": "A gilded skyline from above: deco geometry, travel-poster optimism, and hard graphic contrast.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["art-deco-geometry", "vintage-travel-poster"],
-        "tone": ["high-contrast"],
-        "execution": ["birds-eye-view"]
+        "references": [
+          "art-deco-geometry",
+          "vintage-travel-poster"
+        ],
+        "tone": [
+          "high-contrast"
+        ],
+        "execution": [
+          "birds-eye-view"
+        ]
       },
       "mjTail": {
         "aspectRatio": "2:3"
@@ -370,26 +429,29 @@
         "Pairs deco geometry with travel-poster flats",
         "Looks straight down for a skyline-as-pattern frame",
         "Sets the tail preset to portrait 2:3"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/deco-metropolis.webp",
-        "alt": "A gilded deco skyline seen from above",
-        "motif": "gilded skyline",
-        "prompt": "a gilded art deco skyline seen from above with fanned sunburst geometry, vintage poster style, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "clay-mascot",
       "code": "MASCT",
       "name": "Clay Mascot",
       "description": "A friendly squashable character turnaround: clay render, pastel sweetness, studio light, dead center.",
-      "tracks": { "intensity": 0 },
+      "tracks": {
+        "intensity": 0
+      },
       "equipped": {
-        "canvas": ["clay-render"],
-        "tone": ["pastel-dream"],
-        "illumination": ["studio-softbox"],
-        "execution": ["symmetric-center"]
+        "canvas": [
+          "clay-render"
+        ],
+        "tone": [
+          "pastel-dream"
+        ],
+        "illumination": [
+          "studio-softbox"
+        ],
+        "execution": [
+          "symmetric-center"
+        ]
       },
       "mjTail": {
         "aspectRatio": "1:1"
@@ -398,26 +460,30 @@
         "Builds a toy-shelf mascot setup from four cards",
         "Runs at Subtle so the clay stays cute, not smeared",
         "Sets the tail preset to square 1:1"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/clay-mascot.webp",
-        "alt": "A cute clay character centered in studio light",
-        "motif": "squashable friend",
-        "prompt": "a cute round clay creature character centered in soft studio light with pastel colors, playful claymation render, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "cinema-frame",
       "code": "FRAME",
       "name": "Cinema Frame",
       "description": "One frame from a thriller: rim-lit figures, steel palette, thirds framing, and melted background.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["cinematic-still"],
-        "illumination": ["dramatic-rim"],
-        "tone": ["cold-steel"],
-        "execution": ["rule-of-thirds", "shallow-bokeh"]
+        "references": [
+          "cinematic-still"
+        ],
+        "illumination": [
+          "dramatic-rim"
+        ],
+        "tone": [
+          "cold-steel"
+        ],
+        "execution": [
+          "rule-of-thirds",
+          "shallow-bokeh"
+        ]
       },
       "mjTail": {
         "aspectRatio": "21:9",
@@ -427,26 +493,29 @@
         "Builds a graded thriller still from five cards",
         "Frames on thirds with a razor focal plane",
         "Sets the tail preset to cinema 21:9 at stylize 200"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/cinema-frame.webp",
-        "alt": "A rim-lit figure in a steel-toned film still",
-        "motif": "thriller still",
-        "prompt": "a rim-lit figure at a rain-streaked window in cold steel tones, moody cinematic film still, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "woodblock-journey",
       "code": "WAVE",
       "name": "Woodblock Journey",
       "description": "A traveler's print: ukiyo-e planes, muted inks, and mountain country in a wide frame.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["ukiyo-e"],
-        "universe": ["mountain-heights"],
-        "tone": ["muted-palette"],
-        "execution": ["wide-establishing"]
+        "references": [
+          "ukiyo-e"
+        ],
+        "universe": [
+          "mountain-heights"
+        ],
+        "tone": [
+          "muted-palette"
+        ],
+        "execution": [
+          "wide-establishing"
+        ]
       },
       "mjTail": {
         "aspectRatio": "3:2"
@@ -455,26 +524,29 @@
         "Builds a woodblock landscape print from four cards",
         "Keeps the palette muted like aged inks",
         "Sets the tail preset to photo 3:2"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/woodblock-journey.webp",
-        "alt": "A traveler in mountains as a woodblock print",
-        "motif": "printed journey",
-        "prompt": "a traveler on a mountain pass in ukiyo-e woodblock style with muted aged inks, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "field-journal",
       "code": "FLORA",
       "name": "Field Journal",
       "description": "A naturalist's page: botanical precision in ink, sun-faded paper, and specimens laid out at right angles.",
-      "tracks": { "intensity": 0 },
+      "tracks": {
+        "intensity": 0
+      },
       "equipped": {
-        "references": ["botanical-plate"],
-        "canvas": ["ink-illustration"],
-        "tone": ["sun-bleached"],
-        "execution": ["knolling-flatlay"]
+        "references": [
+          "botanical-plate"
+        ],
+        "canvas": [
+          "ink-illustration"
+        ],
+        "tone": [
+          "sun-bleached"
+        ],
+        "execution": [
+          "knolling-flatlay"
+        ]
       },
       "mjTail": {
         "aspectRatio": "4:5"
@@ -483,26 +555,29 @@
         "Builds an antique field-journal plate from four cards",
         "Runs at Subtle so the linework stays scientific",
         "Sets the tail preset to social 4:5"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/field-journal.webp",
-        "alt": "Specimens inked on a sun-faded journal page",
-        "motif": "naturalist page",
-        "prompt": "pressed flowers and seed pods inked with botanical precision on sun-faded paper, antique field journal plate, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     },
     {
       "id": "anime-quest",
       "code": "QUEST",
       "name": "Anime Quest",
       "description": "A key visual for an adventure that doesn't exist: cel shading, a young hero, sky islands, and god rays.",
-      "tracks": { "intensity": 1 },
+      "tracks": {
+        "intensity": 1
+      },
       "equipped": {
-        "references": ["anime-cel"],
-        "protagonist": ["spirited-child"],
-        "universe": ["floating-islands"],
-        "illumination": ["volumetric-rays"]
+        "references": [
+          "anime-cel"
+        ],
+        "protagonist": [
+          "spirited-child"
+        ],
+        "universe": [
+          "floating-islands"
+        ],
+        "illumination": [
+          "volumetric-rays"
+        ]
       },
       "mjTail": {
         "aspectRatio": "16:9",
@@ -512,14 +587,7 @@
         "Casts a spirited young hero beside your subject",
         "Builds the adventure from cel shading, sky islands, and god rays",
         "Sets the tail preset to wide 16:9 at stylize 300"
-      ],
-      "illustration": {
-        "src": "/card-art/picture/archetypes/anime-quest.webp",
-        "alt": "A cel-shaded child hero before floating islands",
-        "motif": "adventure visual",
-        "prompt": "a cel-shaded young adventurer gazing at floating islands crossed by god rays, theatrical anime key visual, square composition, no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame",
-        "status": "planned"
-      }
+      ]
     }
   ]
 }
