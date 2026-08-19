@@ -52,8 +52,10 @@ export function PromptRoleWorkbench({
   const portalTarget =
     typeof document === "undefined" ? null : document.body;
 
+  // "all" leads: the full deck is the default view and the categories act as
+  // filters over it, sized alike so no one chip stretches (owner, 2026-08-19).
   const categories = useMemo(
-    () => Array.from(new Set(roles.map((role) => role.category))),
+    () => ["all", ...Array.from(new Set(roles.map((role) => role.category)))],
     [roles],
   );
   const selectedRoles = useMemo(
@@ -64,7 +66,10 @@ export function PromptRoleWorkbench({
     [roles, selectedRoleIds],
   );
   const categoryRoles = useMemo(
-    () => roles.filter((role) => role.category === activeCategory),
+    () =>
+      activeCategory === "all"
+        ? roles
+        : roles.filter((role) => role.category === activeCategory),
     [activeCategory, roles],
   );
   const visibleRoles = useMemo(() => {
@@ -339,7 +344,7 @@ export function PromptRoleWorkbench({
         className="role-category-tabs"
         id="role-category-tabs"
         role="tablist"
-        aria-labelledby="role-category-tabs-label"
+        aria-label="Role category filters"
       >
         {categories.map((category, categoryIndex) => {
           const active = category === activeCategory;
@@ -390,8 +395,17 @@ export function PromptRoleWorkbench({
               }}
               key={category}
             >
-              <span>{roleCategoryCode(category)}</span>
-              {category.replace(/ roles$/i, "")}
+              {category === "all" ? (
+                <>
+                  <span>ALL</span>
+                  All roles
+                </>
+              ) : (
+                <>
+                  <span>{roleCategoryCode(category)}</span>
+                  {category.replace(/ roles$/i, "")}
+                </>
+              )}
             </button>
           );
         })}

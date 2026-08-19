@@ -23,7 +23,7 @@ Per image:
    press "Use this" - it writes the webp to the listed target path, flips
    this pack's `status` to `"generated"`, and re-renders this file.
 
-Progress: 0/419 generated - 119 core images first, then 300 per-grade variants.
+Progress: 426/426 generated - 119 core images first, then 307 per-grade variants.
 
 ## Shared craft rules
 
@@ -40,7 +40,7 @@ Collectible-card key art for a deck that teaches image-making. Each card demonst
 - File name: `PIC-001-Lone-Wanderer.png`
 - Target: `public/card-art/gallery/cards/lone-wanderer/lineage.webp`
 - Owner: Card `lone-wanderer`
-- Status: planned
+- Status: generated
 - Bio: Every road needs someone to mean it. Put one figure on an empty mile and the picture stops being scenery and starts being a question.
 
 ```
@@ -54,7 +54,7 @@ A lone cloaked wanderer seen from behind on an empty road winding through open m
 - File name: `PIC-002-Gentle-Giant.png`
 - Target: `public/card-art/gallery/cards/gentle-giant/lineage.webp`
 - Owner: Card `gentle-giant`
-- Status: planned
+- Status: generated
 - Bio: Bigness without threat. A giant that kneels teaches scale better than any ruler - the meadow, the clouds, and you all agree on how small you are.
 
 ```
@@ -68,7 +68,7 @@ A moss-covered gentle giant creature kneeling in a meadow to look at a tiny huma
 - File name: `PIC-003-Faithful-Companion.png`
 - Target: `public/card-art/gallery/cards/faithful-companion/lineage.webp`
 - Owner: Card `faithful-companion`
-- Status: planned
+- Status: generated
 - Bio: One figure is lonely; two is a story. The companion's job is simple - stand close enough that the picture reads as us instead of me.
 
 ```
@@ -82,7 +82,7 @@ A traveler crouched at a trailside fire with a loyal dog pressed against their s
 - File name: `PIC-004-Clockwork-Automaton.png`
 - Target: `public/card-art/gallery/cards/clockwork-automaton/lineage.webp`
 - Owner: Card `clockwork-automaton`
-- Status: planned
+- Status: generated
 - Bio: Wind it and it wonders. The automaton earns its place by doing something tender with mechanical hands - the gears are the body, the task is the soul.
 
 ```
@@ -96,7 +96,7 @@ An intricate brass clockwork automaton seated at a workbench threading a needle,
 - File name: `PIC-005-Armored-Sentinel.png`
 - Target: `public/card-art/gallery/cards/armored-sentinel/lineage.webp`
 - Owner: Card `armored-sentinel`
-- Status: planned
+- Status: generated
 - Bio: Armor is a promise worn on the outside. The sentinel stands so the picture can ask what's worth standing for.
 
 ```
@@ -110,7 +110,7 @@ An armored sentinel in full battered plate standing watch at a mountain pass gat
 - File name: `PIC-006-Wise-Elder.png`
 - Target: `public/card-art/gallery/cards/wise-elder/lineage.webp`
 - Owner: Card `wise-elder`
-- Status: planned
+- Status: generated
 - Bio: Time drawn on a face. Every line is a sentence the years wrote; the elder lets a picture carry a whole life without telling any of it.
 
 ```
@@ -124,7 +124,7 @@ A wise elder with deep lines and knowing eyes mending a fishing net on a stone s
 - File name: `PIC-007-Spirited-Child.png`
 - Target: `public/card-art/gallery/cards/spirited-child/lineage.webp`
 - Owner: Card `spirited-child`
-- Status: planned
+- Status: generated
 - Bio: Courage before scale, wonder before sense. Put a child in front and the picture points forward all by itself.
 
 ```
@@ -138,7 +138,7 @@ A spirited child in a too-big coat marching ahead up a forest path, stick raised
 - File name: `PIC-008-Winged-Beast.png`
 - Target: `public/card-art/gallery/cards/winged-beast/lineage.webp`
 - Owner: Card `winged-beast`
-- Status: planned
+- Status: generated
 - Bio: The sky needs an owner. Wings at the right size are weather; the beast decides how much of the picture belongs to the air.
 
 ```
@@ -152,7 +152,7 @@ A great winged beast perched on a sea cliff with wings half-spread against the w
 - File name: `PIC-009-Ghostly-Presence.png`
 - Target: `public/card-art/gallery/cards/ghostly-presence/lineage.webp`
 - Owner: Card `ghostly-presence`
-- Status: planned
+- Status: generated
 - Bio: Presence at half opacity. A ghost is the picture admitting that someone used to be here - and deciding not to let go of it.
 
 ```
@@ -166,7 +166,7 @@ A ghostly spectral figure drifting across an abandoned ballroom, translucent as 
 - File name: `PIC-010-Crowd-Of-Many.png`
 - Target: `public/card-art/gallery/cards/crowd-of-many/lineage.webp`
 - Owner: Card `crowd-of-many`
-- Status: planned
+- Status: generated
 - Bio: One face, then arithmetic. A crowd is scale made of people - and whoever holds still in it becomes the subject for free.
 
 ```
@@ -180,7 +180,7 @@ A flower seller with a bright cart surrounded by a bustling market crowd, faces 
 - File name: `PIC-011-Regal-Figure.png`
 - Target: `public/card-art/gallery/cards/regal-figure/lineage.webp`
 - Owner: Card `regal-figure`
-- Status: planned
+- Status: generated
 - Bio: Rank you can draw. Ceremony piles itself on a person until the picture has to decide which one it is portraying.
 
 ```
@@ -194,7 +194,7 @@ A regal crowned figure in deep ceremonial robes descending a hall of columns, tr
 - File name: `PIC-012-Weathered-Explorer.png`
 - Target: `public/card-art/gallery/cards/weathered-explorer/lineage.webp`
 - Owner: Card `weathered-explorer`
-- Status: planned
+- Status: generated
 - Bio: The journey, worn as clothing. Every scuff is a mile that actually happened; the explorer lets the picture claim distance without drawing it.
 
 ```
@@ -210,7 +210,7 @@ A weathered explorer pausing at a canyon rim with a battered pack, rolled maps, 
 - File name: `PIC-013-Golden-Hour.png`
 - Target: `public/card-art/gallery/cards/golden-hour/lineage.webp`
 - Owner: Card `golden-hour`
-- Status: planned
+- Status: generated
 - Bio: The forgiving hour. It lays gold on ordinary grass, stretches every shadow into a story, and makes even a lone tree look like it was placed there on purpose.
 
 ```
@@ -224,7 +224,7 @@ A lone oak on a grassy hillside at golden hour, low amber sunlight raking across
 - File name: `PIC-014-Bioluminescence.png`
 - Target: `public/card-art/gallery/cards/bioluminescence/lineage.webp`
 - Owner: Card `bioluminescence`
-- Status: planned
+- Status: generated
 - Bio: Light that is alive and knows it. It gathers where the water moves, spends itself in ripples, and turns the dark into something breathing.
 
 ```
@@ -238,7 +238,7 @@ A dark tidal cove at night where glowing blue-green plankton trace every ripple,
 - File name: `PIC-015-Candlelight.png`
 - Target: `public/card-art/gallery/cards/candlelight/lineage.webp`
 - Owner: Card `candlelight`
-- Status: planned
+- Status: generated
 - Bio: One small fire against the whole of the dark. It cannot light a room, so it chooses a face instead, and the room agrees to disappear.
 
 ```
@@ -252,7 +252,7 @@ An old wooden table where a hooded reader leans over an open book, lit by warm f
 - File name: `PIC-016-Moonlight.png`
 - Target: `public/card-art/gallery/cards/moonlight/lineage.webp`
 - Owner: Card `moonlight`
-- Status: planned
+- Status: generated
 - Bio: The sun's cold echo. It owns every color it touches, pays in silver, and keeps the world quiet while it counts.
 
 ```
@@ -266,7 +266,7 @@ A sleeping farmhouse and frost-touched field bathed in cold blue moonlight, the 
 - File name: `PIC-017-Neon-Glow.png`
 - Target: `public/card-art/gallery/cards/neon-glow/lineage.webp`
 - Owner: Card `neon-glow`
-- Status: planned
+- Status: generated
 - Bio: Light with an agenda. It doesn't illuminate a scene so much as advertise it, and everything it touches becomes part of the sign.
 
 ```
@@ -280,7 +280,7 @@ A late-night noodle stall on a wet street lit entirely by buzzing neon signs, ma
 - File name: `PIC-018-Harsh-Noon.png`
 - Target: `public/card-art/gallery/cards/harsh-noon/lineage.webp`
 - Owner: Card `harsh-noon`
-- Status: planned
+- Status: generated
 - Bio: The honest interrogation. No flattering angle, no soft edge - just what a thing is, printed in black directly beneath it.
 
 ```
@@ -294,7 +294,7 @@ A whitewashed courtyard at high noon, hard overhead sun cutting knife-black shad
 - File name: `PIC-019-Overcast-Soft.png`
 - Target: `public/card-art/gallery/cards/overcast-soft/lineage.webp`
 - Owner: Card `overcast-soft`
-- Status: planned
+- Status: generated
 - Bio: The world's biggest softbox. It flatters nothing and punishes nothing - it just tells the truth gently, everywhere at once.
 
 ```
@@ -308,7 +308,7 @@ A small fishing harbor under a flat gray sky, shadowless diffuse light evening o
 - File name: `PIC-020-Dramatic-Rim.png`
 - Target: `public/card-art/gallery/cards/dramatic-rim/lineage.webp`
 - Owner: Card `dramatic-rim`
-- Status: planned
+- Status: generated
 - Bio: Light that refuses to enter. It walks the border of a thing instead, and the border turns out to be enough.
 
 ```
@@ -322,7 +322,7 @@ A boxer standing in a dark gym, a hard rim light from behind drawing a bright ed
 - File name: `PIC-021-Volumetric-Rays.png`
 - Target: `public/card-art/gallery/cards/volumetric-rays/lineage.webp`
 - Owner: Card `volumetric-rays`
-- Status: planned
+- Status: generated
 - Bio: Light made visible by what floats in it. Give the air a little dust and every sunbeam confesses its geometry.
 
 ```
@@ -336,7 +336,7 @@ An old barn interior where volumetric god rays pour through gaps in the boards, 
 - File name: `PIC-022-Firelight.png`
 - Target: `public/card-art/gallery/cards/firelight/lineage.webp`
 - Owner: Card `firelight`
-- Status: planned
+- Status: generated
 - Bio: The only light that moves on its own. It never holds still long enough to be trusted, which is exactly why every story starts beside it.
 
 ```
@@ -350,7 +350,7 @@ Three travelers around a campfire at night, dancing orange firelight playing ove
 - File name: `PIC-023-Storm-Light.png`
 - Target: `public/card-art/gallery/cards/storm-light/lineage.webp`
 - Owner: Card `storm-light`
-- Status: planned
+- Status: generated
 - Bio: A flashbulb the size of the sky. It shoots one frame per storm and never asks anyone to hold still.
 
 ```
@@ -364,7 +364,7 @@ A lighthouse on a black headland under a charged storm sky, a lightning flash fr
 - File name: `PIC-024-Studio-Softbox.png`
 - Target: `public/card-art/gallery/cards/studio-softbox/lineage.webp`
 - Owner: Card `studio-softbox`
-- Status: planned
+- Status: generated
 - Bio: Light with the wildness bred out of it. Nothing here is found - every gradient was negotiated, and the shadow signed a contract.
 
 ```
@@ -380,7 +380,7 @@ A single ceramic vase on a seamless gray backdrop in crisp softbox studio light,
 - File name: `PIC-025-Oil-Painting.png`
 - Target: `public/card-art/gallery/cards/oil-painting/lineage.webp`
 - Owner: Card `oil-painting`
-- Status: planned
+- Status: generated
 - Bio: Paint that remembers the hand. Oil holds every decision the brush made, wet against wet, and never pretends the picture arrived by itself.
 
 ```
@@ -394,7 +394,7 @@ A single pear on a sunlit windowsill rendered as an expressive oil painting, con
 - File name: `PIC-026-Watercolor.png`
 - Target: `public/card-art/gallery/cards/watercolor/lineage.webp`
 - Owner: Card `watercolor`
-- Status: planned
+- Status: generated
 - Bio: Controlled flooding. Watercolor is the only medium you negotiate with - you steer the water, the water decides, and the best parts are its idea.
 
 ```
@@ -408,7 +408,7 @@ A red umbrella crossing a rainy street rendered as loose watercolor, pigment blo
 - File name: `PIC-027-Pencil-Sketch.png`
 - Target: `public/card-art/gallery/cards/pencil-sketch/lineage.webp`
 - Owner: Card `pencil-sketch`
-- Status: planned
+- Status: generated
 - Bio: Thinking you can watch. A pencil sketch leaves its scaffolding standing - every guess, correction, and change of mind still on the page.
 
 ```
@@ -422,7 +422,7 @@ A sleeping cat curled on a chair drawn as a graphite pencil sketch, visible cons
 - File name: `PIC-028-Ink-Illustration.png`
 - Target: `public/card-art/gallery/cards/ink-illustration/lineage.webp`
 - Owner: Card `ink-illustration`
-- Status: planned
+- Status: generated
 - Bio: No gray allowed. Ink commits - every tone must be earned by lines willing to cross each other, and every white is a decision not to touch.
 
 ```
@@ -436,7 +436,7 @@ A strutting rooster as a pen-and-ink illustration, crosshatched shading building
 - File name: `PIC-029-Charcoal-Drawing.png`
 - Target: `public/card-art/gallery/cards/charcoal-drawing/lineage.webp`
 - Owner: Card `charcoal-drawing`
-- Status: planned
+- Status: generated
 - Bio: Burnt wood and nerve. Charcoal smears, lifts, and shatters - the drawing stays alive because the medium never quite agrees to be finished.
 
 ```
@@ -450,7 +450,7 @@ A draft horse standing in wind rendered as a smudged charcoal drawing, deep soft
 - File name: `PIC-030-Gouache-Poster.png`
 - Target: `public/card-art/gallery/cards/gouache-poster/lineage.webp`
 - Owner: Card `gouache-poster`
-- Status: planned
+- Status: generated
 - Bio: Confidence in flats. Gouache dries matte and final - no glazing your way out - so every shape has to be right the first time.
 
 ```
@@ -464,7 +464,7 @@ A lighthouse over a cove as a mid-century gouache poster, matte flat shapes lock
 - File name: `PIC-031-Pixel-Art.png`
 - Target: `public/card-art/gallery/cards/pixel-art/lineage.webp`
 - Owner: Card `pixel-art`
-- Status: planned
+- Status: generated
 - Bio: Art by rationing. Give an image only so many squares and every one becomes a choice - nostalgia is just economy you can see.
 
 ```
@@ -478,7 +478,7 @@ A tiny cottage at dusk with a lit window rendered as detailed 16-bit pixel art, 
 - File name: `PIC-032-Low-Poly-3d.png`
 - Target: `public/card-art/gallery/cards/low-poly-3d/lineage.webp`
 - Owner: Card `low-poly-3d`
-- Status: planned
+- Status: generated
 - Bio: How few faces make a face? Low-poly is sculpture by subtraction - keep deleting triangles until only the animal's idea is left.
 
 ```
@@ -492,7 +492,7 @@ A standing stag as a low-poly 3d render, its body faceted into clean triangles, 
 - File name: `PIC-033-Clay-Render.png`
 - Target: `public/card-art/gallery/cards/clay-render/lineage.webp`
 - Owner: Card `clay-render`
-- Status: planned
+- Status: generated
 - Bio: The friendliest material. Clay keeps your fingerprints as proof that somebody played - a render you want to pick up and squish.
 
 ```
@@ -506,7 +506,7 @@ A cheerful snail with a spiral shell as a playful claymation-style render, soft 
 - File name: `PIC-034-Film-Photograph.png`
 - Target: `public/card-art/gallery/cards/film-photograph/lineage.webp`
 - Owner: Card `film-photograph`
-- Status: planned
+- Status: generated
 - Bio: Chemistry as witness. Film grain isn't noise - it's the physical texture of the moment having actually happened somewhere.
 
 ```
@@ -520,7 +520,7 @@ A roadside diner at dusk as a 35mm film photograph, natural grain across the sky
 - File name: `PIC-035-Papercut-Collage.png`
 - Target: `public/card-art/gallery/cards/papercut-collage/lineage.webp`
 - Owner: Card `papercut-collage`
-- Status: planned
+- Status: generated
 - Bio: Depth you could reach into. Paper earns its shadows honestly - every layer is a real millimeter, and the knife did all the drawing.
 
 ```
@@ -534,7 +534,7 @@ A whale diving through layered waves as a papercut collage, each depth a separat
 - File name: `PIC-036-Stained-Glass.png`
 - Target: `public/card-art/gallery/cards/stained-glass/lineage.webp`
 - Owner: Card `stained-glass`
-- Status: planned
+- Status: generated
 - Bio: A drawing the sun finishes. The lead holds the shapes; the light shows up every morning to color them in again.
 
 ```
@@ -548,7 +548,7 @@ A kingfisher over water as a stained-glass window, leaded black outlines holding
 - File name: `PIC-037-Embroidered-Textile.png`
 - Target: `public/card-art/gallery/cards/embroidered-textile/lineage.webp`
 - Owner: Card `embroidered-textile`
-- Status: planned
+- Status: generated
 - Bio: An image at a stitch per second. Embroidery spends hours where other media spend strokes - the slowness is visible, and it reads as love.
 
 ```
@@ -562,7 +562,7 @@ A sitting fox as embroidered textile art, visible satin and chain stitches build
 - File name: `PIC-038-Comic-Ink-Flats.png`
 - Target: `public/card-art/gallery/cards/comic-ink-flats/lineage.webp`
 - Owner: Card `comic-ink-flats`
-- Status: planned
+- Status: generated
 - Bio: Line does the acting. Comics flatten color so the ink can move - one confident outline is worth a hundred rendered muscles.
 
 ```
@@ -578,7 +578,7 @@ A courier leaping a rooftop gap drawn as a single comic panel, bold ink outlines
 - File name: `PIC-039-Muted-Palette.png`
 - Target: `public/card-art/gallery/cards/muted-palette/lineage.webp`
 - Owner: Card `muted-palette`
-- Status: planned
+- Status: generated
 - Bio: Color speaking under its breath. Mute the palette and the values step forward - the picture gets quieter and somehow easier to hear.
 
 ```
@@ -592,7 +592,7 @@ A quiet fishing village at dawn in a muted desaturated palette, grays and soften
 - File name: `PIC-040-Neon-Saturation.png`
 - Target: `public/card-art/gallery/cards/neon-saturation/lineage.webp`
 - Owner: Card `neon-saturation`
-- Status: planned
+- Status: generated
 - Bio: Color as voltage. Past a certain saturation the palette stops describing things and starts broadcasting - realism traded for pure signal.
 
 ```
@@ -606,7 +606,7 @@ A narrow arcade alley at night in a saturated neon palette, glowing magenta and 
 - File name: `PIC-041-Pastel-Dream.png`
 - Target: `public/card-art/gallery/cards/pastel-dream/lineage.webp`
 - Owner: Card `pastel-dream`
-- Status: planned
+- Status: generated
 - Bio: The volume knob turned toward kindness. Pastels promise that nothing in the picture will hurt you - and keep the promise.
 
 ```
@@ -620,7 +620,7 @@ Hot-air balloons drifting over misty hills in a soft dreamy pastel palette, powd
 - File name: `PIC-042-Monochrome-Noir.png`
 - Target: `public/card-art/gallery/cards/monochrome-noir/lineage.webp`
 - Owner: Card `monochrome-noir`
-- Status: planned
+- Status: generated
 - Bio: Subtract color, inherit mood. Noir proves the palette was optional all along - shadow and one hard light can carry the entire story.
 
 ```
@@ -634,7 +634,7 @@ A rain-slick exterior stairwell at night in true black-and-white noir, deep cont
 - File name: `PIC-043-Earthy-Naturals.png`
 - Target: `public/card-art/gallery/cards/earthy-naturals/lineage.webp`
 - Owner: Card `earthy-naturals`
-- Status: planned
+- Status: generated
 - Bio: Colors with fingerprints of the ground on them. Nothing synthetic, nothing borrowed - a palette you could dig up with a spade.
 
 ```
@@ -648,7 +648,7 @@ A stone barn with stacked pumpkins and hay in an earthy palette of ochre, moss, 
 - File name: `PIC-044-Jewel-Tones.png`
 - Target: `public/card-art/gallery/cards/jewel-tones/lineage.webp`
 - Owner: Card `jewel-tones`
-- Status: planned
+- Status: generated
 - Bio: Depth instead of glow. Jewel tones saturate downward - richer, darker, heavier - luxury measured in how far the color goes in.
 
 ```
@@ -662,7 +662,7 @@ A bazaar textile stall stacked with silks in rich jewel tones - emerald, sapphir
 - File name: `PIC-045-Sepia-Vintage.png`
 - Target: `public/card-art/gallery/cards/sepia-vintage/lineage.webp`
 - Owner: Card `sepia-vintage`
-- Status: planned
+- Status: generated
 - Bio: Time as a pigment. Sepia is what memory does to color - keeps the warmth, files off the specifics, and calls it truth.
 
 ```
@@ -676,7 +676,7 @@ An old fairground carousel aged into sepia tones, warm brown chemistry over ever
 - File name: `PIC-046-Iridescent-Shift.png`
 - Target: `public/card-art/gallery/cards/iridescent-shift/lineage.webp`
 - Owner: Card `iridescent-shift`
-- Status: planned
+- Status: generated
 - Bio: Color that won't hold still. Iridescence lives between you and the surface - tilt your head and the palette repaints itself.
 
 ```
@@ -690,7 +690,7 @@ A jewel beetle on a wet leaf in iridescent oil-slick color, its shell shifting g
 - File name: `PIC-047-High-Contrast.png`
 - Target: `public/card-art/gallery/cards/high-contrast/lineage.webp`
 - Owner: Card `high-contrast`
-- Status: planned
+- Status: generated
 - Bio: No diplomacy between light and dark. Contrast deletes the middle ground until every edge becomes a decision.
 
 ```
@@ -704,7 +704,7 @@ A chess set by a window in high contrast, hard highlights against deep shadows, 
 - File name: `PIC-048-Candy-Pop.png`
 - Target: `public/card-art/gallery/cards/candy-pop/lineage.webp`
 - Owner: Card `candy-pop`
-- Status: planned
+- Status: generated
 - Bio: Serotonin as a palette. Candy color doesn't describe the world - it frosts it, and dares you not to smile.
 
 ```
@@ -718,7 +718,7 @@ An ice-cream van on a sunny street in a glossy candy-pop palette, bubblegum pink
 - File name: `PIC-049-Cold-Steel.png`
 - Target: `public/card-art/gallery/cards/cold-steel/lineage.webp`
 - Owner: Card `cold-steel`
-- Status: planned
+- Status: generated
 - Bio: The temperature of machinery. Steel blues keep their distance - a palette that respects you without once being friendly.
 
 ```
@@ -732,7 +732,7 @@ A shipyard crane over gray water in a cold steel palette, slate blues and gunmet
 - File name: `PIC-050-Sun-Bleached.png`
 - Target: `public/card-art/gallery/cards/sun-bleached/lineage.webp`
 - Owner: Card `sun-bleached`
-- Status: planned
+- Status: generated
 - Bio: What the sun leaves behind. Bleached color is history you can read - every faded plank an honest record of ten thousand noons.
 
 ```
@@ -748,7 +748,7 @@ An old boardwalk fence and beach signage in a sun-bleached palette, colors faded
 - File name: `PIC-051-Rainswept-City.png`
 - Target: `public/card-art/gallery/cards/rainswept-city/lineage.webp`
 - Owner: Card `rainswept-city`
-- Status: planned
+- Status: generated
 - Bio: A city that got a second copy of itself. Rain turns every dull street into a mirror and every light into two.
 
 ```
@@ -762,7 +762,7 @@ A rain-swept night city where a figure with an umbrella waits at a crossing, str
 - File name: `PIC-052-Ancient-Forest.png`
 - Target: `public/card-art/gallery/cards/ancient-forest/lineage.webp`
 - Owner: Card `ancient-forest`
-- Status: planned
+- Status: generated
 - Bio: Time measured in moss. The old woods keep their own light, their own weather, and their own opinion of visitors.
 
 ```
@@ -776,7 +776,7 @@ Deep in an ancient mossy forest where a deer path bends between colossal trunks,
 - File name: `PIC-053-Desert-Expanse.png`
 - Target: `public/card-art/gallery/cards/desert-expanse/lineage.webp`
 - Owner: Card `desert-expanse`
-- Status: planned
+- Status: generated
 - Bio: Emptiness with excellent posture. The desert deletes everything optional and keeps only light, distance, and whoever insists on crossing.
 
 ```
@@ -790,7 +790,7 @@ A vast desert of rolling dunes with a tiny camel caravan cresting one ridge, win
 - File name: `PIC-054-Frozen-Tundra.png`
 - Target: `public/card-art/gallery/cards/frozen-tundra/lineage.webp`
 - Owner: Card `frozen-tundra`
-- Status: planned
+- Status: generated
 - Bio: Cold as a landlord. The tundra charges for every mile and pays out in a silence you can hear your heartbeat inside.
 
 ```
@@ -804,7 +804,7 @@ A frozen tundra of deep snow and blue-shadowed ice where a sled team pushes towa
 - File name: `PIC-055-Underwater-Depths.png`
 - Target: `public/card-art/gallery/cards/underwater-depths/lineage.webp`
 - Owner: Card `underwater-depths`
-- Status: planned
+- Status: generated
 - Bio: Gravity resigns; blue takes over. Underwater every direction is a suggestion and the light arrives already tired.
 
 ```
@@ -818,7 +818,7 @@ Deep underwater where a lone diver hangs in open blue, light shafts angling down
 - File name: `PIC-056-Mountain-Heights.png`
 - Target: `public/card-art/gallery/cards/mountain-heights/lineage.webp`
 - Owner: Card `mountain-heights`
-- Status: planned
+- Status: generated
 - Bio: Geography with an ego. Mountains rearrange the sky, bully the weather, and make everything humans build look temporary.
 
 ```
@@ -832,7 +832,7 @@ High jagged mountain country where a climber traverses a spine of rock, valleys 
 - File name: `PIC-057-Cozy-Interior.png`
 - Target: `public/card-art/gallery/cards/cozy-interior/lineage.webp`
 - Owner: Card `cozy-interior`
-- Status: planned
+- Status: generated
 - Bio: Architecture at blanket scale. A cozy room is a place that has decided the weather outside is somebody else's problem.
 
 ```
@@ -846,7 +846,7 @@ A cozy cluttered interior where a cat sleeps in an armchair among blankets, plan
 - File name: `PIC-058-Grand-Library.png`
 - Target: `public/card-art/gallery/cards/grand-library/lineage.webp`
 - Owner: Card `grand-library`
-- Status: planned
+- Status: generated
 - Bio: Knowledge with a skyline. A great library is a city where every citizen is a book and silence is the traffic.
 
 ```
@@ -860,7 +860,7 @@ A grand vaulted library where a small reader stands at a table beneath tiers of 
 - File name: `PIC-059-Floating-Islands.png`
 - Target: `public/card-art/gallery/cards/floating-islands/lineage.webp`
 - Owner: Card `floating-islands`
-- Status: planned
+- Status: generated
 - Bio: Ground that gave notice. Float the land and every waterfall becomes a question the sky has to answer.
 
 ```
@@ -874,7 +874,7 @@ Grassy islands hanging in open sky with waterfalls pouring off their edges into 
 - File name: `PIC-060-Cyberpunk-Megacity.png`
 - Target: `public/card-art/gallery/cards/cyberpunk-megacity/lineage.webp`
 - Owner: Card `cyberpunk-megacity`
-- Status: planned
+- Status: generated
 - Bio: A city that forgot how to stop. It stacked streets on streets until 'up' became a district and the ground became a legend.
 
 ```
@@ -888,7 +888,7 @@ A cyberpunk megacity of layered towers and elevated trains where a street vendor
 - File name: `PIC-061-Medieval-Village.png`
 - Target: `public/card-art/gallery/cards/medieval-village/lineage.webp`
 - Owner: Card `medieval-village`
-- Status: planned
+- Status: generated
 - Bio: The centuries with the volume up. Thatch, timber, and mud arranging themselves into a postcard nobody sent yet.
 
 ```
@@ -902,7 +902,7 @@ A medieval village of thatch and timber around a market square, geese scattering
 - File name: `PIC-062-Space-Frontier.png`
 - Target: `public/card-art/gallery/cards/space-frontier/lineage.webp`
 - Owner: Card `space-frontier`
-- Status: planned
+- Status: generated
 - Bio: The neighborhood after the sky. Space grants infinite room and charges exactly one atmosphere for it.
 
 ```
@@ -916,7 +916,7 @@ The space frontier: a ring station turning over a curving planet, tug ships cros
 - File name: `PIC-063-Victorian-Streets.png`
 - Target: `public/card-art/gallery/cards/victorian-streets/lineage.webp`
 - Owner: Card `victorian-streets`
-- Status: planned
+- Status: generated
 - Bio: A city wearing its weather indoors. Gaslight and fog negotiate every evening, and the fog usually wins by morning.
 
 ```
@@ -930,7 +930,7 @@ Foggy Victorian streets of iron and brick where a lamplighter raises his pole to
 - File name: `PIC-064-Tropical-Shore.png`
 - Target: `public/card-art/gallery/cards/tropical-shore/lineage.webp`
 - Owner: Card `tropical-shore`
-- Status: planned
+- Status: generated
 - Bio: Paradise runs on two pigments. Turquoise and palm-green split the world between them and let the sand keep the change.
 
 ```
@@ -946,7 +946,7 @@ A tropical shore of turquoise water and leaning palms where a beached outrigger 
 - File name: `PIC-065-Art-Nouveau.png`
 - Target: `public/card-art/gallery/cards/art-nouveau/lineage.webp`
 - Owner: Card `art-nouveau`
-- Status: planned
+- Status: generated
 - Bio: The line that refuses corners. Nouveau lets hair, smoke, and stems all speak the same curving language until ornament becomes structure.
 
 ```
@@ -960,7 +960,7 @@ A woman with long flowing hair among climbing wisteria, rendered in art nouveau 
 - File name: `PIC-066-Ukiyo-E.png`
 - Target: `public/card-art/gallery/cards/ukiyo-e/lineage.webp`
 - Owner: Card `ukiyo-e`
-- Status: planned
+- Status: generated
 - Bio: The floating world, four colors at a time. Ukiyo-e proves an ocean fits in flat planes if every line knows its job.
 
 ```
@@ -974,7 +974,7 @@ A ferryboat crossing beneath a rising wave in ukiyo-e woodblock style, flat conf
 - File name: `PIC-067-Impressionist-Brush.png`
 - Target: `public/card-art/gallery/cards/impressionist-brush/lineage.webp`
 - Owner: Card `impressionist-brush`
-- Status: planned
+- Status: generated
 - Bio: Light caught mid-sentence. The impressionists painted fast because the sun would not hold the pose.
 
 ```
@@ -988,7 +988,7 @@ A garden luncheon under dappled shade in impressionist style, broken color and v
 - File name: `PIC-068-Baroque-Drama.png`
 - Target: `public/card-art/gallery/cards/baroque-drama/lineage.webp`
 - Owner: Card `baroque-drama`
-- Status: planned
+- Status: generated
 - Bio: Lighting as theology. The baroque decided shadow was a stage curtain and light an argument you could win.
 
 ```
@@ -1002,7 +1002,7 @@ A candlelit gathering around a table in dramatic baroque style, deep chiaroscuro
 - File name: `PIC-069-Surrealist-Dream.png`
 - Target: `public/card-art/gallery/cards/surrealist-dream/lineage.webp`
 - Owner: Card `surrealist-dream`
-- Status: planned
+- Status: generated
 - Bio: Logic on sabbatical. Surrealism keeps the rendering honest so the impossibility lands - you believe the door precisely because the grass is real.
 
 ```
@@ -1016,7 +1016,7 @@ A freestanding doorway open in an empty field in surrealist style, dream logic i
 - File name: `PIC-070-Gothic-Romance.png`
 - Target: `public/card-art/gallery/cards/gothic-romance/lineage.webp`
 - Owner: Card `gothic-romance`
-- Status: planned
+- Status: generated
 - Bio: Sorrow, but make it architecture. The gothic keeps its broken hearts in broken buildings so the weather can grieve along.
 
 ```
@@ -1030,7 +1030,7 @@ A figure in a long dress at the window of a ruined abbey in gothic romance style
 - File name: `PIC-071-Art-Deco-Geometry.png`
 - Target: `public/card-art/gallery/cards/art-deco-geometry/lineage.webp`
 - Owner: Card `art-deco-geometry`
-- Status: planned
+- Status: generated
 - Bio: Optimism, machined and gilded. Deco believed the future would arrive by elevator, and dressed the lobby for it.
 
 ```
@@ -1044,7 +1044,7 @@ A grand hotel entrance in art deco style, gilded geometry and fanned sunburst mo
 - File name: `PIC-072-Renaissance-Fresco.png`
 - Target: `public/card-art/gallery/cards/renaissance-fresco/lineage.webp`
 - Owner: Card `renaissance-fresco`
-- Status: planned
+- Status: generated
 - Bio: Paint married to the wall. A fresco sets in an afternoon and stays five centuries - conviction measured in wet plaster.
 
 ```
@@ -1058,7 +1058,7 @@ Robed figures gathered beneath an arch as a renaissance fresco, drapery studied 
 - File name: `PIC-073-Van-Gogh-Swirl.png`
 - Target: `public/card-art/gallery/cards/van-gogh-swirl/lineage.webp`
 - Owner: Card `van-gogh-swirl`
-- Status: planned
+- Status: generated
 - Bio: Weather systems made of paint. He didn't render the night - he reported its currents, and the currents were true.
 
 ```
@@ -1072,7 +1072,7 @@ A cypress tree under a night sky in the style of van gogh, thick swirling impast
 - File name: `PIC-074-Anime-Cel.png`
 - Target: `public/card-art/gallery/cards/anime-cel/lineage.webp`
 - Owner: Card `anime-cel`
-- Status: planned
+- Status: generated
 - Bio: Feeling at 24 frames of clarity. Cel shading strips light to two decisions so the eyes can carry everything else.
 
 ```
@@ -1086,7 +1086,7 @@ A student leaning on a school rooftop railing in anime cel style, clean linework
 - File name: `PIC-075-Cinematic-Still.png`
 - Target: `public/card-art/gallery/cards/cinematic-still/lineage.webp`
 - Owner: Card `cinematic-still`
-- Status: planned
+- Status: generated
 - Bio: One frame owing a whole movie. Grade, blocking, and focus conspire until a paused image starts playing itself.
 
 ```
@@ -1100,7 +1100,7 @@ Two figures across a diner booth as a cinematic film still, anamorphic framing, 
 - File name: `PIC-076-Concept-Art-Sheet.png`
 - Target: `public/card-art/gallery/cards/concept-art-sheet/lineage.webp`
 - Owner: Card `concept-art-sheet`
-- Status: planned
+- Status: generated
 - Bio: Drawing as decision-making. Concept art exists to answer questions - what it's made of, how it moves, why it matters - beautifully.
 
 ```
@@ -1114,7 +1114,7 @@ A moss-grown guardian golem rendered as polished production concept art, confide
 - File name: `PIC-077-Vaporwave-Grid.png`
 - Target: `public/card-art/gallery/cards/vaporwave-grid/lineage.webp`
 - Owner: Card `vaporwave-grid`
-- Status: planned
+- Status: generated
 - Bio: Nostalgia for a place that never existed. Vaporwave decorates the afterlife of dead software in marble and sunset.
 
 ```
@@ -1128,7 +1128,7 @@ A marble bust and potted palm on a pink-and-teal wireframe grid in vaporwave sty
 - File name: `PIC-078-Cottagecore-Idyll.png`
 - Target: `public/card-art/gallery/cards/cottagecore-idyll/lineage.webp`
 - Owner: Card `cottagecore-idyll`
-- Status: planned
+- Status: generated
 - Bio: The pastoral dream with the wifi hidden. Cottagecore is a promise that somewhere the bread is warm and the bees are employed.
 
 ```
@@ -1142,7 +1142,7 @@ A cottage garden table in cottagecore style - fresh bread and wildflowers on gin
 - File name: `PIC-079-Dark-Fantasy-Grim.png`
 - Target: `public/card-art/gallery/cards/dark-fantasy-grim/lineage.webp`
 - Owner: Card `dark-fantasy-grim`
-- Status: planned
+- Status: generated
 - Bio: Fantasy with the warranty expired. Grimdark keeps the dragons and cancels the rescue - atmosphere you have to survive.
 
 ```
@@ -1156,7 +1156,7 @@ A hooded pilgrim before an iron shrine in dark fantasy style - bone charms, gutt
 - File name: `PIC-080-Synthwave-Sunset.png`
 - Target: `public/card-art/gallery/cards/synthwave-sunset/lineage.webp`
 - Owner: Card `synthwave-sunset`
-- Status: planned
+- Status: generated
 - Bio: A decade's daydream at 120mph. Synthwave drives toward a sun made of stripes and never wants to arrive.
 
 ```
@@ -1170,7 +1170,7 @@ A chrome sports car on an endless highway toward a striped synthwave sunset, neo
 - File name: `PIC-081-Childrens-Book-Charm.png`
 - Target: `public/card-art/gallery/cards/childrens-book-charm/lineage.webp`
 - Owner: Card `childrens-book-charm`
-- Status: planned
+- Status: generated
 - Bio: Drawn to be read aloud. The wobble in the line is on purpose - it is the visual voice of once upon a time.
 
 ```
@@ -1184,7 +1184,7 @@ A round bear in a red scarf carrying an umbrella as a warm children's storybook 
 - File name: `PIC-082-Tarot-Card-Mystic.png`
 - Target: `public/card-art/gallery/cards/tarot-card-mystic/lineage.webp`
 - Owner: Card `tarot-card-mystic`
-- Status: planned
+- Status: generated
 - Bio: A picture that expects to be read. The arcana arranges its symbols like a sentence and lets you supply the fortune.
 
 ```
@@ -1198,7 +1198,7 @@ A robed figure holding a lantern composed like a tarot arcana - centered and fro
 - File name: `PIC-083-Vintage-Travel-Poster.png`
 - Target: `public/card-art/gallery/cards/vintage-travel-poster/lineage.webp`
 - Owner: Card `vintage-travel-poster`
-- Status: planned
+- Status: generated
 - Bio: Geography with a sales team. The travel poster simplifies a place into the version of itself you would buy a ticket for.
 
 ```
@@ -1212,7 +1212,7 @@ A clifftop coastal village as a vintage travel poster, flat optimistic shapes, s
 - File name: `PIC-084-Botanical-Plate.png`
 - Target: `public/card-art/gallery/cards/botanical-plate/lineage.webp`
 - Owner: Card `botanical-plate`
-- Status: planned
+- Status: generated
 - Bio: Reverence disguised as taxonomy. The botanical plate looks at one plant harder than most pictures look at anything.
 
 ```
@@ -1228,7 +1228,7 @@ A flowering nightshade studied as a botanical scientific illustration on cream p
 - File name: `PIC-085-Close-Portrait.png`
 - Target: `public/card-art/gallery/cards/close-portrait/lineage.webp`
 - Owner: Card `close-portrait`
-- Status: planned
+- Status: generated
 - Bio: Distance deleted. The close portrait spends the entire frame on one face and dares it to keep a secret.
 
 ```
@@ -1242,7 +1242,7 @@ An intimate close-up portrait of a freckled sailor, weathered face filling most 
 - File name: `PIC-086-Wide-Establishing.png`
 - Target: `public/card-art/gallery/cards/wide-establishing/lineage.webp`
 - Owner: Card `wide-establishing`
-- Status: planned
+- Status: generated
 - Bio: The sentence before the story. A wide shot tells you where everything is so every later frame knows what it's leaving out.
 
 ```
@@ -1256,7 +1256,7 @@ A wide establishing shot of a river valley at dawn - a small monastery on a bend
 - File name: `PIC-087-Low-Angle-Hero.png`
 - Target: `public/card-art/gallery/cards/low-angle-hero/lineage.webp`
 - Owner: Card `low-angle-hero`
-- Status: planned
+- Status: generated
 - Bio: Respect is an angle. Drop the camera to the ground and anyone standing becomes architecture.
 
 ```
@@ -1270,7 +1270,7 @@ A firefighter stepping from smoke shot from near the ground, low-angle hero fram
 - File name: `PIC-088-Birds-Eye-View.png`
 - Target: `public/card-art/gallery/cards/birds-eye-view/lineage.webp`
 - Owner: Card `birds-eye-view`
-- Status: planned
+- Status: generated
 - Bio: The view that turns life into pattern. Straight down, a crowd becomes weather and a street becomes a diagram of itself.
 
 ```
@@ -1284,7 +1284,7 @@ A street market seen straight down from above, bird's-eye view flattening stalls
 - File name: `PIC-089-Dutch-Tilt.png`
 - Target: `public/card-art/gallery/cards/dutch-tilt/lineage.webp`
 - Owner: Card `dutch-tilt`
-- Status: planned
+- Status: generated
 - Bio: Unease by rotation. Tip the horizon and the viewer's inner ear joins the cast.
 
 ```
@@ -1298,7 +1298,7 @@ A courier sprinting through an alley with the whole frame on a dutch tilt, horiz
 - File name: `PIC-090-Symmetric-Center.png`
 - Target: `public/card-art/gallery/cards/symmetric-center/lineage.webp`
 - Owner: Card `symmetric-center`
-- Status: planned
+- Status: generated
 - Bio: Order announced out loud. Central symmetry is composition standing at attention - calm to some eyes, ominous to others, deliberate to all.
 
 ```
@@ -1312,7 +1312,7 @@ A grand hotel corridor in perfectly symmetrical centered composition, chandelier
 - File name: `PIC-091-Rule-Of-Thirds.png`
 - Target: `public/card-art/gallery/cards/rule-of-thirds/lineage.webp`
 - Owner: Card `rule-of-thirds`
-- Status: planned
+- Status: generated
 - Bio: The grid nobody sees and everybody feels. Thirds give a subject somewhere to look toward - and the picture room to answer.
 
 ```
@@ -1326,7 +1326,7 @@ A small red boat placed on the lower-left third of a wide calm sea, rule-of-thir
 - File name: `PIC-092-Shallow-Bokeh.png`
 - Target: `public/card-art/gallery/cards/shallow-bokeh/lineage.webp`
 - Owner: Card `shallow-bokeh`
-- Status: planned
+- Status: generated
 - Bio: Attention rendered optically. Bokeh is the lens agreeing to forget everything except the one thing you meant.
 
 ```
@@ -1340,7 +1340,7 @@ A barista's hands pouring latte art in shallow depth of field, the cup razor-sha
 - File name: `PIC-093-Long-Exposure.png`
 - Target: `public/card-art/gallery/cards/long-exposure/lineage.webp`
 - Owner: Card `long-exposure`
-- Status: planned
+- Status: generated
 - Bio: The camera holding its breath. A long exposure lets time pile up in one frame until motion becomes material.
 
 ```
@@ -1354,7 +1354,7 @@ A stone bridge over a waterfall at dusk in long exposure, the water silked to mi
 - File name: `PIC-094-Double-Exposure.png`
 - Target: `public/card-art/gallery/cards/double-exposure/lineage.webp`
 - Owner: Card `double-exposure`
-- Status: planned
+- Status: generated
 - Bio: Two truths, one frame. The double exposure lets a person contain a landscape and calls the overlap honesty.
 
 ```
@@ -1368,7 +1368,7 @@ A double exposure blending a woman's profile with a pine forest, the treeline ri
 - File name: `PIC-095-Silhouette-Shot.png`
 - Target: `public/card-art/gallery/cards/silhouette-shot/lineage.webp`
 - Owner: Card `silhouette-shot`
-- Status: planned
+- Status: generated
 - Bio: Identity by outline. The silhouette deletes every detail and keeps only the shape - which turns out to be the part you recognize.
 
 ```
@@ -1382,7 +1382,7 @@ A fisherman casting from a jetty as a clean black silhouette against a blazing s
 - File name: `PIC-096-Motion-Blur-Action.png`
 - Target: `public/card-art/gallery/cards/motion-blur-action/lineage.webp`
 - Owner: Card `motion-blur-action`
-- Status: planned
+- Status: generated
 - Bio: Speed you can develop. Motion blur is the frame confessing it couldn't hold still either.
 
 ```
@@ -1396,7 +1396,7 @@ A cyclist sprinting through a city in a panned action shot, rider sharp while th
 - File name: `PIC-097-Isometric-View.png`
 - Target: `public/card-art/gallery/cards/isometric-view/lineage.webp`
 - Owner: Card `isometric-view`
-- Status: planned
+- Status: generated
 - Bio: Perspective, off the clock. Isometric space never converges - the world becomes a toy you understand completely.
 
 ```
@@ -1410,7 +1410,7 @@ A corner bakery rendered in isometric view, parallel projection with no vanishin
 - File name: `PIC-098-Knolling-Flatlay.png`
 - Target: `public/card-art/gallery/cards/knolling-flatlay/lineage.webp`
 - Owner: Card `knolling-flatlay`
-- Status: planned
+- Status: generated
 - Bio: Tidiness as portraiture. Knolling lays a life out at right angles and lets the objects testify.
 
 ```
@@ -1424,7 +1424,7 @@ A ranger's field kit knolled on canvas from above - knife, compass, matches, rop
 - File name: `PIC-099-Hyper-Detailed.png`
 - Target: `public/card-art/gallery/cards/hyper-detailed/lineage.webp`
 - Owner: Card `hyper-detailed`
-- Status: planned
+- Status: generated
 - Bio: Generosity by the square inch. Hyper-detail promises that anywhere you look, the picture already looked harder.
 
 ```
@@ -1438,7 +1438,7 @@ A tide pool rendered hyper-detailed - every barnacle, bubble, and grain resolved
 - File name: `PIC-100-Minimalist-Negative-Space.png`
 - Target: `public/card-art/gallery/cards/minimalist-negative-space/lineage.webp`
 - Owner: Card `minimalist-negative-space`
-- Status: planned
+- Status: generated
 - Bio: The art of what you leave out. Negative space isn't empty - it's the frame holding its breath around one small thing.
 
 ```
@@ -1454,7 +1454,7 @@ A single red kite high in a vast pale sky, minimalist composition, the tiny diam
 - File name: `PIC-101-Storybook-Cover.png`
 - Target: `public/card-art/gallery/archetypes/storybook-cover.webp`
 - Owner: Archetype `storybook-cover`
-- Status: planned
+- Status: generated
 - Bio: The cover that promises the whole journey: gold light, old trees, and a figure exactly small enough to root for.
 
 ```
@@ -1468,7 +1468,7 @@ A small cloaked figure stepping into a vast golden ancient forest, painted in lo
 - File name: `PIC-102-Neon-Noir.png`
 - Target: `public/card-art/gallery/archetypes/neon-noir.webp`
 - Owner: Archetype `neon-noir`
-- Status: planned
+- Status: generated
 - Bio: One face, one storm of signal. The city does the lighting and the rain signs the print.
 
 ```
@@ -1482,7 +1482,7 @@ A tight close-up portrait of a rain-soaked figure in a night city, saturated neo
 - File name: `PIC-103-Epic-Fantasy-Cover.png`
 - Target: `public/card-art/gallery/archetypes/epic-fantasy-cover.webp`
 - Owner: Archetype `epic-fantasy-cover`
-- Status: planned
+- Status: generated
 - Bio: Thunder, iron, and jewel-deep color. The cover for a book heavy enough to prop a door.
 
 ```
@@ -1496,7 +1496,7 @@ A lone armored figure on a crag shot from near the ground looking up, storm ligh
 - File name: `PIC-104-Cozy-Storybook.png`
 - Target: `public/card-art/gallery/archetypes/cozy-storybook.webp`
 - Owner: Archetype `cozy-storybook`
-- Status: planned
+- Status: generated
 - Bio: Gray light outside, pastel warmth inside. A page built for reading aloud at whisper volume.
 
 ```
@@ -1510,7 +1510,7 @@ A warm cluttered reading nook painted in soft watercolor with friendly children'
 - File name: `PIC-105-Cyber-Portrait.png`
 - Target: `public/card-art/gallery/archetypes/cyber-portrait.webp`
 - Owner: Archetype `cyber-portrait`
-- Status: planned
+- Status: generated
 - Bio: The city writes its signs on the nearest face. High contrast keeps only what the neon insists on.
 
 ```
@@ -1524,7 +1524,7 @@ A tight cinematic close-up of a face lit by buzzing neon signs, cyberpunk megaci
 - File name: `PIC-106-Studio-Product.png`
 - Target: `public/card-art/gallery/archetypes/studio-product.webp`
 - Owner: Archetype `studio-product`
-- Status: planned
+- Status: generated
 - Bio: Silence, symmetry, softbox. The product shot where even the shadow was hired.
 
 ```
@@ -1538,7 +1538,7 @@ A single beautiful object dead center on a seamless backdrop in crisp softbox st
 - File name: `PIC-107-Ghost-Story.png`
 - Target: `public/card-art/gallery/archetypes/ghost-story.webp`
 - Owner: Archetype `ghost-story`
-- Status: planned
+- Status: generated
 - Bio: Silver light, black iron, and someone who never left. The fog does the rest.
 
 ```
@@ -1552,7 +1552,7 @@ A translucent spectral figure drifting down a foggy gaslit Victorian street, col
 - File name: `PIC-108-Plein-Air.png`
 - Target: `public/card-art/gallery/archetypes/plein-air.webp`
 - Owner: Archetype `plein-air`
-- Status: planned
+- Status: generated
 - Bio: Chasing the light on location. The field, the hour, and the paint all wet at once.
 
 ```
@@ -1566,7 +1566,7 @@ A wide golden-hour field with a distant easel and painter, rendered in broken im
 - File name: `PIC-109-Retro-Sprite.png`
 - Target: `public/card-art/gallery/archetypes/retro-sprite.webp`
 - Owner: Archetype `retro-sprite`
-- Status: planned
+- Status: generated
 - Bio: Sixteen bits of courage in bubblegum and lemon. Press start to believe in it.
 
 ```
@@ -1580,7 +1580,7 @@ A small heroic figure seen from a low angle, rendered as detailed 16-bit pixel a
 - File name: `PIC-110-Wildlife-Lens.png`
 - Target: `public/card-art/gallery/archetypes/wildlife-lens.webp`
 - Owner: Archetype `wildlife-lens`
-- Status: planned
+- Status: generated
 - Bio: Hours of stillness for one honest frame. The bokeh forgets the mountain so the fox can be everything.
 
 ```
@@ -1594,7 +1594,7 @@ A mountain fox caught through a telephoto lens on 35mm film, creamy bokeh dissol
 - File name: `PIC-111-Dream-Drift.png`
 - Target: `public/card-art/gallery/archetypes/dream-drift.webp`
 - Owner: Archetype `dream-drift`
-- Status: planned
+- Status: generated
 - Bio: Sleep with the saturation up. Islands fly, color refuses to choose, and the dreamer contains the weather.
 
 ```
@@ -1608,7 +1608,7 @@ A dreamer's silhouette double-exposed with floating islands and waterfalls, surr
 - File name: `PIC-112-Gilded-Arcana.png`
 - Target: `public/card-art/gallery/archetypes/gilded-arcana.webp`
 - Owner: Archetype `gilded-arcana`
-- Status: planned
+- Status: generated
 - Bio: Meaning you can hold to the light. The cards, the glass, and the sun conspire on the reading.
 
 ```
@@ -1622,7 +1622,7 @@ A centered symbolic figure composed like a tarot arcana rendered as a leaded sta
 - File name: `PIC-113-Deco-Metropolis.png`
 - Target: `public/card-art/gallery/archetypes/deco-metropolis.webp`
 - Owner: Archetype `deco-metropolis`
-- Status: planned
+- Status: generated
 - Bio: The skyline as ornament. Deco believed a city could be worn, and drew it from the clasp side.
 
 ```
@@ -1636,7 +1636,7 @@ A gleaming art deco metropolis seen from directly above, gilded geometry and sun
 - File name: `PIC-114-Clay-Mascot.png`
 - Target: `public/card-art/gallery/archetypes/clay-mascot.webp`
 - Owner: Archetype `clay-mascot`
-- Status: planned
+- Status: generated
 - Bio: Built to be squished, lit to be loved. The mascot's whole job is to survive your affection.
 
 ```
@@ -1650,7 +1650,7 @@ A cheerful squashable mascot character sculpted in claymation style with visible
 - File name: `PIC-115-Cinema-Frame.png`
 - Target: `public/card-art/gallery/archetypes/cinema-frame.webp`
 - Owner: Archetype `cinema-frame`
-- Status: planned
+- Status: generated
 - Bio: The frame before the reveal. Steel light, an edge of rim glow, and a background that knows too much.
 
 ```
@@ -1664,7 +1664,7 @@ A trench-coated figure at a fence line rim-lit against cold night, steel blue pa
 - File name: `PIC-116-Woodblock-Journey.png`
 - Target: `public/card-art/gallery/archetypes/woodblock-journey.webp`
 - Owner: Archetype `woodblock-journey`
-- Status: planned
+- Status: generated
 - Bio: Miles compressed to printed planes. The mountains queue politely in flat, perfect inks.
 
 ```
@@ -1678,7 +1678,7 @@ A traveler with a walking staff crossing a mountain pass rendered as an ukiyo-e 
 - File name: `PIC-117-Field-Journal.png`
 - Target: `public/card-art/gallery/archetypes/field-journal.webp`
 - Owner: Archetype `field-journal`
-- Status: planned
+- Status: generated
 - Bio: The expedition, filed at right angles. Ink for the facts, sun-fade for the years.
 
 ```
@@ -1692,7 +1692,7 @@ A naturalist's field study knolled from above - specimens, pressed leaves, and t
 - File name: `PIC-118-Anime-Quest.png`
 - Target: `public/card-art/gallery/archetypes/anime-quest.webp`
 - Owner: Archetype `anime-quest`
-- Status: planned
+- Status: generated
 - Bio: The poster for episode one of forever. Cel-shaded courage, painted sky, islands optional but included.
 
 ```
@@ -1708,7 +1708,7 @@ A spirited child on a grassy floating island, anime cel shading with clean linew
 - File name: `PIC-119-Custom-preset-swatch.png`
 - Target: `public/card-art/gallery/shared/custom-preset.webp`
 - Owner: picture-custom-archetypes.ts
-- Status: planned
+- Status: generated
 - Bio: Your recipe goes here. The canvas is primed, the light is good, and nothing has been decided yet.
 
 ```
@@ -1730,7 +1730,7 @@ the technique at that grade's intensity.
 - File name: `PIC-120-Lone-Wanderer-1-Distant-Traveler.png`
 - Target: `public/card-art/gallery/cards/lone-wanderer/grade-01.webp`
 - Owner: Card `lone-wanderer` grade `Distant Traveler`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1743,7 +1743,7 @@ An empty moorland road at dusk with a solitary traveler visible in the middle di
 - File name: `PIC-121-Lone-Wanderer-2-Lone-Wanderer.png`
 - Target: `public/card-art/gallery/cards/lone-wanderer/grade-02.webp`
 - Owner: Card `lone-wanderer` grade `Lone Wanderer`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1756,7 +1756,7 @@ A lone cloaked wanderer as the clear focal point of an empty winding road, seen 
 - File name: `PIC-122-Lone-Wanderer-3-Speck-in-the-Vast.png`
 - Target: `public/card-art/gallery/cards/lone-wanderer/grade-03.webp`
 - Owner: Card `lone-wanderer` grade `Speck in the Vast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1769,7 +1769,7 @@ A tiny lone figure dwarfed by a vast empty landscape, the road a thread across a
 - File name: `PIC-123-Gentle-Giant-1-Resting-Colossus.png`
 - Target: `public/card-art/gallery/cards/gentle-giant/grade-01.webp`
 - Owner: Card `gentle-giant` grade `Resting Colossus`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1782,7 +1782,7 @@ A large friendly moss-backed creature resting at the edge of a meadow scene, hal
 - File name: `PIC-124-Gentle-Giant-2-Gentle-Giant.png`
 - Target: `public/card-art/gallery/cards/gentle-giant/grade-02.webp`
 - Owner: Card `gentle-giant` grade `Gentle Giant`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1795,7 +1795,7 @@ A gentle giant creature towering benevolently over a meadow, a tiny human lookin
 - File name: `PIC-125-Gentle-Giant-3-Sky-Filling-Titan.png`
 - Target: `public/card-art/gallery/cards/gentle-giant/grade-03.webp`
 - Owner: Card `gentle-giant` grade `Sky-Filling Titan`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1808,7 +1808,7 @@ A colossal benevolent titan filling the sky above the meadow, its shoulders in t
 - File name: `PIC-126-Faithful-Companion-1-Small-Companion.png`
 - Target: `public/card-art/gallery/cards/faithful-companion/grade-01.webp`
 - Owner: Card `faithful-companion` grade `Small Companion`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1821,7 +1821,7 @@ A traveler on a trail accompanied by a small animal companion - a fox-sized frie
 - File name: `PIC-127-Faithful-Companion-2-Faithful-Companion.png`
 - Target: `public/card-art/gallery/cards/faithful-companion/grade-02.webp`
 - Owner: Card `faithful-companion` grade `Faithful Companion`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1834,7 +1834,7 @@ A traveler with a loyal animal companion at their side, a sturdy dog matching th
 - File name: `PIC-128-Faithful-Companion-3-Beast-and-Bond.png`
 - Target: `public/card-art/gallery/cards/faithful-companion/grade-03.webp`
 - Owner: Card `faithful-companion` grade `Beast and Bond`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1847,7 +1847,7 @@ A traveler bonded to a great beast companion looming beside them - a bear-huge g
 - File name: `PIC-129-Clockwork-Automaton-1-Clockwork-Details.png`
 - Target: `public/card-art/gallery/cards/clockwork-automaton/grade-01.webp`
 - Owner: Card `clockwork-automaton` grade `Clockwork Details`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1860,7 +1860,7 @@ A figure at a workbench with visible clockwork and brass mechanical details - a 
 - File name: `PIC-130-Clockwork-Automaton-2-Clockwork-Automaton.png`
 - Target: `public/card-art/gallery/cards/clockwork-automaton/grade-02.webp`
 - Owner: Card `clockwork-automaton` grade `Clockwork Automaton`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1873,7 +1873,7 @@ An intricate brass clockwork automaton threading a needle at its bench, glass ch
 - File name: `PIC-131-Clockwork-Automaton-3-Living-Machinery.png`
 - Target: `public/card-art/gallery/cards/clockwork-automaton/grade-03.webp`
 - Owner: Card `clockwork-automaton` grade `Living Machinery`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1886,7 +1886,7 @@ A figure that is living machinery outright: exposed gears, pistons, and ticking 
 - File name: `PIC-132-Armored-Sentinel-1-Light-Armor.png`
 - Target: `public/card-art/gallery/cards/armored-sentinel/grade-01.webp`
 - Owner: Card `armored-sentinel` grade `Light Armor`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1899,7 +1899,7 @@ A guard at a mountain gate wearing practical weathered armor - dented breastplat
 - File name: `PIC-133-Armored-Sentinel-2-Armored-Sentinel.png`
 - Target: `public/card-art/gallery/cards/armored-sentinel/grade-02.webp`
 - Owner: Card `armored-sentinel` grade `Armored Sentinel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1912,7 +1912,7 @@ An armored sentinel in full battered plate at the pass gate, spear grounded, vis
 - File name: `PIC-134-Armored-Sentinel-3-Colossus-of-War.png`
 - Target: `public/card-art/gallery/cards/armored-sentinel/grade-03.webp`
 - Owner: Card `armored-sentinel` grade `Colossus of War`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1925,7 +1925,7 @@ A towering colossus in monumental ornate armor filling the gate itself, engraved
 - File name: `PIC-135-Wise-Elder-1-Graying-Years.png`
 - Target: `public/card-art/gallery/cards/wise-elder/grade-01.webp`
 - Owner: Card `wise-elder` grade `Graying Years`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1938,7 +1938,7 @@ An aging figure with kind weathered features mending a net on a stone step, gray
 - File name: `PIC-136-Wise-Elder-2-Wise-Elder.png`
 - Target: `public/card-art/gallery/cards/wise-elder/grade-02.webp`
 - Owner: Card `wise-elder` grade `Wise Elder`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1951,7 +1951,7 @@ A wise elder with deep lines and knowing eyes at the same stone step, silver-hai
 - File name: `PIC-137-Wise-Elder-3-Ancient-One.png`
 - Target: `public/card-art/gallery/cards/wise-elder/grade-03.webp`
 - Owner: Card `wise-elder` grade `Ancient One`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1964,7 +1964,7 @@ An impossibly ancient figure, mythic and timeworn, face like carved driftwood, h
 - File name: `PIC-138-Spirited-Child-1-Young-Onlooker.png`
 - Target: `public/card-art/gallery/cards/spirited-child/grade-01.webp`
 - Owner: Card `spirited-child` grade `Young Onlooker`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1977,7 +1977,7 @@ A curious child watching wide-eyed from a garden gate, hands on the rail, leanin
 - File name: `PIC-139-Spirited-Child-2-Spirited-Child.png`
 - Target: `public/card-art/gallery/cards/spirited-child/grade-02.webp`
 - Owner: Card `spirited-child` grade `Spirited Child`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -1990,7 +1990,7 @@ A spirited adventurous child leading the way up a forest path, stick-sword raise
 - File name: `PIC-140-Spirited-Child-3-Fearless-Wonder.png`
 - Target: `public/card-art/gallery/cards/spirited-child/grade-03.webp`
 - Owner: Card `spirited-child` grade `Fearless Wonder`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2003,7 +2003,7 @@ A tiny fearless child facing something impossibly large - standing square before
 - File name: `PIC-141-Winged-Beast-1-Passing-Wings.png`
 - Target: `public/card-art/gallery/cards/winged-beast/grade-01.webp`
 - Owner: Card `winged-beast` grade `Passing Wings`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2016,7 +2016,7 @@ A winged creature passing overhead across a coastal sky, wings wide, its moving 
 - File name: `PIC-142-Winged-Beast-2-Winged-Beast.png`
 - Target: `public/card-art/gallery/cards/winged-beast/grade-02.webp`
 - Owner: Card `winged-beast` grade `Winged Beast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2029,7 +2029,7 @@ A great winged beast on the cliff edge with wings fully outstretched, primary fe
 - File name: `PIC-143-Winged-Beast-3-Sky-Sovereign.png`
 - Target: `public/card-art/gallery/cards/winged-beast/grade-03.webp`
 - Owner: Card `winged-beast` grade `Sky Sovereign`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2042,7 +2042,7 @@ An enormous dragon-like beast dominating the sky above the cliffs, wingspan swal
 - File name: `PIC-144-Ghostly-Presence-1-Faint-Apparition.png`
 - Target: `public/card-art/gallery/cards/ghostly-presence/grade-01.webp`
 - Owner: Card `ghostly-presence` grade `Faint Apparition`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2055,7 +2055,7 @@ An abandoned ballroom with a faint translucent apparition at the edge of the sce
 - File name: `PIC-145-Ghostly-Presence-2-Ghostly-Presence.png`
 - Target: `public/card-art/gallery/cards/ghostly-presence/grade-02.webp`
 - Owner: Card `ghostly-presence` grade `Ghostly Presence`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2068,7 +2068,7 @@ A clear ghostly spectral figure drifting mid-ballroom, translucent and softly lu
 - File name: `PIC-146-Ghostly-Presence-3-Haunting-Host.png`
 - Target: `public/card-art/gallery/cards/ghostly-presence/grade-03.webp`
 - Owner: Card `ghostly-presence` grade `Haunting Host`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2081,7 +2081,7 @@ A haunting host of translucent spirits filling the ballroom air, dozens of pale 
 - File name: `PIC-147-Crowd-Of-Many-1-Passersby.png`
 - Target: `public/card-art/gallery/cards/crowd-of-many/grade-01.webp`
 - Owner: Card `crowd-of-many` grade `Passersby`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2094,7 +2094,7 @@ A flower seller and cart with a few passersby moving through the background, the
 - File name: `PIC-148-Crowd-Of-Many-2-Busy-Crowd.png`
 - Target: `public/card-art/gallery/cards/crowd-of-many/grade-02.webp`
 - Owner: Card `crowd-of-many` grade `Busy Crowd`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2107,7 +2107,7 @@ A flower seller surrounded by a bustling crowd, shoppers pressing past on all si
 - File name: `PIC-149-Crowd-Of-Many-3-Sea-of-Faces.png`
 - Target: `public/card-art/gallery/cards/crowd-of-many/grade-03.webp`
 - Owner: Card `crowd-of-many` grade `Sea of Faces`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2120,7 +2120,7 @@ A flower cart lost in an immense sea of people stretching away in every directio
 - File name: `PIC-150-Regal-Figure-1-Fine-Bearing.png`
 - Target: `public/card-art/gallery/cards/regal-figure/grade-01.webp`
 - Owner: Card `regal-figure` grade `Fine Bearing`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2133,7 +2133,7 @@ A figure with regal bearing and fine dress at the head of a columned hall, postu
 - File name: `PIC-151-Regal-Figure-2-Regal-Figure.png`
 - Target: `public/card-art/gallery/cards/regal-figure/grade-02.webp`
 - Owner: Card `regal-figure` grade `Regal Figure`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2146,7 +2146,7 @@ A regal crowned figure in ceremonial robes descending the great steps, the train
 - File name: `PIC-152-Regal-Figure-3-Living-Throne.png`
 - Target: `public/card-art/gallery/cards/regal-figure/grade-03.webp`
 - Owner: Card `regal-figure` grade `Living Throne`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2159,7 +2159,7 @@ An imperious sovereign engulfed in towering ceremonial regalia, the crown a spir
 - File name: `PIC-153-Weathered-Explorer-1-Field-Gear.png`
 - Target: `public/card-art/gallery/cards/weathered-explorer/grade-01.webp`
 - Owner: Card `weathered-explorer` grade `Field Gear`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2172,7 +2172,7 @@ A traveler carrying practical well-used expedition gear at a canyon overlook - c
 - File name: `PIC-154-Weathered-Explorer-2-Weathered-Explorer.png`
 - Target: `public/card-art/gallery/cards/weathered-explorer/grade-02.webp`
 - Owner: Card `weathered-explorer` grade `Weathered Explorer`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2185,7 +2185,7 @@ A weathered explorer worn by a long journey pausing at the rim, scarf sun-bleach
 - File name: `PIC-155-Weathered-Explorer-3-End-of-the-Map.png`
 - Target: `public/card-art/gallery/cards/weathered-explorer/grade-03.webp`
 - Owner: Card `weathered-explorer` grade `End of the Map`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2200,7 +2200,7 @@ A gaunt storied explorer years past the edge of any map, gear patched with whate
 - File name: `PIC-156-Golden-Hour-1-Golden-Wash.png`
 - Target: `public/card-art/gallery/cards/golden-hour/grade-01.webp`
 - Owner: Card `golden-hour` grade `Golden Wash`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2213,7 +2213,7 @@ A lone oak on a grassy hillside under a soft golden wash, gentle late-afternoon 
 - File name: `PIC-157-Golden-Hour-2-Golden-Hour.png`
 - Target: `public/card-art/gallery/cards/golden-hour/grade-02.webp`
 - Owner: Card `golden-hour` grade `Golden Hour`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2226,7 +2226,7 @@ A lone oak on a grassy hillside at full golden hour, warm directional light raki
 - File name: `PIC-158-Golden-Hour-3-Blazing-Sundown.png`
 - Target: `public/card-art/gallery/cards/golden-hour/grade-03.webp`
 - Owner: Card `golden-hour` grade `Blazing Sundown`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2239,7 +2239,7 @@ A lone oak on a hillside at blazing sundown, the sun flaring directly into the l
 - File name: `PIC-159-Bioluminescence-1-Faint-Glow.png`
 - Target: `public/card-art/gallery/cards/bioluminescence/grade-01.webp`
 - Owner: Card `bioluminescence` grade `Faint Glow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2252,7 +2252,7 @@ A dark tidal cove at night, faint blue-green pinpricks of plankton dotting the s
 - File name: `PIC-160-Bioluminescence-2-Living-Light.png`
 - Target: `public/card-art/gallery/cards/bioluminescence/grade-02.webp`
 - Owner: Card `bioluminescence` grade `Living Light`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2265,7 +2265,7 @@ A night cove lit by living light: glowing plankton bright in the wake of a rowbo
 - File name: `PIC-161-Bioluminescence-3-Abyssal-Radiance.png`
 - Target: `public/card-art/gallery/cards/bioluminescence/grade-03.webp`
 - Owner: Card `bioluminescence` grade `Abyssal Radiance`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2278,7 +2278,7 @@ An abyssal cove where bioluminescence is the only light in the world, water blaz
 - File name: `PIC-162-Candlelight-1-Candle-Warmth.png`
 - Target: `public/card-art/gallery/cards/candlelight/grade-01.webp`
 - Owner: Card `candlelight` grade `Candle Warmth`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2291,7 +2291,7 @@ A reader at a wooden table in a dim room, soft candle warmth touching their face
 - File name: `PIC-163-Candlelight-2-Candlelight.png`
 - Target: `public/card-art/gallery/cards/candlelight/grade-02.webp`
 - Owner: Card `candlelight` grade `Candlelight`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2304,7 +2304,7 @@ A reader bent over a book, warm flickering candlelight carving the scene, wax po
 - File name: `PIC-164-Candlelight-3-Single-Flame.png`
 - Target: `public/card-art/gallery/cards/candlelight/grade-03.webp`
 - Owner: Card `candlelight` grade `Single Flame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2317,7 +2317,7 @@ A single flame in darkness carving one face out of black, everything else gone: 
 - File name: `PIC-165-Moonlight-1-Pale-Moon.png`
 - Target: `public/card-art/gallery/cards/moonlight/grade-01.webp`
 - Owner: Card `moonlight` grade `Pale Moon`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2330,7 +2330,7 @@ A farmhouse and field under pale moonlight, silver-blue light settling quietly o
 - File name: `PIC-166-Moonlight-2-Moonlight.png`
 - Target: `public/card-art/gallery/cards/moonlight/grade-02.webp`
 - Owner: Card `moonlight` grade `Moonlight`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2343,7 +2343,7 @@ A farmhouse and frosted field defined by cold blue moonlight, hard-edged silver 
 - File name: `PIC-167-Moonlight-3-Harvest-Moon.png`
 - Target: `public/card-art/gallery/cards/moonlight/grade-03.webp`
 - Owner: Card `moonlight` grade `Harvest Moon`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2356,7 +2356,7 @@ A farmhouse dwarfed beneath a huge low harvest moon, the world flooded silver, e
 - File name: `PIC-168-Neon-Glow-1-Sign-Wash.png`
 - Target: `public/card-art/gallery/cards/neon-glow/grade-01.webp`
 - Owner: Card `neon-glow` grade `Sign Wash`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2369,7 +2369,7 @@ A noodle stall at night with a colored neon wash tinting the steam and counter, 
 - File name: `PIC-169-Neon-Glow-2-Neon-Glow.png`
 - Target: `public/card-art/gallery/cards/neon-glow/grade-02.webp`
 - Owner: Card `neon-glow` grade `Neon Glow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2382,7 +2382,7 @@ A noodle stall lit by buzzing neon signs, hard magenta and cyan light carving th
 - File name: `PIC-170-Neon-Glow-3-Neon-Flood.png`
 - Target: `public/card-art/gallery/cards/neon-glow/grade-03.webp`
 - Owner: Card `neon-glow` grade `Neon Flood`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2395,7 +2395,7 @@ A noodle stall drowned in blinding neon from every direction, colors collapsing 
 - File name: `PIC-171-Harsh-Noon-1-Bright-Day.png`
 - Target: `public/card-art/gallery/cards/harsh-noon/grade-01.webp`
 - Owner: Card `harsh-noon` grade `Bright Day`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2408,7 +2408,7 @@ A whitewashed courtyard in bright midday light, a figure crossing, shadows short
 - File name: `PIC-172-Harsh-Noon-2-Harsh-Noon.png`
 - Target: `public/card-art/gallery/cards/harsh-noon/grade-02.webp`
 - Owner: Card `harsh-noon` grade `Harsh Noon`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2421,7 +2421,7 @@ A courtyard under harsh noon sun, black geometric shadows slicing under arches, 
 - File name: `PIC-173-Harsh-Noon-3-Merciless-Sun.png`
 - Target: `public/card-art/gallery/cards/harsh-noon/grade-03.webp`
 - Owner: Card `harsh-noon` grade `Merciless Sun`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2434,7 +2434,7 @@ A courtyard bleached by merciless overhead sun, shadows reduced to razor cuts of
 - File name: `PIC-174-Overcast-Soft-1-Soft-Sky.png`
 - Target: `public/card-art/gallery/cards/overcast-soft/grade-01.webp`
 - Owner: Card `overcast-soft` grade `Soft Sky`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2447,7 +2447,7 @@ A fishing harbor in soft overcast light, gentle even illumination over boats and
 - File name: `PIC-175-Overcast-Soft-2-Overcast.png`
 - Target: `public/card-art/gallery/cards/overcast-soft/grade-02.webp`
 - Owner: Card `overcast-soft` grade `Overcast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2460,7 +2460,7 @@ A harbor under a flat gray ceiling of cloud, completely shadowless light, every 
 - File name: `PIC-176-Overcast-Soft-3-Luminous-Fog.png`
 - Target: `public/card-art/gallery/cards/overcast-soft/grade-03.webp`
 - Owner: Card `overcast-soft` grade `Luminous Fog`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2473,7 +2473,7 @@ A harbor swallowed by luminous fog-thick overcast, boats fading into pale layers
 - File name: `PIC-177-Dramatic-Rim-1-Soft-Edge.png`
 - Target: `public/card-art/gallery/cards/dramatic-rim/grade-01.webp`
 - Owner: Card `dramatic-rim` grade `Soft Edge`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2486,7 +2486,7 @@ A boxer in a dark gym with a soft rim light lifting their silhouette gently off 
 - File name: `PIC-178-Dramatic-Rim-2-Dramatic-Rim.png`
 - Target: `public/card-art/gallery/cards/dramatic-rim/grade-02.webp`
 - Owner: Card `dramatic-rim` grade `Dramatic Rim`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2499,7 +2499,7 @@ A boxer edged in dramatic rim lighting, a hard bright line running along shoulde
 - File name: `PIC-179-Dramatic-Rim-3-Burning-Edge.png`
 - Target: `public/card-art/gallery/cards/dramatic-rim/grade-03.webp`
 - Owner: Card `dramatic-rim` grade `Burning Edge`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2512,7 +2512,7 @@ A boxer as a black silhouette wearing a blazing rim of light, the edge burning l
 - File name: `PIC-180-Volumetric-Rays-1-Faint-Rays.png`
 - Target: `public/card-art/gallery/cards/volumetric-rays/grade-01.webp`
 - Owner: Card `volumetric-rays` grade `Faint Rays`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2525,7 +2525,7 @@ A barn interior with faint rays of light streaking the dusty air from gaps in th
 - File name: `PIC-181-Volumetric-Rays-2-God-Rays.png`
 - Target: `public/card-art/gallery/cards/volumetric-rays/grade-02.webp`
 - Owner: Card `volumetric-rays` grade `God Rays`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2538,7 +2538,7 @@ A barn crossed by strong volumetric god rays, each shaft made solid by swirling 
 - File name: `PIC-182-Volumetric-Rays-3-Cathedral-Shafts.png`
 - Target: `public/card-art/gallery/cards/volumetric-rays/grade-03.webp`
 - Owner: Card `volumetric-rays` grade `Cathedral Shafts`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2551,7 +2551,7 @@ A barn carved by massive cathedral shafts of dust-filled light, the beams like a
 - File name: `PIC-183-Firelight-1-Ember-Glow.png`
 - Target: `public/card-art/gallery/cards/firelight/grade-01.webp`
 - Owner: Card `firelight` grade `Ember Glow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2564,7 +2564,7 @@ Travelers by a low campfire, distant ember glow warming the edges of their faces
 - File name: `PIC-184-Firelight-2-Firelight.png`
 - Target: `public/card-art/gallery/cards/firelight/grade-02.webp`
 - Owner: Card `firelight` grade `Firelight`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2577,7 +2577,7 @@ Travelers lit by dancing orange firelight, flame-light moving across faces and b
 - File name: `PIC-185-Firelight-3-Roaring-Blaze.png`
 - Target: `public/card-art/gallery/cards/firelight/grade-03.webp`
 - Owner: Card `firelight` grade `Roaring Blaze`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2590,7 +2590,7 @@ A roaring blaze throwing wild light over the travelers, flames leaping frame-hig
 - File name: `PIC-186-Storm-Light-1-Brooding-Sky.png`
 - Target: `public/card-art/gallery/cards/storm-light/grade-01.webp`
 - Owner: Card `storm-light` grade `Brooding Sky`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2603,7 +2603,7 @@ A lighthouse under brooding storm light, the sky bruised green-gray, rain beginn
 - File name: `PIC-187-Storm-Light-2-Lightning-Flash.png`
 - Target: `public/card-art/gallery/cards/storm-light/grade-02.webp`
 - Owner: Card `storm-light` grade `Lightning Flash`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2616,7 +2616,7 @@ A lighthouse lit by a lightning flash, rain glittering frozen in the burst, the 
 - File name: `PIC-188-Storm-Light-3-White-Strike.png`
 - Target: `public/card-art/gallery/cards/storm-light/grade-03.webp`
 - Owner: Card `storm-light` grade `White Strike`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2629,7 +2629,7 @@ A lighthouse frozen in a violent white lightning strike, the world burned to bla
 - File name: `PIC-189-Studio-Softbox-1-Clean-Light.png`
 - Target: `public/card-art/gallery/cards/studio-softbox/grade-01.webp`
 - Owner: Card `studio-softbox` grade `Clean Light`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2642,7 +2642,7 @@ A ceramic vase on a seamless backdrop in clean studio lighting, soft even light 
 - File name: `PIC-190-Studio-Softbox-2-Softbox-Studio.png`
 - Target: `public/card-art/gallery/cards/studio-softbox/grade-02.webp`
 - Owner: Card `studio-softbox` grade `Softbox Studio`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2655,7 +2655,7 @@ A ceramic vase in crisp softbox light on a seamless sweep, controlled highlight 
 - File name: `PIC-191-Studio-Softbox-3-High-Key-White.png`
 - Target: `public/card-art/gallery/cards/studio-softbox/grade-03.webp`
 - Owner: Card `studio-softbox` grade `High-Key White`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2670,7 +2670,7 @@ A ceramic vase in clinical high-key white, every detail evenly lit, shadows all 
 - File name: `PIC-192-Oil-Painting-1-Oiled-Surface.png`
 - Target: `public/card-art/gallery/cards/oil-painting/grade-01.webp`
 - Owner: Card `oil-painting` grade `Oiled Surface`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2683,7 +2683,7 @@ A pear on a sunlit windowsill with the soft texture of an oil painting, brushwor
 - File name: `PIC-193-Oil-Painting-2-Oil-Painting.png`
 - Target: `public/card-art/gallery/cards/oil-painting/grade-02.webp`
 - Owner: Card `oil-painting` grade `Oil Painting`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2696,7 +2696,7 @@ A pear on a windowsill as an expressive oil painting, visible confident brushstr
 - File name: `PIC-194-Oil-Painting-3-Impasto-Storm.png`
 - Target: `public/card-art/gallery/cards/oil-painting/grade-03.webp`
 - Owner: Card `oil-painting` grade `Impasto Storm`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2709,7 +2709,7 @@ A pear on a windowsill as thick impasto oil painting, sculptural ridges of paint
 - File name: `PIC-195-Watercolor-1-Light-Wash.png`
 - Target: `public/card-art/gallery/cards/watercolor/grade-01.webp`
 - Owner: Card `watercolor` grade `Light Wash`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2722,7 +2722,7 @@ A red umbrella on a rainy street tinted with delicate watercolor washes, colors 
 - File name: `PIC-196-Watercolor-2-Watercolor.png`
 - Target: `public/card-art/gallery/cards/watercolor/grade-02.webp`
 - Owner: Card `watercolor` grade `Watercolor`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2735,7 +2735,7 @@ A red umbrella crossing a rainy street as loose watercolor painting, blooming pi
 - File name: `PIC-197-Watercolor-3-Runaway-Water.png`
 - Target: `public/card-art/gallery/cards/watercolor/grade-03.webp`
 - Owner: Card `watercolor` grade `Runaway Water`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2748,7 +2748,7 @@ A red umbrella in wild runaway watercolor - running drips, blooms colliding, pat
 - File name: `PIC-198-Pencil-Sketch-1-Light-Graphite.png`
 - Target: `public/card-art/gallery/cards/pencil-sketch/grade-01.webp`
 - Owner: Card `pencil-sketch` grade `Light Graphite`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2761,7 +2761,7 @@ A sleeping cat on a chair with light pencil-sketch linework, gentle graphite lin
 - File name: `PIC-199-Pencil-Sketch-2-Pencil-Sketch.png`
 - Target: `public/card-art/gallery/cards/pencil-sketch/grade-02.webp`
 - Owner: Card `pencil-sketch` grade `Pencil Sketch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2774,7 +2774,7 @@ A sleeping cat as a full graphite pencil sketch, construction lines still visibl
 - File name: `PIC-200-Pencil-Sketch-3-Furious-Scribble.png`
 - Target: `public/card-art/gallery/cards/pencil-sketch/grade-03.webp`
 - Owner: Card `pencil-sketch` grade `Furious Scribble`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2787,7 +2787,7 @@ A sleeping cat as a furious scribbled pencil drawing, raw and unfinished on purp
 - File name: `PIC-201-Ink-Illustration-1-Fine-Line.png`
 - Target: `public/card-art/gallery/cards/ink-illustration/grade-01.webp`
 - Owner: Card `ink-illustration` grade `Fine Line`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2800,7 +2800,7 @@ A strutting rooster traced with fine ink linework, contours clean and confident,
 - File name: `PIC-202-Ink-Illustration-2-Pen-and-Ink.png`
 - Target: `public/card-art/gallery/cards/ink-illustration/grade-02.webp`
 - Owner: Card `ink-illustration` grade `Pen and Ink`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2813,7 +2813,7 @@ A strutting rooster as a full pen-and-ink illustration, crosshatched shading dee
 - File name: `PIC-203-Ink-Illustration-3-Ink-Flood.png`
 - Target: `public/card-art/gallery/cards/ink-illustration/grade-03.webp`
 - Owner: Card `ink-illustration` grade `Ink Flood`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2826,7 +2826,7 @@ A rooster drowning in heavy black ink against stark white paper, feathers poolin
 - File name: `PIC-204-Charcoal-Drawing-1-Soft-Charcoal.png`
 - Target: `public/card-art/gallery/cards/charcoal-drawing/grade-01.webp`
 - Owner: Card `charcoal-drawing` grade `Soft Charcoal`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2839,7 +2839,7 @@ A draft horse in wind with soft charcoal shading, forms rounded gently, edges lo
 - File name: `PIC-205-Charcoal-Drawing-2-Charcoal-Drawing.png`
 - Target: `public/card-art/gallery/cards/charcoal-drawing/grade-02.webp`
 - Owner: Card `charcoal-drawing` grade `Charcoal Drawing`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2852,7 +2852,7 @@ A draft horse as a full smudged charcoal drawing, thumb-dragged tone through the
 - File name: `PIC-206-Charcoal-Drawing-3-Charcoal-Storm.png`
 - Target: `public/card-art/gallery/cards/charcoal-drawing/grade-03.webp`
 - Owner: Card `charcoal-drawing` grade `Charcoal Storm`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2865,7 +2865,7 @@ A draft horse as a violent charcoal study, deep blacks and torn highlights, mark
 - File name: `PIC-207-Gouache-Poster-1-Matte-Color.png`
 - Target: `public/card-art/gallery/cards/gouache-poster/grade-01.webp`
 - Owner: Card `gouache-poster` grade `Matte Color`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2878,7 +2878,7 @@ A lighthouse cove with flat gouache color simplifying the forms, matte paint, sh
 - File name: `PIC-208-Gouache-Poster-2-Gouache-Poster.png`
 - Target: `public/card-art/gallery/cards/gouache-poster/grade-02.webp`
 - Owner: Card `gouache-poster` grade `Gouache Poster`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2891,7 +2891,7 @@ A lighthouse cove as a mid-century gouache poster, matte flat shapes, limited co
 - File name: `PIC-209-Gouache-Poster-3-Chunky-Poster.png`
 - Target: `public/card-art/gallery/cards/gouache-poster/grade-03.webp`
 - Owner: Card `gouache-poster` grade `Chunky Poster`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2904,7 +2904,7 @@ A lighthouse cove as bold chunky gouache poster art, shapes big as continents, h
 - File name: `PIC-210-Pixel-Art-1-Pixel-Touches.png`
 - Target: `public/card-art/gallery/cards/pixel-art/grade-01.webp`
 - Owner: Card `pixel-art` grade `Pixel Touches`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2917,7 +2917,7 @@ A cottage at dusk with pixel-art touches - edges quantizing, the lit window reso
 - File name: `PIC-211-Pixel-Art-2-16-Bit-Scene.png`
 - Target: `public/card-art/gallery/cards/pixel-art/grade-02.webp`
 - Owner: Card `pixel-art` grade `16-Bit Scene`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2930,7 +2930,7 @@ A cottage at dusk as detailed 16-bit pixel art, deliberate palette, dithered sky
 - File name: `PIC-212-Pixel-Art-3-8-Bit-Chunk.png`
 - Target: `public/card-art/gallery/cards/pixel-art/grade-03.webp`
 - Owner: Card `pixel-art` grade `8-Bit Chunk`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2943,7 +2943,7 @@ A cottage as chunky 8-bit pixel art, fat pixels and hard dithered gradients, the
 - File name: `PIC-213-Low-Poly-3d-1-Poly-Accents.png`
 - Target: `public/card-art/gallery/cards/low-poly-3d/grade-01.webp`
 - Owner: Card `low-poly-3d` grade `Poly Accents`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2956,7 +2956,7 @@ A standing stag with low-poly 3d accents, larger planes faceting the body while 
 - File name: `PIC-214-Low-Poly-3d-2-Low-Poly-Render.png`
 - Target: `public/card-art/gallery/cards/low-poly-3d/grade-02.webp`
 - Owner: Card `low-poly-3d` grade `Low-Poly Render`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2969,7 +2969,7 @@ A standing stag as a full low-poly 3d render, faceted surfaces flat-shaded, each
 - File name: `PIC-215-Low-Poly-3d-3-Triangle-Minimal.png`
 - Target: `public/card-art/gallery/cards/low-poly-3d/grade-03.webp`
 - Owner: Card `low-poly-3d` grade `Triangle Minimal`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2982,7 +2982,7 @@ A stag as brutalist low-poly geometry at minimal triangle count, barely enough f
 - File name: `PIC-216-Clay-Render-1-Clay-Feel.png`
 - Target: `public/card-art/gallery/cards/clay-render/grade-01.webp`
 - Owner: Card `clay-render` grade `Clay Feel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -2995,7 +2995,7 @@ A cheerful snail with a soft clay-render feel, forms rounded and matte, everythi
 - File name: `PIC-217-Clay-Render-2-Claymation.png`
 - Target: `public/card-art/gallery/cards/clay-render/grade-02.webp`
 - Owner: Card `clay-render` grade `Claymation`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3008,7 +3008,7 @@ A cheerful snail as a playful claymation-style render, visible tool marks, plast
 - File name: `PIC-218-Clay-Render-3-Plasticine-Squash.png`
 - Target: `public/card-art/gallery/cards/clay-render/grade-03.webp`
 - Owner: Card `clay-render` grade `Plasticine Squash`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3021,7 +3021,7 @@ A snail as squashed plasticine clay, thumbprints and all, seams where the colors
 - File name: `PIC-219-Film-Photograph-1-Filmic-Look.png`
 - Target: `public/card-art/gallery/cards/film-photograph/grade-01.webp`
 - Owner: Card `film-photograph` grade `Filmic Look`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3034,7 +3034,7 @@ A roadside diner at dusk with a filmic photographic look, gentle grain, colors a
 - File name: `PIC-220-Film-Photograph-2-35mm-Film.png`
 - Target: `public/card-art/gallery/cards/film-photograph/grade-02.webp`
 - Owner: Card `film-photograph` grade `35mm Film`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3047,7 +3047,7 @@ A roadside diner as a true 35mm film photograph, natural grain structure, halati
 - File name: `PIC-221-Film-Photograph-3-Expired-Roll.png`
 - Target: `public/card-art/gallery/cards/film-photograph/grade-03.webp`
 - Owner: Card `film-photograph` grade `Expired Roll`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3060,7 +3060,7 @@ A roadside diner as expired-film photography, heavy grain, magenta-shifted light
 - File name: `PIC-222-Papercut-Collage-1-Paper-Accents.png`
 - Target: `public/card-art/gallery/cards/papercut-collage/grade-01.webp`
 - Owner: Card `papercut-collage` grade `Paper Accents`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3073,7 +3073,7 @@ A whale in waves trimmed with layered papercut accents, a few sheets deep, shado
 - File name: `PIC-223-Papercut-Collage-2-Papercut-Collage.png`
 - Target: `public/card-art/gallery/cards/papercut-collage/grade-02.webp`
 - Owner: Card `papercut-collage` grade `Papercut Collage`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3086,7 +3086,7 @@ A whale diving through a layered papercut collage, five or six sheets of sea, cr
 - File name: `PIC-224-Papercut-Collage-3-Paper-Diorama.png`
 - Target: `public/card-art/gallery/cards/papercut-collage/grade-03.webp`
 - Owner: Card `papercut-collage` grade `Paper Diorama`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3099,7 +3099,7 @@ A whale in a deep 3d paper diorama of dozens of cut layers, a tunnel of sea rece
 - File name: `PIC-225-Stained-Glass-1-Glass-Panes.png`
 - Target: `public/card-art/gallery/cards/stained-glass/grade-01.webp`
 - Owner: Card `stained-glass` grade `Glass Panes`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3112,7 +3112,7 @@ A kingfisher over water with stained-glass color panes tinting the scene, a few 
 - File name: `PIC-226-Stained-Glass-2-Stained-Glass.png`
 - Target: `public/card-art/gallery/cards/stained-glass/grade-02.webp`
 - Owner: Card `stained-glass` grade `Stained Glass`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3125,7 +3125,7 @@ A kingfisher as a full leaded stained-glass window, black cames outlining every 
 - File name: `PIC-227-Stained-Glass-3-Cathedral-Panel.png`
 - Target: `public/card-art/gallery/cards/stained-glass/grade-03.webp`
 - Owner: Card `stained-glass` grade `Cathedral Panel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3138,7 +3138,7 @@ A kingfisher as a towering cathedral stained-glass panel, jewel light flooding t
 - File name: `PIC-228-Embroidered-Textile-1-Stitch-Texture.png`
 - Target: `public/card-art/gallery/cards/embroidered-textile/grade-01.webp`
 - Owner: Card `embroidered-textile` grade `Stitch Texture`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3151,7 +3151,7 @@ A sitting fox with embroidered texture warming the surface, stitch direction fol
 - File name: `PIC-229-Embroidered-Textile-2-Embroidery.png`
 - Target: `public/card-art/gallery/cards/embroidered-textile/grade-02.webp`
 - Owner: Card `embroidered-textile` grade `Embroidery`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3164,7 +3164,7 @@ A sitting fox as full textile art with visible stitches - satin stitch flanks, f
 - File name: `PIC-230-Embroidered-Textile-3-Dense-Tapestry.png`
 - Target: `public/card-art/gallery/cards/embroidered-textile/grade-03.webp`
 - Owner: Card `embroidered-textile` grade `Dense Tapestry`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3177,7 +3177,7 @@ A fox as dense hand-stitched tapestry in full thread relief, stitches packed sho
 - File name: `PIC-231-Comic-Ink-Flats-1-Comic-Inks.png`
 - Target: `public/card-art/gallery/cards/comic-ink-flats/grade-01.webp`
 - Owner: Card `comic-ink-flats` grade `Comic Inks`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3190,7 +3190,7 @@ A courier mid-leap with comic-book inking, bold outlines over the figure, color 
 - File name: `PIC-232-Comic-Ink-Flats-2-Comic-Panel.png`
 - Target: `public/card-art/gallery/cards/comic-ink-flats/grade-02.webp`
 - Owner: Card `comic-ink-flats` grade `Comic Panel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3203,7 +3203,7 @@ A courier leaping a rooftop gap as a full comic panel, bold inks and flat colors
 - File name: `PIC-233-Comic-Ink-Flats-3-Graphic-Novel.png`
 - Target: `public/card-art/gallery/cards/comic-ink-flats/grade-03.webp`
 - Owner: Card `comic-ink-flats` grade `Graphic Novel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3218,7 +3218,7 @@ A rooftop leap as high-contrast graphic novel art, screentone skies and speed li
 - File name: `PIC-234-Muted-Palette-1-Softened-Color.png`
 - Target: `public/card-art/gallery/cards/muted-palette/grade-01.webp`
 - Owner: Card `muted-palette` grade `Softened Color`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3231,7 +3231,7 @@ A fishing village at dawn with slightly muted colors, every hue eased back one h
 - File name: `PIC-235-Muted-Palette-2-Muted-Palette.png`
 - Target: `public/card-art/gallery/cards/muted-palette/grade-02.webp`
 - Owner: Card `muted-palette` grade `Muted Palette`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3244,7 +3244,7 @@ A fishing village in a fully muted desaturated palette, restrained grays and dus
 - File name: `PIC-236-Muted-Palette-3-Ash-and-Ember.png`
 - Target: `public/card-art/gallery/cards/muted-palette/grade-03.webp`
 - Owner: Card `muted-palette` grade `Ash and Ember`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3257,7 +3257,7 @@ A fishing village in near-monochrome grays with a single surviving accent - one 
 - File name: `PIC-237-Neon-Saturation-1-Neon-Hints.png`
 - Target: `public/card-art/gallery/cards/neon-saturation/grade-01.webp`
 - Owner: Card `neon-saturation` grade `Neon Hints`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3270,7 +3270,7 @@ An arcade alley with hints of neon color in signs and reflections, electric acce
 - File name: `PIC-238-Neon-Saturation-2-Neon-Saturation.png`
 - Target: `public/card-art/gallery/cards/neon-saturation/grade-02.webp`
 - Owner: Card `neon-saturation` grade `Neon Saturation`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3283,7 +3283,7 @@ An arcade alley in full neon saturation, glowing magenta and cyan leading the pa
 - File name: `PIC-239-Neon-Saturation-3-Signal-Overload.png`
 - Target: `public/card-art/gallery/cards/neon-saturation/grade-03.webp`
 - Owner: Card `neon-saturation` grade `Signal Overload`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3296,7 +3296,7 @@ An arcade alley in electric neon color overload, every surface glowing, color so
 - File name: `PIC-240-Pastel-Dream-1-Pastel-Hints.png`
 - Target: `public/card-art/gallery/cards/pastel-dream/grade-01.webp`
 - Owner: Card `pastel-dream` grade `Pastel Hints`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3309,7 +3309,7 @@ Balloons over misty hills with gentle pastel hints softening the palette, colors
 - File name: `PIC-241-Pastel-Dream-2-Pastel-Dream.png`
 - Target: `public/card-art/gallery/cards/pastel-dream/grade-02.webp`
 - Owner: Card `pastel-dream` grade `Pastel Dream`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3322,7 +3322,7 @@ Balloons over hills in a fully soft dreamy pastel palette, pink-mint-lilac harmo
 - File name: `PIC-242-Pastel-Dream-3-Cotton-Candy.png`
 - Target: `public/card-art/gallery/cards/pastel-dream/grade-03.webp`
 - Owner: Card `pastel-dream` grade `Cotton Candy`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3335,7 +3335,7 @@ Balloons in an all-over cotton-candy palette of sugared pinks and mints, the who
 - File name: `PIC-243-Monochrome-Noir-1-Drained-Color.png`
 - Target: `public/card-art/gallery/cards/monochrome-noir/grade-01.webp`
 - Owner: Card `monochrome-noir` grade `Drained Color`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3348,7 +3348,7 @@ A stairwell scene nearly monochrome, color drained toward gray, night shapes res
 - File name: `PIC-244-Monochrome-Noir-2-Monochrome-Noir.png`
 - Target: `public/card-art/gallery/cards/monochrome-noir/grade-02.webp`
 - Owner: Card `monochrome-noir` grade `Monochrome Noir`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3361,7 +3361,7 @@ A stairwell in full black-and-white noir palette, deep contrast, hard bulb light
 - File name: `PIC-245-Monochrome-Noir-3-Ink-Black.png`
 - Target: `public/card-art/gallery/cards/monochrome-noir/grade-03.webp`
 - Owner: Card `monochrome-noir` grade `Ink Black`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3374,7 +3374,7 @@ A stairwell in crushed ink-black monochrome, a single blade of white light cutti
 - File name: `PIC-246-Earthy-Naturals-1-Natural-Cast.png`
 - Target: `public/card-art/gallery/cards/earthy-naturals/grade-01.webp`
 - Owner: Card `earthy-naturals` grade `Natural Cast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3387,7 +3387,7 @@ A stone barn and harvest stack with natural earthy tones settling in, soil-warm 
 - File name: `PIC-247-Earthy-Naturals-2-Earthy-Naturals.png`
 - Target: `public/card-art/gallery/cards/earthy-naturals/grade-02.webp`
 - Owner: Card `earthy-naturals` grade `Earthy Naturals`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3400,7 +3400,7 @@ A barn and harvest in a full earthy palette - ochre gourds, moss lintels, umber 
 - File name: `PIC-248-Earthy-Naturals-3-Deep-Loam.png`
 - Target: `public/card-art/gallery/cards/earthy-naturals/grade-03.webp`
 - Owner: Card `earthy-naturals` grade `Deep Loam`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3413,7 +3413,7 @@ A harvest scene in deep loam, everything soil, bark, and stone, the palette comp
 - File name: `PIC-249-Jewel-Tones-1-Gem-Accents.png`
 - Target: `public/card-art/gallery/cards/jewel-tones/grade-01.webp`
 - Owner: Card `jewel-tones` grade `Gem Accents`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3426,7 +3426,7 @@ A textile stall with jewel-tone accents enriching the scene, gemstone color glin
 - File name: `PIC-250-Jewel-Tones-2-Jewel-Tones.png`
 - Target: `public/card-art/gallery/cards/jewel-tones/grade-02.webp`
 - Owner: Card `jewel-tones` grade `Jewel Tones`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3439,7 +3439,7 @@ A stall in full jewel tones, bolts of emerald, sapphire, and ruby silk leading t
 - File name: `PIC-251-Jewel-Tones-3-Treasure-Hoard.png`
 - Target: `public/card-art/gallery/cards/jewel-tones/grade-03.webp`
 - Owner: Card `jewel-tones` grade `Treasure Hoard`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3452,7 +3452,7 @@ A stall as a treasure hoard, every surface saturated gemstone color, shadows ame
 - File name: `PIC-252-Sepia-Vintage-1-Warm-Fade.png`
 - Target: `public/card-art/gallery/cards/sepia-vintage/grade-01.webp`
 - Owner: Card `sepia-vintage` grade `Warm Fade`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3465,7 +3465,7 @@ A carousel with a warm vintage fade tinting the scene, colors leaning amber, mem
 - File name: `PIC-253-Sepia-Vintage-2-Sepia-Vintage.png`
 - Target: `public/card-art/gallery/cards/sepia-vintage/grade-02.webp`
 - Owner: Card `sepia-vintage` grade `Sepia Vintage`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3478,7 +3478,7 @@ A carousel in full aged sepia, vintage photograph feel, browns and creams where 
 - File name: `PIC-254-Sepia-Vintage-3-Daguerreotype.png`
 - Target: `public/card-art/gallery/cards/sepia-vintage/grade-03.webp`
 - Owner: Card `sepia-vintage` grade `Daguerreotype`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3491,7 +3491,7 @@ A carousel in antique daguerreotype tones, chemical stains and vignette creeping
 - File name: `PIC-255-Iridescent-Shift-1-Pearl-Sheen.png`
 - Target: `public/card-art/gallery/cards/iridescent-shift/grade-01.webp`
 - Owner: Card `iridescent-shift` grade `Pearl Sheen`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3504,7 +3504,7 @@ A beetle on a leaf with a pearly iridescent sheen glancing off its shell, hints 
 - File name: `PIC-256-Iridescent-Shift-2-Iridescent-Shift.png`
 - Target: `public/card-art/gallery/cards/iridescent-shift/grade-02.webp`
 - Owner: Card `iridescent-shift` grade `Iridescent Shift`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3517,7 +3517,7 @@ A beetle in full iridescent shift, oil-slick color sliding green to violet to go
 - File name: `PIC-257-Iridescent-Shift-3-Opal-Storm.png`
 - Target: `public/card-art/gallery/cards/iridescent-shift/grade-03.webp`
 - Owner: Card `iridescent-shift` grade `Opal Storm`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3530,7 +3530,7 @@ A beetle in an opal storm, the whole world refracting - leaf, air, and light all
 - File name: `PIC-258-High-Contrast-1-Punchy-Values.png`
 - Target: `public/card-art/gallery/cards/high-contrast/grade-01.webp`
 - Owner: Card `high-contrast` grade `Punchy Values`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3543,7 +3543,7 @@ A chess set by a window with punchy contrast, lights lifted and darks deepened a
 - File name: `PIC-259-High-Contrast-2-High-Contrast.png`
 - Target: `public/card-art/gallery/cards/high-contrast/grade-02.webp`
 - Owner: Card `high-contrast` grade `High Contrast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3556,7 +3556,7 @@ A chess set in full high contrast, hard highlights against deep shadow, each pie
 - File name: `PIC-260-High-Contrast-3-Split-Black.png`
 - Target: `public/card-art/gallery/cards/high-contrast/grade-03.webp`
 - Owner: Card `high-contrast` grade `Split Black`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3569,7 +3569,7 @@ A chess set in extreme split contrast, blown whites against pit black, nothing b
 - File name: `PIC-261-Candy-Pop-1-Sweet-Accents.png`
 - Target: `public/card-art/gallery/cards/candy-pop/grade-01.webp`
 - Owner: Card `candy-pop` grade `Sweet Accents`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3582,7 +3582,7 @@ An ice-cream van with candy-bright accents popping in, sweet color arriving in s
 - File name: `PIC-262-Candy-Pop-2-Candy-Pop.png`
 - Target: `public/card-art/gallery/cards/candy-pop/grade-02.webp`
 - Owner: Card `candy-pop` grade `Candy Pop`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3595,7 +3595,7 @@ An ice-cream van in a full glossy candy palette, bubblegum and lemon leading, ch
 - File name: `PIC-263-Candy-Pop-3-Sugar-Rush.png`
 - Target: `public/card-art/gallery/cards/candy-pop/grade-03.webp`
 - Owner: Card `candy-pop` grade `Sugar Rush`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3608,7 +3608,7 @@ An ice-cream van in a full sugar rush, every color turned to eleven, glossy and 
 - File name: `PIC-264-Cold-Steel-1-Cool-Cast.png`
 - Target: `public/card-art/gallery/cards/cold-steel/grade-01.webp`
 - Owner: Card `cold-steel` grade `Cool Cast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3621,7 +3621,7 @@ A shipyard crane with a cool blue-gray cast settling over the scene, warmth rece
 - File name: `PIC-265-Cold-Steel-2-Cold-Steel.png`
 - Target: `public/card-art/gallery/cards/cold-steel/grade-02.webp`
 - Owner: Card `cold-steel` grade `Cold Steel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3634,7 +3634,7 @@ A shipyard in a full cold steel palette - slate blue hulls, gunmetal sky, zinc w
 - File name: `PIC-266-Cold-Steel-3-Deep-Freeze.png`
 - Target: `public/card-art/gallery/cards/cold-steel/grade-03.webp`
 - Owner: Card `cold-steel` grade `Deep Freeze`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3647,7 +3647,7 @@ A shipyard in deep freeze, everything blue-black chilled metal, the palette cold
 - File name: `PIC-267-Sun-Bleached-1-Light-Fade.png`
 - Target: `public/card-art/gallery/cards/sun-bleached/grade-01.webp`
 - Owner: Card `sun-bleached` grade `Light Fade`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3660,7 +3660,7 @@ A boardwalk fence with lightly sun-faded color, paint eased back like one hard s
 - File name: `PIC-268-Sun-Bleached-2-Sun-Bleached.png`
 - Target: `public/card-art/gallery/cards/sun-bleached/grade-02.webp`
 - Owner: Card `sun-bleached` grade `Sun-Bleached`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3673,7 +3673,7 @@ A boardwalk in a fully washed sun-bleached palette, pigment surrendering to salt
 - File name: `PIC-269-Sun-Bleached-3-Ghost-Paint.png`
 - Target: `public/card-art/gallery/cards/sun-bleached/grade-03.webp`
 - Owner: Card `sun-bleached` grade `Ghost Paint`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3688,7 +3688,7 @@ A boardwalk in ghost paint, color surviving only in faded traces caught in the w
 - File name: `PIC-270-Rainswept-City-1-After-the-Rain.png`
 - Target: `public/card-art/gallery/cards/rainswept-city/grade-01.webp`
 - Owner: Card `rainswept-city` grade `After the Rain`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3701,7 +3701,7 @@ A city street after rain, pavement wet and softly reflective, a figure at the cr
 - File name: `PIC-271-Rainswept-City-2-Rain-Swept-City.png`
 - Target: `public/card-art/gallery/cards/rainswept-city/grade-02.webp`
 - Owner: Card `rainswept-city` grade `Rain-Swept City`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3714,7 +3714,7 @@ A full rain-swept night city, steady rain combing the light, streets reflecting 
 - File name: `PIC-272-Rainswept-City-3-Drowned-Metropolis.png`
 - Target: `public/card-art/gallery/cards/rainswept-city/grade-03.webp`
 - Owner: Card `rainswept-city` grade `Drowned Metropolis`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3727,7 +3727,7 @@ A drowned metropolis in torrential downpour, rain flooding the avenues, the glow
 - File name: `PIC-273-Ancient-Forest-1-Forest-Edge.png`
 - Target: `public/card-art/gallery/cards/ancient-forest/grade-01.webp`
 - Owner: Card `ancient-forest` grade `Forest Edge`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3740,7 +3740,7 @@ The edge of an old mossy forest, a deer path entering between the first great tr
 - File name: `PIC-274-Ancient-Forest-2-Ancient-Forest.png`
 - Target: `public/card-art/gallery/cards/ancient-forest/grade-02.webp`
 - Owner: Card `ancient-forest` grade `Ancient Forest`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3753,7 +3753,7 @@ Deep old-growth forest surrounding the path, moss sleeving every trunk, shafts o
 - File name: `PIC-275-Ancient-Forest-3-Primeval-Depths.png`
 - Target: `public/card-art/gallery/cards/ancient-forest/grade-03.webp`
 - Owner: Card `ancient-forest` grade `Primeval Depths`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3766,7 +3766,7 @@ A primeval forest of colossal ancient trees swallowing the frame whole, trunks w
 - File name: `PIC-276-Desert-Expanse-1-Dry-Country.png`
 - Target: `public/card-art/gallery/cards/desert-expanse/grade-01.webp`
 - Owner: Card `desert-expanse` grade `Dry Country`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3779,7 +3779,7 @@ Dry open scrubland with a small caravan passing through, hardy brush and pale sa
 - File name: `PIC-277-Desert-Expanse-2-Desert-Expanse.png`
 - Target: `public/card-art/gallery/cards/desert-expanse/grade-02.webp`
 - Owner: Card `desert-expanse` grade `Desert Expanse`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3792,7 +3792,7 @@ A full desert expanse of rolling dunes to the horizon, the caravan a thread of s
 - File name: `PIC-278-Desert-Expanse-3-Endless-Erg.png`
 - Target: `public/card-art/gallery/cards/desert-expanse/grade-03.webp`
 - Owner: Card `desert-expanse` grade `Endless Erg`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3805,7 +3805,7 @@ An endless erg, an ocean of dunes under heat shimmer, the caravan almost dissolv
 - File name: `PIC-279-Frozen-Tundra-1-First-Frost.png`
 - Target: `public/card-art/gallery/cards/frozen-tundra/grade-01.webp`
 - Owner: Card `frozen-tundra` grade `First Frost`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3818,7 +3818,7 @@ Frost-dusted country under thin snow, a sled team moving through, the first real
 - File name: `PIC-280-Frozen-Tundra-2-Frozen-Tundra.png`
 - Target: `public/card-art/gallery/cards/frozen-tundra/grade-02.webp`
 - Owner: Card `frozen-tundra` grade `Frozen Tundra`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3831,7 +3831,7 @@ Full frozen tundra, deep snow and ice fields all around, the sled team small bet
 - File name: `PIC-281-Frozen-Tundra-3-White-Death.png`
 - Target: `public/card-art/gallery/cards/frozen-tundra/grade-03.webp`
 - Owner: Card `frozen-tundra` grade `White Death`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3844,7 +3844,7 @@ A howling arctic whiteout, horizon erased, the sled team barely shapes in the bl
 - File name: `PIC-282-Underwater-Depths-1-Shallows.png`
 - Target: `public/card-art/gallery/cards/underwater-depths/grade-01.webp`
 - Owner: Card `underwater-depths` grade `Shallows`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3857,7 +3857,7 @@ Sunlit shallows with a diver gliding over ripple-lit sand, the surface bright an
 - File name: `PIC-283-Underwater-Depths-2-Underwater-Depths.png`
 - Target: `public/card-art/gallery/cards/underwater-depths/grade-02.webp`
 - Owner: Card `underwater-depths` grade `Underwater Depths`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3870,7 +3870,7 @@ Open deep water swallowing the scene, the diver suspended in blue light and drif
 - File name: `PIC-284-Underwater-Depths-3-Abyssal-Trench.png`
 - Target: `public/card-art/gallery/cards/underwater-depths/grade-03.webp`
 - Owner: Card `underwater-depths` grade `Abyssal Trench`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3883,7 +3883,7 @@ A crushing abyssal trench, darkness pressing in, the diver's small lamp against 
 - File name: `PIC-285-Mountain-Heights-1-Foothills.png`
 - Target: `public/card-art/gallery/cards/mountain-heights/grade-01.webp`
 - Owner: Card `mountain-heights` grade `Foothills`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3896,7 +3896,7 @@ Rising foothill country, a climber on a grassy shoulder, real peaks beginning be
 - File name: `PIC-286-Mountain-Heights-2-Mountain-Heights.png`
 - Target: `public/card-art/gallery/cards/mountain-heights/grade-02.webp`
 - Owner: Card `mountain-heights` grade `Mountain Heights`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3909,7 +3909,7 @@ Full mountain heights, jagged ridges and thin air, the climber small on a rock s
 - File name: `PIC-287-Mountain-Heights-3-Knife-Ridge.png`
 - Target: `public/card-art/gallery/cards/mountain-heights/grade-03.webp`
 - Owner: Card `mountain-heights` grade `Knife Ridge`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3922,7 +3922,7 @@ A knife-edge summit ridge above a sea of clouds, the climber balanced between tw
 - File name: `PIC-288-Cozy-Interior-1-Warm-Room.png`
 - Target: `public/card-art/gallery/cards/cozy-interior/grade-01.webp`
 - Owner: Card `cozy-interior` grade `Warm Room`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3935,7 +3935,7 @@ A warm lived-in room, an armchair cat, soft lamplight, belongings arranged by af
 - File name: `PIC-289-Cozy-Interior-2-Cozy-Interior.png`
 - Target: `public/card-art/gallery/cards/cozy-interior/grade-02.webp`
 - Owner: Card `cozy-interior` grade `Cozy Interior`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3948,7 +3948,7 @@ A fully cozy cluttered interior - blankets and plants and leaning books everywhe
 - File name: `PIC-290-Cozy-Interior-3-Nested-Deep.png`
 - Target: `public/card-art/gallery/cards/cozy-interior/grade-03.webp`
 - Owner: Card `cozy-interior` grade `Nested Deep`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3961,7 +3961,7 @@ An impossibly snug nest of books and lamplight, shelves closing overhead like a 
 - File name: `PIC-291-Grand-Library-1-Book-Room.png`
 - Target: `public/card-art/gallery/cards/grand-library/grade-01.webp`
 - Owner: Card `grand-library` grade `Book Room`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3974,7 +3974,7 @@ A room lined with old books, one reader at a table, shelves solid to the ceiling
 - File name: `PIC-292-Grand-Library-2-Grand-Library.png`
 - Target: `public/card-art/gallery/cards/grand-library/grade-02.webp`
 - Owner: Card `grand-library` grade `Grand Library`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -3987,7 +3987,7 @@ A grand vaulted library, ladders and galleries stacked skyward, the reader small
 - File name: `PIC-293-Grand-Library-3-Infinite-Stacks.png`
 - Target: `public/card-art/gallery/cards/grand-library/grade-03.webp`
 - Owner: Card `grand-library` grade `Infinite Stacks`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4000,7 +4000,7 @@ Infinite library stacks rising out of sight in every direction, bridges between 
 - File name: `PIC-294-Floating-Islands-1-Drifting-Rocks.png`
 - Target: `public/card-art/gallery/cards/floating-islands/grade-01.webp`
 - Owner: Card `floating-islands` grade `Drifting Rocks`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4013,7 +4013,7 @@ A cliff meadow with a few rocks drifting weightless nearby, gravity beginning to
 - File name: `PIC-295-Floating-Islands-2-Floating-Islands.png`
 - Target: `public/card-art/gallery/cards/floating-islands/grade-02.webp`
 - Owner: Card `floating-islands` grade `Floating Islands`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4026,7 +4026,7 @@ Full floating islands hanging in open sky, waterfalls streaming into cloud below
 - File name: `PIC-296-Floating-Islands-3-Shattered-World.png`
 - Target: `public/card-art/gallery/cards/floating-islands/grade-03.webp`
 - Owner: Card `floating-islands` grade `Shattered World`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4039,7 +4039,7 @@ A whole shattered world hanging in the air - island chains, inverted cliffs, riv
 - File name: `PIC-297-Cyberpunk-Megacity-1-City-Lights.png`
 - Target: `public/card-art/gallery/cards/cyberpunk-megacity/grade-01.webp`
 - Owner: Card `cyberpunk-megacity` grade `City Lights`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4052,7 +4052,7 @@ A dense glowing night city behind a street vendor's cart, towers stacked deep, t
 - File name: `PIC-298-Cyberpunk-Megacity-2-Cyberpunk-Megacity.png`
 - Target: `public/card-art/gallery/cards/cyberpunk-megacity/grade-02.webp`
 - Owner: Card `cyberpunk-megacity` grade `Cyberpunk Megacity`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4065,7 +4065,7 @@ A full cyberpunk megacity - layered towers, holograms between buildings, wet str
 - File name: `PIC-299-Cyberpunk-Megacity-3-Vertical-Sprawl.png`
 - Target: `public/card-art/gallery/cards/cyberpunk-megacity/grade-03.webp`
 - Owner: Card `cyberpunk-megacity` grade `Vertical Sprawl`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4078,7 +4078,7 @@ An endless vertical sprawl with no ground in sight, city above city above city, 
 - File name: `PIC-300-Medieval-Village-1-Old-Lanes.png`
 - Target: `public/card-art/gallery/cards/medieval-village/grade-01.webp`
 - Owner: Card `medieval-village` grade `Old Lanes`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4091,7 +4091,7 @@ Old cobbled lanes with timber-framed houses leaning together, a well at the corn
 - File name: `PIC-301-Medieval-Village-2-Medieval-Village.png`
 - Target: `public/card-art/gallery/cards/medieval-village/grade-02.webp`
 - Owner: Card `medieval-village` grade `Medieval Village`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4104,7 +4104,7 @@ A full medieval village - thatched roofs, market square stalls, the well and its
 - File name: `PIC-302-Medieval-Village-3-Living-History.png`
 - Target: `public/card-art/gallery/cards/medieval-village/grade-03.webp`
 - Owner: Card `medieval-village` grade `Living History`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4117,7 +4117,7 @@ A sprawling walled medieval town, banners and chimney smoke, gates and turrets, 
 - File name: `PIC-303-Space-Frontier-1-High-Orbit.png`
 - Target: `public/card-art/gallery/cards/space-frontier/grade-01.webp`
 - Owner: Card `space-frontier` grade `High Orbit`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4130,7 +4130,7 @@ High orbit, the planet curving away below a lone station, the day-night terminat
 - File name: `PIC-304-Space-Frontier-2-Space-Frontier.png`
 - Target: `public/card-art/gallery/cards/space-frontier/grade-02.webp`
 - Owner: Card `space-frontier` grade `Space Frontier`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4143,7 +4143,7 @@ The full frontier - stations and starships against the void, docks blazing, the 
 - File name: `PIC-305-Space-Frontier-3-Deep-Cosmos.png`
 - Target: `public/card-art/gallery/cards/space-frontier/grade-03.webp`
 - Owner: Card `space-frontier` grade `Deep Cosmos`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4156,7 +4156,7 @@ Deep cosmos, nebulae and galaxies swallowing the frame, the station a bright mot
 - File name: `PIC-306-Victorian-Streets-1-Gas-Lamps.png`
 - Target: `public/card-art/gallery/cards/victorian-streets/grade-01.webp`
 - Owner: Card `victorian-streets` grade `Gas Lamps`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4169,7 +4169,7 @@ A gaslit brick street at dusk, the lamplighter at his first lamp, fog just begin
 - File name: `PIC-307-Victorian-Streets-2-Victorian-Streets.png`
 - Target: `public/card-art/gallery/cards/victorian-streets/grade-02.webp`
 - Owner: Card `victorian-streets` grade `Victorian Streets`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4182,7 +4182,7 @@ Full Victorian fog - iron railings, brick terraces, carriage clatter unseen, the
 - File name: `PIC-308-Victorian-Streets-3-Smoke-and-Soot.png`
 - Target: `public/card-art/gallery/cards/victorian-streets/grade-03.webp`
 - Owner: Card `victorian-streets` grade `Smoke and Soot`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4195,7 +4195,7 @@ A soot-dark industrial labyrinth of chimneys and fog, gaslight barely holding, t
 - File name: `PIC-309-Tropical-Shore-1-Beach-Day.png`
 - Target: `public/card-art/gallery/cards/tropical-shore/grade-01.webp`
 - Owner: Card `tropical-shore` grade `Beach Day`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4208,7 +4208,7 @@ A bright sandy shoreline, the outrigger pulled up past the tide line, clear wate
 - File name: `PIC-310-Tropical-Shore-2-Tropical-Shore.png`
 - Target: `public/card-art/gallery/cards/tropical-shore/grade-02.webp`
 - Owner: Card `tropical-shore` grade `Tropical Shore`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4221,7 +4221,7 @@ A full tropical shore - turquoise water, leaning palms, the canoe's shadow crisp
 - File name: `PIC-311-Tropical-Shore-3-Lost-Lagoon.png`
 - Target: `public/card-art/gallery/cards/tropical-shore/grade-03.webp`
 - Owner: Card `tropical-shore` grade `Lost Lagoon`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4236,7 +4236,7 @@ A hidden lagoon of impossible turquoise clarity, walls of green rising around st
 - File name: `PIC-312-Art-Nouveau-1-Nouveau-Touch.png`
 - Target: `public/card-art/gallery/cards/art-nouveau/grade-01.webp`
 - Owner: Card `art-nouveau` grade `Nouveau Touch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4249,7 +4249,7 @@ A woman among wisteria with art nouveau touches, organic curves slipping into th
 - File name: `PIC-313-Art-Nouveau-2-Art-Nouveau.png`
 - Target: `public/card-art/gallery/cards/art-nouveau/grade-02.webp`
 - Owner: Card `art-nouveau` grade `Art Nouveau`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4262,7 +4262,7 @@ Full art nouveau: flowing whiplash linework and ornament leading the style, the 
 - File name: `PIC-314-Art-Nouveau-3-Full-Mucha.png`
 - Target: `public/card-art/gallery/cards/art-nouveau/grade-03.webp`
 - Owner: Card `art-nouveau` grade `Full Mucha`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4275,7 +4275,7 @@ Full nouveau poster style, ornamental decorative framing, a halo arc behind the 
 - File name: `PIC-315-Ukiyo-E-1-Ukiyo-e-Accents.png`
 - Target: `public/card-art/gallery/cards/ukiyo-e/grade-01.webp`
 - Owner: Card `ukiyo-e` grade `Ukiyo-e Accents`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4288,7 +4288,7 @@ A ferryboat and wave with ukiyo-e influences, color flattening into planes, outl
 - File name: `PIC-316-Ukiyo-E-2-Ukiyo-e.png`
 - Target: `public/card-art/gallery/cards/ukiyo-e/grade-02.webp`
 - Owner: Card `ukiyo-e` grade `Ukiyo-e`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4301,7 +4301,7 @@ Full ukiyo-e woodblock: flat color planes, deliberate registration, the wave's f
 - File name: `PIC-317-Ukiyo-E-3-Great-Wave.png`
 - Target: `public/card-art/gallery/cards/ukiyo-e/grade-03.webp`
 - Owner: Card `ukiyo-e` grade `Great Wave`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4314,7 +4314,7 @@ Bold ukiyo-e stylization with dramatic wave motifs, claw-foam towering over the 
 - File name: `PIC-318-Impressionist-Brush-1-Loose-Touch.png`
 - Target: `public/card-art/gallery/cards/impressionist-brush/grade-01.webp`
 - Owner: Card `impressionist-brush` grade `Loose Touch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4327,7 +4327,7 @@ A garden luncheon with loose impressionist touches, edges softening, light begin
 - File name: `PIC-319-Impressionist-Brush-2-Impressionist.png`
 - Target: `public/card-art/gallery/cards/impressionist-brush/grade-02.webp`
 - Owner: Card `impressionist-brush` grade `Impressionist`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4340,7 +4340,7 @@ Full impressionism: broken color and visible daubs, the tablecloth a weather of 
 - File name: `PIC-320-Impressionist-Brush-3-Pure-Light-Study.png`
 - Target: `public/card-art/gallery/cards/impressionist-brush/grade-03.webp`
 - Owner: Card `impressionist-brush` grade `Pure Light Study`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4353,7 +4353,7 @@ A pure impressionist light study, form dissolving entirely into color, the lunch
 - File name: `PIC-321-Baroque-Drama-1-Old-Master-Touch.png`
 - Target: `public/card-art/gallery/cards/baroque-drama/grade-01.webp`
 - Owner: Card `baroque-drama` grade `Old Master Touch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4366,7 +4366,7 @@ A table gathering with old-master warmth, shadows deepening, light beginning to 
 - File name: `PIC-322-Baroque-Drama-2-Baroque-Drama.png`
 - Target: `public/card-art/gallery/cards/baroque-drama/grade-02.webp`
 - Owner: Card `baroque-drama` grade `Baroque Drama`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4379,7 +4379,7 @@ Full baroque drama: chiaroscuro theatricality, the gathering carved from darknes
 - File name: `PIC-323-Baroque-Drama-3-Full-Caravaggio.png`
 - Target: `public/card-art/gallery/cards/baroque-drama/grade-03.webp`
 - Owner: Card `baroque-drama` grade `Full Caravaggio`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4392,7 +4392,7 @@ Total darkness pierced by theatrical light, figures blazing out of black, the si
 - File name: `PIC-324-Surrealist-Dream-1-Dream-Logic.png`
 - Target: `public/card-art/gallery/cards/surrealist-dream/grade-01.webp`
 - Owner: Card `surrealist-dream` grade `Dream Logic`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4405,7 +4405,7 @@ A field with quiet surrealist touches - a doorway standing where no wall is, its
 - File name: `PIC-325-Surrealist-Dream-2-Surrealist-Dream.png`
 - Target: `public/card-art/gallery/cards/surrealist-dream/grade-02.webp`
 - Owner: Card `surrealist-dream` grade `Surrealist Dream`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4418,7 +4418,7 @@ Full surrealism: dream logic and symbolic objects, the door open onto a second w
 - File name: `PIC-326-Surrealist-Dream-3-Deep-Unreality.png`
 - Target: `public/card-art/gallery/cards/surrealist-dream/grade-03.webp`
 - Owner: Card `surrealist-dream` grade `Deep Unreality`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4431,7 +4431,7 @@ Deep unreality: melting forms and impossible space, the field folding into sky, 
 - File name: `PIC-327-Gothic-Romance-1-Dark-Undertone.png`
 - Target: `public/card-art/gallery/cards/gothic-romance/grade-01.webp`
 - Owner: Card `gothic-romance` grade `Dark Undertone`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4444,7 +4444,7 @@ An abbey scene with a dark gothic undertone, ivy claiming the stones, the mood t
 - File name: `PIC-328-Gothic-Romance-2-Gothic-Romance.png`
 - Target: `public/card-art/gallery/cards/gothic-romance/grade-02.webp`
 - Owner: Card `gothic-romance` grade `Gothic Romance`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4457,7 +4457,7 @@ Full gothic romance: ruins, lace, and melancholy, the figure pale at the glassle
 - File name: `PIC-329-Gothic-Romance-3-Full-Midnight.png`
 - Target: `public/card-art/gallery/cards/gothic-romance/grade-03.webp`
 - Owner: Card `gothic-romance` grade `Full Midnight`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4470,7 +4470,7 @@ Full midnight: cathedral gloom and stormy rapture, lightning behind the ruined r
 - File name: `PIC-330-Art-Deco-Geometry-1-Deco-Lines.png`
 - Target: `public/card-art/gallery/cards/art-deco-geometry/grade-01.webp`
 - Owner: Card `art-deco-geometry` grade `Deco Lines`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4483,7 +4483,7 @@ A hotel entrance with streamlined deco lines structuring the scene, geometry tig
 - File name: `PIC-331-Art-Deco-Geometry-2-Art-Deco.png`
 - Target: `public/card-art/gallery/cards/art-deco-geometry/grade-02.webp`
 - Owner: Card `art-deco-geometry` grade `Art Deco`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4496,7 +4496,7 @@ Full art deco: gilded geometry and fanned motifs leading, stepped black-and-gold
 - File name: `PIC-332-Art-Deco-Geometry-3-Deco-Monument.png`
 - Target: `public/card-art/gallery/cards/art-deco-geometry/grade-03.webp`
 - Owner: Card `art-deco-geometry` grade `Deco Monument`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4509,7 +4509,7 @@ A deco monument: the frame itself become gilded architecture, monumental gold-an
 - File name: `PIC-333-Renaissance-Fresco-1-Classical-Poise.png`
 - Target: `public/card-art/gallery/cards/renaissance-fresco/grade-01.webp`
 - Owner: Card `renaissance-fresco` grade `Classical Poise`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4522,7 +4522,7 @@ A gathering of robed figures with classical renaissance poise, composition stead
 - File name: `PIC-334-Renaissance-Fresco-2-Renaissance-Fresco.png`
 - Target: `public/card-art/gallery/cards/renaissance-fresco/grade-02.webp`
 - Owner: Card `renaissance-fresco` grade `Renaissance Fresco`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4535,7 +4535,7 @@ A full renaissance fresco: drapery and gesture on aged plaster, earth pigments a
 - File name: `PIC-335-Renaissance-Fresco-3-Ceiling-Vision.png`
 - Target: `public/card-art/gallery/cards/renaissance-fresco/grade-03.webp`
 - Owner: Card `renaissance-fresco` grade `Ceiling Vision`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4548,7 +4548,7 @@ A soaring ceiling vision: figures among clouds seen from below, robes spiraling 
 - File name: `PIC-336-Van-Gogh-Swirl-1-Living-Strokes.png`
 - Target: `public/card-art/gallery/cards/van-gogh-swirl/grade-01.webp`
 - Owner: Card `van-gogh-swirl` grade `Living Strokes`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4561,7 +4561,7 @@ A cypress at dusk with expressive swirling brushstrokes beginning to move throug
 - File name: `PIC-337-Van-Gogh-Swirl-2-Van-Gogh-Swirl.png`
 - Target: `public/card-art/gallery/cards/van-gogh-swirl/grade-02.webp`
 - Owner: Card `van-gogh-swirl` grade `Van Gogh Swirl`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4574,7 +4574,7 @@ Full van gogh manner: thick swirling impasto, the night sky turning in painted c
 - File name: `PIC-338-Van-Gogh-Swirl-3-Starry-Turbulence.png`
 - Target: `public/card-art/gallery/cards/van-gogh-swirl/grade-03.webp`
 - Owner: Card `van-gogh-swirl` grade `Starry Turbulence`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4587,7 +4587,7 @@ Churning turbulence, sky and ground alive with swirls, the cypress a green flame
 - File name: `PIC-339-Anime-Cel-1-Anime-Touch.png`
 - Target: `public/card-art/gallery/cards/anime-cel/grade-01.webp`
 - Owner: Card `anime-cel` grade `Anime Touch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4600,7 +4600,7 @@ A rooftop scene with clean anime linework sharpening the figure, shading simplif
 - File name: `PIC-340-Anime-Cel-2-Anime-Cel.png`
 - Target: `public/card-art/gallery/cards/anime-cel/grade-02.webp`
 - Owner: Card `anime-cel` grade `Anime Cel`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4613,7 +4613,7 @@ Full anime cel: flat two-tone shading, expressive eyes, crisp line, the painted 
 - File name: `PIC-341-Anime-Cel-3-Key-Visual.png`
 - Target: `public/card-art/gallery/cards/anime-cel/grade-03.webp`
 - Owner: Card `anime-cel` grade `Key Visual`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4626,7 +4626,7 @@ A theatrical key visual: painted sky and dramatic wind, hair and jacket flying, 
 - File name: `PIC-342-Cinematic-Still-1-Filmic-Grade.png`
 - Target: `public/card-art/gallery/cards/cinematic-still/grade-01.webp`
 - Owner: Card `cinematic-still` grade `Filmic Grade`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4639,7 +4639,7 @@ A diner booth scene with a cinematic color grade settling in, contrast shaped, l
 - File name: `PIC-343-Cinematic-Still-2-Cinematic-Still.png`
 - Target: `public/card-art/gallery/cards/cinematic-still/grade-02.webp`
 - Owner: Card `cinematic-still` grade `Cinematic Still`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4652,7 +4652,7 @@ A true film still: anamorphic feel, oval bokeh in the window lights, blocking th
 - File name: `PIC-344-Cinematic-Still-3-Epic-Frame.png`
 - Target: `public/card-art/gallery/cards/cinematic-still/grade-03.webp`
 - Owner: Card `cinematic-still` grade `Epic Frame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4665,7 +4665,7 @@ An epic blockbuster frame: teal and amber grade, atmospheric haze, the booth lit
 - File name: `PIC-345-Concept-Art-Sheet-1-Concept-Polish.png`
 - Target: `public/card-art/gallery/cards/concept-art-sheet/grade-01.webp`
 - Owner: Card `concept-art-sheet` grade `Concept Polish`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4678,7 +4678,7 @@ A guardian golem with concept-art polish tightening the render, silhouette read-
 - File name: `PIC-346-Concept-Art-Sheet-2-Concept-Art.png`
 - Target: `public/card-art/gallery/cards/concept-art-sheet/grade-02.webp`
 - Owner: Card `concept-art-sheet` grade `Concept Art`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4691,7 +4691,7 @@ Full production concept art: the golem posed with design confidence, lighting ne
 - File name: `PIC-347-Concept-Art-Sheet-3-Splash-Key-Art.png`
 - Target: `public/card-art/gallery/cards/concept-art-sheet/grade-03.webp`
 - Owner: Card `concept-art-sheet` grade `Splash Key Art`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4704,7 +4704,7 @@ Dramatic splash key art: the golem mid-stride through painterly effects and dept
 - File name: `PIC-348-Vaporwave-Grid-1-Vapor-Tint.png`
 - Target: `public/card-art/gallery/cards/vaporwave-grid/grade-01.webp`
 - Owner: Card `vaporwave-grid` grade `Vapor Tint`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4717,7 +4717,7 @@ A bust-and-palm scene with a pink and teal vapor tint drifting in, the horizon f
 - File name: `PIC-349-Vaporwave-Grid-2-Vaporwave.png`
 - Target: `public/card-art/gallery/cards/vaporwave-grid/grade-02.webp`
 - Owner: Card `vaporwave-grid` grade `Vaporwave`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4730,7 +4730,7 @@ Full vaporwave: marble statue, wireframe grid, checkerboard perspective, a strip
 - File name: `PIC-350-Vaporwave-Grid-3-Mall-of-Memory.png`
 - Target: `public/card-art/gallery/cards/vaporwave-grid/grade-03.webp`
 - Owner: Card `vaporwave-grid` grade `Mall of Memory`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4743,7 +4743,7 @@ A fully dissolved retro-digital dreamscape - checkerboards folding into sky, pal
 - File name: `PIC-351-Cottagecore-Idyll-1-Pastoral-Touch.png`
 - Target: `public/card-art/gallery/cards/cottagecore-idyll/grade-01.webp`
 - Owner: Card `cottagecore-idyll` grade `Pastoral Touch`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4756,7 +4756,7 @@ A garden table with gentle pastoral warmth settling in, gingham and clover, the 
 - File name: `PIC-352-Cottagecore-Idyll-2-Cottagecore.png`
 - Target: `public/card-art/gallery/cards/cottagecore-idyll/grade-02.webp`
 - Owner: Card `cottagecore-idyll` grade `Cottagecore`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4769,7 +4769,7 @@ Full cottagecore: gardens, gingham, and warm bread, roses over the door, the who
 - File name: `PIC-353-Cottagecore-Idyll-3-Storybook-Meadow.png`
 - Target: `public/card-art/gallery/cards/cottagecore-idyll/grade-03.webp`
 - Owner: Card `cottagecore-idyll` grade `Storybook Meadow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4782,7 +4782,7 @@ An impossibly idyllic cottage meadow, wildflowers everywhere, the table adrift i
 - File name: `PIC-354-Dark-Fantasy-Grim-1-Grim-Cast.png`
 - Target: `public/card-art/gallery/cards/dark-fantasy-grim/grade-01.webp`
 - Owner: Card `dark-fantasy-grim` grade `Grim Cast`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4795,7 +4795,7 @@ A shrine scene with a grim dark-fantasy cast, iron and shadow gathering, comfort
 - File name: `PIC-355-Dark-Fantasy-Grim-2-Dark-Fantasy.png`
 - Target: `public/card-art/gallery/cards/dark-fantasy-grim/grade-02.webp`
 - Owner: Card `dark-fantasy-grim` grade `Dark Fantasy`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4808,7 +4808,7 @@ Full dark fantasy: iron, bone, and torchlight leading, the pilgrim small before 
 - File name: `PIC-356-Dark-Fantasy-Grim-3-Grimdark-Abyss.png`
 - Target: `public/card-art/gallery/cards/dark-fantasy-grim/grade-03.webp`
 - Owner: Card `dark-fantasy-grim` grade `Grimdark Abyss`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4821,7 +4821,7 @@ Grimdark abyss: oppressive dread in every corner, the torch nearly beaten, the s
 - File name: `PIC-357-Synthwave-Sunset-1-Retro-Glow.png`
 - Target: `public/card-art/gallery/cards/synthwave-sunset/grade-01.webp`
 - Owner: Card `synthwave-sunset` grade `Retro Glow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4834,7 +4834,7 @@ A highway scene with a retro-future synthwave glow warming the horizon, chrome b
 - File name: `PIC-358-Synthwave-Sunset-2-Synthwave.png`
 - Target: `public/card-art/gallery/cards/synthwave-sunset/grade-02.webp`
 - Owner: Card `synthwave-sunset` grade `Synthwave`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4847,7 +4847,7 @@ Full synthwave: striped sunset, chrome bodywork, grid horizon rolling out, palms
 - File name: `PIC-359-Synthwave-Sunset-3-Outrun-Forever.png`
 - Target: `public/card-art/gallery/cards/synthwave-sunset/grade-03.webp`
 - Owner: Card `synthwave-sunset` grade `Outrun Forever`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4860,7 +4860,7 @@ Full outrun: laser palms and endless neon highway, the sun a banded giant, speed
 - File name: `PIC-360-Childrens-Book-Charm-1-Friendly-Lines.png`
 - Target: `public/card-art/gallery/cards/childrens-book-charm/grade-01.webp`
 - Owner: Card `childrens-book-charm` grade `Friendly Lines`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4873,7 +4873,7 @@ A bear in a scarf with friendly children's-book linework, shapes rounding, menac
 - File name: `PIC-361-Childrens-Book-Charm-2-Storybook-Page.png`
 - Target: `public/card-art/gallery/cards/childrens-book-charm/grade-02.webp`
 - Owner: Card `childrens-book-charm` grade `Storybook Page`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4886,7 +4886,7 @@ A full storybook page: warm illustrated charm, the bear's umbrella sheltering a 
 - File name: `PIC-362-Childrens-Book-Charm-3-Bedtime-Classic.png`
 - Target: `public/card-art/gallery/cards/childrens-book-charm/grade-03.webp`
 - Owner: Card `childrens-book-charm` grade `Bedtime Classic`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4899,7 +4899,7 @@ A classic bedtime spread: full picture-book charm, soft and round, the bear's la
 - File name: `PIC-363-Tarot-Card-Mystic-1-Mystic-Symbols.png`
 - Target: `public/card-art/gallery/cards/tarot-card-mystic/grade-01.webp`
 - Owner: Card `tarot-card-mystic` grade `Mystic Symbols`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4912,7 +4912,7 @@ A lantern-bearer with mystic tarot symbolism gathering at the edges - stars, a k
 - File name: `PIC-364-Tarot-Card-Mystic-2-Tarot-Arcana.png`
 - Target: `public/card-art/gallery/cards/tarot-card-mystic/grade-02.webp`
 - Owner: Card `tarot-card-mystic` grade `Tarot Arcana`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4925,7 +4925,7 @@ A full arcana composition: the figure centered and symbolic, celestial emblems b
 - File name: `PIC-365-Tarot-Card-Mystic-3-Gilded-Arcana.png`
 - Target: `public/card-art/gallery/cards/tarot-card-mystic/grade-03.webp`
 - Owner: Card `tarot-card-mystic` grade `Gilded Arcana`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4938,7 +4938,7 @@ A fully gilded arcana: celestial ornament and stars, gold-rayed halo, the lanter
 - File name: `PIC-366-Vintage-Travel-Poster-1-Poster-Tint.png`
 - Target: `public/card-art/gallery/cards/vintage-travel-poster/grade-01.webp`
 - Owner: Card `vintage-travel-poster` grade `Poster Tint`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4951,7 +4951,7 @@ A coastal village with vintage travel-poster color tinting the scene, optimism e
 - File name: `PIC-367-Vintage-Travel-Poster-2-Travel-Poster.png`
 - Target: `public/card-art/gallery/cards/vintage-travel-poster/grade-02.webp`
 - Owner: Card `vintage-travel-poster` grade `Travel Poster`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4964,7 +4964,7 @@ A full travel poster: flat cheerful shapes selling the view, simplified waves, a
 - File name: `PIC-368-Vintage-Travel-Poster-3-Grand-Tour.png`
 - Target: `public/card-art/gallery/cards/vintage-travel-poster/grade-03.webp`
 - Owner: Card `vintage-travel-poster` grade `Grand Tour`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4977,7 +4977,7 @@ A golden-age tourism poster: simplified grandeur and clean skies, the village ic
 - File name: `PIC-369-Botanical-Plate-1-Naturalist-Eye.png`
 - Target: `public/card-art/gallery/cards/botanical-plate/grade-01.webp`
 - Owner: Card `botanical-plate` grade `Naturalist Eye`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -4990,7 +4990,7 @@ A flowering plant with naturalist botanical precision sharpening the detail, str
 - File name: `PIC-370-Botanical-Plate-2-Botanical-Plate.png`
 - Target: `public/card-art/gallery/cards/botanical-plate/grade-02.webp`
 - Owner: Card `botanical-plate` grade `Botanical Plate`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5003,7 +5003,7 @@ A full botanical plate: the specimen on cream paper with root, leaf, and dissect
 - File name: `PIC-371-Botanical-Plate-3-Field-Folio.png`
 - Target: `public/card-art/gallery/cards/botanical-plate/grade-03.webp`
 - Owner: Card `botanical-plate` grade `Field Folio`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5018,7 +5018,7 @@ A dense antique folio study: multiple specimens arranged, seeds and sections in 
 - File name: `PIC-372-Close-Portrait-1-Portrait-Frame.png`
 - Target: `public/card-art/gallery/cards/close-portrait/grade-01.webp`
 - Owner: Card `close-portrait` grade `Portrait Frame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5031,7 +5031,7 @@ A classic portrait crop of a freckled sailor, head and shoulders centered, the h
 - File name: `PIC-373-Close-Portrait-2-Close-Portrait.png`
 - Target: `public/card-art/gallery/cards/close-portrait/grade-02.webp`
 - Owner: Card `close-portrait` grade `Close Portrait`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5044,7 +5044,7 @@ An intimate close-up: the sailor's face carrying the frame, catchlights crisp, t
 - File name: `PIC-374-Close-Portrait-3-Macro-Gaze.png`
 - Target: `public/card-art/gallery/cards/close-portrait/grade-03.webp`
 - Owner: Card `close-portrait` grade `Macro Gaze`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5057,7 +5057,7 @@ An extreme macro gaze: the face filling the frame edge to edge, salt in the eyeb
 - File name: `PIC-375-Wide-Establishing-1-Wide-Frame.png`
 - Target: `public/card-art/gallery/cards/wide-establishing/grade-01.webp`
 - Owner: Card `wide-establishing` grade `Wide Frame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5070,7 +5070,7 @@ A generous wide crop of the valley, the monastery comfortably placed, the land g
 - File name: `PIC-376-Wide-Establishing-2-Establishing-Shot.png`
 - Target: `public/card-art/gallery/cards/wide-establishing/grade-02.webp`
 - Owner: Card `wide-establishing` grade `Establishing Shot`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5083,7 +5083,7 @@ A sweeping establishing view: the whole valley's geography readable, river, road
 - File name: `PIC-377-Wide-Establishing-3-God-s-Eye.png`
 - Target: `public/card-art/gallery/cards/wide-establishing/grade-03.webp`
 - Owner: Card `wide-establishing` grade `God's Eye`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5096,7 +5096,7 @@ An ultra-wide aerial panorama swallowing the valley whole, the monastery a fleck
 - File name: `PIC-378-Low-Angle-Hero-1-Slight-Look-Up.png`
 - Target: `public/card-art/gallery/cards/low-angle-hero/grade-01.webp`
 - Owner: Card `low-angle-hero` grade `Slight Look-Up`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5109,7 +5109,7 @@ A firefighter in smoke from a slightly low angle, stature quietly amplified, the
 - File name: `PIC-379-Low-Angle-Hero-2-Low-Angle-Hero.png`
 - Target: `public/card-art/gallery/cards/low-angle-hero/grade-02.webp`
 - Owner: Card `low-angle-hero` grade `Low-Angle Hero`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5122,7 +5122,7 @@ A full low-angle hero shot from near the pavement, the figure towering, coat swe
 - File name: `PIC-380-Low-Angle-Hero-3-Monument-View.png`
 - Target: `public/card-art/gallery/cards/low-angle-hero/grade-03.webp`
 - Owner: Card `low-angle-hero` grade `Monument View`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5135,7 +5135,7 @@ An extreme worm's-eye view, the figure monumental against the sky, perspective s
 - File name: `PIC-381-Birds-Eye-View-1-High-Vantage.png`
 - Target: `public/card-art/gallery/cards/birds-eye-view/grade-01.webp`
 - Owner: Card `birds-eye-view` grade `High Vantage`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5148,7 +5148,7 @@ The market from a high vantage, tilting down, stalls beginning to arrange into s
 - File name: `PIC-382-Birds-Eye-View-2-Bird-s-Eye-View.png`
 - Target: `public/card-art/gallery/cards/birds-eye-view/grade-02.webp`
 - Owner: Card `birds-eye-view` grade `Bird's-Eye View`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5161,7 +5161,7 @@ A true bird's-eye view, straight down: awnings as color blocks, shoppers as movi
 - File name: `PIC-383-Birds-Eye-View-3-Satellite-Map.png`
 - Target: `public/card-art/gallery/cards/birds-eye-view/grade-03.webp`
 - Owner: Card `birds-eye-view` grade `Satellite Map`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5174,7 +5174,7 @@ So high the market becomes cartography - lanes and rooftops flattened into a liv
 - File name: `PIC-384-Dutch-Tilt-1-Slight-Cant.png`
 - Target: `public/card-art/gallery/cards/dutch-tilt/grade-01.webp`
 - Owner: Card `dutch-tilt` grade `Slight Cant`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5187,7 +5187,7 @@ An alley sprint with the horizon canted a few degrees, the ground subtly no long
 - File name: `PIC-385-Dutch-Tilt-2-Dutch-Tilt.png`
 - Target: `public/card-art/gallery/cards/dutch-tilt/grade-02.webp`
 - Owner: Card `dutch-tilt` grade `Dutch Tilt`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5200,7 +5200,7 @@ A committed dutch tilt: diagonal horizon, the alley leaning, the run charged by 
 - File name: `PIC-386-Dutch-Tilt-3-Vertigo-Frame.png`
 - Target: `public/card-art/gallery/cards/dutch-tilt/grade-03.webp`
 - Owner: Card `dutch-tilt` grade `Vertigo Frame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5213,7 +5213,7 @@ An extreme tilt lurching into vertigo, the world nearly sideways, balance abando
 - File name: `PIC-387-Symmetric-Center-1-Centered-Subject.png`
 - Target: `public/card-art/gallery/cards/symmetric-center/grade-01.webp`
 - Owner: Card `symmetric-center` grade `Centered Subject`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5226,7 +5226,7 @@ The corridor with its subject dead center, balance settling over the frame.
 - File name: `PIC-388-Symmetric-Center-2-Formal-Symmetry.png`
 - Target: `public/card-art/gallery/cards/symmetric-center/grade-02.webp`
 - Owner: Card `symmetric-center` grade `Formal Symmetry`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5239,7 +5239,7 @@ Perfect formal symmetry: the corridor mirrored left-right, pairs of sconces agre
 - File name: `PIC-389-Symmetric-Center-3-Temple-Symmetry.png`
 - Target: `public/card-art/gallery/cards/symmetric-center/grade-03.webp`
 - Owner: Card `symmetric-center` grade `Temple Symmetry`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5252,7 +5252,7 @@ Obsessive temple symmetry, mirrored down to the reflections in the polished floo
 - File name: `PIC-390-Rule-Of-Thirds-1-Off-Center.png`
 - Target: `public/card-art/gallery/cards/rule-of-thirds/grade-01.webp`
 - Owner: Card `rule-of-thirds` grade `Off-Center`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5265,7 +5265,7 @@ The red boat stepping off center, the sea given the larger share of the frame.
 - File name: `PIC-391-Rule-Of-Thirds-2-Rule-of-Thirds.png`
 - Target: `public/card-art/gallery/cards/rule-of-thirds/grade-02.webp`
 - Owner: Card `rule-of-thirds` grade `Rule of Thirds`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5278,7 +5278,7 @@ Classic thirds placement: the boat at a power point, horizon on the upper line, 
 - File name: `PIC-392-Rule-Of-Thirds-3-Far-Corner.png`
 - Target: `public/card-art/gallery/cards/rule-of-thirds/grade-03.webp`
 - Owner: Card `rule-of-thirds` grade `Far Corner`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5291,7 +5291,7 @@ The boat tucked in one far corner of a vast open frame, the sea enormous, the co
 - File name: `PIC-393-Shallow-Bokeh-1-Soft-Background.png`
 - Target: `public/card-art/gallery/cards/shallow-bokeh/grade-01.webp`
 - Owner: Card `shallow-bokeh` grade `Soft Background`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5304,7 +5304,7 @@ The pour with a softly blurred background, the cafe easing out of focus behind t
 - File name: `PIC-394-Shallow-Bokeh-2-Shallow-Bokeh.png`
 - Target: `public/card-art/gallery/cards/shallow-bokeh/grade-02.webp`
 - Owner: Card `shallow-bokeh` grade `Shallow Bokeh`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5317,7 +5317,7 @@ Full shallow bokeh: the cup crisp, the room dissolved into creamy discs of light
 - File name: `PIC-395-Shallow-Bokeh-3-Razor-Focus.png`
 - Target: `public/card-art/gallery/cards/shallow-bokeh/grade-03.webp`
 - Owner: Card `shallow-bokeh` grade `Razor Focus`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5330,7 +5330,7 @@ A razor-thin focal plane - one edge of the cup sharp, everything else including 
 - File name: `PIC-396-Long-Exposure-1-Slow-Shutter.png`
 - Target: `public/card-art/gallery/cards/long-exposure/grade-01.webp`
 - Owner: Card `long-exposure` grade `Slow Shutter`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5343,7 +5343,7 @@ The bridge and falls with slow-shutter softness, water beginning to blur, lights
 - File name: `PIC-397-Long-Exposure-2-Long-Exposure.png`
 - Target: `public/card-art/gallery/cards/long-exposure/grade-02.webp`
 - Owner: Card `long-exposure` grade `Long Exposure`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5356,7 +5356,7 @@ A full long exposure: water silked, light trails ribboning the bridge, time visi
 - File name: `PIC-398-Long-Exposure-3-Hours-Open.png`
 - Target: `public/card-art/gallery/cards/long-exposure/grade-03.webp`
 - Owner: Card `long-exposure` grade `Hours Open`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5369,7 +5369,7 @@ Hours in one frame: star trails arcing over the bridge, ghost traffic layered in
 - File name: `PIC-399-Double-Exposure-1-Faint-Overlay.png`
 - Target: `public/card-art/gallery/cards/double-exposure/grade-01.webp`
 - Owner: Card `double-exposure` grade `Faint Overlay`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5382,7 +5382,7 @@ The profile with a faint forest overlay, trees ghosting through the edge of the 
 - File name: `PIC-400-Double-Exposure-2-Double-Exposure.png`
 - Target: `public/card-art/gallery/cards/double-exposure/grade-02.webp`
 - Owner: Card `double-exposure` grade `Double Exposure`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5395,7 +5395,7 @@ A full double exposure: the landscape living inside the silhouette, hairline and
 - File name: `PIC-401-Double-Exposure-3-Layered-Ghosts.png`
 - Target: `public/card-art/gallery/cards/double-exposure/grade-03.webp`
 - Owner: Card `double-exposure` grade `Layered Ghosts`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5408,7 +5408,7 @@ Many exposures stacked into layered ghosts - profile, forest, weather, and birds
 - File name: `PIC-402-Silhouette-Shot-1-Half-Shadow.png`
 - Target: `public/card-art/gallery/cards/silhouette-shot/grade-01.webp`
 - Owner: Card `silhouette-shot` grade `Half Shadow`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5421,7 +5421,7 @@ The fisherman half in shadow against the bright sky, features fading, shape stre
 - File name: `PIC-403-Silhouette-Shot-2-Silhouette.png`
 - Target: `public/card-art/gallery/cards/silhouette-shot/grade-02.webp`
 - Owner: Card `silhouette-shot` grade `Silhouette`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5434,7 +5434,7 @@ A clean silhouette: the cast frozen black against the glowing sky, the line of r
 - File name: `PIC-404-Silhouette-Shot-3-Pure-Shape.png`
 - Target: `public/card-art/gallery/cards/silhouette-shot/grade-03.webp`
 - Owner: Card `silhouette-shot` grade `Pure Shape`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5447,7 +5447,7 @@ Pure shape: nothing but cut-paper black against a blazing sky, the figure an emb
 - File name: `PIC-405-Motion-Blur-Action-1-Hint-of-Motion.png`
 - Target: `public/card-art/gallery/cards/motion-blur-action/grade-01.webp`
 - Owner: Card `motion-blur-action` grade `Hint of Motion`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5460,7 +5460,7 @@ The cyclist with a hint of motion blur at the wheels and edges, stillness starti
 - File name: `PIC-406-Motion-Blur-Action-2-Action-Pan.png`
 - Target: `public/card-art/gallery/cards/motion-blur-action/grade-02.webp`
 - Owner: Card `motion-blur-action` grade `Action Pan`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5473,7 +5473,7 @@ A full action pan: the rider held sharp, background torn into streaks, the frame
 - File name: `PIC-407-Motion-Blur-Action-3-Full-Velocity.png`
 - Target: `public/card-art/gallery/cards/motion-blur-action/grade-03.webp`
 - Owner: Card `motion-blur-action` grade `Full Velocity`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5486,7 +5486,7 @@ Full velocity: the whole frame tearing with speed lines, the cyclist a blade of 
 - File name: `PIC-408-Isometric-View-1-Angled-Overview.png`
 - Target: `public/card-art/gallery/cards/isometric-view/grade-01.webp`
 - Owner: Card `isometric-view` grade `Angled Overview`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5499,7 +5499,7 @@ The bakery from a tidy angled overview, the scene beginning to miniaturize.
 - File name: `PIC-409-Isometric-View-2-Isometric-View.png`
 - Target: `public/card-art/gallery/cards/isometric-view/grade-02.webp`
 - Owner: Card `isometric-view` grade `Isometric View`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5512,7 +5512,7 @@ True isometric: parallel lines never converging, the bakery a perfect readable t
 - File name: `PIC-410-Isometric-View-3-Diorama-Cutaway.png`
 - Target: `public/card-art/gallery/cards/isometric-view/grade-03.webp`
 - Owner: Card `isometric-view` grade `Diorama Cutaway`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5525,7 +5525,7 @@ An isometric cutaway diorama: walls opened to show the ovens, stockroom, and sta
 - File name: `PIC-411-Knolling-Flatlay-1-Tidy-Layout.png`
 - Target: `public/card-art/gallery/cards/knolling-flatlay/grade-01.webp`
 - Owner: Card `knolling-flatlay` grade `Tidy Layout`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5538,7 +5538,7 @@ The field kit in a tidy flat lay, objects settling into rows on the canvas.
 - File name: `PIC-412-Knolling-Flatlay-2-Knolling.png`
 - Target: `public/card-art/gallery/cards/knolling-flatlay/grade-02.webp`
 - Owner: Card `knolling-flatlay` grade `Knolling`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5551,7 +5551,7 @@ Full knolling: every item aligned at right angles from directly above, spacing e
 - File name: `PIC-413-Knolling-Flatlay-3-Museum-Inventory.png`
 - Target: `public/card-art/gallery/cards/knolling-flatlay/grade-03.webp`
 - Owner: Card `knolling-flatlay` grade `Museum Inventory`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5564,7 +5564,7 @@ A museum-grade inventory grid: the kit disassembled to components, every screw a
 - File name: `PIC-414-Hyper-Detailed-1-Fine-Detail.png`
 - Target: `public/card-art/gallery/cards/hyper-detailed/grade-01.webp`
 - Owner: Card `hyper-detailed` grade `Fine Detail`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5577,7 +5577,7 @@ The tide pool finely detailed, textures sharpening across rock and water.
 - File name: `PIC-415-Hyper-Detailed-2-Hyper-Detailed.png`
 - Target: `public/card-art/gallery/cards/hyper-detailed/grade-02.webp`
 - Owner: Card `hyper-detailed` grade `Hyper-Detailed`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5590,7 +5590,7 @@ Fully hyper-detailed: intricate texture throughout, anemones and shell-script re
 - File name: `PIC-416-Hyper-Detailed-3-Infinite-Engraving.png`
 - Target: `public/card-art/gallery/cards/hyper-detailed/grade-03.webp`
 - Owner: Card `hyper-detailed` grade `Infinite Engraving`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5603,7 +5603,7 @@ Obsessive density: every square inch engraved with miniature texture, the pool a
 - File name: `PIC-417-Minimalist-Negative-Space-1-Breathing-Room.png`
 - Target: `public/card-art/gallery/cards/minimalist-negative-space/grade-01.webp`
 - Owner: Card `minimalist-negative-space` grade `Breathing Room`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5616,7 +5616,7 @@ The kite with generous negative space opening around it, the sky claiming most o
 - File name: `PIC-418-Minimalist-Negative-Space-2-Minimalist-Frame.png`
 - Target: `public/card-art/gallery/cards/minimalist-negative-space/grade-02.webp`
 - Owner: Card `minimalist-negative-space` grade `Minimalist Frame`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
@@ -5629,10 +5629,110 @@ Full minimalism: a tiny subject in a vast clean field, the string a hairline, em
 - File name: `PIC-419-Minimalist-Negative-Space-3-Almost-Nothing.png`
 - Target: `public/card-art/gallery/cards/minimalist-negative-space/grade-03.webp`
 - Owner: Card `minimalist-negative-space` grade `Almost Nothing`
-- Status: planned
+- Status: generated
 
 ```
 Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
 
 Almost nothing: the image approaching pure emptiness, one small mark of kite in the void - and the void composed.
+```
+
+### Acronym letters - the guide page
+
+#### 420. Letter P - Protagonist
+
+- File name: `PIC-420-Letter-P-Protagonist.png`
+- Target: `public/card-art/gallery/craft/letter-p.webp`
+- Owner: Guide step `Protagonist`
+- Status: generated
+- Bio: One subject steps forward and the rest of the scene agrees to be background. Every strong image starts by choosing.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Protagonist. A casting line of silhouetted figures in a rehearsal hall, one stepped forward into a single warm spotlight, the chosen subject sharp and lit while the line behind stays in soft shadow.
+```
+
+#### 421. Letter I - Illumination
+
+- File name: `PIC-421-Letter-I-Illumination.png`
+- Target: `public/card-art/gallery/craft/letter-i.webp`
+- Owner: Guide step `Illumination`
+- Status: generated
+- Bio: Before color, before style, there is where the light comes from. Illumination is the scene deciding what you get to see.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Illumination. A plaster bust on a sculptor's stand in a dark studio, one hard window beam carving its features out of the black, dust hanging bright in the shaft - the light visibly building the form.
+```
+
+#### 422. Letter C - Canvas
+
+- File name: `PIC-422-Letter-C-Canvas.png`
+- Target: `public/card-art/gallery/craft/letter-c.webp`
+- Owner: Guide step `Canvas`
+- Status: generated
+- Bio: The same hills can be graphite, ink, or oil. Canvas is the medium the image pretends to be - and commits to.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Canvas. One landscape crossing three mediums in a single image: rolling hills that begin as loose pencil construction lines, resolve into inked linework midfield, and finish as full oil paint at the far ridge - the same scene becoming more painted as it goes.
+```
+
+#### 423. Letter T - Tone
+
+- File name: `PIC-423-Letter-T-Tone.png`
+- Target: `public/card-art/gallery/craft/letter-t.webp`
+- Owner: Guide step `Tone`
+- Status: generated
+- Bio: Identical trees, two moods. Tone is the palette's attitude doing the emotional work before the subject says a word.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Tone. One orchard lane split down its middle seam: the left half in warm honeyed golds, the right half in cold blue dusk, identical trees wearing two entirely different moods - palette as attitude.
+```
+
+#### 424. Letter U - Universe
+
+- File name: `PIC-424-Letter-U-Universe.png`
+- Target: `public/card-art/gallery/craft/letter-u.webp`
+- Owner: Guide step `Universe`
+- Status: generated
+- Bio: A door in a field, a city in the door. Universe decides what world is standing around your subject.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Universe. A single wooden door standing alone in quiet grassland, opened onto a rain-soaked neon city at night, a small traveler on the threshold between the two worlds.
+```
+
+#### 425. Letter R - References
+
+- File name: `PIC-425-Letter-R-References.png`
+- Target: `public/card-art/gallery/craft/letter-r.webp`
+- Owner: Guide step `References`
+- Status: generated
+- Bio: Studies of studies. References name the shoulders an image stands on - artists, movements, and looks worth channeling.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+References. An artist's desk from above, strewn with open books, postcards, and torn print clippings of wildly different painting styles, a hand mid-stroke copying from one onto a fresh sheet - a study built from studies. All book pages and clippings show artwork only, no readable writing.
+```
+
+#### 426. Letter E - Execution
+
+- File name: `PIC-426-Letter-E-Execution.png`
+- Target: `public/card-art/gallery/craft/letter-e.webp`
+- Owner: Guide step `Execution`
+- Status: generated
+- Bio: The finger-frame at the end: crop, finish, and polish. Execution is every decision that turns a scene into a shot.
+
+```
+Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures.
+
+Execution. Two hands raised against a wide sunset valley making the director's framing gesture, thumbs and forefingers boxing the horizon, the land inside the finger-frame subtly sharper and more finished than the loose world outside it.
 ```

@@ -3,6 +3,7 @@
 import type { ReactNode, RefObject } from "react";
 import { PromptCardWorkbench } from "@/components/prompt-card-workbench";
 import {
+  CardIllustrationFrame,
   CraftCard,
   CraftDictationField,
   FieldHeading,
@@ -10,6 +11,7 @@ import {
   type FieldGuidance,
 } from "@/components/prompt-builder-ui";
 import { useRovingRadioGroup } from "@/hooks/use-roving-radio-group";
+import { pictureLetterArt } from "@/lib/picture-art-pack";
 import { pictureCardEngine } from "@/lib/picture-card-system";
 import {
   CHAOS_RANGE,
@@ -323,8 +325,15 @@ export function PictureFlowPanels({
                   onClick={() => navigateToPictureStep(index)}
                   key={letter}
                 >
-                  <span className="craft-definition-letter">{letter}</span>
-                  <strong>{label}</strong>
+                  <CardIllustrationFrame
+                    className="craft-definition-art"
+                    illustration={pictureLetterArt(letter)}
+                    fallback={letter}
+                  />
+                  <span className="craft-definition-word">
+                    <b>{letter}</b>
+                    <span>{label.slice(1)}</span>
+                  </span>
                   <small>{summary}</small>
                 </button>
               ))}

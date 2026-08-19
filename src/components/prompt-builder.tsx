@@ -109,9 +109,9 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
   const [copyState, setCopyState] = useState<"idle" | "copied" | "error">(
     "idle",
   );
-  const [activeRoleCategory, setActiveRoleCategory] = useState(
-    () => roles[0]?.category ?? "",
-  );
+  // "all" is the browse default (owner, 2026-08-19): every role visible,
+  // categories acting as filters rather than an obligatory first pick.
+  const [activeRoleCategory, setActiveRoleCategory] = useState("all");
   const [roleSelectionMessage, setRoleSelectionMessage] = useState("");
   const [roleWorkbenchVersion, setRoleWorkbenchVersion] = useState(0);
   const [activeArchetypeId, setActiveArchetypeId] = useState<string | null>(
@@ -191,10 +191,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         .map((roleId) => roles.find((role) => role.id === roleId))
         .filter((role): role is PromptRole => Boolean(role)),
     [draft.roleIds, roles],
-  );
-  const categories = useMemo(
-    () => Array.from(new Set(roles.map((role) => role.category))),
-    [roles],
   );
   const equippedInstructions = useMemo(
     () => getEquippedInstructions(cardSystem.equipped, cardSystem.tracks),
@@ -330,10 +326,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
           decodeSessionParam(shared, roles);
         setDraft(nextDraft);
         setCardSystem(nextCardSystem);
-        const leadRole = roles.find(
-          (role) => role.id === nextDraft.roleIds[0],
-        );
-        setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+        setActiveRoleCategory("all");
         setRoleWorkbenchVersion((current) => current + 1);
         setActiveArchetypeId(null);
         setActivePromptName(null);
@@ -349,7 +342,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       }
     }, 0);
     return () => window.clearTimeout(timer);
-  }, [categories, roles, setSpeechMessage]);
+  }, [roles, setSpeechMessage]);
 
   function focusMissingField(field: string) {
     const missingTargets: Record<string, { panel: number; controlId: string }> =
@@ -423,7 +416,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     const validRoleIds = archetype.roleIds.filter((roleId) =>
       roles.some((role) => role.id === roleId),
     );
-    const leadRole = roles.find((role) => role.id === validRoleIds[0]);
 
     if (!formatOption) {
       setSpeechMessage(`${archetype.name} uses an unavailable output type.`);
@@ -451,7 +443,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         suggested: createEmptySuggestedCards(),
       }),
     );
-    setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+    setActiveRoleCategory("all");
     setRoleWorkbenchVersion((current) => current + 1);
     setActiveArchetypeId(archetype.id);
     setActiveProofId(null);
@@ -523,7 +515,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
     cancelDictation(true);
     setDraft(EMPTY_DRAFT);
     setCardSystem(createCardSystem());
-    setActiveRoleCategory(categories[0] ?? "");
+    setActiveRoleCategory("all");
     setRoleWorkbenchVersion((current) => current + 1);
     setRoleSelectionMessage("");
     setActiveArchetypeId(null);
@@ -547,12 +539,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         target: ["target-language", "target-stance"],
       }),
     });
-    const exampleRole = roles.find(
-      (role) => role.id === EXAMPLE_DRAFT.roleIds[0],
-    );
-    if (exampleRole) {
-      setActiveRoleCategory(exampleRole.category);
-    }
+    setActiveRoleCategory("all");
     setRoleWorkbenchVersion((current) => current + 1);
     setRoleSelectionMessage(
       "Example loaded with UX / UI Advisor as the lead role.",
@@ -594,12 +581,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         ...scenario.suggested,
       },
     });
-    const leadRole = roles.find((role) => role.id === validRoleIds[0]);
-    if (leadRole) {
-      setActiveRoleCategory(leadRole.category);
-    } else {
-      setActiveRoleCategory(categories[0] ?? "");
-    }
+    setActiveRoleCategory("all");
     setRoleWorkbenchVersion((current) => current + 1);
     setRoleSelectionMessage(
       validRoleIds.length > 0
@@ -652,7 +634,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         : `${role.name} added to support ${draft.roleIds.length}.`,
     );
     setCopyState("idle");
-    setActiveRoleCategory(role.category);
   }
 
   function dropRoleIntoSlot(slotIndex: number, roleId: string) {
@@ -672,7 +653,6 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
       ).filter(Boolean);
       return { ...current, roleIds: nextRoleIds };
     });
-    setActiveRoleCategory(role.category);
     setRoleSelectionMessage(
       `${role.name} moved to ${
         slotIndex === 0 ? "lead" : `support ${slotIndex}`
@@ -746,15 +726,12 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         draft: nextDraft,
         cardSystem: nextCardSystem,
       } = restorePromptSession(await file.text(), roles);
-      const leadRole = roles.find(
-        (role) => role.id === nextDraft.roleIds[0],
-      );
 
       history.checkpoint();
       cancelDictation(true);
       setDraft(nextDraft);
       setCardSystem(nextCardSystem);
-      setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+      setActiveRoleCategory("all");
       setRoleWorkbenchVersion((current) => current + 1);
       setActiveArchetypeId(null);
       setActivePromptName(null);
@@ -791,8 +768,7 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
         nextDraft.format,
       ),
     );
-    const leadRole = roles.find((role) => role.id === nextDraft.roleIds[0]);
-    setActiveRoleCategory(leadRole?.category ?? categories[0] ?? "");
+    setActiveRoleCategory("all");
     setRoleWorkbenchVersion((current) => current + 1);
     setActiveArchetypeId(null);
     setActivePromptName(entry.name);
@@ -966,6 +942,8 @@ export function PromptBuilder({ roles }: { roles: PromptRole[] }) {
               activeRoleCategory={activeRoleCategory}
               roleSelectionMessage={roleSelectionMessage}
               dictation={dictationApi}
+              artPackId={artPackId}
+              onSelectArtPack={switchArtPack}
               navigateToCraftStep={nav.navigateToCraftStep}
               onSelectOutputType={selectOutputType}
               onUpdateDraft={updateDraft}

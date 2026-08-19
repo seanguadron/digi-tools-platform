@@ -4,11 +4,13 @@ import type { RefObject } from "react";
 import { PromptCardWorkbench } from "@/components/prompt-card-workbench";
 import { PromptRoleWorkbench } from "@/components/prompt-role-workbench";
 import {
+  CardIllustrationFrame,
   CraftCard,
   CraftDictationField,
   FieldHeading,
   type CraftDictationApi,
 } from "@/components/prompt-builder-ui";
+import { ART_PACK_OPTIONS, craftLetterArt, packArtFor } from "@/lib/art-pack";
 import { FORMAT_OPTIONS } from "@/lib/prompt-builder-options";
 import {
   CRAFT_PARTS,
@@ -39,6 +41,8 @@ export function CraftFlowPanels({
   activeRoleCategory,
   roleSelectionMessage,
   dictation,
+  artPackId,
+  onSelectArtPack,
   navigateToCraftStep,
   onSelectOutputType,
   onUpdateDraft,
@@ -70,6 +74,8 @@ export function CraftFlowPanels({
   activeRoleCategory: string;
   roleSelectionMessage: string;
   dictation: CraftDictationApi;
+  artPackId: string;
+  onSelectArtPack: (id: string) => void;
   navigateToCraftStep: (stepIndex: number) => void;
   onSelectOutputType: (value: string) => void;
   onUpdateDraft: (field: PromptDraftTextField, value: string) => void;
@@ -111,6 +117,19 @@ export function CraftFlowPanels({
     activeFormatIndex,
     selectFormatAt,
   );
+  // The world tier: one card per art pack so switching styles is a visible,
+  // clickable thing rather than a control you have to find in the dock.
+  const activeStyleIndex = ART_PACK_OPTIONS.findIndex(
+    (option) => option.id === artPackId,
+  );
+  const styleGroup = useRovingRadioGroup(
+    ART_PACK_OPTIONS.length,
+    activeStyleIndex,
+    (index) => {
+      const option = ART_PACK_OPTIONS[index];
+      if (option) onSelectArtPack(option.id);
+    },
+  );
 
   return (
     <div className="flow-viewport" ref={flowViewportRef}>
@@ -140,6 +159,67 @@ export function CraftFlowPanels({
                 Set the context, role, actions, format, and audience. Your
                 prompt updates as you go.
               </p>
+            </div>
+            <div className="craft-definition" role="list">
+              {CRAFT_PARTS.map(({ letter, label, summary }, index) => (
+                <button
+                  className="craft-definition-card"
+                  type="button"
+                  role="listitem"
+                  onClick={() => navigateToCraftStep(index)}
+                  key={letter}
+                >
+                  <CardIllustrationFrame
+                    className="craft-definition-art"
+                    illustration={craftLetterArt(letter)}
+                    fallback={letter}
+                  />
+                  <span className="craft-definition-word">
+                    <b>{letter}</b>
+                    <span>{label.slice(1)}</span>
+                  </span>
+                  <small>{summary}</small>
+                </button>
+              ))}
+            </div>
+            {/* The card style tier: the same Researcher in each world's art,
+                so the whole-deck reskin is discoverable from the guide. */}
+            <div
+              className="craft-style-tier"
+              role="radiogroup"
+              aria-label="Card style"
+            >
+              <span className="craft-style-tier-label">Card style</span>
+              <div className="craft-style-cards">
+                {ART_PACK_OPTIONS.map((option, index) => {
+                  const selected = option.id === artPackId;
+                  return (
+                    <button
+                      className={
+                        selected
+                          ? "craft-style-card is-active"
+                          : "craft-style-card"
+                      }
+                      type="button"
+                      role="radio"
+                      aria-checked={selected}
+                      onClick={() => onSelectArtPack(option.id)}
+                      key={option.id}
+                      {...styleGroup.itemProps(index)}
+                    >
+                      <CardIllustrationFrame
+                        className="craft-style-art"
+                        illustration={packArtFor(
+                          option.id,
+                          "roles.researcher",
+                        )}
+                        fallback={option.name.slice(0, 1)}
+                      />
+                      <strong>{option.name}</strong>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
             <section
               className="output-type-setup"
@@ -175,21 +255,6 @@ export function CraftFlowPanels({
                 })}
               </div>
             </section>
-            <div className="craft-definition" role="list">
-              {CRAFT_PARTS.map(({ letter, label, summary }, index) => (
-                <button
-                  className="craft-definition-card"
-                  type="button"
-                  role="listitem"
-                  onClick={() => navigateToCraftStep(index)}
-                  key={letter}
-                >
-                  <span className="craft-definition-letter">{letter}</span>
-                  <strong>{label}</strong>
-                  <small>{summary}</small>
-                </button>
-              ))}
-            </div>
           </div>
         </section>
 

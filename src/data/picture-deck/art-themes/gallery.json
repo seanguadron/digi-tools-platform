@@ -9,607 +9,650 @@
     "aspectRatio": "1:1",
     "style": "Collectible-card key art for a deck that teaches image-making. Each card demonstrates exactly one technique, and the image is MADE WITH that technique wherever the brief names one - the technique is how the picture is rendered, never an object shown inside it. One strong, instantly readable focal subject with clean uncluttered edges, composed square with generous breathing room, and it still reads at thumbnail size. The artwork is full-bleed and fills the entire square to every edge, the scene cut off by the picture edges on all four sides: no border, no margin, no matting, no frame, no drawn edge line, no vignette box, no rounded corners, not a picture of a card or a page. Artwork only: no text, no letters, no numbers, no logos, no readable symbols, no ui labels, no card frame, no speech bubbles, no watermarks, no signatures."
   },
-  "craft": {},
+  "craft": {
+    "P": {
+      "prompt": "Protagonist. A casting line of silhouetted figures in a rehearsal hall, one stepped forward into a single warm spotlight, the chosen subject sharp and lit while the line behind stays in soft shadow.",
+      "alt": "A spotlight picking one figure out of a casting line.",
+      "bio": "One subject steps forward and the rest of the scene agrees to be background. Every strong image starts by choosing.",
+      "status": "generated"
+    },
+    "I": {
+      "prompt": "Illumination. A plaster bust on a sculptor's stand in a dark studio, one hard window beam carving its features out of the black, dust hanging bright in the shaft - the light visibly building the form.",
+      "alt": "A single window beam carving a bust from darkness.",
+      "bio": "Before color, before style, there is where the light comes from. Illumination is the scene deciding what you get to see.",
+      "status": "generated"
+    },
+    "C": {
+      "prompt": "Canvas. One landscape crossing three mediums in a single image: rolling hills that begin as loose pencil construction lines, resolve into inked linework midfield, and finish as full oil paint at the far ridge - the same scene becoming more painted as it goes.",
+      "alt": "One landscape shifting from pencil to ink to oil paint.",
+      "bio": "The same hills can be graphite, ink, or oil. Canvas is the medium the image pretends to be - and commits to.",
+      "status": "generated"
+    },
+    "T": {
+      "prompt": "Tone. One orchard lane split down its middle seam: the left half in warm honeyed golds, the right half in cold blue dusk, identical trees wearing two entirely different moods - palette as attitude.",
+      "alt": "An orchard lane split between warm gold and cold blue.",
+      "bio": "Identical trees, two moods. Tone is the palette's attitude doing the emotional work before the subject says a word.",
+      "status": "generated"
+    },
+    "U": {
+      "prompt": "Universe. A single wooden door standing alone in quiet grassland, opened onto a rain-soaked neon city at night, a small traveler on the threshold between the two worlds.",
+      "alt": "A lone door in grassland opening onto a neon city.",
+      "bio": "A door in a field, a city in the door. Universe decides what world is standing around your subject.",
+      "status": "generated"
+    },
+    "R": {
+      "prompt": "References. An artist's desk from above, strewn with open books, postcards, and torn print clippings of wildly different painting styles, a hand mid-stroke copying from one onto a fresh sheet - a study built from studies. All book pages and clippings show artwork only, no readable writing.",
+      "alt": "A desk of art studies with a hand copying from them.",
+      "bio": "Studies of studies. References name the shoulders an image stands on - artists, movements, and looks worth channeling.",
+      "status": "generated"
+    },
+    "E": {
+      "prompt": "Execution. Two hands raised against a wide sunset valley making the director's framing gesture, thumbs and forefingers boxing the horizon, the land inside the finger-frame subtly sharper and more finished than the loose world outside it.",
+      "alt": "Hands framing a sunset valley with the director's gesture.",
+      "bio": "The finger-frame at the end: crop, finish, and polish. Execution is every decision that turns a scene into a shot.",
+      "status": "generated"
+    }
+  },
   "roles": {},
   "lineages": {
     "lone-wanderer": {
       "prompt": "A lone cloaked wanderer seen from behind on an empty road winding through open moorland, walking stick in hand, the road narrowing toward a pale horizon, no other soul in sight.",
       "alt": "A cloaked wanderer on an empty winding road",
-      "status": "planned",
+      "status": "generated",
       "bio": "Every road needs someone to mean it. Put one figure on an empty mile and the picture stops being scenery and starts being a question."
     },
     "gentle-giant": {
       "prompt": "A moss-covered gentle giant creature kneeling in a meadow to look at a tiny human figure standing unafraid before it, wildflowers bending in the creature's warm breath.",
       "alt": "A moss-covered giant creature beside a small figure",
-      "status": "planned",
+      "status": "generated",
       "bio": "Bigness without threat. A giant that kneels teaches scale better than any ruler - the meadow, the clouds, and you all agree on how small you are."
     },
     "golden-hour": {
       "prompt": "A lone oak on a grassy hillside at golden hour, low amber sunlight raking across the slope, the tree's long shadow reaching toward the viewer, warm haze softening the far fields.",
       "alt": "A lone tree on a hillside in low golden sunlight",
-      "status": "planned",
+      "status": "generated",
       "bio": "The forgiving hour. It lays gold on ordinary grass, stretches every shadow into a story, and makes even a lone tree look like it was placed there on purpose."
     },
     "bioluminescence": {
       "prompt": "A dark tidal cove at night where glowing blue-green plankton trace every ripple, a rowboat drifting through the luminous water, mushrooms and moss along the rocks giving off their own soft living light.",
       "alt": "Glowing organisms lighting a dark cove",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light that is alive and knows it. It gathers where the water moves, spends itself in ripples, and turns the dark into something breathing."
     },
     "candlelight": {
       "prompt": "An old wooden table where a hooded reader leans over an open book, lit by warm flickering candlelight, deep soft shadows swallowing the room beyond the small circle of flame.",
       "alt": "A reader at a table lit by candle flame",
-      "status": "planned",
+      "status": "generated",
       "bio": "One small fire against the whole of the dark. It cannot light a room, so it chooses a face instead, and the room agrees to disappear."
     },
     "moonlight": {
       "prompt": "A sleeping farmhouse and frost-touched field bathed in cold blue moonlight, the moon high and small, tin roof and fence wire glinting silver, night shadows soft and long.",
       "alt": "A silvered field and farmhouse under the moon",
-      "status": "planned",
+      "status": "generated",
       "bio": "The sun's cold echo. It owns every color it touches, pays in silver, and keeps the world quiet while it counts."
     },
     "neon-glow": {
       "prompt": "A late-night noodle stall on a wet street lit entirely by buzzing neon signs, magenta and cyan glow washing the steam and the cook's apron, colored reflections doubled in the puddles.",
       "alt": "A noodle stall drenched in neon signage light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light with an agenda. It doesn't illuminate a scene so much as advertise it, and everything it touches becomes part of the sign."
     },
     "harsh-noon": {
       "prompt": "A whitewashed courtyard at high noon, hard overhead sun cutting knife-black shadows under the arches, a single figure with a wide hat crossing the glare, heat visible in the air.",
       "alt": "A white courtyard under hard overhead sun",
-      "status": "planned",
+      "status": "generated",
       "bio": "The honest interrogation. No flattering angle, no soft edge - just what a thing is, printed in black directly beneath it."
     },
     "overcast-soft": {
       "prompt": "A small fishing harbor under a flat gray sky, shadowless diffuse light evening out the boats and stacked crates, colors quiet and true, the water pewter-smooth.",
       "alt": "A gray-day harbor in shadowless light",
-      "status": "planned",
+      "status": "generated",
       "bio": "The world's biggest softbox. It flatters nothing and punishes nothing - it just tells the truth gently, everywhere at once."
     },
     "dramatic-rim": {
       "prompt": "A boxer standing in a dark gym, a hard rim light from behind drawing a bright edge along their shoulders, arms, and jaw, the face nearly lost in shadow, sweat glinting on the lit line.",
       "alt": "A boxer edged in rim light against darkness",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light that refuses to enter. It walks the border of a thing instead, and the border turns out to be enough."
     },
     "volumetric-rays": {
       "prompt": "An old barn interior where volumetric god rays pour through gaps in the boards, dust swimming visibly in the shafts, a plow horse standing where the brightest beam lands.",
       "alt": "Dusty light shafts crossing a barn interior",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light made visible by what floats in it. Give the air a little dust and every sunbeam confesses its geometry."
     },
     "firelight": {
       "prompt": "Three travelers around a campfire at night, dancing orange firelight playing over their faces and hands, sparks rising, shadows leaping and shrinking on the rocks behind them.",
       "alt": "Faces around a campfire in dancing orange light",
-      "status": "planned",
+      "status": "generated",
       "bio": "The only light that moves on its own. It never holds still long enough to be trusted, which is exactly why every story starts beside it."
     },
     "storm-light": {
       "prompt": "A lighthouse on a black headland under a charged storm sky, a lightning flash freezing the rain in mid-air, waves caught white against the rocks, the whole scene lit for one violent instant.",
       "alt": "A lighthouse under a lightning-lit storm sky",
-      "status": "planned",
+      "status": "generated",
       "bio": "A flashbulb the size of the sky. It shoots one frame per storm and never asks anyone to hold still."
     },
     "studio-softbox": {
       "prompt": "A single ceramic vase on a seamless gray backdrop in crisp softbox studio light, gradients smooth and deliberate, one soft reflection, nothing in the frame by accident.",
       "alt": "A ceramic vase in clean seamless studio light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light with the wildness bred out of it. Nothing here is found - every gradient was negotiated, and the shadow signed a contract."
     },
     "oil-painting": {
       "prompt": "A single pear on a sunlit windowsill rendered as an expressive oil painting, confident visible brushstrokes carrying the fruit's curve, pigment texture alive in the light.",
       "alt": "A pear on a windowsill painted in oils",
-      "status": "planned",
+      "status": "generated",
       "bio": "Paint that remembers the hand. Oil holds every decision the brush made, wet against wet, and never pretends the picture arrived by itself."
     },
     "watercolor": {
       "prompt": "A red umbrella crossing a rainy street rendered as loose watercolor, pigment blooming at every wet edge, puddle reflections bleeding into soft paper white.",
       "alt": "A rainy street umbrella scene in watercolor",
-      "status": "planned",
+      "status": "generated",
       "bio": "Controlled flooding. Watercolor is the only medium you negotiate with - you steer the water, the water decides, and the best parts are its idea."
     },
     "pencil-sketch": {
       "prompt": "A sleeping cat curled on a chair drawn as a graphite pencil sketch, visible construction lines beneath the fur, shading built from patient hatching.",
       "alt": "A sleeping cat drawn in graphite pencil",
-      "status": "planned",
+      "status": "generated",
       "bio": "Thinking you can watch. A pencil sketch leaves its scaffolding standing - every guess, correction, and change of mind still on the page."
     },
     "ink-illustration": {
       "prompt": "A strutting rooster as a pen-and-ink illustration, crosshatched shading building the body from pure line, every feather a decision in black on white.",
       "alt": "A rooster drawn in crosshatched pen and ink",
-      "status": "planned",
+      "status": "generated",
       "bio": "No gray allowed. Ink commits - every tone must be earned by lines willing to cross each other, and every white is a decision not to touch."
     },
     "charcoal-drawing": {
       "prompt": "A draft horse standing in wind rendered as a smudged charcoal drawing, deep soft blacks in the mane, tone dragged with the thumb, dust of the medium still on the page.",
       "alt": "A draft horse rendered in smudged charcoal",
-      "status": "planned",
+      "status": "generated",
       "bio": "Burnt wood and nerve. Charcoal smears, lifts, and shatters - the drawing stays alive because the medium never quite agrees to be finished."
     },
     "gouache-poster": {
       "prompt": "A lighthouse over a cove as a mid-century gouache poster, matte flat shapes locking together, simplified waves in three confident blues, paper grain in every flat.",
       "alt": "A lighthouse cove as a mid-century gouache poster",
-      "status": "planned",
+      "status": "generated",
       "bio": "Confidence in flats. Gouache dries matte and final - no glazing your way out - so every shape has to be right the first time."
     },
     "pixel-art": {
       "prompt": "A tiny cottage at dusk with a lit window rendered as detailed 16-bit pixel art, every pixel placed on purpose, smoke rising one square at a time.",
       "alt": "A tiny cottage rendered in pixel art",
-      "status": "planned",
+      "status": "generated",
       "bio": "Art by rationing. Give an image only so many squares and every one becomes a choice - nostalgia is just economy you can see."
     },
     "low-poly-3d": {
       "prompt": "A standing stag as a low-poly 3d render, its body faceted into clean triangles, flat-shaded planes catching a cool gradient sky.",
       "alt": "A stag rendered as faceted low-poly 3d",
-      "status": "planned",
+      "status": "generated",
       "bio": "How few faces make a face? Low-poly is sculpture by subtraction - keep deleting triangles until only the animal's idea is left."
     },
     "clay-render": {
       "prompt": "A cheerful snail with a spiral shell as a playful claymation-style render, soft studio light on plasticine, tool marks and gentle fingerprints in the surface.",
       "alt": "A cheerful snail sculpted in clay",
-      "status": "planned",
+      "status": "generated",
       "bio": "The friendliest material. Clay keeps your fingerprints as proof that somebody played - a render you want to pick up and squish."
     },
     "film-photograph": {
       "prompt": "A roadside diner at dusk as a 35mm film photograph, natural grain across the sky, honest optics, the neonless building glowing softly against real evening.",
       "alt": "A roadside diner shot on 35mm film",
-      "status": "planned",
+      "status": "generated",
       "bio": "Chemistry as witness. Film grain isn't noise - it's the physical texture of the moment having actually happened somewhere."
     },
     "papercut-collage": {
       "prompt": "A whale diving through layered waves as a papercut collage, each depth a separate sheet of colored paper, crisp real drop shadows between the layers.",
       "alt": "A layered papercut collage of a whale",
-      "status": "planned",
+      "status": "generated",
       "bio": "Depth you could reach into. Paper earns its shadows honestly - every layer is a real millimeter, and the knife did all the drawing."
     },
     "stained-glass": {
       "prompt": "A kingfisher over water as a stained-glass window, leaded black outlines holding panes of luminous blue and amber glass, light doing the coloring from behind.",
       "alt": "A kingfisher rendered as a stained-glass window",
-      "status": "planned",
+      "status": "generated",
       "bio": "A drawing the sun finishes. The lead holds the shapes; the light shows up every morning to color them in again."
     },
     "embroidered-textile": {
       "prompt": "A sitting fox as embroidered textile art, visible satin and chain stitches building the fur direction, linen ground showing between threads, hand-warm and slightly imperfect.",
       "alt": "A fox stitched in embroidered thread",
-      "status": "planned",
+      "status": "generated",
       "bio": "An image at a stitch per second. Embroidery spends hours where other media spend strokes - the slowness is visible, and it reads as love."
     },
     "comic-ink-flats": {
       "prompt": "A courier leaping a rooftop gap drawn as a single comic panel, bold ink outlines and flat color, the city dropping away below in confident blacks.",
       "alt": "A rooftop leap drawn as a comic panel",
-      "status": "planned",
+      "status": "generated",
       "bio": "Line does the acting. Comics flatten color so the ink can move - one confident outline is worth a hundred rendered muscles."
     },
     "muted-palette": {
       "prompt": "A quiet fishing village at dawn in a muted desaturated palette, grays and softened blues carrying the forms, value structure doing the work color declines to do.",
       "alt": "A quiet fishing village in muted desaturated color",
-      "status": "planned",
+      "status": "generated",
       "bio": "Color speaking under its breath. Mute the palette and the values step forward - the picture gets quieter and somehow easier to hear."
     },
     "neon-saturation": {
       "prompt": "A narrow arcade alley at night in a saturated neon palette, glowing magenta and cyan flooding wet pavement, color pushed past realism into pure signal.",
       "alt": "An arcade alley in saturated neon color",
-      "status": "planned",
+      "status": "generated",
       "bio": "Color as voltage. Past a certain saturation the palette stops describing things and starts broadcasting - realism traded for pure signal."
     },
     "pastel-dream": {
       "prompt": "Hot-air balloons drifting over misty hills in a soft dreamy pastel palette, powdered pinks, mints, and lilacs, nothing in the scene allowed to shout.",
       "alt": "A hot-air balloon morning in soft pastels",
-      "status": "planned",
+      "status": "generated",
       "bio": "The volume knob turned toward kindness. Pastels promise that nothing in the picture will hurt you - and keep the promise."
     },
     "monochrome-noir": {
       "prompt": "A rain-slick exterior stairwell at night in true black-and-white noir, deep contrast, a fedora-shadowed figure paused under one hard bulb, blinds striping the wall.",
       "alt": "A rain-slick stairwell in black-and-white noir",
-      "status": "planned",
+      "status": "generated",
       "bio": "Subtract color, inherit mood. Noir proves the palette was optional all along - shadow and one hard light can carry the entire story."
     },
     "earthy-naturals": {
       "prompt": "A stone barn with stacked pumpkins and hay in an earthy palette of ochre, moss, and umber, colors that all came out of the same ground.",
       "alt": "A harvest barn scene in ochre, moss, and umber",
-      "status": "planned",
+      "status": "generated",
       "bio": "Colors with fingerprints of the ground on them. Nothing synthetic, nothing borrowed - a palette you could dig up with a spade."
     },
     "jewel-tones": {
       "prompt": "A bazaar textile stall stacked with silks in rich jewel tones - emerald, sapphire, and ruby glowing deep under lantern light, saturated but never neon.",
       "alt": "A bazaar textile stall in emerald, sapphire, and ruby",
-      "status": "planned",
+      "status": "generated",
       "bio": "Depth instead of glow. Jewel tones saturate downward - richer, darker, heavier - luxury measured in how far the color goes in."
     },
     "sepia-vintage": {
       "prompt": "An old fairground carousel aged into sepia tones, warm brown chemistry over every horse and mirror, a photograph that has spent decades in a drawer.",
       "alt": "A carousel photograph aged to sepia",
-      "status": "planned",
+      "status": "generated",
       "bio": "Time as a pigment. Sepia is what memory does to color - keeps the warmth, files off the specifics, and calls it truth."
     },
     "iridescent-shift": {
       "prompt": "A jewel beetle on a wet leaf in iridescent oil-slick color, its shell shifting green-violet-gold with the angle, rainbow interference sliding across every curve.",
       "alt": "A beetle on a leaf in oil-slick iridescent color",
-      "status": "planned",
+      "status": "generated",
       "bio": "Color that won't hold still. Iridescence lives between you and the surface - tilt your head and the palette repaints itself."
     },
     "high-contrast": {
       "prompt": "A chess set by a window in high contrast, hard highlights against deep shadows, half of every piece blazing and half gone black, the board split like the game.",
       "alt": "A chess set split by hard light and shadow",
-      "status": "planned",
+      "status": "generated",
       "bio": "No diplomacy between light and dark. Contrast deletes the middle ground until every edge becomes a decision."
     },
     "candy-pop": {
       "prompt": "An ice-cream van on a sunny street in a glossy candy-pop palette, bubblegum pink and lemon yellow, every surface enameled and cheerful past reason.",
       "alt": "An ice-cream van in glossy candy colors",
-      "status": "planned",
+      "status": "generated",
       "bio": "Serotonin as a palette. Candy color doesn't describe the world - it frosts it, and dares you not to smile."
     },
     "cold-steel": {
       "prompt": "A shipyard crane over gray water in a cold steel palette, slate blues and gunmetal grays, industrial color with all the warmth machined off.",
       "alt": "A shipyard crane in steel blues and gunmetal",
-      "status": "planned",
+      "status": "generated",
       "bio": "The temperature of machinery. Steel blues keep their distance - a palette that respects you without once being friendly."
     },
     "sun-bleached": {
       "prompt": "An old boardwalk fence and beach signage in a sun-bleached palette, colors faded like decade-old paint, whites gone bone, reds surviving as rumors.",
       "alt": "A boardwalk fence faded by years of sun",
-      "status": "planned",
+      "status": "generated",
       "bio": "What the sun leaves behind. Bleached color is history you can read - every faded plank an honest record of ten thousand noons."
     },
     "rainswept-city": {
       "prompt": "A rain-swept night city where a figure with an umbrella waits at a crossing, streets turned to mirrors, every window and signal doubled in the wet asphalt.",
       "alt": "A night city under steady rain, streets mirrored",
-      "status": "planned",
+      "status": "generated",
       "bio": "A city that got a second copy of itself. Rain turns every dull street into a mirror and every light into two."
     },
     "ancient-forest": {
       "prompt": "Deep in an ancient mossy forest where a deer path bends between colossal trunks, shafts of green-gold light between the trees, ferns waist-high, silence with texture.",
       "alt": "Deep mossy old-growth woods with light shafts",
-      "status": "planned",
+      "status": "generated",
       "bio": "Time measured in moss. The old woods keep their own light, their own weather, and their own opinion of visitors."
     },
     "desert-expanse": {
       "prompt": "A vast desert of rolling dunes with a tiny camel caravan cresting one ridge, wind-carved sand ripples in the foreground, heat softening the far horizon.",
       "alt": "Rolling dunes to the horizon with one caravan",
-      "status": "planned",
+      "status": "generated",
       "bio": "Emptiness with excellent posture. The desert deletes everything optional and keeps only light, distance, and whoever insists on crossing."
     },
     "frozen-tundra": {
       "prompt": "A frozen tundra of deep snow and blue-shadowed ice where a sled team pushes toward a low sun, breath-fog hanging, the cold visible in every color.",
       "alt": "Deep snow and ice fields with a lone sled team",
-      "status": "planned",
+      "status": "generated",
       "bio": "Cold as a landlord. The tundra charges for every mile and pays out in a silence you can hear your heartbeat inside."
     },
     "underwater-depths": {
       "prompt": "Deep underwater where a lone diver hangs in open blue, light shafts angling down from a distant surface, particles drifting, a whale shape far below in the dark blue.",
       "alt": "Open blue water with a diver and drifting light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Gravity resigns; blue takes over. Underwater every direction is a suggestion and the light arrives already tired."
     },
     "mountain-heights": {
       "prompt": "High jagged mountain country where a climber traverses a spine of rock, valleys drowned in cloud below, thin air sharpening every edge of stone.",
       "alt": "Jagged peaks and thin air with a small climber",
-      "status": "planned",
+      "status": "generated",
       "bio": "Geography with an ego. Mountains rearrange the sky, bully the weather, and make everything humans build look temporary."
     },
     "cozy-interior": {
       "prompt": "A cozy cluttered interior where a cat sleeps in an armchair among blankets, plants, and mug-crowded shelves, lamplight warm, rain safely on the far side of the window.",
       "alt": "A warm cluttered room with blankets and plants",
-      "status": "planned",
+      "status": "generated",
       "bio": "Architecture at blanket scale. A cozy room is a place that has decided the weather outside is somebody else's problem."
     },
     "grand-library": {
       "prompt": "A grand vaulted library where a small reader stands at a table beneath tiers of galleries and rolling ladders, shelves rising into arched shadow, dust idling in the window light.",
       "alt": "A vaulted library of ladders and galleries",
-      "status": "planned",
+      "status": "generated",
       "bio": "Knowledge with a skyline. A great library is a city where every citizen is a book and silence is the traffic."
     },
     "floating-islands": {
       "prompt": "Grassy islands hanging in open sky with waterfalls pouring off their edges into cloud, a rope bridge linking two of them, a small traveler midway across.",
       "alt": "Grassy islands hanging in open sky",
-      "status": "planned",
+      "status": "generated",
       "bio": "Ground that gave notice. Float the land and every waterfall becomes a question the sky has to answer."
     },
     "cyberpunk-megacity": {
       "prompt": "A cyberpunk megacity of layered towers and elevated trains where a street vendor's cart glows at the base of hundred-story walls, holographic koi swimming between buildings.",
       "alt": "Layered towers, holograms, and wet streets",
-      "status": "planned",
+      "status": "generated",
       "bio": "A city that forgot how to stop. It stacked streets on streets until 'up' became a district and the ground became a legend."
     },
     "medieval-village": {
       "prompt": "A medieval village of thatch and timber around a market square, geese scattering past a well, smoke rising from crooked chimneys, cart ruts worn deep in the lane.",
       "alt": "Thatch and timber village with a market square",
-      "status": "planned",
+      "status": "generated",
       "bio": "The centuries with the volume up. Thatch, timber, and mud arranging themselves into a postcard nobody sent yet."
     },
     "space-frontier": {
       "prompt": "The space frontier: a ring station turning over a curving planet, tug ships crossing its lit docks, deep starfield behind, one small EVA figure on the hull.",
       "alt": "Stations and starships against deep space",
-      "status": "planned",
+      "status": "generated",
       "bio": "The neighborhood after the sky. Space grants infinite room and charges exactly one atmosphere for it."
     },
     "victorian-streets": {
       "prompt": "Foggy Victorian streets of iron and brick where a lamplighter raises his pole to a gas lamp, carriage lanterns floating in the murk, wet cobbles catching each new flame.",
       "alt": "Foggy gaslit streets of iron and brick",
-      "status": "planned",
+      "status": "generated",
       "bio": "A city wearing its weather indoors. Gaslight and fog negotiate every evening, and the fog usually wins by morning."
     },
     "tropical-shore": {
       "prompt": "A tropical shore of turquoise water and leaning palms where a beached outrigger canoe rests on white sand, reef shadows patterning the shallows.",
       "alt": "Turquoise water and leaning palms",
-      "status": "planned",
+      "status": "generated",
       "bio": "Paradise runs on two pigments. Turquoise and palm-green split the world between them and let the sand keep the change."
     },
     "art-nouveau": {
       "prompt": "A woman with long flowing hair among climbing wisteria, rendered in art nouveau style - sinuous organic linework, ornamental curves, hair and vine sharing one rhythm.",
       "alt": "A woman with flowing hair in art nouveau linework",
-      "status": "planned",
+      "status": "generated",
       "bio": "The line that refuses corners. Nouveau lets hair, smoke, and stems all speak the same curving language until ornament becomes structure."
     },
     "ukiyo-e": {
       "prompt": "A ferryboat crossing beneath a rising wave in ukiyo-e woodblock style, flat confident color planes, clean printed line, a distant snow peak holding the horizon.",
       "alt": "A wave and ferryboat as a woodblock print",
-      "status": "planned",
+      "status": "generated",
       "bio": "The floating world, four colors at a time. Ukiyo-e proves an ocean fits in flat planes if every line knows its job."
     },
     "impressionist-brush": {
       "prompt": "A garden luncheon under dappled shade in impressionist style, broken color and visible daubs, sunlight arriving as separate touches of paint that mix in the eye.",
       "alt": "A garden luncheon in broken impressionist color",
-      "status": "planned",
+      "status": "generated",
       "bio": "Light caught mid-sentence. The impressionists painted fast because the sun would not hold the pose."
     },
     "baroque-drama": {
       "prompt": "A candlelit gathering around a table in dramatic baroque style, deep chiaroscuro, faces blazing out of darkness, one raised hand caught in theatrical light.",
       "alt": "A candlelit gathering in deep chiaroscuro",
-      "status": "planned",
+      "status": "generated",
       "bio": "Lighting as theology. The baroque decided shadow was a stage curtain and light an argument you could win."
     },
     "surrealist-dream": {
       "prompt": "A freestanding doorway open in an empty field in surrealist style, dream logic in charge - clouds passing through the door to a different sky, a key floating at eye height.",
       "alt": "A doorway standing open in an impossible field",
-      "status": "planned",
+      "status": "generated",
       "bio": "Logic on sabbatical. Surrealism keeps the rendering honest so the impossibility lands - you believe the door precisely because the grass is real."
     },
     "gothic-romance": {
       "prompt": "A figure in a long dress at the window of a ruined abbey in gothic romance style, ivy and lace, beautiful melancholy, moonlight through broken tracery.",
       "alt": "A ruined abbey in moonlit gothic melancholy",
-      "status": "planned",
+      "status": "generated",
       "bio": "Sorrow, but make it architecture. The gothic keeps its broken hearts in broken buildings so the weather can grieve along."
     },
     "art-deco-geometry": {
       "prompt": "A grand hotel entrance in art deco style, gilded geometry and fanned sunburst motifs, stepped forms in gold and black, a doorman dwarfed by streamlined splendor.",
       "alt": "A grand hotel entrance in gilded deco geometry",
-      "status": "planned",
+      "status": "generated",
       "bio": "Optimism, machined and gilded. Deco believed the future would arrive by elevator, and dressed the lobby for it."
     },
     "renaissance-fresco": {
       "prompt": "Robed figures gathered beneath an arch as a renaissance fresco, drapery studied and serene, pigment sunk into aged plaster, hairline cracks crossing a calm sky.",
       "alt": "Figures and drapery on an aged fresco wall",
-      "status": "planned",
+      "status": "generated",
       "bio": "Paint married to the wall. A fresco sets in an afternoon and stays five centuries - conviction measured in wet plaster."
     },
     "van-gogh-swirl": {
       "prompt": "A cypress tree under a night sky in the style of van gogh, thick swirling impasto strokes, stars spun into vortices, the ground rolling in painted waves.",
       "alt": "A cypress and night sky in swirling impasto",
-      "status": "planned",
+      "status": "generated",
       "bio": "Weather systems made of paint. He didn't render the night - he reported its currents, and the currents were true."
     },
     "anime-cel": {
       "prompt": "A student leaning on a school rooftop railing in anime cel style, clean linework and flat shading, wind in the hair, a painted cumulus sky behind.",
       "alt": "A student on a rooftop in anime cel shading",
-      "status": "planned",
+      "status": "generated",
       "bio": "Feeling at 24 frames of clarity. Cel shading strips light to two decisions so the eyes can carry everything else."
     },
     "cinematic-still": {
       "prompt": "Two figures across a diner booth as a cinematic film still, anamorphic framing, shallow focus, motivated window light, a story visibly paused mid-beat.",
       "alt": "A tense diner scene graded like a film frame",
-      "status": "planned",
+      "status": "generated",
       "bio": "One frame owing a whole movie. Grade, blocking, and focus conspire until a paused image starts playing itself."
     },
     "concept-art-sheet": {
       "prompt": "A moss-grown guardian golem rendered as polished production concept art, confident design language, material callouts implied by finish, a hero pose against clean atmosphere.",
       "alt": "A guardian golem as production concept art",
-      "status": "planned",
+      "status": "generated",
       "bio": "Drawing as decision-making. Concept art exists to answer questions - what it's made of, how it moves, why it matters - beautifully."
     },
     "vaporwave-grid": {
       "prompt": "A marble bust and potted palm on a pink-and-teal wireframe grid in vaporwave style, checkerboard floor to a low sun, early-web haze over everything.",
       "alt": "A marble bust and palms on a wireframe grid",
-      "status": "planned",
+      "status": "generated",
       "bio": "Nostalgia for a place that never existed. Vaporwave decorates the afterlife of dead software in marble and sunset."
     },
     "cottagecore-idyll": {
       "prompt": "A cottage garden table in cottagecore style - fresh bread and wildflowers on gingham, bees at the lavender, laundry line catching a honeyed breeze.",
       "alt": "A cottage garden idyll with gingham and bread",
-      "status": "planned",
+      "status": "generated",
       "bio": "The pastoral dream with the wifi hidden. Cottagecore is a promise that somewhere the bread is warm and the bees are employed."
     },
     "dark-fantasy-grim": {
       "prompt": "A hooded pilgrim before an iron shrine in dark fantasy style - bone charms, guttering torchlight, chains and crow feathers, dread as part of the architecture.",
       "alt": "An iron shrine in torchlit grimdark",
-      "status": "planned",
+      "status": "generated",
       "bio": "Fantasy with the warranty expired. Grimdark keeps the dragons and cancels the rescue - atmosphere you have to survive."
     },
     "synthwave-sunset": {
       "prompt": "A chrome sports car on an endless highway toward a striped synthwave sunset, neon grid horizon, palm silhouettes strobing past, the eighties future at full speed.",
       "alt": "A chrome car driving into a striped sunset",
-      "status": "planned",
+      "status": "generated",
       "bio": "A decade's daydream at 120mph. Synthwave drives toward a sun made of stripes and never wants to arrive."
     },
     "childrens-book-charm": {
       "prompt": "A round bear in a red scarf carrying an umbrella as a warm children's storybook illustration, friendly wobbly linework, soft flat color, rain drawn as kind little dashes.",
       "alt": "A bear in a scarf as a storybook page",
-      "status": "planned",
+      "status": "generated",
       "bio": "Drawn to be read aloud. The wobble in the line is on purpose - it is the visual voice of once upon a time."
     },
     "tarot-card-mystic": {
       "prompt": "A robed figure holding a lantern composed like a tarot arcana - centered and frontal, sun and moon in opposite corners, symbolic objects arranged with ritual balance.",
       "alt": "A centered arcana figure with celestial symbols",
-      "status": "planned",
+      "status": "generated",
       "bio": "A picture that expects to be read. The arcana arranges its symbols like a sentence and lets you supply the fortune."
     },
     "vintage-travel-poster": {
       "prompt": "A clifftop coastal village as a vintage travel poster, flat optimistic shapes, simplified sea and sun, the view selling itself in confident holiday color.",
       "alt": "A coastal village as a vintage travel poster",
-      "status": "planned",
+      "status": "generated",
       "bio": "Geography with a sales team. The travel poster simplifies a place into the version of itself you would buy a ticket for."
     },
     "botanical-plate": {
       "prompt": "A flowering nightshade studied as a botanical scientific illustration on cream paper - precise stems, dissected blossom parts arranged beside the plant, naturalist exactness.",
       "alt": "A studied plant specimen on cream paper",
-      "status": "planned",
+      "status": "generated",
       "bio": "Reverence disguised as taxonomy. The botanical plate looks at one plant harder than most pictures look at anything."
     },
     "close-portrait": {
       "prompt": "An intimate close-up portrait of a freckled sailor, weathered face filling most of the frame, eyes sharp, the harbor behind melted to soft color by shallow depth of field.",
       "alt": "An intimate close-up portrait, background melted",
-      "status": "planned",
+      "status": "generated",
       "bio": "Distance deleted. The close portrait spends the entire frame on one face and dares it to keep a secret."
     },
     "wide-establishing": {
       "prompt": "A wide establishing shot of a river valley at dawn - a small monastery on a bend, fields stitched to the far hills, one road finding its way through the geography.",
       "alt": "A sweeping wide vista establishing the scene",
-      "status": "planned",
+      "status": "generated",
       "bio": "The sentence before the story. A wide shot tells you where everything is so every later frame knows what it's leaving out."
     },
     "low-angle-hero": {
       "prompt": "A firefighter stepping from smoke shot from near the ground, low-angle hero framing, boots huge in the foreground, the figure monumental against a churning sky.",
       "alt": "A hero shot looking up from near the ground",
-      "status": "planned",
+      "status": "generated",
       "bio": "Respect is an angle. Drop the camera to the ground and anyone standing becomes architecture."
     },
     "birds-eye-view": {
       "prompt": "A street market seen straight down from above, bird's-eye view flattening stalls, awnings, and shoppers into a living pattern of color and motion.",
       "alt": "A market scene seen straight down from above",
-      "status": "planned",
+      "status": "generated",
       "bio": "The view that turns life into pattern. Straight down, a crowd becomes weather and a street becomes a diagram of itself."
     },
     "dutch-tilt": {
       "prompt": "A courier sprinting through an alley with the whole frame on a dutch tilt, horizon tipped hard, walls leaning into the run, urgency built from angle alone.",
       "alt": "A chase moment with the horizon tipped",
-      "status": "planned",
+      "status": "generated",
       "bio": "Unease by rotation. Tip the horizon and the viewer's inner ear joins the cast."
     },
     "symmetric-center": {
       "prompt": "A grand hotel corridor in perfectly symmetrical centered composition, chandeliers receding in matched pairs, a single bellhop dead center where the mirror lines meet.",
       "alt": "A grand hall in perfect mirror symmetry",
-      "status": "planned",
+      "status": "generated",
       "bio": "Order announced out loud. Central symmetry is composition standing at attention - calm to some eyes, ominous to others, deliberate to all."
     },
     "rule-of-thirds": {
       "prompt": "A small red boat placed on the lower-left third of a wide calm sea, rule-of-thirds composition, open negative space carrying the morning light.",
       "alt": "A small boat placed off-center in open water",
-      "status": "planned",
+      "status": "generated",
       "bio": "The grid nobody sees and everybody feels. Thirds give a subject somewhere to look toward - and the picture room to answer."
     },
     "shallow-bokeh": {
       "prompt": "A barista's hands pouring latte art in shallow depth of field, the cup razor-sharp while the cafe behind melts into creamy bokeh circles of window light.",
       "alt": "A subject isolated by creamy background bokeh",
-      "status": "planned",
+      "status": "generated",
       "bio": "Attention rendered optically. Bokeh is the lens agreeing to forget everything except the one thing you meant."
     },
     "long-exposure": {
       "prompt": "A stone bridge over a waterfall at dusk in long exposure, the water silked to mist, car lights drawing unbroken ribbons across the span, the stones perfectly still.",
       "alt": "Silked water and light trails over time",
-      "status": "planned",
+      "status": "generated",
       "bio": "The camera holding its breath. A long exposure lets time pile up in one frame until motion becomes material."
     },
     "double-exposure": {
       "prompt": "A double exposure blending a woman's profile with a pine forest, the treeline rising through her silhouette, birds crossing where her thoughts would be.",
       "alt": "A profile blended with a forest in one frame",
-      "status": "planned",
+      "status": "generated",
       "bio": "Two truths, one frame. The double exposure lets a person contain a landscape and calls the overlap honesty."
     },
     "silhouette-shot": {
       "prompt": "A fisherman casting from a jetty as a clean black silhouette against a blazing sunset sky, all detail surrendered to one perfect readable shape.",
       "alt": "A clean black silhouette against bright light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Identity by outline. The silhouette deletes every detail and keeps only the shape - which turns out to be the part you recognize."
     },
     "motion-blur-action": {
       "prompt": "A cyclist sprinting through a city in a panned action shot, rider sharp while the street streaks past in horizontal motion blur, speed printed on the frame.",
       "alt": "A sprinting cyclist with the world streaking past",
-      "status": "planned",
+      "status": "generated",
       "bio": "Speed you can develop. Motion blur is the frame confessing it couldn't hold still either."
     },
     "isometric-view": {
       "prompt": "A corner bakery rendered in isometric view, parallel projection with no vanishing point, the little building crisp as a game tile, its alley and rooftop equally knowable.",
       "alt": "A tidy isometric miniature of a scene",
-      "status": "planned",
+      "status": "generated",
       "bio": "Perspective, off the clock. Isometric space never converges - the world becomes a toy you understand completely."
     },
     "knolling-flatlay": {
       "prompt": "A ranger's field kit knolled on canvas from above - knife, compass, matches, rope, and rations aligned at strict right angles, an inventory turned into composition.",
       "alt": "Objects arranged at right angles from above",
-      "status": "planned",
+      "status": "generated",
       "bio": "Tidiness as portraiture. Knolling lays a life out at right angles and lets the objects testify."
     },
     "hyper-detailed": {
       "prompt": "A tide pool rendered hyper-detailed - every barnacle, bubble, and grain resolved, intricate texture rewarding the closest look, the frame dense with observed life.",
       "alt": "A scene engraved with obsessive miniature detail",
-      "status": "planned",
+      "status": "generated",
       "bio": "Generosity by the square inch. Hyper-detail promises that anywhere you look, the picture already looked harder."
     },
     "minimalist-negative-space": {
       "prompt": "A single red kite high in a vast pale sky, minimalist composition, the tiny diamond and its string the only marks in an ocean of negative space.",
       "alt": "A tiny subject in a vast clean field",
-      "status": "planned",
+      "status": "generated",
       "bio": "The art of what you leave out. Negative space isn't empty - it's the frame holding its breath around one small thing."
     },
     "faithful-companion": {
       "prompt": "A traveler crouched at a trailside fire with a loyal dog pressed against their side, both looking out at the same distant hills, two silhouettes sharing one warmth.",
       "alt": "A traveler with an animal companion at their side",
-      "status": "planned",
+      "status": "generated",
       "bio": "One figure is lonely; two is a story. The companion's job is simple - stand close enough that the picture reads as us instead of me."
     },
     "clockwork-automaton": {
       "prompt": "An intricate brass clockwork automaton seated at a workbench threading a needle, escapements ticking behind its glass chest panel, lamplight warm on its polished shoulders.",
       "alt": "A brass clockwork figure with visible gears",
-      "status": "planned",
+      "status": "generated",
       "bio": "Wind it and it wonders. The automaton earns its place by doing something tender with mechanical hands - the gears are the body, the task is the soul."
     },
     "armored-sentinel": {
       "prompt": "An armored sentinel in full battered plate standing watch at a mountain pass gate, spear grounded, snow settling on the pauldrons, unmoved and unmovable.",
       "alt": "An armored guardian standing watch",
-      "status": "planned",
+      "status": "generated",
       "bio": "Armor is a promise worn on the outside. The sentinel stands so the picture can ask what's worth standing for."
     },
     "wise-elder": {
       "prompt": "A wise elder with deep lines and knowing eyes mending a fishing net on a stone step, silver hair loose in the wind, hands that have done this ten thousand times.",
       "alt": "A deeply lined elder with knowing eyes",
-      "status": "planned",
+      "status": "generated",
       "bio": "Time drawn on a face. Every line is a sentence the years wrote; the elder lets a picture carry a whole life without telling any of it."
     },
     "spirited-child": {
       "prompt": "A spirited child in a too-big coat marching ahead up a forest path, stick raised like a sword, chin up, absolutely certain of a destination no adult can see.",
       "alt": "An adventurous child leading the way",
-      "status": "planned",
+      "status": "generated",
       "bio": "Courage before scale, wonder before sense. Put a child in front and the picture points forward all by itself."
     },
     "winged-beast": {
       "prompt": "A great winged beast perched on a sea cliff with wings half-spread against the wind, feathers and scale catching the light, head turned toward the open water.",
       "alt": "A great winged beast with outstretched wings",
-      "status": "planned",
+      "status": "generated",
       "bio": "The sky needs an owner. Wings at the right size are weather; the beast decides how much of the picture belongs to the air."
     },
     "ghostly-presence": {
       "prompt": "A ghostly spectral figure drifting across an abandoned ballroom, translucent as breath on glass, moonlight passing straight through the hem of its dress onto the dusty floor.",
       "alt": "A translucent spectral figure in the scene",
-      "status": "planned",
+      "status": "generated",
       "bio": "Presence at half opacity. A ghost is the picture admitting that someone used to be here - and deciding not to let go of it."
     },
     "crowd-of-many": {
       "prompt": "A flower seller with a bright cart surrounded by a bustling market crowd, faces and shoulders streaming past on every side, the seller a still point in the current.",
       "alt": "A subject surrounded by a bustling crowd",
-      "status": "planned",
+      "status": "generated",
       "bio": "One face, then arithmetic. A crowd is scale made of people - and whoever holds still in it becomes the subject for free."
     },
     "regal-figure": {
       "prompt": "A regal crowned figure in deep ceremonial robes descending a hall of columns, train pouring down the steps behind, attendants' shadows kneeling at the edges.",
       "alt": "A crowned figure in ceremonial robes",
-      "status": "planned",
+      "status": "generated",
       "bio": "Rank you can draw. Ceremony piles itself on a person until the picture has to decide which one it is portraying."
     },
     "weathered-explorer": {
       "prompt": "A weathered explorer pausing at a canyon rim with a battered pack, rolled maps, and sun-bleached scarf, boots gray with a thousand miles, eyes on the far side.",
       "alt": "A journey-worn explorer with expedition gear",
-      "status": "planned",
+      "status": "generated",
       "bio": "The journey, worn as clothing. Every scuff is a mile that actually happened; the explorer lets the picture claim distance without drawing it."
     }
   },
@@ -617,109 +660,109 @@
     "storybook-cover": {
       "prompt": "A small cloaked figure stepping into a vast golden ancient forest, painted in loose watercolor with flowing art nouveau linework, golden-hour light shafting between mossy trunks, a wide establishing frame - a wistful storybook cover moment.",
       "alt": "A watercolor figure entering a golden ancient forest",
-      "status": "planned",
+      "status": "generated",
       "bio": "The cover that promises the whole journey: gold light, old trees, and a figure exactly small enough to root for."
     },
     "neon-noir": {
       "prompt": "A tight close-up portrait of a rain-soaked figure in a night city, saturated neon magenta and cyan flooding the wet streets behind, faint bioluminescent glow tracing the puddles, shallow focus - electric noir at full charge.",
       "alt": "A rain-soaked neon close-up portrait",
-      "status": "planned",
+      "status": "generated",
       "bio": "One face, one storm of signal. The city does the lighting and the rain signs the print."
     },
     "epic-fantasy-cover": {
       "prompt": "A lone armored figure on a crag shot from near the ground looking up, storm light flashing behind, dark-fantasy iron and bone against rich jewel tones, baroque chiaroscuro carving the figure out of the tempest - a wide epic book-cover frame.",
       "alt": "A storm-lit grimdark hero from below",
-      "status": "planned",
+      "status": "generated",
       "bio": "Thunder, iron, and jewel-deep color. The cover for a book heavy enough to prop a door."
     },
     "cozy-storybook": {
       "prompt": "A warm cluttered reading nook painted in soft watercolor with friendly children's-book charm, pastel pinks and mints, gray-day light through the window, blankets and plants and a sleeping cat - a picture-book page you can nap inside.",
       "alt": "A soft pastel watercolor picture-book room",
-      "status": "planned",
+      "status": "generated",
       "bio": "Gray light outside, pastel warmth inside. A page built for reading aloud at whisper volume."
     },
     "cyber-portrait": {
       "prompt": "A tight cinematic close-up of a face lit by buzzing neon signs, cyberpunk megacity towers layered behind, hard high-contrast grade splitting the features between magenta glow and black shadow - a film still from a future that never sleeps.",
       "alt": "A neon-lit face in a megacity, hard contrast",
-      "status": "planned",
+      "status": "generated",
       "bio": "The city writes its signs on the nearest face. High contrast keeps only what the neon insists on."
     },
     "studio-product": {
       "prompt": "A single beautiful object dead center on a seamless backdrop in crisp softbox studio light, generous minimalist negative space around it, honest 35mm film grain - a commercial frame with nothing accidental in it.",
       "alt": "A clean centered studio shot with film texture",
-      "status": "planned",
+      "status": "generated",
       "bio": "Silence, symmetry, softbox. The product shot where even the shadow was hired."
     },
     "ghost-story": {
       "prompt": "A translucent spectral figure drifting down a foggy gaslit Victorian street, cold moonlight through the murk, black-and-white noir palette with gothic romance ruin and lace - a haunting in silver and soot.",
       "alt": "A spectral figure in moonlit Victorian fog",
-      "status": "planned",
+      "status": "generated",
       "bio": "Silver light, black iron, and someone who never left. The fog does the rest."
     },
     "plein-air": {
       "prompt": "A wide golden-hour field with a distant easel and painter, rendered in broken impressionist color over earthy ochres and mosses, daubs of warm light mixing in the eye - an afternoon painted before it could get away.",
       "alt": "A golden field in broken impressionist color",
-      "status": "planned",
+      "status": "generated",
       "bio": "Chasing the light on location. The field, the hour, and the paint all wet at once."
     },
     "retro-sprite": {
       "prompt": "A small heroic figure seen from a low angle, rendered as detailed 16-bit pixel art in a loud candy-pop palette, deep-space starfield and planets behind - a title-screen hero frame from a cartridge that never existed.",
       "alt": "A candy-colored pixel hero against deep space",
-      "status": "planned",
+      "status": "generated",
       "bio": "Sixteen bits of courage in bubblegum and lemon. Press start to believe in it."
     },
     "wildlife-lens": {
       "prompt": "A mountain fox caught through a telephoto lens on 35mm film, creamy bokeh dissolving the crags behind, soft overcast light, earthy natural palette, thin high-country air - one patient frame from a long cold hide.",
       "alt": "A telephoto animal portrait in soft gray light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Hours of stillness for one honest frame. The bokeh forgets the mountain so the fox can be everything."
     },
     "dream-drift": {
       "prompt": "A dreamer's silhouette double-exposed with floating islands and waterfalls, surreal dream logic bending the horizon, iridescent opal color shifting across everything, volumetric rays pouring through impossible sky - a lucid dream at full volume.",
       "alt": "A surreal iridescent dream among floating islands",
-      "status": "planned",
+      "status": "generated",
       "bio": "Sleep with the saturation up. Islands fly, color refuses to choose, and the dreamer contains the weather."
     },
     "gilded-arcana": {
       "prompt": "A centered symbolic figure composed like a tarot arcana rendered as a leaded stained-glass window, flowing art nouveau linework in the cames, jewel-tone light blazing through emerald and ruby panes - a fortune told in glass.",
       "alt": "A stained-glass tarot figure in jewel light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Meaning you can hold to the light. The cards, the glass, and the sun conspire on the reading."
     },
     "deco-metropolis": {
       "prompt": "A gleaming art deco metropolis seen from directly above, gilded geometry and sunburst motifs in the avenues, vintage travel-poster optimism, hard black-and-gold contrast - the city as a jewelry box lid.",
       "alt": "A gilded deco skyline from above",
-      "status": "planned",
+      "status": "generated",
       "bio": "The skyline as ornament. Deco believed a city could be worn, and drew it from the clasp side."
     },
     "clay-mascot": {
       "prompt": "A cheerful squashable mascot character sculpted in claymation style with visible thumbprints, soft pastel palette, crisp softbox studio light, perfectly centered - a character sheet hero pose begging to be picked up.",
       "alt": "A squashable clay character in studio light",
-      "status": "planned",
+      "status": "generated",
       "bio": "Built to be squished, lit to be loved. The mascot's whole job is to survive your affection."
     },
     "cinema-frame": {
       "prompt": "A trench-coated figure at a fence line rim-lit against cold night, steel blue palette, rule-of-thirds framing with the background melted to bokeh, anamorphic cinematic grade - one paused frame of a thriller mid-turn.",
       "alt": "A rim-lit thriller frame in steel tones",
-      "status": "planned",
+      "status": "generated",
       "bio": "The frame before the reveal. Steel light, an edge of rim glow, and a background that knows too much."
     },
     "woodblock-journey": {
       "prompt": "A traveler with a walking staff crossing a mountain pass rendered as an ukiyo-e woodblock print, flat muted color planes, wide establishing composition, the peaks stacked in printed layers - a journey pressed into paper.",
       "alt": "A traveler's mountain crossing as a woodblock print",
-      "status": "planned",
+      "status": "generated",
       "bio": "Miles compressed to printed planes. The mountains queue politely in flat, perfect inks."
     },
     "field-journal": {
       "prompt": "A naturalist's field study knolled from above - specimens, pressed leaves, and tools aligned at right angles, drawn in fine crosshatched ink on sun-faded paper - a botanical journal page from a long expedition.",
       "alt": "A naturalist's knolled ink field page",
-      "status": "planned",
+      "status": "generated",
       "bio": "The expedition, filed at right angles. Ink for the facts, sun-fade for the years."
     },
     "anime-quest": {
       "prompt": "A spirited child on a grassy floating island, anime cel shading with clean linework, volumetric god rays through towering painted clouds, more islands hanging in the bright sky - the key visual for an adventure that doesn't exist yet.",
       "alt": "An anime key visual of a child among sky islands",
-      "status": "planned",
+      "status": "generated",
       "bio": "The poster for episode one of forever. Cel-shaded courage, painted sky, islands optional but included."
     }
   },
@@ -728,1700 +771,1700 @@
       {
         "prompt": "An empty moorland road at dusk with a solitary traveler visible in the middle distance, small but unmistakable, the land quiet around them.",
         "alt": "A cloaked wanderer on an empty winding road (distant traveler)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lone cloaked wanderer as the clear focal point of an empty winding road, seen from behind mid-stride, cloak moving, the moor stretching away on both sides.",
         "alt": "A cloaked wanderer on an empty winding road (lone wanderer)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A tiny lone figure dwarfed by a vast empty landscape, the road a thread across an enormous plain beneath a towering sky, the wanderer a speck of resolve.",
         "alt": "A cloaked wanderer on an empty winding road (speck in the vast)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "gentle-giant": [
       {
         "prompt": "A large friendly moss-backed creature resting at the edge of a meadow scene, half-curled and calm, a small figure nearby going about their day.",
         "alt": "A moss-covered giant creature beside a small figure (resting colossus)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A gentle giant creature towering benevolently over a meadow, a tiny human looking up at it, the creature's huge head lowered in greeting.",
         "alt": "A moss-covered giant creature beside a small figure (gentle giant)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A colossal benevolent titan filling the sky above the meadow, its shoulders in the clouds, the horizon bending around its bulk, the tiny figure below lit by its kind gaze.",
         "alt": "A moss-covered giant creature beside a small figure (sky-filling titan)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "golden-hour": [
       {
         "prompt": "A lone oak on a grassy hillside under a soft golden wash, gentle late-afternoon warmth settling over the grass, shadows only beginning to stretch.",
         "alt": "A lone tree on a hillside in low golden sunlight (golden wash)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lone oak on a grassy hillside at full golden hour, warm directional light raking the slope, a long dramatic shadow and glowing backlit grass seed-heads.",
         "alt": "A lone tree on a hillside in low golden sunlight (golden hour)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lone oak on a hillside at blazing sundown, the sun flaring directly into the lens behind the trunk, the whole frame ignited orange, shadow thrown clear across the land.",
         "alt": "A lone tree on a hillside in low golden sunlight (blazing sundown)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "bioluminescence": [
       {
         "prompt": "A dark tidal cove at night, faint blue-green pinpricks of plankton dotting the shallows around a drifting rowboat, most of the scene still deep shadow.",
         "alt": "Glowing organisms lighting a dark cove (faint glow)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A night cove lit by living light: glowing plankton bright in the wake of a rowboat, luminous fungi on the rocks, cool blue-green glow becoming the scene's true light source.",
         "alt": "Glowing organisms lighting a dark cove (living light)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An abyssal cove where bioluminescence is the only light in the world, water blazing electric blue-green around the silhouetted rowboat, glowing spores drifting like stars in the black air.",
         "alt": "Glowing organisms lighting a dark cove (abyssal radiance)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "candlelight": [
       {
         "prompt": "A reader at a wooden table in a dim room, soft candle warmth touching their face and the book's pages, the rest of the room resting in gentle darkness.",
         "alt": "A reader at a table lit by candle flame (candle warmth)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A reader bent over a book, warm flickering candlelight carving the scene, wax pooling below the flame, deep shadows pressing in at the edges of the small golden circle.",
         "alt": "A reader at a table lit by candle flame (candlelight)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A single flame in darkness carving one face out of black, everything else gone: one candle, one hand, one page catching the light, the room entirely surrendered to shadow.",
         "alt": "A reader at a table lit by candle flame (single flame)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "moonlight": [
       {
         "prompt": "A farmhouse and field under pale moonlight, silver-blue light settling quietly over roofs and grass, the night calm and legible.",
         "alt": "A silvered field and farmhouse under the moon (pale moon)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A farmhouse and frosted field defined by cold blue moonlight, hard-edged silver highlights on the tin roof, deep blue shadows pooling under the eaves.",
         "alt": "A silvered field and farmhouse under the moon (moonlight)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A farmhouse dwarfed beneath a huge low harvest moon, the world flooded silver, every blade of frost-grass glinting, shadows printed black and sharp across the field.",
         "alt": "A silvered field and farmhouse under the moon (harvest moon)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "neon-glow": [
       {
         "prompt": "A noodle stall at night with a colored neon wash tinting the steam and counter, magenta and cyan hints in the wet pavement.",
         "alt": "A noodle stall drenched in neon signage light (sign wash)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A noodle stall lit by buzzing neon signs, hard magenta and cyan light carving the cook and the counter, saturated reflections flooding the puddled street.",
         "alt": "A noodle stall drenched in neon signage light (neon glow)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A noodle stall drowned in blinding neon from every direction, colors collapsing into pure electric signal, steam glowing pink, the wet street a mirror of burning light.",
         "alt": "A noodle stall drenched in neon signage light (neon flood)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "harsh-noon": [
       {
         "prompt": "A whitewashed courtyard in bright midday light, a figure crossing, shadows short and definite underfoot.",
         "alt": "A white courtyard under hard overhead sun (bright day)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A courtyard under harsh noon sun, black geometric shadows slicing under arches, a hatted figure's shadow pooled tight at their feet, walls burning white.",
         "alt": "A white courtyard under hard overhead sun (harsh noon)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A courtyard bleached by merciless overhead sun, shadows reduced to razor cuts of pure black, the figure almost dissolving into glare, the sky white with heat.",
         "alt": "A white courtyard under hard overhead sun (merciless sun)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "overcast-soft": [
       {
         "prompt": "A fishing harbor in soft overcast light, gentle even illumination over boats and water, shadows faint and forgiving.",
         "alt": "A gray-day harbor in shadowless light (soft sky)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A harbor under a flat gray ceiling of cloud, completely shadowless light, every hull and rope evenly described, the water a sheet of pewter.",
         "alt": "A gray-day harbor in shadowless light (overcast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A harbor swallowed by luminous fog-thick overcast, boats fading into pale layers, the light itself become the weather, horizon erased in soft white.",
         "alt": "A gray-day harbor in shadowless light (luminous fog)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "dramatic-rim": [
       {
         "prompt": "A boxer in a dark gym with a soft rim light lifting their silhouette gently off the background, features in half-shadow.",
         "alt": "A boxer edged in rim light against darkness (soft edge)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A boxer edged in dramatic rim lighting, a hard bright line running along shoulders and jaw, the dark gym falling away behind the burning outline.",
         "alt": "A boxer edged in rim light against darkness (dramatic rim)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A boxer as a black silhouette wearing a blazing rim of light, the edge burning like a filament, everything inside the outline surrendered to darkness.",
         "alt": "A boxer edged in rim light against darkness (burning edge)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "volumetric-rays": [
       {
         "prompt": "A barn interior with faint rays of light streaking the dusty air from gaps in the boards, a horse in soft half-light.",
         "alt": "Dusty light shafts crossing a barn interior (faint rays)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A barn crossed by strong volumetric god rays, each shaft made solid by swirling dust, the horse haloed where the beams converge.",
         "alt": "Dusty light shafts crossing a barn interior (god rays)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A barn carved by massive cathedral shafts of dust-filled light, the beams like architecture, the horse small beneath columns of burning air.",
         "alt": "Dusty light shafts crossing a barn interior (cathedral shafts)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "firelight": [
       {
         "prompt": "Travelers by a low campfire, distant ember glow warming the edges of their faces, the night close around them.",
         "alt": "Faces around a campfire in dancing orange light (ember glow)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Travelers lit by dancing orange firelight, flame-light moving across faces and blankets, long unstable shadows thrown onto the rocks behind.",
         "alt": "Faces around a campfire in dancing orange light (firelight)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A roaring blaze throwing wild light over the travelers, flames leaping frame-high, chaotic shadows lashing the campsite, sparks streaking the black sky.",
         "alt": "Faces around a campfire in dancing orange light (roaring blaze)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "storm-light": [
       {
         "prompt": "A lighthouse under brooding storm light, the sky bruised green-gray, rain beginning, the sea dark and restless.",
         "alt": "A lighthouse under a lightning-lit storm sky (brooding sky)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lighthouse lit by a lightning flash, rain glittering frozen in the burst, the tower's white flank blazing against the black sky.",
         "alt": "A lighthouse under a lightning-lit storm sky (lightning flash)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lighthouse frozen in a violent white lightning strike, the world burned to blacks and blinding whites, rain suspended, the sea caught mid-crash.",
         "alt": "A lighthouse under a lightning-lit storm sky (white strike)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "studio-softbox": [
       {
         "prompt": "A ceramic vase on a seamless backdrop in clean studio lighting, soft even light describing its curve, a gentle grounded shadow.",
         "alt": "A ceramic vase in clean seamless studio light (clean light)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A ceramic vase in crisp softbox light on a seamless sweep, controlled highlight rolling along the glaze, the shadow placed exactly where it was decided.",
         "alt": "A ceramic vase in clean seamless studio light (softbox studio)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A ceramic vase in clinical high-key white, every detail evenly lit, shadows all but abolished, the object floating in pure controlled brightness.",
         "alt": "A ceramic vase in clean seamless studio light (high-key white)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "oil-painting": [
       {
         "prompt": "A pear on a sunlit windowsill with the soft texture of an oil painting, brushwork gentle and blended, canvas grain just perceptible.",
         "alt": "A pear on a windowsill painted in oils (oiled surface)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A pear on a windowsill as an expressive oil painting, visible confident brushstrokes shaping fruit and light, thick color laid wet into wet.",
         "alt": "A pear on a windowsill painted in oils (oil painting)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A pear on a windowsill as thick impasto oil painting, sculptural ridges of paint catching real light, the strokes standing off the surface like frosting.",
         "alt": "A pear on a windowsill painted in oils (impasto storm)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "watercolor": [
       {
         "prompt": "A red umbrella on a rainy street tinted with delicate watercolor washes, colors thin and luminous, the paper breathing through.",
         "alt": "A rainy street umbrella scene in watercolor (light wash)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A red umbrella crossing a rainy street as loose watercolor painting, blooming pigment edges, wet-into-wet skies, reflections dissolving downward.",
         "alt": "A rainy street umbrella scene in watercolor (watercolor)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A red umbrella in wild runaway watercolor - running drips, blooms colliding, patches of raw untouched paper where the rain would be.",
         "alt": "A rainy street umbrella scene in watercolor (runaway water)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "pencil-sketch": [
       {
         "prompt": "A sleeping cat on a chair with light pencil-sketch linework, gentle graphite lines finding the curl of the body.",
         "alt": "A sleeping cat drawn in graphite pencil (light graphite)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A sleeping cat as a full graphite pencil sketch, construction lines still visible under the finished fur, hatched shadow anchoring the chair.",
         "alt": "A sleeping cat drawn in graphite pencil (pencil sketch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A sleeping cat as a furious scribbled pencil drawing, raw and unfinished on purpose, gesture lines flying past the form, energy over accuracy.",
         "alt": "A sleeping cat drawn in graphite pencil (furious scribble)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "ink-illustration": [
       {
         "prompt": "A strutting rooster traced with fine ink linework, contours clean and confident, minimal shading.",
         "alt": "A rooster drawn in crosshatched pen and ink (fine line)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A strutting rooster as a full pen-and-ink illustration, crosshatched shading deepening the breast and tail, line weight doing all the light.",
         "alt": "A rooster drawn in crosshatched pen and ink (pen and ink)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A rooster drowning in heavy black ink against stark white paper, feathers pooling into bold black shapes, highlights left as fearless white cuts.",
         "alt": "A rooster drawn in crosshatched pen and ink (ink flood)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "charcoal-drawing": [
       {
         "prompt": "A draft horse in wind with soft charcoal shading, forms rounded gently, edges lost and found.",
         "alt": "A draft horse rendered in smudged charcoal (soft charcoal)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A draft horse as a full smudged charcoal drawing, thumb-dragged tone through the mane, deep blacks anchoring the legs, paper grain showing.",
         "alt": "A draft horse rendered in smudged charcoal (charcoal drawing)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A draft horse as a violent charcoal study, deep blacks and torn highlights, marks slashed and lifted, the wind drawn as much as the horse.",
         "alt": "A draft horse rendered in smudged charcoal (charcoal storm)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "gouache-poster": [
       {
         "prompt": "A lighthouse cove with flat gouache color simplifying the forms, matte paint, shapes tidy and warm.",
         "alt": "A lighthouse cove as a mid-century gouache poster (matte color)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lighthouse cove as a mid-century gouache poster, matte flat shapes, limited confident palette, edges crisp as cut paper.",
         "alt": "A lighthouse cove as a mid-century gouache poster (gouache poster)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A lighthouse cove as bold chunky gouache poster art, shapes big as continents, honest paper grain and brush-dry edges everywhere.",
         "alt": "A lighthouse cove as a mid-century gouache poster (chunky poster)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "pixel-art": [
       {
         "prompt": "A cottage at dusk with pixel-art touches - edges quantizing, the lit window resolving into bright squares.",
         "alt": "A tiny cottage rendered in pixel art (pixel touches)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A cottage at dusk as detailed 16-bit pixel art, deliberate palette, dithered sky gradient, one warm window glowing pixel by pixel.",
         "alt": "A tiny cottage rendered in pixel art (16-bit scene)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A cottage as chunky 8-bit pixel art, fat pixels and hard dithered gradients, the whole scene an inventory of perfectly placed squares.",
         "alt": "A tiny cottage rendered in pixel art (8-bit chunk)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "low-poly-3d": [
       {
         "prompt": "A standing stag with low-poly 3d accents, larger planes faceting the body while the antlers keep their detail.",
         "alt": "A stag rendered as faceted low-poly 3d (poly accents)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A standing stag as a full low-poly 3d render, faceted surfaces flat-shaded, each triangle a deliberate plane of light.",
         "alt": "A stag rendered as faceted low-poly 3d (low-poly render)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A stag as brutalist low-poly geometry at minimal triangle count, barely enough facets to be a stag at all - and unmistakably one.",
         "alt": "A stag rendered as faceted low-poly 3d (triangle minimal)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "clay-render": [
       {
         "prompt": "A cheerful snail with a soft clay-render feel, forms rounded and matte, everything gently squashable.",
         "alt": "A cheerful snail sculpted in clay (clay feel)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A cheerful snail as a playful claymation-style render, visible tool marks, plasticine sheen, the shell's spiral coiled by hand.",
         "alt": "A cheerful snail sculpted in clay (claymation)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A snail as squashed plasticine clay, thumbprints and all, seams where the colors were rolled together, proudly hand-mashed.",
         "alt": "A cheerful snail sculpted in clay (plasticine squash)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "film-photograph": [
       {
         "prompt": "A roadside diner at dusk with a filmic photographic look, gentle grain, colors as a good negative remembers them.",
         "alt": "A roadside diner shot on 35mm film (filmic look)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A roadside diner as a true 35mm film photograph, natural grain structure, halation on the window light, depth honestly rendered.",
         "alt": "A roadside diner shot on 35mm film (35mm film)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A roadside diner as expired-film photography, heavy grain, magenta-shifted light leaks bleeding from the frame edge, a memory that half-survived the roll.",
         "alt": "A roadside diner shot on 35mm film (expired roll)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "papercut-collage": [
       {
         "prompt": "A whale in waves trimmed with layered papercut accents, a few sheets deep, shadows soft between them.",
         "alt": "A layered papercut collage of a whale (paper accents)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A whale diving through a layered papercut collage, five or six sheets of sea, crisp cast shadows giving each layer honest depth.",
         "alt": "A layered papercut collage of a whale (papercut collage)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A whale in a deep 3d paper diorama of dozens of cut layers, a tunnel of sea receding sheet by sheet into shadowed paper depths.",
         "alt": "A layered papercut collage of a whale (paper diorama)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "stained-glass": [
       {
         "prompt": "A kingfisher over water with stained-glass color panes tinting the scene, a few leaded lines finding the bird.",
         "alt": "A kingfisher rendered as a stained-glass window (glass panes)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A kingfisher as a full leaded stained-glass window, black cames outlining every pane, glass glowing where the light leans through.",
         "alt": "A kingfisher rendered as a stained-glass window (stained glass)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A kingfisher as a towering cathedral stained-glass panel, jewel light flooding through hundreds of panes, the bird blazing at the center of a rose of glass.",
         "alt": "A kingfisher rendered as a stained-glass window (cathedral panel)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "embroidered-textile": [
       {
         "prompt": "A sitting fox with embroidered texture warming the surface, stitch direction following the fur.",
         "alt": "A fox stitched in embroidered thread (stitch texture)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A sitting fox as full textile art with visible stitches - satin stitch flanks, french-knot eyes, thread catching the light like fur never could.",
         "alt": "A fox stitched in embroidered thread (embroidery)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fox as dense hand-stitched tapestry in full thread relief, stitches packed shoulder to shoulder, the surface a landscape of thread.",
         "alt": "A fox stitched in embroidered thread (dense tapestry)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "comic-ink-flats": [
       {
         "prompt": "A courier mid-leap with comic-book inking, bold outlines over the figure, color kept simple.",
         "alt": "A rooftop leap drawn as a comic panel (comic inks)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A courier leaping a rooftop gap as a full comic panel, bold inks and flat colors, black shadow shapes doing the drama.",
         "alt": "A rooftop leap drawn as a comic panel (comic panel)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A rooftop leap as high-contrast graphic novel art, screentone skies and speed lines tearing the air, ink pushed to its limit.",
         "alt": "A rooftop leap drawn as a comic panel (graphic novel)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "muted-palette": [
       {
         "prompt": "A fishing village at dawn with slightly muted colors, every hue eased back one honest step from full strength.",
         "alt": "A quiet fishing village in muted desaturated color (softened color)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fishing village in a fully muted desaturated palette, restrained grays and dusty blues, the mood carried by value rather than hue.",
         "alt": "A quiet fishing village in muted desaturated color (muted palette)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fishing village in near-monochrome grays with a single surviving accent - one red buoy alone keeping its color in a silenced world.",
         "alt": "A quiet fishing village in muted desaturated color (ash and ember)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "neon-saturation": [
       {
         "prompt": "An arcade alley with hints of neon color in signs and reflections, electric accents leaking into an otherwise night-real scene.",
         "alt": "An arcade alley in saturated neon color (neon hints)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An arcade alley in full neon saturation, glowing magenta and cyan leading the palette, every wet surface repeating the signs.",
         "alt": "An arcade alley in saturated neon color (neon saturation)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An arcade alley in electric neon color overload, every surface glowing, color so saturated the light itself feels loud.",
         "alt": "An arcade alley in saturated neon color (signal overload)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "pastel-dream": [
       {
         "prompt": "Balloons over misty hills with gentle pastel hints softening the palette, colors leaning toward powder.",
         "alt": "A hot-air balloon morning in soft pastels (pastel hints)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Balloons over hills in a fully soft dreamy pastel palette, pink-mint-lilac harmony, edges and light equally gentle.",
         "alt": "A hot-air balloon morning in soft pastels (pastel dream)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Balloons in an all-over cotton-candy palette of sugared pinks and mints, the whole world confected, even the shadows sweetened.",
         "alt": "A hot-air balloon morning in soft pastels (cotton candy)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "monochrome-noir": [
       {
         "prompt": "A stairwell scene nearly monochrome, color drained toward gray, night shapes resolving into value.",
         "alt": "A rain-slick stairwell in black-and-white noir (drained color)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A stairwell in full black-and-white noir palette, deep contrast, hard bulb light and blind-striped shadows, wet iron shining.",
         "alt": "A rain-slick stairwell in black-and-white noir (monochrome noir)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A stairwell in crushed ink-black monochrome, a single blade of white light cutting the dark, everything else surrendered to black.",
         "alt": "A rain-slick stairwell in black-and-white noir (ink black)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "earthy-naturals": [
       {
         "prompt": "A stone barn and harvest stack with natural earthy tones settling in, soil-warm and unforced.",
         "alt": "A harvest barn scene in ochre, moss, and umber (natural cast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A barn and harvest in a full earthy palette - ochre gourds, moss lintels, umber shadow - every color a neighbor of dirt.",
         "alt": "A harvest barn scene in ochre, moss, and umber (earthy naturals)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A harvest scene in deep loam, everything soil, bark, and stone, the palette compressed to what a field could grow and weather could stain.",
         "alt": "A harvest barn scene in ochre, moss, and umber (deep loam)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "jewel-tones": [
       {
         "prompt": "A textile stall with jewel-tone accents enriching the scene, gemstone color glinting among quieter cloth.",
         "alt": "A bazaar textile stall in emerald, sapphire, and ruby (gem accents)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A stall in full jewel tones, bolts of emerald, sapphire, and ruby silk leading the palette, color deep enough to fall into.",
         "alt": "A bazaar textile stall in emerald, sapphire, and ruby (jewel tones)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A stall as a treasure hoard, every surface saturated gemstone color, shadows amethyst, the very air tinted like the inside of a jewel.",
         "alt": "A bazaar textile stall in emerald, sapphire, and ruby (treasure hoard)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "sepia-vintage": [
       {
         "prompt": "A carousel with a warm vintage fade tinting the scene, colors leaning amber, memory setting in at the edges.",
         "alt": "A carousel photograph aged to sepia (warm fade)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A carousel in full aged sepia, vintage photograph feel, browns and creams where the colors used to be, time visible as tone.",
         "alt": "A carousel photograph aged to sepia (sepia vintage)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A carousel in antique daguerreotype tones, chemical stains and vignette creeping from the corners, the image half-returned to silver.",
         "alt": "A carousel photograph aged to sepia (daguerreotype)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "iridescent-shift": [
       {
         "prompt": "A beetle on a leaf with a pearly iridescent sheen glancing off its shell, hints of shifting color.",
         "alt": "A beetle on a leaf in oil-slick iridescent color (pearl sheen)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A beetle in full iridescent shift, oil-slick color sliding green to violet to gold across the shell, the leaf's water drops refracting.",
         "alt": "A beetle on a leaf in oil-slick iridescent color (iridescent shift)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A beetle in an opal storm, the whole world refracting - leaf, air, and light all shifting spectral color like the inside of a soap bubble.",
         "alt": "A beetle on a leaf in oil-slick iridescent color (opal storm)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "high-contrast": [
       {
         "prompt": "A chess set by a window with punchy contrast, lights lifted and darks deepened a confident step.",
         "alt": "A chess set split by hard light and shadow (punchy values)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A chess set in full high contrast, hard highlights against deep shadow, each piece half-lit half-lost, the midtones squeezed out.",
         "alt": "A chess set split by hard light and shadow (high contrast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A chess set in extreme split contrast, blown whites against pit black, nothing between - the image reduced to a verdict.",
         "alt": "A chess set split by hard light and shadow (split black)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "candy-pop": [
       {
         "prompt": "An ice-cream van with candy-bright accents popping in, sweet color arriving in stripes and trims.",
         "alt": "An ice-cream van in glossy candy colors (sweet accents)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An ice-cream van in a full glossy candy palette, bubblegum and lemon leading, chrome winking, the street sweetened around it.",
         "alt": "An ice-cream van in glossy candy colors (candy pop)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An ice-cream van in a full sugar rush, every color turned to eleven, glossy and loud, the sky itself reading as flavored.",
         "alt": "An ice-cream van in glossy candy colors (sugar rush)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "cold-steel": [
       {
         "prompt": "A shipyard crane with a cool blue-gray cast settling over the scene, warmth receding.",
         "alt": "A shipyard crane in steel blues and gunmetal (cool cast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A shipyard in a full cold steel palette - slate blue hulls, gunmetal sky, zinc water - precision instead of comfort.",
         "alt": "A shipyard crane in steel blues and gunmetal (cold steel)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A shipyard in deep freeze, everything blue-black chilled metal, the palette cold enough to hurt bare skin.",
         "alt": "A shipyard crane in steel blues and gunmetal (deep freeze)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "sun-bleached": [
       {
         "prompt": "A boardwalk fence with lightly sun-faded color, paint eased back like one hard summer passed.",
         "alt": "A boardwalk fence faded by years of sun (light fade)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A boardwalk in a fully washed sun-bleached palette, pigment surrendering to salt and light, every color a former version of itself.",
         "alt": "A boardwalk fence faded by years of sun (sun-bleached)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A boardwalk in ghost paint, color surviving only in faded traces caught in the wood grain, the sun having very nearly won.",
         "alt": "A boardwalk fence faded by years of sun (ghost paint)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "rainswept-city": [
       {
         "prompt": "A city street after rain, pavement wet and softly reflective, a figure at the crossing, drizzle still hanging in the streetlight.",
         "alt": "A night city under steady rain, streets mirrored (after the rain)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full rain-swept night city, steady rain combing the light, streets reflecting like canals, the umbrella figure ringed by doubled glow.",
         "alt": "A night city under steady rain, streets mirrored (rain-swept city)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A drowned metropolis in torrential downpour, rain flooding the avenues, the glowing city and its reflection nearly meeting in the rising water.",
         "alt": "A night city under steady rain, streets mirrored (drowned metropolis)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "ancient-forest": [
       {
         "prompt": "The edge of an old mossy forest, a deer path entering between the first great trunks, the deep green waiting past the treeline.",
         "alt": "Deep mossy old-growth woods with light shafts (forest edge)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Deep old-growth forest surrounding the path, moss sleeving every trunk, shafts of light dropping through the canopy like slow rain.",
         "alt": "Deep mossy old-growth woods with light shafts (ancient forest)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A primeval forest of colossal ancient trees swallowing the frame whole, trunks wide as towers, the path a rumor in the green dark.",
         "alt": "Deep mossy old-growth woods with light shafts (primeval depths)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "desert-expanse": [
       {
         "prompt": "Dry open scrubland with a small caravan passing through, hardy brush and pale sand, distance beginning to assert itself.",
         "alt": "Rolling dunes to the horizon with one caravan (dry country)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full desert expanse of rolling dunes to the horizon, the caravan a thread of silhouettes on a ridge, ripples sharp in the near sand.",
         "alt": "Rolling dunes to the horizon with one caravan (desert expanse)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An endless erg, an ocean of dunes under heat shimmer, the caravan almost dissolved by distance, sand and sky negotiating the horizon.",
         "alt": "Rolling dunes to the horizon with one caravan (endless erg)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "frozen-tundra": [
       {
         "prompt": "Frost-dusted country under thin snow, a sled team moving through, the first real bite of winter in the air.",
         "alt": "Deep snow and ice fields with a lone sled team (first frost)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full frozen tundra, deep snow and ice fields all around, the sled team small between white ground and pale sky, runners hissing.",
         "alt": "Deep snow and ice fields with a lone sled team (frozen tundra)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A howling arctic whiteout, horizon erased, the sled team barely shapes in the blizzard, the world reduced to wind and white.",
         "alt": "Deep snow and ice fields with a lone sled team (white death)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "underwater-depths": [
       {
         "prompt": "Sunlit shallows with a diver gliding over ripple-lit sand, the surface bright and close overhead.",
         "alt": "Open blue water with a diver and drifting light (shallows)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Open deep water swallowing the scene, the diver suspended in blue light and drifting particles, the surface a far memory.",
         "alt": "Open blue water with a diver and drifting light (underwater depths)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A crushing abyssal trench, darkness pressing in, the diver's small lamp against black pressure, the deep entirely indifferent.",
         "alt": "Open blue water with a diver and drifting light (abyssal trench)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "mountain-heights": [
       {
         "prompt": "Rising foothill country, a climber on a grassy shoulder, real peaks beginning behind.",
         "alt": "Jagged peaks and thin air with a small climber (foothills)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full mountain heights, jagged ridges and thin air, the climber small on a rock spine, the valley floor lost below.",
         "alt": "Jagged peaks and thin air with a small climber (mountain heights)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A knife-edge summit ridge above a sea of clouds, the climber balanced between two drops, nothing higher anywhere.",
         "alt": "Jagged peaks and thin air with a small climber (knife ridge)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "cozy-interior": [
       {
         "prompt": "A warm lived-in room, an armchair cat, soft lamplight, belongings arranged by affection rather than order.",
         "alt": "A warm cluttered room with blankets and plants (warm room)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fully cozy cluttered interior - blankets and plants and leaning books everywhere, the armchair cat at the center of a room that loves you back.",
         "alt": "A warm cluttered room with blankets and plants (cozy interior)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An impossibly snug nest of books and lamplight, shelves closing overhead like a burrow, warmth stacked on warmth, the cat entirely correct.",
         "alt": "A warm cluttered room with blankets and plants (nested deep)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "grand-library": [
       {
         "prompt": "A room lined with old books, one reader at a table, shelves solid to the ceiling.",
         "alt": "A vaulted library of ladders and galleries (book room)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A grand vaulted library, ladders and galleries stacked skyward, the reader small under the architecture of shelves.",
         "alt": "A vaulted library of ladders and galleries (grand library)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Infinite library stacks rising out of sight in every direction, bridges between bookcases, the reader a speck in a canyon of spines.",
         "alt": "A vaulted library of ladders and galleries (infinite stacks)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "floating-islands": [
       {
         "prompt": "A cliff meadow with a few rocks drifting weightless nearby, gravity beginning to reconsider.",
         "alt": "Grassy islands hanging in open sky (drifting rocks)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full floating islands hanging in open sky, waterfalls streaming into cloud below, the rope bridge and its traveler between two drifting shores.",
         "alt": "Grassy islands hanging in open sky (floating islands)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A whole shattered world hanging in the air - island chains, inverted cliffs, rivers falling into sky, the bridge a thread through a broken continent.",
         "alt": "Grassy islands hanging in open sky (shattered world)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "cyberpunk-megacity": [
       {
         "prompt": "A dense glowing night city behind a street vendor's cart, towers stacked deep, traffic streaming light.",
         "alt": "Layered towers, holograms, and wet streets (city lights)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full cyberpunk megacity - layered towers, holograms between buildings, wet streets carrying the glow, the vendor's cart tiny at the canyon floor.",
         "alt": "Layered towers, holograms, and wet streets (cyberpunk megacity)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An endless vertical sprawl with no ground in sight, city above city above city, the cart clinging to a mid-level walkway in a bottomless lattice of light.",
         "alt": "Layered towers, holograms, and wet streets (vertical sprawl)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "medieval-village": [
       {
         "prompt": "Old cobbled lanes with timber-framed houses leaning together, a well at the corner, geese on patrol.",
         "alt": "Thatch and timber village with a market square (old lanes)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full medieval village - thatched roofs, market square stalls, the well and its geese, wood smoke over everything.",
         "alt": "Thatch and timber village with a market square (medieval village)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A sprawling walled medieval town, banners and chimney smoke, gates and turrets, the square thronged inside living history.",
         "alt": "Thatch and timber village with a market square (living history)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "space-frontier": [
       {
         "prompt": "High orbit, the planet curving away below a lone station, the day-night terminator crossing continents.",
         "alt": "Stations and starships against deep space (high orbit)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "The full frontier - stations and starships against the void, docks blazing, the EVA figure at work on the sunlit hull.",
         "alt": "Stations and starships against deep space (space frontier)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Deep cosmos, nebulae and galaxies swallowing the frame, the station a bright mote against clouds of newborn stars.",
         "alt": "Stations and starships against deep space (deep cosmos)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "victorian-streets": [
       {
         "prompt": "A gaslit brick street at dusk, the lamplighter at his first lamp, fog just beginning to pool.",
         "alt": "Foggy gaslit streets of iron and brick (gas lamps)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full Victorian fog - iron railings, brick terraces, carriage clatter unseen, the lamplighter's small flames haloed down the row.",
         "alt": "Foggy gaslit streets of iron and brick (victorian streets)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A soot-dark industrial labyrinth of chimneys and fog, gaslight barely holding, the lamplighter a silhouette in a city made of smoke.",
         "alt": "Foggy gaslit streets of iron and brick (smoke and soot)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "tropical-shore": [
       {
         "prompt": "A bright sandy shoreline, the outrigger pulled up past the tide line, clear water lapping.",
         "alt": "Turquoise water and leaning palms (beach day)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full tropical shore - turquoise water, leaning palms, the canoe's shadow crisp on white sand, reef patterns under glass-clear swell.",
         "alt": "Turquoise water and leaning palms (tropical shore)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A hidden lagoon of impossible turquoise clarity, walls of green rising around still water, the canoe floating on what looks like light itself.",
         "alt": "Turquoise water and leaning palms (lost lagoon)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "art-nouveau": [
       {
         "prompt": "A woman among wisteria with art nouveau touches, organic curves slipping into the linework of hair and stem.",
         "alt": "A woman with flowing hair in art nouveau linework (nouveau touch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full art nouveau: flowing whiplash linework and ornament leading the style, the figure and flowers woven into one decorative rhythm.",
         "alt": "A woman with flowing hair in art nouveau linework (art nouveau)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full nouveau poster style, ornamental decorative framing, a halo arc behind the head, hair and blossom filling every curve of the composition.",
         "alt": "A woman with flowing hair in art nouveau linework (full mucha)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "ukiyo-e": [
       {
         "prompt": "A ferryboat and wave with ukiyo-e influences, color flattening into planes, outlines calming into printed line.",
         "alt": "A wave and ferryboat as a woodblock print (ukiyo-e accents)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full ukiyo-e woodblock: flat color planes, deliberate registration, the wave's foam patterned, the peak serene behind.",
         "alt": "A wave and ferryboat as a woodblock print (ukiyo-e)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Bold ukiyo-e stylization with dramatic wave motifs, claw-foam towering over the small boat, the print pushed to its most iconic pitch.",
         "alt": "A wave and ferryboat as a woodblock print (great wave)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "impressionist-brush": [
       {
         "prompt": "A garden luncheon with loose impressionist touches, edges softening, light beginning to break into color.",
         "alt": "A garden luncheon in broken impressionist color (loose touch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full impressionism: broken color and visible daubs, the tablecloth a weather of touches, shade violet where it dares.",
         "alt": "A garden luncheon in broken impressionist color (impressionist)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A pure impressionist light study, form dissolving entirely into color, the luncheon a shimmer of paint that only resolves at distance.",
         "alt": "A garden luncheon in broken impressionist color (pure light study)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "baroque-drama": [
       {
         "prompt": "A table gathering with old-master warmth, shadows deepening, light beginning to choose its favorites.",
         "alt": "A candlelit gathering in deep chiaroscuro (old master touch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full baroque drama: chiaroscuro theatricality, the gathering carved from darkness, every gesture staged by the light.",
         "alt": "A candlelit gathering in deep chiaroscuro (baroque drama)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Total darkness pierced by theatrical light, figures blazing out of black, the single candle running the entire performance.",
         "alt": "A candlelit gathering in deep chiaroscuro (full caravaggio)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "surrealist-dream": [
       {
         "prompt": "A field with quiet surrealist touches - a doorway standing where no wall is, its shadow falling the wrong way.",
         "alt": "A doorway standing open in an impossible field (dream logic)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full surrealism: dream logic and symbolic objects, the door open onto a second weather, the floating key casting a bird's shadow.",
         "alt": "A doorway standing open in an impossible field (surrealist dream)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Deep unreality: melting forms and impossible space, the field folding into sky, doors opening onto doors onto doors.",
         "alt": "A doorway standing open in an impossible field (deep unreality)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "gothic-romance": [
       {
         "prompt": "An abbey scene with a dark gothic undertone, ivy claiming the stones, the mood tilting toward dusk.",
         "alt": "A ruined abbey in moonlit gothic melancholy (dark undertone)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full gothic romance: ruins, lace, and melancholy, the figure pale at the glassless window, roses grown wild through the nave.",
         "alt": "A ruined abbey in moonlit gothic melancholy (gothic romance)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full midnight: cathedral gloom and stormy rapture, lightning behind the ruined rose window, grief and grandeur indistinguishable.",
         "alt": "A ruined abbey in moonlit gothic melancholy (full midnight)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "art-deco-geometry": [
       {
         "prompt": "A hotel entrance with streamlined deco lines structuring the scene, geometry tightening, brass beginning to gleam.",
         "alt": "A grand hotel entrance in gilded deco geometry (deco lines)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full art deco: gilded geometry and fanned motifs leading, stepped black-and-gold forms, symmetry with jewelry on.",
         "alt": "A grand hotel entrance in gilded deco geometry (art deco)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A deco monument: the frame itself become gilded architecture, monumental gold-and-black geometry, the doorman a grace note at its base.",
         "alt": "A grand hotel entrance in gilded deco geometry (deco monument)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "renaissance-fresco": [
       {
         "prompt": "A gathering of robed figures with classical renaissance poise, composition steadied into balance.",
         "alt": "Figures and drapery on an aged fresco wall (classical poise)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full renaissance fresco: drapery and gesture on aged plaster, earth pigments and serene geometry, the arch framing heaven.",
         "alt": "Figures and drapery on an aged fresco wall (renaissance fresco)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A soaring ceiling vision: figures among clouds seen from below, robes spiraling upward, the fresco opening the roof to painted sky.",
         "alt": "Figures and drapery on an aged fresco wall (ceiling vision)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "van-gogh-swirl": [
       {
         "prompt": "A cypress at dusk with expressive swirling brushstrokes beginning to move through sky and field.",
         "alt": "A cypress and night sky in swirling impasto (living strokes)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full van gogh manner: thick swirling impasto, the night sky turning in painted currents around burning stars.",
         "alt": "A cypress and night sky in swirling impasto (van gogh swirl)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Churning turbulence, sky and ground alive with swirls, the cypress a green flame in a night that will not hold still.",
         "alt": "A cypress and night sky in swirling impasto (starry turbulence)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "anime-cel": [
       {
         "prompt": "A rooftop scene with clean anime linework sharpening the figure, shading simplifying toward cel planes.",
         "alt": "A student on a rooftop in anime cel shading (anime touch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full anime cel: flat two-tone shading, expressive eyes, crisp line, the painted sky doing the atmosphere.",
         "alt": "A student on a rooftop in anime cel shading (anime cel)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A theatrical key visual: painted sky and dramatic wind, hair and jacket flying, lens flare over the railing - the poster frame of an unmade film.",
         "alt": "A student on a rooftop in anime cel shading (key visual)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "cinematic-still": [
       {
         "prompt": "A diner booth scene with a cinematic color grade settling in, contrast shaped, light beginning to mean something.",
         "alt": "A tense diner scene graded like a film frame (filmic grade)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A true film still: anamorphic feel, oval bokeh in the window lights, blocking that implies the scene before and after.",
         "alt": "A tense diner scene graded like a film frame (cinematic still)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An epic blockbuster frame: teal and amber grade, atmospheric haze, the booth lit like the turning point of the third act.",
         "alt": "A tense diner scene graded like a film frame (epic frame)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "concept-art-sheet": [
       {
         "prompt": "A guardian golem with concept-art polish tightening the render, silhouette read-first, materials resolving.",
         "alt": "A guardian golem as production concept art (concept polish)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full production concept art: the golem posed with design confidence, lighting neutral enough to sell the shapes, edges crisp where it matters.",
         "alt": "A guardian golem as production concept art (concept art)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Dramatic splash key art: the golem mid-stride through painterly effects and depth, dust and light staged for the franchise cover.",
         "alt": "A guardian golem as production concept art (splash key art)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "vaporwave-grid": [
       {
         "prompt": "A bust-and-palm scene with a pink and teal vapor tint drifting in, the horizon flattening toward a grid.",
         "alt": "A marble bust and palms on a wireframe grid (vapor tint)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full vaporwave: marble statue, wireframe grid, checkerboard perspective, a striped sun that never finishes setting.",
         "alt": "A marble bust and palms on a wireframe grid (vaporwave)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fully dissolved retro-digital dreamscape - checkerboards folding into sky, palms duplicating, the endless sunset buffering forever.",
         "alt": "A marble bust and palms on a wireframe grid (mall of memory)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "cottagecore-idyll": [
       {
         "prompt": "A garden table with gentle pastoral warmth settling in, gingham and clover, the kettle nearly singing.",
         "alt": "A cottage garden idyll with gingham and bread (pastoral touch)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full cottagecore: gardens, gingham, and warm bread, roses over the door, the whole scene at jam-making pace.",
         "alt": "A cottage garden idyll with gingham and bread (cottagecore)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An impossibly idyllic cottage meadow, wildflowers everywhere, the table adrift in blossom - pastoral turned all the way up.",
         "alt": "A cottage garden idyll with gingham and bread (storybook meadow)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "dark-fantasy-grim": [
       {
         "prompt": "A shrine scene with a grim dark-fantasy cast, iron and shadow gathering, comfort quietly leaving.",
         "alt": "An iron shrine in torchlit grimdark (grim cast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full dark fantasy: iron, bone, and torchlight leading, the pilgrim small before the spiked shrine, the dark furnished.",
         "alt": "An iron shrine in torchlit grimdark (dark fantasy)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Grimdark abyss: oppressive dread in every corner, the torch nearly beaten, the shrine vast and hungry in the black.",
         "alt": "An iron shrine in torchlit grimdark (grimdark abyss)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "synthwave-sunset": [
       {
         "prompt": "A highway scene with a retro-future synthwave glow warming the horizon, chrome beginning to catch pink.",
         "alt": "A chrome car driving into a striped sunset (retro glow)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full synthwave: striped sunset, chrome bodywork, grid horizon rolling out, palms in silhouette procession.",
         "alt": "A chrome car driving into a striped sunset (synthwave)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full outrun: laser palms and endless neon highway, the sun a banded giant, speed lines burning off the chrome.",
         "alt": "A chrome car driving into a striped sunset (outrun forever)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "childrens-book-charm": [
       {
         "prompt": "A bear in a scarf with friendly children's-book linework, shapes rounding, menace legally prohibited.",
         "alt": "A bear in a scarf as a storybook page (friendly lines)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full storybook page: warm illustrated charm, the bear's umbrella sheltering a duck, colors soft and flat and kind.",
         "alt": "A bear in a scarf as a storybook page (storybook page)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A classic bedtime spread: full picture-book charm, soft and round, the bear's lamplit doorway promising cocoa on the next page.",
         "alt": "A bear in a scarf as a storybook page (bedtime classic)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "tarot-card-mystic": [
       {
         "prompt": "A lantern-bearer with mystic tarot symbolism gathering at the edges - stars, a key, a coiled rope, each placed with intent.",
         "alt": "A centered arcana figure with celestial symbols (mystic symbols)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full arcana composition: the figure centered and symbolic, celestial emblems balanced around, the image reading as meaning.",
         "alt": "A centered arcana figure with celestial symbols (tarot arcana)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A fully gilded arcana: celestial ornament and stars, gold-rayed halo, the lantern-bearer enthroned in symmetrical mystery.",
         "alt": "A centered arcana figure with celestial symbols (gilded arcana)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "vintage-travel-poster": [
       {
         "prompt": "A coastal village with vintage travel-poster color tinting the scene, optimism entering the palette.",
         "alt": "A coastal village as a vintage travel poster (poster tint)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full travel poster: flat cheerful shapes selling the view, simplified waves, a sky with exactly one perfect cloud.",
         "alt": "A coastal village as a vintage travel poster (travel poster)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A golden-age tourism poster: simplified grandeur and clean skies, the village iconic, the sea impossibly cooperative.",
         "alt": "A coastal village as a vintage travel poster (grand tour)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "botanical-plate": [
       {
         "prompt": "A flowering plant with naturalist botanical precision sharpening the detail, structure honestly observed.",
         "alt": "A studied plant specimen on cream paper (naturalist eye)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full botanical plate: the specimen on cream paper with root, leaf, and dissected flower arranged for study.",
         "alt": "A studied plant specimen on cream paper (botanical plate)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A dense antique folio study: multiple specimens arranged, seeds and sections in ordered rows, the page thick with observed nature.",
         "alt": "A studied plant specimen on cream paper (field folio)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "close-portrait": [
       {
         "prompt": "A classic portrait crop of a freckled sailor, head and shoulders centered, the harbor softly present behind.",
         "alt": "An intimate close-up portrait, background melted (portrait frame)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An intimate close-up: the sailor's face carrying the frame, catchlights crisp, the background dissolved to color.",
         "alt": "An intimate close-up portrait, background melted (close portrait)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An extreme macro gaze: the face filling the frame edge to edge, salt in the eyebrows, the world reduced to skin, light, and eyes.",
         "alt": "An intimate close-up portrait, background melted (macro gaze)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "wide-establishing": [
       {
         "prompt": "A generous wide crop of the valley, the monastery comfortably placed, the land given room to breathe.",
         "alt": "A sweeping wide vista establishing the scene (wide frame)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A sweeping establishing view: the whole valley's geography readable, river, road, and rooftops in one deliberate sentence.",
         "alt": "A sweeping wide vista establishing the scene (establishing shot)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An ultra-wide aerial panorama swallowing the valley whole, the monastery a fleck, weather systems sharing the frame.",
         "alt": "A sweeping wide vista establishing the scene (god's eye)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "low-angle-hero": [
       {
         "prompt": "A firefighter in smoke from a slightly low angle, stature quietly amplified, the sky claiming more of the frame.",
         "alt": "A hero shot looking up from near the ground (slight look-up)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full low-angle hero shot from near the pavement, the figure towering, coat sweeping, smoke parting overhead.",
         "alt": "A hero shot looking up from near the ground (low-angle hero)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An extreme worm's-eye view, the figure monumental against the sky, perspective streaking upward, ground and viewer both humbled.",
         "alt": "A hero shot looking up from near the ground (monument view)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "birds-eye-view": [
       {
         "prompt": "The market from a high vantage, tilting down, stalls beginning to arrange into shapes.",
         "alt": "A market scene seen straight down from above (high vantage)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A true bird's-eye view, straight down: awnings as color blocks, shoppers as moving points, the street a designed pattern.",
         "alt": "A market scene seen straight down from above (bird's-eye view)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "So high the market becomes cartography - lanes and rooftops flattened into a living map, geometry replacing gravity.",
         "alt": "A market scene seen straight down from above (satellite map)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "dutch-tilt": [
       {
         "prompt": "An alley sprint with the horizon canted a few degrees, the ground subtly no longer to be trusted.",
         "alt": "A chase moment with the horizon tipped (slight cant)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A committed dutch tilt: diagonal horizon, the alley leaning, the run charged by the frame itself.",
         "alt": "A chase moment with the horizon tipped (dutch tilt)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An extreme tilt lurching into vertigo, the world nearly sideways, balance abandoned - motion sickness as composition.",
         "alt": "A chase moment with the horizon tipped (vertigo frame)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "symmetric-center": [
       {
         "prompt": "The corridor with its subject dead center, balance settling over the frame.",
         "alt": "A grand hall in perfect mirror symmetry (centered subject)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Perfect formal symmetry: the corridor mirrored left-right, pairs of sconces agreeing, the bellhop at the exact fold.",
         "alt": "A grand hall in perfect mirror symmetry (formal symmetry)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Obsessive temple symmetry, mirrored down to the reflections in the polished floor, the frame arranged like a ritual.",
         "alt": "A grand hall in perfect mirror symmetry (temple symmetry)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "rule-of-thirds": [
       {
         "prompt": "The red boat stepping off center, the sea given the larger share of the frame.",
         "alt": "A small boat placed off-center in open water (off-center)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Classic thirds placement: the boat at a power point, horizon on the upper line, open water breathing around it.",
         "alt": "A small boat placed off-center in open water (rule of thirds)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "The boat tucked in one far corner of a vast open frame, the sea enormous, the composition all patience.",
         "alt": "A small boat placed off-center in open water (far corner)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "shallow-bokeh": [
       {
         "prompt": "The pour with a softly blurred background, the cafe easing out of focus behind the cup.",
         "alt": "A subject isolated by creamy background bokeh (soft background)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full shallow bokeh: the cup crisp, the room dissolved into creamy discs of light, focus doing the pointing.",
         "alt": "A subject isolated by creamy background bokeh (shallow bokeh)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A razor-thin focal plane - one edge of the cup sharp, everything else including the hands dissolving into orbs of light.",
         "alt": "A subject isolated by creamy background bokeh (razor focus)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "long-exposure": [
       {
         "prompt": "The bridge and falls with slow-shutter softness, water beginning to blur, lights starting to streak.",
         "alt": "Silked water and light trails over time (slow shutter)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full long exposure: water silked, light trails ribboning the bridge, time visibly pooled in one frame.",
         "alt": "Silked water and light trails over time (long exposure)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Hours in one frame: star trails arcing over the bridge, ghost traffic layered into light, the waterfall a standing cloud.",
         "alt": "Silked water and light trails over time (hours open)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "double-exposure": [
       {
         "prompt": "The profile with a faint forest overlay, trees ghosting through the edge of the silhouette.",
         "alt": "A profile blended with a forest in one frame (faint overlay)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full double exposure: the landscape living inside the silhouette, hairline and canopy sharing one edge.",
         "alt": "A profile blended with a forest in one frame (double exposure)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Many exposures stacked into layered ghosts - profile, forest, weather, and birds translucently interleaved in one breathing frame.",
         "alt": "A profile blended with a forest in one frame (layered ghosts)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "silhouette-shot": [
       {
         "prompt": "The fisherman half in shadow against the bright sky, features fading, shape strengthening.",
         "alt": "A clean black silhouette against bright light (half shadow)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A clean silhouette: the cast frozen black against the glowing sky, the line of rod and arm unmistakable.",
         "alt": "A clean black silhouette against bright light (silhouette)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Pure shape: nothing but cut-paper black against a blazing sky, the figure an emblem of itself.",
         "alt": "A clean black silhouette against bright light (pure shape)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "motion-blur-action": [
       {
         "prompt": "The cyclist with a hint of motion blur at the wheels and edges, stillness starting to fail.",
         "alt": "A sprinting cyclist with the world streaking past (hint of motion)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A full action pan: the rider held sharp, background torn into streaks, the frame moving with the subject.",
         "alt": "A sprinting cyclist with the world streaking past (action pan)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full velocity: the whole frame tearing with speed lines, the cyclist a blade of focus through streaming light.",
         "alt": "A sprinting cyclist with the world streaking past (full velocity)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "isometric-view": [
       {
         "prompt": "The bakery from a tidy angled overview, the scene beginning to miniaturize.",
         "alt": "A tidy isometric miniature of a scene (angled overview)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "True isometric: parallel lines never converging, the bakery a perfect readable tile, shadows obediently diagonal.",
         "alt": "A tidy isometric miniature of a scene (isometric view)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An isometric cutaway diorama: walls opened to show the ovens, stockroom, and stair, the whole bakery legible at once.",
         "alt": "A tidy isometric miniature of a scene (diorama cutaway)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "knolling-flatlay": [
       {
         "prompt": "The field kit in a tidy flat lay, objects settling into rows on the canvas.",
         "alt": "Objects arranged at right angles from above (tidy layout)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full knolling: every item aligned at right angles from directly above, spacing even, the kit reading as a sentence of objects.",
         "alt": "Objects arranged at right angles from above (knolling)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A museum-grade inventory grid: the kit disassembled to components, every screw and strap aligned, obsessive order as beauty.",
         "alt": "Objects arranged at right angles from above (museum inventory)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "hyper-detailed": [
       {
         "prompt": "The tide pool finely detailed, textures sharpening across rock and water.",
         "alt": "A scene engraved with obsessive miniature detail (fine detail)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Fully hyper-detailed: intricate texture throughout, anemones and shell-script resolved to the smallest legible touch.",
         "alt": "A scene engraved with obsessive miniature detail (hyper-detailed)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Obsessive density: every square inch engraved with miniature texture, the pool an infinite inventory the eye can graze forever.",
         "alt": "A scene engraved with obsessive miniature detail (infinite engraving)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "minimalist-negative-space": [
       {
         "prompt": "The kite with generous negative space opening around it, the sky claiming most of the frame.",
         "alt": "A tiny subject in a vast clean field (breathing room)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Full minimalism: a tiny subject in a vast clean field, the string a hairline, emptiness doing the framing.",
         "alt": "A tiny subject in a vast clean field (minimalist frame)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "Almost nothing: the image approaching pure emptiness, one small mark of kite in the void - and the void composed.",
         "alt": "A tiny subject in a vast clean field (almost nothing)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "faithful-companion": [
       {
         "prompt": "A traveler on a trail accompanied by a small animal companion - a fox-sized friend trotting in their shadow, the pair moving as one.",
         "alt": "A traveler with an animal companion at their side (small companion)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A traveler with a loyal animal companion at their side, a sturdy dog matching their stride, shoulder to knee, both facing the same road.",
         "alt": "A traveler with an animal companion at their side (faithful companion)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A traveler bonded to a great beast companion looming beside them - a bear-huge guardian whose shoulder is the traveler's roof, the pair unmistakably one unit.",
         "alt": "A traveler with an animal companion at their side (beast and bond)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "clockwork-automaton": [
       {
         "prompt": "A figure at a workbench with visible clockwork and brass mechanical details - a keyhole between the shoulder blades, gear seams at the wrists.",
         "alt": "A brass clockwork figure with visible gears (clockwork details)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An intricate brass clockwork automaton threading a needle at its bench, glass chest panel showing the escapement turning, lamplight on polished brass.",
         "alt": "A brass clockwork figure with visible gears (clockwork automaton)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A figure that is living machinery outright: exposed gears, pistons, and ticking brass with no shell at all, steam curling from its joints as it works.",
         "alt": "A brass clockwork figure with visible gears (living machinery)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "armored-sentinel": [
       {
         "prompt": "A guard at a mountain gate wearing practical weathered armor - dented breastplate, wrapped grips, gear that has worked for its scars.",
         "alt": "An armored guardian standing watch (light armor)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An armored sentinel in full battered plate at the pass gate, spear grounded, visor down, snow collecting on the shoulders of a figure that has not moved in hours.",
         "alt": "An armored guardian standing watch (armored sentinel)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A towering colossus in monumental ornate armor filling the gate itself, engraved plate rising like architecture, the pass sealed by sheer presence.",
         "alt": "An armored guardian standing watch (colossus of war)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "wise-elder": [
       {
         "prompt": "An aging figure with kind weathered features mending a net on a stone step, gray at the temples, gentle concentration in the task.",
         "alt": "A deeply lined elder with knowing eyes (graying years)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A wise elder with deep lines and knowing eyes at the same stone step, silver-haired, the net across their lap, a gaze that has already understood you.",
         "alt": "A deeply lined elder with knowing eyes (wise elder)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An impossibly ancient figure, mythic and timeworn, face like carved driftwood, hair white as spray, mending a net that seems as old as the sea itself.",
         "alt": "A deeply lined elder with knowing eyes (ancient one)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "spirited-child": [
       {
         "prompt": "A curious child watching wide-eyed from a garden gate, hands on the rail, leaning toward whatever is coming down the road.",
         "alt": "An adventurous child leading the way (young onlooker)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A spirited adventurous child leading the way up a forest path, stick-sword raised, coat flapping, certainty bigger than their boots.",
         "alt": "An adventurous child leading the way (spirited child)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A tiny fearless child facing something impossibly large - standing square before a wall of mist and shadow twenty times their height, stick raised anyway.",
         "alt": "An adventurous child leading the way (fearless wonder)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "winged-beast": [
       {
         "prompt": "A winged creature passing overhead across a coastal sky, wings wide, its moving shadow crossing the cliff grass.",
         "alt": "A great winged beast with outstretched wings (passing wings)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A great winged beast on the cliff edge with wings fully outstretched, primary feathers spread like fingers, the sea wind holding it half-airborne.",
         "alt": "A great winged beast with outstretched wings (winged beast)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An enormous dragon-like beast dominating the sky above the cliffs, wingspan swallowing the clouds, the sea whitecapped beneath each downbeat.",
         "alt": "A great winged beast with outstretched wings (sky sovereign)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "ghostly-presence": [
       {
         "prompt": "An abandoned ballroom with a faint translucent apparition at the edge of the scene, more suggestion than figure, the dust undisturbed.",
         "alt": "A translucent spectral figure in the scene (faint apparition)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A clear ghostly spectral figure drifting mid-ballroom, translucent and softly luminous, moonlight passing through it onto the parquet.",
         "alt": "A translucent spectral figure in the scene (ghostly presence)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A haunting host of translucent spirits filling the ballroom air, dozens of pale figures mid-waltz, the room crowded with the gone.",
         "alt": "A translucent spectral figure in the scene (haunting host)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "crowd-of-many": [
       {
         "prompt": "A flower seller and cart with a few passersby moving through the background, the market just waking up.",
         "alt": "A subject surrounded by a bustling crowd (passersby)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A flower seller surrounded by a bustling crowd, shoppers pressing past on all sides, the bright cart holding its little island of calm.",
         "alt": "A subject surrounded by a bustling crowd (busy crowd)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A flower cart lost in an immense sea of people stretching away in every direction, thousands of heads to the horizon, one spot of color in the flood.",
         "alt": "A subject surrounded by a bustling crowd (sea of faces)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "regal-figure": [
       {
         "prompt": "A figure with regal bearing and fine dress at the head of a columned hall, posture doing the work of any crown.",
         "alt": "A crowned figure in ceremonial robes (fine bearing)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A regal crowned figure in ceremonial robes descending the great steps, the train flowing behind, gold thread catching the torchlight.",
         "alt": "A crowned figure in ceremonial robes (regal figure)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "An imperious sovereign engulfed in towering ceremonial regalia, the crown a spired city, robes filling the hall like a tide - the person almost lost inside the institution.",
         "alt": "A crowned figure in ceremonial robes (living throne)",
-        "status": "planned"
+        "status": "generated"
       }
     ],
     "weathered-explorer": [
       {
         "prompt": "A traveler carrying practical well-used expedition gear at a canyon overlook - coiled rope, dented canteen, a pack that has been repacked forever.",
         "alt": "A journey-worn explorer with expedition gear (field gear)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A weathered explorer worn by a long journey pausing at the rim, scarf sun-bleached, face wind-cut, maps softened by handling, the canyon huge before them.",
         "alt": "A journey-worn explorer with expedition gear (weathered explorer)",
-        "status": "planned"
+        "status": "generated"
       },
       {
         "prompt": "A gaunt storied explorer years past the edge of any map, gear patched with whatever the road offered, standing at a rim no chart has ever drawn.",
         "alt": "A journey-worn explorer with expedition gear (end of the map)",
-        "status": "planned"
+        "status": "generated"
       }
     ]
   },
@@ -2429,7 +2472,7 @@
     "custom-preset": {
       "prompt": "An empty artist's easel standing in a bright clean studio, a fresh stretched canvas catching soft window light, brushes and unmixed paints waiting on the side table - a picture about the picture you are about to make.",
       "alt": "A blank preset frame awaiting its custom recipe",
-      "status": "planned",
+      "status": "generated",
       "bio": "Your recipe goes here. The canvas is primed, the light is good, and nothing has been decided yet."
     }
   }

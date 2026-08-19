@@ -74,8 +74,23 @@ export function artFor(key: string): ResolvedArt | undefined {
   return artPackEntry(activePack, key);
 }
 
+/**
+ * Resolve from a NAMED pack rather than the active one. The guide's world
+ * cards use this: each shows its own world's art regardless of which world
+ * is currently selected.
+ */
+export function packArtFor(packId: string, key: string) {
+  const pack = PACKS.find((candidate) => candidate.theme.id === packId);
+  return pack ? artPackEntry(pack, key) : undefined;
+}
+
 export function roleArt(roleId: string) {
   return artFor(`roles.${roleId}`);
+}
+
+/** The guide page's C.R.A.F.T. acronym cards, in the active world's art. */
+export function craftLetterArt(letter: string) {
+  return artFor(`craft.${letter}`);
 }
 
 export function lineageArt(lineageId: string) {

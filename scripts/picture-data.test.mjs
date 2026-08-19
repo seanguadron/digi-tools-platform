@@ -90,10 +90,11 @@ test("the gallery pack covers every card, grade, and archetype", async () => {
   const pack = structuredClone(await galleryPromise);
   const entries = collectPictureArtEntries(catalog, pack);
 
-  // 100 lineages + 18 archetypes + 1 shared swatch + 300 grade variants.
-  assert.equal(entries.length, 419);
+  // 100 lineages + 18 archetypes + 1 shared swatch + 300 grade variants
+  // + 7 acronym letters for the guide page.
+  assert.equal(entries.length, 426);
   // Every derived target is unique.
-  assert.equal(new Set(entries.map((entry) => entry.target)).size, 419);
+  assert.equal(new Set(entries.map((entry) => entry.target)).size, 426);
 });
 
 test("a pack entry going missing fails coverage once draft clears", async () => {

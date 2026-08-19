@@ -1131,67 +1131,17 @@ a {
   margin-top: 10px;
 }
 
+/* The guide's acronym row: one card per letter, always a single row at
+   width - the column count follows the deck (CRAFT 5, PICTURE 7), so the
+   grid must not hard-code one. Narrow screens re-wrap it via media queries. */
 .craft-definition {
   display: grid;
-  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  width: 100%;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
   gap: 10px;
   margin: 0;
   background: transparent;
-}
-
-.craft-definition > div {
-  position: relative;
-  display: grid;
-  min-width: 0;
-  min-height: 178px;
-  grid-template-rows: 1fr auto;
-  gap: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 10px;
-  background: var(--card);
-}
-
-.craft-definition > div::before {
-  position: absolute;
-  inset: 5px;
-  border: 1px solid color-mix(in oklch, var(--border) 72%, transparent);
-  border-radius: 8px;
-  content: "";
-  pointer-events: none;
-}
-
-.craft-definition dt {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  gap: 9px;
-  font-size: 0.75rem;
-  font-weight: 800;
-}
-
-.craft-definition dt strong {
-  display: grid;
-  min-height: 92px;
-  place-items: center;
-  border: 1px solid color-mix(in oklch, var(--brand-cyan) 36%, var(--border));
-  border-radius: 8px;
-  background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
-  color: var(--brand-cyan-text);
-  font-family: var(--font-mono), "Cascadia Mono", monospace;
-  font-size: 2rem;
-  line-height: 1;
-}
-
-.craft-definition dd {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: var(--muted-foreground);
-  font-size: 0.66rem;
-  line-height: 1.45;
 }
 
 .prompt-preview {
@@ -1581,9 +1531,11 @@ a {
   gap: 18px;
 }
 
+/* Uniform grid tracks: every filter chip the same width in every row, so no
+   category stretches wider than its neighbours (owner, 2026-08-19). */
 .role-category-tabs {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
   gap: 6px;
   padding-top: 14px;
   border-top: 1px solid var(--border);
@@ -1592,7 +1544,7 @@ a {
 .role-category-tab {
   display: inline-flex;
   min-height: 36px;
-  flex: 1 1 150px;
+  min-width: 0;
   align-items: center;
   gap: 7px;
   border: 1px solid var(--border);
@@ -2303,8 +2255,12 @@ button.role-loadout-slot {
     grid-template-columns: 1fr;
   }
 
+  /* auto-fit, not a fixed count: the row serves 5 cards (CRAFT) and 7
+     (PICTURE), and a card carries square art - so no full-span rescue,
+     which would render one giant face (design gate, 2026-08-19). */
   .craft-definition {
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   .welcome-hero {
@@ -2401,24 +2357,8 @@ button.role-loadout-slot {
   }
 
   .craft-definition {
+    grid-auto-flow: row;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .craft-definition > div {
-    min-height: 166px;
-  }
-
-  .craft-definition dt {
-    grid-template-rows: 1fr auto;
-  }
-
-  .craft-definition dt strong {
-    min-height: 78px;
-    font-size: 1.65rem;
-  }
-
-  .craft-definition > div:last-child {
-    grid-column: 1 / -1;
   }
 
   .form-intro {
@@ -2870,6 +2810,9 @@ button.role-loadout-slot {
 /* The corner nav dock: Back/Next (and the CRAFT world switch) pinned to the
    workspace's bottom-right - the image-editor minimap idiom. It floats over
    the panel, so it carries a real card surface and shadow. */
+/* A little window, not fixed furniture: the handle drags it and it snaps to
+   whichever corner of the workspace it was pushed toward (owner, 2026-08-19).
+   The base rule is the bottom-right default; data-corner re-anchors it. */
 .flow-nav-dock {
   position: absolute;
   right: 12px;
@@ -2877,13 +2820,52 @@ button.role-loadout-slot {
   z-index: 6;
   display: grid;
   width: 192px;
-  gap: 8px;
-  padding: 8px;
+  gap: 6px;
+  padding: 6px 8px 8px;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--card);
   box-shadow: 0 10px 26px
     color-mix(in oklch, var(--background) 60%, transparent);
+  transition: transform 200ms ease-out;
+}
+
+.flow-nav-dock[data-corner="top-left"] {
+  top: 12px;
+  right: auto;
+  bottom: auto;
+  left: 12px;
+}
+
+.flow-nav-dock[data-corner="top-right"] {
+  top: 12px;
+  bottom: auto;
+}
+
+.flow-nav-dock[data-corner="bottom-left"] {
+  right: auto;
+  left: 12px;
+}
+
+.flow-nav-dock-handle {
+  display: grid;
+  min-height: 14px;
+  place-items: center;
+  margin: -2px -4px 0;
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+}
+
+.flow-nav-dock-handle:active {
+  cursor: grabbing;
+}
+
+.flow-nav-dock-handle > span {
+  width: 34px;
+  height: 4px;
+  border-radius: 999px;
+  background: color-mix(in oklch, var(--muted-foreground) 45%, transparent);
 }
 
 .flow-nav-dock-row {
@@ -3038,29 +3020,36 @@ button.role-loadout-slot {
   align-content: stretch;
 }
 
+/* The guide reads top-down: the title and copy first, then the acronym
+   spelled out as one row of cards, then the output-type setup (owner,
+   2026-08-19 - the two-column layout wrapped PICTURE's seven letters). */
 .flow-intro-panel .craft-method {
   display: grid;
   width: min(100%, 1180px);
   min-height: 100%;
-  grid-template-columns: minmax(260px, 0.58fr) minmax(480px, 1.42fr);
+  grid-template-columns: minmax(0, 1fr);
   align-content: center;
-  gap: clamp(20px, 3vw, 40px);
+  justify-items: center;
+  gap: clamp(16px, 2.4vh, 28px);
   margin: 0 auto;
   padding: 0;
   border: 0;
   background: transparent;
 }
 
-.flow-intro-panel .craft-definition {
-  align-self: center;
+.flow-intro-panel .craft-method-copy {
+  text-align: center;
+}
+
+.flow-intro-panel .craft-method-copy p {
+  margin: 0 auto;
 }
 
 .craft-definition-card {
   position: relative;
   display: grid;
   min-width: 0;
-  min-height: 184px;
-  grid-template-rows: 1fr auto auto;
+  grid-template-rows: auto auto 1fr;
   gap: 8px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -3085,17 +3074,22 @@ button.role-loadout-slot {
   pointer-events: none;
 }
 
-.craft-definition-letter,
-.craft-definition-card strong,
+.craft-definition-art,
+.craft-definition-word,
 .craft-definition-card small {
   position: relative;
   z-index: 1;
 }
 
-.craft-definition-letter {
+/* The letter's own art, square like every card face; the dashed placeholder
+   and the fallback letter come from .card-illustration-frame until the
+   image lands. */
+.craft-definition-art,
+.craft-style-art {
   display: grid;
-  min-height: 88px;
+  aspect-ratio: 1 / 1;
   place-items: center;
+  overflow: hidden;
   border: 1px solid color-mix(in oklch, var(--brand-cyan) 40%, var(--border));
   border-radius: 8px;
   background: color-mix(in oklch, var(--brand-cyan) 7%, var(--background));
@@ -3105,8 +3099,43 @@ button.role-loadout-slot {
   font-weight: 800;
 }
 
-.craft-definition-card strong {
+/* The whole word in one bordered capsule: the acronym letter stays a solid
+   tile and the rest of the word completes it inside the same box. */
+.craft-definition-word {
+  display: inline-flex;
+  overflow: hidden;
+  align-items: stretch;
+  justify-self: start;
+  max-width: 100%;
+  border: 1px solid var(--input);
+  border-radius: 7px;
+  background: var(--background);
   font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.craft-definition-word b {
+  display: grid;
+  min-width: 24px;
+  padding: 4px 6px;
+  place-items: center;
+  background: var(--brand-cyan);
+  /* On a cyan fill only --brand-cyan-foreground holds AA in BOTH themes;
+     --background flips and fails light mode (design gate, 2026-08-19). */
+  color: var(--brand-cyan-foreground);
+  font-family: var(--font-mono), "Cascadia Mono", monospace;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.craft-definition-word > span {
+  overflow: hidden;
+  align-self: center;
+  padding: 4px 8px 4px 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .craft-definition-card small {
@@ -3116,6 +3145,78 @@ button.role-loadout-slot {
 }
 
 .craft-definition-card:active {
+  transform: scale(0.98);
+}
+
+/* The world tier: one small card per art pack (the same Researcher in each
+   world's art), a special row rather than another acronym card - clicking
+   one reskins the whole deck. */
+.craft-style-tier {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.craft-style-tier-label {
+  color: var(--brand-cyan-text);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.craft-style-cards {
+  display: grid;
+  width: min(100%, 420px);
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 10px;
+}
+
+.craft-style-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  gap: 7px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  background: var(--card);
+  color: var(--foreground);
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 160ms ease-out,
+    background 160ms ease-out,
+    transform 160ms ease-out;
+}
+
+.craft-style-card::before {
+  position: absolute;
+  inset: 4px;
+  border: 1px solid color-mix(in oklch, var(--border) 72%, transparent);
+  border-radius: 9px;
+  content: "";
+  pointer-events: none;
+}
+
+.craft-style-card .craft-style-art,
+.craft-style-card strong {
+  position: relative;
+  z-index: 1;
+}
+
+.craft-style-card strong {
+  font-size: 0.7rem;
+}
+
+.craft-style-card.is-active {
+  border-color: var(--brand-cyan);
+  background: color-mix(in oklch, var(--brand-cyan) 10%, var(--card));
+}
+
+.craft-style-card:active {
   transform: scale(0.98);
 }
 
@@ -3508,13 +3609,10 @@ button.role-loadout-slot {
 
 /* Prompt Builder tuning tracks and card workbench */
 
-.flow-intro-panel .craft-method-copy {
-  grid-row: 1 / 3;
-}
-
 .output-type-setup {
   display: grid;
-  align-self: end;
+  width: 100%;
+  justify-items: center;
   gap: 10px;
 }
 
@@ -4287,6 +4385,7 @@ button.role-loadout-slot {
 
 @media (hover: hover) and (pointer: fine) {
   .craft-definition-card:hover,
+  .craft-style-card:hover,
   .output-type-card:hover,
   .lineage-card-grid .lineage-card:hover {
     border-color: var(--brand-cyan);
@@ -4294,6 +4393,7 @@ button.role-loadout-slot {
   }
 
   .craft-definition-card:hover,
+  .craft-style-card:hover,
   .output-type-card:hover {
     transform: translateY(-3px) scale(1.025);
   }
@@ -4448,13 +4548,8 @@ button.role-loadout-slot {
   }
 
   .flow-intro-panel .craft-method {
-    grid-template-columns: 1fr;
     align-content: start;
     gap: 22px;
-  }
-
-  .flow-intro-panel .craft-method-copy {
-    grid-row: auto;
   }
 
   .output-type-card {
@@ -4466,11 +4561,8 @@ button.role-loadout-slot {
   }
 
   .flow-intro-panel .craft-definition {
+    grid-auto-flow: row;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .flow-intro-panel .craft-definition-card:last-child {
-    grid-column: 1 / -1;
   }
 
   .workbench-section-heading,
@@ -5878,6 +5970,7 @@ body:has(.page-stage.is-fluid) {
   .lineage-card-copy,
   .role-perk-card,
   .output-type-card,
+  .flow-nav-dock,
   .proof-lab,
   .floating-card-panel,
   .field textarea.is-attention-target,

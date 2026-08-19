@@ -20,6 +20,11 @@ export function pictureLineageArt(lineageId: string) {
   return pictureArtFor(`lineages.${lineageId}`);
 }
 
+/** The guide page's P.I.C.T.U.R.E. acronym cards. */
+export function pictureLetterArt(letter: string) {
+  return pictureArtFor(`craft.${letter}`);
+}
+
 export function pictureGradeArt(lineageId: string, index: number) {
   return pictureArtFor(`grades.${lineageId}[${index}]`);
 }

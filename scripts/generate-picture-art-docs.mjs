@@ -41,6 +41,18 @@ const SECTION_ORDER = [
   "references",
   "execution",
 ];
+// The guide page spells the acronym with these seven cards. Appended after
+// the grades so the first 419 sequence numbers never move.
+const PICTURE_LETTERS = [
+  { letter: "P", label: "Protagonist" },
+  { letter: "I", label: "Illumination" },
+  { letter: "C", label: "Canvas" },
+  { letter: "T", label: "Tone" },
+  { letter: "U", label: "Universe" },
+  { letter: "R", label: "References" },
+  { letter: "E", label: "Execution" },
+];
+
 const SECTION_LABELS = {
   protagonist: "Protagonist",
   illumination: "Illumination",
@@ -143,6 +155,16 @@ export function collectPictureArtEntries(catalog, theme) {
         });
       });
     }
+  }
+
+  for (const { letter, label } of PICTURE_LETTERS) {
+    entries.push({
+      group: "Acronym letters - the guide page",
+      name: `Letter ${letter} - ${label}`,
+      owner: `Guide step \`${label}\``,
+      later: true,
+      ...packEntry(theme, `craft.${letter}`),
+    });
   }
 
   return entries;
