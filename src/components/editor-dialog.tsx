@@ -10,8 +10,13 @@ import type { ReactNode } from "react";
 // this; the image editor's three older dialogs migrate as they're touched
 // (docs/ROADMAP.md continuity thread).
 
+// Tabbable, not merely focusable: every clause excludes tabindex="-1". The
+// roving-tabindex groups (useRovingRadioGroup) park -1 on their unchecked
+// options, and those are still `button:not([disabled])` — so without this the
+// trap's first/last could be an option the browser skips, and Shift+Tab from
+// the real first tabbable would fall straight out of the modal.
 const FOCUSABLE =
-  'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [href], [tabindex]:not([tabindex="-1"])';
+  'button:not([disabled]):not([tabindex="-1"]), input:not([disabled]):not([tabindex="-1"]), select:not([disabled]):not([tabindex="-1"]), textarea:not([disabled]):not([tabindex="-1"]), [href]:not([tabindex="-1"]), [tabindex]:not([tabindex="-1"])';
 
 export function EditorDialog({
   open,
