@@ -80,9 +80,15 @@ What keeps it safe, and what a reviewer should check:
 
 The logic lives in `scripts/card-art-store.mjs` rather than the route so the
 node runner can test it directly (`scripts/card-art-store.test.mjs`); the
-route is a thin HTTP shell. Two working trees: `card-art-source/` holds the
-committed candidates and crops and is never built, while `public/card-art/`
-holds only the one live webp per card that the app renders.
+route is a thin HTTP shell. Two working trees, and only one of them is in
+git: `card-art-source/` holds the full-res candidates and crops, is never
+built, and is **gitignored** (owner's call, 2026-08-19 — ~9GB across four
+packs, PNGs that do not delta-compress, growing every art session), while
+`public/card-art/` holds the one live webp per card that the app renders and
+IS committed. Nothing is lost by that split: the pack files carry the brief
+that produced every image, so any card can be regenerated from the repo
+alone. The originals live on the machine that generates them and want a
+backup that is not git.
 
 ### Art packs: what a card looks like, per world
 

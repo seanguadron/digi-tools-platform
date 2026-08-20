@@ -150,7 +150,11 @@ returned FAIL; findings and fixes below all landed in `ed07f8a`.
   session). Widening the walk needs STANDARDS §2.4 amended in the same
   commit, since its check line names `src` explicitly and §3.3 forbids a
   rulebook line that's no longer true. (proposed amendment, needs the
-  owner's consent)
+  owner's consent) → landed in §2.4 (consent given 2026-08-19). The
+  widened sweep's first act was to flag the checker itself, whose regex and
+  docstring necessarily contain the patterns it hunts; it now skips only
+  that one file, which is the rule declining to match its own definition
+  rather than an allowlist entry.
 
 The 2026-08-18 entry's segmented-control flag (below) is refined with
 this session's owner-directed-exception nuance, not repeated here.

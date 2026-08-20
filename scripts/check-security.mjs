@@ -12,7 +12,9 @@
  * Checks (STANDARDS §2.4 + hygiene):
  *   S1  no script-injection primitives — eval / new Function /
  *       dangerouslySetInnerHTML outside the allowlist (empty today).
- *   S2  no secret-looking strings committed under src/.
+ *   S2  no secret-looking strings committed.
+ *       S1 and S2 sweep src/ AND scripts/ — the write endpoint's whole
+ *       implementation lives in the latter.
  *   S3  .gitignore covers .env*.
  *   S4  every route handler carries the production guard.
  *
@@ -38,9 +40,18 @@ function walk(dir, out = []) {
   return out;
 }
 const rel = (p) => relative(ROOT, p).replaceAll("\\", "/");
-const srcFiles = existsSync(join(ROOT, "src"))
-  ? walk(join(ROOT, "src")).filter((p) => /\.(ts|tsx|mjs|js)$/.test(p))
-  : [];
+// S1/S2 sweep BOTH trees. `scripts/` is not build tooling incidental to the
+// app: card-art-store.mjs and art-pack.mjs are the entire implementation of
+// the one write endpoint, and generate-*-docs.mjs render author text into
+// committed files. A sweep that skipped them was looking away from the code
+// most worth watching (security gate 2026-08-19; STANDARDS §2.4, amended
+// with the owner's consent).
+const scannedRoots = ["src", "scripts"].filter((dir) =>
+  existsSync(join(ROOT, dir)),
+);
+const srcFiles = scannedRoots.flatMap((dir) =>
+  walk(join(ROOT, dir)).filter((p) => /\.(ts|tsx|mjs|js)$/.test(p)),
+);
 
 // ── S1 script-injection primitives ──────────────────────────────────────────
 {
@@ -53,6 +64,11 @@ const srcFiles = existsSync(join(ROOT, "src"))
   ]);
   const bad = /\beval\s*\(|new Function\s*\(|dangerouslySetInnerHTML/;
   for (const p of srcFiles) {
+    // The file that DEFINES these patterns necessarily contains them, in its
+    // own regex and docstring. Skipping itself is not an allowlist entry (it
+    // is not app code and grants no exception to anything that ships) - it is
+    // the rule declining to match its own definition.
+    if (rel(p) === "scripts/check-security.mjs") continue;
     if (ALLOWLIST.has(rel(p))) continue;
     const text = readFileSync(p, "utf8");
     if (bad.test(text)) {

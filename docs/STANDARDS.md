@@ -78,7 +78,14 @@ against a strict two-value allowlist (relocated 1:1 from `src/app/layout.tsx`
 2026-07-16, per the owner-approved theme-warning task; injected via
 `useServerInsertedHTML`, outside the hydrated React tree). Growing this list
 requires the owner's consent.
-✓ check: `check:security` greps src; the allowlist lives in that script.
+✓ check: `check:security` greps `src/` **and `scripts/`**; the allowlist lives
+in that script. (Amended 2026-08-19 with the owner's consent, on the Security
+gate's finding: `scripts/card-art-store.mjs` and `scripts/art-pack.mjs` are
+the entire implementation of the one write endpoint, and the `generate-*-docs`
+scripts render author-written text into committed files — a sweep scoped to
+`src/` was looking away from the code most worth watching. The checker skips
+only its own file, which necessarily contains the patterns it defines; that is
+not an allowlist entry and grants no exception to anything that ships.)
 Clarification (landed 2026-07-15 with the owner's consent): pure catalog
 data flowing through unchanged render paths needs only the deterministic
 halves; the Security gate's "rendered prompt content" trigger means changes

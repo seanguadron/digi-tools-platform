@@ -10,3 +10,12 @@ npm-debug.log*
 
 # Local-only gate-sweep audit log (gate-status.json stays tracked).
 /.ai/notes/gate-sweeps.log
+
+# Generation originals: full-res PNG candidates and crops, ~9GB across four
+# packs and growing every art session (owner's call, 2026-08-19). PNGs do not
+# delta-compress, so committing them would bloat every clone forever to keep
+# re-crop candidates almost nobody needs. The live art IS committed - one
+# webp per card under public/card-art/ - and the pack files carry the brief
+# that produced each one, so any image can be regenerated. Keep this tree on
+# the machine that generates; back it up outside git.
+/card-art-source/
