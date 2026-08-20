@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getSkills, getSkillsByLayer } from "@/lib/skills";
-import { TOOL_REGISTRY } from "@/lib/tool-registry";
+import { TOOL_REGISTRY, TOOLS } from "@/lib/tool-registry";
 
 const promptTool = TOOL_REGISTRY["prompt-builder"];
 const architectTool = TOOL_REGISTRY["architect-wizard"];
@@ -8,6 +8,12 @@ const imageTool = TOOL_REGISTRY["image-editor"];
 const vectorTool = TOOL_REGISTRY["vector-editor"];
 const skillsTool = TOOL_REGISTRY["skills"];
 const pictureTool = TOOL_REGISTRY["picture-deck"];
+
+// The landing page lists the same tools as the top bar, in the same order,
+// and says so by construction: both read TOOLS. The order and the numbering
+// were literals here and had drifted from the bar by the time anyone looked.
+const toolNumber = (tool: (typeof TOOLS)[number]) =>
+  `Tool ${String(TOOLS.indexOf(tool) + 1).padStart(2, "0")}`;
 
 export default function HomePage() {
   const skillGroups = getSkillsByLayer();
@@ -35,7 +41,7 @@ export default function HomePage() {
           aria-labelledby="home-prompts-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 01 · CRAFT</span>
+            <span className="tool-kicker">{toolNumber(promptTool)} · CRAFT</span>
             <h2 id="home-prompts-title">{promptTool.name}</h2>
             <p>{promptTool.tagline}</p>
             <ul className="home-feature-points">
@@ -67,11 +73,45 @@ Five prioritized findings with fixes.`}</code>
 
         <section
           className="home-feature"
+          id="pictures"
+          aria-labelledby="home-pictures-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">{toolNumber(pictureTool)} · PICTURE</span>
+            <h2 id="home-pictures-title">{pictureTool.name}</h2>
+            <p>{pictureTool.tagline}</p>
+            <ul className="home-feature-points">
+              <li>Name a subject, then stack light, medium, and style cards.</li>
+              <li>One Intensity dial re-grades every card, subtle to extreme.</li>
+              <li>Optional Midjourney tail; copy or download the prompt.</li>
+            </ul>
+            <Link className="button button-primary" href={pictureTool.href}>
+              Open the PICTURE Deck
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>prompt.txt</span>
+              <span className="file-badge">IMAGE</span>
+            </div>
+            <pre>
+              <code>{`a lighthouse keeper reading
+by lamplight, oil painting,
+rain-swept night city, warm
+golden-hour glow, muted
+palette, wide establishing
+shot --ar 3:2 --stylize 250`}</code>
+            </pre>
+          </div>
+        </section>
+
+        <section
+          className="home-feature"
           id="architect"
           aria-labelledby="home-architect-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 02 · Architect</span>
+            <span className="tool-kicker">{toolNumber(architectTool)} · Architect</span>
             <h2 id="home-architect-title">{architectTool.name}</h2>
             <p>{architectTool.tagline}</p>
             <ul className="home-feature-points">
@@ -100,11 +140,48 @@ Five prioritized findings with fixes.`}</code>
 
         <section
           className="home-feature"
+          id="skills"
+          aria-labelledby="home-skills-title"
+        >
+          <div className="home-feature-copy">
+            <span className="tool-kicker">{toolNumber(skillsTool)} · Skills</span>
+            <h2 id="home-skills-title">{skillsTool.name}</h2>
+            <p>
+              A wiki for the {skillCount} skills in your AI stack — what each one
+              does and the commands to install it.
+            </p>
+            <ul className="home-feature-points">
+              <li>Browse by layer: design, engineering, QA, and optional.</li>
+              <li>Expand a skill for its purpose and install commands.</li>
+              <li>Reference only — no agents, nothing runs here.</li>
+            </ul>
+            <Link className="button button-primary" href={skillsTool.href}>
+              Browse Skills
+            </Link>
+          </div>
+          <div className="home-spec" aria-hidden="true">
+            <div className="home-spec-header">
+              <span>skills</span>
+              <span className="file-badge">{skillCount}</span>
+            </div>
+            <ul className="home-spec-skills">
+              {skillGroups.map((group) => (
+                <li key={group.id}>
+                  <span>{group.label}</span>
+                  <strong>{group.skills.length}</strong>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section
+          className="home-feature"
           id="image-editor"
           aria-labelledby="home-image-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 03 · Image</span>
+            <span className="tool-kicker">{toolNumber(imageTool)} · Image</span>
             <h2 id="home-image-title">{imageTool.name}</h2>
             <p>{imageTool.tagline}</p>
             <ul className="home-feature-points">
@@ -147,7 +224,7 @@ Five prioritized findings with fixes.`}</code>
           aria-labelledby="home-vector-title"
         >
           <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 04 · Vector</span>
+            <span className="tool-kicker">{toolNumber(vectorTool)} · Vector</span>
             <h2 id="home-vector-title">{vectorTool.name}</h2>
             <p>{vectorTool.tagline}</p>
             <ul className="home-feature-points">
@@ -174,77 +251,6 @@ Five prioritized findings with fixes.`}</code>
               <ellipse cx="150" cy="46" rx="40" ry="27" />
               <polygon points="120,104 150,74 180,104" />
             </svg>
-          </div>
-        </section>
-
-        <section
-          className="home-feature"
-          id="skills"
-          aria-labelledby="home-skills-title"
-        >
-          <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 05 · Skills</span>
-            <h2 id="home-skills-title">{skillsTool.name}</h2>
-            <p>
-              A wiki for the {skillCount} skills in your AI stack — what each one
-              does and the commands to install it.
-            </p>
-            <ul className="home-feature-points">
-              <li>Browse by layer: design, engineering, QA, and optional.</li>
-              <li>Expand a skill for its purpose and install commands.</li>
-              <li>Reference only — no agents, nothing runs here.</li>
-            </ul>
-            <Link className="button button-primary" href={skillsTool.href}>
-              Browse Skills
-            </Link>
-          </div>
-          <div className="home-spec" aria-hidden="true">
-            <div className="home-spec-header">
-              <span>skills</span>
-              <span className="file-badge">{skillCount}</span>
-            </div>
-            <ul className="home-spec-skills">
-              {skillGroups.map((group) => (
-                <li key={group.id}>
-                  <span>{group.label}</span>
-                  <strong>{group.skills.length}</strong>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section
-          className="home-feature"
-          id="pictures"
-          aria-labelledby="home-pictures-title"
-        >
-          <div className="home-feature-copy">
-            <span className="tool-kicker">Tool 06 · PICTURE</span>
-            <h2 id="home-pictures-title">{pictureTool.name}</h2>
-            <p>{pictureTool.tagline}</p>
-            <ul className="home-feature-points">
-              <li>Name a subject, then stack light, medium, and style cards.</li>
-              <li>One Intensity dial re-grades every card, subtle to extreme.</li>
-              <li>Optional Midjourney tail; copy or download the prompt.</li>
-            </ul>
-            <Link className="button button-primary" href={pictureTool.href}>
-              Open the PICTURE Deck
-            </Link>
-          </div>
-          <div className="home-spec" aria-hidden="true">
-            <div className="home-spec-header">
-              <span>prompt.txt</span>
-              <span className="file-badge">IMAGE</span>
-            </div>
-            <pre>
-              <code>{`a lighthouse keeper reading
-by lamplight, oil painting,
-rain-swept night city, warm
-golden-hour glow, muted
-palette, wide establishing
-shot --ar 3:2 --stylize 250`}</code>
-            </pre>
           </div>
         </section>
       </div>
