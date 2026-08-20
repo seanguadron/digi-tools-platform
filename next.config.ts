@@ -19,6 +19,21 @@ const localNetworkOrigins = Object.values(os.networkInterfaces())
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: localNetworkOrigins,
+  // Keep the art trees out of the Card Studio endpoint's serverless bundle.
+  // That route's file mechanics (scripts/card-art-store.mjs) build read/write
+  // paths under public/card-art and card-art-source, so Next's tracer pulls
+  // the whole art tree in with it - 264MB of webp, which put the function at
+  // 266MB against Vercel's 250MB ceiling the moment the gallery pack landed
+  // and failed the deploy (2026-08-20).
+  //
+  // Excluding them is correct, not a workaround: the endpoint is
+  // development-only and 404s in production before it touches the filesystem
+  // (isProduction in src/app/api/card-art/route.ts), and the images the app
+  // actually renders ship as ordinary static assets from public/. The
+  // function never needs a second copy of them at any time.
+  outputFileTracingExcludes: {
+    "/api/card-art": ["./public/card-art/**", "./card-art-source/**"],
+  },
 };
 
 export default nextConfig;
