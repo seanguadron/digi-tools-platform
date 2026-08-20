@@ -12,7 +12,11 @@ project) and, mid-generation-run, reshaped both decks' guide pages plus
 the role browser from the owner's voice-dictated feedback. Commit
 `e29d7a8`. Integration and security gates then ran against that work and
 both returned FAIL; fixes plus both ledger reports landed in `ed07f8a`,
-alongside a `docs/STATE.md` follow-up.
+alongside a `docs/STATE.md` follow-up. Session closed with the owner
+approving three open threads in one pass — the `card-art-source/`
+gitignore call, amendment (j)'s consent, and the nav dock's long-owed
+design gate finally running on a third attempt — landed in `f2a7a7c`
+(gitignore + amendment) and `bb4ac0e` (dock design-gate fixes).
 
 **Decisions.**
 - Guide acronym entries now render each pack's `craft.<letter>` art
@@ -56,6 +60,22 @@ alongside a `docs/STATE.md` follow-up.
   Kept as illustrated cards because the illustration IS the point of the
   request; recorded in the gate report as an owner-directed exception,
   not a skipped fix.
+- `card-art-source/` is gitignored, decided only after measuring: 9.0GB
+  across 1,416 PNGs against a `.git` already at 6.2GB, and PNGs don't
+  delta-compress, so committing would have permanently weighed every
+  future clone. Nothing is lost — the live webps are committed and
+  every pack entry carries the brief that produced its image, so any
+  card regenerates from the repo alone. Doing the ignore surfaced 22
+  files accidentally tracked since the earliest studio commits (the
+  original six sci-fi role experiments); removed from the index, kept
+  on disk, history deliberately NOT rewritten.
+- Amendment (j) — `check:security`'s S1/S2 sweep now also walking
+  `scripts/` — landed in STANDARDS §2.4 with owner consent (full
+  detail already recorded under Preferences, below).
+- The nav dock's design gate finally ran, third attempt, and returned 2
+  High / 3 Medium / 1 Low across six findings; all fixed and verified
+  in a real 1440×900 browser rather than judged from source (findings
+  and the gate-scope judgment call in Gates, below).
 
 **Learnings.**
 - A shared component serving two decks of different arity must never
@@ -81,7 +101,8 @@ alongside a `docs/STATE.md` follow-up.
   and security later both covered the dock's code and storage; nobody
   has judged how it looks and feels. Recorded honestly as owed rather
   than silently skipped; the dock's design-gate pass is the one gate
-  still open, tracked in `docs/STATE.md`'s backlog.
+  still open, tracked in `docs/STATE.md`'s backlog. Resolved this same
+  session on a third attempt — see Gates, below, for the findings.
 - Generation-loop mechanics, now proven across four packs and 1,104
   images: the result-URL prefix includes its trailing underscore —
   omitting it produced 12 silent 403s; timestamps drift ±1-2s within a
@@ -96,9 +117,48 @@ alongside a `docs/STATE.md` follow-up.
   sheets found exactly 2 real defects (a residual gray edge band; a
   brief that rendered the wrong subject and lost its named camera angle).
   The structural style paragraph continues to earn its keep.
+- `.gitignore` does not untrack what is already tracked — a directory
+  can be half-ignored for months without anyone noticing. Discovered
+  via the 22 files above; the check that reveals it: `git ls-files
+  <dir> | wc -l` against `git ls-files --others`.
+- A fix applied four times and never abstracted gets re-broken by the
+  fifth component. The dock's 14px grab handle repeated a minimum
+  target-size defect the repo had already fixed four times elsewhere,
+  each with its own `/* WCAG 2.5.8 */` comment — an argument for a
+  shared token or utility class for minimum target size, not another
+  one-off fix.
+- THE BIG FIND, and the one most worth remembering this session:
+  `--dock-clearance` had never worked at all. A later `.flow-panel`
+  rule sets the `padding` SHORTHAND, which silently reset the
+  `padding-bottom` LONGHAND declared earlier in the same file at equal
+  specificity — the panel had been reserving 34px instead of 230px
+  since the clearance shipped in the UI-consolidation session, and
+  nobody noticed because the symptom (a textarea's resize handle
+  hidden behind a floating card) reads as a layout quirk, not a bug.
+  Two generalizable lessons: (a) a `padding:` shorthand later in the
+  same stylesheet silently defeats an earlier `padding-*` longhand at
+  equal specificity — declare the longhand after, or in the same
+  block; (b) a CSS custom property can be inherited correctly and
+  still do nothing, so verifying a var's value (`--dock-clearance:
+  196px` was perfectly present on the element) proves nothing about
+  whether the property it feeds actually applied — check the computed
+  padding, not the variable. A second consequence surfaced only once
+  the clearance became real: the guide panel centres its column, and
+  centred content that outgrows its box overflows BOTH ways, so with
+  top clearance applied the guide pushed its own title up under the
+  dock — fixed by pinning it to `start` while a top corner is held.
+- Contrast measured by parsing `getComputedStyle().backgroundColor`
+  gave nonsense (1.44:1 for a pair that is actually 8.36:1), because
+  this Chrome reports colors as `lab()` and the naive parse read L/a/b
+  as R/G/B. Painting the color into a 1×1 canvas and reading
+  `getImageData` forces a true sRGB triple. Adding to the standing
+  headless-verification gotcha list next to the 0×0-viewport note.
 
 **Gates.** Both gates ran after the entry above was written and both
-returned FAIL; findings and fixes below all landed in `ed07f8a`.
+returned FAIL; findings and fixes below all landed in `ed07f8a`. The
+design gate — twice killed by the provider's spend limit, see
+Learnings — finally ran at session close, third attempt; its findings
+landed separately in `bb4ac0e`.
 - Integration: FAIL → PASS, 2 findings, both doc drift in
   `docs/ARCHITECTURE.md`, now corrected. It still said PICTURE keeps its
   illustrations inline (false since the pack migration three commits
@@ -140,6 +200,32 @@ returned FAIL; findings and fixes below all landed in `ed07f8a`.
   `usePortalTarget` — the exact pattern ARCHITECTURE.md §2 warns
   against — caught because the file was already open from this same
   session's rewrite.
+- Design: FAIL → PASS, 2 High / 3 Medium / 1 Low across six findings,
+  third attempt (the first two died on the provider's spend limit —
+  see Learnings). All six fixed and verified in a real 1440×900
+  browser, not judged from source. Findings: a 14px grab handle under
+  the 24px WCAG 2.5.8 target floor — the fourth time this exact defect
+  has shipped in a different component (see Learnings); a top-parked
+  dock covering the panel's first heading on every panel and every
+  visit, fixed by having the dock publish its resting corner onto
+  `.flow-workspace` as `data-dock-corner` so the panel reserves
+  clearance on the side the dock actually occupies, with the
+  proof-scenario card — sharing the top-right anchor at a higher
+  z-index — stepping to the opposite corner; the grab pill's contrast,
+  raised to full `--muted-foreground` (measured 8.36:1 light / 7.19:1
+  dark); a missing `aria-roledescription="drag handle"` (a drag handle
+  with no Enter/Space is not a button); and drag now clamps to the
+  workspace bounds.
+
+  `gate:sweep`'s heuristic flags "integration — 1 file" against the
+  dock-fix commit; judged covered rather than re-run, since it's
+  design-gate remediation on a surface integration and security both
+  already covered this session, not a new surface or catalog change —
+  recorded as an explicit judgment call, not a silent pass. Its one
+  genuinely novel pattern, worth watching: a child component writing
+  `data-dock-corner` onto its own `offsetParent` so sibling CSS can
+  react to it; not yet a rule, but a candidate if the pattern spreads
+  to a second component.
 
 **Preferences / proposed amendments (need owner consent).**
 - `check:security`'s S1/S2 sweep walks only `src/`, so
@@ -158,6 +244,9 @@ returned FAIL; findings and fixes below all landed in `ed07f8a`.
 
 The 2026-08-18 entry's segmented-control flag (below) is refined with
 this session's owner-directed-exception nuance, not repeated here.
+
+State at close: no gates owed, working tree clean for the first time
+in four sessions, 150 tests green.
 
 ## 2026-08-18: Fantasy and Superhero decks generated — 452 images live, plus the CRAFT world picker
 
