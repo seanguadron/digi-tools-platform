@@ -69,6 +69,23 @@ export function FlowNavDock({
     return () => window.clearTimeout(timer);
   }, []);
 
+  // Publish the corner onto the workspace so the panel can reserve its
+  // clearance on the side the dock actually occupies, and so anything else
+  // anchored in a corner (the proof-scenario card) can step aside. The dock
+  // floats over the panel, so without this a top-parked dock sits on the
+  // panel's first heading - and the corner persists, so it would sit there
+  // every visit (design gate, 2026-08-19).
+  useEffect(() => {
+    const workspace = dockRef.current?.offsetParent;
+    if (!(workspace instanceof HTMLElement)) {
+      return;
+    }
+    workspace.dataset.dockCorner = corner;
+    return () => {
+      delete workspace.dataset.dockCorner;
+    };
+  }, [corner]);
+
   function placeCorner(next: DockCorner) {
     setCorner(next);
     try {
@@ -99,12 +116,37 @@ export function FlowNavDock({
     if (!dock || !drag || drag.pointerId !== event.pointerId) {
       return;
     }
-    const dx = event.clientX - drag.startX;
-    const dy = event.clientY - drag.startY;
-    if (!drag.moved && Math.hypot(dx, dy) < 4) {
+    const rawX = event.clientX - drag.startX;
+    const rawY = event.clientY - drag.startY;
+    if (!drag.moved && Math.hypot(rawX, rawY) < 4) {
       return;
     }
     drag.moved = true;
+
+    // Clamp to the workspace: a drag that can leave the box gives no sense of
+    // where the dock may rest, and briefly paints it over the toolbar and the
+    // header on its way out (design gate, 2026-08-19).
+    const bounds =
+      dock.offsetParent instanceof HTMLElement
+        ? dock.offsetParent.getBoundingClientRect()
+        : null;
+    let dx = rawX;
+    let dy = rawY;
+    if (bounds) {
+      const rect = dock.getBoundingClientRect();
+      // rect already includes the current transform, so measure the untranslated
+      // position first and clamp that.
+      const left = rect.left - rawX;
+      const top = rect.top - rawY;
+      dx = Math.min(
+        Math.max(rawX, bounds.left - left),
+        bounds.right - rect.width - left,
+      );
+      dy = Math.min(
+        Math.max(rawY, bounds.top - top),
+        bounds.bottom - rect.height - top,
+      );
+    }
     dock.style.transform = `translate(${dx}px, ${dy}px)`;
   }
 
@@ -190,6 +232,10 @@ export function FlowNavDock({
       <div
         className="flow-nav-dock-handle"
         role="button"
+        // The behaviour is drag-and-drop, not press-to-activate: there is no
+        // Enter/Space action, so name the role rather than let a screen reader
+        // promise a button's contract (WAI-ARIA APG drag-and-drop).
+        aria-roledescription="drag handle"
         tabIndex={0}
         aria-label={`Move navigation dock. In the ${corner.replace("-", " ")} corner; arrow keys move it.`}
         onPointerDown={beginDrag}

@@ -2803,8 +2803,33 @@ button.role-loadout-slot {
   --dock-clearance: 92px;
 }
 
-.flow-panel {
-  padding-bottom: calc(clamp(20px, 3vw, 34px) + var(--dock-clearance, 0px));
+/* The panel's own clearance lives with its padding shorthand further down
+   (search --dock-clearance): a `padding:` shorthand there would reset any
+   padding-bottom declared up here, which is exactly what silently happened
+   the first time this var shipped. */
+
+/* The clearance follows the dock. The dock publishes its corner onto the
+   workspace, so a top-parked dock reserves space at the TOP instead - without
+   this it covers the panel's first heading, and because the corner persists it
+   would do so on every panel, every visit (design gate, 2026-08-19). */
+.flow-workspace[data-dock-corner^="top"] .flow-panel {
+  padding-top: calc(clamp(20px, 3vw, 34px) + var(--dock-clearance, 0px));
+  padding-bottom: clamp(20px, 3vw, 34px);
+}
+
+/* The guide centres its column vertically. Centred content that outgrows its
+   box overflows BOTH ways, so with the top clearance in place the guide would
+   push its title up under the dock rather than scroll. Pin it to the top for
+   as long as the dock is up there. */
+.flow-workspace[data-dock-corner^="top"] .flow-intro-panel .craft-method {
+  align-content: start;
+}
+
+/* Two things want a top corner. The dock gets the one it was dragged to; the
+   proof-scenario card takes the other rather than stacking on Back/Next. */
+.flow-workspace[data-dock-corner="top-right"] .proof-scenario-status {
+  right: auto;
+  left: 12px;
 }
 
 /* The corner nav dock: Back/Next (and the CRAFT world switch) pinned to the
@@ -2849,9 +2874,10 @@ button.role-loadout-slot {
 
 .flow-nav-dock-handle {
   display: grid;
-  min-height: 14px;
+  /* WCAG 2.5.8: the 14px box alone is under the 24px target floor. */
+  min-height: 24px;
   place-items: center;
-  margin: -2px -4px 0;
+  margin: -4px -4px 0;
   border-radius: 6px;
   cursor: grab;
   touch-action: none;
@@ -2865,7 +2891,10 @@ button.role-loadout-slot {
   width: 34px;
   height: 4px;
   border-radius: 999px;
-  background: color-mix(in oklch, var(--muted-foreground) 45%, transparent);
+  /* The only mark saying "this drags". Full token strength, like every other
+     affordance in this file - a 45% mix put it under the 3:1 non-text floor
+     against the dock's card surface (design gate, 2026-08-19). */
+  background: var(--muted-foreground);
 }
 
 .flow-nav-dock-row {
@@ -3004,6 +3033,10 @@ button.role-loadout-slot {
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: clamp(20px, 3vw, 34px);
+  /* Must follow the shorthand above, not precede it: the corner nav dock
+     floats over this panel, so scrolling to the end has to clear it or the
+     last controls sit underneath. Per deck via --dock-clearance. */
+  padding-bottom: calc(clamp(20px, 3vw, 34px) + var(--dock-clearance, 0px));
   scrollbar-gutter: stable;
 }
 

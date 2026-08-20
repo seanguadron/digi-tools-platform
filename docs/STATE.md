@@ -12,9 +12,10 @@ session).
 
 ## Now
 
-Branch **`main`**, working tree clean except for `card-art-source/` (see
-Owed). **Both decks are now fully illustrated.** Tonight's commit `e29d7a8`
-closes the PICTURE art project and reshapes the guide pages of both decks.
+Branch **`main`**, **working tree clean** — `card-art-source/` is gitignored
+now (below), so for the first time in four sessions `git status` is empty.
+**Both decks are fully illustrated.** Tonight's commit `e29d7a8` closes the
+PICTURE art project and reshapes the guide pages of both decks.
 
 **The gallery pack: 426/426 generated.** Every PICTURE card carries art that
 DEMONSTRATES the technique it teaches — a watercolor card IS watercolor, a
@@ -52,8 +53,35 @@ programmatic load path (archetype apply, import, library, share link, reset)
 sets "all" rather than jumping to the lead role's category, and picking a role
 no longer moves the filter.
 
-**All three judgment gates ran on this work** (ledger:
-`2026-08-19-{design,integration,security}-gate-*.md`). Design FAIL→fixed
+**Two owner decisions landed at the end of the session.**
+`card-art-source/` is **gitignored** — 9.0GB across 1,416 PNGs against a
+`.git` already at 6.2GB, and PNGs do not delta-compress, so committing it
+would have weighed down every clone forever. Nothing is lost: the live webps
+are committed and every pack entry carries the brief that made its image. 22
+files accidentally tracked since the earliest studio commits were removed
+from the index (files kept on disk; history deliberately not rewritten). And
+**amendment (j) landed in STANDARDS §2.4**: `check:security`'s S1/S2 sweep
+now walks `scripts/` as well as `src/`. Its first act was to flag itself —
+the file defining the injection patterns necessarily contains them — so the
+checker skips that one file, which is the rule declining to match its own
+definition, not an exception for anything that ships.
+
+**All four judgment gate runs landed** (ledger:
+`2026-08-19-design-gate-guide-acronym-role-filters.md`,
+`-integration-gate-picture-pack-guides.md`,
+`-security-gate-picture-deck-param.md`, `-design-gate-nav-dock-drag.md`).
+The dock's design gate — owed all session after two spend-limit deaths —
+finally ran and found 2 High / 3 Medium / 1 Low, all fixed and verified in a
+real browser: the 14px grab handle was under the 24px target floor, and a
+top-parked dock covered the panel's first heading on every visit. Verifying
+that second one exposed a **pre-existing bug worth knowing about:
+`--dock-clearance` had never worked at all** — a later `.flow-panel` rule
+sets the `padding` shorthand, which silently reset the `padding-bottom`
+declared earlier at equal specificity, so the panel reserved 34px instead of
+230px and the bottom controls have been sitting under the dock since the
+clearance shipped. Fixed, with a comment on why the order matters.
+
+Design FAIL→fixed
 (the word capsule's letter tile failed AA in light theme; the acronym row
 stranded PICTURE's 7th card mid-width). Integration FAIL→fixed
 (ARCHITECTURE.md had gone stale in two places — it still claimed PICTURE
@@ -69,14 +97,10 @@ Health: `typecheck` · `lint` · `test` (150) · `data:validate` ·
 `check:standards` · `check:security` all green.
 
 **Owed from Sean:**
-- **Decide on `card-art-source/` — now ~4 sessions of originals** (sci-fi,
-  fantasy, superhero, gallery full-res PNGs). `git add card-art-source && git
-  commit` bakes it into history forever; a `.gitignore` entry keeps the repo
-  light and loses the re-crop candidates on any fresh clone. Deliberately NOT
-  staged in any commit so far.
-- **Feel the dock drag with a real mouse.** The snap math and keyboard path
-  were verified headless; the drag *feel* was not (the preview pane reports a
-  0×0 viewport, so pointer-drag can't be exercised there).
+- **Feel the dock drag with a real mouse.** Everything else about it is now
+  verified in a real 1440×900 browser — corner snap, clearance swap, contrast,
+  keyboard moves — but the *feel* of the pointer drag itself still wants a
+  human hand.
 - **Review the PICTURE deck's art** — open the PICTURE deck and page through;
   the grade art escalates one scene family per card (subtle → committed →
   total). Any miss is a 2-credit re-roll.
@@ -154,17 +178,10 @@ at once); `src/lib/picture-art-pack.ts` is the same minus switching.
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **Owed gate — the only one:** the **draggable nav dock never got its
-  design-gate pass**. The agent was launched and died on a provider spend
-  limit before reporting; integration and security both covered the dock's
-  code and storage, but nobody has judged how it *looks and feels*. Re-run
-  it against `src/components/flow-nav-dock.tsx` + the `.flow-nav-dock*` CSS
-  zone: handle affordance and hit target (the grip is a 4px pill in a 14px
-  strip), the 200ms settle, top-corner overlap with panel headings,
-  `role="button"` + arrow keys as a drag-handle pattern, focus-visible,
-  z-index 6 vs floating panels.
-- **Sean's queue:** the `card-art-source/` decision; the dock drag by hand;
-  PICTURE deck art review; real-mic dictation check.
+- **No gates owed.** All four ran and their findings landed.
+- **Sean's queue:** the dock drag by hand; PICTURE deck art review;
+  real-mic dictation check. (The `card-art-source/` decision and amendment
+  (j) both closed 2026-08-19.)
 - **Next:** a per-model output formatter; a Pip-Decks-style restyle; the
   idea-making deck.
 - **Worth promoting out of the scratchpad:** `frame-check.mjs`,
@@ -178,13 +195,10 @@ at once); `src/lib/picture-art-pack.ts` is the same minus switching.
   (i) the segmented-single-select rule now has a **named exception**: the
   world switch appears twice on CRAFT by owner's direction (dock control +
   illustrated guide tier), so the rule should name the sanctioned surfaces
-  rather than forbid duplication outright; **(j) extend `check:security`'s
-  S1/S2 sweep to `scripts/`** — the security gate found that the sweep walks
-  only `src/`, so `card-art-store.mjs`, `art-pack.mjs`, and
-  `generate-picture-art-docs.mjs` (the whole implementation of the app's one
-  server surface) sit outside the automated net. Grepped clean by hand
-  today. Widening the walk means amending STANDARDS §2.4, whose check line
-  says the sweep greps `src` — hence consent, not a quiet fix.
+  rather than forbid duplication outright. Amendment **(j) landed** in §2.4
+  with consent (the `scripts/` sweep, above). Amendment (f) should now also
+  cover the dock's drag / corner-snap / keyboard interaction, which
+  DESIGN_DIRECTION does not mention at all.
 - **Non-blocking, accepted:** `src/lib/art-pack.ts` imports
   `scripts/art-pack.mjs`; first-paint flash for returning non-default pack
   users (and the same for a non-default dock corner); the module-level
