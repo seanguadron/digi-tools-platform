@@ -51,6 +51,14 @@ export function FlowNavDock({
     startX: number;
     startY: number;
     moved: boolean;
+    // The dock's box BEFORE this gesture translated it. Measured once: a live
+    // rect already carries the transform we are computing, so deriving the
+    // origin from it each move is self-referential and the clamp leaks
+    // (integration gate, 2026-08-20 - a fling escaped by ~300px).
+    baseLeft: number;
+    baseTop: number;
+    baseRight: number;
+    baseBottom: number;
   } | null>(null);
 
   // Deferred restore, same pattern as the saved art pack: the default corner
@@ -100,14 +108,23 @@ export function FlowNavDock({
     if (!dock || (event.pointerType === "mouse" && event.button !== 0)) {
       return;
     }
+    dock.style.transition = "none";
+    // Clear any residual transform before measuring, so the base box is the
+    // dock's real anchored position rather than wherever a prior gesture left
+    // it mid-settle.
+    dock.style.transform = "";
+    const base = dock.getBoundingClientRect();
     dragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
       startY: event.clientY,
       moved: false,
+      baseLeft: base.left,
+      baseTop: base.top,
+      baseRight: base.right,
+      baseBottom: base.bottom,
     };
     event.currentTarget.setPointerCapture(event.pointerId);
-    dock.style.transition = "none";
   }
 
   function moveDrag(event: ReactPointerEvent<HTMLDivElement>) {
@@ -124,8 +141,9 @@ export function FlowNavDock({
     drag.moved = true;
 
     // Clamp to the workspace: a drag that can leave the box gives no sense of
-    // where the dock may rest, and briefly paints it over the toolbar and the
-    // header on its way out (design gate, 2026-08-19).
+    // where the dock may rest, and paints it over the toolbar and the header
+    // on its way out (design gate, 2026-08-19). Clamped against the gesture's
+    // base box, never against the live rect - see the note on dragRef.
     const bounds =
       dock.offsetParent instanceof HTMLElement
         ? dock.offsetParent.getBoundingClientRect()
@@ -133,18 +151,13 @@ export function FlowNavDock({
     let dx = rawX;
     let dy = rawY;
     if (bounds) {
-      const rect = dock.getBoundingClientRect();
-      // rect already includes the current transform, so measure the untranslated
-      // position first and clamp that.
-      const left = rect.left - rawX;
-      const top = rect.top - rawY;
       dx = Math.min(
-        Math.max(rawX, bounds.left - left),
-        bounds.right - rect.width - left,
+        Math.max(rawX, bounds.left - drag.baseLeft),
+        bounds.right - drag.baseRight,
       );
       dy = Math.min(
-        Math.max(rawY, bounds.top - top),
-        bounds.bottom - rect.height - top,
+        Math.max(rawY, bounds.top - drag.baseTop),
+        bounds.bottom - drag.baseBottom,
       );
     }
     dock.style.transform = `translate(${dx}px, ${dy}px)`;

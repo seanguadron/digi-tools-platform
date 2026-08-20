@@ -2811,7 +2811,11 @@ button.role-loadout-slot {
 /* The clearance follows the dock. The dock publishes its corner onto the
    workspace, so a top-parked dock reserves space at the TOP instead - without
    this it covers the panel's first heading, and because the corner persists it
-   would do so on every panel, every visit (design gate, 2026-08-19). */
+   would do so on every panel, every visit (design gate, 2026-08-19).
+   These three rules sit EARLIER in the file than the .flow-panel block they
+   override and win on specificity alone (0,3,0 vs 0,1,0). Keep the compound
+   selector: flattened to a bare class it would silently lose, and this file
+   has already shipped that exact footgun twice. */
 .flow-workspace[data-dock-corner^="top"] .flow-panel {
   padding-top: calc(clamp(20px, 3vw, 34px) + var(--dock-clearance, 0px));
   padding-bottom: clamp(20px, 3vw, 34px);
@@ -4559,6 +4563,10 @@ button.role-loadout-slot {
   .flow-panel {
     gap: 14px;
     padding: 16px 12px;
+    /* Same trap as the base rule: this shorthand would wipe the dock
+       clearance, and the dock still floats over the panel at this width.
+       Restate the longhand after it (integration gate, 2026-08-20). */
+    padding-bottom: calc(16px + var(--dock-clearance, 0px));
   }
 
   .archetype-button {

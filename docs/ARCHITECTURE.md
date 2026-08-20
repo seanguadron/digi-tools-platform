@@ -135,13 +135,26 @@ guard — an unknown or tampered value degrades to the default pack
 The nav dock (`src/components/flow-nav-dock.tsx`) and the subbar's step strip
 (`src/components/flow-step-strip.tsx`) are shared by both decks — recycle
 them rather than reinventing per-deck navigation chrome. The dock is a
-**movable little window**, not fixed furniture: a grab handle drags it, and
-on release it snaps to whichever quadrant of `.flow-workspace` its centre
-landed in (a FLIP settle keeps the motion continuous). Arrow keys move it
-corner to corner. The chosen corner persists per browser
-(`digitools.flow-dock-corner-v1`) behind the `isDockCorner` guard, with the
-same deferred restore as the art pack — a tampered value degrades to the
-bottom-right default.
+**movable little window**, not fixed furniture: a grab handle drags it
+(clamped to the workspace), and on release it snaps to whichever quadrant of
+`.flow-workspace` its centre landed in (a FLIP settle keeps the motion
+continuous). Arrow keys move it corner to corner. The chosen corner persists
+per browser (`digitools.flow-dock-corner-v1`) behind the `isDockCorner`
+guard, with the same deferred restore as the art pack — a tampered value
+degrades to the bottom-right default.
+
+**The dock publishes its corner** as `data-dock-corner` on its `offsetParent`
+(`.flow-workspace`), which is how the rest of the workspace reacts without
+either deck root wiring anything: `.flow-panel` reserves its dock clearance on
+the side the dock actually occupies, and `.proof-scenario-status` steps to the
+opposite corner rather than stacking on Back/Next. Two conditions come with
+that convenience. **`FlowNavDock` must stay a direct child of
+`.flow-workspace`** — anything positioned inserted between them re-points
+`offsetParent`, and the selectors would go dark silently, with no error. And
+the attribute is for **CSS only**: a consumer that needs the corner in
+JavaScript should get a prop or a callback, not read the DOM back. Adding a
+third, unrelated reader is the point to stop and make the contract explicit
+instead.
 
 A pack whose `theme.draft` is true is skipped by the generator and the
 coverage check, so scaffolding a world cannot fail the build. Clearing that

@@ -97,10 +97,11 @@ Health: `typecheck` · `lint` · `test` (150) · `data:validate` ·
 `check:standards` · `check:security` all green.
 
 **Owed from Sean:**
-- **Feel the dock drag with a real mouse.** Everything else about it is now
-  verified in a real 1440×900 browser — corner snap, clearance swap, contrast,
-  keyboard moves — but the *feel* of the pointer drag itself still wants a
-  human hand.
+- **Feel the dock drag with a real mouse.** The mechanics are now verified in
+  a real 1440×900 browser through synthetic pointer events — grab, drag,
+  clamp at the boundary, quadrant snap, clearance swap, contrast, keyboard
+  moves — so what is left is genuinely the *feel*: whether the settle reads
+  as smooth and the handle as grabbable under a human hand.
 - **Review the PICTURE deck's art** — open the PICTURE deck and page through;
   the grade art escalates one scene family per card (subtle → committed →
   total). Any miss is a 2-credit re-roll.
@@ -178,7 +179,14 @@ at once); `src/lib/picture-art-pack.ts` is the same minus switching.
 ## Backlog / in flight
 
 - **In flight: nothing mid-task.**
-- **No gates owed.** All four ran and their findings landed.
+- **No gates owed.** All five runs landed. The last was an integration pass
+  on the dock-fix commit itself, run because the sweep flagged it and the
+  commit held one novel pattern (a child writing `data-dock-corner` onto its
+  `offsetParent`). It was not a rubber stamp: it caught that the drag clamp
+  **did not actually clamp** — the bound was derived from the live rect,
+  which already carries the transform being computed, so a fling escaped by
+  ~300px. Fixed and verified live at 0px escape. It also found the ≤760px
+  media block re-breaking the panel clearance the same shorthand way.
 - **Sean's queue:** the dock drag by hand; PICTURE deck art review;
   real-mic dictation check. (The `card-art-source/` decision and amendment
   (j) both closed 2026-08-19.)
