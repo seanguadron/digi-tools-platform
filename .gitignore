@@ -19,3 +19,8 @@ npm-debug.log*
 # that produced each one, so any image can be regenerated. Keep this tree on
 # the machine that generates; back it up outside git.
 /card-art-source/
+
+# Retired generation candidates (Seedream, the model the sci-fi pack started
+# on before it moved to Nano Banana Pro). Kept out of the working source tree
+# so it holds one generation lineage; safe to move off the machine.
+/card-art-legacy/

@@ -10,7 +10,7 @@
 > id and the entry key, never stored, so a second pack lands beside this
 > one without moving a file.
 
-Target generator: **Higgsfield.ai - Seedream 5.0 Lite**. Set the aspect ratio to **1:1**
+Target generator: **Higgsfield.ai - Nano Banana Pro (2K)**. Set the aspect ratio to **1:1**
 in the generator's own controls - the prompts below carry no parameter
 flags. Each block is complete on its own: the shared art direction is the
 first paragraph, the image's unique brief is the second, so one copy takes
