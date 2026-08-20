@@ -7,10 +7,6 @@
     {
       "gate": "integration",
       "reason": "1 file(s) committed since its last report (2026-08-19)"
-    },
-    {
-      "gate": "sessions",
-      "reason": "1 commit(s) since the last entry (2026-08-19)"
     }
   ],
   "notes": "Written by scripts/gate-sweep.mjs (npm run gate:sweep) — deterministic standards + security gates + the gates-owed detector."
