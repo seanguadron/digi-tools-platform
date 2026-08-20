@@ -156,6 +156,9 @@ export function artRelativePath(packId, key) {
 // An entry as authored in a pack file. `bio` is the card's short character
 // blurb and is optional: grades are intensities of a card rather than
 // characters of their own, and a pack in progress may not have written one yet.
+// `liveVariant` records WHICH candidate produced the live image - the studio
+// used to have no way to know, so it guessed the first one and told the user
+// that was the card.
 export function isArtPackEntry(value) {
   if (typeof value !== "object" || value === null) {
     return false;
@@ -165,7 +168,8 @@ export function isArtPackEntry(value) {
     typeof entry.prompt === "string" &&
     typeof entry.alt === "string" &&
     (entry.status === "planned" || entry.status === "generated") &&
-    (entry.bio === undefined || typeof entry.bio === "string")
+    (entry.bio === undefined || typeof entry.bio === "string") &&
+    (entry.liveVariant === undefined || typeof entry.liveVariant === "string")
   );
 }
 
@@ -196,6 +200,7 @@ export function artPackEntry(pack, key) {
     alt: raw.alt,
     prompt: raw.prompt,
     bio: raw.bio,
+    liveVariant: raw.liveVariant,
     status: raw.status,
   };
 }

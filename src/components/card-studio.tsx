@@ -34,6 +34,8 @@ type Entry = {
   status: string;
   prompt: string;
   bio: string;
+  /** Which candidate produced the live image, when the pack records it. */
+  liveVariant: string | null;
   related: RelatedGroup[];
   variants: Variant[];
 };
@@ -680,16 +682,17 @@ export function CardStudio({
       <ol className="card-art-rows">
         {visible.map((entry) => {
           const isActive = entry.key === activeKey;
-          // Only an explicit click chooses a variant. This used to default to
-          // variants[0], so a card nobody had clicked showed variant "a" under
-          // the words "How it reads on the card" - while the live image was
-          // usually a later variant. The panel contradicted the row's own
-          // thumbnail and read as "the wrong art is on this card" (owner,
-          // 2026-08-20). With no choice made, the preview shows what IS live.
-          const chosen = preview[entry.key] ?? null;
+          // The pack records which candidate is on the card, so the studio
+          // opens on it. This used to default to variants[0], so a card nobody
+          // had clicked showed variant "a" under the words "How it reads on
+          // the card" while the live image was usually a later variant - the
+          // panel contradicted the row's own thumbnail and read as "the wrong
+          // art is on this card" (owner, 2026-08-20).
+          const chosen = preview[entry.key] ?? entry.liveVariant ?? null;
           const thumb = thumbnailFor(entry);
           const liveUrl =
             entry.status === "generated" ? `${entry.target}?v=${revision}` : null;
+          const isLiveChoice = Boolean(chosen) && chosen === entry.liveVariant;
           const previewUrl = chosen
             ? `${variantUrl(loadedTheme, entry.key, chosen)}&v=${revision}`
             : liveUrl;
@@ -945,14 +948,23 @@ export function CardStudio({
                           <div className="card-art-variant-strip">
                             {entry.variants.map((variant) => (
                               <button
-                                className={
-                                  variant.id === chosen
-                                    ? "card-art-chip is-chosen"
-                                    : "card-art-chip"
-                                }
+                                className={[
+                                  "card-art-chip",
+                                  variant.id === chosen ? "is-chosen" : "",
+                                  variant.id === entry.liveVariant
+                                    ? "is-live"
+                                    : "",
+                                ]
+                                  .filter(Boolean)
+                                  .join(" ")}
                                 type="button"
                                 key={variant.id}
                                 aria-pressed={variant.id === chosen}
+                                aria-label={
+                                  variant.id === entry.liveVariant
+                                    ? `Variant ${variant.id}, on the card`
+                                    : `Variant ${variant.id}`
+                                }
                                 onClick={() =>
                                   setPreview((current) => ({
                                     ...current,
@@ -975,7 +987,10 @@ export function CardStudio({
                                   alt=""
                                   src={`${variantUrl(loadedTheme, entry.key, variant.id)}&v=${revision}`}
                                 />
-                                <span>{variant.id}</span>
+                                <span>
+                                  {variant.id}
+                                  {variant.id === entry.liveVariant ? " ·" : ""}
+                                </span>
                               </button>
                             ))}
                           </div>
@@ -985,7 +1000,11 @@ export function CardStudio({
                               <div className="card-art-card-preview">
                                 <div className="lineage-card is-selected">
                                   <span className="lineage-card-topline">
-                                    <span>{chosen ? "Preview" : "On the card"}</span>
+                                    <span>
+                                      {!chosen || isLiveChoice
+                                        ? "On the card"
+                                        : "Preview"}
+                                    </span>
                                     <span>
                                       {String(entry.sequence).padStart(3, "0")}
                                     </span>
@@ -1003,9 +1022,11 @@ export function CardStudio({
                                   </span>
                                 </div>
                                 <small>
-                                  {chosen
-                                    ? `Variant ${chosen} — not on the card yet`
-                                    : "This is the live image"}
+                                  {!chosen
+                                    ? "This is the live image"
+                                    : isLiveChoice
+                                      ? `Variant ${chosen} — this is the live image`
+                                      : `Variant ${chosen} — not on the card yet`}
                                 </small>
                               </div>
 

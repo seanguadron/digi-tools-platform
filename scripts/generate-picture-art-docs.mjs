@@ -99,6 +99,7 @@ function packEntry(theme, key) {
     status: resolved?.status ?? "missing",
     unique: resolved?.prompt,
     bio: resolved?.bio,
+    liveVariant: resolved?.liveVariant,
     key,
   };
 }

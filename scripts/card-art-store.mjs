@@ -392,6 +392,9 @@ export function createCardArtStore({
         status: entry.status,
         prompt: entry.unique,
         bio: entry.bio ?? "",
+        // Which candidate is on the card. Null when nothing has been applied
+        // since the pack started recording it.
+        liveVariant: entry.liveVariant ?? null,
         related: (relations.get(entry.key) ?? []).flat(),
         variants: await readVariants(themeId, entry),
       })),
@@ -489,6 +492,12 @@ export function createCardArtStore({
       assertInside(path.join(variantDir(themeId, entry), variant.file), variantRoot, "variant file"),
       { force: true },
     );
+    // The live image survives its source being deleted, but the pack must stop
+    // claiming it came from a file that is gone - an unknown origin is more
+    // honest than a dangling one.
+    if (entry.liveVariant === variant.id) {
+      await updateRecord(themeId, entry, { liveVariant: null });
+    }
     return { removed: variant.id };
   }
 
@@ -517,7 +526,15 @@ export function createCardArtStore({
   // The doc re-render happens INSIDE the lock: it is the one file every write
   // path touches, so letting it run after the lock released would let two
   // renders overlap on it.
-  function setStatus(themeId, entry, status) {
+  // One serialized read-modify-write of a pack record. Status and the live
+  // variant travel together because they change together: applying a candidate
+  // flips the status AND records which candidate it was, and clearing the live
+  // image undoes both. Splitting them would mean two doc refreshes and a window
+  // where the pack claims "generated" but cannot say from what.
+  //
+  // `liveVariant: null` in the patch removes the field; omitting the key leaves
+  // it alone.
+  function updateRecord(themeId, entry, patch) {
     return serialize(async () => {
       const pack = await loadPack(themeId);
       const { group, id, index } = parseArtKey(entry.key);
@@ -536,11 +553,24 @@ export function createCardArtStore({
           500,
         );
       }
-      if (record.status === status) {
+
+      let changed = false;
+      if (patch.status !== undefined && record.status !== patch.status) {
+        record.status = patch.status;
+        changed = true;
+      }
+      if (patch.liveVariant !== undefined) {
+        const next = patch.liveVariant ?? undefined;
+        if (record.liveVariant !== next) {
+          if (next === undefined) delete record.liveVariant;
+          else record.liveVariant = next;
+          changed = true;
+        }
+      }
+      if (!changed) {
         return false;
       }
 
-      record.status = status;
       await writeFile(
         packPath(themeId),
         `${JSON.stringify(pack, null, 2)}\n`,
@@ -550,6 +580,7 @@ export function createCardArtStore({
       return true;
     });
   }
+
 
   // The pack's generated doc prints a status line per entry, and
   // check:standards fails the build on its drift, so a flip has to re-render
@@ -577,7 +608,13 @@ export function createCardArtStore({
     const target = livePath(themeId, entry);
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, bytes);
-    const flipped = await setStatus(themeId, entry, "generated");
+    // Record WHICH candidate this came from, not just that one did. Without it
+    // the pack knows a card is illustrated but not by what, and the studio can
+    // only guess at which chip is on the card.
+    const flipped = await updateRecord(themeId, entry, {
+      status: "generated",
+      liveVariant: variantId,
+    });
 
     return { target: entry.target, selected: variantId, statusChanged: flipped };
   }
@@ -586,7 +623,10 @@ export function createCardArtStore({
     const { entries } = await loadContext(themeId);
     const entry = findEntry(entries, key);
     await rm(livePath(themeId, entry), { force: true });
-    const flipped = await setStatus(themeId, entry, "planned");
+    const flipped = await updateRecord(themeId, entry, {
+      status: "planned",
+      liveVariant: null,
+    });
     return { target: entry.target, statusChanged: flipped };
   }
 

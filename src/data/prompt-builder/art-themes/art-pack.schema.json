@@ -101,6 +101,11 @@
           "description": "The card's short character blurb, shown in the inspection panel next to its ability. Capped so it cannot push the ability bullets out of a panel that clips silently.",
           "maxLength": 240
         },
+        "liveVariant": {
+          "type": "string",
+          "pattern": "^[a-z](_cropped)?$",
+          "description": "Which candidate under card-art-source/ produced the live image, e.g. \"c\" or \"b_cropped\". Written when a variant is applied and cleared when the live image is removed. Without it the studio cannot tell which candidate is on the card and can only guess - which it did, showing variant \"a\" under the words \"how it reads on the card\"."
+        },
         "status": {
           "type": "string",
           "enum": ["planned", "generated"]

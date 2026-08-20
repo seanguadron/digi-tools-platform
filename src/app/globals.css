@@ -9000,6 +9000,20 @@ body:has(.page-stage.is-fluid) {
   color: var(--brand-cyan-text);
 }
 
+/* The candidate that is actually on the card. Marked whether or not it is the
+   one being previewed, so "what is live" never has to be inferred - the studio
+   spent two sessions implying the wrong answer. The dot after the letter
+   carries the same meaning as the tint, for anyone who cannot see the tint. */
+.card-art-chip.is-live {
+  border-color: color-mix(in oklch, var(--brand-cyan) 55%, var(--border));
+  background: color-mix(in oklch, var(--brand-cyan) 12%, var(--background));
+  color: var(--foreground);
+}
+
+.card-art-chip.is-live.is-chosen {
+  border-color: var(--brand-cyan);
+}
+
 .card-art-chosen {
   display: flex;
   flex-wrap: wrap;

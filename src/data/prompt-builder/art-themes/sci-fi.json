@@ -14,31 +14,36 @@
       "prompt": "Context. A vast dark situation table where a holographic terrain of the problem resolves out of nothing, a bounded pool of cyan light defining exactly how far the known world extends and open shadow beyond its edge.",
       "alt": "Illustration for the Context letter of the CRAFT acronym.",
       "status": "generated",
-      "bio": "Everything the answer is allowed to stand on, and the hard edge where that stops."
+      "bio": "Everything the answer is allowed to stand on, and the hard edge where that stops.",
+      "liveVariant": "d"
     },
     "R": {
       "prompt": "Role. A rank of identical armored crew silhouettes standing in shadow while one steps forward into full cyan key light, its specialist gear catching the beam, the chosen perspective made physical.",
       "alt": "Illustration for the Role letter of the CRAFT acronym.",
       "status": "generated",
-      "bio": "One perspective stepped forward out of the rank, because the hardest decision in the work needs a specialist."
+      "bio": "One perspective stepped forward out of the rank, because the hardest decision in the work needs a specialist.",
+      "liveVariant": "d"
     },
     "A": {
       "prompt": "Action. The moment of commitment: a heavy mechanism driving forward along a rail, thrust light blooming behind it, energy discharging in a decisive forward vector across the frame.",
       "alt": "Illustration for the Action letter of the CRAFT acronym.",
       "status": "generated",
-      "bio": "The verb. What the work actually does, chosen and driven forward instead of hedged."
+      "bio": "The verb. What the work actually does, chosen and driven forward instead of hedged.",
+      "liveVariant": "b"
     },
     "F": {
       "prompt": "Format. A precision mold closing around molten luminous material and pressing it into one exact geometric form, a clean shaped artifact emerging from formless glow.",
       "alt": "Illustration for the Format letter of the CRAFT acronym.",
       "status": "generated",
-      "bio": "The mold. The same findings pressed into the shape the reader can actually use."
+      "bio": "The mold. The same findings pressed into the shape the reader can actually use.",
+      "liveVariant": "b"
     },
     "T": {
       "prompt": "Target audience. A single figure seen from behind at a wide viewport, lit from the front by the transmission arriving for them, the whole scene built around who is receiving it.",
       "alt": "Illustration for the Target audience letter of the CRAFT acronym.",
       "status": "generated",
-      "bio": "Whoever is at the other end of the transmission. Everything upstream is aimed at them."
+      "bio": "Whoever is at the other end of the transmission. Everything upstream is aimed at them.",
+      "liveVariant": "b"
     }
   },
   "roles": {
@@ -46,211 +51,246 @@
       "prompt": "A xenoarchivist in a modular field rig, half-lit by the cracked data-core she is coaxing back to life, spectral survey planes and annotated star-charts hovering around her hands as she traces one thread back to its origin.",
       "alt": "Illustration asset for the Researcher role.",
       "status": "generated",
-      "bio": "Xenoarchivist. She will not cite a source she has not held in her own hands, and she files the ones that contradict her as carefully as the ones that agree."
+      "bio": "Xenoarchivist. She will not cite a source she has not held in her own hands, and she files the ones that contradict her as carefully as the ones that agree.",
+      "liveVariant": "e"
     },
     "analyst": {
       "prompt": "An analyst standing inside a suspended lattice of readings, pulling two conflicting data strands apart with both hands so the pattern between them resolves, outlier points burning brighter than the rest.",
       "alt": "Illustration asset for the Analyst role.",
       "status": "generated",
-      "bio": "Reads two conflicting instruments and refuses to average them. Pulls a claim apart at the seam until the assumption holding it together is visible."
+      "bio": "Reads two conflicting instruments and refuses to average them. Pulls a claim apart at the seam until the assumption holding it together is visible.",
+      "liveVariant": "d"
     },
     "strategist": {
       "prompt": "A campaign strategist over a darkened war table, three glowing approach vectors projected above it, one hand hovering to commit while the others dim, distant terrain rendered in wireframe.",
       "alt": "Illustration asset for the Strategist role.",
       "status": "generated",
-      "bio": "Runs three approaches over the war table and kills two of them on purpose. What she hands you is the one that survived its own worst case."
+      "bio": "Runs three approaches over the war table and kills two of them on purpose. What she hands you is the one that survived its own worst case.",
+      "liveVariant": "d"
     },
     "historian": {
       "prompt": "A chronicler at a towering memory spindle, drawing a single luminous timeline thread out of a vault of stacked archive cores, older layers dimmer and deeper behind.",
       "alt": "Illustration asset for the Historian role.",
       "status": "generated",
-      "bio": "Keeper of the memory spindle. Will not tell you what happened until the order is right, because the order is usually the reason."
+      "bio": "Keeper of the memory spindle. Will not tell you what happened until the order is right, because the order is usually the reason.",
+      "liveVariant": "d"
     },
     "fact-checker": {
       "prompt": "A verification officer holding a claim slab in an authentication clamp, provenance beams shooting from it toward distant source cores, some locking solid and others flickering unresolved.",
       "alt": "Illustration asset for the Fact-checker role.",
       "status": "generated",
-      "bio": "Puts a claim in the authentication clamp and traces its provenance back to something solid. If nothing lights up, the claim leaves the room."
+      "bio": "Puts a claim in the authentication clamp and traces its provenance back to something solid. If nothing lights up, the claim leaves the room.",
+      "liveVariant": "e"
     },
     "synthesizer": {
       "prompt": "A signal weaver at a braiding loom, gathering many separate glowing data strands into a single coherent cable, the incompatible strands left visibly standing apart.",
       "alt": "Illustration asset for the Synthesizer role.",
       "status": "generated",
-      "bio": "Braids many signals into one cable without hiding the strands that fight. Disagreement stays in the weave, visible and load-bearing."
+      "bio": "Braids many signals into one cable without hiding the strands that fight. Disagreement stays in the weave, visible and load-bearing.",
+      "liveVariant": "d"
     },
     "explainer-educator": {
       "prompt": "An instructor unfolding a complex mechanism into a floating exploded diagram, the pieces separating in mid-air along clean cyan guide-lines, one hand steadying the sequence.",
       "alt": "Illustration asset for the Explainer / Educator role.",
       "status": "generated",
-      "bio": "Unfolds a mechanism in mid-air and holds it there while you look. Never explains a part before you can see where it sits."
+      "bio": "Unfolds a mechanism in mid-air and holds it there while you look. Never explains a part before you can see where it sits.",
+      "liveVariant": "d"
     },
     "comparative-reviewer": {
       "prompt": "A critical reviewer between two suspended prototypes in an inspection bay, stress beams probing both, hairline stress-fractures glowing where each one is weakest.",
       "alt": "Illustration asset for the Critical Reviewer role.",
       "status": "generated",
-      "bio": "Runs both prototypes to failure in the same bay under the same load, and finds the hairline crack neither builder wanted found."
+      "bio": "Runs both prototypes to failure in the same bay under the same load, and finds the hairline crack neither builder wanted found.",
+      "liveVariant": "b"
     },
     "developer": {
       "prompt": "An engineer wrist-deep in a modular lattice of interlocking components, seating one new part into place while the surrounding structure lights up to accept it.",
       "alt": "Illustration asset for the Developer role.",
       "status": "generated",
-      "bio": "Seats a new part into a running lattice without stopping the machine, matching the existing fittings even when he would have chosen different ones."
+      "bio": "Seats a new part into a running lattice without stopping the machine, matching the existing fittings even when he would have chosen different ones.",
+      "liveVariant": "b"
     },
     "technical-troubleshooter": {
       "prompt": "A diagnostics technician tracing a fault arc through a machine's exposed guts, one glowing break in an otherwise dark circuit, probe held steady at the exact point of failure.",
       "alt": "Illustration asset for the Technical Troubleshooter role.",
       "status": "generated",
-      "bio": "Traces the fault arc to the one break instead of replacing the whole run, and will not close the panel until the fix survives the same load twice."
+      "bio": "Traces the fault arc to the one break instead of replacing the whole run, and will not close the panel until the fix survives the same load twice.",
+      "liveVariant": "b"
     },
     "systems-designer": {
       "prompt": "A systems architect inside a hovering orbital schematic, moving whole subsystems into relation with each other, data flows drawn as light between them.",
       "alt": "Illustration asset for the Systems Designer role.",
       "status": "generated",
-      "bio": "Moves whole subsystems into relation with each other before anything is built. Cares more about how it fails than how it runs."
+      "bio": "Moves whole subsystems into relation with each other before anything is built. Cares more about how it fails than how it runs.",
+      "liveVariant": "b"
     },
     "workflow-architect": {
       "prompt": "A pipeline designer above a conveyor of light, rerouting a stalled segment so the flow runs clean, the old bottleneck dark and bypassed beside it.",
       "alt": "Illustration asset for the Workflow Architect role.",
       "status": "generated",
-      "bio": "Reroutes a stalled line so the flow runs clean and leaves the necessary checks standing. The bottleneck goes; the safeguards do not."
+      "bio": "Reroutes a stalled line so the flow runs clean and leaves the necessary checks standing. The bottleneck goes; the safeguards do not.",
+      "liveVariant": "b"
     },
     "ux-ui-advisor": {
       "prompt": "An interface ergonomist testing a control surface with a gloved hand, heat-bloom showing where the reach is awkward, a cleaner layout ghosted over the old one.",
       "alt": "Illustration asset for the UX / UI Advisor role.",
       "status": "generated",
-      "bio": "Tests a control surface with a gloved hand and watches for heat-bloom where the reach goes wrong. Trusts the hand over the drawing."
+      "bio": "Tests a control surface with a gloved hand and watches for heat-bloom where the reach goes wrong. Trusts the hand over the drawing.",
+      "liveVariant": "b"
     },
     "data-analyst": {
       "prompt": "A data diver suspended in a dense particle field of measurements, cupping a cluster where the signal concentrates, sparse noise drifting away at the edges.",
       "alt": "Illustration asset for the Data Analyst role.",
       "status": "generated",
-      "bio": "Suspended in the particle field, cupping the cluster where the signal actually concentrates. Names the caveat in the same breath as the finding."
+      "bio": "Suspended in the particle field, cupping the cluster where the signal actually concentrates. Names the caveat in the same breath as the finding.",
+      "liveVariant": "b"
     },
     "qa-test-engineer": {
       "prompt": "A stress-test operator deliberately driving a prototype past its limits inside a reinforced bay, the exact failure point flaring bright as the structure gives.",
       "alt": "Illustration asset for the QA / Test Engineer role.",
       "status": "generated",
-      "bio": "Drives a prototype past its limits on purpose, inside a reinforced bay, and writes down the exact load where it let go."
+      "bio": "Drives a prototype past its limits on purpose, inside a reinforced bay, and writes down the exact load where it let go.",
+      "liveVariant": "b"
     },
     "security-reviewer": {
       "prompt": "A breach analyst probing a shield lattice from outside, one hairline seam in the barrier lighting up under the probe, the rest of the wall holding dark and solid.",
       "alt": "Illustration asset for the Security Reviewer role.",
       "status": "generated",
-      "bio": "Probes the shield lattice from outside, where an attacker would stand. Reports the seam that matters, not every seam there is."
+      "bio": "Probes the shield lattice from outside, where an attacker would stand. Reports the seam that matters, not every seam there is.",
+      "liveVariant": "b"
     },
     "writer": {
       "prompt": "A composer at a text-loom, drawing a single clean line of luminous thread out of raw formless material, the finished passage hanging in ordered rows behind.",
       "alt": "Illustration asset for the Writer role.",
       "status": "generated",
-      "bio": "Draws one clean line out of formless material at the text-loom. The first sentence is chosen, never merely started."
+      "bio": "Draws one clean line out of formless material at the text-loom. The first sentence is chosen, never merely started.",
+      "liveVariant": "b"
     },
     "editor": {
       "prompt": "An editor over a manuscript slab with a precision cutting tool, lifting away excess material in clean slivers, the strong original structure left standing and lit.",
       "alt": "Illustration asset for the Editor role.",
       "status": "generated",
-      "bio": "Lifts excess away in clean slivers, structure before polish, and leaves the author's voice in the material."
+      "bio": "Lifts excess away in clean slivers, structure before polish, and leaves the author's voice in the material.",
+      "liveVariant": "b"
     },
     "copywriter": {
       "prompt": "A signal-caster tuning a broadcast pod down to one sharp focused beam, the wide scattered transmission collapsing into a single bright directional lance.",
       "alt": "Illustration asset for the Copywriter role.",
       "status": "generated",
-      "bio": "Collapses a wide scattered transmission into one sharp beam aimed at a single action. Anything that does not carry the ask is cut."
+      "bio": "Collapses a wide scattered transmission into one sharp beam aimed at a single action. Anything that does not carry the ask is cut.",
+      "liveVariant": "b"
     },
     "rewriter": {
       "prompt": "A reforge specialist melting a bent component and recasting it in a cleaner mold, the original shape ghosted alongside so the meaning is visibly preserved.",
       "alt": "Illustration asset for the Rewriter role.",
       "status": "generated",
-      "bio": "Melts a bent component and recasts it in a cleaner mold, keeping the original ghosted alongside so nothing quietly changes meaning."
+      "bio": "Melts a bent component and recasts it in a cleaner mold, keeping the original ghosted alongside so nothing quietly changes meaning.",
+      "liveVariant": "b"
     },
     "pitch-strategist": {
       "prompt": "A presenter at the head of a dark hall commanding a rising arc of light from problem to proof, incoming objection-bolts breaking against it as it climbs.",
       "alt": "Illustration asset for the Pitch Strategist role.",
       "status": "generated",
-      "bio": "Commands a rising arc from problem to proof in a dark hall, and meets the hardest objection before it is raised."
+      "bio": "Commands a rising arc from problem to proof in a dark hall, and meets the hardest objection before it is raised.",
+      "liveVariant": "b"
     },
     "presentation-slide-structurer": {
       "prompt": "A deck builder sequencing floating stage panels into a single ordered run, each panel holding one clear shape, the sequence receding into the dark.",
       "alt": "Illustration asset for the Presentation Designer role.",
       "status": "generated",
-      "bio": "Sequences floating stage panels into one ordered run. One clear shape per panel; whatever else there is goes to the next panel or nowhere."
+      "bio": "Sequences floating stage panels into one ordered run. One clear shape per panel; whatever else there is goes to the next panel or nowhere.",
+      "liveVariant": "b"
     },
     "creative-director": {
       "prompt": "A creative director at a rig projecting several genuinely different directions at once, each a distinct silhouette, one hand raised toward the boldest.",
       "alt": "Illustration asset for the Creative Director role.",
       "status": "generated",
-      "bio": "Projects several genuinely different directions at once, each a distinct silhouette, then judges them on originality and fit rather than comfort."
+      "bio": "Projects several genuinely different directions at once, each a distinct silhouette, then judges them on originality and fit rather than comfort.",
+      "liveVariant": "b"
     },
     "concept-developer": {
       "prompt": "A concept smith growing a raw luminous seed into a structured form inside a shaping chamber, the hook of the idea crystallizing hard and bright at its center.",
       "alt": "Illustration asset for the Concept Developer role.",
       "status": "generated",
-      "bio": "Grows a raw seed into a structured form inside a shaping chamber, and will not release it until the hook holds under its own weight."
+      "bio": "Grows a raw seed into a structured form inside a shaping chamber, and will not release it until the hook holds under its own weight.",
+      "liveVariant": "b"
     },
     "brainstorming-partner": {
       "prompt": "An idea generator releasing a swarm of divergent spark-drones from an open case, each one a different shape, the strongest few already clustering together.",
       "alt": "Illustration asset for the Brainstorming Partner role.",
       "status": "generated",
-      "bio": "Opens the case and lets the spark-drones scatter, no two alike, then walks the field and marks the ones worth chasing."
+      "bio": "Opens the case and lets the spark-drones scatter, no two alike, then walks the field and marks the ones worth chasing.",
+      "liveVariant": "b"
     },
     "prompt-engineer": {
       "prompt": "A prompt-smith tuning a glowing instruction core on a calibration bench, ambiguity venting off as dark vapor while the core settles into a clean stable pulse.",
       "alt": "Illustration asset for the Prompt Engineer role.",
       "status": "generated",
-      "bio": "Tunes an instruction core on the calibration bench until the ambiguity has vented off and what remains can be tested."
+      "bio": "Tunes an instruction core on the calibration bench until the ambiguity has vented off and what remains can be tested.",
+      "liveVariant": "c"
     },
     "tutor": {
       "prompt": "A patient tutor guiding a learner's hand onto the next rung of a rising ladder of light, the rungs already climbed still glowing warm behind them.",
       "alt": "Illustration asset for the Tutor role.",
       "status": "generated",
-      "bio": "Guides a hand to the next rung, never two rungs up. Every rung below is already climbed and holding."
+      "bio": "Guides a hand to the next rung, never two rungs up. Every rung below is already climbed and holding.",
+      "liveVariant": "b"
     },
     "curriculum-designer": {
       "prompt": "A curriculum designer laying a sequenced path of platforms across a dark gap, each platform locking into the last, checkpoint beacons marking mastery.",
       "alt": "Illustration asset for the Curriculum Designer role.",
       "status": "generated",
-      "bio": "Lays a sequenced path of platforms across a dark gap, each one locking into the last and each one able to be tested before the next is stepped onto."
+      "bio": "Lays a sequenced path of platforms across a dark gap, each one locking into the last and each one able to be tested before the next is stepped onto.",
+      "liveVariant": "b"
     },
     "mentor": {
       "prompt": "A veteran mentor beside a younger figure at a high overlook, pointing out one specific route through the terrain below rather than the whole horizon.",
       "alt": "Illustration asset for the Mentor role.",
       "status": "generated",
-      "bio": "Stands at the overlook and points out one specific route through the terrain, having walked it. Gives you the next step, not the whole map."
+      "bio": "Stands at the overlook and points out one specific route through the terrain, having walked it. Gives you the next step, not the whole map.",
+      "liveVariant": "b"
     },
     "consultant": {
       "prompt": "A consultant at a client's situation table, sweeping away clutter to leave one clearly lit recommended path, discarded alternatives dimmed at the table edge.",
       "alt": "Illustration asset for the Consultant role.",
       "status": "generated",
-      "bio": "Sweeps a client's table clear until one lit path remains, and can say what the discarded options would have cost."
+      "bio": "Sweeps a client's table clear until one lit path remains, and can say what the discarded options would have cost.",
+      "liveVariant": "b"
     },
     "product-strategist": {
       "prompt": "A product strategist weighing glowing opportunity masses on a suspended scale, one pan clearly heavier and lit, the rejected mass set aside in shadow.",
       "alt": "Illustration asset for the Product Strategist role.",
       "status": "generated",
-      "bio": "Weighs opportunity masses on a suspended scale. The heavier pan earns the build, not the loudest one."
+      "bio": "Weighs opportunity masses on a suspended scale. The heavier pan earns the build, not the loudest one.",
+      "liveVariant": "b"
     },
     "market-positioning-advisor": {
       "prompt": "A positioning strategist plotting a claim-marker into open unoccupied space on a category map, rival markers clustered and crowded elsewhere on the field.",
       "alt": "Illustration asset for the Positioning Strategist role.",
       "status": "generated",
-      "bio": "Plots a claim-marker into open unoccupied ground on the category map, leaving the rival markers lit so the distance is checkable."
+      "bio": "Plots a claim-marker into open unoccupied ground on the category map, leaving the rival markers lit so the distance is checkable.",
+      "liveVariant": "b"
     },
     "product-manager": {
       "prompt": "A product manager triaging a queue of incoming work slabs, pulling three forward into the lit build lane and holding the rest back behind a barrier.",
       "alt": "Illustration asset for the Product Manager role.",
       "status": "generated",
-      "bio": "Triages the incoming queue, pulls three slabs into the lit build lane, and holds the rest back where everyone can see them waiting."
+      "bio": "Triages the incoming queue, pulls three slabs into the lit build lane, and holds the rest back where everyone can see them waiting.",
+      "liveVariant": "b"
     },
     "summarizer": {
       "prompt": "A compression operator feeding a towering volume of material into a distillation press and drawing out one dense luminous shard that holds all of its weight.",
       "alt": "Illustration asset for the Summarizer role.",
       "status": "generated",
-      "bio": "Feeds a tower of material into the press and draws out one dense wafer. What comes out weighs less and says the same thing."
+      "bio": "Feeds a tower of material into the press and draws out one dense wafer. What comes out weighs less and says the same thing.",
+      "liveVariant": "b"
     },
     "organizer": {
       "prompt": "An organizer standing in drifting unsorted debris, snapping the pieces into a clean filing lattice, the empty cells where things are missing left visibly dark.",
       "alt": "Illustration asset for the Organizer role.",
       "status": "generated",
-      "bio": "Snaps drifting debris into a filing lattice and leaves the empty slots showing, so what is still missing stays obvious."
+      "bio": "Snaps drifting debris into a filing lattice and leaves the empty slots showing, so what is still missing stays obvious.",
+      "liveVariant": "b"
     }
   },
   "lineages": {
@@ -258,193 +298,225 @@
       "prompt": "A survey drone projecting a bounded pool of light onto dark ground, its clean edge marking exactly how far the work extends, everything beyond the boundary falling into shadow.",
       "alt": "Illustration asset for the context-scope modifier lineage.",
       "status": "generated",
-      "bio": "Survey drone. Its pool of light has a hard edge on purpose: inside is the world this answer may use, outside is not today's problem."
+      "bio": "Survey drone. Its pool of light has a hard edge on purpose: inside is the world this answer may use, outside is not today's problem.",
+      "liveVariant": "b"
     },
     "context-evidence": {
       "prompt": "An evidence spindle: a rack of glowing source cores with provenance filaments running from each one up to the claim it supports, the weakest filaments visibly thinner.",
       "alt": "Illustration asset for the context-evidence modifier lineage.",
       "status": "generated",
-      "bio": "The evidence spindle. A provenance filament runs from every source core up to the claim it holds; a claim with no filament hangs on its own."
+      "bio": "The evidence spindle. A provenance filament runs from every source core up to the claim it holds; a claim with no filament hangs on its own.",
+      "liveVariant": "b"
     },
     "context-constraints": {
       "prompt": "A set of heavy limiter clamps closed around a working volume, hard immovable jaws holding the shape in, softer preference-markers resting loose outside them.",
       "alt": "Illustration asset for the context-constraints modifier lineage.",
       "status": "generated",
-      "bio": "Limiter clamps. Hard jaws hold what cannot move, soft jaws hold what merely should not, and telling them apart is the whole instrument."
+      "bio": "Limiter clamps. Hard jaws hold what cannot move, soft jaws hold what merely should not, and telling them apart is the whole instrument.",
+      "liveVariant": "b"
     },
     "context-assumptions": {
       "prompt": "A scaffold of translucent placeholder blocks holding up a structure, the load-bearing ones pulsing with a warning glow to show what would fall if they are wrong.",
       "alt": "Illustration asset for the context-assumptions modifier lineage.",
       "status": "generated",
-      "bio": "Placeholder scaffold. Every translucent block is something nobody has checked, and the ones pulsing amber are holding up the roof."
+      "bio": "Placeholder scaffold. Every translucent block is something nobody has checked, and the ones pulsing amber are holding up the roof.",
+      "liveVariant": "b"
     },
     "context-success": {
       "prompt": "A calibration target with an acceptance gauge locking into the green, the exact tolerance ring visible and the failure zone marked dark beyond it.",
       "alt": "Illustration asset for the context-success modifier lineage.",
       "status": "generated",
-      "bio": "Acceptance gauge. It locks green only inside the tolerance ring, which is how done stops being an opinion."
+      "bio": "Acceptance gauge. It locks green only inside the tolerance ring, which is how done stops being an opinion.",
+      "liveVariant": "b"
     },
     "context-exclusions": {
       "prompt": "A diverter gate splitting an incoming stream, sending one branch cleanly away into a sealed dark channel while the approved flow continues lit.",
       "alt": "Illustration asset for the context-exclusions modifier lineage.",
       "status": "generated",
-      "bio": "The diverter gate. Good ideas heading the wrong way get sent cleanly into the sealed channel before they cost anything."
+      "bio": "The diverter gate. Good ideas heading the wrong way get sent cleanly into the sealed channel before they cost anything.",
+      "liveVariant": "b"
     },
     "action-inspect": {
       "prompt": "A magnifier probe hovering over an opened assembly, sweeping its beam across the parts and catching one loose connection glinting out of alignment.",
       "alt": "Illustration asset for the action-inspect modifier lineage.",
       "status": "generated",
-      "bio": "Magnifier probe. Sweeps an opened assembly and catches the loose part before anyone reaches for a tool."
+      "bio": "Magnifier probe. Sweeps an opened assembly and catches the loose part before anyone reaches for a tool.",
+      "liveVariant": "b"
     },
     "action-analyze": {
       "prompt": "A separation column pulling a single mixed signal apart into distinct luminous strata, causes settling into layered bands, one anomalous band burning brighter.",
       "alt": "Illustration asset for the action-analyze modifier lineage.",
       "status": "generated",
-      "bio": "Separation column. One mixed signal goes in and causes settle into readable layers, evidence banded apart from assumption."
+      "bio": "Separation column. One mixed signal goes in and causes settle into readable layers, evidence banded apart from assumption.",
+      "liveVariant": "b"
     },
     "action-compare": {
       "prompt": "A twin-pan balance suspended in the dark holding two artifacts against the same measuring beam, the tipping difference clearly readable in its tilt.",
       "alt": "Illustration asset for the action-compare modifier lineage.",
       "status": "generated",
-      "bio": "Twin-pan balance. Both artifacts hang under the same measuring beam, so the tilt is an argument rather than a preference."
+      "bio": "Twin-pan balance. Both artifacts hang under the same measuring beam, so the tilt is an argument rather than a preference.",
+      "liveVariant": "b"
     },
     "action-create": {
       "prompt": "A fabricator arm assembling a finished form out of drifting component parts, the artifact taking shape in a bloom of cyan construction light.",
       "alt": "Illustration asset for the action-create modifier lineage.",
       "status": "generated",
-      "bio": "Fabricator arm. Pulls drifting components into a finished form, and inspects the artifact before letting go of it."
+      "bio": "Fabricator arm. Pulls drifting components into a finished form, and inspects the artifact before letting go of it.",
+      "liveVariant": "d"
     },
     "action-recommend": {
       "prompt": "A selector mechanism committing to one of several branching rails, the chosen track lighting up bright and continuous while the others go dark.",
       "alt": "Illustration asset for the action-recommend modifier lineage.",
       "status": "generated",
-      "bio": "Selector mechanism. It commits to one rail and lights it hot, leaving the unchosen tracks visible so the commitment can be argued with."
+      "bio": "Selector mechanism. It commits to one rail and lights it hot, leaving the unchosen tracks visible so the commitment can be argued with.",
+      "liveVariant": "b"
     },
     "action-verify": {
       "prompt": "A test rig running a finished component through a gauntlet of measuring gates, each gate lighting green as it passes, one gate still probing hard.",
       "alt": "Illustration asset for the action-verify modifier lineage.",
       "status": "generated",
-      "bio": "Test gauntlet. Every gate has to go green in order, and the edge cases get their own gate near the end."
+      "bio": "Test gauntlet. Every gate has to go green in order, and the edge cases get their own gate near the end.",
+      "liveVariant": "b"
     },
     "action-summarize": {
       "prompt": "A compression press reducing a tall stack of material into one dense bright wafer, the original volume ghosted behind at its true scale.",
       "alt": "Illustration asset for the action-summarize modifier lineage.",
       "status": "generated",
-      "bio": "Compression press. Reduces a tall stack to one bright wafer with the original volume ghosted behind it, so nothing goes quietly missing."
+      "bio": "Compression press. Reduces a tall stack to one bright wafer with the original volume ghosted behind it, so nothing goes quietly missing.",
+      "liveVariant": "b"
     },
     "action-research": {
       "prompt": "A deep-scan array fanning search beams into surrounding darkness, one distant return signal locking in bright while weaker returns fade.",
       "alt": "Illustration asset for the action-research modifier lineage.",
       "status": "generated",
-      "bio": "Deep-scan array. Fans beams into the dark and locks onto returns by strength, keeping what is known apart from what is only assumed."
+      "bio": "Deep-scan array. Fans beams into the dark and locks onto returns by strength, keeping what is known apart from what is only assumed.",
+      "liveVariant": "b"
     },
     "action-plan": {
       "prompt": "A sequencer laying ordered nodes along a track, dependency lines drawn between them, the next executable node lit and the blocked ones dimmed.",
       "alt": "Illustration asset for the action-plan modifier lineage.",
       "status": "generated",
-      "bio": "The sequencer. Ordered nodes, dependency lines drawn between them, and exactly one node lit as executable right now."
+      "bio": "The sequencer. Ordered nodes, dependency lines drawn between them, and exactly one node lit as executable right now.",
+      "liveVariant": "b"
     },
     "action-ideate": {
       "prompt": "A spark chamber throwing off many genuinely different forms at once, no two alike, a few of the strongest already drifting together into a cluster.",
       "alt": "Illustration asset for the action-ideate modifier lineage.",
       "status": "generated",
-      "bio": "Spark chamber. Throws off forms that are genuinely unlike each other, then marks the few strong enough to survive being tested."
+      "bio": "Spark chamber. Throws off forms that are genuinely unlike each other, then marks the few strong enough to survive being tested.",
+      "liveVariant": "b"
     },
     "action-explain": {
       "prompt": "An exploded-view projector unfolding a mechanism in mid-air, the parts separating along clean guide-lines so the workings between them become visible.",
       "alt": "Illustration asset for the action-explain modifier lineage.",
       "status": "generated",
-      "bio": "Exploded-view projector. Holds a mechanism apart along clean guide-lines until the reason for each part is obvious."
+      "bio": "Exploded-view projector. Holds a mechanism apart along clean guide-lines until the reason for each part is obvious.",
+      "liveVariant": "b"
     },
     "action-clarify": {
       "prompt": "A query beacon pulsing into a dark gap in a structure, its light outlining the exact shape of the missing piece rather than filling it in.",
       "alt": "Illustration asset for the action-clarify modifier lineage.",
       "status": "generated",
-      "bio": "Query beacon. Pulses into the gap and outlines the exact shape of the missing piece instead of guessing at it."
+      "bio": "Query beacon. Pulses into the gap and outlines the exact shape of the missing piece instead of guessing at it.",
+      "liveVariant": "b"
     },
     "format-info-card": {
       "prompt": "A single clean answer slab standing alone in the dark, its face flat and legible, no ornament and nothing stacked around it.",
       "alt": "Illustration asset for the format-info-card modifier lineage.",
       "status": "generated",
-      "bio": "One answer slab, flat-faced and legible, standing alone in the dark with nothing stacked on top of it."
+      "bio": "One answer slab, flat-faced and legible, standing alone in the dark with nothing stacked on top of it.",
+      "liveVariant": "b"
     },
     "format-key-points": {
       "prompt": "A rack of separated point-shards standing in a row, each one distinct and evenly lit, clear dark gaps holding them apart.",
       "alt": "Illustration asset for the format-key-points modifier lineage.",
       "status": "generated",
-      "bio": "A rack of point-shards, evenly lit, with real dark gaps between them so the eye has somewhere to land."
+      "bio": "A rack of point-shards, evenly lit, with real dark gaps between them so the eye has somewhere to land.",
+      "liveVariant": "b"
     },
     "format-summary": {
       "prompt": "A distillation vessel with the heaviest conclusion settled bright at the top and the supporting sediment layered below it in shadow.",
       "alt": "Illustration asset for the format-summary modifier lineage.",
       "status": "generated",
-      "bio": "Distillation vessel. The conclusion settles bright at the top and the supporting sediment layers beneath it in order."
+      "bio": "Distillation vessel. The conclusion settles bright at the top and the supporting sediment layers beneath it in order.",
+      "liveVariant": "b"
     },
     "format-sections": {
       "prompt": "A segmented column of stacked chambers, each chamber a distinct sealed volume with its own internal glow, the divisions between them crisp.",
       "alt": "Illustration asset for the format-sections modifier lineage.",
       "status": "generated",
-      "bio": "Segmented column. Each chamber is sealed and does one job, and the stacking order is the reading order."
+      "bio": "Segmented column. Each chamber is sealed and does one job, and the stacking order is the reading order.",
+      "liveVariant": "b"
     },
     "format-evidence": {
       "prompt": "Anchor lines running from a floating claim down to solid source cores below, each line taut and lit, one unanchored claim drifting loose.",
       "alt": "Illustration asset for the format-evidence modifier lineage.",
       "status": "generated",
-      "bio": "Anchor lines running from a floating claim down to solid cores. The one unanchored line is the entire point of the instrument."
+      "bio": "Anchor lines running from a floating claim down to solid cores. The one unanchored line is the entire point of the instrument.",
+      "liveVariant": "b"
     },
     "format-comparison": {
       "prompt": "A grid lattice aligning several items along the same measuring axes, the intersections where they diverge flaring brighter than the rest.",
       "alt": "Illustration asset for the format-comparison modifier lineage.",
       "status": "generated",
-      "bio": "Grid lattice. Aligns every item on the same axes and flares at the intersections where they actually diverge."
+      "bio": "Grid lattice. Aligns every item on the same axes and flares at the intersections where they actually diverge.",
+      "liveVariant": "c"
     },
     "format-next": {
       "prompt": "A launch rail with ordered ready-markers lit in sequence, the first one primed and glowing hot, the later ones waiting cooler down the line.",
       "alt": "Illustration asset for the format-next modifier lineage.",
       "status": "generated",
-      "bio": "Launch rail. Ready-markers lit in priority order, the first one primed and hot."
+      "bio": "Launch rail. Ready-markers lit in priority order, the first one primed and hot.",
+      "liveVariant": "b"
     },
     "format-length": {
       "prompt": "A precision caliper clamped around a body of luminous material, compressing it to an exact marked width, the trimmed excess venting away as vapor.",
       "alt": "Illustration asset for the format-length modifier lineage.",
       "status": "generated",
-      "bio": "Precision caliper. Clamps a body of material to an exact marked width and treats padding as material to remove."
+      "bio": "Precision caliper. Clamps a body of material to an exact marked width and treats padding as material to remove.",
+      "liveVariant": "b"
     },
     "format-tiers": {
       "prompt": "A stepped platform descending into the dark, the top step small and brilliantly lit, each lower step wider and dimmer with supporting depth.",
       "alt": "Illustration asset for the format-tiers modifier lineage.",
       "status": "generated",
-      "bio": "Stepped platform. The top step is small and brilliant; each one below is wider and dimmer, for readers who want to keep going."
+      "bio": "Stepped platform. The top step is small and brilliant; each one below is wider and dimmer, for readers who want to keep going.",
+      "liveVariant": "b"
     },
     "target-language": {
       "prompt": "A translator prism stepping a dense beam down through graded facets, the light emerging simpler and clearer at each stage without losing its color.",
       "alt": "Illustration asset for the target-language modifier lineage.",
       "status": "generated",
-      "bio": "Translator prism. Steps a dense beam down through graded facets until it emerges at the reader's level, and no further."
+      "bio": "Translator prism. Steps a dense beam down through graded facets until it emerges at the reader's level, and no further.",
+      "liveVariant": "b"
     },
     "target-voice": {
       "prompt": "A tone modulator with a resonating fork held in a field of register bands, the selected band ringing bright and steady across its whole length.",
       "alt": "Illustration asset for the target-voice modifier lineage.",
       "status": "generated",
-      "bio": "Tone modulator. One register band rings bright and holds from the first line to the last."
+      "bio": "Tone modulator. One register band rings bright and holds from the first line to the last.",
+      "liveVariant": "b"
     },
     "target-examples": {
       "prompt": "A projector casting small concrete miniature scenes into the air beneath a large abstract form, the miniatures sharp where the abstraction is vague.",
       "alt": "Illustration asset for the target-examples modifier lineage.",
       "status": "generated",
-      "bio": "A projector casting concrete miniatures beneath an abstract form, chosen so the detail that matters is the part you can see."
+      "bio": "A projector casting concrete miniatures beneath an abstract form, chosen so the detail that matters is the part you can see.",
+      "liveVariant": "b"
     },
     "target-decisions": {
       "prompt": "A decision console of weighted levers, each one linked by a taut line to the consequence it triggers further down the board.",
       "alt": "Illustration asset for the target-decisions modifier lineage.",
       "status": "generated",
-      "bio": "Decision console. Every lever runs a taut line to the consequence it triggers further down the board."
+      "bio": "Decision console. Every lever runs a taut line to the consequence it triggers further down the board.",
+      "liveVariant": "b"
     },
     "target-stance": {
       "prompt": "A stance dial set between a warm amber pole and a hard cold pole, the needle locked firmly at a chosen point and the chosen temperature washing the scene.",
       "alt": "Illustration asset for the target-stance modifier lineage.",
       "status": "generated",
-      "bio": "Stance dial, warm amber at one pole and hard cold at the other, needle locked at a chosen point and left there."
+      "bio": "Stance dial, warm amber at one pole and hard cold at the other, needle locked at a chosen point and left there.",
+      "liveVariant": "b"
     }
   },
   "archetypes": {
@@ -452,151 +524,176 @@
       "prompt": "A command table where a mountain of raw material has been distilled to one decision slab hovering at eye level under a spotlight, the source volume receding into darkness behind it.",
       "alt": "Illustration asset for the Executive summary archetype.",
       "status": "generated",
-      "bio": "A mountain of raw material distilled to one decision slab at eye level. What survives the distillation is what somebody actually has to decide."
+      "bio": "A mountain of raw material distilled to one decision slab at eye level. What survives the distillation is what somebody actually has to decide.",
+      "liveVariant": "b"
     },
     "creative-concept": {
       "prompt": "A concept forge with a luminous idea suspended in the shaping field, growing structure and a hard bright hook at its core while rough offcuts drift away.",
       "alt": "Illustration asset for the Creative concept archetype.",
       "status": "generated",
-      "bio": "The concept forge: an idea held in the shaping field until it grows structure and a hook hard enough to strike against."
+      "bio": "The concept forge: an idea held in the shaping field until it grows structure and a hook hard enough to strike against.",
+      "liveVariant": "b"
     },
     "note-taker": {
       "prompt": "A capture array turning a chaotic incoming stream of fragments into neat ordered tablets stacking themselves into a clean archive rack.",
       "alt": "Illustration asset for the Note taker archetype.",
       "status": "generated",
-      "bio": "Capture array. Chaotic fragments go in, ordered tablets stack themselves out, in the order they arrived and with nothing added."
+      "bio": "Capture array. Chaotic fragments go in, ordered tablets stack themselves out, in the order they arrived and with nothing added.",
+      "liveVariant": "b"
     },
     "message-email": {
       "prompt": "A comms relay composing one sealed transmission capsule, its tone-tuning ring glowing at the chosen register, ready to launch into a dark channel.",
       "alt": "Illustration asset for the Message & email archetype.",
       "status": "generated",
-      "bio": "Comms relay. One sealed capsule, its tone ring set to the register the recipient actually reads in."
+      "bio": "Comms relay. One sealed capsule, its tone ring set to the register the recipient actually reads in.",
+      "liveVariant": "b"
     },
     "prompt-improver": {
       "prompt": "A workbench where an old instruction core has been stripped down and rebuilt sharper, the discarded ambiguous parts laid out dark to one side.",
       "alt": "Illustration asset for the Prompt improver archetype.",
       "status": "generated",
-      "bio": "A stripped instruction core rebuilt sharper, with the discarded ambiguous parts left on the bench where you can see what went."
+      "bio": "A stripped instruction core rebuilt sharper, with the discarded ambiguous parts left on the bench where you can see what went.",
+      "liveVariant": "b"
     },
     "learning-guide": {
       "prompt": "A teaching orrery with a central idea at its heart and a guided path of illuminated waypoints circling it, worked examples orbiting close.",
       "alt": "Illustration asset for the Learning guide archetype.",
       "status": "generated",
-      "bio": "Teaching orrery. One idea at the centre and a guided path of waypoints circling it, the worked example always within reach."
+      "bio": "Teaching orrery. One idea at the centre and a guided path of waypoints circling it, the worked example always within reach.",
+      "liveVariant": "b"
     },
     "app-build-handoff": {
       "prompt": "A sealed blueprint capsule holding a complete self-contained plan, every layer visible through its shell, docked into an autonomous builder waiting to execute.",
       "alt": "Illustration asset for the App build handoff archetype.",
       "status": "generated",
-      "bio": "A sealed blueprint capsule, every layer visible through the shell, complete enough that whoever docks it never has to come back and ask."
+      "bio": "A sealed blueprint capsule, every layer visible through the shell, complete enough that whoever docks it never has to come back and ask.",
+      "liveVariant": "b"
     },
     "agent-skill": {
       "prompt": "A modular skill cartridge on a mounting rail, its trigger face lit, procedure rails and guardrail clamps visible along its length.",
       "alt": "Illustration asset for the Agent skill archetype.",
       "status": "generated",
-      "bio": "Skill cartridge on its mounting rail: trigger face lit, procedure rails seated, guardrail clamps closed before it is allowed to run."
+      "bio": "Skill cartridge on its mounting rail: trigger face lit, procedure rails seated, guardrail clamps closed before it is allowed to run.",
+      "liveVariant": "b"
     },
     "agent-gate": {
       "prompt": "A judgment gate arch scanning an artifact passing beneath it, a hard scanning plane sweeping the object and a verdict light holding at the top of the arch.",
       "alt": "Illustration asset for the Agent gate archetype.",
       "status": "generated",
-      "bio": "The judgment arch. Everything passing beneath is swept by a hard scanning plane, and the verdict is recorded whether or not anyone likes it."
+      "bio": "The judgment arch. Everything passing beneath is swept by a hard scanning plane, and the verdict is recorded whether or not anyone likes it.",
+      "liveVariant": "c"
     },
     "social-post": {
       "prompt": "A broadcast pod fitted with several interchangeable antenna heads, one selected and extended, its shaped signal already carrying out into the dark.",
       "alt": "Illustration asset for the Social post archetype.",
       "status": "generated",
-      "bio": "Broadcast pod with interchangeable heads. One is selected and extended, and the signal is shaped for that platform and no other."
+      "bio": "Broadcast pod with interchangeable heads. One is selected and extended, and the signal is shaped for that platform and no other.",
+      "liveVariant": "b"
     },
     "quick-explanation": {
       "prompt": "A compact answer beacon standing alone, one clear steady light, nothing around it and nothing between the viewer and the point.",
       "alt": "Illustration asset for the Quick explanation archetype.",
       "status": "generated",
-      "bio": "A compact answer beacon. One steady light, nothing around it, nothing between it and the reader."
+      "bio": "A compact answer beacon. One steady light, nothing around it, nothing between it and the reader.",
+      "liveVariant": "b"
     },
     "research-brief": {
       "prompt": "A balanced dossier suspended between two source pillars, confidence bands rendered as visible width around each finding, the uncertain ones deliberately wider.",
       "alt": "Illustration asset for the Research brief archetype.",
       "status": "generated",
-      "bio": "A dossier balanced between two source pillars, confidence rendered as visible width so the thin claims look thin."
+      "bio": "A dossier balanced between two source pillars, confidence rendered as visible width so the thin claims look thin.",
+      "liveVariant": "b"
     },
     "decision-advisor": {
       "prompt": "A weighing console with several options mounted on measured arms, one arm settling low and lighting bright as the recommendation commits.",
       "alt": "Illustration asset for the Decision advisor archetype.",
       "status": "generated",
-      "bio": "Weighing console. Options on measured arms, one settling low and lighting bright, the rest still hanging where they can be checked."
+      "bio": "Weighing console. Options on measured arms, one settling low and lighting bright, the rest still hanging where they can be checked.",
+      "liveVariant": "b"
     },
     "data-analysis": {
       "prompt": "A data core being read open, its contents fanning out into layered insight strata, one segment isolated and brought forward glowing.",
       "alt": "Illustration asset for the Data analysis archetype.",
       "status": "generated",
-      "bio": "A data core read open, its contents fanned into layered strata with one segment isolated and lit for the finding it carries."
+      "bio": "A data core read open, its contents fanned into layered strata with one segment isolated and lit for the finding it carries.",
+      "liveVariant": "b"
     },
     "risk-premortem": {
       "prompt": "A wreckage diorama being read in reverse, luminous failure lines running backward from the broken result to the small quiet cause that started it.",
       "alt": "Illustration asset for the Risk premortem archetype.",
       "status": "generated",
-      "bio": "A wreckage diorama read in reverse: failure lines running backward from the broken result to the decision that started it."
+      "bio": "A wreckage diorama read in reverse: failure lines running backward from the broken result to the decision that started it.",
+      "liveVariant": "b"
     },
     "writing-draft": {
       "prompt": "A text loom weaving a first continuous draft out of raw fiber, the fabric clean but still on the frame, edges deliberately unfinished.",
       "alt": "Illustration asset for the Writing draft archetype.",
       "status": "generated",
-      "bio": "The text loom mid-run. A continuous first draft, clean but still on the frame with its edges unfinished."
+      "bio": "The text loom mid-run. A continuous first draft, clean but still on the frame with its edges unfinished.",
+      "liveVariant": "b"
     },
     "rewrite-polish": {
       "prompt": "A polishing lathe refining an existing form, dull surface lifting away under the tool to reveal the same shape underneath, sharper and brighter.",
       "alt": "Illustration asset for the Rewrite & polish archetype.",
       "status": "generated",
-      "bio": "A polishing lathe. The dull surface lifts away to reveal the same shape underneath, sharper and the same size."
+      "bio": "A polishing lathe. The dull surface lifts away to reveal the same shape underneath, sharper and the same size.",
+      "liveVariant": "b"
     },
     "critique-review": {
       "prompt": "An inspection bay with an artifact held in restraints, prioritized flag-markers planted along it, the most serious one burning hottest.",
       "alt": "Illustration asset for the Critique & review archetype.",
       "status": "generated",
-      "bio": "Inspection bay. The artifact is held in restraints with flag-markers planted along it, the most serious one nearest the front."
+      "bio": "Inspection bay. The artifact is held in restraints with flag-markers planted along it, the most serious one nearest the front.",
+      "liveVariant": "b"
     },
     "presentation-outline": {
       "prompt": "A run of floating stage panels receding in sequence, each holding one clear shape, a bright throughline connecting them front to back.",
       "alt": "Illustration asset for the Presentation outline archetype.",
       "status": "generated",
-      "bio": "Stage panels receding in sequence, one clear shape each, with a bright throughline running from the first to the last."
+      "bio": "Stage panels receding in sequence, one clear shape each, with a bright throughline running from the first to the last.",
+      "liveVariant": "b"
     },
     "build-plan": {
       "prompt": "A project scaffold rising in ordered stages with milestone nodes locked at each level, dependency struts drawn taut between them.",
       "alt": "Illustration asset for the Project plan archetype.",
       "status": "generated",
-      "bio": "A scaffold rising in ordered stages, milestone nodes locked at each level and dependency struts drawn where they actually take load."
+      "bio": "A scaffold rising in ordered stages, milestone nodes locked at each level and dependency struts drawn where they actually take load.",
+      "liveVariant": "b"
     },
     "spec-prd": {
       "prompt": "A spec capsule with requirement plates locked around its core, each plate seated and sealed, tolerances etched as clean grooves in the metal.",
       "alt": "Illustration asset for the Spec / PRD archetype.",
       "status": "generated",
-      "bio": "Spec capsule with requirement plates seated and sealed around the core, tolerances etched where a builder will look for them."
+      "bio": "Spec capsule with requirement plates seated and sealed around the core, tolerances etched where a builder will look for them.",
+      "liveVariant": "b"
     },
     "coding": {
       "prompt": "A code fabricator writing a working component into being, structure knitting itself into place under the emitter head, test probes already touching the finished edge.",
       "alt": "Illustration asset for the Code implementation archetype.",
       "status": "generated",
-      "bio": "Code fabricator. Structure knits itself into place under the emitter, to the spec that was handed in rather than the one it would have preferred."
+      "bio": "Code fabricator. Structure knits itself into place under the emitter, to the spec that was handed in rather than the one it would have preferred.",
+      "liveVariant": "b"
     },
     "technical-troubleshoot": {
       "prompt": "A diagnostic bay with a machine opened up and one traced fault line glowing along its length, a repair clamp moving in toward the exact break.",
       "alt": "Illustration asset for the Debug & fix archetype.",
       "status": "generated",
-      "bio": "Diagnostic bay: the machine opened up, one traced fault line glowing along its length, and the repair clamp already moving."
+      "bio": "Diagnostic bay: the machine opened up, one traced fault line glowing along its length, and the repair clamp already moving.",
+      "liveVariant": "b"
     },
     "explain-code": {
       "prompt": "A walkthrough projector stepping through a mechanism one stage at a time, the active stage lit and moving while the rest of the path stays visible.",
       "alt": "Illustration asset for the Explain code archetype.",
       "status": "generated",
-      "bio": "Walkthrough projector, stepping a mechanism one stage at a time, the active stage lit while the rest waits its turn."
+      "bio": "Walkthrough projector, stepping a mechanism one stage at a time, the active stage lit while the rest waits its turn.",
+      "liveVariant": "c"
     },
     "extract-data": {
       "prompt": "An extractor drawing clean uniform structured shards out of raw unsorted ore, the finished shards racking themselves in perfect rows.",
       "alt": "Illustration asset for the Extract to data archetype.",
       "status": "generated",
-      "bio": "Extractor drawing clean uniform shards out of unsorted ore and racking them, identical and ready to be counted."
+      "bio": "Extractor drawing clean uniform shards out of unsorted ore and racking them, identical and ready to be counted.",
+      "liveVariant": "b"
     }
   },
   "grades": {
@@ -604,704 +701,832 @@
       {
         "prompt": "A survey drone holding a small tight pool of light around a single object, only the ground immediately beneath it visible and everything else swallowed by dark.",
         "alt": "Illustration asset for Situation Snapshot.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A survey drone with its pool widened to take in the nearby inputs it may use, a clean marked boundary edge drawn where the light stops.",
         "alt": "Illustration asset for Working Brief.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A survey drone lighting a broad field with stakeholder markers standing inside it and worn paths crossing the ground where things have already been tried.",
         "alt": "Illustration asset for Decision Context.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A survey drone fully deployed, its light thrown to the horizon so the entire terrain reads at once with nothing left guessed at in shadow.",
         "alt": "Illustration asset for Complete Operating Picture.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "context-evidence": [
       {
         "prompt": "An evidence spindle with claim cores mounted and accepted as given, the provenance filaments still coiled unused at the base of the rack.",
         "alt": "Illustration asset for Given As True.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "An evidence spindle with filaments run from the load-bearing claims down to a few solid source cores, the unsupported claims left dark.",
         "alt": "Illustration asset for Source Support.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An evidence spindle where each key claim is cross-braced by several converging filaments arriving from different cores.",
         "alt": "Illustration asset for Corroborated Sources.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An evidence spindle threaded end to end, conflicting filaments held deliberately apart and lit against each other, confidence readable in every strand.",
         "alt": "Illustration asset for Audit Trail.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       }
     ],
     "context-constraints": [
       {
         "prompt": "A pair of limiter clamps resting lightly at the edges of a working volume, barely engaged, holding only the stated exclusions.",
         "alt": "Illustration asset for Basic Limits.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "Four limiter clamps closed on a working volume, compressing it to a smaller practical footprint of time, tools, and budget.",
         "alt": "Illustration asset for Operating Limits.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "Hard steel limiter clamps locked tight while softer preference-markers sit visibly separate and loose beside them, the difference obvious.",
         "alt": "Illustration asset for Constraint Map.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A full cage of limiter clamps around a volume with stress readouts glowing at every joint and exception latches sprung along the frame.",
         "alt": "Illustration asset for Boundary Conditions.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "context-assumptions": [
       {
         "prompt": "A scaffold with a few translucent placeholder blocks plainly visible among the solid structure, simply shown rather than hidden.",
         "alt": "Illustration asset for Working Assumptions.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A scaffold where the load-bearing translucent blocks pulse with warning light, marking the ones that would change everything.",
         "alt": "Illustration asset for Assumption Check.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A scaffold where every translucent block carries its own base-plate and a consequence line running out from it.",
         "alt": "Illustration asset for Assumption Register.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A scaffold of translucent blocks ranked by height and brightness, tilt lines projecting how far the whole structure moves if each one fails.",
         "alt": "Illustration asset for Uncertainty Model.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "context-success": [
       {
         "prompt": "A simple calibration target ring with the needle resting quietly on it, one clear mark for what finished means.",
         "alt": "Illustration asset for Done Means.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An acceptance gauge locked into the green with the pass threshold scored sharply on its face.",
         "alt": "Illustration asset for Success Check.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A bank of acceptance gauges mounted together, pass zones lit green and failure zones marked hard in dark red.",
         "alt": "Illustration asset for Success Criteria.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A full instrument wall of graded measures, thresholds etched into each dial and the whole board reading out at once.",
         "alt": "Illustration asset for Evaluation Framework.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "context-exclusions": [
       {
         "prompt": "A diverter gate shunting a few marked items aside into a small dark holding bin while the rest of the flow continues.",
         "alt": "Illustration asset for No-Go List.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A diverter gate holding a clean lit line across the channel, the flow kept firmly on one side of it.",
         "alt": "Illustration asset for Scope Fence.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A diverter gate as a hard sealed barrier with rejected forms visibly pressed up against its face, unable to pass.",
         "alt": "Illustration asset for Anti-Goals.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A diverter gate firing actively, alarm light sweeping the channel, an escaping branch caught and turned back mid-diversion.",
         "alt": "Illustration asset for Drift Alarm.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       }
     ],
     "action-inspect": [
       {
         "prompt": "A magnifier probe following a single pointed line across an opened assembly, one indicated area lit and the rest dim.",
         "alt": "Illustration asset for Guided Review.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A magnifier probe stepping across marked checkpoints in sequence along an opened assembly, each one lighting as it clears.",
         "alt": "Illustration asset for Checklist Inspection.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A magnifier probe roaming an opened assembly under its own control, several gaps and conflicts flagged where it has been.",
         "alt": "Illustration asset for Independent Inspection.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An opened assembly fully disassembled under a bank of magnifier probes, every part lit and measured at once.",
         "alt": "Illustration asset for Full Audit.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-analyze": [
       {
         "prompt": "A separation column resolving a mixed signal into two or three clean luminous bands.",
         "alt": "Illustration asset for Pattern Read.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "Two separation columns held side by side, a candidate band-pattern in each, the rival readings compared directly.",
         "alt": "Illustration asset for Rival Explanations.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A separation column driven harder until the assumptions inside crack apart into visible sub-bands.",
         "alt": "Illustration asset for Critical Analysis.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A separation column run to its extremes, hunting through the residue for the one disconfirming trace that breaks the pattern.",
         "alt": "Illustration asset for Adversarial Analysis.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-compare": [
       {
         "prompt": "A twin-pan balance with two artifacts simply laid out on its pans, the beam still level, differences visible but unjudged.",
         "alt": "Illustration asset for Options on the Table.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A twin-pan balance with a measuring beam sighted across both artifacts against marked criteria etched on the frame.",
         "alt": "Illustration asset for Framed Comparison.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A twin-pan balance with calibrated weights added along its arms, the tilt now decisive rather than incidental.",
         "alt": "Illustration asset for Weighted Comparison.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A full array of balance pans on scored arms, every artifact measured against every axis, a verdict light burning above the winner.",
         "alt": "Illustration asset for Decision Matrix.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-create": [
       {
         "prompt": "A fabricator arm holding a rough unfinished armature, open questions sparking at the points where a decision is still needed.",
         "alt": "Illustration asset for Draft Together.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A fabricator arm building precisely along a projected plan, following its guide-lines without deviation.",
         "alt": "Illustration asset for Build to Plan.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A fabricator arm working with no plan projected, filling the silent gaps with its own decisions as the form completes.",
         "alt": "Illustration asset for Independent Build.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A finished artifact released from the fabricator cradle, verified and lit, the arm already retracting behind it.",
         "alt": "Illustration asset for End-to-End Delivery.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-recommend": [
       {
         "prompt": "A selector mechanism with several branching rails all lit equally, none chosen, each simply shown as possible.",
         "alt": "Illustration asset for Directions.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A selector mechanism with one rail selected and the constraint gates it fits standing open along its length.",
         "alt": "Illustration asset for Practical Pick.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A selector mechanism with the chosen rail blazing, the runner-up dimmed but still visible beside it, a risk flare marked on the choice.",
         "alt": "Illustration asset for Backed Recommendation.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A selector mechanism with the switch thrown hard, a single rail blazing full length and every alternative retracted into the dark.",
         "alt": "Illustration asset for Full Conviction.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-verify": [
       {
         "prompt": "A test rig running a component through one quick gate, an obvious flaw catching in the beam.",
         "alt": "Illustration asset for Sanity Pass.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A test rig with each gate lighting pass or fail in turn as the component travels the line.",
         "alt": "Illustration asset for Criteria Check.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A test rig pushing a component past its normal load, the edges and joints glowing hot where they strain.",
         "alt": "Illustration asset for Stress Test.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A test rig turned hostile, attacking the component from every side at once like a hunting adversary.",
         "alt": "Illustration asset for Red Team.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-summarize": [
       {
         "prompt": "A compression press lifting a few key points cleanly out of a tall stack of material.",
         "alt": "Illustration asset for Key Points Pull.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A compression press reducing a stack evenly, the original proportions still readable in the compressed slab.",
         "alt": "Illustration asset for Faithful Summary.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A compression press with the decision-critical layer pulled bright to the top and the remainder crushed thin beneath it.",
         "alt": "Illustration asset for Decision Summary.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "A compression press yielding one brilliant dense wafer, the enormous source volume behind it only a faint ghost.",
         "alt": "Illustration asset for Executive Distillation.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-research": [
       {
         "prompt": "A deep-scan array pointed at a few supplied cores, the dark gaps between them plainly marked and unfilled.",
         "alt": "Illustration asset for Supplied Sources.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A deep-scan array firing narrow targeted beams into specific gaps, each return tagged where it came from.",
         "alt": "Illustration asset for Targeted Lookup.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A deep-scan array sweeping wide across open darkness on its own initiative, weighing the returns it finds.",
         "alt": "Illustration asset for Open Research.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A deep-scan array with several beams converging to corroborate one distant return, confidence rings tightening around the lock.",
         "alt": "Illustration asset for Deep Investigation.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       }
     ],
     "action-plan": [
       {
         "prompt": "A sequencer track with a few nodes set loosely along it in a sensible order.",
         "alt": "Illustration asset for Rough Outline.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A sequencer track with ordered nodes, dependency lines drawn taut between them and one risk flare burning.",
         "alt": "Illustration asset for Sequenced Plan.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A sequencer track phased into grouped stages with milestone gates and verification checks standing between them.",
         "alt": "Illustration asset for Delivery Plan.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A sequencer track fully built out and running itself, every node firing in order with no operator anywhere in the frame.",
         "alt": "Illustration asset for Executable Program.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-ideate": [
       {
         "prompt": "A spark chamber throwing off a small handful of distinct starting forms.",
         "alt": "Illustration asset for Quick Options.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A spark chamber flinging many genuinely different shapes wide, no two alike anywhere in the spread.",
         "alt": "Illustration asset for Divergent Set.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "A spark chamber mid-burst with the strongest few forms already pulled together into a lit converging cluster.",
         "alt": "Illustration asset for Explore and Converge.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A spark chamber showing its full spectrum from safe compact forms to wild irregular ones, ranked along a lit gradient.",
         "alt": "Illustration asset for Creative Sweep.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-explain": [
       {
         "prompt": "An exploded-view projector showing a single part in isolation, the rest of the mechanism still folded shut.",
         "alt": "Illustration asset for Direct Answer.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An exploded-view projector unfolding parts one at a time along a lit path, each step following from the one before.",
         "alt": "Illustration asset for Guided Walkthrough.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An exploded-view projector with the mechanism fully open, the hidden linkage exposed and one trap-point flagged bright.",
         "alt": "Illustration asset for Deep Explanation.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "An exploded-view projector with everything unfolded and further branches still opening outward at the edges of the frame.",
         "alt": "Illustration asset for Full Teaching Pass.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "action-clarify": [
       {
         "prompt": "A query beacon firing many pulses in patient batches into a dark gap, its outline almost completely mapped by the returns.",
         "alt": "Illustration asset for Full Interview.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A query beacon still pulsing into a gap that is nearly closed, only a thin sliver of unknown shape left dark.",
         "alt": "Illustration asset for 95% Confidence Check.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A query beacon sending one single hard pulse into the one gap that actually blocks the path forward.",
         "alt": "Illustration asset for Blocking Questions Only.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A query beacon gone dark, the gap bridged instead by a placed assumption block with a bright log tag fixed to its face.",
         "alt": "Illustration asset for Assume & Log.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-info-card": [
       {
         "prompt": "A single answer slab standing bare in the dark, its face plain and unornamented.",
         "alt": "Illustration asset for Plain Answer.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A single answer slab tightened down, its essentials arranged in one clean scannable block.",
         "alt": "Illustration asset for Answer Card.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A thicker answer slab with context strata visible in its cut edge, layered beneath the face.",
         "alt": "Illustration asset for Information Brief.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A substantial reference monolith with caveat notches cut into its margin and worked examples inset along its side.",
         "alt": "Illustration asset for Reference Piece.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-key-points": [
       {
         "prompt": "A rack holding a few point-shards leaning loosely, unaligned but separate.",
         "alt": "Illustration asset for Loose Bullets.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A rack of point-shards clustered into labeled groups, related shards standing together.",
         "alt": "Illustration asset for Grouped Points.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A full rack of point-shards arranged into clearly divided labeled sections.",
         "alt": "Illustration asset for Sectioned Points.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A rack of uniform atomic point-shards, each identical in size with a tick-notch cut into its head.",
         "alt": "Illustration asset for Checklist Discipline.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-summary": [
       {
         "prompt": "A distillation vessel holding one bright drop suspended at the very top.",
         "alt": "Illustration asset for One-Liner.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A distillation vessel with a small clear band of summary floating above the settled sediment.",
         "alt": "Illustration asset for Quick Summary.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A distillation vessel with a thick lit layer of findings and an implication channel running off it toward a marked move.",
         "alt": "Illustration asset for Executive Summary.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A sealed self-contained distillation vessel, complete on its own, needing nothing outside its own glass.",
         "alt": "Illustration asset for Standalone Abstract.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-sections": [
       {
         "prompt": "A mostly continuous column with only one or two divisions cut where they genuinely help.",
         "alt": "Illustration asset for Natural Flow.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A column divided into evenly spaced chambers, each one distinct and separately lit.",
         "alt": "Illustration asset for Clear Sections.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A column of chambers in a fixed ordered stack, every chamber present and none skipped.",
         "alt": "Illustration asset for Set Sequence.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A column machined to an exact template, chamber seams flush and sealed, nothing added and nothing dropped.",
         "alt": "Illustration asset for Locked Template.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-evidence": [
       {
         "prompt": "A floating claim with a couple of anchor lines dropped to the strongest source cores below it.",
         "alt": "Illustration asset for Source Notes.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "Several floating claims each tethered inline to its own source core, lines short and taut.",
         "alt": "Illustration asset for Linked Sources.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "Anchor lines rendered at visible thicknesses, each strand's width showing the weight of evidence it carries.",
         "alt": "Illustration asset for Evidence Notes.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "Every claim anchored to a core, with inference lines rendered distinctly as dashed strands among the solid ones.",
         "alt": "Illustration asset for Citation Record.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-comparison": [
       {
         "prompt": "Several alternatives standing separated in the dark, clearly apart from each other but with no grid drawn yet.",
         "alt": "Illustration asset for Option Notes.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A compact grid lattice with the alternatives placed on it and the key measuring axes lit.",
         "alt": "Illustration asset for Comparison Table.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A grid lattice with criteria explicit along its edges and the winning row glowing across its full width.",
         "alt": "Illustration asset for Decision Table.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A dense grid lattice of weighted cells with scored intersections and a ranked verdict column burning down one side.",
         "alt": "Illustration asset for Evaluation Matrix.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-next": [
       {
         "prompt": "A launch rail with a single marker primed and glowing hot at its head.",
         "alt": "Illustration asset for Next Move.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A launch rail with a short ordered run of markers lit in sequence down its length.",
         "alt": "Illustration asset for Next Steps.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "A launch rail with markers ranked by heat, owner tags clipped to the hottest ones.",
         "alt": "Illustration asset for Prioritized Actions.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A launch rail fully loaded and released, running its whole sequence with no operator present to drive it.",
         "alt": "Illustration asset for Execution Handoff.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-length": [
       {
         "prompt": "A precision caliper clamped hard on a body of luminous material, a heavy offcut venting away as vapor.",
         "alt": "Illustration asset for Tight Budget.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A precision caliper holding material to a single dense measure, compact and fully packed.",
         "alt": "Illustration asset for One Screen.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A precision caliper opened to the material's natural width, the space spent on substance rather than padding.",
         "alt": "Illustration asset for Room to Explain.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A precision caliper opened wide but stopping exactly at the material's true edge, complete with nothing added beyond it.",
         "alt": "Illustration asset for Complete Treatment.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "format-tiers": [
       {
         "prompt": "A stepped platform with one small brilliantly lit top step and the depth below it only suggested in shadow.",
         "alt": "Illustration asset for Essentials First.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A stepped platform of three clean descending steps, each one clearly separated from the next.",
         "alt": "Illustration asset for Three Tiers.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A stepped platform of three labeled steps with every item visibly assigned to one of them.",
         "alt": "Illustration asset for Tiered Sections.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A strictly machined terrace of tiers with hard edges, nothing resting anywhere outside the hierarchy.",
         "alt": "Illustration asset for Locked Tier Hierarchy.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "target-language": [
       {
         "prompt": "A translator prism stepping its beam all the way down to the simplest broadest facet, emerging plain and unhurried.",
         "alt": "Illustration asset for First Contact.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A translator prism holding a clear middle facet, unfamiliar terms visibly unpacked as the light enters.",
         "alt": "Illustration asset for Plain Language.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A translator prism running at standard density, only the most obscure facets clarified along the path.",
         "alt": "Illustration asset for Working Vocabulary.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A translator prism passed straight through undiluted, the beam leaving at full technical density.",
         "alt": "Illustration asset for Expert Shorthand.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "target-voice": [
       {
         "prompt": "A tone modulator with its fork ringing loose and natural, the band warm and conversational.",
         "alt": "Illustration asset for Straight Talk.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A tone modulator holding a calm even band without ornament or flourish.",
         "alt": "Illustration asset for Clear Neutral.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A tone modulator holding a polished precise band, its edges clean and deliberate.",
         "alt": "Illustration asset for Professional Voice.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "A tone modulator holding a rigid disciplined band exactly on its mark, formal and unwavering.",
         "alt": "Illustration asset for Formal Register.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "target-examples": [
       {
         "prompt": "A projector casting one familiar homely miniature scene beneath a large abstract form.",
         "alt": "Illustration asset for Everyday Analogy.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A projector carrying a single miniature scene all the way through from start to finish.",
         "alt": "Illustration asset for Worked Example.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A projector casting realistic miniature scenes with their messy irregular detail deliberately left in.",
         "alt": "Illustration asset for Domain Example.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A projector placing miniature scenes right at the boundary where the larger rule visibly breaks down.",
         "alt": "Illustration asset for Edge Case.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "target-decisions": [
       {
         "prompt": "A decision console with one lever highlighted and the input it still needs lit beside it.",
         "alt": "Illustration asset for Next Decision.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A decision console with its levers labeled by the action each one enables further down the board.",
         "alt": "Illustration asset for Actionable Framing.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "c"
       },
       {
         "prompt": "A decision console of paired levers, each pair showing what is gained against what is given up.",
         "alt": "Illustration asset for Tradeoff Brief.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A decision console with the chosen lever locked in place and its accepted consequences recorded along the board.",
         "alt": "Illustration asset for Decision Record.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ],
     "target-stance": [
       {
         "prompt": "A stance dial with the needle at the warm amber pole, the scene washed in soft encouraging light.",
         "alt": "Illustration asset for Warm & Encouraging.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A stance dial with the needle centered, the light even and matter-of-fact with no lean either way.",
         "alt": "Illustration asset for Even & Matter-of-Fact.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "d"
       },
       {
         "prompt": "A stance dial with the needle pushed toward the cold pole, the light hard, clear, and unsoftened.",
         "alt": "Illustration asset for Candid & Direct.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       },
       {
         "prompt": "A stance dial with the needle locked hard at the cold pole, the light sharp and absolute across the whole frame.",
         "alt": "Illustration asset for Authoritative & Decisive.",
-        "status": "generated"
+        "status": "generated",
+        "liveVariant": "b"
       }
     ]
   },
@@ -1310,7 +1535,8 @@
       "prompt": "A blank preset core resting in an open forge cradle, its mounting rails and empty slots cut and ready, a faint cyan charge already running through the unfilled frame.",
       "alt": "Illustration for a saved custom preset.",
       "status": "generated",
-      "bio": "An empty forge cradle, rails cut and slots open: the shape of a preset you have not made yet."
+      "bio": "An empty forge cradle, rails cut and slots open: the shape of a preset you have not made yet.",
+      "liveVariant": "b"
     }
   }
 }
