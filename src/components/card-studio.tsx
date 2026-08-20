@@ -680,8 +680,19 @@ export function CardStudio({
       <ol className="card-art-rows">
         {visible.map((entry) => {
           const isActive = entry.key === activeKey;
-          const chosen = preview[entry.key] ?? entry.variants[0]?.id ?? null;
+          // Only an explicit click chooses a variant. This used to default to
+          // variants[0], so a card nobody had clicked showed variant "a" under
+          // the words "How it reads on the card" - while the live image was
+          // usually a later variant. The panel contradicted the row's own
+          // thumbnail and read as "the wrong art is on this card" (owner,
+          // 2026-08-20). With no choice made, the preview shows what IS live.
+          const chosen = preview[entry.key] ?? null;
           const thumb = thumbnailFor(entry);
+          const liveUrl =
+            entry.status === "generated" ? `${entry.target}?v=${revision}` : null;
+          const previewUrl = chosen
+            ? `${variantUrl(loadedTheme, entry.key, chosen)}&v=${revision}`
+            : liveUrl;
           const bioDraft = bioDrafts[entry.key] ?? entry.bio;
 
           return (
@@ -969,12 +980,12 @@ export function CardStudio({
                             ))}
                           </div>
 
-                          {chosen ? (
+                          {previewUrl ? (
                             <div className="card-art-chosen">
                               <div className="card-art-card-preview">
                                 <div className="lineage-card is-selected">
                                   <span className="lineage-card-topline">
-                                    <span>Preview</span>
+                                    <span>{chosen ? "Preview" : "On the card"}</span>
                                     <span>
                                       {String(entry.sequence).padStart(3, "0")}
                                     </span>
@@ -984,16 +995,21 @@ export function CardStudio({
                                     <img
                                       className="card-illustration-image"
                                       alt=""
-                                      src={`${variantUrl(loadedTheme, entry.key, chosen)}&v=${revision}`}
+                                      src={previewUrl}
                                     />
                                   </span>
                                   <span className="lineage-card-copy">
                                     <strong>{entry.name}</strong>
                                   </span>
                                 </div>
-                                <small>How it reads on the card</small>
+                                <small>
+                                  {chosen
+                                    ? `Variant ${chosen} — not on the card yet`
+                                    : "This is the live image"}
+                                </small>
                               </div>
 
+                              {chosen ? (
                               <div className="card-art-chosen-actions">
                                 <button
                                   className="button button-primary"
@@ -1031,6 +1047,7 @@ export function CardStudio({
                                   Delete variant
                                 </button>
                               </div>
+                              ) : null}
                             </div>
                           ) : null}
                         </div>
