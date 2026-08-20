@@ -94,7 +94,11 @@ reached `Object.prototype` and 500'd instead of 400'ing. One security
 finding is **NOT** applied and needs Sean's consent (below).
 
 Health: `typecheck` · `lint` · `test` (150) · `data:validate` ·
-`check:standards` · `check:security` all green.
+`check:standards` · `check:security` all green. **Pushed and deployed** —
+production is Ready on `digi-tools-aixr.vercel.app`, verified serving the
+gallery art, with `/studio/picture` and `/api/card-art` correctly 404 there.
+The first deploy attempt failed (function-size ceiling; see Runbook →
+Deploys) and was fixed in `cbbcd35`.
 
 **Owed from Sean:**
 - **Feel the dock drag with a real mouse.** The mechanics are now verified in
@@ -125,6 +129,16 @@ Health: `typecheck` · `lint` · `test` (150) · `data:validate` ·
   model including the world picker; §2 the shell contract.
 - **Checks:** `npm run typecheck` · `lint` · `test` · `data:validate` ·
   `check:standards && check:security`.
+- **Deploys (Vercel, git-integrated on `main`).** `public/card-art` is 264MB
+  across four packs and grows with every art session. The Card Studio's
+  endpoint builds paths under it, so Next's tracer would pull the whole tree
+  into that one serverless function — which broke the 2026-08-20 production
+  deploy at 266MB against a 250MB ceiling. `next.config.ts`'s
+  `outputFileTracingExcludes` keeps both art trees out of that bundle; the
+  images still ship as ordinary static assets. **If a future pack breaks the
+  deploy again, read the failure carefully** — the build itself passed and
+  only the deploy step failed, so `npm run build` locally would have looked
+  fine. `npx vercel inspect --logs <url>` is how to get the real reason.
 - **Authoring:** `/studio/cards` (CRAFT) and `/studio/picture` (PICTURE) —
   development-only, 404 in production, require a loopback Host. The picture
   studio has no Card tab: that deck's catalog stays script-managed.
