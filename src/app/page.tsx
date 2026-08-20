@@ -32,6 +32,26 @@ export default function HomePage() {
           image models, sketch architectures, edit images and vectors, and
           browse your skill stack. Everything stays in your browser.
         </p>
+        <p className="welcome-links">
+          <a
+            href="https://github.com/seanguadron/digi-tools-platform"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            View the source on GitHub
+          </a>
+          <span aria-hidden="true">·</span>
+          <span>
+            Created by{" "}
+            <a
+              href="https://seancreates.com"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Sean Guadron
+            </a>
+          </span>
+        </p>
       </header>
 
       <div className="home-sections">

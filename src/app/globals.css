@@ -421,6 +421,27 @@ a {
   text-wrap: pretty;
 }
 
+/* Source and author, under the intro. Quieter than the tool sections below
+   it - these are credits, not a call to action. */
+.welcome-intro > p.welcome-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.86rem;
+}
+
+.welcome-links a {
+  color: var(--brand-cyan-text);
+  text-decoration-color: color-mix(in oklch, var(--brand-cyan) 45%, transparent);
+  text-underline-offset: 3px;
+}
+
+.welcome-links a:hover {
+  text-decoration-color: var(--brand-cyan);
+}
+
 .home-sections {
   display: grid;
   border-top: 1px solid var(--border);
