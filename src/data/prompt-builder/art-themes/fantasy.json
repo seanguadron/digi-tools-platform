@@ -15,35 +15,40 @@
       "alt": "Fantasy illustration for the Context letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "Everything the answer is allowed to stand on, and the lantern-lit edge where the known world stops.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "R": {
       "prompt": "Role. A rank of hooded champions standing in shadow along a great hall, one stepping forward into full lantern light, the specialist's regalia and weapon catching the flame.",
       "alt": "Fantasy illustration for the Role letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "One champion called forward from the line, because the hardest part of the quest needs exactly their craft.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "A": {
       "prompt": "Action. The moment of commitment: a great enchanted warhammer driving down onto white-hot metal, sparks blooming off the anvil, the strike already past the point of return.",
       "alt": "Fantasy illustration for the Action letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The swing already falling. Everything before this was talk.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "F": {
       "prompt": "Format. A master smith's stone mold closing over molten gold and pressing it into one exact ceremonial form, a clean shaped casting emerging from the formless glow.",
       "alt": "Fantasy illustration for the Format letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The shape the answer arrives in. Gold takes the form of its mold, not its crucible.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "T": {
       "prompt": "Target audience. A lone figure at a high tower window at night, lit from the front by the glow of a signal-fire on the far ridge, the whole scene built around who the message is for.",
       "alt": "Fantasy illustration for the Target audience letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "Every message is shaped by its reader. This beacon is lit for a single window.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "roles": {
@@ -52,245 +57,280 @@
       "alt": "Fantasy illustration asset for the Researcher role.",
       "status": "generated",
       "bio": "She has read every version of the story. She keeps the one the evidence agrees with.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "analyst": {
       "prompt": "An arcanist standing inside a suspended lattice of scrying threads, pulling two conflicting strands apart with both hands so the true pattern resolves, the outlier knots burning brightest.",
       "alt": "Fantasy illustration asset for the Analyst role.",
       "status": "generated",
       "bio": "Hand him tangled omens and he hands back the one thread that matters.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "strategist": {
       "prompt": "A war-marshal over a darkened campaign table, three glowing route-markers arcing across the carved terrain, one hand hovering to commit while the other roads dim.",
       "alt": "Fantasy illustration asset for the Strategist role.",
       "status": "generated",
       "bio": "Three roads to the same keep. She has already buried the two that fail.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "historian": {
       "prompt": "A chronicler at a towering shelf of chained volumes, drawing a single luminous timeline ribbon out of the stacks, the older centuries dimmer and deeper behind.",
       "alt": "Fantasy illustration asset for the Historian role.",
       "status": "generated",
       "bio": "Ask him what happened and he asks which century you want to start in.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "fact-checker": {
       "prompt": "A truthseer holding a sworn testimony scroll in a verification stand, threads of light running from its wax seal toward distant source relics, some locking solid and others guttering unresolved.",
       "alt": "Fantasy illustration asset for the Fact-checker role.",
       "status": "generated",
       "bio": "A claim is a guest in her hall until its seal holds. Then it may sit.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "synthesizer": {
       "prompt": "A rune-weaver at a great loom, braiding many separate glowing threads into one strong cord, the strands that will not blend left standing visibly apart.",
       "alt": "Fantasy illustration asset for the Synthesizer role.",
       "status": "generated",
       "bio": "From nine tellings, one rope. The frayed ends are shown, not hidden.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "explainer-educator": {
       "prompt": "A scholar unfolding a clockwork orrery into a floating exploded lesson, the pieces separating along clean golden guide-arcs, one hand steadying the sequence.",
       "alt": "Fantasy illustration asset for the Explainer / Educator role.",
       "status": "generated",
       "bio": "He takes the machine apart slowly enough that you believe you could have done it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "comparative-reviewer": {
       "prompt": "A critical examiner between two suspended relics in a testing shrine, probing beams playing over both, hairline flaws glowing where each one is weakest.",
       "alt": "Fantasy illustration asset for the Critical Reviewer role.",
       "status": "generated",
       "bio": "Two masterworks enter her shrine. Both leave with their flaws named.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "developer": {
       "prompt": "An artificer wrist-deep in an open golem chassis, seating one new rune-cog into place while the surrounding mechanism lights up to accept it.",
       "alt": "Fantasy illustration asset for the Developer role.",
       "status": "generated",
       "bio": "The golem takes the new part like a heart. That is the craft.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "technical-troubleshooter": {
       "prompt": "A siege-mechanist tracing a fault through a war-engine's exposed workings by wand-light, one dark break in an otherwise glowing chain, the probe held at the exact point of failure.",
       "alt": "Fantasy illustration asset for the Technical Troubleshooter role.",
       "status": "generated",
       "bio": "The engine lies about everything except where it hurts.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "systems-designer": {
       "prompt": "An arch-architect inside a hovering model of a citadel, moving whole wings and aqueducts into relation with each other, supply lines drawn as light between them.",
       "alt": "Fantasy illustration asset for the Systems Designer role.",
       "status": "generated",
       "bio": "He designs the castle and the river that feeds it, or he designs a ruin.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "workflow-architect": {
       "prompt": "A canal-wright above a run of glowing millraces, rerouting a stalled channel so the current runs clean, the old bottleneck dark and bypassed beside it.",
       "alt": "Fantasy illustration asset for the Workflow Architect role.",
       "status": "generated",
       "bio": "Water does not argue. If the work jams, the channel was wrong.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "ux-ui-advisor": {
       "prompt": "An armorer testing a sword's grip in a gauntleted hand, heat-bloom showing where the reach fights the wielder, a cleaner hilt ghosted over the old one.",
       "alt": "Fantasy illustration asset for the UX / UI Advisor role.",
       "status": "generated",
       "bio": "If the hero has to think about the hilt, the hilt has failed.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "data-analyst": {
       "prompt": "A diviner suspended in a drifting field of counted stars, cupping the cluster where the signal gathers, sparse noise dimming away at the edges.",
       "alt": "Fantasy illustration asset for the Data Analyst role.",
       "status": "generated",
       "bio": "She counts what the kingdom would rather feel. The tally wins.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "qa-test-engineer": {
       "prompt": "A proof-master deliberately driving a siege engine past its limits in a walled proving yard, the exact failure point flaring bright as the timber gives.",
       "alt": "Fantasy illustration asset for the QA / Test Engineer role.",
       "status": "generated",
       "bio": "Better it breaks in his yard than on your wall.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "security-reviewer": {
       "prompt": "A breach-warden probing a shimmering ward-wall from outside, one hairline seam lighting up under the probe, the rest of the barrier holding dark and solid.",
       "alt": "Fantasy illustration asset for the Security Reviewer role.",
       "status": "generated",
       "bio": "She storms the castle nightly so that no one else ever can.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "writer": {
       "prompt": "A scribe at a writing loom, drawing one clean line of luminous thread out of raw formless wool-light, the finished passages hanging in ordered rows behind.",
       "alt": "Fantasy illustration asset for the Writer role.",
       "status": "generated",
       "bio": "First the thread, then the tapestry. He does not dye what is not yet spun.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "editor": {
       "prompt": "An illuminator over a manuscript slab with a fine bone knife, lifting excess material away in clean curls, the strong structure beneath left standing and lit.",
       "alt": "Fantasy illustration asset for the Editor role.",
       "status": "generated",
       "bio": "She cuts until only the story is left standing, and grieves nothing she removes.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "copywriter": {
       "prompt": "A herald tuning a great signal-horn down to one sharp focused note, the wide scattered call collapsing into a single bright directed voice.",
       "alt": "Fantasy illustration asset for the Copywriter role.",
       "status": "generated",
       "bio": "One horn, one note, aimed at one gate.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "rewriter": {
       "prompt": "A reforge-smith melting a bent blade and recasting it in a cleaner mold, the original silhouette ghosted in the steam so nothing of its purpose is lost.",
       "alt": "Fantasy illustration asset for the Rewriter role.",
       "status": "generated",
       "bio": "Same steel, truer edge.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "pitch-strategist": {
       "prompt": "An orator at the head of a torchlit hall, raising a rising arc of light from grievance to proof, thrown objection-bolts breaking against it as it climbs.",
       "alt": "Fantasy illustration asset for the Pitch Strategist role.",
       "status": "generated",
       "bio": "He builds the argument like a bridge and walks the council across it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "presentation-slide-structurer": {
       "prompt": "A pageant-master sequencing floating banner-panels into one ordered procession, each banner holding a single clear emblem, the line receding into the dark.",
       "alt": "Fantasy illustration asset for the Presentation Designer role.",
       "status": "generated",
       "bio": "One banner, one idea, in the order a crowd can march to.",
-      "liveVariant": "c"
+      "liveVariant": "c",
+      "liveRev": 1787233908540
     },
     "creative-director": {
       "prompt": "A guildmaster at a scrying rig projecting several genuinely different visions at once, each a distinct silhouette in its own smoke, one hand raised toward the boldest.",
       "alt": "Fantasy illustration asset for the Creative Director role.",
       "status": "generated",
       "bio": "A dozen futures audition. She hires one and steals the best scene from each.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "concept-developer": {
       "prompt": "A concept-alchemist growing a raw luminous seed into a structured crystal inside a glass shaping-vessel, the hook of the idea hardening bright at its core.",
       "alt": "Fantasy illustration asset for the Concept Developer role.",
       "status": "generated",
       "bio": "Ideas arrive soft. They leave with a spine.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "brainstorming-partner": {
       "prompt": "A conjurer releasing a swarm of divergent wisp-sparks from an opened reliquary, every spark a different shape, the strongest few already braiding together.",
       "alt": "Fantasy illustration asset for the Brainstorming Partner role.",
       "status": "generated",
       "bio": "A hundred sparks, no two alike. The fire chooses later.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "prompt-engineer": {
       "prompt": "A spell-wright tuning a glowing incantation core on a runed workbench, ambiguity venting off as dark vapor while the charm settles into a clean stable pulse.",
       "alt": "Fantasy illustration asset for the Prompt Engineer role.",
       "status": "generated",
       "bio": "A vague wish is a curse. He files them into instructions.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "tutor": {
       "prompt": "A patient sage guiding a student's hand to the next rung of a rising ladder of lantern light, the rungs already climbed still glowing warm below.",
       "alt": "Fantasy illustration asset for the Tutor role.",
       "status": "generated",
       "bio": "One rung at a time, and never her hand doing the climbing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "curriculum-designer": {
       "prompt": "A way-builder laying a sequenced path of stepping-stones across a dark chasm, each stone locking into the last, waypoint braziers marking mastery.",
       "alt": "Fantasy illustration asset for the Curriculum Designer role.",
       "status": "generated",
       "bio": "The path is the lesson. Every stone assumes the one before it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "mentor": {
       "prompt": "A grey-bearded knight beside a young squire at a cliff overlook, pointing out one specific pass through the valley below rather than the whole horizon.",
       "alt": "Fantasy illustration asset for the Mentor role.",
       "status": "generated",
       "bio": "He has walked the wrong roads so the squire only ever hears about them.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "consultant": {
       "prompt": "A traveling counselor at a lord's cluttered strategy table, sweeping the clutter aside to leave one clearly lit road, the discarded options dimmed at the table's edge.",
       "alt": "Fantasy illustration asset for the Consultant role.",
       "status": "generated",
       "bio": "Hired for one honest sentence: this road, not the others.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "product-strategist": {
       "prompt": "A trade-strategist weighing glowing cargo on a great balance, one pan clearly heavier and lit, the rejected freight set aside in shadow.",
       "alt": "Fantasy illustration asset for the Product Strategist role.",
       "status": "generated",
       "bio": "Every yes costs three nos. She prices them all.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "market-positioning-advisor": {
       "prompt": "A claim-cartographer planting a banner-marker into open unclaimed land on a vast map, rival banners crowded thick together elsewhere on the field.",
       "alt": "Fantasy illustration asset for the Positioning Strategist role.",
       "status": "generated",
       "bio": "Finds the empty hill, asks why it is empty, then plants the flag.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "product-manager": {
       "prompt": "A quartermaster triaging a queue of supply crates, pulling three forward into the lit loading lane and holding the rest behind a rope barrier.",
       "alt": "Fantasy illustration asset for the Product Manager role.",
       "status": "generated",
       "bio": "Everything is urgent until it meets his rope.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "summarizer": {
       "prompt": "A distiller feeding a tower of harvested material into an alembic press and drawing off one dense luminous drop that holds all of its weight.",
       "alt": "Fantasy illustration asset for the Summarizer role.",
       "status": "generated",
       "bio": "A season of harvest, one honest drop.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "organizer": {
       "prompt": "A vault-keeper standing amid drifting unsorted treasures, snapping each piece into a carved shelving lattice, the empty niches left visibly dark.",
       "alt": "Fantasy illustration asset for the Organizer role.",
       "status": "generated",
       "bio": "Everything in its niche, and the missing things loudly absent.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "lineages": {
@@ -299,224 +339,256 @@
       "alt": "Fantasy illustration asset for the context-scope modifier lineage.",
       "status": "generated",
       "bio": "The orb shows precisely as far as it is asked to. Beyond the circle, honest darkness.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-evidence": {
       "prompt": "A reliquary rack of glowing source relics, fine chains running from each one up to the claim it supports, the weakest chains visibly thinner.",
       "alt": "Fantasy illustration asset for the context-evidence modifier lineage.",
       "status": "generated",
       "bio": "Every claim hangs from a relic by a chain. Some chains you could ring a bell with. Some you could floss with.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-constraints": {
       "prompt": "A set of heavy iron binding rings closed around a glowing working volume, hard immovable bands holding the shape in, softer preference-ribbons resting loose outside them.",
       "alt": "Fantasy illustration asset for the context-constraints modifier lineage.",
       "status": "generated",
       "bio": "Iron says cannot. Ribbon says would rather not. The spell needs to know which is which.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-assumptions": {
       "prompt": "A stone bridge held up by translucent ghost-stones among the real masonry, the load-bearing spectral blocks pulsing with warning light to show what falls if they are wrong.",
       "alt": "Fantasy illustration asset for the context-assumptions modifier lineage.",
       "status": "generated",
       "bio": "Half this bridge is stones nobody has actually checked. The glowing ones are the half to worry about.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-success": {
       "prompt": "An archery target with the gold ring lit and an arrow settling home, the exact tolerance ring visible and the failure zones dark beyond it.",
       "alt": "Fantasy illustration asset for the context-success modifier lineage.",
       "status": "generated",
       "bio": "Gold is gold and everything else is practice. The ring was agreed before the bow was drawn.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-exclusions": {
       "prompt": "A stone sluice gate splitting an incoming stream, sending one branch cleanly away into a sealed dark channel while the approved flow runs on lit.",
       "alt": "Fantasy illustration asset for the context-exclusions modifier lineage.",
       "status": "generated",
       "bio": "The gate is not cruelty. It is the reason the mill turns with clean water.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-inspect": {
       "prompt": "A jeweler's loupe-crystal hovering over an opened enchanted mechanism, sweeping its beam across the parts and catching one loose fitting glinting out of alignment.",
       "alt": "Fantasy illustration asset for the action-inspect modifier lineage.",
       "status": "generated",
       "bio": "The crystal does not judge. It just refuses to skip anything.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-analyze": {
       "prompt": "An alchemist's alembic pulling a single mixed draught apart into distinct luminous strata, causes settling into layered bands, one anomalous band burning brighter.",
       "alt": "Fantasy illustration asset for the action-analyze modifier lineage.",
       "status": "generated",
       "bio": "Everything separates if you heat it honestly. The strange band at the top is the answer.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-compare": {
       "prompt": "A great bronze balance suspended in the dark holding two artifacts against the same measuring beam, the tipping difference clearly readable in its tilt.",
       "alt": "Fantasy illustration asset for the action-compare modifier lineage.",
       "status": "generated",
       "bio": "The scales have no favorite. That is the entire job description.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-create": {
       "prompt": "An enchanted forge assembling a finished form out of drifting component pieces, hammer and anvil drawing the artifact together in a bloom of golden fire.",
       "alt": "Fantasy illustration asset for the action-create modifier lineage.",
       "status": "generated",
       "bio": "The forge does not sketch. It commits, at temperature.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-recommend": {
       "prompt": "A crossroads signpost at night committing to one of several roads, the chosen way lighting up bright and continuous while the other roads go dark.",
       "alt": "Fantasy illustration asset for the action-recommend modifier lineage.",
       "status": "generated",
       "bio": "A signpost that points everywhere points nowhere. This one chooses.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-verify": {
       "prompt": "A trial gauntlet of warded stone arches, a finished blade passing through each ward in turn, arches lighting as it passes, one still probing hard.",
       "alt": "Fantasy illustration asset for the action-verify modifier lineage.",
       "status": "generated",
       "bio": "The blade is not trusted because it shines. It is trusted because the arches stopped arguing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-summarize": {
       "prompt": "A great wooden screw-press reducing a tall stack of harvest into one dense bright seal-wafer, the original volume ghosted behind at its true scale.",
       "alt": "Fantasy illustration asset for the action-summarize modifier lineage.",
       "status": "generated",
       "bio": "A season goes into the press. What comes out fits in a palm and loses nothing that mattered.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-research": {
       "prompt": "A scrying beacon fanning search beams into the surrounding dark wilds, one distant return glinting bright while weaker returns fade.",
       "alt": "Fantasy illustration asset for the action-research modifier lineage.",
       "status": "generated",
       "bio": "The wilds answer everyone who asks. The beacon asks in the right direction.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-plan": {
       "prompt": "A campaign trail of banner-waypoints pinned in ordered sequence across a map table, rope lines drawn between them, the next camp lit and the blocked ones dimmed.",
       "alt": "Fantasy illustration asset for the action-plan modifier lineage.",
       "status": "generated",
       "bio": "An army does not march on hope. It marches waypoint to waypoint.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-ideate": {
       "prompt": "A wild-magic brazier throwing off many genuinely different living sparks at once, no two alike, a few of the strongest already drifting together into a cluster.",
       "alt": "Fantasy illustration asset for the action-ideate modifier lineage.",
       "status": "generated",
       "bio": "The brazier does not do encores. Every spark is its own animal.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-explain": {
       "prompt": "An enchanted orrery unfolding a mechanism in mid-air, the parts separating along clean golden guide-arcs so the workings between them become visible.",
       "alt": "Fantasy illustration asset for the action-explain modifier lineage.",
       "status": "generated",
       "bio": "Nothing is complicated once it is allowed to open slowly.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-clarify": {
       "prompt": "A will-o'-wisp lantern hovering at a gap in a stone bridge, its light tracing the exact shape of the missing stone rather than filling it in.",
       "alt": "Fantasy illustration asset for the action-clarify modifier lineage.",
       "status": "generated",
       "bio": "The wisp does not guess the stone. It shows you the hole's true shape and waits.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "format-info-card": {
       "prompt": "A single smooth-faced standing stele alone in the dark, its face flat and plainly lit, no ornament and nothing stacked around it.",
       "alt": "Fantasy illustration asset for the format-info-card modifier lineage.",
       "status": "generated",
       "bio": "One stone, one answer, no procession.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-key-points": {
       "prompt": "A weapon rack of distinct blades standing in a row, each one separate and evenly lit, clear dark gaps holding them apart.",
       "alt": "Fantasy illustration asset for the format-key-points modifier lineage.",
       "status": "generated",
       "bio": "Each blade earns its slot. Nothing on this rack is decoration.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-summary": {
       "prompt": "A tall potion bottle with the brightest essence floated at the very top and the supporting sediment layered below it in shadow.",
       "alt": "Fantasy illustration asset for the format-summary modifier lineage.",
       "status": "generated",
       "bio": "Drink from the top. The bottom is there if anyone asks how the top was earned.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-sections": {
       "prompt": "A cutaway keep tower of stacked floors, each floor a distinct sealed chamber with its own hearth-glow, the divisions between them crisp.",
       "alt": "Fantasy illustration asset for the format-sections modifier lineage.",
       "status": "generated",
       "bio": "Every floor of the keep does one job. Nobody sleeps in the armory.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-evidence": {
       "prompt": "A floating banner held down by taut chains to heavy source-stones below, each chain lit along its length, one unanchored banner drifting loose.",
       "alt": "Fantasy illustration asset for the format-evidence modifier lineage.",
       "status": "generated",
       "bio": "A banner without chains is just weather. Anchored, it is a claim.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-comparison": {
       "prompt": "Several shields hung along shared measuring rails inside a compact wooden testing frame, the fittings where they diverge flaring brighter, the frame ending well inside the picture.",
       "alt": "Fantasy illustration asset for the format-comparison modifier lineage.",
       "status": "generated",
       "bio": "Same rails, same measures, no mercy. The differences light themselves.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-next": {
       "prompt": "A row of signal braziers along a dark rampart, the first blazing primed and hot, the later ones waiting cooler down the line.",
       "alt": "Fantasy illustration asset for the format-next modifier lineage.",
       "status": "generated",
       "bio": "The first brazier is lit tonight. The wall knows its order.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-length": {
       "prompt": "A smith's caliper clamped around a glowing ingot, compressing it to an exact marked width, the trimmed excess venting away as bright vapor.",
       "alt": "Fantasy illustration asset for the format-length modifier lineage.",
       "status": "generated",
       "bio": "The caliper does not negotiate with the metal. The measure was set before the fire.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-tiers": {
       "prompt": "A stone dais of descending steps into the dark, the top step small and brilliantly lit, each lower step wider and dimmer with supporting depth.",
       "alt": "Fantasy illustration asset for the format-tiers modifier lineage.",
       "status": "generated",
       "bio": "The crown sits on the smallest step. The stairs below hold everything it rests on.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-language": {
       "prompt": "A run of graded crystal lenses stepping a dense beam of light down through simpler and clearer facets at each stage without losing its color.",
       "alt": "Fantasy illustration asset for the target-language modifier lineage.",
       "status": "generated",
       "bio": "The light is not dumbed down. It is ground until anyone can see by it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-voice": {
       "prompt": "An enchanted harp held in a field of register bands, one chosen string ringing bright and steady across its whole length.",
       "alt": "Fantasy illustration asset for the target-voice modifier lineage.",
       "status": "generated",
       "bio": "The harp can play any register. The song commits to one.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-examples": {
       "prompt": "A storyteller's magic lantern casting small solid diorama scenes into the air beneath a large vague looming form, the little scenes sharp where the abstraction is soft.",
       "alt": "Fantasy illustration asset for the target-examples modifier lineage.",
       "status": "generated",
       "bio": "The lantern answers every grand idea with one small scene you can stand inside.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-decisions": {
       "prompt": "A lockmaster's board of counterweighted levers, each one linked by a taut rope to the gate it opens further down the waterway.",
       "alt": "Fantasy illustration asset for the target-decisions modifier lineage.",
       "status": "generated",
       "bio": "Every lever moves a real gate. There are no ornamental handles on this board.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-stance": {
       "prompt": "A forge-tempering dial set between an ember-warm pole and a steel-cold pole, the needle locked firmly at a chosen point and that temperature washing the scene.",
       "alt": "Fantasy illustration asset for the target-stance modifier lineage.",
       "status": "generated",
       "bio": "Warm anneals, cold hardens. The smith chooses before the metal does.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "archetypes": {
@@ -525,175 +597,200 @@
       "alt": "Fantasy illustration asset for the Executive summary archetype.",
       "status": "generated",
       "bio": "The council gets one tablet. The mountain it came from stays in the archive, available and unread.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "creative-concept": {
       "prompt": "An idea-forge with a luminous concept suspended in the shaping flame, growing structure and a hard bright hook at its core while rough offcuts drift away as sparks.",
       "alt": "Fantasy illustration asset for the Creative concept archetype.",
       "status": "generated",
       "bio": "Wild fire goes in. A blade of an idea comes out, sharp enough to pitch at court.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "note-taker": {
       "prompt": "A scriptorium enchantment turning a chaotic stream of arriving fragments into neat ordered tablets that stack themselves into a clean archive shelf.",
       "alt": "Fantasy illustration asset for the Note taker archetype.",
       "status": "generated",
       "bio": "The meeting rages. The shelf fills quietly, in order, missing nothing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "message-email": {
       "prompt": "A rookery station composing one sealed message scroll, its tone-seal glowing at the chosen register, a messenger raven waiting to carry it into the dark.",
       "alt": "Fantasy illustration asset for the Message & email archetype.",
       "status": "generated",
       "bio": "One scroll, sealed at the right temperature, sent to exactly one tower.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "prompt-improver": {
       "prompt": "A runed workbench where an old incantation core has been stripped down and rebuilt sharper, the discarded ambiguous parts laid out dark to one side.",
       "alt": "Fantasy illustration asset for the Prompt improver archetype.",
       "status": "generated",
       "bio": "The old wish rebuilt as an instruction. The vague parts are on the table, not in the spell.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "learning-guide": {
       "prompt": "A teaching orrery with a central idea burning at its heart and a guided path of lantern waypoints circling it, worked examples orbiting close.",
       "alt": "Fantasy illustration asset for the Learning guide archetype.",
       "status": "generated",
       "bio": "The lesson orbits one idea. Every waypoint is a place to stand and see it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "app-build-handoff": {
       "prompt": "A sealed blueprint reliquary holding a complete self-contained plan, every layer visible through its crystal shell, docked into a golem builder waiting to execute.",
       "alt": "Fantasy illustration asset for the App build handoff archetype.",
       "status": "generated",
       "bio": "The plan is whole before the golem wakes. It will not stop to ask questions.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "agent-skill": {
       "prompt": "A modular spell cartridge seated on a casting rail, its trigger sigil lit, procedure channels and guardrail bindings visible along its length.",
       "alt": "Fantasy illustration asset for the Agent skill archetype.",
       "status": "generated",
       "bio": "A spell that knows when to cast itself, how to proceed, and where it must stop.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "agent-gate": {
       "prompt": "A judgment arch of carved stone scanning an artifact passing beneath it, a hard sweeping plane of light playing over the object and a verdict flame holding at the keystone.",
       "alt": "Fantasy illustration asset for the Agent gate archetype.",
       "status": "generated",
       "bio": "Nothing ships past the arch. The flame turns gold or it does not turn at all.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "social-post": {
       "prompt": "A herald's tower fitted with several interchangeable horn-bells, one selected and mounted, its shaped call already carrying out over the dark countryside.",
       "alt": "Fantasy illustration asset for the Social post archetype.",
       "status": "generated",
       "bio": "Every square hears differently. The tower swaps horns, not the message.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "quick-explanation": {
       "prompt": "A compact answer lantern standing alone, one clear steady flame, nothing around it and nothing between the viewer and the point.",
       "alt": "Fantasy illustration asset for the Quick explanation archetype.",
       "status": "generated",
       "bio": "One lantern, one flame, no procession. You asked; here.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "research-brief": {
       "prompt": "A balanced dossier of parchment suspended between two source pillars, certainty bands rendered as visible width around each finding, the uncertain ones deliberately wider.",
       "alt": "Fantasy illustration asset for the Research brief archetype.",
       "status": "generated",
       "bio": "Every finding wears its certainty as a band you can see. The wide ones are honest, not weak.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "decision-advisor": {
       "prompt": "A weighing altar with several options mounted on measured arms, one arm settling low and lighting gold as the recommendation commits.",
       "alt": "Fantasy illustration asset for the Decision advisor archetype.",
       "status": "generated",
       "bio": "The altar weighs, the arm settles, and someone still has to say the word aloud.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "data-analysis": {
       "prompt": "A crystal memory-geode split open, its contents fanning out into layered insight strata, one segment isolated and brought forward glowing.",
       "alt": "Fantasy illustration asset for the Data analysis archetype.",
       "status": "generated",
       "bio": "The geode holds a thousand tallies. The reading holds the one that changes the plan.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "risk-premortem": {
       "prompt": "A ruined siege diorama being read in reverse, luminous failure lines running backward from the broken walls to the small quiet cause that started it.",
       "alt": "Fantasy illustration asset for the Risk premortem archetype.",
       "status": "generated",
       "bio": "The castle falls tomorrow. Tonight, walk the collapse backward to the loose stone.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "writing-draft": {
       "prompt": "A tapestry loom weaving a first continuous draft out of raw fiber, the cloth clean but still on the frame, edges deliberately unfinished.",
       "alt": "Fantasy illustration asset for the Writing draft archetype.",
       "status": "generated",
       "bio": "The tapestry is whole enough to read and rough enough to change. That is the point.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "rewrite-polish": {
       "prompt": "A polishing wheel refining an existing blade, dull surface lifting away under the stone to reveal the same shape underneath, sharper and brighter.",
       "alt": "Fantasy illustration asset for the Rewrite & polish archetype.",
       "status": "generated",
       "bio": "Nothing is added. Everything dull comes off. The blade was in there all along.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "critique-review": {
       "prompt": "An inspection shrine with an artifact held in padded restraints, ranked flag-banners planted along it, the most serious one burning hottest.",
       "alt": "Fantasy illustration asset for the Critique & review archetype.",
       "status": "generated",
       "bio": "The shrine ranks its wounds. Fix the burning banner first; the rest can queue.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "presentation-outline": {
       "prompt": "A run of floating banner-panels receding in procession, each holding one clear emblem, a bright golden throughline connecting them front to back.",
       "alt": "Fantasy illustration asset for the Presentation outline archetype.",
       "status": "generated",
       "bio": "One banner, one beat, and a thread the whole hall can follow to the end.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "build-plan": {
       "prompt": "A castle scaffold rising in ordered stages with milestone banners locked at each level, dependency ropes drawn taut between them.",
       "alt": "Fantasy illustration asset for the Project plan archetype.",
       "status": "generated",
       "bio": "The keep rises floor by promised floor. The ropes show what waits on what.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "spec-prd": {
       "prompt": "A spec reliquary with requirement plates locked around its core, each plate seated and sealed, tolerances carved as clean grooves in the metal.",
       "alt": "Fantasy illustration asset for the Spec / PRD archetype.",
       "status": "generated",
       "bio": "Every promise is a sealed plate. When the artifact ships, the plates are the contract.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "coding": {
       "prompt": "An artificer's bench writing a working construct into being, structure knitting itself into place under the enchanting tool, proof-wards already touching the finished edge.",
       "alt": "Fantasy illustration asset for the Code implementation archetype.",
       "status": "generated",
       "bio": "The construct assembles rune by rune, and the wards test each one as it lands.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "technical-troubleshoot": {
       "prompt": "A repair shrine with a war-engine opened up and one traced fault line glowing along its length, a mending clamp moving in toward the exact break.",
       "alt": "Fantasy illustration asset for the Debug & fix archetype.",
       "status": "generated",
       "bio": "The engine names its wound under the light. The clamp goes exactly there, nowhere else.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "explain-code": {
       "prompt": "A walkthrough lantern stepping through an opened construct one stage at a time, the active stage lit and turning while the rest of the path stays visible.",
       "alt": "Fantasy illustration asset for the Explain code archetype.",
       "status": "generated",
       "bio": "The construct explains itself one gear at a time, and the whole path stays in view.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "extract-data": {
       "prompt": "A sorting enchantment drawing clean uniform crystal shards out of raw unsorted ore, the finished shards racking themselves in perfect rows.",
       "alt": "Fantasy illustration asset for the Extract to data archetype.",
       "status": "generated",
       "bio": "Ore goes in, order comes out. Every shard the same cut, every row the same width.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "grades": {
@@ -702,25 +799,29 @@
         "prompt": "A scrying orb holding a small tight circle of vision around a single object, only the ground immediately beneath it visible and everything else swallowed by dark.",
         "alt": "Fantasy illustration asset for Situation Snapshot.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying orb with its circle widened to take in the nearby lands it may draw on, a clean marked boundary rune-ring where the vision stops.",
         "alt": "Fantasy illustration asset for Working Brief.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying orb lighting a broad stretch of terrain with allied banners standing inside it and worn trails crossing the ground where things have already been tried.",
         "alt": "Fantasy illustration asset for Decision Context.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying orb fully awakened, its vision thrown to the horizon so the entire realm reads at once with nothing left guessed at in shadow.",
         "alt": "Fantasy illustration asset for Complete Operating Picture.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-evidence": [
@@ -728,25 +829,29 @@
         "prompt": "A reliquary rack with claim-tokens mounted and accepted as given, the provenance chains still coiled unused at the base of the shelf.",
         "alt": "Fantasy illustration asset for Given As True.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A reliquary rack with chains run from the load-bearing claims down to a few solid relics, the unsupported claims left hanging dark.",
         "alt": "Fantasy illustration asset for Source Support.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A reliquary rack where each key claim is cross-braced by several converging chains arriving from different relics.",
         "alt": "Fantasy illustration asset for Corroborated Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A reliquary rack threaded end to end, conflicting chains held deliberately apart and lit against each other, confidence readable in every link.",
         "alt": "Fantasy illustration asset for Audit Trail.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-constraints": [
@@ -754,25 +859,29 @@
         "prompt": "A pair of iron binding rings resting lightly at the edges of a working volume, barely engaged, holding only the stated exclusions.",
         "alt": "Fantasy illustration asset for Basic Limits.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Four iron binding rings closed on a working volume, compressing it to a smaller practical footprint of time, tools, and coin.",
         "alt": "Fantasy illustration asset for Operating Limits.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Hard iron rings locked tight while softer preference-ribbons rest visibly separate and loose beside them, the difference obvious.",
         "alt": "Fantasy illustration asset for Constraint Map.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full cage of binding rings around a volume with strain-glow at every joint and exception latches sprung along the frame.",
         "alt": "Fantasy illustration asset for Boundary Conditions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-assumptions": [
@@ -780,25 +889,29 @@
         "prompt": "A bridge with a few translucent ghost-stones plainly visible among the solid masonry, simply shown rather than hidden.",
         "alt": "Fantasy illustration asset for Working Assumptions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bridge where the load-bearing ghost-stones pulse with warning light, marking the ones that would drop the span.",
         "alt": "Fantasy illustration asset for Assumption Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bridge where every ghost-stone carries its own footing-mark and a consequence rope running out from it.",
         "alt": "Fantasy illustration asset for Assumption Register.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bridge of ghost-stones ranked by size and brightness, tilt-lines projecting how far the span shifts if each one fails.",
         "alt": "Fantasy illustration asset for Uncertainty Model.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-success": [
@@ -806,25 +919,29 @@
         "prompt": "A simple archery target with a single arrow resting home, one clear gold mark for what finished means.",
         "alt": "Fantasy illustration asset for Done Means.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An archery target with the gold ring lit and scored sharp, the acceptance line unmistakable on its face.",
         "alt": "Fantasy illustration asset for Success Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rank of archery targets mounted together, gold zones lit bright and failure zones marked hard in dark paint.",
         "alt": "Fantasy illustration asset for Success Criteria.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full trial wall of graded targets, tolerance rings carved into each face and the whole wall reading out at once.",
         "alt": "Fantasy illustration asset for Evaluation Framework.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-exclusions": [
@@ -832,25 +949,29 @@
         "prompt": "A sluice gate shunting a few marked flows aside into a small dark holding pool while the rest of the stream continues.",
         "alt": "Fantasy illustration asset for No-Go List.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sluice gate holding a clean lit line across the channel, the stream kept firmly on one side of it.",
         "alt": "Fantasy illustration asset for Scope Fence.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sluice gate as a hard sealed wall with rejected currents visibly pressed against its face, unable to pass.",
         "alt": "Fantasy illustration asset for Anti-Goals.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sluice gate slamming actively, warning fire sweeping the channel, an escaping rivulet caught and turned back mid-breach.",
         "alt": "Fantasy illustration asset for Drift Alarm.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-inspect": [
@@ -858,25 +979,29 @@
         "prompt": "A loupe-crystal following a single pointed line across an opened mechanism, one indicated area lit and the rest dim.",
         "alt": "Fantasy illustration asset for Guided Review.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A loupe-crystal stepping across marked checkpoints in sequence along an opened mechanism, each one lighting as it clears.",
         "alt": "Fantasy illustration asset for Checklist Inspection.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A loupe-crystal roaming an opened mechanism under its own will, several gaps and conflicts flagged where it has been.",
         "alt": "Fantasy illustration asset for Independent Inspection.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An opened mechanism fully laid out under a ring of loupe-crystals, every part lit and measured at once.",
         "alt": "Fantasy illustration asset for Full Audit.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-analyze": [
@@ -884,25 +1009,29 @@
         "prompt": "An alembic resolving a mixed draught into two or three clean luminous bands.",
         "alt": "Fantasy illustration asset for Pattern Read.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Two alembics held side by side, a candidate band-pattern in each, the rival readings compared directly.",
         "alt": "Fantasy illustration asset for Rival Explanations.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An alembic heated harder until the assumptions inside crack apart into visible sub-bands.",
         "alt": "Fantasy illustration asset for Critical Analysis.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An alembic run to its limit, the dregs searched for the one disconfirming trace that breaks the pattern.",
         "alt": "Fantasy illustration asset for Adversarial Analysis.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-compare": [
@@ -910,25 +1039,29 @@
         "prompt": "A bronze balance with two artifacts simply laid on its pans, the beam still level, differences visible but unjudged.",
         "alt": "Fantasy illustration asset for Options on the Table.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bronze balance with a measuring beam sighted across both artifacts against criteria notched into the frame.",
         "alt": "Fantasy illustration asset for Framed Comparison.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bronze balance with calibrated weights added along its arms, the tilt now decisive rather than incidental.",
         "alt": "Fantasy illustration asset for Weighted Comparison.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full array of bronze pans on notched arms, every artifact measured against every axis, a victor's lamp burning above the winner.",
         "alt": "Fantasy illustration asset for Decision Matrix.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-create": [
@@ -936,25 +1069,29 @@
         "prompt": "A forge holding a rough unfinished armature in its fire, open questions sparking at the joints where a decision is still needed.",
         "alt": "Fantasy illustration asset for Draft Together.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A forge working precisely along a projected pattern, hammer following the glowing guide-lines without deviation.",
         "alt": "Fantasy illustration asset for Build to Plan.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A forge working with no pattern projected, filling the silent gaps with its own decisions as the piece completes.",
         "alt": "Fantasy illustration asset for Independent Build.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A finished artifact lifted glowing from the anvil, proven and whole, the hammer already at rest behind it.",
         "alt": "Fantasy illustration asset for End-to-End Delivery.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-recommend": [
@@ -962,25 +1099,29 @@
         "prompt": "A crossroads signpost with several roads lit equally under it, none chosen, each simply shown as possible.",
         "alt": "Fantasy illustration asset for Directions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A crossroads with one road selected and the toll-gates it fits standing open along its length.",
         "alt": "Fantasy illustration asset for Practical Pick.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A crossroads with the chosen road blazing, the runner-up dimmed but still visible beside it, a hazard-flame marked on the choice.",
         "alt": "Fantasy illustration asset for Backed Recommendation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A crossroads with the way committed hard, a single road blazing to the horizon and every alternative faded into the dark.",
         "alt": "Fantasy illustration asset for Full Conviction.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-verify": [
@@ -988,25 +1129,29 @@
         "prompt": "A trial arch running a blade through one quick ward, an obvious flaw catching in the light.",
         "alt": "Fantasy illustration asset for Sanity Pass.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A row of trial arches lighting pass or fail in turn as the blade travels the gauntlet.",
         "alt": "Fantasy illustration asset for Criteria Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A trial gauntlet pushing a blade past its tempering, the edge and spine glowing hot where they strain.",
         "alt": "Fantasy illustration asset for Stress Test.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A trial gauntlet turned hostile, the arches striking at the blade from every side at once like a duelist.",
         "alt": "Fantasy illustration asset for Red Team.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-summarize": [
@@ -1014,25 +1159,29 @@
         "prompt": "A screw-press lifting a few key sheaves cleanly out of a tall stack of harvest.",
         "alt": "Fantasy illustration asset for Key Points Pull.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A screw-press reducing a stack evenly, the original proportions still readable in the pressed slab.",
         "alt": "Fantasy illustration asset for Faithful Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A screw-press with the decision-critical layer drawn bright to the top and the remainder pressed thin beneath it.",
         "alt": "Fantasy illustration asset for Decision Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A screw-press yielding one brilliant dense seal-wafer, the enormous harvest behind it only a faint ghost.",
         "alt": "Fantasy illustration asset for Executive Distillation.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "action-research": [
@@ -1040,25 +1189,29 @@
         "prompt": "A scrying beacon pointed at a few supplied relics, the dark gaps between them plainly marked and unfilled.",
         "alt": "Fantasy illustration asset for Supplied Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying beacon casting narrow targeted beams into specific gaps, each return marked with where it came from.",
         "alt": "Fantasy illustration asset for Targeted Lookup.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying beacon sweeping wide across the open dark on its own will, weighing the returns it finds.",
         "alt": "Fantasy illustration asset for Open Research.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scrying beacon with several beams converging to confirm one distant return, certainty rings tightening around the find.",
         "alt": "Fantasy illustration asset for Deep Investigation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-plan": [
@@ -1066,25 +1219,29 @@
         "prompt": "A campaign trail with a few banner-waypoints pinned loosely along it in a sensible order.",
         "alt": "Fantasy illustration asset for Rough Outline.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A campaign trail with ordered waypoints, rope lines drawn taut between them and one hazard-flame burning.",
         "alt": "Fantasy illustration asset for Sequenced Plan.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A campaign trail phased into grouped marches with milestone camps and inspection posts standing between them.",
         "alt": "Fantasy illustration asset for Delivery Plan.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A campaign trail fully mustered and marching itself, every waypoint firing in order with no marshal anywhere in sight.",
         "alt": "Fantasy illustration asset for Executable Program.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-ideate": [
@@ -1092,25 +1249,29 @@
         "prompt": "A wild-magic brazier throwing off a small handful of distinct starting sparks.",
         "alt": "Fantasy illustration asset for Quick Options.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A wild-magic brazier flinging many genuinely different shapes wide, no two alike anywhere in the spray.",
         "alt": "Fantasy illustration asset for Divergent Set.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A wild-magic brazier mid-burst with the strongest few sparks already pulled together into a lit converging cluster.",
         "alt": "Fantasy illustration asset for Explore and Converge.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A wild-magic brazier showing its full spectrum from tame compact sparks to feral irregular ones, ranked along a lit gradient.",
         "alt": "Fantasy illustration asset for Creative Sweep.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-explain": [
@@ -1118,25 +1279,29 @@
         "prompt": "An orrery showing a single part in isolation, the rest of the mechanism still folded shut.",
         "alt": "Fantasy illustration asset for Direct Answer.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An orrery unfolding parts one at a time along a lit golden path, each step following from the one before.",
         "alt": "Fantasy illustration asset for Guided Walkthrough.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An orrery with the mechanism fully open, the hidden linkage exposed and one trap-point flagged bright.",
         "alt": "Fantasy illustration asset for Deep Explanation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An orrery with everything unfolded and further wheels still opening outward at the edges of the scene.",
         "alt": "Fantasy illustration asset for Full Teaching Pass.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-clarify": [
@@ -1144,25 +1309,29 @@
         "prompt": "A will-o'-wisp firing many pulses in patient batches into a dark gap, its outline almost completely traced by the returns.",
         "alt": "Fantasy illustration asset for Full Interview.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A will-o'-wisp still pulsing at a gap that is nearly closed, only a thin sliver of unknown shape left dark.",
         "alt": "Fantasy illustration asset for 95% Confidence Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A will-o'-wisp sending one single hard flare into the one gap that actually blocks the road forward.",
         "alt": "Fantasy illustration asset for Blocking Questions Only.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A will-o'-wisp gone dark, the gap bridged instead by a placed assumption-stone with a bright wax marker fixed to its face.",
         "alt": "Fantasy illustration asset for Assume & Log.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-info-card": [
@@ -1170,25 +1339,29 @@
         "prompt": "A single answer stele standing bare in the dark, its face plain and unornamented.",
         "alt": "Fantasy illustration asset for Plain Answer.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A single answer stele dressed close, its essentials arranged in one clean readable face.",
         "alt": "Fantasy illustration asset for Answer Card.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A thicker answer stele with context strata visible in its cut edge, layered beneath the face.",
         "alt": "Fantasy illustration asset for Information Brief.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A substantial reference monolith with caveat notches cut into its margin and worked scenes inset along its side.",
         "alt": "Fantasy illustration asset for Reference Piece.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-key-points": [
@@ -1196,25 +1369,29 @@
         "prompt": "A rack holding a few blades leaning loosely, unaligned but separate.",
         "alt": "Fantasy illustration asset for Loose Bullets.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rack of blades clustered into marked groups, related edges standing together.",
         "alt": "Fantasy illustration asset for Grouped Points.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full rack of blades arranged into clearly divided marked sections.",
         "alt": "Fantasy illustration asset for Sectioned Points.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rack of uniform matched blades, each identical in length with a tally-notch cut into its pommel.",
         "alt": "Fantasy illustration asset for Checklist Discipline.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-summary": [
@@ -1222,25 +1399,29 @@
         "prompt": "A potion bottle holding one bright drop suspended at the very top.",
         "alt": "Fantasy illustration asset for One-Liner.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A potion bottle with a small clear band of essence floating above the settled sediment.",
         "alt": "Fantasy illustration asset for Quick Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A potion bottle with a thick lit layer of findings and a pour-spout channel running off toward a marked cup.",
         "alt": "Fantasy illustration asset for Executive Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sealed self-contained potion bottle, complete on its own, needing nothing outside its own glass.",
         "alt": "Fantasy illustration asset for Standalone Abstract.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-sections": [
@@ -1248,25 +1429,29 @@
         "prompt": "A mostly continuous tower with only one or two floors divided where they genuinely help.",
         "alt": "Fantasy illustration asset for Natural Flow.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tower divided into evenly spaced chambers, each one distinct and separately hearth-lit.",
         "alt": "Fantasy illustration asset for Clear Sections.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tower of chambers in a fixed ordered stack, every floor present and none skipped.",
         "alt": "Fantasy illustration asset for Set Sequence.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tower cut to an exact master plan, floor seams flush and sealed, nothing added and nothing dropped.",
         "alt": "Fantasy illustration asset for Locked Template.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "format-evidence": [
@@ -1274,25 +1459,29 @@
         "prompt": "A floating banner with a couple of chains dropped to the strongest source-stones below it.",
         "alt": "Fantasy illustration asset for Source Notes.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Several floating banners each chained inline to its own source-stone, links short and taut.",
         "alt": "Fantasy illustration asset for Linked Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Anchor chains forged at visible weights, each link's heft showing the strength of the stone it hangs from.",
         "alt": "Fantasy illustration asset for Evidence Notes.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Every banner chained to a stone, with inferred links rendered distinctly as pale ghost-chain among the solid iron.",
         "alt": "Fantasy illustration asset for Citation Record.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-comparison": [
@@ -1300,25 +1489,29 @@
         "prompt": "Several shields standing separated in the dark, clearly apart from each other but with no rails hung yet.",
         "alt": "Fantasy illustration asset for Option Notes.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A compact wooden frame with the shields hung on it and the key measuring rails lit, the frame ending well inside the picture.",
         "alt": "Fantasy illustration asset for Comparison Table.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A testing frame with criteria pegs along its edges and the winning shield's rail glowing across its full width, the frame ending well inside the picture.",
         "alt": "Fantasy illustration asset for Decision Table.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A dense frame of weighted fittings with scored joints and a victor's column burning down one side, the frame ending well inside the picture.",
         "alt": "Fantasy illustration asset for Evaluation Matrix.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-next": [
@@ -1326,25 +1519,29 @@
         "prompt": "A rampart with a single brazier primed and blazing hot at its head.",
         "alt": "Fantasy illustration asset for Next Move.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rampart with a short ordered run of braziers lit in sequence down its length.",
         "alt": "Fantasy illustration asset for Next Steps.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rampart with braziers ranked by heat, keeper's tokens hung on the hottest ones.",
         "alt": "Fantasy illustration asset for Prioritized Actions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rampart fully stoked and burning in relay, running its whole sequence with no watchman present to tend it.",
         "alt": "Fantasy illustration asset for Execution Handoff.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-length": [
@@ -1352,25 +1549,29 @@
         "prompt": "A smith's caliper clamped hard on a glowing ingot, a heavy offcut venting away as bright vapor.",
         "alt": "Fantasy illustration asset for Tight Budget.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A smith's caliper holding metal to a single dense measure, compact and fully worked.",
         "alt": "Fantasy illustration asset for One Screen.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A smith's caliper opened to the metal's natural width, the space spent on substance rather than padding.",
         "alt": "Fantasy illustration asset for Room to Explain.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A smith's caliper opened wide but stopping exactly at the metal's true edge, complete with nothing added beyond it.",
         "alt": "Fantasy illustration asset for Complete Treatment.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-tiers": [
@@ -1378,25 +1579,29 @@
         "prompt": "A stone dais with one small brilliantly lit top step and the depth below it only suggested in shadow.",
         "alt": "Fantasy illustration asset for Essentials First.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A stone dais of three clean descending steps, each one clearly separated from the next.",
         "alt": "Fantasy illustration asset for Three Tiers.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A stone dais of three marked steps with every offering visibly placed on one of them.",
         "alt": "Fantasy illustration asset for Tiered Sections.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A strictly cut stone terrace with hard edges, nothing resting anywhere outside the hierarchy.",
         "alt": "Fantasy illustration asset for Locked Tier Hierarchy.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-language": [
@@ -1404,25 +1609,29 @@
         "prompt": "A run of crystal lenses stepping light all the way down to the simplest broadest facet, emerging plain and unhurried.",
         "alt": "Fantasy illustration asset for First Contact.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A run of crystal lenses holding a clear middle facet, unfamiliar glints visibly unpacked as the light enters.",
         "alt": "Fantasy illustration asset for Plain Language.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A run of crystal lenses passing light at standard density, only the strangest facets clarified along the path.",
         "alt": "Fantasy illustration asset for Working Vocabulary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A run of crystal lenses passed straight through undimmed, the beam leaving at full arcane density.",
         "alt": "Fantasy illustration asset for Expert Shorthand.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-voice": [
@@ -1430,25 +1639,29 @@
         "prompt": "An enchanted harp with its string ringing loose and natural, the band warm and companionable.",
         "alt": "Fantasy illustration asset for Straight Talk.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An enchanted harp holding a calm even band without ornament or flourish.",
         "alt": "Fantasy illustration asset for Clear Neutral.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An enchanted harp holding a polished precise band, its edges clean and deliberate.",
         "alt": "Fantasy illustration asset for Professional Voice.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An enchanted harp holding a rigid courtly band exactly on its mark, formal and unwavering.",
         "alt": "Fantasy illustration asset for Formal Register.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-examples": [
@@ -1456,25 +1669,29 @@
         "prompt": "A magic lantern casting one familiar homely diorama beneath a large vague form.",
         "alt": "Fantasy illustration asset for Everyday Analogy.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A magic lantern carrying a single diorama all the way through from start to finish.",
         "alt": "Fantasy illustration asset for Worked Example.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A magic lantern casting true-to-life dioramas with their messy irregular detail deliberately left in.",
         "alt": "Fantasy illustration asset for Domain Example.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A magic lantern placing dioramas right at the boundary where the larger rule visibly breaks down.",
         "alt": "Fantasy illustration asset for Edge Case.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-decisions": [
@@ -1482,25 +1699,29 @@
         "prompt": "A lever-board with one lever highlighted and the missing counterweight it still needs lit beside it.",
         "alt": "Fantasy illustration asset for Next Decision.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lever-board with its levers marked by the gate each one opens further down the waterway.",
         "alt": "Fantasy illustration asset for Actionable Framing.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lever-board of paired levers, each pair showing what is gained against what is given up.",
         "alt": "Fantasy illustration asset for Tradeoff Brief.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lever-board with the chosen lever locked in place and its accepted consequences carved along the board.",
         "alt": "Fantasy illustration asset for Decision Record.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-stance": [
@@ -1508,25 +1729,29 @@
         "prompt": "A tempering dial with the needle at the ember-warm pole, the forge washed in soft encouraging light.",
         "alt": "Fantasy illustration asset for Warm & Encouraging.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tempering dial with the needle centered, the light even and matter-of-fact with no lean either way.",
         "alt": "Fantasy illustration asset for Even & Matter-of-Fact.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tempering dial with the needle pushed toward the steel-cold pole, the light hard, clear, and unsoftened.",
         "alt": "Fantasy illustration asset for Candid & Direct.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A tempering dial with the needle locked hard at the steel-cold pole, the light sharp and absolute across the whole forge.",
         "alt": "Fantasy illustration asset for Authoritative & Decisive.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ]
   },
@@ -1536,7 +1761,8 @@
       "alt": "Fantasy illustration for a saved custom preset.",
       "status": "generated",
       "bio": "An empty talisman with your name on it. Fill the sockets and it fights like you.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   }
 }

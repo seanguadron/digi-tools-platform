@@ -169,7 +169,8 @@ export function isArtPackEntry(value) {
     typeof entry.alt === "string" &&
     (entry.status === "planned" || entry.status === "generated") &&
     (entry.bio === undefined || typeof entry.bio === "string") &&
-    (entry.liveVariant === undefined || typeof entry.liveVariant === "string")
+    (entry.liveVariant === undefined || typeof entry.liveVariant === "string") &&
+    (entry.liveRev === undefined || typeof entry.liveRev === "number")
   );
 }
 
@@ -194,9 +195,18 @@ export function artPackEntry(pack, key) {
     return undefined;
   }
 
+  // The path is stable but the FILE behind it is replaced whenever a different
+  // variant is applied, and nothing in a stable URL tells a cache that. The
+  // studio would write the new image and the deck would keep showing the old
+  // one until its cache happened to expire. `liveRev` changes on every write,
+  // so the URL changes with the bytes.
+  //
+  // Only the browser-facing src carries it. artPathFor stays a clean filesystem
+  // path - the store writes files with it and must never see a query string.
+  const src = artPathFor(pack.theme.id, key);
   return {
     key,
-    src: artPathFor(pack.theme.id, key),
+    src: raw.liveRev ? `${src}?v=${raw.liveRev}` : src,
     alt: raw.alt,
     prompt: raw.prompt,
     bio: raw.bio,

@@ -101,6 +101,11 @@
           "description": "The card's short character blurb, shown in the inspection panel next to its ability. Capped so it cannot push the ability bullets out of a panel that clips silently.",
           "maxLength": 240
         },
+        "liveRev": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Bumped every time the live image is rewritten. The derived path is stable, so without this a cache has no way to know the bytes behind it changed - the studio would apply a new variant and the deck would keep showing the old one. Appended to the browser-facing src as ?v=, never to the filesystem path."
+        },
         "liveVariant": {
           "type": "string",
           "pattern": "^[a-z](_cropped)?$",

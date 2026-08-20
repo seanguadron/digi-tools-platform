@@ -567,6 +567,16 @@ export function createCardArtStore({
           changed = true;
         }
       }
+      // Bump whenever the live image was rewritten, even if the same variant
+      // was re-applied - a re-crop replaces the bytes under an unchanged id,
+      // and a stale-looking card is the one bug this field exists to stop.
+      if (patch.bumpRev) {
+        record.liveRev = Date.now();
+        changed = true;
+      } else if (patch.liveVariant === null && record.liveRev !== undefined) {
+        delete record.liveRev;
+        changed = true;
+      }
       if (!changed) {
         return false;
       }
@@ -614,6 +624,7 @@ export function createCardArtStore({
     const flipped = await updateRecord(themeId, entry, {
       status: "generated",
       liveVariant: variantId,
+      bumpRev: true,
     });
 
     return { target: entry.target, selected: variantId, statusChanged: flipped };

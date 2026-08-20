@@ -141,11 +141,36 @@ test("resolving an entry carries the derived path, never a stored one", async ()
   const theme = await loadArtTheme("sci-fi");
   const resolved = artPackEntry(theme, "roles.researcher");
 
-  assert.equal(resolved.src, "/card-art/sci-fi/roles/researcher.webp");
+  const [path] = resolved.src.split("?");
+  assert.equal(path, "/card-art/sci-fi/roles/researcher.webp");
   assert.equal(resolved.status, "generated");
   assert.ok(resolved.prompt.includes("xenoarchivist"));
   // A pack file has no `src` to read - the path can only have been derived.
   assert.equal(theme.roles.researcher.src, undefined);
+});
+
+test("a live revision rides on the src, and only on the src", async () => {
+  const theme = structuredClone(await loadArtTheme("sci-fi"));
+
+  // The path is stable, so the URL has to change when the bytes do, or a
+  // cache keeps serving the image the last variant wrote.
+  theme.roles.researcher.liveRev = 1730000000000;
+  assert.equal(
+    artPackEntry(theme, "roles.researcher").src,
+    "/card-art/sci-fi/roles/researcher.webp?v=1730000000000",
+  );
+
+  // The filesystem path must stay clean - the store writes files with it.
+  assert.equal(
+    artPathFor("sci-fi", "roles.researcher"),
+    "/card-art/sci-fi/roles/researcher.webp",
+  );
+
+  delete theme.roles.researcher.liveRev;
+  assert.equal(
+    artPackEntry(theme, "roles.researcher").src,
+    "/card-art/sci-fi/roles/researcher.webp",
+  );
 });
 
 test("a half-authored pack renders placeholders instead of crashing", async () => {

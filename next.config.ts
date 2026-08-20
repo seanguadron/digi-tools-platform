@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "/api/card-art": ["./public/card-art/**", "./card-art-source/**"],
   },
+  images: {
+    // Card art carries a ?v=<liveRev> cache key, because the path is stable
+    // while the file behind it is replaced whenever a variant is applied.
+    // Next rejects a local image with a query string unless a localPattern
+    // admits it, and `search` only takes a literal, so the pattern constrains
+    // the path and leaves the query open.
+    localPatterns: [{ pathname: "/card-art/**" }],
+  },
 };
 
 export default nextConfig;

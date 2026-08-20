@@ -15,35 +15,40 @@
       "alt": "Superhero illustration for the Context letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The case as it actually stands: what is pinned inside the lamplight, and the dark past its edge.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "R": {
       "prompt": "Role. A line of silhouetted heroes on a rooftop ledge at night, one stepping forward into a hot spotlight, cape and gauntlets catching the beam.",
       "alt": "Superhero illustration for the Role letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "One hero called down from the ledge, because this job needs exactly their powers.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "A": {
       "prompt": "Action. The moment of commitment: a hero mid-leap between rooftops, launch debris and speedlines trailing behind, the whole frame driving one decisive forward vector.",
       "alt": "Superhero illustration for the Action letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The leap is taken. Everything after this is momentum.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "F": {
       "prompt": "Format. A gadget press stamping raw glowing alloy into one exact tool, the die lifting to reveal a clean finished shape still hot at the edges.",
       "alt": "Superhero illustration for the Format letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The answer arrives shaped for the hand that has to use it.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "T": {
       "prompt": "Target audience. A single citizen at an apartment window at night, lit from the front by a signal beacon sweeping the clouds, the whole scene built around who the signal is for.",
       "alt": "Superhero illustration for the Target audience letter of the CRAFT acronym.",
       "status": "generated",
       "bio": "The beacon is not for the city. It is for the one window that understands it.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     }
   },
   "roles": {
@@ -52,245 +57,280 @@
       "alt": "Superhero illustration asset for the Researcher role.",
       "status": "generated",
       "bio": "The cape is for rooftops. The real superpower is the filing system.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "analyst": {
       "prompt": "A mission-control tactician standing inside a suspended lattice of case data, pulling two conflicting feeds apart with both hands until the pattern between them resolves, outliers burning hottest.",
       "alt": "Superhero illustration asset for the Analyst role.",
       "status": "generated",
       "bio": "He sees the crime wave as a shape. Then he names the shape.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "strategist": {
       "prompt": "A team leader over a glowing tactical map of the city, three strike routes arcing across the boroughs, one hand hovering to commit while the alternates dim.",
       "alt": "Superhero illustration asset for the Strategist role.",
       "status": "generated",
       "bio": "Every plan survives until the first explosion. Hers survive the second.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "historian": {
       "prompt": "A veteran keeper in a hall of retired suits and trophies, drawing one luminous timeline thread out of the memorial archive, the older eras dimmer and deeper behind.",
       "alt": "Superhero illustration asset for the Historian role.",
       "status": "generated",
       "bio": "Every mask that came before hangs in his hall, and he knows why each one fell.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "fact-checker": {
       "prompt": "A sharp-eyed detective holding a suspect claim under a signal lamp, verification beams running from it toward distant evidence lockers, some locking solid and others flickering out.",
       "alt": "Superhero illustration asset for the Fact-checker role.",
       "status": "generated",
       "bio": "Rumors do not testify in her precinct. Receipts do.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "synthesizer": {
       "prompt": "A comms hero at a rooftop dispatch rig, braiding many scattered radio threads into one coherent signal cable, the crossed wires left standing visibly apart.",
       "alt": "Superhero illustration asset for the Synthesizer role.",
       "status": "generated",
       "bio": "Twelve sirens, one story. He finds it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "explainer-educator": {
       "prompt": "An academy instructor unfolding a hero gadget into a floating exploded diagram above the training mat, pieces separating along clean yellow guide-lines, one hand steadying the lesson.",
       "alt": "Superhero illustration asset for the Explainer / Educator role.",
       "status": "generated",
       "bio": "Powers are easy. She teaches the part where you understand them.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "comparative-reviewer": {
       "prompt": "A grizzled gear-master between two suspended prototype suits in the armory, stress beams probing both, hairline weaknesses glowing where each will fail first.",
       "alt": "Superhero illustration asset for the Critical Reviewer role.",
       "status": "generated",
       "bio": "Both suits are marvelous. He will tell you which one gets you killed.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "developer": {
       "prompt": "A gadgeteer elbow-deep in an open utility rig, seating one new module into the harness while the surrounding tech lights up to accept it.",
       "alt": "Superhero illustration asset for the Developer role.",
       "status": "generated",
       "bio": "The suit is never finished. That is the point of the suit.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "technical-troubleshooter": {
       "prompt": "A field engineer tracing a fault arc through a downed mech's exposed spine by torchlight, one dark break in the glowing circuit, probe steady at the exact point of failure.",
       "alt": "Superhero illustration asset for the Technical Troubleshooter role.",
       "status": "generated",
       "bio": "When the tech dies at midnight, she is the one it confesses to.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "systems-designer": {
       "prompt": "An architect hero inside a hovering model of the team headquarters, moving whole wings and hangars into relation, power lines and escape routes drawn as light between them.",
       "alt": "Superhero illustration asset for the Systems Designer role.",
       "status": "generated",
       "bio": "He designs the base, the backup base, and the argument for both.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "workflow-architect": {
       "prompt": "A logistics chief above a glowing conveyor of mission crates, rerouting a stalled lane so the flow runs clean, the old bottleneck dark and bypassed beside it.",
       "alt": "Superhero illustration asset for the Workflow Architect role.",
       "status": "generated",
       "bio": "Heroes save the day. She makes sure the day arrives on schedule.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "ux-ui-advisor": {
       "prompt": "A suit engineer testing a gauntlet's controls on a hero's fist, heat-bloom showing where the grip fights the hand, a cleaner layout ghosted over the old one.",
       "alt": "Superhero illustration asset for the UX / UI Advisor role.",
       "status": "generated",
       "bio": "If you fumble the trigger at three in the morning, that is his failure, not yours.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "data-analyst": {
       "prompt": "A data-hero suspended in a drifting particle field of incident reports, cupping the cluster where the pattern concentrates, stray noise dimming at the edges.",
       "alt": "Superhero illustration asset for the Data Analyst role.",
       "status": "generated",
       "bio": "The city talks in numbers. She is fluent.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "qa-test-engineer": {
       "prompt": "A trials operator deliberately driving a new suit past its limits in a reinforced testing hall, the exact failure point flaring bright as the plating gives.",
       "alt": "Superhero illustration asset for the QA / Test Engineer role.",
       "status": "generated",
       "bio": "He breaks it on Tuesday so it holds on Saturday.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "security-reviewer": {
       "prompt": "A shadow-tester probing the headquarters shield grid from outside, one hairline seam lighting up under her probe, the rest of the wall holding dark and solid.",
       "alt": "Superhero illustration asset for the Security Reviewer role.",
       "status": "generated",
       "bio": "She breaks into the base every week. That is why nobody else ever has.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "writer": {
       "prompt": "A rooftop chronicler at a small desk above the city, drawing one clean line of luminous story-thread out of the raw noise below, finished strands hanging in ordered rows behind.",
       "alt": "Superhero illustration asset for the Writer role.",
       "status": "generated",
       "bio": "The city happens all at once. He writes it down one true line at a time.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "editor": {
       "prompt": "A copy chief over a story slab with a precision blade, lifting away excess in clean slivers, the strong spine of the piece left standing and lit.",
       "alt": "Superhero illustration asset for the Editor role.",
       "status": "generated",
       "bio": "Kills darlings faster than any villain. The story thanks her.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "copywriter": {
       "prompt": "A signal-hero tuning a rooftop broadcast dish down to one sharp focused beam, the wide scattered transmission collapsing into a single bright lance aimed downtown.",
       "alt": "Superhero illustration asset for the Copywriter role.",
       "status": "generated",
       "bio": "One message, one target, no collateral.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "rewriter": {
       "prompt": "A forge-hero melting a dented piece of armor and recasting it in a cleaner die, the original silhouette ghosted in the steam so its purpose survives the remake.",
       "alt": "Superhero illustration asset for the Rewriter role.",
       "status": "generated",
       "bio": "Same metal, cleaner lines, nothing lost but the dents.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "pitch-strategist": {
       "prompt": "An advocate at the front of a darkened council chamber, raising a rising arc of light from problem to proof, thrown objection-bolts shattering against it as it climbs.",
       "alt": "Superhero illustration asset for the Pitch Strategist role.",
       "status": "generated",
       "bio": "Funding for the team, one bulletproof argument at a time.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "presentation-slide-structurer": {
       "prompt": "A briefing officer sequencing floating mission panels into one ordered run above the table, each panel holding a single clear shape, the line receding into the dark.",
       "alt": "Superhero illustration asset for the Presentation Designer role.",
       "status": "generated",
       "bio": "Nobody leaves her briefings confused. Some leave inspired.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "creative-director": {
       "prompt": "A visions director at a projection rig casting several genuinely different hero silhouettes at once, each distinct in its own light, one hand raised toward the boldest.",
       "alt": "Superhero illustration asset for the Creative Director role.",
       "status": "generated",
       "bio": "Capes, colors, silhouettes: she decides what hope looks like from a rooftop.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "concept-developer": {
       "prompt": "A concept-smith growing a raw spark of an idea into a structured core inside a containment chamber, the hook crystallizing hard and bright at its center.",
       "alt": "Superhero illustration asset for the Concept Developer role.",
       "status": "generated",
       "bio": "Every legend starts as a loose spark. He teaches it to hold a shape.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "brainstorming-partner": {
       "prompt": "A speedster mid-blur around a workshop table, leaving a trail of dozens of distinct glowing prototype shapes hovering in the air, the strongest few already drifting together.",
       "alt": "Superhero illustration asset for the Brainstorming Partner role.",
       "status": "generated",
       "bio": "A hundred ideas before breakfast. Three survive lunch. That is the job.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "prompt-engineer": {
       "prompt": "A mission-scripter tuning a glowing directive core at a control bench, ambiguity venting off as dark smoke while the order settles into a clean stable pulse.",
       "alt": "Superhero illustration asset for the Prompt Engineer role.",
       "status": "generated",
       "bio": "Vague orders get sidekicks hurt. His never are.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "tutor": {
       "prompt": "A patient trainer guiding a young hero's hand to the next rung of a ladder of light up a training tower, the climbed rungs still glowing warm below.",
       "alt": "Superhero illustration asset for the Tutor role.",
       "status": "generated",
       "bio": "She never lifts you. She makes the next rung obvious.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "curriculum-designer": {
       "prompt": "An academy dean laying a sequenced path of training platforms across a dark hangar, each platform locking into the last, checkpoint beacons marking mastery.",
       "alt": "Superhero illustration asset for the Curriculum Designer role.",
       "status": "generated",
       "bio": "From first push-up to first rescue, in the only order that works.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "mentor": {
       "prompt": "A retired legend beside a rookie on a high rooftop ledge, pointing out one specific route through the streets below rather than the whole skyline.",
       "alt": "Superhero illustration asset for the Mentor role.",
       "status": "generated",
       "bio": "Hung up the cape. Kept the map.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "consultant": {
       "prompt": "A fixer at a crowded case table, sweeping the clutter aside to leave one clearly lit course of action, the discarded options dimmed at the table's edge.",
       "alt": "Superhero illustration asset for the Consultant role.",
       "status": "generated",
       "bio": "Says the one sentence the whole team was avoiding. Worth every penny.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "product-strategist": {
       "prompt": "An operations strategist weighing glowing mission-opportunities on a suspended balance, one pan clearly heavier and lit, the rejected mass set aside in shadow.",
       "alt": "Superhero illustration asset for the Product Strategist role.",
       "status": "generated",
       "bio": "The team cannot save every block tonight. She decides which one, and owns it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "market-positioning-advisor": {
       "prompt": "A territory analyst planting a beacon-marker into open unclaimed ground on a glowing city map, rival markers clustered thick elsewhere in the grid.",
       "alt": "Superhero illustration asset for the Positioning Strategist role.",
       "status": "generated",
       "bio": "Every hero guards downtown. He found the neighborhood nobody watches.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "product-manager": {
       "prompt": "A mission coordinator triaging a queue of incoming alerts, pulling three forward into the lit response lane and holding the rest behind a barrier.",
       "alt": "Superhero illustration asset for the Product Manager role.",
       "status": "generated",
       "bio": "Three sirens get answered now. The rest get answered right.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "summarizer": {
       "prompt": "A debrief officer feeding a tower of mission footage into a compression rig and drawing out one dense luminous chip that holds all of its weight.",
       "alt": "Superhero illustration asset for the Summarizer role.",
       "status": "generated",
       "bio": "Six hours of chaos, one line that tells command what mattered.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "organizer": {
       "prompt": "An armory keeper standing amid drifting unsorted gear, snapping each piece into a glowing rack lattice, the empty slots left visibly dark.",
       "alt": "Superhero illustration asset for the Organizer role.",
       "status": "generated",
       "bio": "Every gadget in its slot, and the missing grapple loudly obvious.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     }
   },
   "lineages": {
@@ -299,224 +339,256 @@
       "alt": "Superhero illustration asset for the context-scope modifier lineage.",
       "status": "generated",
       "bio": "The beam decides how much city this job is. Outside the pool is somebody else's shift.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-evidence": {
       "prompt": "An evidence board of pinned exhibits with taut threads running up to the claim they support, the weakest threads visibly thinner.",
       "alt": "Superhero illustration asset for the context-evidence modifier lineage.",
       "status": "generated",
       "bio": "The board does not care what feels true. It cares what the thread holds.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-constraints": {
       "prompt": "Heavy containment clamps closed around a glowing energy core, hard immovable jaws holding the shape in, softer preference-markers resting loose outside them.",
       "alt": "Superhero illustration asset for the context-constraints modifier lineage.",
       "status": "generated",
       "bio": "The clamps are not the enemy of the power. They are why the block is still standing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-assumptions": {
       "prompt": "A building frame propped by translucent holographic girders among the real steel, the load-bearing projections pulsing with warning light to show what falls if they are wrong.",
       "alt": "Superhero illustration asset for the context-assumptions modifier lineage.",
       "status": "generated",
       "bio": "Some of these girders are guesses wearing hard hats. The pulsing ones carry the roof.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-success": {
       "prompt": "A training-range target with its acceptance gauge locking into the green, the exact tolerance ring visible and the failure zone marked dark beyond it.",
       "alt": "Superhero illustration asset for the context-success modifier lineage.",
       "status": "generated",
       "bio": "Done means the gauge says done. Heroics that miss the ring are just property damage.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "context-exclusions": {
       "prompt": "A barricade checkpoint splitting incoming traffic, diverting one lane cleanly away into a sealed dark tunnel while the approved flow continues lit.",
       "alt": "Superhero illustration asset for the context-exclusions modifier lineage.",
       "status": "generated",
       "bio": "What gets waved through matters less than what gets turned around. The checkpoint remembers both.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-inspect": {
       "prompt": "A detective's magnifying lens hovering over a disassembled device, sweeping its beam across the parts and catching one loose connection glinting out of alignment.",
       "alt": "Superhero illustration asset for the action-inspect modifier lineage.",
       "status": "generated",
       "bio": "The lens has ended more schemes than any punch. It simply will not look away.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-analyze": {
       "prompt": "A forensics column pulling a single mixed sample apart into distinct luminous strata, causes settling into layered bands, one anomalous band burning brighter.",
       "alt": "Superhero illustration asset for the action-analyze modifier lineage.",
       "status": "generated",
       "bio": "Mix lies together long enough and they layer. The bright band is where the truth floats.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-compare": {
       "prompt": "A steel lab balance suspended in the dark holding two devices against the same measuring beam, the tipping difference clearly readable in its tilt.",
       "alt": "Superhero illustration asset for the action-compare modifier lineage.",
       "status": "generated",
       "bio": "Two contenders, one beam, no applause. The tilt is the verdict.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-create": {
       "prompt": "A workshop gantry arm assembling a finished gadget out of drifting component parts, the device taking shape in a bloom of hot construction light.",
       "alt": "Superhero illustration asset for the action-create modifier lineage.",
       "status": "generated",
       "bio": "Somewhere between the parts bin and the bloom of light, it becomes a thing with a purpose.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-recommend": {
       "prompt": "A rail-yard switch committing to one of several branching tracks, the chosen line lighting up bright and continuous while the others go dark.",
       "alt": "Superhero illustration asset for the action-recommend modifier lineage.",
       "status": "generated",
       "bio": "The switch does not hedge. Trains cannot ride two tracks.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-verify": {
       "prompt": "A gauntlet of scanner gates running a finished gadget down the line, each gate lighting as it passes, one gate still probing hard.",
       "alt": "Superhero illustration asset for the action-verify modifier lineage.",
       "status": "generated",
       "bio": "Every gate it clears is a promise kept. The one still glowing is a promise pending.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-summarize": {
       "prompt": "An industrial compactor reducing a tall stack of case material into one dense bright chip, the original volume ghosted behind at its true scale.",
       "alt": "Superhero illustration asset for the action-summarize modifier lineage.",
       "status": "generated",
       "bio": "The tower goes in. The chip comes out. Command reads the chip.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-research": {
       "prompt": "A rooftop sweep dish fanning search beams over the dark city, one distant return pinging bright while weaker returns fade.",
       "alt": "Superhero illustration asset for the action-research modifier lineage.",
       "status": "generated",
       "bio": "The city always answers. The dish is for hearing which answer is load-bearing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-plan": {
       "prompt": "A heist-board timeline of mission markers laid in ordered sequence, dependency lines drawn between them, the next step lit and the blocked ones dimmed.",
       "alt": "Superhero illustration asset for the action-plan modifier lineage.",
       "status": "generated",
       "bio": "Every great save looks improvised. The board knows better.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-ideate": {
       "prompt": "An idea reactor coil throwing off many genuinely different energy forms at once, no two alike, a few of the strongest already drifting together into a cluster.",
       "alt": "Superhero illustration asset for the action-ideate modifier lineage.",
       "status": "generated",
       "bio": "The coil's only rule: no duplicates. Volume first, judgment later.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-explain": {
       "prompt": "A holo-table exploding a gadget into floating parts along clean yellow guide-lines, the workings between the pieces becoming visible as they separate.",
       "alt": "Superhero illustration asset for the action-explain modifier lineage.",
       "status": "generated",
       "bio": "It looks like magic until the table opens it up. Then it looks like a Tuesday.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "action-clarify": {
       "prompt": "A signal flare hovering at a gap in the case-board, its light outlining the exact shape of the missing piece rather than filling it in.",
       "alt": "Superhero illustration asset for the action-clarify modifier lineage.",
       "status": "generated",
       "bio": "The flare marks what the team does not know yet. Answering it is cheaper than guessing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-info-card": {
       "prompt": "A single clean steel slab standing alone in the dark, its face flat and plainly lit, no ornament and nothing stacked around it.",
       "alt": "Superhero illustration asset for the format-info-card modifier lineage.",
       "status": "generated",
       "bio": "One panel, one answer, zero ceremony.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-key-points": {
       "prompt": "A rack of distinct batons and throwing tools standing in a row, each one separate and evenly lit, clear dark gaps holding them apart.",
       "alt": "Superhero illustration asset for the format-key-points modifier lineage.",
       "status": "generated",
       "bio": "Grab any one and it works alone. That is what makes it a key point.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-summary": {
       "prompt": "A lab flask with the glowing concentrate settled at the very top and the supporting sediment layered below it in shadow.",
       "alt": "Superhero illustration asset for the format-summary modifier lineage.",
       "status": "generated",
       "bio": "The top line is the mission. The sediment is the proof it happened.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-sections": {
       "prompt": "A cutaway skyscraper of stacked floors, each floor a distinct sealed volume with its own internal glow, the divisions between them crisp.",
       "alt": "Superhero illustration asset for the format-sections modifier lineage.",
       "status": "generated",
       "bio": "Every floor has one purpose. The elevator is for readers in a hurry.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-evidence": {
       "prompt": "A floating claim slab held by taut cables to sealed evidence vaults below, each cable lit along its length, one unanchored slab drifting loose.",
       "alt": "Superhero illustration asset for the format-evidence modifier lineage.",
       "status": "generated",
       "bio": "If it is not cabled to a vault, it is a rumor with good posture.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-comparison": {
       "prompt": "Several prototype devices mounted along shared measuring struts on a compact lab rig, the joints where they diverge flaring brighter, the rig ending well inside the picture.",
       "alt": "Superhero illustration asset for the format-comparison modifier lineage.",
       "status": "generated",
       "bio": "Put them on the same struts and the arguing stops on its own.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-next": {
       "prompt": "A row of launch bays with ready-markers lit in sequence, the first primed and glowing hot, the later ones waiting cooler down the line.",
       "alt": "Superhero illustration asset for the format-next modifier lineage.",
       "status": "generated",
       "bio": "Bay one launches now. The rest hold their heat until called.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-length": {
       "prompt": "A hydraulic caliper clamped around a bar of luminous alloy, compressing it to an exact marked width, the trimmed excess venting away as vapor.",
       "alt": "Superhero illustration asset for the format-length modifier lineage.",
       "status": "generated",
       "bio": "Exactly to spec, not a millimeter of padding. The vents carry off the rest.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "format-tiers": {
       "prompt": "A hangar podium of descending platforms, the top platform small and brilliantly lit, each lower level wider and dimmer with supporting depth.",
       "alt": "Superhero illustration asset for the format-tiers modifier lineage.",
       "status": "generated",
       "bio": "Headline on top, footnotes at the bottom, and every level knows its floor.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-language": {
       "prompt": "A decoder tower stepping a dense scrambled transmission down through cleaner and simpler stages, the signal emerging clear at street level without losing its meaning.",
       "alt": "Superhero illustration asset for the target-language modifier lineage.",
       "status": "generated",
       "bio": "The tower does not water the message down. It gets it through the walls.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-voice": {
       "prompt": "A voice modulator rig held in a field of register bands, the selected band ringing bright and steady across its whole length.",
       "alt": "Superhero illustration asset for the target-voice modifier lineage.",
       "status": "generated",
       "bio": "Same words, different frequency, different city. The rig picks one and holds it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-examples": {
       "prompt": "A projector rig casting small vivid street-level scenes into the air beneath a large abstract looming shape, the miniatures sharp where the abstraction is vague.",
       "alt": "Superhero illustration asset for the target-examples modifier lineage.",
       "status": "generated",
       "bio": "The big picture is fog until the projector shows one block of it at street level.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-decisions": {
       "prompt": "A control console of heavy switches, each one linked by a taut cable to the machinery it triggers further down the line.",
       "alt": "Superhero illustration asset for the target-decisions modifier lineage.",
       "status": "generated",
       "bio": "Every switch does something downstream. The console exists so someone throws one.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "target-stance": {
       "prompt": "A stance dial set between a hot crimson pole and a cold blue pole, the needle locked firmly at a chosen point and the chosen temperature washing the scene.",
       "alt": "Superhero illustration asset for the target-stance modifier lineage.",
       "status": "generated",
       "bio": "Encouraging or unflinching is a setting, not a mood. The dial is set on purpose.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "archetypes": {
@@ -525,175 +597,200 @@
       "alt": "Superhero illustration asset for the Executive summary archetype.",
       "status": "generated",
       "bio": "Command reads one slab before the sirens stop. It had better be the right slab.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "creative-concept": {
       "prompt": "A concept chamber with a luminous idea suspended in the shaping field, growing structure and a hard bright hook at its core while rough offcuts drift away.",
       "alt": "Superhero illustration asset for the Creative concept archetype.",
       "status": "generated",
       "bio": "Every big idea starts as loose energy. This is where it gets a silhouette.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "note-taker": {
       "prompt": "A capture rig turning a chaotic incoming stream of fragments into neat ordered plates that stack themselves into a clean archive rack.",
       "alt": "Superhero illustration asset for the Note taker archetype.",
       "status": "generated",
       "bio": "While everyone watches the fight, something has to watch the facts.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "message-email": {
       "prompt": "A comms relay composing one sealed transmission capsule, its tone-tuning ring glowing at the chosen register, ready to launch into the dark channel.",
       "alt": "Superhero illustration asset for the Message & email archetype.",
       "status": "generated",
       "bio": "The message is short, the tone is chosen, and it lands before the news does.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "prompt-improver": {
       "prompt": "A workbench where an old directive core has been stripped down and rebuilt sharper, the discarded ambiguous parts laid out dark to one side.",
       "alt": "Superhero illustration asset for the Prompt improver archetype.",
       "status": "generated",
       "bio": "Same mission, cleaner orders. The parts that got sidekicks confused are on the bench.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "learning-guide": {
       "prompt": "A training hologram with a central idea at its heart and a guided path of illuminated waypoints circling it, worked examples orbiting close.",
       "alt": "Superhero illustration asset for the Learning guide archetype.",
       "status": "generated",
       "bio": "Every cadet orbits the same idea until it clicks. The path is the syllabus.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "app-build-handoff": {
       "prompt": "A sealed mission capsule holding a complete self-contained plan, every layer visible through its casing, locked into a robot sidekick's chest dock and ready to run without a handler.",
       "alt": "Superhero illustration asset for the App build handoff archetype.",
       "status": "generated",
       "bio": "The builder never phones home. Everything it needs is in the capsule or it fails.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "agent-skill": {
       "prompt": "A utility-belt cartridge snapped onto a bandolier rail, its trigger face lit, procedure grooves and guardrail clamps visible along its casing.",
       "alt": "Superhero illustration asset for the Agent skill archetype.",
       "status": "generated",
       "bio": "Snap it into any suit: it knows its trigger, its steps, and its hard limits.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "agent-gate": {
       "prompt": "A judgment gate arch scanning a device passing beneath it, a hard scanning plane sweeping the object and a verdict light holding at the top of the arch.",
       "alt": "Superhero illustration asset for the Agent gate archetype.",
       "status": "generated",
       "bio": "The gate has no friends. That is exactly why the team trusts what it clears.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "social-post": {
       "prompt": "A rooftop signal rig fitted with several interchangeable beacon heads, one selected and raised, its shaped burst already rolling out over the night skyline.",
       "alt": "Superhero illustration asset for the Social post archetype.",
       "status": "generated",
       "bio": "One story, five frequencies. The pod shapes the signal for whoever is listening.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "quick-explanation": {
       "prompt": "A compact signal watch held up alone, one clear steady beam, nothing around it and nothing between the viewer and the point.",
       "alt": "Superhero illustration asset for the Quick explanation archetype.",
       "status": "generated",
       "bio": "No origin story, no montage. Just the answer, lit.",
-      "liveVariant": "b"
+      "liveVariant": "b",
+      "liveRev": 1787233908540
     },
     "research-brief": {
       "prompt": "A balanced dossier suspended between two evidence pillars, confidence bands rendered as visible width around each finding, the uncertain ones deliberately wider.",
       "alt": "Superhero illustration asset for the Research brief archetype.",
       "status": "generated",
       "bio": "The brief tells command what it knows and exactly how hard it knows it.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "decision-advisor": {
       "prompt": "A war-room weighing console with several mission options mounted on measured arms, one arm settling low and lighting hot as the recommendation commits.",
       "alt": "Superhero illustration asset for the Decision advisor archetype.",
       "status": "generated",
       "bio": "Options in, verdict out, trade-offs on the record. The cape is optional.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "data-analysis": {
       "prompt": "A black-box flight recorder cracked open, its contents fanning out into layered insight strata, one segment isolated and brought forward glowing.",
       "alt": "Superhero illustration asset for the Data analysis archetype.",
       "status": "generated",
       "bio": "The core remembers everything. The analysis remembers what mattered.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "risk-premortem": {
       "prompt": "A collapsed-bridge diorama on the planning table being read in reverse, luminous failure lines running backward from the wreck to the small quiet bolt that started it.",
       "alt": "Superhero illustration asset for the Risk premortem archetype.",
       "status": "generated",
       "bio": "Run the disaster before it runs you. The tiny cause is always embarrassing.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "writing-draft": {
       "prompt": "A story loom weaving a first continuous draft out of raw fiber, the fabric clean but still on the frame, edges deliberately unfinished.",
       "alt": "Superhero illustration asset for the Writing draft archetype.",
       "status": "generated",
       "bio": "First drafts are supposed to have loose threads. Finished is a different issue.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "rewrite-polish": {
       "prompt": "A suit-finishing wheel refining an existing armor piece, dull surface lifting away under the buffer to reveal the same form underneath, sharper and brighter.",
       "alt": "Superhero illustration asset for the Rewrite & polish archetype.",
       "status": "generated",
       "bio": "Same story, same spine, all shine. The lathe removes; it never invents.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "critique-review": {
       "prompt": "An inspection bay with a device held in restraints, prioritized flag-markers planted along it, the most serious one burning hottest.",
       "alt": "Superhero illustration asset for the Critique & review archetype.",
       "status": "generated",
       "bio": "Every flaw gets a flag. Only one gets the hot flag. Start there.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "presentation-outline": {
       "prompt": "A run of floating briefing screens receding in sequence across the war room, each holding one clear shape, a bright throughline connecting them front to back.",
       "alt": "Superhero illustration asset for the Presentation outline archetype.",
       "status": "generated",
       "bio": "The pitch lands panel by panel, and the line through them never breaks.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "build-plan": {
       "prompt": "A headquarters tower rising in ordered construction stages with milestone beacons locked at each level, dependency cables drawn taut between them.",
       "alt": "Superhero illustration asset for the Project plan archetype.",
       "status": "generated",
       "bio": "The tower goes up in stages, and every stage knows exactly whose signal it waits on.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "spec-prd": {
       "prompt": "A contract vault with requirement plates bolted around its core, each plate seated and sealed, tolerances etched as clean grooves in the armor plating.",
       "alt": "Superhero illustration asset for the Spec / PRD archetype.",
       "status": "generated",
       "bio": "The build argues with nobody. It argues with the plates, and the plates win.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "coding": {
       "prompt": "An auto-forge in the hero's lab assembling a working gadget piece by piece, structure knitting into place under the arm, test probes already tapping the finished edge.",
       "alt": "Superhero illustration asset for the Code implementation archetype.",
       "status": "generated",
       "bio": "Built and tested in the same breath. The probes never wait for a demo.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "technical-troubleshoot": {
       "prompt": "A hangar bay with the team's jet opened up and one traced fault line glowing along its spine, a repair clamp moving in toward the exact break.",
       "alt": "Superhero illustration asset for the Debug & fix archetype.",
       "status": "generated",
       "bio": "Find the break, fix the break, prove the fix. Drama is for the villains.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "explain-code": {
       "prompt": "A training-room projector stepping through a captured villain device one stage at a time, the active stage lit and turning while the rest of the path stays visible.",
       "alt": "Superhero illustration asset for the Explain code archetype.",
       "status": "generated",
       "bio": "Any machine confesses if you walk it slowly enough. This one walks in order.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     },
     "extract-data": {
       "prompt": "An extractor drawing clean uniform structured shards out of raw unsorted wreckage, the finished shards racking themselves in perfect rows.",
       "alt": "Superhero illustration asset for the Extract to data archetype.",
       "status": "generated",
       "bio": "Chaos in, columns out. The rack does not accept almost-matching shapes.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   },
   "grades": {
@@ -702,25 +799,29 @@
         "prompt": "A searchlight holding a small tight pool around a single doorway, only the pavement immediately beneath it visible and everything else swallowed by night.",
         "alt": "Superhero illustration asset for Situation Snapshot.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A searchlight with its pool widened to take in the nearby block it may draw on, a clean marked boundary line where the light stops.",
         "alt": "Superhero illustration asset for Working Brief.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A searchlight lighting a broad stretch of streets with bystander markers standing inside it and worn tire-paths crossing where things have already been tried.",
         "alt": "Superhero illustration asset for Decision Context.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A searchlight bank fully powered, its beams thrown to the skyline so the whole district reads at once with nothing left guessed at in the dark.",
         "alt": "Superhero illustration asset for Complete Operating Picture.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-evidence": [
@@ -728,25 +829,29 @@
         "prompt": "An evidence board with claims pinned and accepted as given, the connecting threads still spooled unused at the bottom rail.",
         "alt": "Superhero illustration asset for Given As True.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An evidence board with threads run from the load-bearing claims down to a few solid exhibits, the unsupported claims left pinned dark.",
         "alt": "Superhero illustration asset for Source Support.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An evidence board where each key claim is cross-braced by several converging threads arriving from different exhibits.",
         "alt": "Superhero illustration asset for Corroborated Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An evidence board threaded end to end, conflicting threads held deliberately apart and lit against each other, confidence readable in every strand.",
         "alt": "Superhero illustration asset for Audit Trail.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-constraints": [
@@ -754,25 +859,29 @@
         "prompt": "A pair of containment clamps resting lightly at the edges of an energy core, barely engaged, holding only the stated exclusions.",
         "alt": "Superhero illustration asset for Basic Limits.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Four containment clamps closed on an energy core, compressing it to a smaller practical footprint of time, gear, and budget.",
         "alt": "Superhero illustration asset for Operating Limits.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Hard steel clamps locked tight while softer preference-markers sit visibly separate and loose beside them, the difference obvious.",
         "alt": "Superhero illustration asset for Constraint Map.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full cage of containment clamps around a core with stress readouts glowing at every joint and exception latches sprung along the frame.",
         "alt": "Superhero illustration asset for Boundary Conditions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-assumptions": [
@@ -780,25 +889,29 @@
         "prompt": "A frame with a few translucent holographic girders plainly visible among the solid steel, simply shown rather than hidden.",
         "alt": "Superhero illustration asset for Working Assumptions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A frame where the load-bearing holographic girders pulse with warning light, marking the ones that would drop the roof.",
         "alt": "Superhero illustration asset for Assumption Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A frame where every holographic girder carries its own base-plate and a consequence line running out from it.",
         "alt": "Superhero illustration asset for Assumption Register.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A frame of holographic girders ranked by size and brightness, tilt-lines projecting how far the structure moves if each one fails.",
         "alt": "Superhero illustration asset for Uncertainty Model.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-success": [
@@ -806,25 +919,29 @@
         "prompt": "A simple range target with the needle resting quietly on its ring, one clear mark for what finished means.",
         "alt": "Superhero illustration asset for Done Means.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A range gauge locked into the green with the pass threshold scored sharply on its face.",
         "alt": "Superhero illustration asset for Success Check.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A bank of range gauges mounted together, pass zones lit green and failure zones marked hard in dark red.",
         "alt": "Superhero illustration asset for Success Criteria.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full wall of range gauges and graded measures, thresholds etched into each dial and the whole war-room board reading out at once.",
         "alt": "Superhero illustration asset for Evaluation Framework.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "context-exclusions": [
@@ -832,25 +949,29 @@
         "prompt": "A checkpoint barricade shunting a few marked vehicles aside into a small dark holding lane while the rest of the traffic continues.",
         "alt": "Superhero illustration asset for No-Go List.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A checkpoint holding a clean lit line across the road, the traffic kept firmly on one side of it.",
         "alt": "Superhero illustration asset for Scope Fence.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A checkpoint as a hard sealed barrier with turned-away shapes visibly pressed up against its face, unable to pass.",
         "alt": "Superhero illustration asset for Anti-Goals.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A checkpoint firing actively, alarm light sweeping the road, an escaping runner caught and turned back mid-diversion.",
         "alt": "Superhero illustration asset for Drift Alarm.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-inspect": [
@@ -858,25 +979,29 @@
         "prompt": "A detective's lens following a single pointed line across a disassembled device, one indicated area lit and the rest dim.",
         "alt": "Superhero illustration asset for Guided Review.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A detective's lens stepping across marked checkpoints in sequence along a disassembled device, each one lighting as it clears.",
         "alt": "Superhero illustration asset for Checklist Inspection.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A detective's lens roaming a disassembled device on its own arm, several gaps and conflicts flagged where it has been.",
         "alt": "Superhero illustration asset for Independent Inspection.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A device fully laid out under a bank of lenses, every part lit and measured at once.",
         "alt": "Superhero illustration asset for Full Audit.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "action-analyze": [
@@ -884,25 +1009,29 @@
         "prompt": "A forensics column resolving a mixed sample into two or three clean luminous bands.",
         "alt": "Superhero illustration asset for Pattern Read.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Two forensics columns held side by side, a candidate band-pattern in each, the rival readings compared directly.",
         "alt": "Superhero illustration asset for Rival Explanations.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A forensics column driven harder until the assumptions inside crack apart into visible sub-bands.",
         "alt": "Superhero illustration asset for Critical Analysis.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A forensics column run to its extremes, the residue searched for the one disconfirming trace that breaks the pattern.",
         "alt": "Superhero illustration asset for Adversarial Analysis.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-compare": [
@@ -910,25 +1039,29 @@
         "prompt": "A lab balance with two devices simply laid on its pans, the beam still level, differences visible but unjudged.",
         "alt": "Superhero illustration asset for Options on the Table.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lab balance with a measuring beam sighted across both devices against criteria etched on the frame.",
         "alt": "Superhero illustration asset for Framed Comparison.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lab balance with calibrated weights added along its arms, the tilt now decisive rather than incidental.",
         "alt": "Superhero illustration asset for Weighted Comparison.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full array of balance pans on scored arms, every device measured against every axis, a verdict light burning above the winner.",
         "alt": "Superhero illustration asset for Decision Matrix.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-create": [
@@ -936,25 +1069,29 @@
         "prompt": "A gantry arm holding a rough unfinished armature, open questions sparking at the points where a decision is still needed.",
         "alt": "Superhero illustration asset for Draft Together.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A gantry arm building precisely along a projected plan, following its guide-lines without deviation.",
         "alt": "Superhero illustration asset for Build to Plan.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A gantry arm working with no plan projected, filling the silent gaps with its own decisions as the build completes.",
         "alt": "Superhero illustration asset for Independent Build.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A finished gadget released from the gantry cradle, verified and lit, the arm already retracting behind it.",
         "alt": "Superhero illustration asset for End-to-End Delivery.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "action-recommend": [
@@ -962,25 +1099,29 @@
         "prompt": "A rail-yard switch with several branching tracks all lit equally, none chosen, each simply shown as possible.",
         "alt": "Superhero illustration asset for Directions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rail-yard with one track selected and the constraint gates it fits standing open along its length.",
         "alt": "Superhero illustration asset for Practical Pick.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rail-yard with the chosen track blazing, the runner-up dimmed but still visible beside it, a risk flare marked on the choice.",
         "alt": "Superhero illustration asset for Backed Recommendation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rail-yard with the switch thrown hard, a single track blazing full length and every alternative retracted into the dark.",
         "alt": "Superhero illustration asset for Full Conviction.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-verify": [
@@ -988,25 +1129,29 @@
         "prompt": "A scanner gate running a gadget through one quick pass, an obvious flaw catching in the beam.",
         "alt": "Superhero illustration asset for Sanity Pass.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A line of scanner gates lighting pass or fail in turn as the gadget travels the course.",
         "alt": "Superhero illustration asset for Criteria Check.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scanner course pushing a gadget past its normal load, the seams and joints glowing hot where they strain.",
         "alt": "Superhero illustration asset for Stress Test.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A scanner course turned hostile, attacking the gadget from every side at once like a hunting adversary.",
         "alt": "Superhero illustration asset for Red Team.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-summarize": [
@@ -1014,25 +1159,29 @@
         "prompt": "A compactor lifting a few key items cleanly out of a tall stack of case material.",
         "alt": "Superhero illustration asset for Key Points Pull.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A compactor reducing a stack evenly, the original proportions still readable in the compressed block.",
         "alt": "Superhero illustration asset for Faithful Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A compactor with the decision-critical layer pulled bright to the top and the remainder crushed thin beneath it.",
         "alt": "Superhero illustration asset for Decision Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A compactor yielding one brilliant dense chip, the enormous source volume behind it only a faint ghost.",
         "alt": "Superhero illustration asset for Executive Distillation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-research": [
@@ -1040,25 +1189,29 @@
         "prompt": "A sweep dish pointed at a few supplied sources, the dark gaps between them plainly marked and unfilled.",
         "alt": "Superhero illustration asset for Supplied Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sweep dish firing narrow targeted beams into specific gaps, each return tagged with where it came from.",
         "alt": "Superhero illustration asset for Targeted Lookup.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sweep dish scanning wide across the open dark on its own initiative, weighing the returns it finds.",
         "alt": "Superhero illustration asset for Open Research.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sweep dish with several beams converging to corroborate one distant return, confidence rings tightening around the lock.",
         "alt": "Superhero illustration asset for Deep Investigation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-plan": [
@@ -1066,25 +1219,29 @@
         "prompt": "A heist-board with a few mission markers set loosely along its timeline in a sensible order.",
         "alt": "Superhero illustration asset for Rough Outline.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A heist-board with ordered markers, dependency lines drawn taut between them and one risk flare burning.",
         "alt": "Superhero illustration asset for Sequenced Plan.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A heist-board phased into grouped stages with milestone gates and verification checks standing between them.",
         "alt": "Superhero illustration asset for Delivery Plan.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A heist-board fully built out and running itself, every marker firing in order with no operator anywhere in the frame.",
         "alt": "Superhero illustration asset for Executable Program.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-ideate": [
@@ -1092,25 +1249,29 @@
         "prompt": "An idea coil throwing off a small handful of distinct starting forms.",
         "alt": "Superhero illustration asset for Quick Options.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An idea coil flinging many genuinely different shapes wide, no two alike anywhere in the spread.",
         "alt": "Superhero illustration asset for Divergent Set.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An idea coil mid-burst with the strongest few forms already pulled together into a lit converging cluster.",
         "alt": "Superhero illustration asset for Explore and Converge.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "An idea coil showing its full spectrum from safe compact forms to wild irregular ones, ranked along a lit gradient.",
         "alt": "Superhero illustration asset for Creative Sweep.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-explain": [
@@ -1118,25 +1279,29 @@
         "prompt": "A holo-table showing a single part in isolation, the rest of the gadget still folded shut.",
         "alt": "Superhero illustration asset for Direct Answer.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A holo-table unfolding parts one at a time along a lit path, each step following from the one before.",
         "alt": "Superhero illustration asset for Guided Walkthrough.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A holo-table with the gadget fully open, the hidden linkage exposed and one trap-point flagged bright.",
         "alt": "Superhero illustration asset for Deep Explanation.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A holo-table with everything unfolded and further branches still opening outward at the edges of the scene.",
         "alt": "Superhero illustration asset for Full Teaching Pass.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "action-clarify": [
@@ -1144,25 +1309,29 @@
         "prompt": "A signal flare firing many pulses in patient batches into a dark gap, its outline almost completely mapped by the returns.",
         "alt": "Superhero illustration asset for Full Interview.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A signal flare still pulsing at a gap that is nearly closed, only a thin sliver of unknown shape left dark.",
         "alt": "Superhero illustration asset for 95% Confidence Check.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A signal flare sending one single hard pulse into the one gap that actually blocks the path forward.",
         "alt": "Superhero illustration asset for Blocking Questions Only.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A signal flare gone dark, the gap bridged instead by a placed assumption block with a bright tag fixed to its face.",
         "alt": "Superhero illustration asset for Assume & Log.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "format-info-card": [
@@ -1170,25 +1339,29 @@
         "prompt": "A single answer placard standing bare in the dark, its steel face plain and unornamented.",
         "alt": "Superhero illustration asset for Plain Answer.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A single answer slab tightened down, its essentials arranged in one clean scannable face.",
         "alt": "Superhero illustration asset for Answer Card.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A thicker answer placard with context strata visible in its cut steel edge, layered beneath the face.",
         "alt": "Superhero illustration asset for Information Brief.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A substantial steel reference monolith with caveat notches cut into its margin and worked scenes inset along its side.",
         "alt": "Superhero illustration asset for Reference Piece.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-key-points": [
@@ -1196,25 +1369,29 @@
         "prompt": "A rack holding a few batons leaning loosely, unaligned but separate.",
         "alt": "Superhero illustration asset for Loose Bullets.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rack of batons clustered into marked groups, related tools standing together.",
         "alt": "Superhero illustration asset for Grouped Points.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A full rack of batons arranged into clearly divided marked sections.",
         "alt": "Superhero illustration asset for Sectioned Points.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A rack of uniform atomic batons, each identical in size with a tick-notch cut into its head.",
         "alt": "Superhero illustration asset for Checklist Discipline.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-summary": [
@@ -1222,25 +1399,29 @@
         "prompt": "A lab flask holding one bright drop suspended at the very top.",
         "alt": "Superhero illustration asset for One-Liner.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lab flask with a small clear band of concentrate floating above the settled sediment.",
         "alt": "Superhero illustration asset for Quick Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A lab flask with a thick lit layer of findings and an implication channel running off it toward a marked move.",
         "alt": "Superhero illustration asset for Executive Summary.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A sealed self-contained lab flask, complete on its own, needing nothing outside its own glass.",
         "alt": "Superhero illustration asset for Standalone Abstract.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-sections": [
@@ -1248,25 +1429,29 @@
         "prompt": "A mostly continuous building with only one or two floors divided where they genuinely help.",
         "alt": "Superhero illustration asset for Natural Flow.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A building divided into evenly spaced floors, each one distinct and separately lit.",
         "alt": "Superhero illustration asset for Clear Sections.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A building of floors in a fixed ordered stack, every level present and none skipped.",
         "alt": "Superhero illustration asset for Set Sequence.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A building machined to an exact template, floor seams flush and sealed, nothing added and nothing dropped.",
         "alt": "Superhero illustration asset for Locked Template.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-evidence": [
@@ -1274,25 +1459,29 @@
         "prompt": "A floating claim slab with a couple of cables dropped to the strongest evidence vaults below it.",
         "alt": "Superhero illustration asset for Source Notes.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Several floating claim slabs each cabled inline to its own vault, lines short and taut.",
         "alt": "Superhero illustration asset for Linked Sources.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Anchor cables rendered at visible thicknesses, each line's width showing the weight of evidence it carries.",
         "alt": "Superhero illustration asset for Evidence Notes.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "Every claim cabled to a vault, with inference lines rendered distinctly as dashed strands among the solid ones.",
         "alt": "Superhero illustration asset for Citation Record.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-comparison": [
@@ -1300,25 +1489,29 @@
         "prompt": "Several prototypes standing separated in the dark, clearly apart from each other but with no rig built yet.",
         "alt": "Superhero illustration asset for Option Notes.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A compact strut rig with the prototypes mounted on it and the key measuring axes lit, the rig ending well inside the picture.",
         "alt": "Superhero illustration asset for Comparison Table.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A strut rig with criteria markers along its edges and the winning row glowing across its full width, the rig ending well inside the picture.",
         "alt": "Superhero illustration asset for Decision Table.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A dense lattice of weighted cells with scored intersections and a ranked verdict column burning down one side, the lattice ending well inside the picture.",
         "alt": "Superhero illustration asset for Evaluation Matrix.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-next": [
@@ -1326,25 +1519,29 @@
         "prompt": "A launch row with a single bay primed and glowing hot at its head.",
         "alt": "Superhero illustration asset for Next Move.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A launch row with a short ordered run of bays lit in sequence down its length.",
         "alt": "Superhero illustration asset for Next Steps.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A launch row with bays ranked by heat, owner tags clipped to the hottest ones.",
         "alt": "Superhero illustration asset for Prioritized Actions.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A launch row fully loaded and released, running its whole sequence with no operator present to drive it.",
         "alt": "Superhero illustration asset for Execution Handoff.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-length": [
@@ -1352,25 +1549,29 @@
         "prompt": "A hydraulic caliper clamped hard on a bar of luminous alloy, a heavy offcut venting away as vapor.",
         "alt": "Superhero illustration asset for Tight Budget.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A hydraulic caliper holding alloy to a single dense measure, compact and fully packed.",
         "alt": "Superhero illustration asset for One Screen.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A hydraulic caliper opened to the alloy's natural width, the space spent on substance rather than padding.",
         "alt": "Superhero illustration asset for Room to Explain.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A hydraulic caliper opened wide but stopping exactly at the alloy's true edge, complete with nothing added beyond it.",
         "alt": "Superhero illustration asset for Complete Treatment.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "format-tiers": [
@@ -1378,25 +1579,29 @@
         "prompt": "A hangar podium with one small brilliantly lit top platform and the depth below it only suggested in shadow.",
         "alt": "Superhero illustration asset for Essentials First.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A hangar podium of three clean descending platforms, each one clearly separated from the next.",
         "alt": "Superhero illustration asset for Three Tiers.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A hangar podium of three marked platforms with every item visibly assigned to one of them.",
         "alt": "Superhero illustration asset for Tiered Sections.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A strictly machined terrace of platforms with hard edges, nothing resting anywhere outside the hierarchy.",
         "alt": "Superhero illustration asset for Locked Tier Hierarchy.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "target-language": [
@@ -1404,25 +1609,29 @@
         "prompt": "A decoder tower stepping its signal all the way down to the simplest broadest stage, emerging plain and unhurried.",
         "alt": "Superhero illustration asset for First Contact.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A decoder tower holding a clear middle stage, unfamiliar bursts visibly unpacked as the signal enters.",
         "alt": "Superhero illustration asset for Plain Language.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A decoder tower running at standard density, only the most obscure stages clarified along the path.",
         "alt": "Superhero illustration asset for Working Vocabulary.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A decoder tower passed straight through undiluted, the signal leaving at full technical density.",
         "alt": "Superhero illustration asset for Expert Shorthand.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       }
     ],
     "target-voice": [
@@ -1430,25 +1639,29 @@
         "prompt": "A voice modulator with its band ringing loose and natural, warm and conversational.",
         "alt": "Superhero illustration asset for Straight Talk.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A voice modulator holding a calm even band without ornament or flourish.",
         "alt": "Superhero illustration asset for Clear Neutral.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A voice modulator holding a polished precise band, its edges clean and deliberate.",
         "alt": "Superhero illustration asset for Professional Voice.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A voice modulator holding a rigid disciplined band exactly on its mark, formal and unwavering.",
         "alt": "Superhero illustration asset for Formal Register.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-examples": [
@@ -1456,25 +1669,29 @@
         "prompt": "A projector casting one familiar street-corner scene beneath a large abstract shape.",
         "alt": "Superhero illustration asset for Everyday Analogy.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A projector carrying a single street scene all the way through from start to finish.",
         "alt": "Superhero illustration asset for Worked Example.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A projector casting realistic street scenes with their messy irregular detail deliberately left in.",
         "alt": "Superhero illustration asset for Domain Example.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A projector placing scenes right at the boundary where the larger rule visibly breaks down.",
         "alt": "Superhero illustration asset for Edge Case.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-decisions": [
@@ -1482,25 +1699,29 @@
         "prompt": "A switch console with one switch highlighted and the input it still needs lit beside it.",
         "alt": "Superhero illustration asset for Next Decision.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A switch console with its switches marked by the action each one triggers further down the line.",
         "alt": "Superhero illustration asset for Actionable Framing.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A switch console of paired switches, each pair showing what is gained against what is given up.",
         "alt": "Superhero illustration asset for Tradeoff Brief.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A switch console with the chosen switch locked in place and its accepted consequences recorded along the panel.",
         "alt": "Superhero illustration asset for Decision Record.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ],
     "target-stance": [
@@ -1508,25 +1729,29 @@
         "prompt": "A stance dial with the needle at the warm pole, the scene washed in soft encouraging light.",
         "alt": "Superhero illustration asset for Warm & Encouraging.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A stance dial on the console with the needle centered, the war room lit even and matter-of-fact with no lean either way.",
         "alt": "Superhero illustration asset for Even & Matter-of-Fact.",
         "status": "generated",
-        "liveVariant": "b"
+        "liveVariant": "b",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A stance dial with the needle pushed toward the cold blue pole, the light hard, clear, and unsoftened across the console.",
         "alt": "Superhero illustration asset for Candid & Direct.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       },
       {
         "prompt": "A stance dial with the needle locked hard at the cold blue pole, the light sharp and absolute across the whole war room.",
         "alt": "Superhero illustration asset for Authoritative & Decisive.",
         "status": "generated",
-        "liveVariant": "a"
+        "liveVariant": "a",
+        "liveRev": 1787233908540
       }
     ]
   },
@@ -1536,7 +1761,8 @@
       "alt": "Superhero illustration for a saved custom preset.",
       "status": "generated",
       "bio": "A blank loadout waiting for your fingerprints. Fill the slots and it deploys like you.",
-      "liveVariant": "a"
+      "liveVariant": "a",
+      "liveRev": 1787233908540
     }
   }
 }
